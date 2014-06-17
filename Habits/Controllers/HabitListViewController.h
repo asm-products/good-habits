@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface HabitListViewController : UITableViewController
-
+#import "ATSDragToReorderTableViewController.h"
+@interface HabitListViewController : ATSDragToReorderTableViewController<ATSDragToReorderTableViewControllerDelegate>
+-(void)refresh;
 @end

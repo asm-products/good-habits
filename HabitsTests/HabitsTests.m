@@ -5,30 +5,27 @@
 //  Created by Michael Forrest on 27/04/2014.
 //  Copyright (c) 2014 Good To Hear. All rights reserved.
 //
-
-#import <XCTest/XCTest.h>
-
-@interface HabitsTests : XCTestCase
-
-@end
-
-@implementation HabitsTests
-
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+#import "Habit.h"
+#import "TimeHelper.h"
+#import <NSArray+F.h>
+NSDate * d(NSString* key){
+    return [Habit dateFromString:key];
 }
 
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-@end
+SpecBegin(HabitsTest)
+describe(@"chains", ^{
+    it(@"should find continued chains correctly", ^{
+        [TimeHelper selectDate:d(@"2014-01-01")];
+        Habit * habit = [Habit new];
+        [habit checkDays: [@[
+                             @"2013-12-30",
+                             @"2013-12-31",
+                             @"2014-01-01"
+                             ] map:^id(NSString * day) {
+                                 return d(day);
+                             }]];
+        expect([habit continuesActivityAfter:d(@"2013-12-28")]).to.beTruthy();
+        expect(NO).to.beTruthy();
+    });
+});
+SpecEnd

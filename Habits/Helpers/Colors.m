@@ -43,7 +43,18 @@ COLOR_FROM_HEX(pink);
 COLOR_FROM_HEX(blue);
 COLOR_FROM_HEX(brown);
 
-+(NSArray *)taskColors{
+COLOR_ACCESSOR(cellBackground, 0xd6cdbf);
+COLOR_ACCESSOR(headerBackground, 0x353f4c);
+COLOR_ACCESSOR(calendarTop, 0x8A95A1);
+
+COLOR_ACCESSOR(futureColor, 0xA6B4C3);
+COLOR_ACCESSOR(missedColor, 0xC1272D);
+COLOR_ACCESSOR(onColor, 0xFFFFFF);
+COLOR_ACCESSOR(beforeStartColor, 0x3A4450);
+COLOR_ACCESSOR(notRequiredColor, 0xA6B4C3); // same as future color
+
+
++(NSArray *)colorsFromMotion{
     NSArray * result = nil;
     if(result == nil){
         result = [[[self hexCodes] allValues] map:^id(id obj) {

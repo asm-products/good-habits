@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MotionToMantleMigrator.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    if([MotionToMantleMigrator detectsMigrationRequired]) [MotionToMantleMigrator performMigration];
     return YES;
 }
 -(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{

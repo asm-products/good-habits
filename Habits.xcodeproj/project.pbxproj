@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F79A2189454A3AAF48A73F /* libPods-Habits.a */; };
+		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
+		AC40187519504ADB0033407B /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
+		AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187819504E630033407B /* MotionToMantleMigrator.m */; };
+		AC40187D195058650033407B /* CellWithCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187C195058650033407B /* CellWithCheckBox.m */; };
+		AC401880195058720033407B /* HabitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187F195058720033407B /* HabitCell.m */; };
+		AC4018841950596A0033407B /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018831950596A0033407B /* CheckBox.m */; };
+		AC40188719505C150033407B /* CountView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40188619505C150033407B /* CountView.m */; };
+		AC4018A0195066E00033407B /* ATSDragToReorderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC401891195066E00033407B /* ATSDragToReorderTableViewController.m */; };
+		AC4018A7195066E00033407B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AC40189C195066E00033407B /* LICENSE */; };
+		AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018AC19506AB90033407B /* InactiveHabitsHeader.m */; };
+		AC4018B119506B4A0033407B /* Labels.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018B019506B4A0033407B /* Labels.m */; };
+		AC4018B419506C690033407B /* DayNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018B319506C690033407B /* DayNavigation.m */; };
+		AC4018BA195071380033407B /* HabitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018B9195071380033407B /* HabitDetailViewController.m */; };
+		AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018BF19508EFB0033407B /* CalendarViewController.m */; };
+		AC4018C4195090260033407B /* CalendarTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018C3195090260033407B /* CalendarTopView.m */; };
+		AC4018C7195091270033407B /* HeaderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018C6195091270033407B /* HeaderLabel.m */; };
+		AC4018CA195095030033407B /* MonthGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018C9195095030033407B /* MonthGridViewController.m */; };
+		AC4018CD195096A70033407B /* CalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018CC195096A70033407B /* CalendarDayView.m */; };
+		AC4018D0195098A50033407B /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018CF195098A50033407B /* Calendar.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -110,8 +129,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.xcconfig"; path = "Pods/Pods-HabitsTests.xcconfig"; sourceTree = "<group>"; };
 		623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.xcconfig"; path = "Pods/Pods-Habits.xcconfig"; sourceTree = "<group>"; };
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC40187319504ADB0033407B /* TimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeHelper.h; sourceTree = "<group>"; };
+		AC40187419504ADB0033407B /* TimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelper.m; sourceTree = "<group>"; };
+		AC40187719504E630033407B /* MotionToMantleMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionToMantleMigrator.h; sourceTree = "<group>"; };
+		AC40187819504E630033407B /* MotionToMantleMigrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionToMantleMigrator.m; sourceTree = "<group>"; };
+		AC40187B195058650033407B /* CellWithCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithCheckBox.h; sourceTree = "<group>"; };
+		AC40187C195058650033407B /* CellWithCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithCheckBox.m; sourceTree = "<group>"; };
+		AC40187E195058720033407B /* HabitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitCell.h; sourceTree = "<group>"; };
+		AC40187F195058720033407B /* HabitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitCell.m; sourceTree = "<group>"; };
+		AC4018821950596A0033407B /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
+		AC4018831950596A0033407B /* CheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBox.m; sourceTree = "<group>"; };
+		AC40188519505C150033407B /* CountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountView.h; sourceTree = "<group>"; };
+		AC40188619505C150033407B /* CountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountView.m; sourceTree = "<group>"; };
+		AC401890195066E00033407B /* ATSDragToReorderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATSDragToReorderTableViewController.h; sourceTree = "<group>"; };
+		AC401891195066E00033407B /* ATSDragToReorderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATSDragToReorderTableViewController.m; sourceTree = "<group>"; };
+		AC40189C195066E00033407B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		AC40189D195066E00033407B /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		AC4018AB19506AB90033407B /* InactiveHabitsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InactiveHabitsHeader.h; sourceTree = "<group>"; };
+		AC4018AC19506AB90033407B /* InactiveHabitsHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InactiveHabitsHeader.m; sourceTree = "<group>"; };
+		AC4018AF19506B4A0033407B /* Labels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Labels.h; sourceTree = "<group>"; };
+		AC4018B019506B4A0033407B /* Labels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Labels.m; sourceTree = "<group>"; };
+		AC4018B219506C690033407B /* DayNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayNavigation.h; sourceTree = "<group>"; };
+		AC4018B319506C690033407B /* DayNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayNavigation.m; sourceTree = "<group>"; };
+		AC4018B8195071380033407B /* HabitDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDetailViewController.h; sourceTree = "<group>"; };
+		AC4018B9195071380033407B /* HabitDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDetailViewController.m; sourceTree = "<group>"; };
+		AC4018BB195073160033407B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		AC4018BE19508EFB0033407B /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		AC4018BF19508EFB0033407B /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		AC4018C2195090260033407B /* CalendarTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTopView.h; sourceTree = "<group>"; };
+		AC4018C3195090260033407B /* CalendarTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTopView.m; sourceTree = "<group>"; };
+		AC4018C5195091270033407B /* HeaderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderLabel.h; sourceTree = "<group>"; };
+		AC4018C6195091270033407B /* HeaderLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderLabel.m; sourceTree = "<group>"; };
+		AC4018C8195095030033407B /* MonthGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthGridViewController.h; sourceTree = "<group>"; };
+		AC4018C9195095030033407B /* MonthGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthGridViewController.m; sourceTree = "<group>"; };
+		AC4018CB195096A70033407B /* CalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDayView.h; sourceTree = "<group>"; };
+		AC4018CC195096A70033407B /* CalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDayView.m; sourceTree = "<group>"; };
+		AC4018CE195098A50033407B /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
+		AC4018CF195098A50033407B /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
+		AC4018D11950BFAC0033407B /* HabitsTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HabitsTests-Prefix.pch"; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,6 +266,7 @@
 		ACADB4A3190D2F5C0030CC82 /* Habit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
 		ACADB4A5190D34BE0030CC82 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		ACADB4A6190D34BE0030CC82 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,12 +288,91 @@
 				ACADB3F3190D23B90030CC82 /* XCTest.framework in Frameworks */,
 				ACADB3F5190D23B90030CC82 /* UIKit.framework in Frameworks */,
 				ACADB3F4190D23B90030CC82 /* Foundation.framework in Frameworks */,
+				08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC40187619504E450033407B /* Migration */ = {
+			isa = PBXGroup;
+			children = (
+				AC40187719504E630033407B /* MotionToMantleMigrator.h */,
+				AC40187819504E630033407B /* MotionToMantleMigrator.m */,
+			);
+			path = Migration;
+			sourceTree = "<group>";
+		};
+		AC40187A195058470033407B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AC40187B195058650033407B /* CellWithCheckBox.h */,
+				AC40187C195058650033407B /* CellWithCheckBox.m */,
+				AC40187E195058720033407B /* HabitCell.h */,
+				AC40187F195058720033407B /* HabitCell.m */,
+				AC4018AB19506AB90033407B /* InactiveHabitsHeader.h */,
+				AC4018AC19506AB90033407B /* InactiveHabitsHeader.m */,
+				AC4018B219506C690033407B /* DayNavigation.h */,
+				AC4018B319506C690033407B /* DayNavigation.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AC401881195059510033407B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AC4018821950596A0033407B /* CheckBox.h */,
+				AC4018831950596A0033407B /* CheckBox.m */,
+				AC40188519505C150033407B /* CountView.h */,
+				AC40188619505C150033407B /* CountView.m */,
+				AC4018C5195091270033407B /* HeaderLabel.h */,
+				AC4018C6195091270033407B /* HeaderLabel.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AC401888195066D20033407B /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				AC401889195066E00033407B /* ReorderingTableViewController */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		AC401889195066E00033407B /* ReorderingTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AC401890195066E00033407B /* ATSDragToReorderTableViewController.h */,
+				AC401891195066E00033407B /* ATSDragToReorderTableViewController.m */,
+				AC40189C195066E00033407B /* LICENSE */,
+				AC40189D195066E00033407B /* README */,
+			);
+			path = ReorderingTableViewController;
+			sourceTree = "<group>";
+		};
+		AC4018AE19506B300033407B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AC4018AF19506B4A0033407B /* Labels.h */,
+				AC4018B019506B4A0033407B /* Labels.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AC4018C1195090120033407B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				AC4018C2195090260033407B /* CalendarTopView.h */,
+				AC4018C3195090260033407B /* CalendarTopView.m */,
+				AC4018C8195095030033407B /* MonthGridViewController.h */,
+				AC4018C9195095030033407B /* MonthGridViewController.m */,
+				AC4018CB195096A70033407B /* CalendarDayView.h */,
+				AC4018CC195096A70033407B /* CalendarDayView.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		ACADB3C7190D23B90030CC82 = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +381,7 @@
 				ACADB3D2190D23B90030CC82 /* Frameworks */,
 				ACADB3D1190D23B90030CC82 /* Products */,
 				623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */,
+				218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,6 +402,7 @@
 				ACADB3D7190D23B90030CC82 /* UIKit.framework */,
 				ACADB3F2190D23B90030CC82 /* XCTest.framework */,
 				88F79A2189454A3AAF48A73F /* libPods-Habits.a */,
+				D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -270,6 +410,7 @@
 		ACADB3D9190D23B90030CC82 /* Habits */ = {
 			isa = PBXGroup;
 			children = (
+				AC401888195066D20033407B /* Vendor */,
 				ACADB40C190D26940030CC82 /* Images */,
 				ACADB40B190D25030030CC82 /* Models */,
 				ACADB40A190D24EE0030CC82 /* Views */,
@@ -309,6 +450,7 @@
 			children = (
 				ACADB3FA190D23B90030CC82 /* HabitsTests-Info.plist */,
 				ACADB3FB190D23B90030CC82 /* InfoPlist.strings */,
+				AC4018D11950BFAC0033407B /* HabitsTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -316,8 +458,13 @@
 		ACADB408190D24BE0030CC82 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AC4018AE19506B300033407B /* UI */,
+				AC40187619504E450033407B /* Migration */,
 				ACADB4A5190D34BE0030CC82 /* Colors.h */,
 				ACADB4A6190D34BE0030CC82 /* Colors.m */,
+				AC40187319504ADB0033407B /* TimeHelper.h */,
+				AC40187419504ADB0033407B /* TimeHelper.m */,
+				AC4018BB195073160033407B /* Constants.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -327,6 +474,10 @@
 			children = (
 				ACADB49F190D2C270030CC82 /* HabitListViewController.h */,
 				ACADB4A0190D2C270030CC82 /* HabitListViewController.m */,
+				AC4018B8195071380033407B /* HabitDetailViewController.h */,
+				AC4018B9195071380033407B /* HabitDetailViewController.m */,
+				AC4018BE19508EFB0033407B /* CalendarViewController.h */,
+				AC4018BF19508EFB0033407B /* CalendarViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +485,9 @@
 		ACADB40A190D24EE0030CC82 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC4018C1195090120033407B /* Calendar */,
+				AC401881195059510033407B /* UI */,
+				AC40187A195058470033407B /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +497,8 @@
 			children = (
 				ACADB4A2190D2F5C0030CC82 /* Habit.h */,
 				ACADB4A3190D2F5C0030CC82 /* Habit.m */,
+				AC4018CE195098A50033407B /* Calendar.h */,
+				AC4018CF195098A50033407B /* Calendar.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -453,9 +609,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACADB405190D23B90030CC82 /* Build configuration list for PBXNativeTarget "HabitsTests" */;
 			buildPhases = (
+				E6AE7841480C44CAA2E75022 /* Check Pods Manifest.lock */,
 				ACADB3ED190D23B90030CC82 /* Sources */,
 				ACADB3EE190D23B90030CC82 /* Frameworks */,
 				ACADB3EF190D23B90030CC82 /* Resources */,
+				DC22106C3E1642EFA7A41949 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -530,6 +688,7 @@
 				ACADB494190D27960030CC82 /* detail_screen.png in Resources */,
 				ACADB45F190D27960030CC82 /* guide_1@2x.png in Resources */,
 				ACADB474190D27960030CC82 /* guide_12.png in Resources */,
+				AC4018A7195066E00033407B /* LICENSE in Resources */,
 				ACADB46C190D27960030CC82 /* guide_8.png in Resources */,
 				ACADB466190D27960030CC82 /* guide_5.png in Resources */,
 				ACADB480190D27960030CC82 /* guide_18.png in Resources */,
@@ -625,6 +784,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		DC22106C3E1642EFA7A41949 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-HabitsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6AE7841480C44CAA2E75022 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -632,11 +821,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC40187D195058650033407B /* CellWithCheckBox.m in Sources */,
+				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
+				AC4018B419506C690033407B /* DayNavigation.m in Sources */,
+				AC4018BA195071380033407B /* HabitDetailViewController.m in Sources */,
+				AC4018A0195066E00033407B /* ATSDragToReorderTableViewController.m in Sources */,
+				AC401880195058720033407B /* HabitCell.m in Sources */,
+				AC40187519504ADB0033407B /* TimeHelper.m in Sources */,
+				AC40188719505C150033407B /* CountView.m in Sources */,
+				AC4018D0195098A50033407B /* Calendar.m in Sources */,
 				ACADB3E4190D23B90030CC82 /* AppDelegate.m in Sources */,
+				AC4018CA195095030033407B /* MonthGridViewController.m in Sources */,
+				AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */,
+				AC4018B119506B4A0033407B /* Labels.m in Sources */,
+				AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */,
 				ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */,
+				AC4018841950596A0033407B /* CheckBox.m in Sources */,
 				ACADB3E0190D23B90030CC82 /* main.m in Sources */,
+				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
+				AC4018C4195090260033407B /* CalendarTopView.m in Sources */,
+				AC4018CD195096A70033407B /* CalendarDayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +971,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneOS",
+					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneSimulator",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -779,6 +990,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneOS",
+					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneSimulator",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -786,6 +1002,7 @@
 		};
 		ACADB406190D23B90030CC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Habits.app/Habits";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -794,7 +1011,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
+				GCC_PREFIX_HEADER = "HabitsTests/HabitsTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -808,6 +1025,7 @@
 		};
 		ACADB407190D23B90030CC82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Habits.app/Habits";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -816,7 +1034,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
+				GCC_PREFIX_HEADER = "HabitsTests/HabitsTests-Prefix.pch";
 				INFOPLIST_FILE = "HabitsTests/HabitsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";

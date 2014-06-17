@@ -1,0 +1,1 @@
+PODS_HABITSTESTS_EXPECTA_OTHER_LDFLAGS = -framework Foundation

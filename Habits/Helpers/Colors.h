@@ -21,5 +21,16 @@
 +(UIColor*)pink;
 +(UIColor*)blue;
 +(UIColor*)brown;
-+(NSArray*)taskColors;
++(NSArray*)colorsFromMotion;
+
++(UIColor*)cellBackground;
++(UIColor*)headerBackground;
++(UIColor*)calendarTop;
+
+
++(UIColor*)futureColor;
++(UIColor*)missedColor;
++(UIColor*)onColor;
++(UIColor*)beforeStartColor;
++(UIColor*)notRequiredColor;
 @end

@@ -7,23 +7,52 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface Habit : NSObject
+#import <Mantle.h>
+@interface Habit : MTLModel
 @property (nonatomic, strong) NSString * title;
-@property (nonatomic) NSInteger colorIndex;
+@property (nonatomic, strong) UIColor * color;
 @property (nonatomic, strong) NSDate * createdAt;
-@property (nonatomic, strong) NSArray * daysChecked;
-@property (nonatomic) NSInteger hourToDo;
-@property (nonatomic) NSInteger minuteToDo;
-@property (nonatomic) BOOL active;
-@property (nonatomic) NSInteger order;
-@property (nonatomic, strong) NSArray * daysRequired;
+@property (nonatomic, strong) NSMutableDictionary * daysChecked;
+@property (nonatomic, strong) NSDateComponents * reminderTime;
+@property (nonatomic, strong) NSNumber * isActive;
+@property (nonatomic, strong) NSNumber * order;
+@property (nonatomic, strong) NSMutableArray * daysRequired;
 @property (nonatomic, strong) NSArray * notifications;
+@property (nonatomic, strong) NSNumber * longestChain;
 
--(id)initWithOptions:(NSDictionary*)options;
-+(NSArray*)all;
++(NSMutableArray*)all;
+#pragma  mark - Groups
++(NSArray*)active;
 +(NSArray*)activeToday;
 +(NSArray*)carriedOver;
 +(NSArray*)activeButNotToday;
 +(NSArray*)inactive;
+
++(void)deleteHabit:(Habit*)habit;
+
+#pragma mark - Meta
+-(NSDate*)earliestDate;
+
+#pragma mark - Individual item state
+-(BOOL)isRequired:(NSDate*)date;
+-(BOOL)done:(NSDate*)date;
+-(BOOL)due:(NSDate*)date;
+-(BOOL)isRequired:(NSDate *)date;
+
+#pragma mark - Interactions
+-(void)toggle:(NSDate*)date;
+-(void)checkDays:(NSArray*)days;
+-(void)uncheckDays:(NSArray*)days;
+
+#pragma mark - Chains
+-(NSInteger)currentChainLength;
+-(BOOL)includesDate:(NSDate*)date;
+-(BOOL)continuesActivityBefore:(NSDate*)date;
+-(BOOL)continuesActivityAfter:(NSDate*)date;
+#pragma mark - Data management
++(void)saveAll;
++(void)overwriteHabits:(NSArray*)array;
+
+#pragma mark - Helper
++(NSDate*)dateFromString:(NSString*)date;
 @end
