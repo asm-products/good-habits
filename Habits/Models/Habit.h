@@ -38,6 +38,8 @@
 -(BOOL)done:(NSDate*)date;
 -(BOOL)due:(NSDate*)date;
 -(BOOL)needsToBeDone:(NSDate*)date;
+-(BOOL)hasReminders;
+-(BOOL)isNew;
 
 #pragma mark - Interactions
 -(void)toggle:(NSDate*)date;
@@ -51,9 +53,11 @@
 -(BOOL)continuesActivityBefore:(NSDate*)date;
 -(BOOL)continuesActivityAfter:(NSDate*)date;
 #pragma mark - Data management
+-(void)loadDefaultValues;
 +(void)saveAll;
 +(void)overwriteHabits:(NSArray*)array;
 
 #pragma mark - Helper
 +(NSDate*)dateFromString:(NSString*)date;
++(NSInteger)nextUnusedColorIndex;
 @end

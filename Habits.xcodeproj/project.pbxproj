@@ -30,6 +30,7 @@
 		AC4018D41950C3DE0033407B /* DayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D31950C3DE0033407B /* DayPicker.m */; };
 		AC4018D71950C51D0033407B /* DayToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D61950C51D0033407B /* DayToggle.m */; };
 		AC4018DA1950C7C00033407B /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D91950C7C00033407B /* Notifications.m */; };
+		AC4018DD1950E9940033407B /* DebuggingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018DC1950E9940033407B /* DebuggingView.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -179,6 +180,8 @@
 		AC4018D61950C51D0033407B /* DayToggle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayToggle.m; sourceTree = "<group>"; };
 		AC4018D81950C7C00033407B /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		AC4018D91950C7C00033407B /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
+		AC4018DB1950E9940033407B /* DebuggingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebuggingView.h; sourceTree = "<group>"; };
+		AC4018DC1950E9940033407B /* DebuggingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebuggingView.m; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -341,6 +344,8 @@
 				AC4018D31950C3DE0033407B /* DayPicker.m */,
 				AC4018D51950C51D0033407B /* DayToggle.h */,
 				AC4018D61950C51D0033407B /* DayToggle.m */,
+				AC4018DB1950E9940033407B /* DebuggingView.h */,
+				AC4018DC1950E9940033407B /* DebuggingView.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -845,6 +850,7 @@
 				AC4018A0195066E00033407B /* ATSDragToReorderTableViewController.m in Sources */,
 				AC401880195058720033407B /* HabitCell.m in Sources */,
 				AC40187519504ADB0033407B /* TimeHelper.m in Sources */,
+				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
 				AC4018D0195098A50033407B /* Calendar.m in Sources */,
 				ACADB3E4190D23B90030CC82 /* AppDelegate.m in Sources */,

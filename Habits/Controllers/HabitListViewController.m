@@ -166,6 +166,7 @@ typedef enum {
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"New"]){
         Habit * habit = [Habit new];
+        [habit loadDefaultValues];
         [Habit.all addObject:habit];
         [self loadGroups];
         NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
@@ -174,6 +175,9 @@ typedef enum {
         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic ];
         [self.tableView endUpdates];
         [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        
+        HabitDetailViewController * dest = segue.destinationViewController;
+        dest.habit = habit;
     }
     if([segue.identifier isEqualToString:@"Detail"]){
         HabitDetailViewController * dest = segue.destinationViewController;

@@ -33,4 +33,5 @@
 +(UIColor*)onColor;
 +(UIColor*)beforeStartColor;
 +(UIColor*)notRequiredColor;
++(UIColor*)globalTint;
 @end

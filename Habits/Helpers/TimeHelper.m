@@ -35,4 +35,14 @@ static NSDate * selectedDate = nil;
     dateComponents.day = count;
     return [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:date options:0];
 }
++(NSString*)formattedTime:(NSDateComponents *)components{
+    static NSDateFormatter * formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [NSDateFormatter new];
+        formatter.dateStyle = NSDateFormatterNoStyle;
+        formatter.timeStyle = NSDateFormatterShortStyle;
+    });
+    return [formatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:components]];
+}
 @end

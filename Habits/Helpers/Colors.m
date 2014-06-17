@@ -51,7 +51,7 @@ COLOR_ACCESSOR(futureColor, 0xA6B4C3);
 COLOR_ACCESSOR(missedColor, 0xC1272D);
 COLOR_ACCESSOR(onColor, 0xFFFFFF);
 COLOR_ACCESSOR(beforeStartColor, 0x3A4450);
-COLOR_ACCESSOR(notRequiredColor, 0xA6B4C3); // same as future color
+COLOR_ACCESSOR(notRequiredColor, 0xA6B4C3);
 
 
 +(NSArray *)colorsFromMotion{
@@ -63,5 +63,7 @@ COLOR_ACCESSOR(notRequiredColor, 0xA6B4C3); // same as future color
     }
     return result;
 }
-
++(UIColor *)globalTint{
+    return [[[UIApplication sharedApplication] keyWindow] tintColor];
+}
 @end

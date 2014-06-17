@@ -13,7 +13,7 @@
 #import "Colors.h"
 #import "TimeHelper.h"
 #import <YLMoment.h>
-
+#import "Calendar.h"
 static NSMutableArray * allHabits = nil;
 
 NSDateFormatter * dateKeyFormatter(){
@@ -102,6 +102,12 @@ NSDate * dateFromKey(NSString * key){
 -(BOOL)needsToBeDone:(NSDate *)date{
     return ![self done:date] && [self isRequiredOnWeekday:date];
 }
+-(BOOL)hasReminders{
+    return self.reminderTime != nil;
+}
+-(BOOL)isNew{
+    return [self.title isEqualToString:@"New Habit"]; // brittle
+}
 #pragma mark - Interactions
 -(void)toggle:(NSDate *)date{
     NSString * key = dayKey(date);
@@ -180,6 +186,15 @@ NSDate * dateFromKey(NSString * key){
     return date;
 }
 #pragma mark - Data management
+-(void)loadDefaultValues{
+    self.title = @"New Habit";
+    self.color = [Colors colorsFromMotion][[Habit nextUnusedColorIndex]];
+    self.isActive = @YES;
+    self.daysRequired = [[Calendar days] map:^id(id obj) {
+        return @YES;
+    }].mutableCopy;
+    self.daysChecked = [NSMutableDictionary new];
+}
 +(void)saveAll{
     
 }
