@@ -97,7 +97,7 @@
         return CalendarDayStateMidChain;
     }
     if([habit.earliestDate timeIntervalSinceDate:date] > 0) return CalendarDayStateBeforeStart;
-    if(![habit isRequired:date]){
+    if(![habit isRequiredOnWeekday:date]){
         if([habit continuesActivityBefore:day] && [habit continuesActivityAfter:day]) return CalendarDayStateBetweenSubchains;
         return CalendarDayStateNotRequired;
     }

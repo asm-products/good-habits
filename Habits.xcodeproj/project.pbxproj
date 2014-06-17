@@ -27,6 +27,9 @@
 		AC4018CA195095030033407B /* MonthGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018C9195095030033407B /* MonthGridViewController.m */; };
 		AC4018CD195096A70033407B /* CalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018CC195096A70033407B /* CalendarDayView.m */; };
 		AC4018D0195098A50033407B /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018CF195098A50033407B /* Calendar.m */; };
+		AC4018D41950C3DE0033407B /* DayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D31950C3DE0033407B /* DayPicker.m */; };
+		AC4018D71950C51D0033407B /* DayToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D61950C51D0033407B /* DayToggle.m */; };
+		AC4018DA1950C7C00033407B /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D91950C7C00033407B /* Notifications.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -170,6 +173,12 @@
 		AC4018CE195098A50033407B /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
 		AC4018CF195098A50033407B /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
 		AC4018D11950BFAC0033407B /* HabitsTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HabitsTests-Prefix.pch"; sourceTree = "<group>"; };
+		AC4018D21950C3DE0033407B /* DayPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayPicker.h; sourceTree = "<group>"; };
+		AC4018D31950C3DE0033407B /* DayPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayPicker.m; sourceTree = "<group>"; };
+		AC4018D51950C51D0033407B /* DayToggle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayToggle.h; sourceTree = "<group>"; };
+		AC4018D61950C51D0033407B /* DayToggle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayToggle.m; sourceTree = "<group>"; };
+		AC4018D81950C7C00033407B /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
+		AC4018D91950C7C00033407B /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -328,6 +337,10 @@
 				AC40188619505C150033407B /* CountView.m */,
 				AC4018C5195091270033407B /* HeaderLabel.h */,
 				AC4018C6195091270033407B /* HeaderLabel.m */,
+				AC4018D21950C3DE0033407B /* DayPicker.h */,
+				AC4018D31950C3DE0033407B /* DayPicker.m */,
+				AC4018D51950C51D0033407B /* DayToggle.h */,
+				AC4018D61950C51D0033407B /* DayToggle.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -499,6 +512,8 @@
 				ACADB4A3190D2F5C0030CC82 /* Habit.m */,
 				AC4018CE195098A50033407B /* Calendar.h */,
 				AC4018CF195098A50033407B /* Calendar.m */,
+				AC4018D81950C7C00033407B /* Notifications.h */,
+				AC4018D91950C7C00033407B /* Notifications.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -837,11 +852,14 @@
 				AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */,
 				AC4018B119506B4A0033407B /* Labels.m in Sources */,
 				AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */,
+				AC4018DA1950C7C00033407B /* Notifications.m in Sources */,
 				ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */,
 				AC4018841950596A0033407B /* CheckBox.m in Sources */,
 				ACADB3E0190D23B90030CC82 /* main.m in Sources */,
+				AC4018D41950C3DE0033407B /* DayPicker.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
 				AC4018C4195090260033407B /* CalendarTopView.m in Sources */,
+				AC4018D71950C51D0033407B /* DayToggle.m in Sources */,
 				AC4018CD195096A70033407B /* CalendarDayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,6 +40,7 @@
         habit.title = dict[@"title"];
         habit.daysRequired = dict[@"days_required"];
         habit.color = [Colors colorsFromMotion][[dict[@"color_index"] integerValue]];
+        [habit recalculateLongestChain];
         return habit;
     }];
     [Habit overwriteHabits: habits];

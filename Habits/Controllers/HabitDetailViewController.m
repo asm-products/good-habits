@@ -8,7 +8,8 @@
 
 #import "HabitDetailViewController.h"
 #import "CalendarViewController.h"
-@interface HabitDetailViewController ()
+#import "DayPicker.h"
+@interface HabitDetailViewController ()<DayPickerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIButton *remindersButton;
 @property (nonatomic, strong) CalendarViewController * calendar;
@@ -28,6 +29,8 @@
         [self.calendar showChainsForHabit: self.habit];
     }
 }
-
+-(void)dayPickerDidChange:(DayPicker *)sender{
+    
+}
 
 @end

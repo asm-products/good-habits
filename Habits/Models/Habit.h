@@ -27,17 +27,17 @@
 +(NSArray*)carriedOver;
 +(NSArray*)activeButNotToday;
 +(NSArray*)inactive;
-
++(NSInteger)habitCountForDate:(NSDate*)day;
 +(void)deleteHabit:(Habit*)habit;
 
 #pragma mark - Meta
 -(NSDate*)earliestDate;
 
 #pragma mark - Individual item state
--(BOOL)isRequired:(NSDate*)date;
+-(BOOL)isRequiredOnWeekday:(NSDate*)date;
 -(BOOL)done:(NSDate*)date;
 -(BOOL)due:(NSDate*)date;
--(BOOL)isRequired:(NSDate *)date;
+-(BOOL)needsToBeDone:(NSDate*)date;
 
 #pragma mark - Interactions
 -(void)toggle:(NSDate*)date;
@@ -45,6 +45,7 @@
 -(void)uncheckDays:(NSArray*)days;
 
 #pragma mark - Chains
+-(void)recalculateLongestChain;
 -(NSInteger)currentChainLength;
 -(BOOL)includesDate:(NSDate*)date;
 -(BOOL)continuesActivityBefore:(NSDate*)date;

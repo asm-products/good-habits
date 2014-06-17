@@ -75,22 +75,32 @@ NSDate * dateFromKey(NSString * key){
         return !habit.isActive.boolValue;
     }];
 }
++(NSInteger)habitCountForDate:(NSDate *)day{
+    NSInteger count = 0;
+    for(Habit * habit in [self active]) {
+        if([habit isRequiredOnWeekday:day]) count += 1;
+    }
+    return count;
+}
 #pragma mark - Individual state
 -(BOOL)isRequiredToday{
-    return [self isRequired:[TimeHelper now]];
+    return [self isRequiredOnWeekday:[TimeHelper now]];
 }
 -(BOOL)done:(NSDate *)date{
     return [self.daysChecked[ dayKey(date) ] boolValue];
 }
 -(BOOL)due:(NSDate *)date{
     if(!self.isActive.boolValue) return NO;
-    if(![self isRequired:date]) return NO;
+    if(![self isRequiredOnWeekday:date]) return NO;
     if(!self.reminderTime) return NO;
     NSDateComponents * components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:date];
     return components.hour > self.reminderTime.hour && components.minute > self.reminderTime.minute;
 }
--(BOOL)isRequired:(NSDate *)date{
-    return self.daysRequired[[TimeHelper weekday:date]] != nil;
+-(BOOL)isRequiredOnWeekday:(NSDate *)date{
+    return [self.daysRequired[[TimeHelper weekday:date]] boolValue];
+}
+-(BOOL)needsToBeDone:(NSDate *)date{
+    return ![self done:date] && [self isRequiredOnWeekday:date];
 }
 #pragma mark - Interactions
 -(void)toggle:(NSDate *)date{
@@ -98,7 +108,7 @@ NSDate * dateFromKey(NSString * key){
     if (self.daysChecked[key]) {
         [self.daysChecked removeObjectForKey:key];
     }else{
-#warning will change this to store the chain length
+        //TODO: change this to store the chain length
         self.daysChecked[key] = @YES;
     }
     [self recalculateLongestChain];
@@ -156,7 +166,7 @@ NSDate * dateFromKey(NSString * key){
     while (index++ < limit) {
         [moment addAmountOfTime:step forCalendarUnit:NSDayCalendarUnit];
         if([self includesDate:moment.date]) return YES;
-        if([self isRequired:moment.date]) return NO;
+        if([self isRequiredOnWeekday:moment.date]) return NO;
     }
     return NO;
 }

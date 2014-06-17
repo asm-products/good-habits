@@ -6,6 +6,12 @@
 // project.
 
 
+// ALActionBlocks
+#define COCOAPODS_POD_AVAILABLE_ALActionBlocks
+#define COCOAPODS_VERSION_MAJOR_ALActionBlocks 1
+#define COCOAPODS_VERSION_MINOR_ALActionBlocks 0
+#define COCOAPODS_VERSION_PATCH_ALActionBlocks 3
+
 // AVHexColor
 #define COCOAPODS_POD_AVAILABLE_AVHexColor
 #define COCOAPODS_VERSION_MAJOR_AVHexColor 1

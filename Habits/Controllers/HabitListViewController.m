@@ -40,6 +40,10 @@ typedef enum {
     [self loadGroups];
     [self.tableView reloadData];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self refresh];
+}
 -(void)loadGroups{
     groups = @[
                [Habit activeToday].mutableCopy,
@@ -85,7 +89,7 @@ typedef enum {
     cell.inactive = NO;
     cell.habit = habit;
     if (habit){
-        BOOL habitIsRequiredToday = habit.isActive.boolValue && [habit isRequired:now];
+        BOOL habitIsRequiredToday = habit.isActive.boolValue && [habit isRequiredOnWeekday:now];
         if(habitIsRequiredToday){
             cell.color = habit.color;
         }else{

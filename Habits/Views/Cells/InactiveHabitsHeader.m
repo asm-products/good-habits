@@ -23,6 +23,7 @@
 }
 -(instancetype)initWithTitle:(NSString *)title{
     if(self = [super init]){
+        [self build];
         textLabel.text = title;
     }
     return self;
