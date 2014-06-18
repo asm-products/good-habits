@@ -12,6 +12,7 @@
 #import "Habit.h"
 #import "HabitsList.h"
 #import "CoreDataClient.h"
+#import "Notifications.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -23,7 +24,7 @@
         [MotionToMantleMigrator performMigration];
     }
     [HabitsList recalculateAllNotifications];
-    
+    [Notifications reschedule];
     return YES;
 }
 -(void)afterEvent:(NSString*)event performBlock:(void(^)())block{

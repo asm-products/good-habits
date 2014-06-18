@@ -35,7 +35,7 @@
 }
 
 -(void)build{
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
     background = [[UIView alloc] initWithFrame:(CGRect){CGPointZero, self.frame.size}];
     [self addSubview:background];
     

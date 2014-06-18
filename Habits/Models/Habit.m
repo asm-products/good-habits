@@ -169,4 +169,24 @@ NSDate * dateFromKey(NSString * key){
 +(NSDate*)dateFromString:(NSString*)date{
     return dateFromKey(date);
 }
+#pragma mark - Notifications
+
+#define TOMORROW 1
+#define TODAY 0
+-(void)recalculateNotifications{
+    self.notifications = @[].mutableCopy;
+    if (!self.hasReminders) return;
+    NSDate * now = [TimeHelper now];
+    NSInteger dayOffset = ([self due:now] || [self done:now]) ? TOMORROW : TODAY;
+    for(int n = 0; n < 7; n ++){
+        NSDate * date = [TimeHelper addDays:dayOffset toDate:now];
+        if([self isRequiredOnWeekday:date]){
+            UILocalNotification * notification = [UILocalNotification new];
+            notification.fireDate = date;
+            notification.alertBody = self.title;
+            notification.repeatInterval = NSWeekCalendarUnit;
+            [self.notifications addObject: notification];
+        }
+    }
+}
 @end

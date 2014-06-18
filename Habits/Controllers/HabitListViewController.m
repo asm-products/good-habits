@@ -17,6 +17,7 @@
 #import "HabitDetailViewController.h"
 #import "Constants.h"
 #import "HabitsList.h"
+#import "InfoTask.h"
 typedef enum {
     HabitListSectionActive,
     HabitListSectionCarriedOver,
@@ -31,6 +32,7 @@ typedef enum {
     InactiveHabitsHeader * carriedOver;
     InactiveHabitsHeader * notRequiredTodayTitle;
     InactiveHabitsHeader * inactiveTitle;
+    __weak IBOutlet UILabel *infoCountBadge;
     
 }
 -(void)viewDidLoad{
@@ -63,6 +65,8 @@ typedef enum {
     reloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 }
 -(void)refresh{
+    infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
+    infoCountBadge.hidden = [InfoTask unopenedCount] == 0;
     dispatch_async(reloadQueue, ^{
         now = [TimeHelper now];
         dayNavigation.date = now;

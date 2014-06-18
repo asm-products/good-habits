@@ -104,7 +104,9 @@ static CoreDataClient * __coreDataClient = nil;
 }
 #pragma mark - Notifications
 +(void)recalculateAllNotifications{
-    
+    for(Habit *habit in self.active){
+        [habit recalculateNotifications];
+    }
 }
 
 @end

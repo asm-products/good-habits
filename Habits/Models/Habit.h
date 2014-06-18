@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSMutableArray * daysRequired;
 @property (nonatomic, strong) NSNumber * longestChain;
 
-@property (nonatomic, strong) NSArray * notifications;
+@property (nonatomic, strong) NSMutableArray * notifications;
 
 
 #pragma mark - Individual item state
@@ -53,4 +53,7 @@
 
 #pragma mark - Helper
 +(NSDate*)dateFromString:(NSString*)date;
+
+#pragma mark - Notifications
+-(void)recalculateNotifications;
 @end

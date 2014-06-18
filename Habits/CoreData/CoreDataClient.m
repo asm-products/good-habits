@@ -8,7 +8,7 @@
 
 #import "CoreDataClient.h"
 #import "HabitsList.h"
-
+#import <UIAlertView+Blocks.h>
 @import CoreData;
 
 @implementation CoreDataClient{
@@ -57,7 +57,7 @@
     NSURL *documentsDirectory = [[[NSFileManager defaultManager]
                                   URLsForDirectory:NSDocumentDirectory
                                   inDomains:NSUserDomainMask] lastObject];
-    NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:@"Habits.sqlite"];
+    NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:@"MyHabits.sqlite"];
     NSError *error = nil;
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Habits" withExtension:@"momd"];
     NSManagedObjectModel * model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
@@ -65,7 +65,7 @@
                                                  initWithManagedObjectModel:model];
     self.managedObjectContext.persistentStoreCoordinator = coordinator;
     
-    NSDictionary *storeOptions = @{NSPersistentStoreUbiquitousContentNameKey: @"HabitsCloudStore",
+    NSDictionary *storeOptions = @{NSPersistentStoreUbiquitousContentNameKey: @"MyHabitsCloudStore",
                                    NSMigratePersistentStoresAutomaticallyOption: @YES,
                                    NSInferMappingModelAutomaticallyOption: @YES};
     NSPersistentStore *store = [coordinator addPersistentStoreWithType:NSSQLiteStoreType
@@ -74,6 +74,7 @@
                                                                options:storeOptions
                                                                  error:&error];
     iCloudStoreURL = [store URL];
+    
     [self waitForOneTimeSetup];
     [self trackChangesFrom_iCloudAndOtherContexts];
 }

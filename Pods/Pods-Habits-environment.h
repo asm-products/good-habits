@@ -42,6 +42,12 @@
 #define COCOAPODS_VERSION_MINOR_Reveal_iOS_SDK 0
 #define COCOAPODS_VERSION_PATCH_Reveal_iOS_SDK 4
 
+// UIAlertView-Blocks
+#define COCOAPODS_POD_AVAILABLE_UIAlertView_Blocks
+#define COCOAPODS_VERSION_MAJOR_UIAlertView_Blocks 1
+#define COCOAPODS_VERSION_MINOR_UIAlertView_Blocks 0
+#define COCOAPODS_VERSION_PATCH_UIAlertView_Blocks 0
+
 // YLMoment
 #define COCOAPODS_POD_AVAILABLE_YLMoment
 #define COCOAPODS_VERSION_MAJOR_YLMoment 0
