@@ -12,6 +12,7 @@
 #import "TimeHelper.h"
 #import "Colors.h"
 #import "Constants.h"
+#import "HabitsList.h"
 @implementation MotionToMantleMigrator
 //@property (nonatomic, strong) NSString * title;
 //@property (nonatomic) NSInteger colorIndex;
@@ -43,7 +44,7 @@
         [habit recalculateLongestChain];
         return habit;
     }];
-    [Habit overwriteHabits: habits];
+    [HabitsList overwriteHabits: habits];
 }
 
 @end

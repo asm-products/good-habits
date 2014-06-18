@@ -10,11 +10,12 @@
 #import "Habit.h"
 #import <NSArray+F.h>
 #import <Mantle.h>
+#import "HabitsList.h"
 @implementation DataExport
 
 
 +(void)run:(UIViewController *)controller{
-    NSArray * habits = [MTLJSONAdapter JSONArrayFromModels:[Habit all]];
+    NSArray * habits = [MTLJSONAdapter JSONArrayFromModels:[HabitsList all]];
     NSLog(@"Habits json: %@", habits);
 //    NSString * hash = habits
 }

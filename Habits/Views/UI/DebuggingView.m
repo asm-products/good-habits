@@ -13,4 +13,7 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
 }
+-(void)setNeedsLayout{
+    
+}
 @end

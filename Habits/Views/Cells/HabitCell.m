@@ -9,6 +9,7 @@
 #import "HabitCell.h"
 #import "CheckBox.h"
 #import "Colors.h"
+#import "HabitsList.h"
 #import "CountView.h"
 @implementation HabitCell{
     __weak IBOutlet CountView *countView;
@@ -25,6 +26,7 @@
     self.checkbox.checked = !self.checkbox.checked;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self.habit toggle: self.now];
+        [self.habit save];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.habit = self.habit;
         });

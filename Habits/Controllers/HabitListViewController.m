@@ -16,6 +16,7 @@
 #import "Calendar.h"
 #import "HabitDetailViewController.h"
 #import "Constants.h"
+#import "HabitsList.h"
 typedef enum {
     HabitListSectionActive,
     HabitListSectionCarriedOver,
@@ -46,10 +47,10 @@ typedef enum {
 }
 -(void)loadGroups{
     groups = @[
-               [Habit activeToday].mutableCopy,
-               [Habit carriedOver].mutableCopy,
-               [Habit activeButNotToday].mutableCopy,
-               [Habit inactive].mutableCopy
+               [HabitsList activeToday].mutableCopy,
+               [HabitsList carriedOver].mutableCopy,
+               [HabitsList activeButNotToday].mutableCopy,
+               [HabitsList inactive].mutableCopy
                ];
 }
 -(void)build{
@@ -149,7 +150,7 @@ typedef enum {
             habit.order = @(idx);
         }];
     }
-    [Habit saveAll];
+    [HabitsList saveAll];
 }
 #pragma mark - Reordering
 -(UITableViewCell *)cellIdenticalToCellAtIndexPath:(NSIndexPath *)indexPath forDragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController{
@@ -167,7 +168,7 @@ typedef enum {
     if([segue.identifier isEqualToString:@"New"]){
         Habit * habit = [Habit new];
         [habit loadDefaultValues];
-        [Habit.all addObject:habit];
+        [HabitsList.all addObject:habit];
         [self loadGroups];
         NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
         [self.tableView beginUpdates];

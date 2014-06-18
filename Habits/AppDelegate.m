@@ -9,12 +9,15 @@
 #import "AppDelegate.h"
 #import "MotionToMantleMigrator.h"
 #import "InfoTask.h"
+#import "Habit.h"
+#import "HabitsList.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [InfoTask trackInstallationDate];
     if([MotionToMantleMigrator detectsMigrationRequired]) [MotionToMantleMigrator performMigration];
+    [HabitsList recalculateAllNotifications];
     return YES;
 }
 -(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{

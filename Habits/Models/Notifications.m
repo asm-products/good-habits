@@ -10,14 +10,15 @@
 #import "TimeHelper.h"
 #import "Habit.h"
 #import <NSArray+F.h>
+#import "HabitsList.h"
 @implementation Notifications
 +(void)reschedule{
     NSDate * now = [TimeHelper now];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[[[Habit active] filter:^BOOL(Habit * h) {
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[[[HabitsList active] filter:^BOOL(Habit * h) {
         return [h needsToBeDone: now];
     }] count]];
     NSMutableArray * notifications = [[NSMutableArray alloc] initWithCapacity:100];
-    for (Habit * habit in [Habit active]) {
+    for (Habit * habit in [HabitsList active]) {
         [notifications addObjectsFromArray:habit.notifications];
     }
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
@@ -31,7 +32,7 @@
         components.hour = 6;
         components.minute = 0;
         notification.fireDate = [[NSCalendar currentCalendar] dateFromComponents:components];
-        notification.applicationIconBadgeNumber = [Habit habitCountForDate: day];
+        notification.applicationIconBadgeNumber = [HabitsList habitCountForDate: day];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
     

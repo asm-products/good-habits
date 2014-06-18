@@ -11,7 +11,7 @@
 #import "Calendar.h"
 #import "TimeHelper.h"
 #import <YLMoment.h>
-
+#import "HabitsList.h"
 #define CELL_SIZE CGSizeMake(45, 44)
 #define CELL_COUNT (7*5)
 
@@ -124,7 +124,7 @@
         }else{
             [self.habit uncheckDays: @[cell.day]];
         }
-        [Habit saveAll];
+        [self.habit save];
         [self showChainsForHabit:self.habit callback:nil];
         
     }

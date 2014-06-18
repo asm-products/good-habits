@@ -14,7 +14,7 @@
 #import "TimeHelper.h"
 #import <YLMoment.h>
 #import "Calendar.h"
-static NSMutableArray * allHabits = nil;
+#import "HabitsList.h" // ideally wouldn't import this
 
 NSDateFormatter * dateKeyFormatter(){
     static NSDateFormatter * formatter = nil;
@@ -32,56 +32,9 @@ NSDate * dateFromKey(NSString * key){
     return [dateKeyFormatter() dateFromString:key];
 }
 @implementation Habit
-+(NSInteger)nextOrder{
-    return [[self all] count];
-}
 
-+(NSInteger)nextUnusedColorIndex{
-    return self.all.count % [Colors colorsFromMotion].count;
-}
-+(NSMutableArray *)all{
-    if(!allHabits){
-        allHabits = [NSMutableArray new];
-    }
-    return allHabits;
-}
-+(void)deleteHabit:(Habit *)habit{
-    [[self all] removeObject:habit];
-}
 
-#pragma mark - Groups
-+(NSArray *)active{
-    return [[[self all] filter:^BOOL(Habit* habit) {
-        return habit.isActive.boolValue;
-    }] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
-}
-+(NSArray *)activeToday{
-    return [self.active filter:^BOOL(Habit * habit) {
-        return habit.isRequiredToday;
-    }];
-}
-+(NSArray *)activeButNotToday{
-    return [self.active filter:^BOOL(Habit * habit) {
-        return !habit.isRequiredToday && habit.currentChainLength != 0;
-    }];
-}
-+(NSArray *)carriedOver{
-    return [self.active filter:^BOOL(Habit * habit) {
-        return !habit.isRequiredToday && habit.currentChainLength == 0;
-    }];
-}
-+(NSArray *)inactive{
-    return [self.all filter:^BOOL(Habit * habit) {
-        return !habit.isActive.boolValue;
-    }];
-}
-+(NSInteger)habitCountForDate:(NSDate *)day{
-    NSInteger count = 0;
-    for(Habit * habit in [self active]) {
-        if([habit isRequiredOnWeekday:day]) count += 1;
-    }
-    return count;
-}
+
 #pragma mark - Individual state
 -(BOOL)isRequiredToday{
     return [self isRequiredOnWeekday:[TimeHelper now]];
@@ -108,6 +61,12 @@ NSDate * dateFromKey(NSString * key){
 -(BOOL)isNew{
     return [self.title isEqualToString:@"New Habit"]; // brittle
 }
+#pragma mark - Meta
+-(NSDate*)earliestDate{
+    if(self.daysChecked.count == 1) return [TimeHelper now];
+    NSDate * date = dateFromKey( [[self.daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] firstObject] );
+    return date;
+}
 #pragma mark - Interactions
 -(void)toggle:(NSDate *)date{
     NSString * key = dayKey(date);
@@ -118,7 +77,6 @@ NSDate * dateFromKey(NSString * key){
         self.daysChecked[key] = @YES;
     }
     [self recalculateLongestChain];
-    [Habit saveAll];
 }
 -(void)checkDays:(NSArray *)days{
     for(NSDate * date in days){
@@ -160,6 +118,7 @@ NSDate * dateFromKey(NSString * key){
     }
     return MAX(result,count);
 }
+
 -(BOOL)continuesActivityBefore:(NSDate*)date{
     return [self continuesActivityFromDate:date step:-1 limit:7];
 }
@@ -180,26 +139,18 @@ NSDate * dateFromKey(NSString * key){
 -(BOOL)includesDate:(NSDate*)date{
     return self.daysChecked[ dayKey(date) ] != nil;
 }
--(NSDate*)earliestDate{
-    if(self.daysChecked.count == 1) return [TimeHelper now];
-    NSDate * date = dateFromKey( [[self.daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] firstObject] );
-    return date;
-}
 #pragma mark - Data management
 -(void)loadDefaultValues{
     self.title = @"New Habit";
-    self.color = [Colors colorsFromMotion][[Habit nextUnusedColorIndex]];
+    self.color = [Colors colorsFromMotion][[HabitsList nextUnusedColorIndex]];
     self.isActive = @YES;
     self.daysRequired = [[Calendar days] map:^id(id obj) {
         return @YES;
     }].mutableCopy;
     self.daysChecked = [NSMutableDictionary new];
 }
-+(void)saveAll{
-    
-}
-+(void)overwriteHabits:(NSArray *)array{
-    allHabits = array.mutableCopy;
+-(void)save{
+    [HabitsList saveAll];
 }
 #pragma mark - Helper
 +(NSDate*)dateFromString:(NSString*)date{

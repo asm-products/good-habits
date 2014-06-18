@@ -11,6 +11,7 @@
 #import "DayPicker.h"
 #import "TimeHelper.h"
 #import "Colors.h"
+#import "HabitsList.h"
 @interface HabitDetailViewController ()<DayPickerDelegate,UITextFieldDelegate>{
     
     __weak IBOutlet UIView *timePickerContainer;
@@ -25,7 +26,12 @@
 @end
 
 @implementation HabitDetailViewController
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"Calendar"]){
+        self.calendar = segue.destinationViewController;
+        [self.calendar showChainsForHabit: self.habit];
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,6 +47,11 @@
         [self.timePicker setDate:[[NSCalendar currentCalendar] dateFromComponents:self.habit.reminderTime]];
     }
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self updateLayoutPickerVisible:NO];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if(self.habit.isNew ){
@@ -51,14 +62,9 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.habit.title = self.titleTextField.text;
-    [Habit saveAll];
+    [self.habit save];
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"Calendar"]){
-        self.calendar = segue.destinationViewController;
-        [self.calendar showChainsForHabit: self.habit];
-    }
-}
+
 -(void)dayPickerDidChange:(DayPicker *)sender{
     [self.calendar showChainsForHabit:self.habit];
 }
@@ -83,14 +89,14 @@
     timePickerContainer.frame = CGRectMake(0, timePickerContainer.frame.origin.y, 320, visible ? self.timePicker.frame.size.height : 0);
     timePickerContainer.alpha = visible ? 1.0 : 0;
     bottomSection.frame = CGRectMake(0, CGRectGetMaxY(timePickerContainer.frame), 320, bottomSection.frame.size.height);
-    self.scroller.contentSize = CGSizeMake(320, CGRectGetMaxY(bottomSection.frame));
+    self.scroller.contentSize = CGSizeMake(320, CGRectGetMaxY(bottomSection.frame) + 64);
 }
 -(BOOL)isRemindersPickerVisible{
     return timePickerContainer.alpha > 0;
 }
 -(void)saveReminder{
     self.habit.reminderTime = [[NSCalendar currentCalendar] components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:self.timePicker.date];
-    [Habit saveAll];
+    [self.habit save];
     [self updateRemindersButtonTitle];
 }
 - (IBAction)didPressRemindersButton:(id)sender {
@@ -116,7 +122,7 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     self.habit.title = textField.text;
-    [Habit saveAll];
+    [self.habit save];
     return YES;
 }
 @end
