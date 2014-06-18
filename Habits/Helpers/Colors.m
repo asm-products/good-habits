@@ -25,10 +25,17 @@
     }
     return result;
 }
-
+#define STRINGIFY2( x) #x
+#define STRINGIFY(x) STRINGIFY2(x)
 
 #define COLOR_ACCESSOR(name,hex) +(UIColor*)name{ static UIColor * result = nil; if(!result) result = [AVHexColor colorWithHex:hex]; return result; }
-#define COLOR_FROM_HEX(name) +(UIColor*)name{ static UIColor * result = nil; if(!result) result = [AVHexColor colorWithHexString: [self hexCodes][@"key"] ]; return result; }
+
+#define COLOR_FROM_HEX(name) +(UIColor*)name{ \
+    static UIColor * result = nil; \
+    if(!result) result = [AVHexColor colorWithHexString: [self hexCodes][@ STRINGIFY(name)] ]; \
+    return result; \
+}
+
 COLOR_ACCESSOR(dark, 0x3a4450)
 COLOR_ACCESSOR(cobalt, 0x8A95A1)
 COLOR_ACCESSOR(grey, 0xb3b3b3)

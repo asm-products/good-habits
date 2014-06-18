@@ -8,10 +8,12 @@
 
 #import "AppDelegate.h"
 #import "MotionToMantleMigrator.h"
+#import "InfoTask.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [InfoTask trackInstallationDate];
     if([MotionToMantleMigrator detectsMigrationRequired]) [MotionToMantleMigrator performMigration];
     return YES;
 }

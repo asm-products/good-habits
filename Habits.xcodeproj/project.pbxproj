@@ -31,6 +31,13 @@
 		AC4018D71950C51D0033407B /* DayToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D61950C51D0033407B /* DayToggle.m */; };
 		AC4018DA1950C7C00033407B /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D91950C7C00033407B /* Notifications.m */; };
 		AC4018DD1950E9940033407B /* DebuggingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018DC1950E9940033407B /* DebuggingView.m */; };
+		AC4018E01950F79C0033407B /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018DF1950F79C0033407B /* InfoViewController.m */; };
+		AC4018E31950F84C0033407B /* InfoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018E21950F84C0033407B /* InfoTask.m */; };
+		AC4018E61950FAB70033407B /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018E51950FAB70033407B /* InfoCell.m */; };
+		AC4018E91950FB510033407B /* LinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018E81950FB510033407B /* LinkCell.m */; };
+		AC4018EC195187370033407B /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018EB195187370033407B /* UserGuideViewController.m */; };
+		AC4018EF195187BC0033407B /* AppSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018EE195187BC0033407B /* AppSharing.m */; };
+		AC4018F219518EBC0033407B /* DataExport.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F119518EBC0033407B /* DataExport.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -182,6 +189,20 @@
 		AC4018D91950C7C00033407B /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
 		AC4018DB1950E9940033407B /* DebuggingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebuggingView.h; sourceTree = "<group>"; };
 		AC4018DC1950E9940033407B /* DebuggingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebuggingView.m; sourceTree = "<group>"; };
+		AC4018DE1950F79C0033407B /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		AC4018DF1950F79C0033407B /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		AC4018E11950F84C0033407B /* InfoTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTask.h; sourceTree = "<group>"; };
+		AC4018E21950F84C0033407B /* InfoTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTask.m; sourceTree = "<group>"; };
+		AC4018E41950FAB70033407B /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = "<group>"; };
+		AC4018E51950FAB70033407B /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = "<group>"; };
+		AC4018E71950FB510033407B /* LinkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkCell.h; sourceTree = "<group>"; };
+		AC4018E81950FB510033407B /* LinkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkCell.m; sourceTree = "<group>"; };
+		AC4018EA195187370033407B /* UserGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGuideViewController.h; sourceTree = "<group>"; };
+		AC4018EB195187370033407B /* UserGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGuideViewController.m; sourceTree = "<group>"; };
+		AC4018ED195187BC0033407B /* AppSharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSharing.h; sourceTree = "<group>"; };
+		AC4018EE195187BC0033407B /* AppSharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSharing.m; sourceTree = "<group>"; };
+		AC4018F019518EBC0033407B /* DataExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataExport.h; sourceTree = "<group>"; };
+		AC4018F119518EBC0033407B /* DataExport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataExport.m; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -327,6 +348,10 @@
 				AC4018AC19506AB90033407B /* InactiveHabitsHeader.m */,
 				AC4018B219506C690033407B /* DayNavigation.h */,
 				AC4018B319506C690033407B /* DayNavigation.m */,
+				AC4018E41950FAB70033407B /* InfoCell.h */,
+				AC4018E51950FAB70033407B /* InfoCell.m */,
+				AC4018E71950FB510033407B /* LinkCell.h */,
+				AC4018E81950FB510033407B /* LinkCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -496,6 +521,10 @@
 				AC4018B9195071380033407B /* HabitDetailViewController.m */,
 				AC4018BE19508EFB0033407B /* CalendarViewController.h */,
 				AC4018BF19508EFB0033407B /* CalendarViewController.m */,
+				AC4018DE1950F79C0033407B /* InfoViewController.h */,
+				AC4018DF1950F79C0033407B /* InfoViewController.m */,
+				AC4018EA195187370033407B /* UserGuideViewController.h */,
+				AC4018EB195187370033407B /* UserGuideViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -519,6 +548,12 @@
 				AC4018CF195098A50033407B /* Calendar.m */,
 				AC4018D81950C7C00033407B /* Notifications.h */,
 				AC4018D91950C7C00033407B /* Notifications.m */,
+				AC4018E11950F84C0033407B /* InfoTask.h */,
+				AC4018E21950F84C0033407B /* InfoTask.m */,
+				AC4018ED195187BC0033407B /* AppSharing.h */,
+				AC4018EE195187BC0033407B /* AppSharing.m */,
+				AC4018F019518EBC0033407B /* DataExport.h */,
+				AC4018F119518EBC0033407B /* DataExport.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -844,6 +879,7 @@
 				AC40187D195058650033407B /* CellWithCheckBox.m in Sources */,
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */,
+				AC4018F219518EBC0033407B /* DataExport.m in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
 				AC4018B419506C690033407B /* DayNavigation.m in Sources */,
 				AC4018BA195071380033407B /* HabitDetailViewController.m in Sources */,
@@ -858,15 +894,21 @@
 				AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */,
 				AC4018B119506B4A0033407B /* Labels.m in Sources */,
 				AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */,
+				AC4018EC195187370033407B /* UserGuideViewController.m in Sources */,
 				AC4018DA1950C7C00033407B /* Notifications.m in Sources */,
 				ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */,
+				AC4018EF195187BC0033407B /* AppSharing.m in Sources */,
+				AC4018E61950FAB70033407B /* InfoCell.m in Sources */,
 				AC4018841950596A0033407B /* CheckBox.m in Sources */,
+				AC4018E01950F79C0033407B /* InfoViewController.m in Sources */,
 				ACADB3E0190D23B90030CC82 /* main.m in Sources */,
 				AC4018D41950C3DE0033407B /* DayPicker.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
+				AC4018E31950F84C0033407B /* InfoTask.m in Sources */,
 				AC4018C4195090260033407B /* CalendarTopView.m in Sources */,
 				AC4018D71950C51D0033407B /* DayToggle.m in Sources */,
 				AC4018CD195096A70033407B /* CalendarDayView.m in Sources */,
+				AC4018E91950FB510033407B /* LinkCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
