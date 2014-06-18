@@ -63,9 +63,25 @@ static NSMutableArray * allHabits = nil;
     return self.all.count % [Colors colorsFromMotion].count;
 }
 #pragma mark - Data management
-
+//+(User*)read{
+//    NSData * data = [NSData dataWithContentsOfFile:[self currentUserPath]];
+//    NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+//    if(unarchiver == nil) return nil;
+//    User * result = [[User alloc] initWithCoder:unarchiver];
+//    [unarchiver finishDecoding];
+//    return result;
+//}
 +(void)saveAll{
-    
+//    NSMutableData * data = [NSMutableData data];
+//    NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+//    [[self all] encodeWithCoder:archiver];
+//    [archiver finishEncoding];
+//    NSLog(@"data: %@", data);
+//    [data writeToFile:[self localPath] atomically:YES];
+}
++(NSString*)localPath{
+    NSString * documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    return [documentsPath stringByAppendingPathComponent:@"habits"];
 }
 +(void)overwriteHabits:(NSArray *)array{
     allHabits = array.mutableCopy;
