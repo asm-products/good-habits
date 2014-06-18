@@ -28,7 +28,7 @@ BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
     if (self) {
         block = [[UIView alloc] initWithFrame:self.bounds];
         [self addSubview:block];
-        block.userInteractionEnabled = YES;
+        block.userInteractionEnabled = NO;
         
         circle = [[UIView alloc] initWithFrame:CGRectInset(self.bounds, CIRCLE_INSET, CIRCLE_INSET)];
         [self addSubview:circle];
