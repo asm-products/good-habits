@@ -9,14 +9,18 @@
 #import "HabitsList.h"
 #import <NSArray+F.h>
 #import "Colors.h"
-static NSMutableArray * allHabits = nil;
+#import "CoreDataClient.h"
+#import <Mantle.h>
+static NSMutableArray * __allHabits = nil;
+static CoreDataClient * __coreDataClient = nil;
 
 @implementation HabitsList
 +(NSMutableArray *)all{
-    if(!allHabits){
-        allHabits = [NSMutableArray new];
+    if(!__allHabits) {
+        __allHabits = [NSMutableArray new];
+        [self loadFromCoreData];
     }
-    return allHabits;
+    return __allHabits;
 }
 +(void)deleteHabit:(Habit *)habit{
     [[self all] removeObject:habit];
@@ -63,28 +67,40 @@ static NSMutableArray * allHabits = nil;
     return self.all.count % [Colors colorsFromMotion].count;
 }
 #pragma mark - Data management
-//+(User*)read{
-//    NSData * data = [NSData dataWithContentsOfFile:[self currentUserPath]];
-//    NSKeyedUnarchiver * unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-//    if(unarchiver == nil) return nil;
-//    User * result = [[User alloc] initWithCoder:unarchiver];
-//    [unarchiver finishDecoding];
-//    return result;
-//}
++(void)loadFromCoreData{
+    [self refreshFromManagedObjectContext: [self coreDataClient].managedObjectContext ];
+}
++(void)refreshFromManagedObjectContext:(NSManagedObjectContext *)context{
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
+    [request setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES ]]];
+    NSArray * entities = [context executeFetchRequest:request error:nil];
+    __allHabits = [entities map:^id(NSManagedObject * entity) {
+        return [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:nil];
+    }].mutableCopy;
+ 
+}
++(CoreDataClient*)coreDataClient{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __coreDataClient = [CoreDataClient new];
+    });
+    return __coreDataClient;
+}
 +(void)saveAll{
-//    NSMutableData * data = [NSMutableData data];
-//    NSKeyedArchiver * archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-//    [[self all] encodeWithCoder:archiver];
-//    [archiver finishEncoding];
-//    NSLog(@"data: %@", data);
-//    [data writeToFile:[self localPath] atomically:YES];
+    for(Habit * habit in [self all]){
+        NSError * error;
+        [MTLManagedObjectAdapter managedObjectFromModel:habit insertingIntoContext:[self coreDataClient].managedObjectContext error:&error];
+        if(error) NSLog(@"ERROR SAVING HABIT! %@", error);
+    }
+    [[self coreDataClient] saveInBackground];
 }
 +(NSString*)localPath{
     NSString * documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     return [documentsPath stringByAppendingPathComponent:@"habits"];
 }
 +(void)overwriteHabits:(NSArray *)array{
-    allHabits = array.mutableCopy;
+    __allHabits = array.mutableCopy;
+//    [self saveAll];
 }
 #pragma mark - Notifications
 +(void)recalculateAllNotifications{

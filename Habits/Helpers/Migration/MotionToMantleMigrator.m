@@ -24,8 +24,8 @@
 //@property (nonatomic) NSInteger order;
 //@property (nonatomic, strong) NSArray * daysRequired;
 //@property (nonatomic, strong) NSArray * notifications;
-+(BOOL)detectsMigrationRequired{
-    return  [self habitsStoredByMotion] != nil;
++(BOOL)dataCanBeMigrated{
+    return [self habitsStoredByMotion] != nil;
 }
 +(NSArray*)habitsStoredByMotion{
     return [[NSUserDefaults standardUserDefaults] valueForKey:@"goodtohear.habits_habits"];
@@ -41,6 +41,7 @@
         habit.title = dict[@"title"];
         habit.daysRequired = dict[@"days_required"];
         habit.color = [Colors colorsFromMotion][[dict[@"color_index"] integerValue]];
+        habit.identifier = [[NSUUID UUID] UUIDString];
         [habit recalculateLongestChain];
         return habit;
     }];

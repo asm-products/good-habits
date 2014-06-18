@@ -11,14 +11,39 @@
 #import "InfoTask.h"
 #import "Habit.h"
 #import "HabitsList.h"
+#import "CoreDataClient.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [InfoTask trackInstallationDate];
-    if([MotionToMantleMigrator detectsMigrationRequired]) [MotionToMantleMigrator performMigration];
+    [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)
+    
+    if([MotionToMantleMigrator dataCanBeMigrated] && [HabitsList all].count == 0) {
+        [MotionToMantleMigrator performMigration];
+    }
     [HabitsList recalculateAllNotifications];
+    
     return YES;
+}
+-(void)afterEvent:(NSString*)event performBlock:(void(^)())block{
+    [[NSNotificationCenter defaultCenter]
+     addObserverForName:event
+     object:nil
+     queue:[NSOperationQueue mainQueue]
+     usingBlock:^(NSNotification *note) {
+         block();
+     }];
+}
+-(void)trackCoreDataChanges{
+    // WILL CHANGE - disable UI
+    [self afterEvent:NSPersistentStoreCoordinatorStoresWillChangeNotification performBlock:^{
+        self.window.userInteractionEnabled = NO;
+    }];
+    // DID CHANGE - re-enable
+    [self afterEvent:NSPersistentStoreCoordinatorStoresDidChangeNotification performBlock:^{
+        self.window.userInteractionEnabled = YES;
+    }];
 }
 -(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
     return YES;

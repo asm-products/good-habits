@@ -40,6 +40,11 @@ typedef enum {
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 40, 0, 0);
     [self loadGroups];
     [self.tableView reloadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:HABITS_UPDATED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        NSLog(@"RELOADING LIST COS HABITS CHANGED");
+        [self refresh];
+    }];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle.h>
-@interface Habit : MTLModel
+@interface Habit : MTLModel<MTLManagedObjectSerializing>
+@property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, strong) UIColor * color;
 @property (nonatomic, strong) NSDate * createdAt;
@@ -17,8 +18,9 @@
 @property (nonatomic, strong) NSNumber * isActive;
 @property (nonatomic, strong) NSNumber * order;
 @property (nonatomic, strong) NSMutableArray * daysRequired;
-@property (nonatomic, strong) NSArray * notifications;
 @property (nonatomic, strong) NSNumber * longestChain;
+
+@property (nonatomic, strong) NSArray * notifications;
 
 
 #pragma mark - Individual item state

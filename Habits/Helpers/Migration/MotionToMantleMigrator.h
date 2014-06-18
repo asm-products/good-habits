@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface MotionToMantleMigrator : NSObject
-+(BOOL)detectsMigrationRequired;
++(BOOL)dataCanBeMigrated;
 +(void)performMigration;
 @end

@@ -17,8 +17,7 @@ typedef enum {
     CalendarDayStateBetweenSubchains,
     CalendarDayStateMissed,
     CalendarDayStateBeforeStart,
-    CalendarDayStateNotRequired,
-    CalendarDayStateCount
+    CalendarDayStateNotRequired
 } CalendarDayState;
 
 @interface Calendar : NSObject

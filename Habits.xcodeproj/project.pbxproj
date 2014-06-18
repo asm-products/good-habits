@@ -39,6 +39,8 @@
 		AC4018EF195187BC0033407B /* AppSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018EE195187BC0033407B /* AppSharing.m */; };
 		AC4018F219518EBC0033407B /* DataExport.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F119518EBC0033407B /* DataExport.m */; };
 		AC4018F51951A5FE0033407B /* HabitsList.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F41951A5FE0033407B /* HabitsList.m */; };
+		AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F91951BF2E0033407B /* CoreDataClient.m */; };
+		AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4018FB1951C2950033407B /* Habits.xcdatamodeld */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -206,6 +208,10 @@
 		AC4018F119518EBC0033407B /* DataExport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataExport.m; sourceTree = "<group>"; };
 		AC4018F31951A5FE0033407B /* HabitsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitsList.h; sourceTree = "<group>"; };
 		AC4018F41951A5FE0033407B /* HabitsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitsList.m; sourceTree = "<group>"; };
+		AC4018F61951B9C80033407B /* Habits.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Habits.entitlements; sourceTree = "<group>"; };
+		AC4018F81951BF2E0033407B /* CoreDataClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataClient.h; sourceTree = "<group>"; };
+		AC4018F91951BF2E0033407B /* CoreDataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataClient.m; sourceTree = "<group>"; };
+		AC4018FC1951C2950033407B /* Habits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habits.xcdatamodel; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -419,6 +425,16 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		AC4018F71951BF0A0033407B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				AC4018F81951BF2E0033407B /* CoreDataClient.h */,
+				AC4018F91951BF2E0033407B /* CoreDataClient.m */,
+				AC4018FB1951C2950033407B /* Habits.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		ACADB3C7190D23B90030CC82 = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +472,8 @@
 		ACADB3D9190D23B90030CC82 /* Habits */ = {
 			isa = PBXGroup;
 			children = (
+				AC4018F71951BF0A0033407B /* CoreData */,
+				AC4018F61951B9C80033407B /* Habits.entitlements */,
 				AC401888195066D20033407B /* Vendor */,
 				ACADB40C190D26940030CC82 /* Images */,
 				ACADB40B190D25030030CC82 /* Models */,
@@ -694,6 +712,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Good To Hear";
 				TargetAttributes = {
+					ACADB3CF190D23B90030CC82 = {
+						DevelopmentTeam = TNRLJ4WU59;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					ACADB3F0190D23B90030CC82 = {
 						TestTargetID = ACADB3CF190D23B90030CC82;
 					};
@@ -889,11 +915,13 @@
 				AC4018B419506C690033407B /* DayNavigation.m in Sources */,
 				AC4018BA195071380033407B /* HabitDetailViewController.m in Sources */,
 				AC4018A0195066E00033407B /* ATSDragToReorderTableViewController.m in Sources */,
+				AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */,
 				AC401880195058720033407B /* HabitCell.m in Sources */,
 				AC40187519504ADB0033407B /* TimeHelper.m in Sources */,
 				AC4018F51951A5FE0033407B /* HabitsList.m in Sources */,
 				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
+				AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */,
 				AC4018D0195098A50033407B /* Calendar.m in Sources */,
 				ACADB3E4190D23B90030CC82 /* AppDelegate.m in Sources */,
 				AC4018CA195095030033407B /* MonthGridViewController.m in Sources */,
@@ -1040,6 +1068,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
@@ -1049,6 +1080,7 @@
 					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneSimulator",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1059,6 +1091,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
@@ -1068,6 +1103,7 @@
 					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneSimulator",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1145,6 +1181,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AC4018FB1951C2950033407B /* Habits.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AC4018FC1951C2950033407B /* Habits.xcdatamodel */,
+			);
+			currentVersion = AC4018FC1951C2950033407B /* Habits.xcdatamodel */;
+			path = Habits.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ACADB3C8190D23B90030CC82 /* Project object */;
 }

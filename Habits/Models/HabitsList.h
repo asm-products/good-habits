@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Habit.h"
 
+#define HABITS_UPDATED @"HABITS_UPDATED"
+
 @interface HabitsList : NSObject
 +(NSMutableArray*)all;
 #pragma  mark - Groups
@@ -24,7 +26,8 @@
 #pragma mark - Data management
 +(void)saveAll;
 +(void)overwriteHabits:(NSArray*)array;
-
++(void)loadFromCoreData;
++(void)refreshFromManagedObjectContext:(NSManagedObjectContext*)context;
 #pragma mark - Notifications
 +(void)recalculateAllNotifications;
 

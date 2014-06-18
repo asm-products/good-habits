@@ -14,7 +14,7 @@
 #import "TimeHelper.h"
 #import <YLMoment.h>
 #import "Calendar.h"
-#import "HabitsList.h" // ideally wouldn't import this
+#import "HabitsList.h"
 
 NSDateFormatter * dateKeyFormatter(){
     static NSDateFormatter * formatter = nil;
@@ -34,6 +34,18 @@ NSDate * dateFromKey(NSString * key){
 @implementation Habit
 
 
+#pragma mark - MTLManagedObjectSerializing
++(NSString *)managedObjectEntityName{
+    return @"Habit";
+}
++(NSSet *)propertyKeysForManagedObjectUniquing{
+    return [NSSet setWithObject:@"identifier"];
+}
++(NSDictionary *)managedObjectKeysByPropertyKey{
+    return @{
+             @"notifications": [NSNull null]
+             }; // mapping everything directly
+}
 
 #pragma mark - Individual state
 -(BOOL)isRequiredToday{
@@ -141,6 +153,7 @@ NSDate * dateFromKey(NSString * key){
 }
 #pragma mark - Data management
 -(void)loadDefaultValues{
+    self.identifier = [[NSUUID UUID] UUIDString];
     self.title = @"New Habit";
     self.color = [Colors colorsFromMotion][[HabitsList nextUnusedColorIndex]];
     self.isActive = @YES;

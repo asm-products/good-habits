@@ -19,5 +19,4 @@
 @interface DayPicker : UIView
 @property (nonatomic, strong) Habit * habit;
 @property (nonatomic, weak) IBOutlet id<DayPickerDelegate> delegate;
--(id)initWithFrame:(CGRect)frame habit:(Habit*)habit;
 @end
