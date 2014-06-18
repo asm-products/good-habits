@@ -42,6 +42,7 @@
 		AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F91951BF2E0033407B /* CoreDataClient.m */; };
 		AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4018FB1951C2950033407B /* Habits.xcdatamodeld */; };
 		AC7AF2B01951EA7100BF3000 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC7AF2AF1951EA7100BF3000 /* Settings.bundle */; };
+		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -214,6 +215,8 @@
 		AC4018F91951BF2E0033407B /* CoreDataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataClient.m; sourceTree = "<group>"; };
 		AC4018FC1951C2950033407B /* Habits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habits.xcdatamodel; sourceTree = "<group>"; };
 		AC7AF2AF1951EA7100BF3000 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
+		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -549,6 +552,8 @@
 				AC4018DF1950F79C0033407B /* InfoViewController.m */,
 				AC4018EA195187370033407B /* UserGuideViewController.h */,
 				AC4018EB195187370033407B /* UserGuideViewController.m */,
+				AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */,
+				AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -938,6 +943,7 @@
 				AC4018EF195187BC0033407B /* AppSharing.m in Sources */,
 				AC4018E61950FAB70033407B /* InfoCell.m in Sources */,
 				AC4018841950596A0033407B /* CheckBox.m in Sources */,
+				AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */,
 				AC4018E01950F79C0033407B /* InfoViewController.m in Sources */,
 				ACADB3E0190D23B90030CC82 /* main.m in Sources */,
 				AC4018D41950C3DE0033407B /* DayPicker.m in Sources */,

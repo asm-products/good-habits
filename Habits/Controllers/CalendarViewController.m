@@ -17,7 +17,7 @@
     BOOL navigationIsDisabled;
 }
 @property (nonatomic, strong) CalendarTopView * top;
-@property (nonatomic, strong) UIScrollView * scroller;
+@property (nonatomic, strong) UIView * container;
 @property (nonatomic, strong) MonthGridViewController * grid;
 @end
 
@@ -33,15 +33,15 @@
     [self.top.prevButton addTarget:self action:@selector(didPressPrevButton) forControlEvents:UIControlEventTouchUpInside];
     [self.top.nextButton addTarget:self action:@selector(didPressNextButton) forControlEvents:UIControlEventTouchUpInside];
     
-    self.scroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 56, 320, 220)];
-    [self.view addSubview:self.scroller];
-    [self showMonthIncludingTime:[TimeHelper now]];
+    self.container = [[UIView alloc] initWithFrame:CGRectMake(0, 56, 320, 220)];
+    [self.view addSubview:self.container];
+    [self showMonthIncludingTime:self.dateToShow];
 }
 -(void)didPressPrevButton{
-    if(!navigationIsDisabled) [self showMonthIncludingTime:dayInPreviousMonth];
+    [self.navigationDelegate backward];
 }
 -(void)didPressNextButton{
-     if(!navigationIsDisabled) [self showMonthIncludingTime:dayInNextMonth];
+    [self.navigationDelegate forward];
 }
 -(NSDateFormatter*)topTimeFormatter{
     static NSDateFormatter * result = nil;
@@ -70,9 +70,15 @@
     self.grid = [MonthGridViewController new];
     self.grid.firstDay = firstDay;
     self.grid.month = month;
-    [self.scroller addSubview:self.grid.view];
+    [self.container addSubview:self.grid.view];
     if(self.habit) [self showChainsForHabit:self.habit];
     
+}
+-(NSDate *)dayInPreviousMonth{
+    return dayInPreviousMonth;
+}
+-(NSDate *)dayInNextMonth{
+    return dayInNextMonth;
 }
 -(void)showChainsForHabit:(Habit *)habit{
     self.habit = habit;

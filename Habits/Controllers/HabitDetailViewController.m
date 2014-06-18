@@ -7,7 +7,7 @@
 //
 
 #import "HabitDetailViewController.h"
-#import "CalendarViewController.h"
+#import "CalendarPageViewController.h"
 #import "DayPicker.h"
 #import "TimeHelper.h"
 #import "Colors.h"
@@ -19,7 +19,7 @@
 }
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIButton *remindersButton;
-@property (nonatomic, strong) CalendarViewController * calendar;
+@property (nonatomic, strong) CalendarPageViewController * calendar;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UIButton *clearReminderButton;
@@ -29,7 +29,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"Calendar"]){
         self.calendar = segue.destinationViewController;
-        [self.calendar showChainsForHabit: self.habit];
+        self.calendar.habit = self.habit;
     }
 }
 - (void)viewDidLoad
@@ -66,7 +66,7 @@
 }
 
 -(void)dayPickerDidChange:(DayPicker *)sender{
-    [self.calendar showChainsForHabit:self.habit];
+    [self.calendar refresh];
 }
 -(NSString*)remindersButtonTitle{
     if(self.habit.hasReminders){

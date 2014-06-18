@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "Habit.h"
+
+@protocol CalendarNavigation <NSObject>
+-(void)forward;
+-(void)backward;
+@end
+
 @interface CalendarViewController : UIViewController
 @property (nonatomic, strong) Habit * habit;
 -(void)showChainsForHabit:(Habit*)habit;
+-(NSDate*)dayInPreviousMonth;
+-(NSDate*)dayInNextMonth;
+-(void)showMonthIncludingTime:(NSDate*)time;
+@property (nonatomic, strong) NSDate * dateToShow;
+@property (nonatomic, weak) id<CalendarNavigation> navigationDelegate;
 @end

@@ -176,7 +176,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         <connections>
-                                                            <segue destination="7Fw-C3-VN2" kind="embed" identifier="Calendar" id="l2J-qe-ubf"/>
+                                                            <segue destination="zQe-DZ-7cl" kind="embed" identifier="Calendar" id="EXx-qa-ZAe"/>
                                                         </connections>
                                                     </containerView>
                                                 </subviews>
@@ -264,6 +264,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ax9-pB-uHw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1560" y="-319"/>
+        </scene>
+        <!--Calendar Page View Controller-->
+        <scene sceneID="SVB-Lh-ldy">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="zQe-DZ-7cl" customClass="CalendarPageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XEi-cX-h64" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021" y="-193"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="0VC-hD-BIJ">
@@ -379,25 +387,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fj9-cS-t7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1560" y="336"/>
-        </scene>
-        <!--Calendar View Controller-->
-        <scene sceneID="RWF-WW-gt4">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="7Fw-C3-VN2" customClass="CalendarViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DuC-je-63n"/>
-                        <viewControllerLayoutGuide type="bottom" id="8mx-jj-jWn"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OJr-Mp-Edd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="276"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bov-Mf-Xhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1998" y="-112"/>
         </scene>
     </scenes>
     <resources>
