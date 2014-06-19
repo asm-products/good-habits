@@ -13,6 +13,8 @@
 #define STORE_NAME @"HabitsStore"
 #define DB_NAME @"HabitsStore.sqlite"
 
+// see http://www.objc.io/issue-10/icloud-core-data.html
+// see http://www.objc.io/issue-4/full-core-data-application.html
 
 @interface CoreDataClient(Privates)
 - (NSDictionary *)iCloudPersistentStoreOptions;
