@@ -9,96 +9,128 @@
 #import "CoreDataClient.h"
 #import "HabitsList.h"
 #import <UIAlertView+Blocks.h>
-@import CoreData;
 
-@implementation CoreDataClient{
-    NSManagedObjectContext * _managedObjectContext;
-    NSURL * iCloudStoreURL;
-}
--(NSManagedObjectContext*)managedObjectContext{
-    if(!_managedObjectContext)
-        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    return _managedObjectContext;
-}
--(void)saveInBackground{
-    [self.managedObjectContext performBlock:^{
-        NSError * error;
-        [self.managedObjectContext save:&error];
-        if(error) NSLog(@"Error saving managed object context %@", error);
-    }];
-}
+#define STORE_NAME @"HabitsStore"
+#define DB_NAME @"HabitsStore.sqlite"
+
+
+@interface CoreDataClient(Privates)
+- (NSDictionary *)iCloudPersistentStoreOptions;
+@end
+
+@implementation CoreDataClient
 -(instancetype)init{
     if(self = [super init]){
-        [self setup];
+        [self build];
     }
     return self;
 }
-
--(void)waitForOneTimeSetup{
-    [[NSNotificationCenter defaultCenter]
-     addObserverForName:NSPersistentStoreCoordinatorStoresWillChangeNotification
-     object:self.managedObjectContext.persistentStoreCoordinator
-     queue:[NSOperationQueue mainQueue]
-     usingBlock:^(NSNotification *note) {
-         [self.managedObjectContext performBlock:^{
-             if ([self.managedObjectContext hasChanges]) {
-                 NSError *saveError;
-                 if (![self.managedObjectContext save:&saveError]) {
-                     NSLog(@"Save error: %@", saveError);
-                 }
-             } else {
-                 [self.managedObjectContext reset];
-             }
-         }];
-     }];
-
+-(void)build{
+    [self registerForiCloudNotifications];
+    [self setupManagedObjectContext];
+//    [self nukeStore];
 }
--(void)setup{
+-(void)nukeStore{
+    NSError * error;
+    NSURL * url = self.persistentStore.URL;
+    NSLog(@"Delete store at url %@", url.absoluteString);
+    BOOL success = [NSPersistentStoreCoordinator removeUbiquitousContentAndPersistentStoreAtURL:url options:@{NSPersistentStoreUbiquitousContentNameKey:STORE_NAME} error:&error];
+    if(error || !success){
+        NSLog(@"error! %@", error.localizedDescription);
+    }
+    if(success) NSLog(@"NUKED!");
+    exit(0);
+}
+-(void)saveInBackground{
+    [self.managedObjectContext performBlock:^{
+        if([self.managedObjectContext hasChanges]){
+            NSError * error;
+            [self.managedObjectContext save:&error];
+            if(error) NSLog(@"Error saving! %@", error.localizedDescription);
+        }
+    }];
+}
+/// Use these options in your call to -addPersistentStore:
+- (NSDictionary *)iCloudPersistentStoreOptions {
+    return @{NSPersistentStoreUbiquitousContentNameKey:STORE_NAME, NSMigratePersistentStoresAutomaticallyOption: @YES,
+             NSInferMappingModelAutomaticallyOption: @YES}; // @"MyHabitsStore". @"HabitsStore"
+}
+-(NSURL*)storeURL{
     NSURL *documentsDirectory = [[[NSFileManager defaultManager]
                                   URLsForDirectory:NSDocumentDirectory
                                   inDomains:NSUserDomainMask] lastObject];
-    NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:@"MyHabits.sqlite"];
-    NSError *error = nil;
+    NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:DB_NAME];
+    return storeURL;
+}
+-(NSManagedObjectModel*)managedObjectModel{
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Habits" withExtension:@"momd"];
     NSManagedObjectModel * model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc]
-                                                 initWithManagedObjectModel:model];
-    self.managedObjectContext.persistentStoreCoordinator = coordinator;
-    
-    NSDictionary *storeOptions = @{NSPersistentStoreUbiquitousContentNameKey: @"MyHabitsCloudStore",
-                                   NSMigratePersistentStoresAutomaticallyOption: @YES,
-                                   NSInferMappingModelAutomaticallyOption: @YES};
-    NSPersistentStore *store = [coordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                         configuration:nil
-                                                                   URL:storeURL
-                                                               options:storeOptions
-                                                                 error:&error];
-    iCloudStoreURL = [store URL];
-    
-    [self waitForOneTimeSetup];
-    [self trackChangesFrom_iCloudAndOtherContexts];
+    return model;
 }
--(void)trackChangesFrom_iCloudAndOtherContexts{
-    void (^block)(NSNotification*) = ^(NSNotification *note) {
-        [self.managedObjectContext performBlockAndWait:^{
-            [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
-        }];
-        [HabitsList refreshFromManagedObjectContext:self.managedObjectContext];
-        [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
+- (void)setupManagedObjectContext
+{
+    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    NSError* error;
+    self.persistentStore = [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeURL options:self.iCloudPersistentStoreOptions error:&error];
+    if (error) {
+        NSLog(@"error: %@", error);
+    }
+}
+#pragma mark - Notification Observers
+- (void)registerForiCloudNotifications {
+    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+	
+    [notificationCenter addObserver:self
+                           selector:@selector(storesWillChange:)
+                               name:NSPersistentStoreCoordinatorStoresWillChangeNotification
+                             object:self.persistentStoreCoordinator];
+    
+    [notificationCenter addObserver:self
+                           selector:@selector(storesDidChange:)
+                               name:NSPersistentStoreCoordinatorStoresDidChangeNotification
+                             object:self.persistentStoreCoordinator];
+    
+    [notificationCenter addObserver:self
+                           selector:@selector(persistentStoreDidImportUbiquitousContentChanges:)
+                               name:NSPersistentStoreDidImportUbiquitousContentChangesNotification
+                             object:self.persistentStoreCoordinator];
+}
 
+# pragma mark - iCloud Support
+- (void) persistentStoreDidImportUbiquitousContentChanges:(NSNotification *)changeNotification {
+    NSManagedObjectContext *context = self.managedObjectContext;
+	
+    [context performBlock:^{
+        [context mergeChangesFromContextDidSaveNotification:changeNotification];
+    }];
+}
+
+- (void)storesWillChange:(NSNotification *)notification {
+    NSManagedObjectContext *context = self.managedObjectContext;
+	
+    [context performBlockAndWait:^{
+        NSError *error;
+		
+        if ([context hasChanges]) {
+            BOOL success = [context save:&error];
+            
+            if (!success && error) {
+                // perform error handling
+                NSLog(@"%@",[error localizedDescription]);
+            }
+        }
         
-    };
-    [[NSNotificationCenter defaultCenter]
-     addObserverForName:NSPersistentStoreDidImportUbiquitousContentChangesNotification
-     object:self.managedObjectContext.persistentStoreCoordinator
-     queue:[NSOperationQueue mainQueue]
-     usingBlock:block];
-    [[NSNotificationCenter defaultCenter]
-     addObserverForName:NSManagedObjectContextDidSaveNotification
-     object:self.managedObjectContext.persistentStoreCoordinator
-     queue:[NSOperationQueue mainQueue]
-     usingBlock:block];
-;
+        [context reset];
+    }];
+    
+    // Refresh your User Interface.
+    [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:self];
 }
 
+- (void)storesDidChange:(NSNotification *)notification {
+    // Refresh your User Interface.
+    [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:self];
+    
+}
 @end

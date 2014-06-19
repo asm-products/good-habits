@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@import CoreData;
 @interface CoreDataClient : NSObject
--(NSManagedObjectContext*)managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext * managedObjectContext;
+@property (nonatomic, strong) NSPersistentStoreCoordinator * persistentStoreCoordinator;
+@property (nonatomic, strong) NSPersistentStore * persistentStore;
 -(void)saveInBackground;
 @end
