@@ -64,8 +64,8 @@ COLOR_ACCESSOR(notRequiredColor, 0xA6B4C3);
 +(NSArray *)colorsFromMotion{
     NSArray * result = nil;
     if(result == nil){
-        result = [[[self hexCodes] allValues] map:^id(id obj) {
-            return [AVHexColor colorWithHexString:obj];
+        result = [@[@"green",@"purple",@"orange",@"yellow",@"pink",@"blue",@"brown"] map:^id(NSString* key) {
+            return [AVHexColor colorWithHexString:[self hexCodes][key] ];
         }];
     }
     return result;
