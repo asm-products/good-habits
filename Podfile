@@ -13,4 +13,6 @@ end
 target "HabitsTests" do
     pod 'Specta', '~> 0.2.1'
     pod 'Expecta'
+    pod 'OCMock', '~> 3.0'
+    pod 'KIF', '~> 3.0'
 end
