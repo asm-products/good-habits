@@ -41,7 +41,6 @@
 		AC4018F51951A5FE0033407B /* HabitsList.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F41951A5FE0033407B /* HabitsList.m */; };
 		AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F91951BF2E0033407B /* CoreDataClient.m */; };
 		AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4018FB1951C2950033407B /* Habits.xcdatamodeld */; };
-		AC7AF2B01951EA7100BF3000 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC7AF2AF1951EA7100BF3000 /* Settings.bundle */; };
 		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
@@ -214,7 +213,6 @@
 		AC4018F81951BF2E0033407B /* CoreDataClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataClient.h; sourceTree = "<group>"; };
 		AC4018F91951BF2E0033407B /* CoreDataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataClient.m; sourceTree = "<group>"; };
 		AC4018FC1951C2950033407B /* Habits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habits.xcdatamodel; sourceTree = "<group>"; };
-		AC7AF2AF1951EA7100BF3000 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -490,7 +488,6 @@
 				ACADB3E5190D23B90030CC82 /* Main.storyboard */,
 				ACADB3EB190D23B90030CC82 /* Images.xcassets */,
 				ACADB3DA190D23B90030CC82 /* Supporting Files */,
-				AC7AF2AF1951EA7100BF3000 /* Settings.bundle */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -785,7 +782,6 @@
 				AC4018A7195066E00033407B /* LICENSE in Resources */,
 				ACADB46C190D27960030CC82 /* guide_8.png in Resources */,
 				ACADB466190D27960030CC82 /* guide_5.png in Resources */,
-				AC7AF2B01951EA7100BF3000 /* Settings.bundle in Resources */,
 				ACADB480190D27960030CC82 /* guide_18.png in Resources */,
 				ACADB49E190D27960030CC82 /* add@2x.png in Resources */,
 				ACADB47F190D27960030CC82 /* guide_17@2x.png in Resources */,
