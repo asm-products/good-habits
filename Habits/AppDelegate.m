@@ -46,6 +46,28 @@
         self.window.userInteractionEnabled = YES;
     }];
 }
+
+-(void)applicationWillEnterForeground:(UIApplication *)application{
+    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
+}
+-(void)applicationSignificantTimeChange:(UIApplication *)application{
+    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
+    
+}
+//-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+//    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
+//    [HabitsList recalculateAllNotifications];
+//    [Notifications reschedule];
+//}
+-(void)applicationWillResignActive:(UIApplication *)application{
+    [HabitsList recalculateAllNotifications];
+    [Notifications reschedule];
+}
+-(void)applicationDidBecomeActive:(UIApplication *)application{
+    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
+    
+}
+
 -(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
     return YES;
 }

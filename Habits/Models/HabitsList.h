@@ -10,6 +10,7 @@
 #import "Habit.h"
 
 #define HABITS_UPDATED @"HABITS_UPDATED"
+#define REFRESH @"REFRESH"
 
 @interface HabitsList : NSObject
 +(NSMutableArray*)all;

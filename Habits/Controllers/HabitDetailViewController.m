@@ -40,8 +40,6 @@
 -(void)build{
     self.navigationItem.title = @"";
     self.titleTextField.text = self.habit.title;
-    self.timePicker.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
-    self.timePicker.layer.borderWidth = 1.0;
     [self updateRemindersButtonTitle];
     if(self.habit.reminderTime){
         [self.timePicker setDate:[[NSCalendar currentCalendar] dateFromComponents:self.habit.reminderTime]];

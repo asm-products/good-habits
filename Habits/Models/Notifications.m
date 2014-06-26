@@ -13,6 +13,7 @@
 #import "HabitsList.h"
 @implementation Notifications
 +(void)reschedule{
+    NSLog(@"Rescheduling notifications");
     NSDate * now = [TimeHelper now];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[[[HabitsList active] filter:^BOOL(Habit * h) {
         return [h needsToBeDone: now];
