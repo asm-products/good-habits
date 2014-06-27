@@ -21,7 +21,8 @@ NSDateFormatter * dateKeyFormatter(){
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         formatter = [NSDateFormatter new];
-        formatter.dateFormat = @"YYYY-MM-dd";
+        [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+        formatter.dateFormat = @"yyyy-MM-dd";
     });
     return formatter;
 }
@@ -75,7 +76,7 @@ NSDate * dateFromKey(NSString * key){
 }
 #pragma mark - Meta
 -(NSDate*)earliestDate{
-    if(self.daysChecked.count == 1) return [TimeHelper now];
+    if(self.daysChecked.count == 0) return [TimeHelper now];
     NSDate * date = dateFromKey( [[self.daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] firstObject] );
     return date;
 }
@@ -117,7 +118,7 @@ NSDate * dateFromKey(NSString * key){
     NSDate * earliestDate = [self earliestDate];
     NSDate * now = [TimeHelper now];
     YLMoment * lastDay = [[YLMoment momentWithDate:now] startOfCalendarUnit:NSDayCalendarUnit];
-    while([lastDay.date timeIntervalSinceDate:earliestDate]  > 0){
+    while([lastDay.date timeIntervalSinceDate:earliestDate]  >= 0){
         if([self includesDate: lastDay.date]){
             count += 1;
         }
@@ -149,6 +150,7 @@ NSDate * dateFromKey(NSString * key){
 }
 
 -(BOOL)includesDate:(NSDate*)date{
+    NSLog(@"Date: %@, key: %@", date, dayKey(date));
     return self.daysChecked[ dayKey(date) ] != nil;
 }
 #pragma mark - Data management

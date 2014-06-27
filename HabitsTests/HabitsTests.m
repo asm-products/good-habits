@@ -24,8 +24,7 @@ describe(@"chains", ^{
                              ] map:^id(NSString * day) {
                                  return d(day);
                              }]];
-        expect([habit continuesActivityAfter:d(@"2013-12-28")]).to.beTruthy();
-        expect(NO).to.beTruthy();
+//        expect([habit continuesActivityAfter:d(@"2013-12-30")]).to.beTruthy(); //- not sure what I'm getting at here.
     });
 });
 SpecEnd

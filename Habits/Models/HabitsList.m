@@ -100,6 +100,9 @@ static CoreDataClient * __coreDataClient = nil;
 }
 +(void)overwriteHabits:(NSArray *)array{
     __allHabits = array.mutableCopy;
+    for(Habit * habit in __allHabits) [habit recalculateLongestChain];
+    [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil userInfo:nil];
+    
 //    [self saveAll];
 }
 #pragma mark - Notifications

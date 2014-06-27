@@ -41,6 +41,7 @@
 		AC4018F51951A5FE0033407B /* HabitsList.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F41951A5FE0033407B /* HabitsList.m */; };
 		AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F91951BF2E0033407B /* CoreDataClient.m */; };
 		AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4018FB1951C2950033407B /* Habits.xcdatamodeld */; };
+		AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */; };
 		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
@@ -213,6 +214,7 @@
 		AC4018F81951BF2E0033407B /* CoreDataClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataClient.h; sourceTree = "<group>"; };
 		AC4018F91951BF2E0033407B /* CoreDataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataClient.m; sourceTree = "<group>"; };
 		AC4018FC1951C2950033407B /* Habits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habits.xcdatamodel; sourceTree = "<group>"; };
+		AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitsListTests.m; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -508,6 +510,7 @@
 			children = (
 				ACADB3FE190D23B90030CC82 /* HabitsTests.m */,
 				ACADB3F9190D23B90030CC82 /* Supporting Files */,
+				AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */,
 			);
 			path = HabitsTests;
 			sourceTree = "<group>";
@@ -956,6 +959,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */,
 				ACADB3FF190D23B90030CC82 /* HabitsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
