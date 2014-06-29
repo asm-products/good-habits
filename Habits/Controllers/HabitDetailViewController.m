@@ -12,6 +12,7 @@
 #import "TimeHelper.h"
 #import "Colors.h"
 #import "HabitsList.h"
+#import <UIActionSheet+Blocks.h>
 
 typedef enum{
     HabitDetailCellIndexReminderButton,
@@ -27,6 +28,9 @@ typedef enum{
 @property (nonatomic, strong) CalendarPageViewController * calendar;
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UIButton *clearReminderButton;
+@property (weak, nonatomic) IBOutlet UIButton *toggleActiveButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UILabel *pausedLabel;
 @end
 
 @implementation HabitDetailViewController
@@ -44,7 +48,9 @@ typedef enum{
 -(void)build{
     self.navigationItem.title = @"";
     self.titleTextField.text = self.habit.title;
+    self.pausedLabel.transform = CGAffineTransformMakeRotation(- M_PI / 4);
     [self updateRemindersButtonTitle];
+    [self updateActiveState];
     if(self.habit.reminderTime){
         [self.timePicker setDate:[[NSCalendar currentCalendar] dateFromComponents:self.habit.reminderTime]];
     }
@@ -66,7 +72,7 @@ typedef enum{
     self.habit.title = self.titleTextField.text;
     [self.habit save];
 }
-
+#pragma mark - Reminders
 -(void)dayPickerDidChange:(DayPicker *)sender{
     [self.calendar refresh];
 }
@@ -126,10 +132,41 @@ typedef enum{
 - (IBAction)didChangeTime:(id)sender {
     [self saveReminder];
 }
+#pragma mark - title
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     self.habit.title = textField.text;
     [self.habit save];
     return YES;
+}
+#pragma mark - pause
+- (IBAction)didPressToggleActive:(id)sender {
+    self.habit.isActive = @(!self.habit.isActive.boolValue);
+    [self updateActiveState];
+    [self.habit save];
+}
+-(void)updateActiveState{
+    NSString * title;
+    CGFloat alpha;
+    if(self.habit.isActive.boolValue){
+        title = @"Pause this habit";
+        alpha = 1.0;
+    }else{
+        title = @"Resume this habit";
+        alpha = 0.5;
+    }
+    [self.toggleActiveButton setTitle:title forState:UIControlStateNormal];
+    self.calendar.view.alpha = alpha;
+    self.remindersButton.alpha = alpha;
+    self.titleTextField.alpha = alpha;
+    self.pausedLabel.hidden = self.habit.isActive.boolValue;
+}
+#pragma mark - delete
+- (IBAction)didPressDeleteButton:(id)sender {
+    [[[UIActionSheet alloc] initWithTitle:@"Delete this habit? This cannot be undone." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] destructiveButtonItem:[RIButtonItem itemWithLabel:@"Delete" action:^{
+        [HabitsList deleteHabit:self.habit];
+        [self.navigationController popViewControllerAnimated:YES];
+        [HabitsList saveAll];
+    }] otherButtonItems:nil] showInView:self.view];
 }
 @end
