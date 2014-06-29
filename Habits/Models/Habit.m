@@ -154,15 +154,26 @@ NSDate * dateFromKey(NSString * key){
     return self.daysChecked[ dayKey(date) ] != nil;
 }
 #pragma mark - Data management
--(void)loadDefaultValues{
-    self.identifier = [[NSUUID UUID] UUIDString];
-    self.title = @"New Habit";
-    self.color = [Colors colorsFromMotion][[HabitsList nextUnusedColorIndex]];
-    self.isActive = @YES;
-    self.daysRequired = [[Calendar days] map:^id(id obj) {
+-(NSString *)identifier{
+    _identifier = _identifier ?: [[NSUUID UUID] UUIDString]; return _identifier;
+}
+-(NSString *)title{
+    _title = _title ?: @"New Habit"; return _title;
+}
+-(UIColor *)color{
+    _color = _color ?: [Colors colorsFromMotion][[HabitsList nextUnusedColorIndex]]; return _color;
+}
+-(NSNumber *)isActive{
+    _isActive = _isActive ?: @YES; return _isActive;
+}
+-(NSMutableArray *)daysRequired{
+    _daysRequired = _daysRequired ?: [[Calendar days] map:^id(id obj) {
         return @YES;
     }].mutableCopy;
-    self.daysChecked = [NSMutableDictionary new];
+    return _daysRequired;
+}
+-(NSMutableDictionary *)daysChecked{
+    _daysChecked = _daysChecked ?: [NSMutableDictionary new]; return _daysChecked;
 }
 -(void)save{
     [HabitsList saveAll];
@@ -181,10 +192,14 @@ NSDate * dateFromKey(NSString * key){
     NSDate * now = [TimeHelper now];
     NSInteger dayOffset = ([self due:now] || [self done:now]) ? TOMORROW : TODAY;
     for(int n = 0; n < 7; n ++){
-        NSDate * date = [TimeHelper addDays:dayOffset toDate:now];
-        if([self isRequiredOnWeekday:date]){
+        YLMoment * moment =[ YLMoment momentWithDate: [TimeHelper addDays:dayOffset + n toDate:now]];
+        if([self isRequiredOnWeekday:moment.date]){
             UILocalNotification * notification = [UILocalNotification new];
-            notification.fireDate = date;
+            NSDateComponents * components = self.reminderTime.copy;
+            components.year = moment.year;
+            components.month = moment.month;
+            components.day = moment.day;
+            notification.fireDate = [[NSCalendar currentCalendar] dateFromComponents:components];
             notification.alertBody = self.title;
             notification.repeatInterval = NSWeekCalendarUnit;
             [self.notifications addObject: notification];

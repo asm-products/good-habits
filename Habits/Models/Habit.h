@@ -48,7 +48,6 @@
 -(BOOL)continuesActivityAfter:(NSDate*)date;
 
 #pragma mark - Data management
--(void)loadDefaultValues;
 -(void)save;
 
 #pragma mark - Helper

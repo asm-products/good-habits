@@ -508,8 +508,8 @@
 		ACADB3F8190D23B90030CC82 /* HabitsTests */ = {
 			isa = PBXGroup;
 			children = (
-				ACADB3FE190D23B90030CC82 /* HabitsTests.m */,
 				ACADB3F9190D23B90030CC82 /* Supporting Files */,
+				ACADB3FE190D23B90030CC82 /* HabitsTests.m */,
 				AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */,
 			);
 			path = HabitsTests;

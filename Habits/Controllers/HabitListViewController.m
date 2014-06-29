@@ -179,7 +179,6 @@ typedef enum {
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"New"]){
         Habit * habit = [Habit new];
-        [habit loadDefaultValues];
         [HabitsList.all addObject:habit];
         [self loadGroups];
         NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
