@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Habit.h"
-@interface HabitDetailViewController : UIViewController
+@interface HabitDetailViewController : UITableViewController
 @property (nonatomic, strong) Habit * habit;
 @end
