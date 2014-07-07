@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle.h>
-@interface Habit : MTLModel<MTLManagedObjectSerializing>
+@interface Habit : MTLModel<MTLManagedObjectSerializing,MTLJSONSerializing>
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, strong) UIColor * color;

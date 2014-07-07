@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F79A2189454A3AAF48A73F /* libPods-Habits.a */; };
 		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
+		AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */; };
+		AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */; };
 		AC40187519504ADB0033407B /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
 		AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187819504E630033407B /* MotionToMantleMigrator.m */; };
 		AC40187D195058650033407B /* CellWithCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187C195058650033407B /* CellWithCheckBox.m */; };
@@ -148,6 +150,8 @@
 		218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.xcconfig"; path = "Pods/Pods-HabitsTests.xcconfig"; sourceTree = "<group>"; };
 		623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.xcconfig"; path = "Pods/Pods-Habits.xcconfig"; sourceTree = "<group>"; };
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_lots.json; sourceTree = "<group>"; };
+		AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONImportTests.m; sourceTree = "<group>"; };
 		AC40187319504ADB0033407B /* TimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeHelper.h; sourceTree = "<group>"; };
 		AC40187419504ADB0033407B /* TimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelper.m; sourceTree = "<group>"; };
 		AC40187719504E630033407B /* MotionToMantleMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionToMantleMigrator.h; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 		AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitsListTests.m; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
+		ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 2.xcdatamodel"; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -342,6 +347,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC1EB1041960C5B100549AC9 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		AC40187619504E450033407B /* Migration */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,8 +521,10 @@
 		ACADB3F8190D23B90030CC82 /* HabitsTests */ = {
 			isa = PBXGroup;
 			children = (
+				AC1EB1041960C5B100549AC9 /* Fixtures */,
 				ACADB3F9190D23B90030CC82 /* Supporting Files */,
 				ACADB3FE190D23B90030CC82 /* HabitsTests.m */,
+				AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */,
 				AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */,
 			);
 			path = HabitsTests;
@@ -842,6 +857,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */,
+				AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +977,7 @@
 			files = (
 				AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */,
 				ACADB3FF190D23B90030CC82 /* HabitsTests.m in Sources */,
+				AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1196,9 +1213,10 @@
 		AC4018FB1951C2950033407B /* Habits.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */,
 				AC4018FC1951C2950033407B /* Habits.xcdatamodel */,
 			);
-			currentVersion = AC4018FC1951C2950033407B /* Habits.xcdatamodel */;
+			currentVersion = ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */;
 			path = Habits.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

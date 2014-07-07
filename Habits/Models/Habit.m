@@ -47,6 +47,17 @@ NSDate * dateFromKey(NSString * key){
              @"notifications": [NSNull null]
              }; // mapping everything directly
 }
+#pragma mark - MTLJSONSerializing
++(NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{@"createdAt": @"created_at",
+             @"daysChecked":@"days_checked",
+             @"reminderTime":@"reminder_time",
+             @"isActive":@"active",
+             @"daysRequired":@"days_required",
+             @"longestChain":@"longest_chain",
+             @"notifications": [NSNull null]
+             };
+}
 
 #pragma mark - Individual state
 -(BOOL)isRequiredToday{
@@ -150,7 +161,6 @@ NSDate * dateFromKey(NSString * key){
 }
 
 -(BOOL)includesDate:(NSDate*)date{
-    NSLog(@"Date: %@, key: %@", date, dayKey(date));
     return self.daysChecked[ dayKey(date) ] != nil;
 }
 #pragma mark - Data management

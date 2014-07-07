@@ -42,7 +42,8 @@
     self.label.alpha = self.inactive ? 0.5 : 1.0;
     self.checkbox.checked = [habit done: self.now];
     self.checkbox.label = habit.title;
-    self.label.text = habit.title;
+    self.label.text =// [NSString stringWithFormat:@"%@ %@",habit.identifier,habit.title];//
+        habit.title;
     self.label.textColor = [self labelTextColor];
     
     NSInteger currentChainLength = habit.currentChainLength;
