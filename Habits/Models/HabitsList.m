@@ -11,6 +11,7 @@
 #import "Colors.h"
 #import "CoreDataClient.h"
 #import <Mantle.h>
+#import "HabitCategory.h"
 static NSMutableArray * __allHabits = nil;
 static CoreDataClient * __coreDataClient = nil;
 
@@ -21,9 +22,6 @@ static CoreDataClient * __coreDataClient = nil;
         [self loadFromCoreData];
     }
     return __allHabits;
-}
-+(void)deleteHabit:(Habit *)habit{
-    [[self all] removeObject:habit];
 }
 
 #pragma mark - Groups
@@ -68,6 +66,7 @@ static CoreDataClient * __coreDataClient = nil;
 }
 #pragma mark - Data management
 +(void)loadFromCoreData{
+    [HabitCategory loadCategoriesWithClient: [self coreDataClient]];
     [self refreshFromManagedObjectContext: [self coreDataClient].managedObjectContext ];
 }
 +(void)refreshFromManagedObjectContext:(NSManagedObjectContext *)context{
@@ -78,6 +77,16 @@ static CoreDataClient * __coreDataClient = nil;
         return [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:nil];
     }].mutableCopy;
  
+}
++(void)deleteHabit:(Habit *)habit{
+    [__allHabits removeObject:habit];
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
+    request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", habit.identifier];
+    NSArray * results = [self.coreDataClient.managedObjectContext executeFetchRequest:request error:nil];
+    NSLog(@"Deleting %@", results);
+    if (results.count > 0) {
+        [self.coreDataClient.managedObjectContext deleteObject:results.firstObject];
+    }
 }
 +(CoreDataClient*)coreDataClient{
     static dispatch_once_t onceToken;
