@@ -16,6 +16,8 @@
 #import <UIActionSheet+Blocks.h>
 
 typedef enum{
+    HabitDetailCellIndexCalendar,
+    HabitDetailCellIndexColorPicker,
     HabitDetailCellIndexReminderButton,
     HabitDetailCellIndexReminderPicker
 } HabitDetailCellIndex;
@@ -105,6 +107,7 @@ typedef enum{
     [self.remindersButton setTitleColor:visible ? [Colors globalTint]  : [UIColor blackColor] forState:UIControlStateNormal];
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow: visible ? HabitDetailCellIndexReminderPicker : 0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.row == HabitDetailCellIndexReminderPicker) {
