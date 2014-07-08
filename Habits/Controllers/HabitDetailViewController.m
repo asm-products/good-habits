@@ -12,6 +12,7 @@
 #import "TimeHelper.h"
 #import "Colors.h"
 #import "HabitsList.h"
+#import "ColorPickerCell.h"
 #import <UIActionSheet+Blocks.h>
 
 typedef enum{
@@ -31,6 +32,7 @@ typedef enum{
 @property (weak, nonatomic) IBOutlet UIButton *toggleActiveButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UILabel *pausedLabel;
+@property (weak, nonatomic) IBOutlet ColorPickerCell *colorPickerCell;
 @end
 
 @implementation HabitDetailViewController
@@ -44,10 +46,12 @@ typedef enum{
 {
     [super viewDidLoad];
     [self build];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onHabitColorChanged) name:HABIT_COLOR_CHANGED object:nil];
 }
 -(void)build{
     self.navigationItem.title = @"";
     self.titleTextField.text = self.habit.title;
+    self.colorPickerCell.habit = self.habit;
     self.pausedLabel.transform = CGAffineTransformMakeRotation(- M_PI / 4);
     [self updateRemindersButtonTitle];
     [self updateActiveState];
@@ -71,6 +75,10 @@ typedef enum{
     [super viewWillDisappear:animated];
     self.habit.title = self.titleTextField.text;
     [self.habit save];
+}
+
+-(void)onHabitColorChanged{
+    [self.calendar refresh];
 }
 #pragma mark - Reminders
 -(void)dayPickerDidChange:(DayPicker *)sender{

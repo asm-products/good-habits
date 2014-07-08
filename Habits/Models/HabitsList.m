@@ -11,7 +11,6 @@
 #import "Colors.h"
 #import "CoreDataClient.h"
 #import <Mantle.h>
-#import "HabitCategory.h"
 static NSMutableArray * __allHabits = nil;
 static CoreDataClient * __coreDataClient = nil;
 
@@ -66,7 +65,6 @@ static CoreDataClient * __coreDataClient = nil;
 }
 #pragma mark - Data management
 +(void)loadFromCoreData{
-    [HabitCategory loadCategoriesWithClient: [self coreDataClient]];
     [self refreshFromManagedObjectContext: [self coreDataClient].managedObjectContext ];
 }
 +(void)refreshFromManagedObjectContext:(NSManagedObjectContext *)context{

@@ -11,6 +11,8 @@
 		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */; };
 		AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */; };
+		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
+		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
 		AC40187519504ADB0033407B /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
 		AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187819504E630033407B /* MotionToMantleMigrator.m */; };
 		AC40187D195058650033407B /* CellWithCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187C195058650033407B /* CellWithCheckBox.m */; };
@@ -152,6 +154,10 @@
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_lots.json; sourceTree = "<group>"; };
 		AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONImportTests.m; sourceTree = "<group>"; };
+		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
+		AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCell.m; sourceTree = "<group>"; };
+		AC3237AC196BFE9D00A2FF9F /* ColorPickerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerButton.h; sourceTree = "<group>"; };
+		AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerButton.m; sourceTree = "<group>"; };
 		AC40187319504ADB0033407B /* TimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeHelper.h; sourceTree = "<group>"; };
 		AC40187419504ADB0033407B /* TimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelper.m; sourceTree = "<group>"; };
 		AC40187719504E630033407B /* MotionToMantleMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionToMantleMigrator.h; sourceTree = "<group>"; };
@@ -379,6 +385,8 @@
 				AC4018E51950FAB70033407B /* InfoCell.m */,
 				AC4018E71950FB510033407B /* LinkCell.h */,
 				AC4018E81950FB510033407B /* LinkCell.m */,
+				AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */,
+				AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -398,6 +406,8 @@
 				AC4018D61950C51D0033407B /* DayToggle.m */,
 				AC4018DB1950E9940033407B /* DebuggingView.h */,
 				AC4018DC1950E9940033407B /* DebuggingView.m */,
+				AC3237AC196BFE9D00A2FF9F /* ColorPickerButton.h */,
+				AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -948,6 +958,7 @@
 				AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */,
 				AC4018D0195098A50033407B /* Calendar.m in Sources */,
 				ACADB3E4190D23B90030CC82 /* AppDelegate.m in Sources */,
+				AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */,
 				AC4018CA195095030033407B /* MonthGridViewController.m in Sources */,
 				AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */,
 				AC4018B119506B4A0033407B /* Labels.m in Sources */,
@@ -968,6 +979,7 @@
 				AC4018D71950C51D0033407B /* DayToggle.m in Sources */,
 				AC4018CD195096A70033407B /* CalendarDayView.m in Sources */,
 				AC4018E91950FB510033407B /* LinkCell.m in Sources */,
+				AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

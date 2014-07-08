@@ -20,32 +20,29 @@
     [super viewDidLoad];
     self.delegate = self;
     self.dataSource = self;
-    CalendarViewController * calendar = [CalendarViewController new];
-    calendar.habit = self.habit;
-    calendar.dateToShow = [TimeHelper now];
-    calendar.navigationDelegate = self;
+    CalendarViewController * calendar = [self calendarViewControllerForDate:[TimeHelper now]];
     [self setViewControllers:@[calendar] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 
 }
+-(CalendarViewController*)calendarViewControllerForDate:(NSDate*)date{
+    CalendarViewController * calendar = [CalendarViewController new];
+    calendar.habit = self.habit;
+    calendar.dateToShow = date;
+    calendar.navigationDelegate = self;
+    return calendar;
+}
 -(void)refresh{
-//    [self.calendar showChainsForHabit: self.habit];
+    CalendarViewController * calendar = (CalendarViewController*) self.viewControllers.firstObject;
+    [self setViewControllers:@[[self calendarViewControllerForDate:calendar.dateToShow]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
     CalendarViewController * calendar = (CalendarViewController*) viewController;
-    CalendarViewController * result = [CalendarViewController new];
-    result.habit = self.habit;
-    result.navigationDelegate = self;
-    result.dateToShow = calendar.dayInPreviousMonth;
-    return result;
+    return [self calendarViewControllerForDate:calendar.dayInPreviousMonth];
 }
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
     CalendarViewController * calendar = (CalendarViewController*) viewController;
-    CalendarViewController * result = [CalendarViewController new];
-    result.habit = self.habit;
-    result.navigationDelegate = self;
-    result.dateToShow = calendar.dayInNextMonth;
-    return result;
+    return [self calendarViewControllerForDate:calendar.dayInNextMonth];
 }
 -(void)forward{
     [self setViewControllers:@[
