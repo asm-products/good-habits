@@ -164,9 +164,6 @@ NSDate * dateFromKey(NSString * key){
     return self.daysChecked[ dayKey(date) ] != nil;
 }
 #pragma mark - Data management
--(NSString *)identifier{
-    _identifier = _identifier ?: [[NSUUID UUID] UUIDString]; return _identifier;
-}
 -(NSString *)title{
     _title = _title ?: @"New Habit"; return _title;
 }

@@ -72,9 +72,10 @@ static CoreDataClient * __coreDataClient = nil;
     [request setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES ]]];
     NSArray * entities = [context executeFetchRequest:request error:nil];
     __allHabits = [entities map:^id(NSManagedObject * entity) {
+        if([entity valueForKey:@"identifier"] == nil) [entity setValue: [[NSUUID UUID] UUIDString] forKey:@"identifier"];
         return [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:nil];
     }].mutableCopy;
- 
+    
 }
 +(void)deleteHabit:(Habit *)habit{
     [__allHabits removeObject:habit];
