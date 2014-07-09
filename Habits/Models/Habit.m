@@ -44,7 +44,9 @@ NSDate * dateFromKey(NSString * key){
 }
 +(NSDictionary *)managedObjectKeysByPropertyKey{
     return @{
-             @"notifications": [NSNull null]
+             @"notifications": [NSNull null],
+             @"latestAnalysis": [NSNull null]
+             
              }; // mapping everything directly
 }
 #pragma mark - MTLJSONSerializing
@@ -135,30 +137,31 @@ NSDate * dateFromKey(NSString * key){
     NSInteger count = 0;
     NSDate * earliestDate = [self earliestDate];
     NSDate * now = [TimeHelper now];
-    YLMoment * lastDay = [[YLMoment momentWithDate:now] startOfCalendarUnit:NSDayCalendarUnit];
-    while([lastDay.date timeIntervalSinceDate:earliestDate]  >= 0){
+    YLMoment * lastDay = [[YLMoment momentWithDate:earliestDate] startOfCalendarUnit:NSDayCalendarUnit];
+    while([lastDay.date timeIntervalSinceDate:now]  <= 0){
         if([self includesDate: lastDay.date]){
             count += 1;
             self.daysChecked[ dayKey(lastDay.date) ] = @(count);
         }
-        if(![self continuesActivityBefore:lastDay.date]){
+        if(![self continuesActivityAfter:lastDay.date]){
             if(!shouldFindLongest) return count;
+            count = 0;
             result = MAX(result,count);
         }
         
-        [lastDay addAmountOfTime: -1 forCalendarUnit:NSDayCalendarUnit];
+        [lastDay addAmountOfTime: 1 forCalendarUnit:NSDayCalendarUnit];
     }
     return MAX(result,count);
 }
 
 -(NSDate*)continuesActivityBefore:(NSDate*)date{
-    return [self continuesActivityFromDate:date step:-1 limit:7];
+    return [self continuesActivityFromDate:date step:-1 limit:8];
 }
 /**
  *  AKA 'chain continues unbroken after the start date'
  */
 -(NSDate*)continuesActivityAfter:(NSDate*)date{
-    return [self continuesActivityFromDate:date step:1 limit:7];
+    return [self continuesActivityFromDate:date step:1 limit:8];
 }
 -(NSDate*)continuesActivityFromDate:(NSDate*)date step:(NSInteger)step limit:(NSInteger)limit{
     NSInteger index = 1;

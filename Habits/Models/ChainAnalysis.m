@@ -43,7 +43,9 @@
         }else{
             if(inUnbrokenChain){
                 // we got a broken chain
+                
                 NSNumber * chainLength = [self.habit chainLengthOnDate:date];
+                NSLog(@"Chain length of %@  %@ = %@ - chain = %@", self.habit.title, date, chainLength, self.habit.daysChecked);
                 ChainBreak * chainBreak = [[ChainBreak alloc] initWithDictionary:@{
                                                                                    @"habitIdentifier": self.habit.identifier,
                                                                                    @"date": [self.habit nextDayRequiredAfter: date],

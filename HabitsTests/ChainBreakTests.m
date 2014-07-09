@@ -30,7 +30,7 @@ describe(@"Chain breaks", ^{
                                                  @"identifier": @"testing"
                                                  }];
             [habit checkDays:[TestHelpers days: @[@"2014-01-01", @"2014-01-02", @"2014-01-09"]]];
-            ChainAnalysis * analysis = [[ChainAnalysis alloc] initWithHabit:habit startDate:d(@"2013-01-01") endDate:d(@"2014-01-10") calculateImmediately:YES];
+            ChainAnalysis * analysis = [[ChainAnalysis alloc] initWithHabit:habit startDate:d(@"2014-01-01") endDate:d(@"2014-01-10") calculateImmediately:YES];
             expect(analysis.freshChainBreaks.count).to.equal(2);
             ChainBreak * firstBreak = analysis.freshChainBreaks.firstObject;
             expect(firstBreak.date).to.equal(d(@"2014-01-03"));

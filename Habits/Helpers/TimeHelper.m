@@ -49,6 +49,7 @@ static NSDate * selectedDate = nil;
     YLMoment * moment = [YLMoment momentWithDate:date];
     NSString * result = [moment fromDate:[self now]];
     if([result isEqualToString:@"a day ago"]) result = @"Yesterday";
+    if([result isEqualToString:@"a few seconds ago"]) result = @"Today";
     return result;
 }
 @end
