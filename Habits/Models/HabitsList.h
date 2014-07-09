@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Habit.h"
-
+#import "CoreDataClient.h"
 #define HABITS_UPDATED @"HABITS_UPDATED"
 #define REFRESH @"REFRESH"
 
@@ -29,6 +29,8 @@
 +(void)overwriteHabits:(NSArray*)array;
 +(void)loadFromCoreData;
 +(void)refreshFromManagedObjectContext:(NSManagedObjectContext*)context;
++(CoreDataClient*)coreDataClient;
+
 #pragma mark - Notifications
 +(void)recalculateAllNotifications;
 

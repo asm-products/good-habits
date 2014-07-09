@@ -9,9 +9,7 @@
 #import "TimeHelper.h"
 #import <NSArray+F.h>
 #import <YLMoment.h>
-NSDate * d(NSString* key){
-    return [Habit dateFromString:key];
-}
+#import "TestHelpers.h"
 SpecBegin(HabitsTest)
 describe(@"chains", ^{
     it(@"should find continued chains correctly", ^{

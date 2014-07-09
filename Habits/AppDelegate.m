@@ -13,11 +13,13 @@
 #import "HabitsList.h"
 #import "CoreDataClient.h"
 #import "Notifications.h"
+#import "Audits.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [InfoTask trackInstallationDate];
+//    [Audits initialize];
     [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)
     
     if([MotionToMantleMigrator dataCanBeMigrated] && [HabitsList all].count == 0) {
@@ -54,18 +56,30 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
     
 }
-//-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    if([notification.userInfo[@"type"] isEqualToString:@"audit"]){
+        
+    }
 //    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
 //    [HabitsList recalculateAllNotifications];
 //    [Notifications reschedule];
-//}
+}
 -(void)applicationWillResignActive:(UIApplication *)application{
     [HabitsList recalculateAllNotifications];
     [Notifications reschedule];
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSArray * habitsToBeAudited = [Audits habitsToBeAudited];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(habitsToBeAudited.count > 0){
+                UIViewController * controller = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"Audit"];
+                [self.window.rootViewController presentViewController:controller animated:YES completion:nil];
+            }
+        });
+    });
+
 }
 
 -(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{

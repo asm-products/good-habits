@@ -15,17 +15,12 @@
 #import <NSArray+F.h>
 #import "TimeHelper.h"
 #import <YLMoment.h>
-
+#import "TestHelpers.h"
 Habit * habit(NSDictionary*dict){
-    NSError * error;
-    Habit * result = [[Habit alloc] initWithDictionary:dict error:&error];
-    if(error) @throw [NSException exceptionWithName:@"Bad habit error" reason:error.localizedDescription userInfo:@{@"error":error}];
-    return result;
+    return [TestHelpers habit:dict];
 }
 NSMutableArray * everyDay(){
-    return [[Calendar days] map:^id(id obj) {
-        return @YES;
-    }].mutableCopy;
+    return [TestHelpers everyDay];
 }
 
 SpecBegin(HabitsListTests)
@@ -46,10 +41,10 @@ describe(@"list", ^{
             [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-01-01"].date];
             
             [HabitsList overwriteHabits:@[
-                                          habit(@{@"title": @"Todo today", @"active":@YES, @"color":[Colors green], @"daysRequired":everyDay()}),
-                                          habit(@{@"title": @"Todo yesterday", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@YES, @NO, @NO, @NO, @NO, @NO, @NO].mutableCopy  } ),
-                                          habit(@{@"title": @"Todo other days", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@NO,@NO,@YES,@NO,@NO,@NO,@NO].mutableCopy, @"daysChecked": @{@"2013-12-31": @YES}.mutableCopy}),
-                                          habit(@{@"title": @"Todo some other time", @"active":@NO, @"color":[Colors green]})
+                                          habit(@{@"title": @"Todo today", @"active":@YES, @"color":[Colors green], @"daysRequired":everyDay(),@"identifier":@"1"}),
+                                          habit(@{@"title": @"Todo yesterday", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@YES, @NO, @NO, @NO, @NO, @NO, @NO].mutableCopy , @"identifier":@"2"} ),
+                                          habit(@{@"title": @"Todo other days", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@NO,@NO,@YES,@NO,@NO,@NO,@NO].mutableCopy, @"daysChecked": @{@"2013-12-31": @YES}.mutableCopy, @"identifier": @"3"}),
+                                          habit(@{@"title": @"Todo some other time", @"active":@NO, @"color":[Colors green], @"identifier":@"4"})
                                           ]];
         });
         it(@"should show today's habits", ^{

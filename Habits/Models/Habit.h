@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle.h>
+
+@class ChainAnalysis;
+
 @interface Habit : MTLModel<MTLManagedObjectSerializing,MTLJSONSerializing>
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * title;
@@ -31,6 +34,7 @@
 -(BOOL)needsToBeDone:(NSDate*)date;
 -(BOOL)hasReminders;
 -(BOOL)isNew;
+-(NSDate*)nextDayRequiredAfter:(NSDate*)date;
 
 #pragma mark - Meta
 -(NSDate*)earliestDate;
@@ -44,8 +48,9 @@
 -(void)recalculateLongestChain;
 -(NSInteger)currentChainLength;
 -(BOOL)includesDate:(NSDate*)date;
--(BOOL)continuesActivityBefore:(NSDate*)date;
--(BOOL)continuesActivityAfter:(NSDate*)date;
+-(NSDate*)continuesActivityBefore:(NSDate*)date;
+-(NSDate*)continuesActivityAfter:(NSDate*)date;
+-(NSNumber*)chainLengthOnDate:(NSDate*)date;
 
 #pragma mark - Data management
 -(void)save;
@@ -55,4 +60,12 @@
 
 #pragma mark - Notifications
 -(void)recalculateNotifications;
+
+
+#pragma mark - Caching
+/**
+ *  This is initially calculated in [Audits habitsToBeAudited] and is based on a time range decided there. It might be slow to compute so it gets cached here
+    for use in AuditItemViewController
+ */
+@property (nonatomic, strong) ChainAnalysis * latestAnalysis;
 @end

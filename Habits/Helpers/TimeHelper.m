@@ -45,4 +45,10 @@ static NSDate * selectedDate = nil;
     });
     return [formatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:components]];
 }
++(NSString *)timeAgoString:(NSDate *)date{
+    YLMoment * moment = [YLMoment momentWithDate:date];
+    NSString * result = [moment fromDate:[self now]];
+    if([result isEqualToString:@"a day ago"]) result = @"Yesterday";
+    return result;
+}
 @end

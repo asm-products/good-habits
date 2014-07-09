@@ -85,6 +85,13 @@ NSDate * dateFromKey(NSString * key){
 -(BOOL)isNew{
     return [self.title isEqualToString:@"New Habit"]; // brittle
 }
+-(NSDate *)nextDayRequiredAfter:(NSDate *)date{
+    date = [TimeHelper addDays:1 toDate:date];
+    while(![self isRequiredOnWeekday:date]){
+        date = [TimeHelper addDays:1 toDate:date];
+    }
+    return date;
+}
 #pragma mark - Meta
 -(NSDate*)earliestDate{
     if(self.daysChecked.count == 0) return [TimeHelper now];
@@ -132,6 +139,7 @@ NSDate * dateFromKey(NSString * key){
     while([lastDay.date timeIntervalSinceDate:earliestDate]  >= 0){
         if([self includesDate: lastDay.date]){
             count += 1;
+            self.daysChecked[ dayKey(lastDay.date) ] = @(count);
         }
         if(![self continuesActivityBefore:lastDay.date]){
             if(!shouldFindLongest) return count;
@@ -143,25 +151,36 @@ NSDate * dateFromKey(NSString * key){
     return MAX(result,count);
 }
 
--(BOOL)continuesActivityBefore:(NSDate*)date{
+-(NSDate*)continuesActivityBefore:(NSDate*)date{
     return [self continuesActivityFromDate:date step:-1 limit:7];
 }
--(BOOL)continuesActivityAfter:(NSDate*)date{
+/**
+ *  AKA 'chain continues unbroken after the start date'
+ */
+-(NSDate*)continuesActivityAfter:(NSDate*)date{
     return [self continuesActivityFromDate:date step:1 limit:7];
 }
--(BOOL)continuesActivityFromDate:(NSDate*)date step:(NSInteger)step limit:(NSInteger)limit{
+-(NSDate*)continuesActivityFromDate:(NSDate*)date step:(NSInteger)step limit:(NSInteger)limit{
     NSInteger index = 1;
     YLMoment * moment = [YLMoment momentWithDate:date];
     while (index++ < limit) {
         [moment addAmountOfTime:step forCalendarUnit:NSDayCalendarUnit];
-        if([self includesDate:moment.date]) return YES;
-        if([self isRequiredOnWeekday:moment.date]) return NO;
+        if([self includesDate:moment.date]) return moment.date;
+        if([self isRequiredOnWeekday:moment.date]) return nil;
     }
-    return NO;
+    return nil;
 }
 
 -(BOOL)includesDate:(NSDate*)date{
     return self.daysChecked[ dayKey(date) ] != nil;
+}
+-(NSNumber*)chainLengthOnDate:(NSDate *)date{
+    NSNumber* result = [self includesDate:date] ? self.daysChecked[ dayKey(date) ]  : nil;
+    if(!result){
+        NSDate * foundOnDate = [self continuesActivityBefore:date];
+        if(foundOnDate) result = self.daysChecked[ dayKey(foundOnDate)  ];
+    }
+    return result;
 }
 #pragma mark - Data management
 -(NSString *)title{

@@ -15,4 +15,5 @@
 +(NSDateComponents*)dateComponentsForHour:(NSInteger)hour minute:(NSInteger)minute;
 +(NSDate*)addDays:(NSInteger)count toDate:(NSDate*)date;
 +(NSString*)formattedTime:(NSDateComponents*)components;
++(NSString*)timeAgoString:(NSDate*)date;
 @end

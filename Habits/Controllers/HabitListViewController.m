@@ -18,6 +18,8 @@
 #import "Constants.h"
 #import "HabitsList.h"
 #import "InfoTask.h"
+#import "AuditViewController.h"
+#import <NSArray+F.h>
 typedef enum {
     HabitListSectionActive,
     HabitListSectionCarriedOver,
@@ -53,7 +55,7 @@ typedef enum {
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self refresh];
+    [self refresh];   
 }
 -(void)loadGroups{
     groups = @[

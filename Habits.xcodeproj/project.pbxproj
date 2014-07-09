@@ -13,6 +13,19 @@
 		AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
+		AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237AF196C2FB400A2FF9F /* Cross.png */; };
+		AC3237B2196C2FB400A2FF9F /* Cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237B0196C2FB400A2FF9F /* Cross@2x.png */; };
+		AC3237B5196C330B00A2FF9F /* AuditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237B4196C330B00A2FF9F /* AuditViewController.m */; };
+		AC3237B8196C365A00A2FF9F /* AuditItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237B7196C365A00A2FF9F /* AuditItemViewController.m */; };
+		AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */; };
+		AC3237BE196C438900A2FF9F /* Stats.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237BC196C438900A2FF9F /* Stats.png */; };
+		AC3237BF196C438900A2FF9F /* Stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237BD196C438900A2FF9F /* Stats@2x.png */; };
+		AC3237C2196C5EC400A2FF9F /* Audits.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237C1196C5EC400A2FF9F /* Audits.m */; };
+		AC3237C4196D3C6300A2FF9F /* AuditingFlowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237C3196D3C6300A2FF9F /* AuditingFlowTests.m */; };
+		AC3237C6196D407000A2FF9F /* ChainBreakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237C5196D407000A2FF9F /* ChainBreakTests.m */; };
+		AC3237C9196D423400A2FF9F /* TestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237C8196D423400A2FF9F /* TestHelpers.m */; };
+		AC3237CC196D43E300A2FF9F /* ChainBreak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237CB196D43E300A2FF9F /* ChainBreak.m */; };
+		AC3237CF196D440B00A2FF9F /* ChainAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237CE196D440B00A2FF9F /* ChainAnalysis.m */; };
 		AC40187519504ADB0033407B /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
 		AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187819504E630033407B /* MotionToMantleMigrator.m */; };
 		AC40187D195058650033407B /* CellWithCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187C195058650033407B /* CellWithCheckBox.m */; };
@@ -158,6 +171,27 @@
 		AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCell.m; sourceTree = "<group>"; };
 		AC3237AC196BFE9D00A2FF9F /* ColorPickerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerButton.h; sourceTree = "<group>"; };
 		AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerButton.m; sourceTree = "<group>"; };
+		AC3237AF196C2FB400A2FF9F /* Cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cross.png; sourceTree = "<group>"; };
+		AC3237B0196C2FB400A2FF9F /* Cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cross@2x.png"; sourceTree = "<group>"; };
+		AC3237B3196C330B00A2FF9F /* AuditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditViewController.h; sourceTree = "<group>"; };
+		AC3237B4196C330B00A2FF9F /* AuditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditViewController.m; sourceTree = "<group>"; };
+		AC3237B6196C365A00A2FF9F /* AuditItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuditItemViewController.h; sourceTree = "<group>"; };
+		AC3237B7196C365A00A2FF9F /* AuditItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditItemViewController.m; sourceTree = "<group>"; };
+		AC3237B9196C3DAC00A2FF9F /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
+		AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
+		AC3237BC196C438900A2FF9F /* Stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stats.png; sourceTree = "<group>"; };
+		AC3237BD196C438900A2FF9F /* Stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stats@2x.png"; sourceTree = "<group>"; };
+		AC3237C0196C5EC400A2FF9F /* Audits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audits.h; sourceTree = "<group>"; };
+		AC3237C1196C5EC400A2FF9F /* Audits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Audits.m; sourceTree = "<group>"; };
+		AC3237C3196D3C6300A2FF9F /* AuditingFlowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditingFlowTests.m; sourceTree = "<group>"; };
+		AC3237C5196D407000A2FF9F /* ChainBreakTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainBreakTests.m; sourceTree = "<group>"; };
+		AC3237C7196D423400A2FF9F /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
+		AC3237C8196D423400A2FF9F /* TestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelpers.m; sourceTree = "<group>"; };
+		AC3237CA196D43E300A2FF9F /* ChainBreak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainBreak.h; sourceTree = "<group>"; };
+		AC3237CB196D43E300A2FF9F /* ChainBreak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainBreak.m; sourceTree = "<group>"; };
+		AC3237CD196D440B00A2FF9F /* ChainAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainAnalysis.h; sourceTree = "<group>"; };
+		AC3237CE196D440B00A2FF9F /* ChainAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainAnalysis.m; sourceTree = "<group>"; };
+		AC3237D0196D592200A2FF9F /* Habits 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 3.xcdatamodel"; sourceTree = "<group>"; };
 		AC40187319504ADB0033407B /* TimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeHelper.h; sourceTree = "<group>"; };
 		AC40187419504ADB0033407B /* TimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelper.m; sourceTree = "<group>"; };
 		AC40187719504E630033407B /* MotionToMantleMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionToMantleMigrator.h; sourceTree = "<group>"; };
@@ -408,6 +442,8 @@
 				AC4018DC1950E9940033407B /* DebuggingView.m */,
 				AC3237AC196BFE9D00A2FF9F /* ColorPickerButton.h */,
 				AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */,
+				AC3237B9196C3DAC00A2FF9F /* RoundedButton.h */,
+				AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -536,6 +572,8 @@
 				ACADB3FE190D23B90030CC82 /* HabitsTests.m */,
 				AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */,
 				AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */,
+				AC3237C3196D3C6300A2FF9F /* AuditingFlowTests.m */,
+				AC3237C5196D407000A2FF9F /* ChainBreakTests.m */,
 			);
 			path = HabitsTests;
 			sourceTree = "<group>";
@@ -546,6 +584,8 @@
 				ACADB3FA190D23B90030CC82 /* HabitsTests-Info.plist */,
 				ACADB3FB190D23B90030CC82 /* InfoPlist.strings */,
 				AC4018D11950BFAC0033407B /* HabitsTests-Prefix.pch */,
+				AC3237C7196D423400A2FF9F /* TestHelpers.h */,
+				AC3237C8196D423400A2FF9F /* TestHelpers.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -579,6 +619,10 @@
 				AC4018EB195187370033407B /* UserGuideViewController.m */,
 				AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */,
 				AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */,
+				AC3237B3196C330B00A2FF9F /* AuditViewController.h */,
+				AC3237B4196C330B00A2FF9F /* AuditViewController.m */,
+				AC3237B6196C365A00A2FF9F /* AuditItemViewController.h */,
+				AC3237B7196C365A00A2FF9F /* AuditItemViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -610,6 +654,12 @@
 				AC4018F119518EBC0033407B /* DataExport.m */,
 				AC4018F31951A5FE0033407B /* HabitsList.h */,
 				AC4018F41951A5FE0033407B /* HabitsList.m */,
+				AC3237C0196C5EC400A2FF9F /* Audits.h */,
+				AC3237C1196C5EC400A2FF9F /* Audits.m */,
+				AC3237CA196D43E300A2FF9F /* ChainBreak.h */,
+				AC3237CB196D43E300A2FF9F /* ChainBreak.m */,
+				AC3237CD196D440B00A2FF9F /* ChainAnalysis.h */,
+				AC3237CE196D440B00A2FF9F /* ChainAnalysis.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -617,6 +667,10 @@
 		ACADB40C190D26940030CC82 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AC3237BC196C438900A2FF9F /* Stats.png */,
+				AC3237BD196C438900A2FF9F /* Stats@2x.png */,
+				AC3237AF196C2FB400A2FF9F /* Cross.png */,
+				AC3237B0196C2FB400A2FF9F /* Cross@2x.png */,
 				ACADB40D190D27960030CC82 /* Default-568h@2x.png */,
 				ACADB40E190D27960030CC82 /* Default@2x.png */,
 				ACADB40F190D27960030CC82 /* info_nav@2x.png */,
@@ -793,17 +847,20 @@
 				ACADB464190D27960030CC82 /* guide_4.png in Resources */,
 				ACADB488190D27960030CC82 /* trash.png in Resources */,
 				ACADB3EC190D23B90030CC82 /* Images.xcassets in Resources */,
+				AC3237BE196C438900A2FF9F /* Stats.png in Resources */,
 				ACADB49A190D27960030CC82 /* arrow_next.png in Resources */,
 				ACADB461190D27960030CC82 /* guide_2@2x.png in Resources */,
 				ACADB479190D27960030CC82 /* guide_14@2x.png in Resources */,
 				ACADB46D190D27960030CC82 /* guide_8@2x.png in Resources */,
 				ACADB47D190D27960030CC82 /* guide_16@2x.png in Resources */,
+				AC3237B2196C2FB400A2FF9F /* Cross@2x.png in Resources */,
 				ACADB48D190D27960030CC82 /* main_screen@2x.png in Resources */,
 				ACADB493190D27960030CC82 /* detail_screen@2x.png in Resources */,
 				ACADB490190D27960030CC82 /* info.png in Resources */,
 				ACADB484190D27960030CC82 /* info_nav.png in Resources */,
 				ACADB456190D27960030CC82 /* Default-568h@2x.png in Resources */,
 				ACADB477190D27960030CC82 /* guide_13@2x.png in Resources */,
+				AC3237BF196C438900A2FF9F /* Stats@2x.png in Resources */,
 				ACADB494190D27960030CC82 /* detail_screen.png in Resources */,
 				ACADB45F190D27960030CC82 /* guide_1@2x.png in Resources */,
 				ACADB474190D27960030CC82 /* guide_12.png in Resources */,
@@ -858,6 +915,7 @@
 				ACADB47E190D27960030CC82 /* guide_17.png in Resources */,
 				ACADB46F190D27960030CC82 /* guide_9@2x.png in Resources */,
 				ACADB47B190D27960030CC82 /* guide_15@2x.png in Resources */,
+				AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */,
 				ACADB3E7190D23B90030CC82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -943,6 +1001,7 @@
 			files = (
 				AC40187D195058650033407B /* CellWithCheckBox.m in Sources */,
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
+				AC3237B8196C365A00A2FF9F /* AuditItemViewController.m in Sources */,
 				ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */,
 				AC4018F219518EBC0033407B /* DataExport.m in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
@@ -963,9 +1022,11 @@
 				AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */,
 				AC4018B119506B4A0033407B /* Labels.m in Sources */,
 				AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */,
+				AC3237B5196C330B00A2FF9F /* AuditViewController.m in Sources */,
 				AC4018EC195187370033407B /* UserGuideViewController.m in Sources */,
 				AC4018DA1950C7C00033407B /* Notifications.m in Sources */,
 				ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */,
+				AC3237C2196C5EC400A2FF9F /* Audits.m in Sources */,
 				AC4018EF195187BC0033407B /* AppSharing.m in Sources */,
 				AC4018E61950FAB70033407B /* InfoCell.m in Sources */,
 				AC4018841950596A0033407B /* CheckBox.m in Sources */,
@@ -973,8 +1034,11 @@
 				AC4018E01950F79C0033407B /* InfoViewController.m in Sources */,
 				ACADB3E0190D23B90030CC82 /* main.m in Sources */,
 				AC4018D41950C3DE0033407B /* DayPicker.m in Sources */,
+				AC3237CC196D43E300A2FF9F /* ChainBreak.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
+				AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */,
 				AC4018E31950F84C0033407B /* InfoTask.m in Sources */,
+				AC3237CF196D440B00A2FF9F /* ChainAnalysis.m in Sources */,
 				AC4018C4195090260033407B /* CalendarTopView.m in Sources */,
 				AC4018D71950C51D0033407B /* DayToggle.m in Sources */,
 				AC4018CD195096A70033407B /* CalendarDayView.m in Sources */,
@@ -988,7 +1052,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */,
+				AC3237C9196D423400A2FF9F /* TestHelpers.m in Sources */,
+				AC3237C6196D407000A2FF9F /* ChainBreakTests.m in Sources */,
 				ACADB3FF190D23B90030CC82 /* HabitsTests.m in Sources */,
+				AC3237C4196D3C6300A2FF9F /* AuditingFlowTests.m in Sources */,
 				AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1226,9 +1293,10 @@
 			isa = XCVersionGroup;
 			children = (
 				ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */,
+				AC3237D0196D592200A2FF9F /* Habits 3.xcdatamodel */,
 				AC4018FC1951C2950033407B /* Habits.xcdatamodel */,
 			);
-			currentVersion = ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */;
+			currentVersion = AC3237D0196D592200A2FF9F /* Habits 3.xcdatamodel */;
 			path = Habits.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
