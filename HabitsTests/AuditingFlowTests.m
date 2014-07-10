@@ -12,6 +12,7 @@
 #import "HabitsList.h"
 #import "TestHelpers.h"
 #import "TimeHelper.h"
+#import <UIAccessibilityElement-KIFAdditions.h>
 @interface AuditingFlowTests : KIFTestCase
 -(NSString*)didYouBreakTheChain;
 @end
@@ -20,12 +21,11 @@
 -(void)beforeAll{
 
     OCMStub([[OCMockObject mockForClass:[HabitsList class]] saveAll]);
-
+    [TimeHelper selectDate:d(@"2014-01-03")];
     [HabitsList overwriteHabits:@[
                                   [TestHelpers habit:@{@"title": @"First",@"identifier": @"first", @"daysRequired": [TestHelpers everyDay], @"active": @YES,
                                                        @"daysChecked": @{@"2014-01-01": @YES}.mutableCopy }]
                                   ]];
-    
 }
 -(void)testShouldNotShowAuditScreenWhenNotNeeded{
     [TimeHelper selectDate:d(@"2014-01-01")];
@@ -43,12 +43,13 @@
 -(void)testWhenAppLaunchedAndNeedsAuditingForYesterday{
     //
     [TimeHelper selectDate:d(@"2014-01-03")];
-    for(Habit * habit in [HabitsList active]) [habit recalculateLongestChain];
     [self applicationBecameActive];
     [tester waitForViewWithAccessibilityLabel:self.didYouBreakTheChain];
     [tester waitForViewWithAccessibilityLabel:@"1 day"];
     [tester waitForViewWithAccessibilityLabel:@"Yesterday - Thursday 2 Jan"];
-    [tester tapViewWithAccessibilityLabel:@"Dismiss"];
+    [tester tapViewWithAccessibilityLabel:@"I DID THIS"];
+//    [tester tapViewWithAccessibilityLabel:@"Dismiss"];
+    [tester waitForViewWithAccessibilityLabel:@"Checkbox for First Not checked"];
 }
 #pragma mark - Helpers
 -(void)applicationBecameActive{

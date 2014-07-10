@@ -16,6 +16,7 @@
 #import "TimeHelper.h"
 #import <YLMoment.h>
 #import "TestHelpers.h"
+#import <UIAccessibilityElement-KIFAdditions.h>
 Habit * habit(NSDictionary*dict){
     return [TestHelpers habit:dict];
 }
@@ -46,6 +47,11 @@ describe(@"list", ^{
                                           habit(@{@"title": @"Todo other days", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@NO,@NO,@YES,@NO,@NO,@NO,@NO].mutableCopy, @"daysChecked": @{@"2013-12-31": @YES}.mutableCopy, @"identifier": @"3"}),
                                           habit(@{@"title": @"Todo some other time", @"active":@NO, @"color":[Colors green], @"identifier":@"4"})
                                           ]];
+        });
+        beforeEach(^{
+            if([UIAccessibilityElement accessibilityElement:nil view:nil withLabel:@"Dismiss" value:nil traits:UIAccessibilityTraitNone tappable:YES error:nil]){
+                [tester tapViewWithAccessibilityLabel:@"Dismiss"];
+            }
         });
         it(@"should show today's habits", ^{
             [tester waitForViewWithAccessibilityLabel:@"Wednesday 1 January"];

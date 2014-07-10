@@ -71,6 +71,7 @@ static CoreDataClient * __coreDataClient = nil;
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
     [request setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES ]]];
     NSArray * entities = [context executeFetchRequest:request error:nil];
+    if(!entities) return;
     __allHabits = [entities map:^id(NSManagedObject * entity) {
         if([entity valueForKey:@"identifier"] == nil) [entity setValue: [[NSUUID UUID] UUIDString] forKey:@"identifier"];
         return [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:nil];

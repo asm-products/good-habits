@@ -8,6 +8,8 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>Configuration</key>
+	<string>${CONFIGURATION}</string>
 	<key>CFBundleIdentifier</key>
 	<string>goodtohear.habits</string>
 	<key>CFBundleInfoDictionaryVersion</key>

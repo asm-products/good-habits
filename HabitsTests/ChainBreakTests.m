@@ -30,6 +30,8 @@ describe(@"Chain breaks", ^{
                                                  @"identifier": @"testing"
                                                  }];
             [habit checkDays:[TestHelpers days: @[@"2014-01-01", @"2014-01-02", @"2014-01-09"]]];
+            expect(habit.daysChecked[@"2014-01-01"]).to.equal(@1);
+            expect(habit.daysChecked[@"2014-01-02"]).to.equal(@2); // if this is @1 then it *might* be because the system think's its still "YES"
             ChainAnalysis * analysis = [[ChainAnalysis alloc] initWithHabit:habit startDate:d(@"2014-01-01") endDate:d(@"2014-01-10") calculateImmediately:YES];
             expect(analysis.freshChainBreaks.count).to.equal(2);
             ChainBreak * firstBreak = analysis.freshChainBreaks.firstObject;

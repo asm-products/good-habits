@@ -58,7 +58,7 @@
 }
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
     if([notification.userInfo[@"type"] isEqualToString:@"audit"]){
-        
+        [self showAuditScreenIfNeeded];
     }
 //    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
 //    [HabitsList recalculateAllNotifications];
@@ -70,6 +70,9 @@
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
+    [self showAuditScreenIfNeeded];
+}
+-(void)showAuditScreenIfNeeded{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray * habitsToBeAudited = [Audits habitsToBeAudited];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -79,9 +82,7 @@
             }
         });
     });
-
 }
-
 -(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
     return YES;
 }

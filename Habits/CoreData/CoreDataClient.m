@@ -23,6 +23,8 @@
 @implementation CoreDataClient
 -(instancetype)init{
     if(self = [super init]){
+        
+        if([[[NSProcessInfo processInfo] arguments] indexOfObject:@"Testing=1"] != NSNotFound) return self;
         [self build];
     }
     return self;

@@ -107,14 +107,14 @@ NSDate * dateFromKey(NSString * key){
         [self.daysChecked removeObjectForKey:key];
     }else{
         //TODO: change this to store the chain length
-        self.daysChecked[key] = @YES;
+        self.daysChecked[key] = @(-1);
     }
     [self recalculateLongestChain];
 }
 -(void)checkDays:(NSArray *)days{
     for(NSDate * date in days){
         NSString * key = dayKey(date);
-        self.daysChecked[key] = @YES; // TODO: Change this to use numbers instead of BOOLs
+        self.daysChecked[key] = @(-1); // TODO: Change this to use numbers instead of BOOLs
     }
     [self recalculateLongestChain];
 }
@@ -133,12 +133,13 @@ NSDate * dateFromKey(NSString * key){
     return [self calculateChainLengthFindLongest:NO];
 }
 -(NSInteger)calculateChainLengthFindLongest:(BOOL)shouldFindLongest{
+    NSLog(@"Recalculating %@ chain from earliestDate %@", self.title, self.earliestDate);
     NSInteger result = 0;
     NSInteger count = 0;
     NSDate * earliestDate = [self earliestDate];
     NSDate * now = [TimeHelper now];
     YLMoment * lastDay = [[YLMoment momentWithDate:earliestDate] startOfCalendarUnit:NSDayCalendarUnit];
-    while([lastDay.date timeIntervalSinceDate:now]  <= 0){
+    while([lastDay.date timeIntervalSinceDate:now]  < 0){
         if([self includesDate: lastDay.date]){
             count += 1;
             self.daysChecked[ dayKey(lastDay.date) ] = @(count);

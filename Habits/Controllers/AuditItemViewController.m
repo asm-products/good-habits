@@ -47,7 +47,7 @@
     return formatter;
 }
 - (IBAction)didPressCompletionButton:(id)sender {
-    [self.habit checkDays:@[ self.date ]];
+    [self.habit checkDays:@[ self.chainBreak.date ]];
     [excuseTextField resignFirstResponder];
     [self.delegate auditItemViewControllerDidCompleteAudit:self];
 }
