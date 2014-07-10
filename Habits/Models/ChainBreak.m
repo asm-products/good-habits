@@ -20,4 +20,8 @@
 + (NSDictionary *)managedObjectKeysByPropertyKey;{
     return @{};
 }
+
++ (NSSet *)propertyKeysForManagedObjectUniquing{
+    return [NSSet setWithObjects:@"habitIdentifier", @"date", nil];
+}
 @end

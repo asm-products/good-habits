@@ -62,6 +62,9 @@
     }
     
     self.freshChainBreaks = [self findFreshChainBreaks: chainBreaks];
+    for (ChainBreak * chainBreak in self.freshChainBreaks) {
+        [MTLManagedObjectAdapter managedObjectFromModel:chainBreak insertingIntoContext:[HabitsList coreDataClient].managedObjectContext error:nil];
+    }
 }
 -(NSArray*)findFreshChainBreaks:(NSArray*)chainBreaks{
     self.savedChainBreaks = [self loadChainBreaks];

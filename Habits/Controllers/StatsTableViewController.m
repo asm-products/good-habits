@@ -41,7 +41,12 @@ typedef enum {
 {
     return StatsSectionCount;
 }
-
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    switch (section) {
+        case StatsSectionChainBreaks: return @"Broken chains";
+        default: return @"";
+    }
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == StatsSectionChainBreaks){
@@ -55,7 +60,7 @@ typedef enum {
     if(indexPath.section == StatsSectionChainBreaks){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChainBreak" forIndexPath:indexPath];
         ChainBreak * chainBreak = self.chainBreaks[indexPath.row];
-        cell.textLabel.text = [TimeHelper timeAgoString:chainBreak.date];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",[TimeHelper timeAgoString:chainBreak.date], chainBreak.date];
         cell.detailTextLabel.text = chainBreak.notes;
         return cell;
     }

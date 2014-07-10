@@ -78,6 +78,7 @@
 }
 -(void)didSelectFailure{
     [excuseTextField resignFirstResponder];
+    self.chainBreak.notes = excuseTextField.text;
     [self.chainBreak confirmAndSave];
     if(![self showNextChainBreak]){
         [self.delegate auditItemViewControllerDidCompleteAudit:self];
