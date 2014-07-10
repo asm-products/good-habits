@@ -7,7 +7,17 @@
 //
 
 #import "ChainBreak.h"
-
+#import "HabitsList.h"
 @implementation ChainBreak
+-(void)confirmAndSave{
+    NSError * error;
+    [MTLManagedObjectAdapter managedObjectFromModel:self insertingIntoContext:[HabitsList coreDataClient].managedObjectContext error:&error];
+}
++ (NSString *)managedObjectEntityName{
+    return @"ChainBreak";
+}
 
++ (NSDictionary *)managedObjectKeysByPropertyKey;{
+    return @{};
+}
 @end

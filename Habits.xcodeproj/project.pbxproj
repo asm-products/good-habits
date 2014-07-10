@@ -149,6 +149,7 @@
 		ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A0190D2C270030CC82 /* HabitListViewController.m */; };
 		ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A3190D2F5C0030CC82 /* Habit.m */; };
 		ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A6190D34BE0030CC82 /* Colors.m */; };
+		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,6 +359,8 @@
 		ACADB4A3190D2F5C0030CC82 /* Habit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
 		ACADB4A5190D34BE0030CC82 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		ACADB4A6190D34BE0030CC82 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsTableViewController.h; sourceTree = "<group>"; };
+		ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsTableViewController.m; sourceTree = "<group>"; };
 		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -623,6 +626,8 @@
 				AC3237B4196C330B00A2FF9F /* AuditViewController.m */,
 				AC3237B6196C365A00A2FF9F /* AuditItemViewController.h */,
 				AC3237B7196C365A00A2FF9F /* AuditItemViewController.m */,
+				ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */,
+				ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1006,6 +1011,7 @@
 				AC4018F219518EBC0033407B /* DataExport.m in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
 				AC4018B419506C690033407B /* DayNavigation.m in Sources */,
+				ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */,
 				AC4018BA195071380033407B /* HabitDetailViewController.m in Sources */,
 				AC4018A0195066E00033407B /* ATSDragToReorderTableViewController.m in Sources */,
 				AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */,

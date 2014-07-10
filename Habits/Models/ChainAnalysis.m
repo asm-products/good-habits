@@ -64,14 +64,15 @@
     self.freshChainBreaks = [self findFreshChainBreaks: chainBreaks];
 }
 -(NSArray*)findFreshChainBreaks:(NSArray*)chainBreaks{
-    NSArray * savedChainBreaks = [self savedChainBreaks];
+    self.savedChainBreaks = [self loadChainBreaks];
     return [chainBreaks filter:^BOOL(ChainBreak * chainBreak) {
-        return [savedChainBreaks indexOfObjectPassingTest:^BOOL(ChainBreak * savedChainBreak, NSUInteger idx, BOOL *stop) {
+        return [self.savedChainBreaks indexOfObjectPassingTest:^BOOL(ChainBreak * savedChainBreak, NSUInteger idx, BOOL *stop) {
             return [savedChainBreak.date isEqualToDate:chainBreak.date];
         }] == NSNotFound;
     }];
+    
 }
--(NSArray*)savedChainBreaks{
+-(NSArray*)loadChainBreaks{
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"ChainBreak"];
     request.predicate = [NSPredicate predicateWithFormat:@"(date >= %@ AND  date <= %@) AND (habitIdentifier = %@)", self.startDate, self.endDate, self.habit.identifier];
     CoreDataClient * client = [HabitsList coreDataClient];
@@ -81,5 +82,8 @@
         NSError * mtlError;
         return [MTLManagedObjectAdapter modelOfClass:[ChainBreak class] fromManagedObject:obj error:&mtlError];
     }];
+}
+-(NSArray *)allChainBreaks{
+    return [self loadChainBreaks];
 }
 @end

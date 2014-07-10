@@ -15,6 +15,6 @@
 @property (nonatomic, strong) NSDate * endDate;
 -(void)calculate;
 @property (nonatomic, strong) NSArray * freshChainBreaks;
-@property (nonatomic, strong) NSArray * chainBreaks;
-
+@property (nonatomic, strong) NSArray * savedChainBreaks;
+-(NSArray*)allChainBreaks;
 @end

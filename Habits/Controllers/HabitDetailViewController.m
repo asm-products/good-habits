@@ -14,7 +14,7 @@
 #import "HabitsList.h"
 #import "ColorPickerCell.h"
 #import <UIActionSheet+Blocks.h>
-
+#import "StatsTableViewController.h"
 typedef enum{
     HabitDetailCellIndexCalendar,
     HabitDetailCellIndexColorPicker,
@@ -42,6 +42,10 @@ typedef enum{
     if([segue.identifier isEqualToString:@"Calendar"]){
         self.calendar = segue.destinationViewController;
         self.calendar.habit = self.habit;
+    }
+    if([segue.identifier isEqualToString:@"Stats"]){
+        StatsTableViewController * controller = segue.destinationViewController;
+        controller.habit = self.habit;
     }
 }
 - (void)viewDidLoad
