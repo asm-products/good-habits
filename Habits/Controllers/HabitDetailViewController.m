@@ -99,7 +99,7 @@ typedef enum{
 }
 -(void)updateRemindersButtonTitle{
     [self.remindersButton setTitle:self.remindersButtonTitle forState:UIControlStateNormal];
-    [self.clearReminderButton setTitle:self.habit.reminderTime ? @"Clear" : @"Set" forState:UIControlStateNormal];
+    [self.clearReminderButton setTitle:self.habit.reminderTime ? @"Clear reminder" : @"Set reminder" forState:UIControlStateNormal];
 }
 -(void)setRemindersPickerVisible:(BOOL)visible{
     showingTimePicker = visible;

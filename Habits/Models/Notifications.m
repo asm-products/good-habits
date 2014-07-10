@@ -44,10 +44,8 @@
     NSDateComponents * components = [Audits scheduledTime];
     if(!components) return;
     UILocalNotification * notification = [UILocalNotification new];
-    NSDateComponents * todayComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[TimeHelper now]];
-    todayComponents.hour = components.hour;
-    todayComponents.minute = components.minute;
-    NSDate * nextDate = [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
+
+    NSDate * nextDate = [TimeHelper dateForTimeToday: components];
     NSArray * habitsDue = [Audits habitsToBeAudited];
     if(habitsDue.count == 0){
         nextDate = [TimeHelper addDays:1 toDate:nextDate];

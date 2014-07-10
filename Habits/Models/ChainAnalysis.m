@@ -12,7 +12,7 @@
 #import "CoreDataClient.h"
 #import <NSArray+F.h>
 #import "HabitsList.h"
-
+#import "Audits.h"
 @interface NSDate(comparisons)
 -(BOOL)isBefore:(NSDate*)date;
 @end
@@ -37,8 +37,9 @@
     NSMutableArray * chainBreaks = [NSMutableArray new];
     NSDate * date = self.startDate;
     BOOL inUnbrokenChain = YES;
+    BOOL itIsAuditingTime = [[TimeHelper dateForTimeToday:[Audits scheduledTime]] isBefore:[TimeHelper now]];
     while ([date isBefore:self.endDate]) {
-        if([self.habit continuesActivityAfter:date]) {
+        if(([date isEqual:[TimeHelper now].beginningOfDay] && itIsAuditingTime == NO) || [self.habit continuesActivityAfter:date]) {
             inUnbrokenChain = YES;
         }else{
             if(inUnbrokenChain){

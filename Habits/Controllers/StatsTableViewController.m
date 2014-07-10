@@ -67,7 +67,7 @@ typedef enum {
     if(indexPath.section == StatsSectionChainBreaks){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChainBreak" forIndexPath:indexPath];
         ChainBreak * chainBreak = self.chainBreaks[indexPath.row];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",[TimeHelper timeAgoString:chainBreak.date], chainBreak.date];
+        cell.textLabel.text = [TimeHelper timeAgoString:chainBreak.date];//[NSString stringWithFormat:@"%@ - %@",, nil]; // chainBreak.date];
         cell.detailTextLabel.text = chainBreak.notes;
         return cell;
     }

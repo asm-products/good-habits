@@ -20,4 +20,5 @@
 +(NSDate*)addDays:(NSInteger)count toDate:(NSDate*)date;
 +(NSString*)formattedTime:(NSDateComponents*)components;
 +(NSString*)timeAgoString:(NSDate*)date;
++(NSDate*)dateForTimeToday:(NSDateComponents*)components;
 @end

@@ -60,4 +60,10 @@ static NSDate * selectedDate = nil;
     if([result isEqualToString:@"a few seconds ago"]) result = @"Today";
     return result;
 }
++(NSDate *)dateForTimeToday:(NSDateComponents *)components{
+    NSDateComponents * todayComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:[TimeHelper now]];
+    todayComponents.hour = components.hour;
+    todayComponents.minute = components.minute;
+    return [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
+}
 @end

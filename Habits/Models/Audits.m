@@ -29,14 +29,13 @@
     return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 +(NSArray *)habitsToBeAudited{
-
     return [[HabitsList active] filter:^BOOL(Habit * habit) {
         return [self recalculateAnalysisForHabit:habit].freshChainBreaks.count > 0;
     }];
 }
 +(ChainAnalysis*)recalculateAnalysisForHabit:(Habit*)habit{
     NSDate * startDate = [[TimeHelper addDays:-7 toDate:[TimeHelper now]] laterDate:habit.earliestDate].beginningOfDay;
-    NSDate * endDate = [[TimeHelper now] laterDate:habit.earliestDate].beginningOfDay;
+    NSDate * endDate = [TimeHelper now].beginningOfDay;
     NSLog(@"auditing %@ from %@ to %@", habit.title, startDate, endDate);
     ChainAnalysis * analysis = [[ChainAnalysis alloc] initWithHabit:habit startDate:startDate endDate:endDate calculateImmediately:YES];
     NSLog(@"audit results %@ fresh chain break(s)", @(analysis.freshChainBreaks.count));

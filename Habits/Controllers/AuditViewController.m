@@ -41,6 +41,18 @@ typedef enum {
     [self updateScheduledTime];
     currentPageIndicator.numberOfPages = self.habits.count;
     [pageViewController setViewControllers:@[[self auditItemViewController: self.habits.firstObject]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+}
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:AuditRowIndexContent inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 #pragma mark - page view controller
 -(void)setupPageViewController{
