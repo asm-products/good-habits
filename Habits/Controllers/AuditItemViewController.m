@@ -10,6 +10,7 @@
 #import "ChainAnalysis.h"
 #import <YLMoment.h>
 #import "TimeHelper.h"
+#import "Audits.h"
 @interface AuditItemViewController()<UITextFieldDelegate>
 @property (nonatomic, strong) NSMutableArray * chainBreaks;
 @end
@@ -61,8 +62,8 @@
     [excuseTextField resignFirstResponder];
     
     [self.habit checkDays:@[ self.chainBreak.date ]];
-    
-    self.habit.latestAnalysis = [[ChainAnalysis alloc] initWithHabit:self.habit startDate:self.chainBreak.date endDate:[TimeHelper now] calculateImmediately:YES];
+   
+    [Audits recalculateAnalysisForHabit:self.habit];
     self.chainBreaks = self.habit.latestAnalysis.freshChainBreaks.mutableCopy;
     
     if(![self showNextChainBreak]){

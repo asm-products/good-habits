@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Habit.h"
 
 @interface Audits : NSObject
 +(void)initialize;
 +(NSDateComponents*)scheduledTime;
 +(void)saveScheduledTime:(NSDateComponents*)scheduledTime;
 +(NSArray*)habitsToBeAudited;
++(ChainAnalysis*)recalculateAnalysisForHabit:(Habit*)habit;
 @end

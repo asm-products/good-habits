@@ -15,4 +15,5 @@
 @property (nonatomic, strong) NSString * status;
 @property (nonatomic, strong) NSNumber * chainLength;
 -(void)confirmAndSave;
+-(void)destroy;
 @end

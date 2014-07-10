@@ -13,6 +13,12 @@
     NSError * error;
     [MTLManagedObjectAdapter managedObjectFromModel:self insertingIntoContext:[HabitsList coreDataClient].managedObjectContext error:&error];
 }
+-(void)destroy{
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"ChainBreak"];
+    request.predicate = [NSPredicate predicateWithFormat:@"date == %@ AND habitIdentifier == %@", self.date, self.habitIdentifier];
+    NSManagedObject * object = [[HabitsList coreDataClient].managedObjectContext executeFetchRequest:request error:nil].firstObject;
+    [[HabitsList coreDataClient].managedObjectContext deleteObject:object];
+}
 + (NSString *)managedObjectEntityName{
     return @"ChainBreak";
 }

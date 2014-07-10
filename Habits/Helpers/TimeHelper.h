@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@interface NSDate(rounding)
+-(NSDate*)beginningOfDay;
+@end
+
 @interface TimeHelper : NSObject
 +(NSDate*)now;
 +(void)selectDate:(NSDate*)date;

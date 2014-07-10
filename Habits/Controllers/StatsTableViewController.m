@@ -11,6 +11,8 @@
 #import "ChainBreak.h"
 #import "ChainAnalysis.h"
 #import "TimeHelper.h"
+#import "Audits.h"
+#import <NSArray+F.h>
 typedef enum {
     StatsSectionChainBreaks,
     StatsSectionCount
@@ -24,6 +26,11 @@ typedef enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     self.chainBreaks = [self.habit.latestAnalysis allChainBreaks];
     [self.tableView reloadData];
@@ -67,43 +74,25 @@ typedef enum {
     return nil;
 }
 
-/*
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return indexPath.section == StatsSectionChainBreaks;
 }
-*/
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        ChainBreak * chainBreak = self.chainBreaks[indexPath.row];
+        [chainBreak destroy];
+        self.chainBreaks = [self.chainBreaks filter:^BOOL(id obj) {
+            return obj != chainBreak;
+        }];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }else if(editingStyle == UITableViewCellEditingStyleInsert){
+        [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

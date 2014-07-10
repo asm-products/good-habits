@@ -11,6 +11,14 @@
 
 #define ABOUT_ONE_DAY (60 * 60 * 24)
 
+@implementation NSDate(rounding)
+-(NSDate *)beginningOfDay{
+    return [[YLMoment momentWithDate:self] startOfCalendarUnit:NSDayCalendarUnit].date;
+}
+
+@end
+
+
 static NSDate * selectedDate = nil;
 @implementation TimeHelper
 +(NSDateComponents *)dateComponentsForHour:(NSInteger)hour minute:(NSInteger)minute{
