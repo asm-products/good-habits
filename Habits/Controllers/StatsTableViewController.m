@@ -32,6 +32,7 @@ typedef enum {
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+    self.title = self.habit.title;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     self.chainBreaks = [self.habit.latestAnalysis allChainBreaks];
