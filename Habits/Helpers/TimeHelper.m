@@ -15,7 +15,9 @@
 -(NSDate *)beginningOfDay{
     return [[YLMoment momentWithDate:self] startOfCalendarUnit:NSDayCalendarUnit].date;
 }
-
+-(BOOL)isBefore:(NSDate *)date{
+    return [self compare:date] == NSOrderedAscending;
+}
 @end
 
 

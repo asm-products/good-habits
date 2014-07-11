@@ -10,8 +10,8 @@
 
 @interface NSDate(rounding)
 -(NSDate*)beginningOfDay;
+-(BOOL)isBefore:(NSDate*)date;
 @end
-
 @interface TimeHelper : NSObject
 +(NSDate*)now;
 +(void)selectDate:(NSDate*)date;

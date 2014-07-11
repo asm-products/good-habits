@@ -150,6 +150,8 @@
 		ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A3190D2F5C0030CC82 /* Habit.m */; };
 		ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A6190D34BE0030CC82 /* Colors.m */; };
 		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
+		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
+		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -361,6 +363,10 @@
 		ACADB4A6190D34BE0030CC82 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
 		ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsTableViewController.h; sourceTree = "<group>"; };
 		ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsTableViewController.m; sourceTree = "<group>"; };
+		ACDC63BD196F2CD700F68BD6 /* HabitSparklineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitSparklineTableViewCell.h; sourceTree = "<group>"; };
+		ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitSparklineTableViewCell.m; sourceTree = "<group>"; };
+		ACDC63C1196F2D2F00F68BD6 /* DailySparklineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailySparklineView.h; sourceTree = "<group>"; };
+		ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailySparklineView.m; sourceTree = "<group>"; };
 		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -424,6 +430,8 @@
 				AC4018E81950FB510033407B /* LinkCell.m */,
 				AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */,
 				AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */,
+				ACDC63BD196F2CD700F68BD6 /* HabitSparklineTableViewCell.h */,
+				ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -635,6 +643,7 @@
 		ACADB40A190D24EE0030CC82 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ACDC63C0196F2CFB00F68BD6 /* Charts */,
 				AC4018C1195090120033407B /* Calendar */,
 				AC401881195059510033407B /* UI */,
 				AC40187A195058470033407B /* Cells */,
@@ -751,6 +760,15 @@
 				ACADB455190D27960030CC82 /* add@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		ACDC63C0196F2CFB00F68BD6 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC63C1196F2D2F00F68BD6 /* DailySparklineView.h */,
+				ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1042,6 +1060,8 @@
 				AC4018D41950C3DE0033407B /* DayPicker.m in Sources */,
 				AC3237CC196D43E300A2FF9F /* ChainBreak.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
+				ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */,
+				ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */,
 				AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */,
 				AC4018E31950F84C0033407B /* InfoTask.m in Sources */,
 				AC3237CF196D440B00A2FF9F /* ChainAnalysis.m in Sources */,

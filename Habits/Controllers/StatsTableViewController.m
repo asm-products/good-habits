@@ -13,7 +13,9 @@
 #import "TimeHelper.h"
 #import "Audits.h"
 #import <NSArray+F.h>
+#import "HabitSparklineTableViewCell.h"
 typedef enum {
+    StatsSectionSparkline,
     StatsSectionChainBreaks,
     StatsSectionCount
 } StatsSection;
@@ -43,7 +45,12 @@ typedef enum {
 }
 
 #pragma mark - Table view data source
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case StatsSectionSparkline: return 86;
+        default: return 44;
+    }
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return StatsSectionCount;
@@ -56,6 +63,7 @@ typedef enum {
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(section == StatsSectionSparkline) return 1;
     if(section == StatsSectionChainBreaks){
         return self.chainBreaks.count;
     }
@@ -64,6 +72,12 @@ typedef enum {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.section == StatsSectionSparkline){
+        
+        HabitSparklineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Sparkline" forIndexPath:indexPath];
+        cell.habit = self.habit;
+        return cell;
+    }
     if(indexPath.section == StatsSectionChainBreaks){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChainBreak" forIndexPath:indexPath];
         ChainBreak * chainBreak = self.chainBreaks[indexPath.row];

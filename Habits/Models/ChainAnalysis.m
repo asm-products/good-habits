@@ -13,14 +13,6 @@
 #import <NSArray+F.h>
 #import "HabitsList.h"
 #import "Audits.h"
-@interface NSDate(comparisons)
--(BOOL)isBefore:(NSDate*)date;
-@end
-@implementation NSDate(comparisons)
--(BOOL)isBefore:(NSDate *)date{
-    return [self compare:date] == NSOrderedAscending;
-}
-@end
 
 @implementation ChainAnalysis
 -(instancetype)initWithHabit:(Habit *)habit startDate:(NSDate *)startDate endDate:(NSDate *)endDate calculateImmediately:(BOOL)shouldCalculateImmediately{
