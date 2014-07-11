@@ -11,25 +11,12 @@
 #import <NSArray+F.h>
 
 #define INSET 2
+#define SCALE 1.0
 
 @implementation DailySparklineView{
-    CAShapeLayer * lineLayer;
 }
 -(void)awakeFromNib{
     
-}
--(CAShapeLayer*)createLineLayer{
-    lineLayer = [CAShapeLayer layer];
-    lineLayer.frame = CGRectInset(self.bounds, INSET, INSET);
-    lineLayer.strokeColor = [Colors green].CGColor;
-    lineLayer.lineWidth = 1.0;
-    lineLayer.fillColor = [UIColor clearColor].CGColor;
-    [self.layer addSublayer:lineLayer];
-    return lineLayer;
-}
--(void)setColor:(UIColor *)color{
-    _color = color;
-    lineLayer.strokeColor = color.CGColor;
 }
 -(UIBezierPath*)checkPath{
   UIBezierPath* bezierPath = nil;
@@ -44,10 +31,11 @@
     [bezierPath addLineToPoint: CGPointMake(1.55, 2.54)];
     [bezierPath addLineToPoint: CGPointMake(3.25, 0.83)];
     [bezierPath closePath];
+    [bezierPath applyTransform:CGAffineTransformMakeScale(SCALE, SCALE)];
     return bezierPath;
 }
 -(UIBezierPath*)checkBoxPath{
-    return [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 4, 4)];;
+    return [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 4 * SCALE, 4 * SCALE)];;
 }
 -(CGSize)unitSize:(NSArray*)dataPoints bounds:(CGRect)bounds{
     CGFloat step = bounds.size.width / (CGFloat) dataPoints.count;
@@ -61,14 +49,19 @@
     return CGPointMake( unit.width * (CGFloat)index ,
                        bounds.height - value * unit.height);
 }
--(void)setDataPoints:(NSArray *)dataPoints{
-    _dataPoints = dataPoints;
-    if(dataPoints.count < 3) return;
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
     CGRect bounds = CGRectInset(self.bounds, INSET, INSET);
-    CGSize unit = [self unitSize:dataPoints bounds:bounds];
+    if(self.dataPoints.count < 3) return;
+    CGSize unit = [self unitSize:self.dataPoints bounds:bounds];
+    UIBezierPath * checkBoxPath = [self checkBoxPath];
+    UIBezierPath * checkPath = [self checkPath];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, INSET, INSET);
     
     UIBezierPath * path = [UIBezierPath new];
-    [dataPoints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.dataPoints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         CGPoint p = [self pointForStepWithUnitSize:unit index:idx value:[obj floatValue] bounds:bounds.size];
         if(idx == 0){
             [path moveToPoint:p];
@@ -76,26 +69,16 @@
             [path addLineToPoint:p];
         }
     }];
+    path.lineWidth = 1.0;
     path.lineJoinStyle = kCGLineJoinBevel;
-    if(!lineLayer) lineLayer = [self createLineLayer];
-    lineLayer.path = path.CGPath;
-    [lineLayer setNeedsDisplay];
-    [self setNeedsDisplay];
-}
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    if(self.dataPoints.count < 3) return;
-    CGSize unit = [self unitSize:self.dataPoints bounds:lineLayer.bounds];
-    UIBezierPath * checkBoxPath = [self checkBoxPath];
-    UIBezierPath * checkPath = [self checkPath];
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context, INSET, INSET);
+    [self.color setStroke];
+    [path stroke];
+    
     [self.dataPoints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if([obj floatValue] > 0){
-            CGPoint p = [self pointForStepWithUnitSize:unit index:idx value:[obj floatValue] bounds:lineLayer.bounds.size];
+            CGPoint p = [self pointForStepWithUnitSize:unit index:idx value:[obj floatValue] bounds:bounds.size];
             CGContextSaveGState(context);
-            CGContextTranslateCTM(context, p.x - 2, p.y - 2);
+            CGContextTranslateCTM(context, p.x - 2 * SCALE, p.y - 2 * SCALE);
 
             [self.color setFill];
             [checkBoxPath fill];
