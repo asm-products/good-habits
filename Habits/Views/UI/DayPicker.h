@@ -19,4 +19,5 @@
 @interface DayPicker : UIView
 @property (nonatomic, strong) Habit * habit;
 @property (nonatomic, weak) IBOutlet id<DayPickerDelegate> delegate;
+-(void)refresh;
 @end

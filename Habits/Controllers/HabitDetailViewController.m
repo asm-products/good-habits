@@ -17,6 +17,7 @@
 #import "StatsTableViewController.h"
 typedef enum{
     HabitDetailCellIndexCalendar,
+    HabitDetailCellIndexDayPicker,
     HabitDetailCellIndexColorPicker,
     HabitDetailCellIndexReminderButton,
     HabitDetailCellIndexReminderPicker
@@ -30,6 +31,7 @@ typedef enum{
 @property (weak, nonatomic) IBOutlet UIButton *remindersButton;
 @property (nonatomic, strong) CalendarPageViewController * calendar;
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
+@property (weak, nonatomic) IBOutlet DayPicker *dayPicker;
 @property (weak, nonatomic) IBOutlet UIButton *clearReminderButton;
 @property (weak, nonatomic) IBOutlet UIButton *toggleActiveButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
@@ -85,6 +87,7 @@ typedef enum{
 
 -(void)onHabitColorChanged{
     [self.calendar refresh];
+    [self.dayPicker refresh];
 }
 #pragma mark - Reminders
 -(void)dayPickerDidChange:(DayPicker *)sender{

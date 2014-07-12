@@ -47,8 +47,10 @@
         x += ITEM_WIDTH + SPACE;
     }
 }
+-(void)refresh{
+    [self applyBackground];
+}
 -(void)applyBackground{
     self.backgroundColor = self.habit.color;
-    self.layer.cornerRadius = self.frame.size.height * 0.5;
 }
 @end

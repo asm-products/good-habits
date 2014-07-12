@@ -249,8 +249,26 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="52" id="hEa-ba-MaS">
+                                        <rect key="frame" x="0.0" y="340" width="320" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hEa-ba-MaS" id="cJ4-zd-0wt">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XnD-SD-cIB" customClass="DayPicker">
+                                                    <rect key="frame" x="0.0" y="1" width="320" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="7RM-Qo-hbm" id="jKe-TO-Knr"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="klW-Ao-Yse" customClass="ColorPickerCell">
-                                        <rect key="frame" x="0.0" y="340" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="392" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="klW-Ao-Yse" id="1y9-vK-vUo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -258,7 +276,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="J2P-fW-65j" userLabel="Reminder">
-                                        <rect key="frame" x="0.0" y="384" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J2P-fW-65j" id="sKL-kj-Adf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -289,7 +307,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="0.0" id="0NB-zt-Juk" userLabel="Date Picker (collapsed)">
-                                        <rect key="frame" x="0.0" y="428" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="480" width="320" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0NB-zt-Juk" id="EOL-qV-Y70">
                                             <rect key="frame" x="0.0" y="-1" width="320" height="1"/>
@@ -330,7 +348,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Rmx-Fl-nbA" userLabel="Pause this habit">
-                                        <rect key="frame" x="0.0" y="428" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="480" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rmx-Fl-nbA" id="D6t-9B-HOd">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -350,7 +368,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="TNm-hx-idg" userLabel="Delete this habit">
-                                        <rect key="frame" x="0.0" y="472" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TNm-hx-idg" id="Tdy-C9-QUt">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -399,6 +417,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="clearReminderButton" destination="1ut-8Z-WR4" id="ZJT-Bl-Yav"/>
                         <outlet property="colorPickerCell" destination="klW-Ao-Yse" id="UqZ-XU-fNu"/>
                         <outlet property="datePickerCell" destination="0NB-zt-Juk" id="raW-0V-yar"/>
+                        <outlet property="dayPicker" destination="XnD-SD-cIB" id="APo-ZR-9Lf"/>
                         <outlet property="deleteButton" destination="gmw-6d-XIl" id="sxh-w1-4UG"/>
                         <outlet property="pausedLabel" destination="oJx-nH-POl" id="jB2-J5-laf"/>
                         <outlet property="remindersButton" destination="W0x-E3-ClQ" id="aVN-x3-yKA"/>
@@ -906,6 +925,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="toc-2m-8Zg"/>
-        <segue reference="LRt-8p-1fe"/>
+        <segue reference="chS-Yr-Ljg"/>
     </inferredMetricsTieBreakers>
 </document>
