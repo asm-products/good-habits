@@ -21,7 +21,6 @@
 @property (nonatomic, strong) NSNumber * isActive;
 @property (nonatomic, strong) NSNumber * order;
 @property (nonatomic, strong) NSMutableArray * daysRequired;
-@property (nonatomic, strong) NSNumber * longestChain;
 
 @property (nonatomic, strong) NSMutableArray * notifications;
 
@@ -51,6 +50,7 @@
 -(NSDate*)continuesActivityBefore:(NSDate*)date;
 -(NSDate*)continuesActivityAfter:(NSDate*)date;
 -(NSNumber*)chainLengthOnDate:(NSDate*)date;
+-(NSNumber*)longestChain;
 
 #pragma mark - Data management
 -(void)save;

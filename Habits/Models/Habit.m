@@ -127,7 +127,13 @@ NSDate * dateFromKey(NSString * key){
 }
 #pragma mark - Chains
 -(void)recalculateLongestChain{
-    self.longestChain = @([self calculateChainLengthFindLongest:YES]);
+    [self calculateChainLengthFindLongest:YES];
+}
+-(NSNumber *)longestChain{
+    return [self.daysChecked.allValues reduce:^id(id memo, id obj) {
+        NSInteger result = MAX([memo integerValue], [obj integerValue]);
+        return @(result);
+    } withInitialMemo:@0];
 }
 -(NSInteger)currentChainLength{
     return [self calculateChainLengthFindLongest:NO];
