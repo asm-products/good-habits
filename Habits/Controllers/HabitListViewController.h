@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "ATSDragToReorderTableViewController.h"
+#import "Habit.h"
 @interface HabitListViewController : ATSDragToReorderTableViewController<ATSDragToReorderTableViewControllerDelegate>
 -(void)refresh;
+-(void)insertHabit:(Habit*)habit;
 @end

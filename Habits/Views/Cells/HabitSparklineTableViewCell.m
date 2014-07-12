@@ -9,6 +9,7 @@
 #import "HabitSparklineTableViewCell.h"
 #import "DailySparklineView.h"
 #import "TimeHelper.h"
+#import "SparklineHelper.h"
 @implementation HabitSparklineTableViewCell{
     
     __weak IBOutlet DailySparklineView *sparklineView;
@@ -21,16 +22,9 @@
     _habit = habit;
     if (habit.daysChecked.count < 2) return;
     
-    NSMutableArray * dataPoints = [NSMutableArray new];
-    NSDate * now = [TimeHelper now];
-    NSDate * date = habit.earliestDate;
-    while ([date isBefore: now]) {
-        NSNumber * value = [habit includesDate:date] ? [habit chainLengthOnDate:date] : @0;
-        [dataPoints addObject:value];
-        date = [TimeHelper addDays:1 toDate:date];
-    }
+
     sparklineView.color = habit.color;
-    sparklineView.dataPoints = dataPoints;
+    sparklineView.dataPoints = [SparklineHelper dataForHabit:habit];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

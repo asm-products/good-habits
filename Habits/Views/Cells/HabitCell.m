@@ -29,6 +29,7 @@
         [self.habit save];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.habit = self.habit;
+            [[NSNotificationCenter defaultCenter] postNotificationName:DAY_TOGGLED_FOR_HABIT object:self.habit userInfo:nil];
         });
     });
 

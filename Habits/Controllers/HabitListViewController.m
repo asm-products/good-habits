@@ -34,7 +34,7 @@ typedef enum {
     InactiveHabitsHeader * carriedOver;
     InactiveHabitsHeader * notRequiredTodayTitle;
     InactiveHabitsHeader * inactiveTitle;
-    __weak IBOutlet UILabel *infoCountBadge;
+    
     
 }
 -(void)viewDidLoad{
@@ -70,8 +70,6 @@ typedef enum {
     reloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 }
 -(void)refresh{
-    infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
-    infoCountBadge.hidden = [InfoTask unopenedCount] == 0;
     dispatch_async(reloadQueue, ^{
         now = [TimeHelper now];
         dayNavigation.date = now;
@@ -166,6 +164,15 @@ typedef enum {
     }
     [HabitsList saveAll];
 }
+-(void)insertHabit:(Habit *)habit{
+    [self loadGroups];
+    NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
+    [self.tableView beginUpdates];
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[groups[section] count ] - 1 inSection:section];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic ];
+    [self.tableView endUpdates];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+}
 #pragma mark - Reordering
 -(UITableViewCell *)cellIdenticalToCellAtIndexPath:(NSIndexPath *)indexPath forDragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController{
     HabitCell * cell = [[HabitCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -179,20 +186,6 @@ typedef enum {
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"New"]){
-        Habit * habit = [Habit new];
-        [HabitsList.all addObject:habit];
-        [self loadGroups];
-        NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
-        [self.tableView beginUpdates];
-        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[groups[section] count ] - 1 inSection:section];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic ];
-        [self.tableView endUpdates];
-        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-        
-        HabitDetailViewController * dest = segue.destinationViewController;
-        dest.habit = habit;
-    }
     if([segue.identifier isEqualToString:@"Detail"]){
         HabitDetailViewController * dest = segue.destinationViewController;
         dest.habit = [self habitForIndexPath:self.tableView.indexPathForSelectedRow];

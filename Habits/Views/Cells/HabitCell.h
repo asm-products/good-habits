@@ -9,6 +9,8 @@
 #import "CellWithCheckBox.h"
 #import "Habit.h"
 
+#define DAY_TOGGLED_FOR_HABIT @"DAY_TOGGLED_FOR_HABIT"
+
 @interface HabitCell : CellWithCheckBox
 @property (nonatomic, strong) Habit * habit;
 @property (nonatomic) BOOL inactive;

@@ -59,6 +59,10 @@
 		AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F91951BF2E0033407B /* CoreDataClient.m */; };
 		AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4018FB1951C2950033407B /* Habits.xcdatamodeld */; };
 		AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */; };
+		AC735DDE19704F67007CD2B7 /* AppFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DDD19704F67007CD2B7 /* AppFeatures.m */; };
+		AC735DE219705080007CD2B7 /* StatsPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE119705080007CD2B7 /* StatsPopup.m */; };
+		AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE519705642007CD2B7 /* SparklineHelper.m */; };
+		AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE8197156D0007CD2B7 /* LandingViewController.m */; };
 		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
@@ -262,6 +266,14 @@
 		AC4018F91951BF2E0033407B /* CoreDataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataClient.m; sourceTree = "<group>"; };
 		AC4018FC1951C2950033407B /* Habits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habits.xcdatamodel; sourceTree = "<group>"; };
 		AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitsListTests.m; sourceTree = "<group>"; };
+		AC735DDC19704F67007CD2B7 /* AppFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFeatures.h; sourceTree = "<group>"; };
+		AC735DDD19704F67007CD2B7 /* AppFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFeatures.m; sourceTree = "<group>"; };
+		AC735DE019705080007CD2B7 /* StatsPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsPopup.h; sourceTree = "<group>"; };
+		AC735DE119705080007CD2B7 /* StatsPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsPopup.m; sourceTree = "<group>"; };
+		AC735DE419705642007CD2B7 /* SparklineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparklineHelper.h; sourceTree = "<group>"; };
+		AC735DE519705642007CD2B7 /* SparklineHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparklineHelper.m; sourceTree = "<group>"; };
+		AC735DE7197156D0007CD2B7 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		AC735DE8197156D0007CD2B7 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
 		ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -510,6 +522,24 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		AC735DDF19705065007CD2B7 /* AppFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				AC735DE019705080007CD2B7 /* StatsPopup.h */,
+				AC735DE119705080007CD2B7 /* StatsPopup.m */,
+			);
+			path = AppFeatures;
+			sourceTree = "<group>";
+		};
+		AC735DE319705608007CD2B7 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				AC735DE419705642007CD2B7 /* SparklineHelper.h */,
+				AC735DE519705642007CD2B7 /* SparklineHelper.m */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
 		ACADB3C7190D23B90030CC82 = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +634,7 @@
 		ACADB408190D24BE0030CC82 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AC735DE319705608007CD2B7 /* Stats */,
 				AC4018AE19506B300033407B /* UI */,
 				AC40187619504E450033407B /* Migration */,
 				ACADB4A5190D34BE0030CC82 /* Colors.h */,
@@ -636,6 +667,8 @@
 				AC3237B7196C365A00A2FF9F /* AuditItemViewController.m */,
 				ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */,
 				ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */,
+				AC735DE7197156D0007CD2B7 /* LandingViewController.h */,
+				AC735DE8197156D0007CD2B7 /* LandingViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -643,6 +676,7 @@
 		ACADB40A190D24EE0030CC82 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC735DDF19705065007CD2B7 /* AppFeatures */,
 				ACDC63C0196F2CFB00F68BD6 /* Charts */,
 				AC4018C1195090120033407B /* Calendar */,
 				AC401881195059510033407B /* UI */,
@@ -674,6 +708,8 @@
 				AC3237CB196D43E300A2FF9F /* ChainBreak.m */,
 				AC3237CD196D440B00A2FF9F /* ChainAnalysis.h */,
 				AC3237CE196D440B00A2FF9F /* ChainAnalysis.m */,
+				AC735DDC19704F67007CD2B7 /* AppFeatures.h */,
+				AC735DDD19704F67007CD2B7 /* AppFeatures.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1026,6 +1062,7 @@
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				AC3237B8196C365A00A2FF9F /* AuditItemViewController.m in Sources */,
 				ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */,
+				AC735DDE19704F67007CD2B7 /* AppFeatures.m in Sources */,
 				AC4018F219518EBC0033407B /* DataExport.m in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
 				AC4018B419506C690033407B /* DayNavigation.m in Sources */,
@@ -1033,12 +1070,14 @@
 				AC4018BA195071380033407B /* HabitDetailViewController.m in Sources */,
 				AC4018A0195066E00033407B /* ATSDragToReorderTableViewController.m in Sources */,
 				AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */,
+				AC735DE219705080007CD2B7 /* StatsPopup.m in Sources */,
 				AC401880195058720033407B /* HabitCell.m in Sources */,
 				AC40187519504ADB0033407B /* TimeHelper.m in Sources */,
 				AC4018F51951A5FE0033407B /* HabitsList.m in Sources */,
 				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
 				AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */,
+				AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */,
 				AC4018D0195098A50033407B /* Calendar.m in Sources */,
 				ACADB3E4190D23B90030CC82 /* AppDelegate.m in Sources */,
 				AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */,
@@ -1061,6 +1100,7 @@
 				AC3237CC196D43E300A2FF9F /* ChainBreak.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
 				ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */,
+				AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */,
 				ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */,
 				AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */,
 				AC4018E31950F84C0033407B /* InfoTask.m in Sources */,
