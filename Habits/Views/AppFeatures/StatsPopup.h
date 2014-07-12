@@ -11,4 +11,10 @@
 
 @interface StatsPopup : UIView
 @property (nonatomic, strong) Habit * habit;
+@property (nonatomic) CGFloat animateInOutTime;
+@property (nonatomic) CGFloat initialSpringVelocity;
+@property (nonatomic) CGFloat viewablePixels;
+@property (nonatomic) CGFloat springDamping;
+-(void)animateIn;
+-(void)animateOut;
 @end

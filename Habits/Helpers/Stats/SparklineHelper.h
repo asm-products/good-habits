@@ -10,4 +10,5 @@
 #import "Habit.h"
 @interface SparklineHelper : NSObject
 +(NSArray*)dataForHabit:(Habit*)habit;
++(NSString*)periodText:(NSDate*)date;
 @end

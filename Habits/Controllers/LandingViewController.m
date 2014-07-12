@@ -18,7 +18,7 @@
 @interface LandingViewController (){
     __weak IBOutlet UILabel *infoCountBadge;
 #pragma mark stats enabled only
-    StatsPopup * statsPopup;
+    __weak IBOutlet StatsPopup *statsPopup;
 }
 @property (nonatomic, strong) HabitListViewController * habitListViewController;
 @end
@@ -32,17 +32,17 @@
     infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
     infoCountBadge.hidden = [InfoTask unopenedCount] == 0;
     if([AppFeatures statsEnabled]){
-        [self addStatsPopup];
+        [self enableStatsPopup];
     }
 }
-
+-(void)viewDidLayoutSubviews{
+    [statsPopup animateOut];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"HabitList"]){
@@ -58,18 +58,30 @@
 }
 
 #pragma mark - Stats
--(void)addStatsPopup{
-    statsPopup = [[StatsPopup alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 100)];
-    [self.view addSubview:statsPopup];
+-(void)enableStatsPopup{
+    statsPopup.springDamping = 0.5;
+    statsPopup.initialSpringVelocity = 0.5;
+    statsPopup.viewablePixels = 100;
+    [statsPopup animateOut];
+    statsPopup.animateInOutTime = 0.6;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDayToggledForHabit:) name:DAY_TOGGLED_FOR_HABIT object:nil];
 }
+
 -(void)onDayToggledForHabit:(NSNotification*)notification{
     Habit * habit = notification.object;
-    statsPopup.habit = habit;
-    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:0 animations:^{
-        statsPopup.center = CGPointMake(self.view.frame.size.width * 0.5, self.view.frame.size.height - statsPopup.frame.size.height * 0.5 );
-    } completion:^(BOOL finished) {
+    if(statsPopup.frame.origin.y < self.view.frame.size.height) {
+        [UIView animateWithDuration:0.1 animations:^{
+            statsPopup.frame = (CGRect){CGPointMake(0, statsPopup.frame.origin.y + 20), statsPopup.frame.size};
+        } completion:^(BOOL finished) {
+            statsPopup.habit = habit;
+            [statsPopup animateIn];
+        }];
         
-    }];
+    }else{
+        statsPopup.habit = habit;
+        [statsPopup animateIn];
+    }
+    
+    
 }
 @end

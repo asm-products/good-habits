@@ -8,6 +8,7 @@
 
 #import "SparklineHelper.h"
 #import "TimeHelper.h"
+#import <YLMoment.h>
 @implementation SparklineHelper
 +(NSArray *)dataForHabit:(Habit *)habit{
     NSMutableArray * dataPoints = [NSMutableArray new];
@@ -19,5 +20,8 @@
         date = [TimeHelper addDays:1 toDate:date];
     }
     return dataPoints;
+}
++(NSString *)periodText:(NSDate *)date{
+    return [[YLMoment momentWithDate:date] fromDate:[TimeHelper now] withSuffix:NO];
 }
 @end
