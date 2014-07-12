@@ -43,7 +43,9 @@
 -(void)testWhenAppLaunchedAndNeedsAuditingForYesterday{
     //
     [TimeHelper selectDate:d(@"2014-01-03")];
+//    [TimeHelper selectDate:[TimeHelper dateForTimeToday:[TimeHelper dateComponentsForHour:10 minute:0]]];
     [self applicationBecameActive];
+    [tester waitForTimeInterval:0.5];
     [tester waitForViewWithAccessibilityLabel:self.didYouBreakTheChain];
     [tester waitForViewWithAccessibilityLabel:@"1 day"];
     [tester waitForViewWithAccessibilityLabel:@"Yesterday - Thursday 2 Jan"];

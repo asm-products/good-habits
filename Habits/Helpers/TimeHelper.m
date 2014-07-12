@@ -60,6 +60,9 @@ static NSDate * selectedDate = nil;
     NSString * result = [moment fromDate:[self now]];
     if([result isEqualToString:@"a day ago"]) result = @"Yesterday";
     if([result isEqualToString:@"a few seconds ago"]) result = @"Today";
+    if ([[moment startOfCalendarUnit:NSDayCalendarUnit] isEqualToMoment:[[YLMoment momentWithDate:[TimeHelper now]] startOfCalendarUnit:NSDayCalendarUnit]]) {
+        return @"Today";
+    }
     return result;
 }
 +(NSDate *)dateForTimeToday:(NSDateComponents *)components{

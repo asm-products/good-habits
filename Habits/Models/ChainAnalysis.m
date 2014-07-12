@@ -30,15 +30,17 @@
     NSDate * date = self.startDate;
     BOOL inUnbrokenChain = YES;
     BOOL itIsAuditingTime = [[TimeHelper dateForTimeToday:[Audits scheduledTime]] isBefore:[TimeHelper now]];
+    NSLog(@"Is it auditing time? %@", @(itIsAuditingTime));
     while ([date isBefore:self.endDate]) {
-        if(([date isEqual:[TimeHelper now].beginningOfDay] && itIsAuditingTime == NO) || [self.habit continuesActivityAfter:date]) {
+        BOOL dateIsToday = [date isEqual:[TimeHelper now].beginningOfDay];
+        NSLog(@"Checking date %@ is today? %@", date, @(dateIsToday));
+        if((dateIsToday && itIsAuditingTime == NO) || [self.habit continuesActivityAfter:date]) {
             inUnbrokenChain = YES;
         }else{
             if(inUnbrokenChain){
                 // we got a broken chain
-                
                 NSNumber * chainLength = [self.habit chainLengthOnDate:date];
-                NSLog(@"Chain length of %@  %@ = %@ - chain = %@", self.habit.title, date, chainLength, self.habit.daysChecked);
+                NSLog(@"Chain break: chain %@  %@ = %@ ", self.habit.title, date, chainLength);
                 ChainBreak * chainBreak = [[ChainBreak alloc] initWithDictionary:@{
                                                                                    @"habitIdentifier": self.habit.identifier,
                                                                                    @"date": [self.habit nextDayRequiredAfter: date],
@@ -55,16 +57,19 @@
     }
     
     self.freshChainBreaks = [self findFreshChainBreaks: chainBreaks];
+    if([HabitsList coreDataClient].managedObjectContext == nil) return;
     for (ChainBreak * chainBreak in self.freshChainBreaks) {
         [MTLManagedObjectAdapter managedObjectFromModel:chainBreak insertingIntoContext:[HabitsList coreDataClient].managedObjectContext error:nil];
     }
 }
 -(NSArray*)findFreshChainBreaks:(NSArray*)chainBreaks{
     self.savedChainBreaks = [self loadChainBreaks];
+    if(self.savedChainBreaks == nil) return chainBreaks;
     return [chainBreaks filter:^BOOL(ChainBreak * chainBreak) {
-        return [self.savedChainBreaks indexOfObjectPassingTest:^BOOL(ChainBreak * savedChainBreak, NSUInteger idx, BOOL *stop) {
+        NSInteger index = [self.savedChainBreaks indexOfObjectPassingTest:^BOOL(ChainBreak * savedChainBreak, NSUInteger idx, BOOL *stop) {
             return [savedChainBreak.date isEqualToDate:chainBreak.date];
-        }] == NSNotFound;
+        }];
+        return index == NSNotFound;
     }];
     
 }

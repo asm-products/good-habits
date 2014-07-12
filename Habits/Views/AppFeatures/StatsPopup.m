@@ -61,7 +61,6 @@
         CGPoint center = self.center;
         CGFloat distanceFromFullyExtended = (self.superview.frame.size.height - self.viewablePixels - self.frame.origin.y);
         CGFloat dampingMultiplier = 1.0 - (distanceFromFullyExtended / 100);
-        NSLog(@"offset: %@ distance %@, damping %@",@(offset.y), @(distanceFromFullyExtended), @(dampingMultiplier));
         
         center.y += offset.y * MIN(1.0, dampingMultiplier);
         self.center = center;

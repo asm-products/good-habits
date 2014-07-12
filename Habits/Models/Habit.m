@@ -141,7 +141,7 @@ NSDate * dateFromKey(NSString * key){
     [[self.daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] reduce:^id(NSMutableDictionary*memo, NSString* key) {
         // assuming the keys in date order...
         NSNumber * value = self.daysChecked[key];
-        NSLog(@"%@ prev %@ next %@", key, previousNumber, value);
+//        NSLog(@"%@ prev %@ next %@", key, previousNumber, value);
         if(previousNumber.integerValue < [value integerValue]){
             memo[key] = value;
         }else{
@@ -192,11 +192,17 @@ NSDate * dateFromKey(NSString * key){
 -(NSDate*)continuesActivityFromDate:(NSDate*)date step:(NSInteger)step limit:(NSInteger)limit{
     NSInteger index = 1;
     YLMoment * moment = [YLMoment momentWithDate:date];
-    while (index++ < limit) {
-        [moment addAmountOfTime:step forCalendarUnit:NSDayCalendarUnit];
+    [moment addAmountOfTime:step forCalendarUnit:NSDayCalendarUnit];
+    while (index++ < limit && [moment.date isBefore:[TimeHelper now]]) {
         if([self includesDate:moment.date]) return moment.date;
-        if([self isRequiredOnWeekday:moment.date]) return nil;
+        if([self isRequiredOnWeekday:moment.date]) {
+            NSLog(@"Activity interrupted because it was required on %@", moment);
+            return nil;
+        }
+        [moment addAmountOfTime:step forCalendarUnit:NSDayCalendarUnit];
     }
+    if(![moment.date isBefore:[TimeHelper now]]) return [TimeHelper now];
+    NSLog(@"Activity interrupted because we reached the limit");
     return nil;
 }
 

@@ -38,7 +38,7 @@
     NSDate * endDate = [TimeHelper now].beginningOfDay;
     NSLog(@"auditing %@ from %@ to %@", habit.title, startDate, endDate);
     ChainAnalysis * analysis = [[ChainAnalysis alloc] initWithHabit:habit startDate:startDate endDate:endDate calculateImmediately:YES];
-    NSLog(@"audit results %@ fresh chain break(s)", @(analysis.freshChainBreaks.count));
+    NSLog(@"audit results %@ fresh chain break(s) date %@ (reminder time %@:00) breaks %@", @(analysis.freshChainBreaks.count), [TimeHelper now], @([Audits scheduledTime].hour) ,[analysis.freshChainBreaks valueForKey:@"date"]);
     habit.latestAnalysis = analysis;
     return analysis;
 }
