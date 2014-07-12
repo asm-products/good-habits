@@ -135,6 +135,25 @@ NSDate * dateFromKey(NSString * key){
         return @(result);
     } withInitialMemo:@0];
 }
+-(NSArray *)chains{
+    __block NSNumber * previousNumber = @0;
+    NSMutableArray * result = [NSMutableArray new];
+    [[self.daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] reduce:^id(NSMutableDictionary*memo, NSString* key) {
+        // assuming the keys in date order...
+        NSNumber * value = self.daysChecked[key];
+        NSLog(@"%@ prev %@ next %@", key, previousNumber, value);
+        if(previousNumber.integerValue < [value integerValue]){
+            memo[key] = value;
+        }else{
+            [result addObject:memo];
+            memo = [NSMutableDictionary new];
+            memo[key] = value;
+        }
+        previousNumber = value;
+        return memo;
+    } withInitialMemo:[NSMutableDictionary new]];
+    return result;
+}
 -(NSInteger)currentChainLength{
     return [self calculateChainLengthFindLongest:NO];
 }

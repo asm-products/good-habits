@@ -39,16 +39,10 @@ typedef enum {
     [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
-        case StatsSectionSparkline: return 86;
+        case StatsSectionSparkline: return 200;
         default: return 44;
     }
 }
@@ -58,7 +52,8 @@ typedef enum {
 }
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
-        case StatsSectionChainBreaks: return @"Broken chains";
+        case StatsSectionSparkline: return @"STATS";
+        case StatsSectionChainBreaks: return self.chainBreaks.count > 0 ? @"Broken chains" : @"";
         default: return @"";
     }
 }

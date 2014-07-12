@@ -51,6 +51,7 @@
 -(NSDate*)continuesActivityAfter:(NSDate*)date;
 -(NSNumber*)chainLengthOnDate:(NSDate*)date;
 -(NSNumber*)longestChain;
+-(NSArray*)chains;
 
 #pragma mark - Data management
 -(void)save;
