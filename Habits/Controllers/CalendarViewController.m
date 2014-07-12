@@ -37,6 +37,10 @@
     [self.view addSubview:self.container];
     [self showMonthIncludingTime:self.dateToShow];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if(self.habit) [self showChainsForHabit:self.habit];
+}
 -(void)didPressPrevButton{
     [self.navigationDelegate backward];
 }
@@ -71,7 +75,7 @@
     self.grid.firstDay = firstDay;
     self.grid.month = month;
     [self.container addSubview:self.grid.view];
-    if(self.habit) [self showChainsForHabit:self.habit];
+//    if(self.habit) [self showChainsForHabit:self.habit];
     
 }
 -(NSDate *)dayInPreviousMonth{
