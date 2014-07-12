@@ -61,7 +61,7 @@
 -(void)enableStatsPopup{
     statsPopup.springDamping = 0.5;
     statsPopup.initialSpringVelocity = 0.5;
-    statsPopup.viewablePixels = 100;
+    statsPopup.viewablePixels = 120;
     [statsPopup animateOut];
     statsPopup.animateInOutTime = 0.6;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDayToggledForHabit:) name:DAY_TOGGLED_FOR_HABIT object:nil];

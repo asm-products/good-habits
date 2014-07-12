@@ -63,6 +63,8 @@
 		AC735DE219705080007CD2B7 /* StatsPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE119705080007CD2B7 /* StatsPopup.m */; };
 		AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE519705642007CD2B7 /* SparklineHelper.m */; };
 		AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE8197156D0007CD2B7 /* LandingViewController.m */; };
+		AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */; };
+		AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */; };
 		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
@@ -274,6 +276,8 @@
 		AC735DE519705642007CD2B7 /* SparklineHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparklineHelper.m; sourceTree = "<group>"; };
 		AC735DE7197156D0007CD2B7 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
 		AC735DE8197156D0007CD2B7 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron@2x.png"; sourceTree = "<group>"; };
+		AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron.png"; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
 		ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -717,6 +721,8 @@
 		ACADB40C190D26940030CC82 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */,
+				AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */,
 				AC3237BC196C438900A2FF9F /* Stats.png */,
 				AC3237BD196C438900A2FF9F /* Stats@2x.png */,
 				AC3237AF196C2FB400A2FF9F /* Cross.png */,
@@ -910,6 +916,7 @@
 				ACADB49A190D27960030CC82 /* arrow_next.png in Resources */,
 				ACADB461190D27960030CC82 /* guide_2@2x.png in Resources */,
 				ACADB479190D27960030CC82 /* guide_14@2x.png in Resources */,
+				AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */,
 				ACADB46D190D27960030CC82 /* guide_8@2x.png in Resources */,
 				ACADB47D190D27960030CC82 /* guide_16@2x.png in Resources */,
 				AC3237B2196C2FB400A2FF9F /* Cross@2x.png in Resources */,
@@ -971,6 +978,7 @@
 				ACADB48A190D27960030CC82 /* play.png in Resources */,
 				ACADB462190D27960030CC82 /* guide_3.png in Resources */,
 				ACADB478190D27960030CC82 /* guide_14.png in Resources */,
+				AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */,
 				ACADB47E190D27960030CC82 /* guide_17.png in Resources */,
 				ACADB46F190D27960030CC82 /* guide_9@2x.png in Resources */,
 				ACADB47B190D27960030CC82 /* guide_15@2x.png in Resources */,
