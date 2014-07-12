@@ -42,7 +42,7 @@ typedef enum {
 #pragma mark - Table view data source
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
-        case StatsSectionSparkline: return 200;
+        case StatsSectionSparkline: return 230;
         default: return 44;
     }
 }

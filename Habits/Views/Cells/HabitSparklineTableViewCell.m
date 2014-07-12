@@ -16,6 +16,7 @@
     
     __weak IBOutlet DailySparklineView *sparklineView;
     __weak IBOutlet UILabel *periodLabel;
+    __weak IBOutlet UILabel *currentChainLengthLabel;
     __weak IBOutlet UILabel *longestChainLabel;
     __weak IBOutlet UILabel *chainCountLabel;
     __weak IBOutlet UILabel *averageChainLengthLabel;
@@ -29,6 +30,9 @@
     if (habit.daysChecked.count < 2) return;
    
     periodLabel.text = [SparklineHelper periodText:self.habit.earliestDate].uppercaseString;
+    
+    currentChainLengthLabel.text = @(self.habit.currentChainLength).stringValue;
+    
     NSArray * chains = habit.chains;
     longestChainLabel.text = [[chains reduce:^id(NSNumber *memo, NSDictionary* obj) {
         if (obj.allKeys.count > memo.integerValue) {
@@ -45,6 +49,7 @@
     
     averageChainLengthLabel.text = [NSString stringWithFormat:@"%1.1f", averageLength];
     
+    currentChainLengthLabel.textColor = habit.color;
     chainCountLabel.textColor = habit.color;
     longestChainLabel.textColor = habit.color;
     averageChainLengthLabel.textColor = habit.color;
