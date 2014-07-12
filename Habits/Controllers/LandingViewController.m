@@ -15,6 +15,7 @@
 #import "AppFeatures.h"
 #import "StatsPopup.h"
 #import "HabitCell.h" // for the notification name
+#import "StatsTableViewController.h"
 @interface LandingViewController (){
     __weak IBOutlet UILabel *infoCountBadge;
 #pragma mark stats enabled only
@@ -50,10 +51,17 @@
     }
     if([segue.identifier isEqualToString:@"New"]){
         Habit * habit = [Habit new];
+        habit.identifier = [[NSUUID UUID] UUIDString];
         [HabitsList.all addObject:habit];
         [self.habitListViewController insertHabit:habit];        
         HabitDetailViewController * dest = segue.destinationViewController;
         dest.habit = habit;
+        [statsPopup animateOut];
+    }
+    if([segue.identifier isEqualToString:@"Stats"]){
+        StatsTableViewController * controller = (StatsTableViewController*)segue.destinationViewController;
+        controller.habit = statsPopup.habit;
+        [statsPopup animateOut];
     }
 }
 

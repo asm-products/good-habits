@@ -73,7 +73,11 @@ static CoreDataClient * __coreDataClient = nil;
     NSArray * entities = [context executeFetchRequest:request error:nil];
     if(!entities) return;
     __allHabits = [entities map:^id(NSManagedObject * entity) {
-        if([entity valueForKey:@"identifier"] == nil) [entity setValue: [[NSUUID UUID] UUIDString] forKey:@"identifier"];
+        if([entity valueForKey:@"identifier"] == nil) {
+//            [entity setValue: [[NSUUID UUID] UUIDString] forKey:@"identifier"];
+            [[self coreDataClient].managedObjectContext deleteObject:entity];
+            return nil;
+        }
         return [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:nil];
     }].mutableCopy;
     
