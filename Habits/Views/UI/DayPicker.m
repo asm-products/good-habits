@@ -22,9 +22,10 @@
 -(void)awakeFromNib{
     self.habit = [self.delegate habit];
     [self build];
+    [self refresh];
 }
 -(void)build{
-    [self applyBackground];
+    self.backgroundColor = [UIColor clearColor];
     dayButtons = [[NSMutableArray alloc] initWithCapacity:7];
     CGFloat x = 8;
     
@@ -48,9 +49,10 @@
     }
 }
 -(void)refresh{
-    [self applyBackground];
+    for (DayToggle * button in dayButtons) {
+        button.color = self.habit.color;
+        [button setNeedsDisplay];
+    }
 }
--(void)applyBackground{
-    self.backgroundColor = self.habit.color;
-}
+
 @end
