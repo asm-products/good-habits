@@ -10,6 +10,6 @@
 
 @implementation AppFeatures
 +(BOOL)statsEnabled{
-    return YES;
+    return NO;
 }
 @end

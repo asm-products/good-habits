@@ -95,11 +95,11 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="R7r-TB-Gw7">
                             <view key="customView" contentMode="scaleToFill" id="hvW-5b-FZq">
-                                <rect key="frame" x="16" y="0.0" width="44" height="44"/>
+                                <rect key="frame" x="16" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-7B-Hca">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-7B-Hca">
+                                        <rect key="frame" x="0.0" y="-3" width="60" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <inset key="contentEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="info.png">
@@ -110,7 +110,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9R0-dF-VJt">
-                                        <rect key="frame" x="13" y="2" width="17" height="16"/>
+                                        <rect key="frame" x="37" y="3" width="17" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.7607843876" green="0.16078431900000001" blue="0.18823531269999999" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
@@ -122,7 +122,7 @@
                             </view>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="uvz-VS-CiY">
-                            <rect key="frame" x="77" y="6" width="166" height="33"/>
+                            <rect key="frame" x="105" y="6" width="166" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GOOD HABITS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ae-ve-lFQ">
@@ -421,6 +421,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="deleteButton" destination="gmw-6d-XIl" id="sxh-w1-4UG"/>
                         <outlet property="pausedLabel" destination="oJx-nH-POl" id="jB2-J5-laf"/>
                         <outlet property="remindersButton" destination="W0x-E3-ClQ" id="aVN-x3-yKA"/>
+                        <outlet property="statsButton" destination="K4h-dn-VDE" id="jj7-zd-579"/>
                         <outlet property="timePicker" destination="evx-sa-1Uc" id="KWL-U4-tnM"/>
                         <outlet property="titleTextField" destination="eHx-ow-yHW" id="V0j-TA-T1a"/>
                         <outlet property="toggleActiveButton" destination="JMG-1N-4QX" id="BtW-GH-qeu"/>
@@ -940,6 +941,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="toc-2m-8Zg"/>
-        <segue reference="chS-Yr-Ljg"/>
+        <segue reference="LRt-8p-1fe"/>
     </inferredMetricsTieBreakers>
 </document>

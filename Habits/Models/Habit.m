@@ -135,10 +135,13 @@ NSDate * dateFromKey(NSString * key){
         return @(result);
     } withInitialMemo:@0];
 }
+-(NSArray*)daysCheckedKeysInOrder{
+    return [self.daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+}
 -(NSArray *)chains{
     __block NSNumber * previousNumber = @0;
     NSMutableArray * result = [NSMutableArray new];
-    [[self.daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] reduce:^id(NSMutableDictionary*memo, NSString* key) {
+    [[self daysCheckedKeysInOrder] reduce:^id(NSMutableDictionary*memo, NSString* key) {
         // assuming the keys in date order...
         NSNumber * value = self.daysChecked[key];
 //        NSLog(@"%@ prev %@ next %@", key, previousNumber, value);
@@ -155,7 +158,8 @@ NSDate * dateFromKey(NSString * key){
     return result;
 }
 -(NSInteger)currentChainLength{
-    return [self calculateChainLengthFindLongest:NO];
+    NSNumber * key = [[self daysCheckedKeysInOrder] lastObject];
+    return [self.daysChecked[key] integerValue];
 }
 -(NSInteger)calculateChainLengthFindLongest:(BOOL)shouldFindLongest{
     NSLog(@"Recalculating %@ chain from earliestDate %@", self.title, self.earliestDate);

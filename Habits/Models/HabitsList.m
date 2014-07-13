@@ -11,6 +11,7 @@
 #import "Colors.h"
 #import "CoreDataClient.h"
 #import <Mantle.h>
+#import "TimeHelper.h"
 static NSMutableArray * __allHabits = nil;
 static CoreDataClient * __coreDataClient = nil;
 
@@ -78,7 +79,14 @@ static CoreDataClient * __coreDataClient = nil;
             [[self coreDataClient].managedObjectContext deleteObject:entity];
             return nil;
         }
-        return [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:nil];
+        Habit * result = [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:nil];
+        for (NSString * key in result.daysChecked) {
+            if([[TimeHelper now] isBefore:[Habit dateFromString:key]]){
+                NSLog(@"Removing future key %@", key);
+                [result.daysChecked removeObjectForKey:key];
+            }
+        }
+        return result;
     }].mutableCopy;
     
 }

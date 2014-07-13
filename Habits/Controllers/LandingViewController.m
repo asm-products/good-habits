@@ -32,6 +32,9 @@
     [super viewDidLoad];
     infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
     infoCountBadge.hidden = [InfoTask unopenedCount] == 0;
+    UIBarButtonItem * fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedSpace.width = -26;
+    self.navigationItem.leftBarButtonItems = @[fixedSpace, self.navigationItem.leftBarButtonItem];
     if([AppFeatures statsEnabled]){
         [self enableStatsPopup];
     }
@@ -89,6 +92,8 @@
         statsPopup.habit = habit;
         [statsPopup animateIn];
     }
+    
+    
     
     
 }

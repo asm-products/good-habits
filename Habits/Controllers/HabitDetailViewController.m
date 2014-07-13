@@ -15,6 +15,7 @@
 #import "ColorPickerCell.h"
 #import <UIActionSheet+Blocks.h>
 #import "StatsTableViewController.h"
+#import "AppFeatures.h"
 typedef enum{
     HabitDetailCellIndexCalendar,
     HabitDetailCellIndexDayPicker,
@@ -27,6 +28,7 @@ typedef enum{
     __weak IBOutlet UITableViewCell *datePickerCell;
     BOOL showingTimePicker;
 }
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *statsButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIButton *remindersButton;
 @property (nonatomic, strong) CalendarPageViewController * calendar;
@@ -57,6 +59,7 @@ typedef enum{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onHabitColorChanged) name:HABIT_COLOR_CHANGED object:nil];
 }
 -(void)build{
+    self.statsButton.enabled = [AppFeatures statsEnabled];
     self.navigationItem.title = @"";
     self.titleTextField.text = self.habit.title;
     self.colorPickerCell.habit = self.habit;

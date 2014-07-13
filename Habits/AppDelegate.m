@@ -70,7 +70,7 @@
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
-    [self showAuditScreenIfNeeded];
+//    [self showAuditScreenIfNeeded];
 }
 -(void)showAuditScreenIfNeeded{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -83,13 +83,13 @@
         });
     });
 }
--(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
-    return YES;
-}
--(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder{
-    NSString * restoringFrom = [coder decodeObjectForKey:UIApplicationStateRestorationBundleVersionKey];
-    if(restoringFrom.integerValue < 2.0) return NO;
-    return YES;
-}
+//-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
+//    return YES;
+//}
+//-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder{
+//    NSString * restoringFrom = [coder decodeObjectForKey:UIApplicationStateRestorationBundleVersionKey];
+//    if(restoringFrom.integerValue < 2.0) return NO;
+//    return YES;
+//}
 
 @end
