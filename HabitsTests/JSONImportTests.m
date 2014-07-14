@@ -1,10 +1,3 @@
-//
-//  JSONImportTests.m
-//  Habits
-//
-//  Created by Michael Forrest on 29/06/2014.
-//  Copyright (c) 2014 Good To Hear. All rights reserved.
-//
 #import <Mantle.h>
 #import "Habit.h"
 #import <YLMoment.h>
@@ -16,7 +9,9 @@ describe(@"legacy format", ^{
     beforeAll(^{
         NSString * path = [[NSBundle bundleForClass:[self class]] pathForResource:@"habits_data_lots" ofType:@"json"];
         NSArray * json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
-        habit = [MTLJSONAdapter modelOfClass:[Habit class] fromJSONDictionary:json.firstObject error:nil];
+        NSError * error;
+        habit = [MTLJSONAdapter modelOfClass:[Habit class] fromJSONDictionary:json.firstObject error:&error];
+        expect(error).to.beNil();
     });
     it(@"should do the basics", ^{
         expect(habit.title).to.equal(@"Drums");
@@ -25,9 +20,16 @@ describe(@"legacy format", ^{
     it(@"should do colours", ^{
         expect(habit.color).to.equal([Colors green]);
     });
-    it(@"should do days required", ^{});
-    it(@"should do days checked", ^{});
-    it(@"should do reminder time", ^{});
+    it(@"should do days required", ^{
+        expect(habit.daysRequired).to.equal(@[@YES,@YES,@YES,@YES,@YES,@YES,@YES]);
+    });
+    it(@"should do days checked", ^{
+        expect(habit.daysChecked.count).to.equal(33);
+    });
+    it(@"should do reminder time", ^{
+        expect(habit.reminderTime.hour).to.equal(4);
+        expect(habit.reminderTime.minute).to.equal(30);
+    });
 });
 
 SpecEnd

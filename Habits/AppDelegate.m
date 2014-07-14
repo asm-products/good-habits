@@ -70,7 +70,7 @@
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
-//    [self showAuditScreenIfNeeded];
+    [self showAuditScreenIfNeeded];
 }
 -(void)showAuditScreenIfNeeded{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

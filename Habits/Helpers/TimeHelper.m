@@ -71,4 +71,16 @@ static NSDate * selectedDate = nil;
     todayComponents.minute = components.minute;
     return [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
 }
+//+ (NSDateFormatter *)iso8601Formatter{
++ (NSDateFormatter *)jsonDateFormatter{
+    static NSDateFormatter *__dateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __dateFormatter = [[NSDateFormatter alloc] init];
+        __dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+        __dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ssZ";
+    });
+    return __dateFormatter;
+}
+
 @end

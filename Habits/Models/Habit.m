@@ -15,6 +15,7 @@
 #import <YLMoment.h>
 #import "Calendar.h"
 #import "HabitsList.h"
+#import <AVHexColor.h>
 
 NSDateFormatter * dateKeyFormatter(){
     static NSDateFormatter * formatter = nil;
@@ -53,12 +54,38 @@ NSDate * dateFromKey(NSString * key){
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{@"createdAt": @"created_at",
              @"daysChecked":@"days_checked",
-             @"reminderTime":@"reminder_time",
+             @"reminderTime":@"time_to_do",
              @"isActive":@"active",
              @"daysRequired":@"days_required",
-             @"longestChain":@"longest_chain",
              @"notifications": [NSNull null]
              };
+}
++(NSValueTransformer*)colorJSONTransformer{
+    return [MTLValueTransformer transformerWithBlock:^id(NSString * colorString) {
+        return [AVHexColor colorWithHexString:colorString];
+    }];
+}
++(NSValueTransformer*)createdAtJSONTransformer{
+    return [MTLValueTransformer transformerWithBlock:^id(NSString * string) {
+        return [[TimeHelper jsonDateFormatter] dateFromString:string];
+    }];
+}
++(NSValueTransformer*)daysRequiredJSONTransformer{
+    return [MTLValueTransformer transformerWithBlock:^id(NSArray * array) {
+        return [[Calendar days] map:^id(NSString * dayName) {
+            return @([array indexOfObject:dayName] != NSNotFound);
+        }];
+    }];
+}
++(NSValueTransformer*)reminderTimeJSONTransformer{
+    return [MTLValueTransformer transformerWithBlock:^id(NSString * string) {
+        NSArray * bits = [string componentsSeparatedByString:@":"];
+        NSDateComponents * result = [NSDateComponents new];
+        if(bits.count < 2) return nil;
+        result.hour = [bits[0] integerValue];
+        result.minute = [bits[1] integerValue];
+        return bits;
+    }];
 }
 
 #pragma mark - Individual state
