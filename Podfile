@@ -7,6 +7,7 @@ target "Habits" do
     pod 'YLMoment', '~> 0.5'
     pod 'ALActionBlocks', '~> 1.0'
     pod 'UIAlertView-Blocks', '~> 1.0'
+    pod 'SHMessageUIBlocks', '~> 1.2'
     pod 'Reveal-iOS-SDK', '~> 1.0'
 end
 

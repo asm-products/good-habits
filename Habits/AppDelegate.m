@@ -14,6 +14,8 @@
 #import "CoreDataClient.h"
 #import "Notifications.h"
 #import "Audits.h"
+#import "DataExport.h"
+#import <UIAlertView+Blocks.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -82,6 +84,16 @@
             }
         });
     });
+}
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    NSArray * components = [url.absoluteString componentsSeparatedByString:@"goodhabits://import?json="];
+    if(components.count > 1){
+        [[[UIAlertView alloc] initWithTitle:@"Restore data?" message:@"Restore your data? This action will delete your current data. It might also make any iCloud syncing behave strangely. Proceed with caution." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:@"Restore Data" action:^{
+            [DataExport importDataFromBase64EncodedString:components[1]];
+        }], nil] show];
+        return YES;
+    }
+    return NO;
 }
 //-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
 //    return YES;

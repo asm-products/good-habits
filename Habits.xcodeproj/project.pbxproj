@@ -10,7 +10,7 @@
 		030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F79A2189454A3AAF48A73F /* libPods-Habits.a */; };
 		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */; };
-		AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */; };
+		AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */; };
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
@@ -176,7 +176,7 @@
 		623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.xcconfig"; path = "Pods/Pods-Habits.xcconfig"; sourceTree = "<group>"; };
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_lots.json; sourceTree = "<group>"; };
-		AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONImportTests.m; sourceTree = "<group>"; };
+		AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConversionTests.m; sourceTree = "<group>"; };
 		AC24B641197194FC00B33CCF /* CheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMarkView.h; sourceTree = "<group>"; };
 		AC24B642197194FC00B33CCF /* CheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkView.m; sourceTree = "<group>"; };
 		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
@@ -620,7 +620,7 @@
 				AC1EB1041960C5B100549AC9 /* Fixtures */,
 				ACADB3F9190D23B90030CC82 /* Supporting Files */,
 				ACADB3FE190D23B90030CC82 /* HabitsTests.m */,
-				AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */,
+				AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */,
 				AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */,
 				AC3237C3196D3C6300A2FF9F /* AuditingFlowTests.m */,
 				AC3237C5196D407000A2FF9F /* ChainBreakTests.m */,
@@ -1136,7 +1136,7 @@
 				AC3237C6196D407000A2FF9F /* ChainBreakTests.m in Sources */,
 				ACADB3FF190D23B90030CC82 /* HabitsTests.m in Sources */,
 				AC3237C4196D3C6300A2FF9F /* AuditingFlowTests.m in Sources */,
-				AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */,
+				AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

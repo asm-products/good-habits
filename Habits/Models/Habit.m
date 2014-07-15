@@ -57,34 +57,59 @@ NSDate * dateFromKey(NSString * key){
              @"reminderTime":@"time_to_do",
              @"isActive":@"active",
              @"daysRequired":@"days_required",
+             @"identifier": @"id",
+             @"latestAnalysis": [NSNull null],
              @"notifications": [NSNull null]
              };
 }
 +(NSValueTransformer*)colorJSONTransformer{
-    return [MTLValueTransformer transformerWithBlock:^id(NSString * colorString) {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString * colorString) {
         return [AVHexColor colorWithHexString:colorString];
+    } reverseBlock:^id(UIColor * color) {
+        return [AVHexColor hexStringFromColor:color];
     }];
 }
 +(NSValueTransformer*)createdAtJSONTransformer{
-    return [MTLValueTransformer transformerWithBlock:^id(NSString * string) {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString * string) {
         return [[TimeHelper jsonDateFormatter] dateFromString:string];
+    } reverseBlock:^id(NSDate*date) {
+        return [[TimeHelper jsonDateFormatter] stringFromDate:date];
     }];
 }
 +(NSValueTransformer*)daysRequiredJSONTransformer{
-    return [MTLValueTransformer transformerWithBlock:^id(NSArray * array) {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSArray * array) {
         return [[Calendar days] map:^id(NSString * dayName) {
             return @([array indexOfObject:dayName] != NSNotFound);
+        }];
+    } reverseBlock:^id(NSArray*array){
+        return [[[Calendar days] map:^id(NSString *day) {
+            NSInteger index = [[Calendar days] indexOfObject:day];
+            if (index > array.count - 1) return [NSNull null];
+            return [array[index] boolValue] ? day : [NSNull null];
+        }] filter:^BOOL(id obj) {
+            return obj == [NSNull null] ? NO : YES;
         }];
     }];
 }
 +(NSValueTransformer*)reminderTimeJSONTransformer{
-    return [MTLValueTransformer transformerWithBlock:^id(NSString * string) {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString*string) {
         NSArray * bits = [string componentsSeparatedByString:@":"];
         NSDateComponents * result = [NSDateComponents new];
         if(bits.count < 2) return nil;
         result.hour = [bits[0] integerValue];
         result.minute = [bits[1] integerValue];
-        return bits;
+        return result;
+        
+    } reverseBlock:^id(NSDateComponents*components) {
+        static NSDateFormatter * formatter = nil;
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            formatter = [NSDateFormatter new];
+            formatter.dateFormat = @"HH:mm";
+        });
+        NSDate * date = [[NSCalendar currentCalendar] dateFromComponents:components];
+        NSString* result = [formatter stringFromDate:date];
+        return result;
     }];
 }
 
