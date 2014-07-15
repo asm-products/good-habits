@@ -159,6 +159,7 @@
 		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
 		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
+		ACE31AC119756936007173A0 /* HabitDay.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE31AC019756936007173A0 /* HabitDay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -386,6 +387,9 @@
 		ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitSparklineTableViewCell.m; sourceTree = "<group>"; };
 		ACDC63C1196F2D2F00F68BD6 /* DailySparklineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailySparklineView.h; sourceTree = "<group>"; };
 		ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailySparklineView.m; sourceTree = "<group>"; };
+		ACE31ABE19756644007173A0 /* Habits 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 5.xcdatamodel"; sourceTree = "<group>"; };
+		ACE31ABF19756936007173A0 /* HabitDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDay.h; sourceTree = "<group>"; };
+		ACE31AC019756936007173A0 /* HabitDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDay.m; sourceTree = "<group>"; };
 		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -719,6 +723,8 @@
 				AC3237CE196D440B00A2FF9F /* ChainAnalysis.m */,
 				AC735DDC19704F67007CD2B7 /* AppFeatures.h */,
 				AC735DDD19704F67007CD2B7 /* AppFeatures.m */,
+				ACE31ABF19756936007173A0 /* HabitDay.h */,
+				ACE31AC019756936007173A0 /* HabitDay.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1088,6 +1094,7 @@
 				AC40187519504ADB0033407B /* TimeHelper.m in Sources */,
 				AC4018F51951A5FE0033407B /* HabitsList.m in Sources */,
 				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
+				ACE31AC119756936007173A0 /* HabitDay.m in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
 				AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */,
 				AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */,
@@ -1374,9 +1381,10 @@
 			children = (
 				ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */,
 				AC3237D0196D592200A2FF9F /* Habits 3.xcdatamodel */,
+				ACE31ABE19756644007173A0 /* Habits 5.xcdatamodel */,
 				AC4018FC1951C2950033407B /* Habits.xcdatamodel */,
 			);
-			currentVersion = AC3237D0196D592200A2FF9F /* Habits 3.xcdatamodel */;
+			currentVersion = ACE31ABE19756644007173A0 /* Habits 5.xcdatamodel */;
 			path = Habits.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
