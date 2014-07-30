@@ -17,8 +17,8 @@
 #import <YLMoment.h>
 #import "TestHelpers.h"
 #import <UIAccessibilityElement-KIFAdditions.h>
-Habit * habit(NSDictionary*dict){
-    return [TestHelpers habit:dict];
+Habit * habit(NSDictionary*dict, NSArray * daysChecked){
+    return [TestHelpers habit:dict daysChecked:daysChecked];
 }
 NSMutableArray * everyDay(){
     return [TestHelpers everyDay];
@@ -42,10 +42,10 @@ describe(@"list", ^{
             [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-01-01"].date];
             
             [HabitsList overwriteHabits:@[
-                                          habit(@{@"title": @"Todo today", @"active":@YES, @"color":[Colors green], @"daysRequired":everyDay(),@"identifier":@"1"}),
-                                          habit(@{@"title": @"Todo yesterday", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@YES, @NO, @NO, @NO, @NO, @NO, @NO].mutableCopy , @"identifier":@"2"} ),
-                                          habit(@{@"title": @"Todo other days", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@NO,@NO,@YES,@NO,@NO,@NO,@NO].mutableCopy, @"daysChecked": @{@"2013-12-31": @YES}.mutableCopy, @"identifier": @"3"}),
-                                          habit(@{@"title": @"Todo some other time", @"active":@NO, @"color":[Colors green], @"identifier":@"4"})
+                                          habit(@{@"title": @"Todo today", @"active":@YES, @"color":[Colors green], @"daysRequired":everyDay(),@"identifier":@"1"},nil),
+                                          habit(@{@"title": @"Todo yesterday", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@YES, @NO, @NO, @NO, @NO, @NO, @NO].mutableCopy , @"identifier":@"2"} ,nil),
+                                          habit(@{@"title": @"Todo other days", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@NO,@NO,@YES,@NO,@NO,@NO,@NO].mutableCopy, @"identifier": @"3"},@[@"2013-12-31"]),
+                                          habit(@{@"title": @"Todo some other time", @"active":@NO, @"color":[Colors green], @"identifier":@"4"}, nil)
                                           ]];
         });
         beforeEach(^{

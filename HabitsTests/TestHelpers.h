@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Habit.h"
+#import "DayKeys.h"
 @interface TestHelpers : NSObject
-+(Habit*)habit:(NSDictionary*)dictionary;
++(Habit*)habit:(NSDictionary*)dictionary daysChecked:(NSArray*)dayKeys;
 +(NSMutableArray*)everyDay;
 +(NSArray*)days:(NSArray*)dayStrings;
 @end
 
 static inline NSDate * d(NSString* string){
-    return [Habit dateFromString:string];
+    return [DayKeys dateFromKey:string];
 }
 

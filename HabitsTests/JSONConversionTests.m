@@ -38,40 +38,47 @@ describe(@"Reading JSON", ^{
 describe(@"Writing JSON", ^{
     __block Habit * habit;
     __block NSDictionary * json;
+
     beforeAll(^{
+        [TimeHelper selectDate:d(@"2014-01-02")];
+        [DayKeys clearDateKeysCache];
         habit = [[Habit alloc] initWithDictionary:@{
                                                     @"title": @"Title",
                                                     @"order": @1,
                                                     @"identifier": @"123",
-                                                    @"createdAt": [Habit dateFromString:@"2014-01-01"],
+                                                    @"createdAt": [DayKeys dateFromKey:@"2014-01-01"],
                                                     @"color": [Colors blue],
-                                                    @"daysRequired": @[@YES, @YES, @YES],
+                                                    @"daysRequired": [TestHelpers everyDay],
                                                     @"reminderTime": [TimeHelper dateComponentsForHour:14 minute:45]
                                                     } error:nil];
-        [habit checkDays:@[d(@"2014-01-01"), d(@"2014-01-02")]];
+        [habit checkDays:@[@"2014-01-01", @"2014-01-02"]];
         json = [MTLJSONAdapter JSONDictionaryFromModel:habit];
     });
     it(@"should do the basics", ^{
         expect(json[@"title"]).to.equal(@"Title");
         expect(json[@"id"]).to.equal(@"123");
         expect(json[@"order"]).to.equal(@1);
-        expect(json[@"created_at"]).to.equal(@"2014-01-01 00:00:00 +0000");
+        expect(json[@"created_at"]).to.equal(@"2014-01-01 00:00:00 +0100"); // DaysKeys helper always creates dates in the current time zone. This test will break in different time zones for now.
     });
     it(@"should not include some data", ^{
-        expect(json.allKeys.count).to.equal(9);
+        expect(json.allKeys.count).to.equal(10);
         expect(json[@"latestAnalysis"]).to.beNil();
     });
     it(@"should convert the colour", ^{
         expect(json[@"color"]).to.equal(@"#488FB4");
     });
     it(@"should do the days required", ^{
-        expect(json[@"days_required"]).to.equal(@[@"Sun",@"Mon",@"Tue"]);
+        expect(json[@"days_required"]).to.equal(@[@"Sun",@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat"]);
     });
     it(@"should do days checked", ^{
-        expect(json[@"days_checked"]).to.equal(@{
-                                                 @"2014-01-01":@1,
-                                                 @"2014-01-02":@2
-                                                 });
+        expect(json[@"days_checked"]).to.equal([NSNull null]);
+        expect([json[@"days"] count]).to.equal(2);
+        NSDictionary *first = json[@"days"][0];
+        expect(first[@"day"]).to.equal(@"2014-01-01");
+        expect(first[@"running_total"]).to.equal(1);
+        NSDictionary * second = json[@"days"][1];
+        expect(second[@"day"]).to.equal(@"2014-01-02");
+        expect(second[@"running_total"]).to.equal(2);
     });
     it(@"should do reminder time", ^{
         expect(json[@"time_to_do"]).to.equal(@"14:45");

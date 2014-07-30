@@ -77,10 +77,11 @@ static NSDate * selectedDate = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         __dateFormatter = [[NSDateFormatter alloc] init];
-        __dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+//        __dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
         __dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
     });
     return __dateFormatter;
 }
+
 
 @end

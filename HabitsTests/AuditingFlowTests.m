@@ -23,8 +23,7 @@
     OCMStub([[OCMockObject mockForClass:[HabitsList class]] saveAll]);
     [TimeHelper selectDate:d(@"2014-01-03")];
     [HabitsList overwriteHabits:@[
-                                  [TestHelpers habit:@{@"title": @"First",@"identifier": @"first", @"daysRequired": [TestHelpers everyDay], @"active": @YES,
-                                                       @"daysChecked": @{@"2014-01-01": @YES}.mutableCopy }]
+                                  [TestHelpers habit:@{@"title": @"First",@"identifier": @"first", @"daysRequired": [TestHelpers everyDay], @"active": @YES } daysChecked:@[@"2014-01-01"] ]
                                   ]];
 }
 -(void)testShouldNotShowAuditScreenWhenNotNeeded{
@@ -40,10 +39,16 @@
     // cancel button should be wired up
     
 }
--(void)testWhenAppLaunchedAndNeedsAuditingForYesterday{
+// User wants to be reminded to check off / complete habits in the evening
+-(void)testAppWasLaunchedFromEveningReminder{
+    
+}
+// User wants to be able to easily check off yesterday's habits
+-(void)testAppLaunchedWithIncompleteTasksYesterday{
     //
+    NSLog(@"testWhenAppLaunchedAndNeedsAuditingForYesterday!!");
     [TimeHelper selectDate:d(@"2014-01-03")];
-//    [TimeHelper selectDate:[TimeHelper dateForTimeToday:[TimeHelper dateComponentsForHour:10 minute:0]]];
+    [TimeHelper selectDate:[TimeHelper dateForTimeToday:[TimeHelper dateComponentsForHour:10 minute:0]]];
     [self applicationBecameActive];
     [tester waitForTimeInterval:0.5];
     [tester waitForViewWithAccessibilityLabel:self.didYouBreakTheChain];
@@ -53,6 +58,8 @@
 //    [tester tapViewWithAccessibilityLabel:@"Dismiss"];
     [tester waitForViewWithAccessibilityLabel:@"Checkbox for First Not checked"];
 }
+
+
 #pragma mark - Helpers
 -(void)applicationBecameActive{
     [[[UIApplication sharedApplication] delegate] applicationDidBecomeActive:[UIApplication sharedApplication]];

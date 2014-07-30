@@ -27,7 +27,7 @@
 }
 -(void)setHabit:(Habit *)habit{
     _habit = habit;
-    if (habit.daysChecked.count < 2) return;
+    if (habit.habitDays.count < 2) return;
    
     periodLabel.text = [SparklineHelper periodText:self.habit.earliestDate].uppercaseString;
     
@@ -35,8 +35,8 @@
     
     NSArray * chains = habit.chains;
     longestChainLabel.text = [[chains reduce:^id(NSNumber *memo, NSDictionary* obj) {
-        if (obj.allKeys.count > memo.integerValue) {
-            memo = @(obj.allKeys.count);
+        if (obj.count > memo.integerValue) {
+            memo = @(obj.count);
         }
         return memo;
     } withInitialMemo:@0] stringValue];
@@ -44,7 +44,7 @@
     chainCountLabel.text = @(chains.count).stringValue;
     
     CGFloat averageLength = [[chains reduce:^id(NSNumber* memo, NSDictionary* obj) {
-        return @(obj.allKeys.count + memo.integerValue);
+        return @(obj.count + memo.integerValue);
     } withInitialMemo:@0] floatValue] / (CGFloat)chains.count;
     
     averageChainLengthLabel.text = [NSString stringWithFormat:@"%1.1f", averageLength];

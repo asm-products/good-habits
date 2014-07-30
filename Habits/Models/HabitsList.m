@@ -12,6 +12,7 @@
 #import "CoreDataClient.h"
 #import <Mantle.h>
 #import "TimeHelper.h"
+#import "HabitDay.h"
 static NSMutableArray * __allHabits = nil;
 static CoreDataClient * __coreDataClient = nil;
 
@@ -68,27 +69,42 @@ static CoreDataClient * __coreDataClient = nil;
 +(void)loadFromCoreData{
     [self refreshFromManagedObjectContext: [self coreDataClient].managedObjectContext ];
 }
++(void)deleteAllHabitEntitiesWithoutIdentifiersFromContext:(NSManagedObjectContext*)context{
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
+    request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", nil];
+    NSArray * result = [context executeFetchRequest:request error:nil];
+    for (NSManagedObject * object  in result) {
+        NSLog(@"deleting '%@' from context because it has no identifier", [object valueForKey:@"title"] );
+        [context deleteObject:object];
+    }
+}
 +(void)refreshFromManagedObjectContext:(NSManagedObjectContext *)context{
+    [self deleteAllHabitEntitiesWithoutIdentifiersFromContext:context];
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
     [request setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES ]]];
     NSArray * entities = [context executeFetchRequest:request error:nil];
     if(!entities) return;
     __allHabits = [entities map:^id(NSManagedObject * entity) {
-        if([entity valueForKey:@"identifier"] == nil) {
-//            [entity setValue: [[NSUUID UUID] UUIDString] forKey:@"identifier"];
-            [[self coreDataClient].managedObjectContext deleteObject:entity];
-            return nil;
-        }
-        Habit * result = [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:nil];
-        for (NSString * key in result.daysChecked) {
-            if([[TimeHelper now] isBefore:[Habit dateFromString:key]]){
-                NSLog(@"Removing future key %@", key);
-                [result.daysChecked removeObjectForKey:key];
-            }
-        }
+        NSError * error;
+        Habit * result = [MTLManagedObjectAdapter modelOfClass:[Habit class] fromManagedObject:entity error:&error];
+        if(error) NSLog(@"error! %@", error);
+        result.habitDays = [self daysCheckedForHabit:result inContext:context].mutableCopy;
         return result;
     }].mutableCopy;
     
+}
++(NSArray*)daysCheckedForHabit:(Habit*)habit inContext:(NSManagedObjectContext*)context{
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"HabitDay"];
+    request.predicate = [NSPredicate predicateWithFormat:@"habitIdentifier == %@", habit.identifier];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"day" ascending:YES]];
+    NSArray * entities = [context executeFetchRequest:request error:nil];
+    if(!entities) return nil;
+    return [entities map:^id(NSManagedObject * obj) {
+        NSError * error;
+        HabitDay * habitDay = [MTLManagedObjectAdapter modelOfClass:[HabitDay class] fromManagedObject:obj error:&error];
+        if(!habitDay) NSLog(@"Error getting habit day %@", error);
+        return habitDay;
+    }];
 }
 +(void)deleteHabit:(Habit *)habit{
     [__allHabits removeObject:habit];
@@ -108,10 +124,15 @@ static CoreDataClient * __coreDataClient = nil;
     return __coreDataClient;
 }
 +(void)saveAll{
+    NSManagedObjectContext * context = [self coreDataClient].managedObjectContext;
     for(Habit * habit in [self all]){
         NSError * error;
-        [MTLManagedObjectAdapter managedObjectFromModel:habit insertingIntoContext:[self coreDataClient].managedObjectContext error:&error];
+        [MTLManagedObjectAdapter managedObjectFromModel:habit insertingIntoContext:context error:&error];
         if(error) NSLog(@"ERROR SAVING HABIT! %@", error);
+        for (HabitDay * habitDay in habit.habitDays) {
+            [MTLManagedObjectAdapter managedObjectFromModel:habitDay insertingIntoContext:context error:&error];
+            if(error) NSLog(@"ERROR SAVING HABIT DAY! %@", error);
+        }
     }
     [[self coreDataClient] saveInBackground];
 }

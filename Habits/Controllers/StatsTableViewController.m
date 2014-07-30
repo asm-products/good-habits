@@ -8,8 +8,7 @@
 
 #import "StatsTableViewController.h"
 #import <Mantle.h>
-#import "ChainBreak.h"
-#import "ChainAnalysis.h"
+#import "HabitDay.h"
 #import "TimeHelper.h"
 #import "Audits.h"
 #import <NSArray+F.h>
@@ -35,7 +34,7 @@ typedef enum {
     self.title = self.habit.title;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    self.chainBreaks = [self.habit.latestAnalysis allChainBreaks];
+    self.chainBreaks = nil;
     [self.tableView reloadData];
 }
 
@@ -76,7 +75,7 @@ typedef enum {
     }
     if(indexPath.section == StatsSectionChainBreaks){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChainBreak" forIndexPath:indexPath];
-        ChainBreak * chainBreak = self.chainBreaks[indexPath.row];
+        HabitDay * chainBreak = self.chainBreaks[indexPath.row];
         cell.textLabel.text = [TimeHelper timeAgoString:chainBreak.date];//[NSString stringWithFormat:@"%@ - %@",, nil]; // chainBreak.date];
         cell.detailTextLabel.text = chainBreak.notes;
         return cell;
@@ -93,10 +92,10 @@ typedef enum {
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        ChainBreak * chainBreak = self.chainBreaks[indexPath.row];
-        [chainBreak destroy];
+        HabitDay * habitDay = self.chainBreaks[indexPath.row];
+        habitDay.chainBreakStatus = @"deleted";
         self.chainBreaks = [self.chainBreaks filter:^BOOL(id obj) {
-            return obj != chainBreak;
+            return obj != habitDay;
         }];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }else if(editingStyle == UITableViewCellEditingStyleInsert){

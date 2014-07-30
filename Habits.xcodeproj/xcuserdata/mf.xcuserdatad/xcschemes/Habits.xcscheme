@@ -37,11 +37,6 @@
                BlueprintName = "HabitsTests"
                ReferencedContainer = "container:Habits.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "JSONImportSpec">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

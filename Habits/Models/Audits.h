@@ -14,5 +14,4 @@
 +(NSDateComponents*)scheduledTime;
 +(void)saveScheduledTime:(NSDateComponents*)scheduledTime;
 +(NSArray*)habitsToBeAudited;
-+(ChainAnalysis*)recalculateAnalysisForHabit:(Habit*)habit;
 @end

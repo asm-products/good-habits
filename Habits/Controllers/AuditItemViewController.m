@@ -7,12 +7,14 @@
 //
 
 #import "AuditItemViewController.h"
-#import "ChainAnalysis.h"
 #import <YLMoment.h>
 #import "TimeHelper.h"
 #import "Audits.h"
+#import "HabitAnalysis.h"
+#import "DayKeys.h"
 @interface AuditItemViewController()<UITextFieldDelegate>
-@property (nonatomic, strong) NSMutableArray * chainBreaks;
+@property (nonatomic, strong) HabitAnalysis * analysis;
+@property (nonatomic, strong) HabitDay * chainBreak;
 @end
 
 @implementation AuditItemViewController{
@@ -26,21 +28,23 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     NSAssert(self.habit, @"Needs a habit");
-    NSAssert(self.habit.latestAnalysis, @"should have something in habit.latestAnalysis");
-    self.chainBreaks = self.habit.latestAnalysis.freshChainBreaks.mutableCopy;
+    self.analysis = [[HabitAnalysis alloc] initWithHabit:self.habit];
     [self showNextChainBreak];
     
 }
 -(BOOL)showNextChainBreak{
-    if(self.chainBreaks.count > 0){
-        self.chainBreak = self.chainBreaks.firstObject;
-        [self.chainBreaks removeObjectAtIndex:0];
+    if([self.analysis hasUnauditedChainBreaks]){
+        self.chainBreak = [self.analysis nextUnauditedDay];
+        if ([self.chainBreak.day isEqualToString:[DayKeys keyFromDate:[TimeHelper now]]] && [[TimeHelper now] isBefore:[TimeHelper dateForTimeToday:[Audits scheduledTime]]]) {
+            return NO;
+        }
     }else{
         return NO;
     }
     
+    NSLog(@"showing chain break for habit %@ date %@ running total %@", self.habit.title, self.chainBreak.day, self.chainBreak.runningTotalWhenChainBroken);
     titleLabel.text = self.habit.title;
-    NSInteger chainLength = self.chainBreak.chainLength.integerValue;
+    NSInteger chainLength = self.chainBreak.runningTotalWhenChainBroken.integerValue;
     chainCountLabel.text = [NSString stringWithFormat: @"%@ %@", @(chainLength), chainLength == 1 ? @"day" : @"days"];
     chainCountLabel.textColor = self.habit.color;
     completionButton.backgroundColor = self.habit.color;
@@ -61,11 +65,8 @@
 - (IBAction)didPressCompletionButton:(id)sender {
     [excuseTextField resignFirstResponder];
     
-    [self.habit checkDays:@[ self.chainBreak.date ]];
+    [self.habit checkDays:@[ self.chainBreak.day]];
    
-    [Audits recalculateAnalysisForHabit:self.habit];
-    self.chainBreaks = self.habit.latestAnalysis.freshChainBreaks.mutableCopy;
-    
     if(![self showNextChainBreak]){
         [self.delegate auditItemViewControllerDidCompleteAudit:self];
     }

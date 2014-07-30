@@ -10,7 +10,8 @@
 #import "TimeHelper.h"
 #import "HabitsList.h"
 #import <NSArray+F.h>
-#import "ChainAnalysis.h"
+#import "HabitAnalysis.h"
+#import "DayKeys.h"
 #define ScheduledAuditTimeKey @"ScheduledAuditTime"
 
 @implementation Audits
@@ -29,17 +30,13 @@
     return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 +(NSArray *)habitsToBeAudited{
+    NSDate * auditTime = [TimeHelper dateForTimeToday:[self scheduledTime]];
+    NSString * today = [DayKeys keyFromDate:[TimeHelper now]];
     return [[HabitsList active] filter:^BOOL(Habit * habit) {
-        return [self recalculateAnalysisForHabit:habit].freshChainBreaks.count > 0;
+        HabitAnalysis * analysis = [[HabitAnalysis alloc] initWithHabit:habit];
+        HabitDay * habitDay = [analysis nextUnauditedDay];
+        if([habitDay.day isEqualToString:today] && auditTime == NO) return NO;
+        return [analysis hasUnauditedChainBreaks];
     }];
-}
-+(ChainAnalysis*)recalculateAnalysisForHabit:(Habit*)habit{
-    NSDate * startDate = [[TimeHelper addDays:-7 toDate:[TimeHelper now]] laterDate:habit.earliestDate].beginningOfDay;
-    NSDate * endDate = [TimeHelper now].beginningOfDay;
-    NSLog(@"auditing %@ from %@ to %@", habit.title, startDate, endDate);
-    ChainAnalysis * analysis = [[ChainAnalysis alloc] initWithHabit:habit startDate:startDate endDate:endDate calculateImmediately:YES];
-    NSLog(@"audit results %@ fresh chain break(s) date %@ (reminder time %@:00) breaks %@", @(analysis.freshChainBreaks.count), [TimeHelper now], @([Audits scheduledTime].hour) ,[analysis.freshChainBreaks valueForKey:@"date"]);
-    habit.latestAnalysis = analysis;
-    return analysis;
 }
 @end

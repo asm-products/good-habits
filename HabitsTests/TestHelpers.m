@@ -9,11 +9,14 @@
 #import "TestHelpers.h"
 #import "Calendar.h"
 #import <NSArray+F.h>
+#import "DayKeys.h"
 @implementation TestHelpers
-+(Habit *)habit:(NSDictionary *)dict{
++(Habit *)habit:(NSDictionary *)dict daysChecked:(NSArray *)dayKeys{
     NSError * error;
     Habit * result = [[Habit alloc] initWithDictionary:dict error:&error];
     if(error) @throw [NSException exceptionWithName:@"Bad habit error" reason:error.localizedDescription userInfo:@{@"error":error}];
+    if(dayKeys)
+        [result checkDays:dayKeys];
     return result;
 }
 +(NSMutableArray *)everyDay{
@@ -23,7 +26,7 @@
 }
 +(NSArray *)days:(NSArray *)dayStrings{
     return [dayStrings map:^id(NSString * string) {
-        return [Habit dateFromString:string];
+        return [DayKeys dateFromKey:string];
     }];
 }
 @end

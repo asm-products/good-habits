@@ -9,6 +9,7 @@ target "Habits" do
     pod 'UIAlertView-Blocks', '~> 1.0'
     pod 'SHMessageUIBlocks', '~> 1.2'
     pod 'Reveal-iOS-SDK', '~> 1.0'
+    pod 'SVProgressHUD', '~> 1.0'
 end
 
 target "HabitsTests" do

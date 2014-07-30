@@ -39,7 +39,13 @@
     NSData * data = [[NSData alloc] initWithBase64EncodedString:string options:0];
     NSArray * array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     NSError * error;
-    NSArray * result = [MTLJSONAdapter modelsOfClass:[Habit class] fromJSONArray:array error:&error];
+    NSArray * result = [[MTLJSONAdapter modelsOfClass:[Habit class] fromJSONArray:array error:&error] map:^id(Habit * habit) {
+        if(habit.daysChecked){
+            [habit checkDays:habit.daysChecked.allKeys];
+            habit.daysChecked = nil;
+        }
+        return habit;
+    }];
     if(error){
         NSLog(@"Error parsing json %@: %@", error,  array);
     }else{

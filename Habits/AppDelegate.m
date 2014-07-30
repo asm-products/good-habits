@@ -16,6 +16,7 @@
 #import "Audits.h"
 #import "DataExport.h"
 #import <UIAlertView+Blocks.h>
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -77,6 +78,7 @@
 -(void)showAuditScreenIfNeeded{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray * habitsToBeAudited = [Audits habitsToBeAudited];
+        NSLog(@"Habits to be audited: %@", [habitsToBeAudited valueForKey:@"title"]);
         dispatch_async(dispatch_get_main_queue(), ^{
             if(habitsToBeAudited.count > 0){
                 UIViewController * controller = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"Audit"];
@@ -89,6 +91,7 @@
     NSArray * components = [url.absoluteString componentsSeparatedByString:@"goodhabits://import?json="];
     if(components.count > 1){
         [[[UIAlertView alloc] initWithTitle:@"Restore data?" message:@"Restore your data? This action will delete your current data. It might also make any iCloud syncing behave strangely. Proceed with caution." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:@"Restore Data" action:^{
+            [SVP]
             [DataExport importDataFromBase64EncodedString:components[1]];
         }], nil] show];
         return YES;

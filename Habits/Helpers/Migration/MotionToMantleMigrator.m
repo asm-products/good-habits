@@ -35,13 +35,14 @@
         Habit * habit = [Habit new];
         habit.isActive = dict[@"active"];
         habit.reminderTime = [TimeHelper dateComponentsForHour:[dict[@"time_to_do"] integerValue] minute:[dict[@"minute_to_do"] integerValue]];
-        habit.daysChecked = dict[@"days_checked"]; // these will be BOOLs
         habit.order = dict[@"order"];
         habit.createdAt = dict[@"created_at"];
         habit.title = dict[@"title"];
         habit.daysRequired = dict[@"days_required"];
         habit.color = [Colors colorsFromMotion][[dict[@"color_index"] integerValue]];
         habit.identifier = [[NSUUID UUID] UUIDString];
+        NSDictionary * daysChecked = dict[@"days_checked"]; // these will be BOOLs
+        [habit checkDays: daysChecked.allKeys];
         [habit recalculateLongestChain];
         return habit;
     }];

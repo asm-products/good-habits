@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ChainBreak.h"
 #import "Habit.h"
+#import "HabitDay.h"
 
 @class AuditItemViewController;
 
@@ -19,7 +19,7 @@
 @end
 
 @interface AuditItemViewController : UIViewController
-@property (nonatomic, strong) ChainBreak * chainBreak;
+@property (nonatomic, strong) HabitDay * habitDay;
 @property (nonatomic, strong) Habit * habit;
 @property (nonatomic, strong) NSDate * date;
 @property (nonatomic, weak) id<AuditItemViewControllerDelegate>delegate;

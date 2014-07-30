@@ -12,6 +12,7 @@
 #import "TimeHelper.h"
 #import <YLMoment.h>
 #import "HabitsList.h"
+#import "DayKeys.h"
 #define CELL_SIZE CGSizeMake(45, 44)
 #define CELL_COUNT (7*5)
 
@@ -119,11 +120,7 @@
         if([[self class] isFutureDate:cell.day]) return;
         togglingOn = ![self.habit includesDate:cell.day];
         [cell setSelectionState:togglingOn ? CalendarDayStateAlone : CalendarDayStateBeforeStart color:self.habit.color];
-        if(togglingOn){
-            [self.habit checkDays: @[cell.day]];
-        }else{
-            [self.habit uncheckDays: @[cell.day]];
-        }
+        [self.habit setDaysChecked:@[[DayKeys keyFromDate:cell.day]] checked:togglingOn];
         [self.habit save];
         [self showChainsForHabit:self.habit callback:nil];
         

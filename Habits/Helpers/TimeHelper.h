@@ -23,4 +23,5 @@
 +(NSDate*)dateForTimeToday:(NSDateComponents*)components;
 //+(NSDateFormatter*)iso8601Formatter;
 +(NSDateFormatter*)jsonDateFormatter;
+
 @end

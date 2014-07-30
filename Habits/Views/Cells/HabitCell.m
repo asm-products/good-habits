@@ -49,6 +49,7 @@
     
     NSInteger currentChainLength = habit.currentChainLength;
     NSInteger longestChain = habit.longestChain.intValue;
+    countView.color = habit.color;
     countView.text = @[ @(currentChainLength), @(longestChain) ];
     countView.isHappy = currentChainLength > 0 && currentChainLength == longestChain;
     countView.highlighted = false;
