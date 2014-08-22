@@ -1,0 +1,6 @@
+#include "Pods-Habits-KiipSDK.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/KiipSDK" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/ALActionBlocks" "${PODS_ROOT}/Headers/AVHexColor" "${PODS_ROOT}/Headers/Expecta" "${PODS_ROOT}/Headers/Functional.m" "${PODS_ROOT}/Headers/KIF" "${PODS_ROOT}/Headers/KiipSDK" "${PODS_ROOT}/Headers/Mantle" "${PODS_ROOT}/Headers/OCMock" "${PODS_ROOT}/Headers/Reveal-iOS-SDK" "${PODS_ROOT}/Headers/SHMessageUIBlocks" "${PODS_ROOT}/Headers/SVProgressHUD" "${PODS_ROOT}/Headers/Specta" "${PODS_ROOT}/Headers/UIAlertView-Blocks" "${PODS_ROOT}/Headers/YLMoment"
+LIBRARY_SEARCH_PATHS = ${PODS_HABITS_KIIPSDK_LIBRARY_SEARCH_PATHS}
+OTHER_LDFLAGS = -ObjC ${PODS_HABITS_KIIPSDK_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}
