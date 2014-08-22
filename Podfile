@@ -8,8 +8,8 @@ target "Habits" do
     pod 'ALActionBlocks', '~> 1.0'
     pod 'UIAlertView-Blocks', '~> 1.0'
     pod 'SHMessageUIBlocks', '~> 1.2'
-    pod 'Reveal-iOS-SDK', '~> 1.0'
     pod 'SVProgressHUD', '~> 1.0'
+    pod 'KiipSDK', '~> 2.0'
 end
 
 target "HabitsTests" do
@@ -17,4 +17,5 @@ target "HabitsTests" do
     pod 'Expecta'
     pod 'OCMock', '~> 3.0'
     pod 'KIF', '~> 3.0'
+    pod 'Reveal-iOS-SDK', '~> 1.0'
 end
