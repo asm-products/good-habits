@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLK-xq-wVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="129"/>
+            <point key="canvasLocation" x="119" y="71"/>
         </scene>
         <!--Landing View Controller-->
         <scene sceneID="zce-ow-bNb">
@@ -147,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqB-E9-GGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="129"/>
+            <point key="canvasLocation" x="529" y="71"/>
         </scene>
         <!--Habit List View Controller-->
         <scene sceneID="CAQ-fP-Nhg">
@@ -203,7 +203,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ca4-U3-FrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1016" y="121"/>
+            <point key="canvasLocation" x="1008" y="71"/>
         </scene>
         <!--Habit Detail View Controller-->
         <scene sceneID="8ji-Ym-xsM">
@@ -217,7 +217,7 @@
                             <tableViewSection id="5ug-PD-N7a">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="276" id="SQ1-Nx-oKL" userLabel="Calendar">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="276"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="276"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SQ1-Nx-oKL" id="JMR-XL-h1H">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="275"/>
@@ -250,7 +250,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="52" id="hEa-ba-MaS">
-                                        <rect key="frame" x="0.0" y="340" width="320" height="52"/>
+                                        <rect key="frame" x="0.0" y="276" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hEa-ba-MaS" id="cJ4-zd-0wt">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
@@ -268,7 +268,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="klW-Ao-Yse" customClass="ColorPickerCell">
-                                        <rect key="frame" x="0.0" y="392" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="328" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="klW-Ao-Yse" id="1y9-vK-vUo">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -276,7 +276,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="J2P-fW-65j" userLabel="Reminder">
-                                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J2P-fW-65j" id="sKL-kj-Adf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -307,7 +307,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="0.0" id="0NB-zt-Juk" userLabel="Date Picker (collapsed)">
-                                        <rect key="frame" x="0.0" y="480" width="320" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="416" width="320" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0NB-zt-Juk" id="EOL-qV-Y70">
                                             <rect key="frame" x="0.0" y="-1" width="320" height="1"/>
@@ -348,7 +348,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Rmx-Fl-nbA" userLabel="Pause this habit">
-                                        <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rmx-Fl-nbA" id="D6t-9B-HOd">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -368,7 +368,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="TNm-hx-idg" userLabel="Delete this habit">
-                                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="460" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TNm-hx-idg" id="Tdy-C9-QUt">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -940,7 +940,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="toc-2m-8Zg"/>
         <segue reference="LRt-8p-1fe"/>
+        <segue reference="t3i-Zh-mBS"/>
     </inferredMetricsTieBreakers>
 </document>
