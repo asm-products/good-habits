@@ -128,12 +128,12 @@
         [context reset];
     }];
     
-    // Refresh your User Interface.
+    // Refresh User Interface.
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:self];
 }
 
 - (void)storesDidChange:(NSNotification *)notification {
-    // Refresh your User Interface.
+    // Refresh User Interface.
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:self];
     
 }
