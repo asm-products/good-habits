@@ -14,13 +14,14 @@
 #import "TimeHelper.h"
 #import <YLMoment.h>
 #import "Calendar.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import <AVHexColor.h>
 #import "DayKeys.h"
+#import "Chain.h"
 
 @implementation Habit
-
-
+@dynamic identifier,title,color,createdAt,reminderTime,isActive,order,daysRequired,chains;
+@synthesize notifications;
 #pragma mark - MTLManagedObjectSerializing
 +(NSString *)managedObjectEntityName{
     return @"Habit";
@@ -31,7 +32,8 @@
 +(NSDictionary *)managedObjectKeysByPropertyKey{
     return @{
              @"notifications": [NSNull null],
-             @"habitDays": [NSNull null]
+             @"habitDays": [NSNull null],
+             @"entity": [NSNull null]
              };
 }
 #pragma mark - MTLJSONSerializing
@@ -43,7 +45,8 @@
              @"daysRequired":@"days_required",
              @"identifier": @"id",
              @"habitDays": @"days",
-             @"notifications": [NSNull null]
+             @"notifications": [NSNull null],
+             @"entity": [NSNull null]
              };
 }
 +(NSValueTransformer*)colorJSONTransformer{
@@ -109,7 +112,8 @@
     return [self isRequiredOnWeekday:[TimeHelper now]];
 }
 -(BOOL)done:(NSDate *)date{
-    return [self habitDayForDate:date].isChecked.boolValue;
+//    [self chainForDate:date]
+    return YES; //[self habitDayForDate:date].isChecked.boolValue;
 }
 -(BOOL)due:(NSDate *)date{
     if(!self.isActive.boolValue) return NO;
@@ -122,7 +126,7 @@
     return [self.daysRequired[[TimeHelper weekday:date]] boolValue];
 }
 -(BOOL)needsToBeDone:(NSDate *)date{
-    return ![self done:date] && [self isRequiredOnWeekday:date];
+    return NO; //![self done:date] && [self isRequiredOnWeekday:date];
 }
 -(BOOL)hasReminders{
     return self.reminderTime != nil;
@@ -139,192 +143,38 @@
 }
 #pragma mark - Meta
 -(NSDate*)earliestDate{
-    if(self.habitDays.count == 0) return [TimeHelper now];
-    NSInteger index = [self.habitDays indexOfObjectWithOptions:0 passingTest:^BOOL(HabitDay * day, NSUInteger idx, BOOL *stop) {
-        return day.isChecked.boolValue && day.userInterventionStatus.boolValue;
-    }];
-    if(index != NSNotFound) return [self.habitDays[index] date];
-    return [TimeHelper now];
+    Chain * chain = self.sortedChains.firstObject;
+    HabitDay * firstDay = chain.sortedDays.firstObject;
+    return firstDay.date;
 }
 #pragma mark - Interactions
--(void)toggle:(NSDate *)date{
-    HabitDay * day = [self habitDayForDate:date];
-    day.isChecked = @(!day.isChecked.boolValue);
-    [self recalculateLongestChain];
-}
--(void)checkDays:(NSArray *)days{
-    [self setDaysChecked:days checked:YES];
-}
--(void)uncheckDays:(NSArray *)days{
-    [self setDaysChecked:days checked:NO];
-}
-/**
- *  Always assume user intervention when these methods were called
- */
--(void)setDaysChecked:(NSArray *)dayKeys checked:(BOOL)checked{
-    assert([dayKeys.firstObject isKindOfClass:[NSString class]]);
-    [self ensureHabitDaysAreContinuousIncluding:dayKeys];
-    for(NSString* key in dayKeys){
-        HabitDay * day = [self habitDayForKey:key];
-        day.isChecked = @(checked);
-        day.chainBreakStatus = nil;
-        day.userInterventionStatus = @YES;
-    }
-    [self recalculateLongestChain];
-}
--(void)ensureHabitDaysAreContinuousIncluding:(NSArray*)dayKeys{
-    dayKeys = [dayKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    NSArray * possibleKeys = [DayKeys dateKeysIncluding:dayKeys.firstObject last:dayKeys.lastObject forwardPadding:0];
-    for (NSString * key in possibleKeys) {
-        [self habitDayForKey:key];
-    }
-}
--(HabitDay*)habitDayForDate:(NSDate*)date{
-    NSString * key = [DayKeys keyFromDate:date];
-    return [self habitDayForKey:key];
-}
--(HabitDay*)habitDayForKey:(NSString*)key{
-    NSInteger index =  [self.habitDays indexOfObjectWithOptions:NSEnumerationReverse passingTest:^BOOL(HabitDay*day, NSUInteger idx, BOOL *stop) {
-        return [day.day isEqualToString:key];
-    }];
-    if(index == NSNotFound){
-        BOOL required = [self isRequiredOnWeekday:[DayKeys dateFromKey:key]];
-        HabitDay * day = [[HabitDay alloc] initWithDictionary:@{
-                                                                @"habitIdentifier": self.identifier,
-                                                                @"day": key,
-                                                                @"required": @(required)
-                                                                } error:nil];
-        [self.habitDays addObject:day];
-        [self.habitDays sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"day" ascending:YES]]];
-        return day;
-    }else{
-        return self.habitDays[index];
-    }
-}
+
 #pragma mark - Chains
--(void)recalculateLongestChain{
-    [self calculateChainLengthFindLongest:YES];
+-(NSArray *)sortedChains{
+    return [self.chains sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lastDateCache" ascending:YES]]];
 }
--(NSNumber *)longestChain{
-    return [self.habitDays reduce:^id(id memo, HabitDay * day) {
-        NSInteger result = MAX([memo integerValue], [day.runningTotal integerValue]);
-        return @(result);
-    } withInitialMemo:@0];
-}
--(NSArray *)chains{
-    __block NSNumber * previousNumber = @0;
-    NSMutableArray * result = [NSMutableArray new];
-    [self.habitDays reduce:^id(id memo, HabitDay * day) {
-        if (previousNumber.integerValue < day.runningTotal.integerValue) {
-            [memo addObject:day];
-        }else{
-            [result addObject:memo];
-            memo = [NSMutableArray new];
-            [memo addObject:day];
-        }
-        previousNumber = day.runningTotal;
-        return memo;
-    } withInitialMemo:[NSMutableArray new]];
-    return result;
+-(Chain*)longestChain{
+    return [[self.chains sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"daysCountCache" ascending:YES]]] lastObject];
 }
 -(NSInteger)currentChainLength{
-    HabitDay * day = [self habitDayForDate:[TimeHelper now]];
-    return day.runningTotal.integerValue;
+    Chain * chain = self.sortedChains.lastObject;
+    return [chain.daysCountCache integerValue];
 }
--(NSInteger)calculateChainLengthFindLongest:(BOOL)shouldFindLongest{
-    __block HabitDay * previousDay = self.habitDays.firstObject;
-    NSString * todayKey = [DayKeys keyFromDate:[TimeHelper now]];
-    [self.habitDays enumerateObjectsUsingBlock:^(HabitDay * habitDay, NSUInteger index, BOOL *stop) {
-        if(index == 0){
-            habitDay.runningTotal = habitDay.isChecked.boolValue ? @1 : @0;
-        }else{
-            if(habitDay.isChecked.boolValue){
-                habitDay.runningTotal = @(previousDay.runningTotal.integerValue + 1);
-            }else{
-                NSLog(@"%@day not checked. required ? %@ ",habitDay.habitIdentifier, habitDay.required);
-                if(habitDay.required.boolValue){
-                    if(!habitDay.chainBreakStatus){
-                        habitDay.chainBreakStatus = @"fresh";
-                        habitDay.runningTotalWhenChainBroken = previousDay.runningTotal;
-                        habitDay.runningTotal = @0;
-                        NSLog(@"There was a chain break for habit '%@' on '%@' with running total %@", self.title, habitDay.day, habitDay.runningTotal);
-                    }
-                }else{
-                    habitDay.runningTotal = previousDay.runningTotal;
-                }
-            }
-        }
-        previousDay = habitDay;
-        if([previousDay.day isEqualToString:todayKey]){
-            *stop = YES;
-        }
-    }];
-    if(shouldFindLongest){
-        return [[self.habitDays reduce:^id(id memo, HabitDay * day) {
-            return @(MAX(day.runningTotal.integerValue, [memo integerValue]));
-        } withInitialMemo:@0] integerValue];
-    }else{
-        return [self habitDayForDate:[TimeHelper now]].runningTotal.integerValue;
-    }
-}
-
--(NSDate*)continuesActivityBefore:(NSDate*)date{
-    return [self continuesActivityFromDate:date step:-1 limit:8];
-}
-/**
- *  AKA 'chain continues unbroken after the start date'
- */
--(NSDate*)continuesActivityAfter:(NSDate*)date{
-    return [self continuesActivityFromDate:date step:1 limit:8];
-}
--(NSDate*)continuesActivityFromDate:(NSDate*)date step:(NSInteger)step limit:(NSInteger)limit{
-    NSInteger index = 1;
-    YLMoment * moment = [YLMoment momentWithDate:date];
-    [moment addAmountOfTime:step forCalendarUnit:NSDayCalendarUnit];
-    while (index++ < limit && [moment.date isBefore:[TimeHelper now]]) {
-        if([self includesDate:moment.date]) return moment.date;
-        if([self isRequiredOnWeekday:moment.date]) {
-            NSLog(@"Activity interrupted because it was required on %@", moment);
-            return nil;
-        }
-        [moment addAmountOfTime:step forCalendarUnit:NSDayCalendarUnit];
-    }
-    if(![moment.date isBefore:[TimeHelper now]]) return [TimeHelper now];
-    NSLog(@"Activity interrupted because we reached the limit");
-    return nil;
-}
-
--(BOOL)includesDate:(NSDate*)date{
-    return [[[self habitDayForDate:date] isChecked] boolValue];
-}
--(NSNumber*)chainLengthOnDate:(NSDate *)date{
-    HabitDay * day = [self habitDayForDate:date];
-    return day.runningTotal;
+-(Chain *)chainForDate:(NSDate *)date{
+    NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"lastDateCache <= %@", date]];
+    return chains.lastObject;
 }
 #pragma mark - Data management
--(NSString *)title{
-    _title = _title ?: @"New Habit"; return _title;
-}
--(UIColor *)color{
-    _color = _color ?: [Colors colorsFromMotion][[HabitsList nextUnusedColorIndex]]; return _color;
-}
--(NSNumber *)isActive{
-    _isActive = _isActive ?: @YES; return _isActive;
-}
--(NSMutableArray *)daysRequired{
-    _daysRequired = _daysRequired ?: [[Calendar days] map:^id(id obj) {
++(Habit *)createNew{
+    NSManagedObjectContext * context = [CoreDataClient defaultClient].managedObjectContext;
+    Habit * result = [NSEntityDescription insertNewObjectForEntityForName:@"Habit" inManagedObjectContext:context];
+    result.title = @"New Habit";
+    result.color = [Colors colorsFromMotion][[HabitsQueries nextUnusedColorIndex]];
+    result.isActive = @YES;
+    result.daysRequired = [[Calendar days] map:^id(id obj) {
         return @YES;
     }].mutableCopy;
-    return _daysRequired;
-}
--(NSMutableArray*)habitDays{
-    _habitDays = _habitDays ?: [NSMutableArray new]; return _habitDays;
-}
-//-(NSMutableArray *)daysChecked{
-//    _daysChecked = _daysChecked ?: [NSMutableArray new]; return _daysChecked;
-//}
--(void)save{
-    [HabitsList saveAll];
+    return result;
 }
 #pragma mark - Notifications
 

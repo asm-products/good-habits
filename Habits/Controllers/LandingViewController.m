@@ -8,7 +8,7 @@
 
 #import "LandingViewController.h"
 #import "Habit.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "HabitListViewController.h"
 #import "HabitDetailViewController.h"
 #import "InfoTask.h"
@@ -53,10 +53,10 @@
         self.habitListViewController = segue.destinationViewController;
     }
     if([segue.identifier isEqualToString:@"New"]){
-        Habit * habit = [Habit new];
+        Habit * habit = [Habit createNew];
         habit.identifier = [[NSUUID UUID] UUIDString];
-        [HabitsList.all addObject:habit];
-        [self.habitListViewController insertHabit:habit];        
+//        [HabitsList.all addObject:habit];
+        [self.habitListViewController insertHabit:habit];
         HabitDetailViewController * dest = segue.destinationViewController;
         dest.habit = habit;
         [statsPopup animateOut];

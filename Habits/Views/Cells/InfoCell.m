@@ -8,6 +8,7 @@
 
 #import "InfoCell.h"
 #import "Colors.h"
+#import "Chain.h"
 @implementation InfoCell{
     
     __weak IBOutlet UILabel *newLabel;
@@ -20,7 +21,7 @@
 -(void)didTapCheckbox:(UITapGestureRecognizer*)tap{
     [self.task toggle:!self.task.done];
     [self markRead];
-    [self.checkbox setChecked:self.task.done];
+    [self.checkbox setState:self.task.done ? DayCheckedStateComplete : DayCheckedStateNull];
     if(self.task.isUnopened){
         [self.task open:self.controller];
     }
@@ -29,7 +30,7 @@
     _task = task;
     if(task.opened) [self markRead];
     self.label.text = task.text;
-    [self.checkbox setChecked:task.done];
+    [self.checkbox setState:task.done ? DayCheckedStateComplete : DayCheckedStateNull];
 }
 -(void)markRead{
     newLabel.hidden = YES;

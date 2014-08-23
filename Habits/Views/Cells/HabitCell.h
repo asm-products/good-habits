@@ -7,12 +7,13 @@
 //
 
 #import "CellWithCheckBox.h"
-#import "Habit.h"
-
+#import "Chain.h"
 #define DAY_TOGGLED_FOR_HABIT @"DAY_TOGGLED_FOR_HABIT"
 
 @interface HabitCell : CellWithCheckBox
-@property (nonatomic, strong) Habit * habit;
+@property (nonatomic, strong) Chain * chain;
 @property (nonatomic) BOOL inactive;
 @property (nonatomic, strong) NSDate * now;
+@property (nonatomic) DayCheckedState state;
+-(void)update;
 @end

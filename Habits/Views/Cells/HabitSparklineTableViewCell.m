@@ -12,6 +12,7 @@
 #import "SparklineHelper.h"
 #import <NSArray+F.h>
 #import <NSDictionary+F.h>
+#import "Chain.h"
 @implementation HabitSparklineTableViewCell{
     
     __weak IBOutlet DailySparklineView *sparklineView;
@@ -27,24 +28,24 @@
 }
 -(void)setHabit:(Habit *)habit{
     _habit = habit;
-    if (habit.habitDays.count < 2) return;
+//    if (habit.habitDays.count < 2) return;
    
     periodLabel.text = [SparklineHelper periodText:self.habit.earliestDate].uppercaseString;
     
     currentChainLengthLabel.text = @(self.habit.currentChainLength).stringValue;
     
-    NSArray * chains = habit.chains;
-    longestChainLabel.text = [[chains reduce:^id(NSNumber *memo, NSDictionary* obj) {
-        if (obj.count > memo.integerValue) {
-            memo = @(obj.count);
+    NSSet * chains = habit.chains;
+    longestChainLabel.text = [[chains.allObjects reduce:^id(NSNumber *memo, Chain* chain) {
+        if (chain.length > memo.integerValue) {
+            memo = @(chain.length);
         }
         return memo;
     } withInitialMemo:@0] stringValue];
     
     chainCountLabel.text = @(chains.count).stringValue;
     
-    CGFloat averageLength = [[chains reduce:^id(NSNumber* memo, NSDictionary* obj) {
-        return @(obj.count + memo.integerValue);
+    CGFloat averageLength = [[chains.allObjects reduce:^id(NSNumber* memo, Chain* chain) {
+        return @(chain.length + memo.integerValue);
     } withInitialMemo:@0] floatValue] / (CGFloat)chains.count;
     
     averageChainLengthLabel.text = [NSString stringWithFormat:@"%1.1f", averageLength];

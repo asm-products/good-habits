@@ -9,13 +9,10 @@
 #import "HabitDay.h"
 #import "Habit.h"
 #import "DayKeys.h"
+#import "Chain.h"
 @implementation HabitDay
--(NSDate *)date{
-    return [DayKeys dateFromKey:self.day];
-}
--(void)confirmAndSave{
-    
-}
+@dynamic dayKey,dayStateCache,date,chain,runningTotalCache,timeZoneOffset;
+
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
              @"habitIdentifier": @"habit_id",
@@ -25,18 +22,13 @@
              @"chainBreakStatus": @"chain_break"
              };
 }
--(void)setRunningTotal:(NSNumber *)runningTotal{
-    _runningTotal = runningTotal;
-    NSLog(@"Setting running total of %@ %@ to %@", self.habitIdentifier, self.day, runningTotal);
-}
-#pragma  mark - MTL Managed Object
-+(NSString *)managedObjectEntityName{
-    return @"HabitDay";
-}
-+(NSDictionary *)managedObjectKeysByPropertyKey{
-    return @{};
-}
-+(NSSet *)propertyKeysForManagedObjectUniquing{
-    return [NSSet setWithArray:@[@"habitIdentifier",@"day"]];
+-(CalendarDayState)dayState{
+    if(self.chain.length == 1) return CalendarDayStateAlone;
+    if (self.chain.sortedDays.firstObject == self) {
+        return CalendarDayStateFirstInChain;
+    }else if (self.chain.sortedDays.lastObject == self){
+        return CalendarDayStateLastInChain;
+    }
+    return CalendarDayStateMidChain;
 }
 @end

@@ -9,7 +9,7 @@
 #import <KIF.h>
 #import <OCMock.h>
 #import "Habit.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "Colors.h"
 #import "Calendar.h"
 #import <NSArray+F.h>
@@ -28,7 +28,7 @@ SpecBegin(HabitsListTests)
 describe(@"list", ^{
     describe(@"first use", ^{
         beforeAll(^{
-            [HabitsList overwriteHabits:@[]];
+            [HabitsQueries overwriteHabits:@[]];
         });
         it(@"should show tip on plus arrow", ^{
             [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Paused habits"];
@@ -41,7 +41,7 @@ describe(@"list", ^{
         beforeAll(^{
             [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-01-01"].date];
             
-            [HabitsList overwriteHabits:@[
+            [HabitsQueries overwriteHabits:@[
                                           habit(@{@"title": @"Todo today", @"active":@YES, @"color":[Colors green], @"daysRequired":everyDay(),@"identifier":@"1"},nil),
                                           habit(@{@"title": @"Todo yesterday", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@YES, @NO, @NO, @NO, @NO, @NO, @NO].mutableCopy , @"identifier":@"2"} ,nil),
                                           habit(@{@"title": @"Todo other days", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@NO,@NO,@YES,@NO,@NO,@NO,@NO].mutableCopy, @"identifier": @"3"},@[@"2013-12-31"]),

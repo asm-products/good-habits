@@ -13,23 +13,7 @@
 #import "DayKeys.h"
 @implementation SparklineHelper
 +(NSArray *)dataForHabit:(Habit *)habit{
-    NSString * earliestDayKey = [DayKeys keyFromDate:habit.earliestDate];
-    NSLog(@"Earliest date %@", earliestDayKey);
-    return [habit.habitDays filter:^BOOL(HabitDay * habitDay) {
-        BOOL comparison = [habitDay.day compare:earliestDayKey];
-        BOOL result = comparison == NSOrderedDescending || comparison == NSOrderedSame;
-        NSLog(@"%@ included ? %@", habitDay.day, @(result));
-        return result;
-    }];
-//    NSMutableArray * dataPoints = [NSMutableArray new];
-//    NSDate * now = [TimeHelper now];
-//    NSDate * date = habit.earliestDate;
-//    while ([date isBefore: now]) {
-//        NSNumber * value = [habit includesDate:date] ? [habit chainLengthOnDate:date] : @0;
-//        [dataPoints addObject:value];
-//        date = [TimeHelper addDays:1 toDate:date];
-//    }
-//    return dataPoints;
+    return habit.sortedChains;
 }
 +(NSString *)periodText:(NSDate *)date{
     return [[YLMoment momentWithDate:date] fromDate:[TimeHelper now] withSuffix:NO];

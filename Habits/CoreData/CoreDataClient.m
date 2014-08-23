@@ -7,7 +7,7 @@
 //
 
 #import "CoreDataClient.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import <UIAlertView+Blocks.h>
 
 #define STORE_NAME @"HabitsStore"
@@ -21,6 +21,9 @@
 @end
 
 @implementation CoreDataClient
+
+CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
+
 -(instancetype)init{
     if(self = [super init]){
         
@@ -45,14 +48,19 @@
     if(success) NSLog(@"NUKED!");
     exit(0);
 }
--(void)saveInBackground{
-    [self.managedObjectContext performBlock:^{
-        if([self.managedObjectContext hasChanges]){
-            NSError * error;
-            [self.managedObjectContext save:&error];
-            if(error) NSLog(@"Error saving! %@", error.localizedDescription);
-        }
-    }];
+//-(void)saveInBackground{
+//    [self.managedObjectContext performBlock:^{
+//        if([self.managedObjectContext hasChanges]){
+//            NSError * error;
+//            [self.managedObjectContext save:&error];
+//            if(error) NSLog(@"Error saving! %@", error.localizedDescription);
+//        }
+//    }];
+//}
+-(NSManagedObjectContext *)createPrivateContext{
+    NSManagedObjectContext * context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    context.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    return context;
 }
 /// Use these options in your call to -addPersistentStore:
 - (NSDictionary *)iCloudPersistentStoreOptions {
@@ -69,14 +77,17 @@
 -(NSManagedObjectModel*)managedObjectModel{
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Habits" withExtension:@"momd"];
     NSManagedObjectModel * model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    if(!model) @throw [NSException exceptionWithName:@"ManagedObjectModelNotFound" reason:@"Couldn't load managed object model" userInfo:nil];
     return model;
 }
 - (void)setupManagedObjectContext
 {
     self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    self.managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     NSError* error;
-    self.persistentStore = [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeURL options:self.iCloudPersistentStoreOptions error:&error];
+    self.persistentStore = [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeURL options:self.iCloudPersistentStoreOptions error:&error];
+    self.managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
+
     if (error) {
         NSLog(@"error: %@", error);
     }

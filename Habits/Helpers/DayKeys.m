@@ -8,7 +8,6 @@
 
 #import "DayKeys.h"
 #import "TimeHelper.h"
-static NSArray * dateKeys = nil;
 NSDateFormatter * dateKeyFormatter(){
     static NSDateFormatter * formatter = nil;
     static dispatch_once_t onceToken;
@@ -20,47 +19,22 @@ NSDateFormatter * dateKeyFormatter(){
     });
     return formatter;
 }
-NSString * dayKey(NSDate* date){
-    return [dateKeyFormatter() stringFromDate:date];
+NSString * dayKey(NSDate* date, NSTimeZone * timeZone){
+    NSDateFormatter * formatter = dateKeyFormatter();
+    formatter.timeZone = timeZone;
+    return [formatter stringFromDate:date];
 }
-NSDate * dateFromKey(NSString * key){
-    return [dateKeyFormatter() dateFromString:key];
+NSDate * dateFromKey(NSString * key, NSTimeZone*timeZone){
+    NSDateFormatter * formatter = dateKeyFormatter();
+    formatter.timeZone = timeZone;
+    return [formatter dateFromString:key];
 }
 @implementation DayKeys
 
-+(NSDate *)dateFromKey:(NSString *)key{
-    return dateFromKey(key);
++(NSDate *)dateFromKey:(NSString *)key inTimeZone:(NSTimeZone *)timeZone{
+    return dateFromKey(key,timeZone);
 }
-+(NSString *)keyFromDate:(NSDate *)date{
-    return dayKey(date);
-}
-+(NSArray *)dateKeysIncluding:(NSString *)first last:(NSString *)last forwardPadding:(NSInteger)numberOfDays{
-    if(numberOfDays > 0){
-        last = [self keyFromDate:[TimeHelper addDays:numberOfDays toDate:[self dateFromKey:last]]];
-    }
-    if(!dateKeys){
-        dateKeys = [self generateKeysFrom:first toLast:last];
-    }
-    if([dateKeys indexOfObject:first] == NSNotFound && [first compare:dateKeys.firstObject] == NSOrderedAscending){
-        dateKeys = [[self generateKeysFrom:first toLast:dateKeys.firstObject] arrayByAddingObjectsFromArray:dateKeys];
-    }
-    if ([dateKeys indexOfObject:last] == NSNotFound && [last compare:dateKeys.firstObject] == NSOrderedDescending) {
-        dateKeys = [dateKeys arrayByAddingObjectsFromArray:[self generateKeysFrom:dateKeys.lastObject toLast:last]];
-    }
-    return dateKeys;
-}
-+(NSArray*)generateKeysFrom:(NSString*)first toLast:(NSString*)last{
-    NSDateComponents * components = [NSDateComponents new];
-    components.day = 1;
-    NSDate * date = [self dateFromKey:first];
-    NSMutableArray * result = [[NSMutableArray alloc] initWithCapacity:100];
-    while ([result indexOfObject:last] == NSNotFound) {
-        [result addObject:[self keyFromDate:date]];
-        date = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:date options:0];
-    }
-    return result;
-}
-+(void)clearDateKeysCache{
-    dateKeys = nil;
++(NSString *)keyFromDate:(NSDate *)date inTimeZone:(NSTimeZone *)timeZone{
+    return dayKey(date,timeZone);
 }
 @end

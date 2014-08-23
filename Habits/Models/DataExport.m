@@ -10,14 +10,15 @@
 #import "Habit.h"
 #import <NSArray+F.h>
 #import <Mantle.h>
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import <SHMessageUIBlocks.h>
+#import "PlistStoreToCoreDataMigrator.h"
 @import MessageUI;
 @implementation DataExport
 
 
 +(void)run:(UIViewController *)parentController{
-    NSArray * habits = [MTLJSONAdapter JSONArrayFromModels:[HabitsList all]];
+    NSArray * habits = [MTLJSONAdapter JSONArrayFromModels:[HabitsQueries all]];
     NSLog(@"Habits json: %@", habits);
 //    NSString * hash = habits
     NSData * data = [NSKeyedArchiver archivedDataWithRootObject:habits];
@@ -38,20 +39,9 @@
 +(void)importDataFromBase64EncodedString:(NSString *)string{
     NSData * data = [[NSData alloc] initWithBase64EncodedString:string options:0];
     NSArray * array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    NSError * error;
-    NSArray * result = [[MTLJSONAdapter modelsOfClass:[Habit class] fromJSONArray:array error:&error] map:^id(Habit * habit) {
-        if(habit.daysChecked){
-            [habit checkDays:habit.daysChecked.allKeys];
-            habit.daysChecked = nil;
-        }
-        return habit;
-    }];
-    if(error){
-        NSLog(@"Error parsing json %@: %@", error,  array);
-    }else{
-        NSLog(@"result: %@", result);
-    }
-    [HabitsList overwriteHabits:result];
     
+    [PlistStoreToCoreDataMigrator performMigrationWithArray:array progress:^(float progress) {
+        NSLog(@"Import progress: %@", @(progress));
+    }];
 }
 @end

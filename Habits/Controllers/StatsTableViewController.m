@@ -7,12 +7,12 @@
 //
 
 #import "StatsTableViewController.h"
-#import <Mantle.h>
 #import "HabitDay.h"
 #import "TimeHelper.h"
-#import "Audits.h"
 #import <NSArray+F.h>
 #import "HabitSparklineTableViewCell.h"
+#import "Chain.h"
+#import "ChainStatsCell.h"
 typedef enum {
     StatsSectionSparkline,
     StatsSectionChainBreaks,
@@ -20,7 +20,7 @@ typedef enum {
 } StatsSection;
 
 @interface StatsTableViewController ()
-@property (nonatomic, strong) NSArray * chainBreaks;
+@property (nonatomic, strong) NSArray * chains;
 @end
 
 @implementation StatsTableViewController
@@ -34,7 +34,7 @@ typedef enum {
     self.title = self.habit.title;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    self.chainBreaks = nil;
+    self.chains = self.habit.sortedChains.reverse;
     [self.tableView reloadData];
 }
 
@@ -52,7 +52,7 @@ typedef enum {
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
         case StatsSectionSparkline: return @"STATS";
-        case StatsSectionChainBreaks: return self.chainBreaks.count > 0 ? @"Broken chains" : @"";
+        case StatsSectionChainBreaks: return self.chains.count > 0 ? @"Chains" : @"";
         default: return @"";
     }
 }
@@ -60,7 +60,7 @@ typedef enum {
 {
     if(section == StatsSectionSparkline) return 1;
     if(section == StatsSectionChainBreaks){
-        return self.chainBreaks.count;
+        return self.chains.count;
     }
     return 0;
 }
@@ -74,10 +74,9 @@ typedef enum {
         return cell;
     }
     if(indexPath.section == StatsSectionChainBreaks){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChainBreak" forIndexPath:indexPath];
-        HabitDay * chainBreak = self.chainBreaks[indexPath.row];
-        cell.textLabel.text = [TimeHelper timeAgoString:chainBreak.date];//[NSString stringWithFormat:@"%@ - %@",, nil]; // chainBreak.date];
-        cell.detailTextLabel.text = chainBreak.notes;
+        ChainStatsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Chain" forIndexPath:indexPath];
+        Chain * chain = self.chains[indexPath.row];
+        cell.chain = chain;
         return cell;
     }
     return nil;
@@ -91,16 +90,17 @@ typedef enum {
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        HabitDay * habitDay = self.chainBreaks[indexPath.row];
-        habitDay.chainBreakStatus = @"deleted";
-        self.chainBreaks = [self.chainBreaks filter:^BOOL(id obj) {
-            return obj != habitDay;
-        }];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }else if(editingStyle == UITableViewCellEditingStyleInsert){
-        [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    }
+    // Do nothing because I'm not sure how editing works with the chain-based model.
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        Chain * chain = self.chains[indexPath.row];
+//        habitDay.chainBreakStatus = @"deleted";
+//        self.chainBreaks = [self.chainBreaks filter:^BOOL(id obj) {
+//            return obj != habitDay;
+//        }];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    }else if(editingStyle == UITableViewCellEditingStyleInsert){
+//        [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    }
 }
 
 /*

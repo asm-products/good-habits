@@ -10,6 +10,7 @@
 #import "Colors.h"
 #import <NSArray+F.h>
 #import "HabitDay.h"
+#import "Chain.h"
 #define INSET 2
 #define SCALE 1.0
 
@@ -38,9 +39,9 @@
     return [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 4 * SCALE, 4 * SCALE)];;
 }
 -(CGSize)unitSize:(NSArray*)dataPoints bounds:(CGRect)bounds{
-    CGFloat step = bounds.size.width / (CGFloat) dataPoints.count;
-    NSInteger max = [[dataPoints reduce:^id(id memo, HabitDay * habitDay) {
-        return @(MAX([memo integerValue], [habitDay.runningTotal integerValue]));
+    CGFloat step = bounds.size.width / [[dataPoints valueForKeyPath:@"@sum.length"] floatValue];
+    NSInteger max = [[dataPoints reduce:^id(id memo, Chain * chain) {
+        return @(MAX([memo integerValue], chain.length));
     } withInitialMemo:@0] integerValue];
     CGFloat verticalStep = max != 0 ? bounds.size.height / (CGFloat) max : 0;
     return CGSizeMake(step, verticalStep);
@@ -61,32 +62,42 @@
     CGContextTranslateCTM(context, INSET, INSET);
     
     UIBezierPath * path = [UIBezierPath new];
-    [self.dataPoints enumerateObjectsUsingBlock:^(HabitDay * habitDay, NSUInteger idx, BOOL *stop) {
-        CGPoint p = [self pointForStepWithUnitSize:unit index:idx value:[habitDay.runningTotal floatValue] bounds:bounds.size];
-        if(idx == 0){
-            [path moveToPoint:p];
-        }else{
-            [path addLineToPoint:p];
-        }
+
+    __block NSInteger chainOffset = 0;
+    
+    [self.dataPoints enumerateObjectsUsingBlock:^(Chain * chain, NSUInteger chainIndex, BOOL *stop) {
+        [chain.sortedDays enumerateObjectsUsingBlock:^(HabitDay * habitDay, NSUInteger idx, BOOL *stop) {
+            CGPoint p = [self pointForStepWithUnitSize:unit index:idx + chainOffset value:habitDay.runningTotalCache.floatValue bounds:bounds.size];
+            if(idx == 0){
+                [path moveToPoint:p];
+            }else{
+                [path addLineToPoint:p];
+            }
+        }];
+        chainOffset += chain.length;
     }];
     path.lineWidth = 1.0;
     path.lineJoinStyle = kCGLineJoinBevel;
     [self.color setStroke];
     [path stroke];
     
-    [self.dataPoints enumerateObjectsUsingBlock:^(HabitDay * habitDay, NSUInteger idx, BOOL *stop) {
-        if([habitDay.runningTotal floatValue] > 0){
-            CGPoint p = [self pointForStepWithUnitSize:unit index:idx value:[habitDay.runningTotal floatValue] bounds:bounds.size];
-            CGContextSaveGState(context);
-            CGContextTranslateCTM(context, p.x - 2 * SCALE, p.y - 2 * SCALE);
-
-            [self.color setFill];
-            [checkBoxPath fill];
-            
-            [[UIColor whiteColor] setFill];
-            [checkPath fill];
-            CGContextRestoreGState(context);
+    chainOffset = 0;
+    [self.dataPoints enumerateObjectsUsingBlock:^(Chain * chain, NSUInteger chainIndex, BOOL *stop) {
+        if(chain.length > 0){
+            [chain.sortedDays enumerateObjectsUsingBlock:^(HabitDay * habitDay, NSUInteger dayIndex, BOOL *stop) {
+                CGPoint p = [self pointForStepWithUnitSize:unit index:chainOffset + dayIndex value:[habitDay.runningTotalCache floatValue] bounds:bounds.size];
+                CGContextSaveGState(context);
+                CGContextTranslateCTM(context, p.x - 2 * SCALE, p.y - 2 * SCALE);
+                
+                [self.color setFill];
+                [checkBoxPath fill];
+                
+                [[UIColor whiteColor] setFill];
+                [checkPath fill];
+                CGContextRestoreGState(context);
+            }];
         }
+        chainOffset += chain.length;
     }];
 }
 

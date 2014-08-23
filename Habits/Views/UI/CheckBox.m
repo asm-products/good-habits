@@ -11,6 +11,7 @@
 @implementation CheckBox{
     UIView * backing;
     UIImageView * checkmark;
+    UIImageView * cross;
 }
 
 -(void)awakeFromNib{
@@ -21,20 +22,36 @@
     self.backgroundColor = [UIColor clearColor];
     backing = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 24, 24)];
     [self addSubview:backing];
+    
     checkmark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check_mark"]];
     checkmark.frame = (CGRect){ CGPointMake(12, 12), checkmark.frame.size };
     [self addSubview:checkmark];
+    
+    cross = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cross"]];
+    cross.frame = (CGRect){ CGPointMake(12, 12), cross.frame.size };
+    [self addSubview:cross];
+    
+    [self setState:DayCheckedStateNull];
 }
 -(void)setColor:(UIColor *)color{
     _color = color;
     backing.backgroundColor = color;
 }
--(void)setChecked:(BOOL)checked{
-    _checked = checked;
-    checkmark.hidden = !checked;
+-(void)setState:(DayCheckedState)state{
+    _state = state;
+    checkmark.hidden = state != DayCheckedStateComplete;
+    cross.hidden = state != DayCheckedStateBroken;
 }
 -(NSString *)accessibilityLabel{
-    return [NSString stringWithFormat:@"Checkbox for %@ %@", self.label, self.checked ? @"Checked" : @"Not checked" ];
+    return [NSString stringWithFormat:@"Checkbox for %@ %@", self.label, [self labelForState: self.state] ];
+}
+-(NSString*)labelForState:(DayCheckedState)state{
+    switch (state) {
+        case DayCheckedStateNull: return @"Not checked";
+        case DayCheckedStateComplete: return @"Checked";
+        case DayCheckedStateBroken: return @"Broken";
+        default: return @"";
+    }
 }
 -(BOOL)isAccessibilityElement{
     return YES;

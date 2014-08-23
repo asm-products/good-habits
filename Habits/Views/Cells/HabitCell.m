@@ -9,8 +9,9 @@
 #import "HabitCell.h"
 #import "CheckBox.h"
 #import "Colors.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "CountView.h"
+#import "Habit.h"
 @implementation HabitCell{
     __weak IBOutlet CountView *countView;
 }
@@ -23,36 +24,33 @@
     [self.checkbox addGestureRecognizer:tap];
 }
 -(void)onCheckboxTapped{
-    self.checkbox.checked = !self.checkbox.checked;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self.habit toggle: self.now];
-        [self.habit save];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.habit = self.habit;
-            [[NSNotificationCenter defaultCenter] postNotificationName:DAY_TOGGLED_FOR_HABIT object:self.habit userInfo:nil];
-        });
-    });
-
+    DayCheckedState state = [self.chain stepToNextStateForDate: self.now];
+    [self setState:state];
 }
 
 -(UIColor*)labelTextColor{
-    return (([self.habit due:self.now] && ![self.habit done:(self.now)]) || (!self.inactive && self.habit.currentChainLength == 0)) ? [Colors red] : [UIColor blackColor];
+    return [UIColor blackColor];
+    // TODO: make the due habits red again
+//    return (([self.habit due:self.now] && ![self.habit done:(self.now)]) || (!self.inactive && self.habit.currentChainLength == 0)) ? [Colors red] : [UIColor blackColor];
 }
--(void)setHabit:(Habit *)habit{
-    _habit = habit;
+//-(void)setHabit:(Habit *)habit{
+-(void)setState:(DayCheckedState)state{
+    _state = state;
     self.label.alpha = self.inactive ? 0.5 : 1.0;
-    self.checkbox.checked = [habit done: self.now];
-    self.checkbox.label = habit.title;
+    self.checkbox.state = state;
+    self.checkbox.label = self.chain.habit.title;
     self.label.text =// [NSString stringWithFormat:@"%@ %@",habit.identifier,habit.title];//
-        habit.title;
+        self.chain.habit.title;
     self.label.textColor = [self labelTextColor];
     
-    NSInteger currentChainLength = habit.currentChainLength;
-    NSInteger longestChain = habit.longestChain.intValue;
-    countView.color = habit.color;
+    NSInteger currentChainLength = self.chain.length;
+    NSInteger longestChain = self.chain.habit.longestChain.length;
+    countView.color = self.chain.habit.color;
     countView.text = @[ @(currentChainLength), @(longestChain) ];
     countView.isHappy = currentChainLength > 0 && currentChainLength == longestChain;
     countView.highlighted = false;
 }
-
+-(void)update{
+    [self setState:self.state];
+}
 @end

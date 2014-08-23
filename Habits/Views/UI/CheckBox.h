@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Chain.h"
 @interface CheckBox : UIView
 @property (nonatomic, strong) UIColor * color;
-@property (nonatomic) BOOL checked;
+@property (nonatomic) DayCheckedState state;
 @property (nonatomic, strong) NSString * label;
 @end

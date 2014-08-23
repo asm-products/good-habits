@@ -40,7 +40,8 @@
         [button handleControlEvents:UIControlEventTouchUpInside withBlock:^(id weakSender) {
             [button toggleOn:!button.isOn];
             self.habit.daysRequired[i] = @(button.isOn);
-            [self.habit save];
+            // TODO: save when picking day
+//            [self.habit save];
             [Notifications reschedule];
             [self.delegate dayPickerDidChange:self];
         }];

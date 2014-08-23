@@ -7,13 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "MotionToMantleMigrator.h"
+#import "PlistStoreToCoreDataMigrator.h"
 #import "InfoTask.h"
 #import "Habit.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "CoreDataClient.h"
 #import "Notifications.h"
-#import "Audits.h"
 #import "DataExport.h"
 #import <UIAlertView+Blocks.h>
 #import <SVProgressHUD.h>
@@ -25,12 +24,25 @@
 //    [Audits initialize];
     [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)
     
-    if([MotionToMantleMigrator dataCanBeMigrated] && [HabitsList all].count == 0) {
-        [MotionToMantleMigrator performMigration];
-    }
-    [HabitsList recalculateAllNotifications];
+    [HabitsQueries recalculateAllNotifications];
     [Notifications reschedule];
+    [self performAnyNecessaryUpgrades];
     return YES;
+}
+-(void)performAnyNecessaryUpgrades{
+//    if([MotionToMantleMigrator dataCanBeMigrated] && [HabitsList all].count == 0) {
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [PlistStoreToCoreDataMigrator performMigrationWithArray:[PlistStoreToCoreDataMigrator habitsStoredByMotion] progress:^(float progress) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD showProgress:progress status:@"Upgrading" maskType:SVProgressHUDMaskTypeBlack];
+                });
+            }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+            });
+        });
+//    }
 }
 -(void)afterEvent:(NSString*)event performBlock:(void(^)())block{
     [[NSNotificationCenter defaultCenter]
@@ -60,32 +72,21 @@
     
 }
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-    if([notification.userInfo[@"type"] isEqualToString:@"audit"]){
-        [self showAuditScreenIfNeeded];
-    }
+//    if([notification.userInfo[@"type"] isEqualToString:@"audit"]){
+//        [self showAuditScreenIfNeeded];
+//    }
 //    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
 //    [HabitsList recalculateAllNotifications];
 //    [Notifications reschedule];
 }
 -(void)applicationWillResignActive:(UIApplication *)application{
-    [HabitsList recalculateAllNotifications];
+    [HabitsQueries recalculateAllNotifications];
     [Notifications reschedule];
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
-    [self showAuditScreenIfNeeded];
-}
--(void)showAuditScreenIfNeeded{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray * habitsToBeAudited = [Audits habitsToBeAudited];
-        NSLog(@"Habits to be audited: %@", [habitsToBeAudited valueForKey:@"title"]);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if(habitsToBeAudited.count > 0){
-                UIViewController * controller = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"Audit"];
-                [self.window.rootViewController presentViewController:controller animated:YES completion:nil];
-            }
-        });
-    });
+//    [self showAuditScreenIfNeeded];
+    
 }
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     NSArray * components = [url.absoluteString componentsSeparatedByString:@"goodhabits://import?json="];

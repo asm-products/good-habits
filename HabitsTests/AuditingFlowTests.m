@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <KIF.h>
 #import <OCMock.h>
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "TestHelpers.h"
 #import "TimeHelper.h"
 #import <UIAccessibilityElement-KIFAdditions.h>
@@ -20,9 +20,9 @@
 @implementation AuditingFlowTests
 -(void)beforeAll{
 
-    OCMStub([[OCMockObject mockForClass:[HabitsList class]] saveAll]);
+    OCMStub([[OCMockObject mockForClass:[HabitsQueries class]] saveAll]);
     [TimeHelper selectDate:d(@"2014-01-03")];
-    [HabitsList overwriteHabits:@[
+    [HabitsQueries overwriteHabits:@[
                                   [TestHelpers habit:@{@"title": @"First",@"identifier": @"first", @"daysRequired": [TestHelpers everyDay], @"active": @YES } daysChecked:@[@"2014-01-01"] ]
                                   ]];
 }

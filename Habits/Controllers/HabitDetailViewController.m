@@ -11,11 +11,12 @@
 #import "DayPicker.h"
 #import "TimeHelper.h"
 #import "Colors.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "ColorPickerCell.h"
 #import <UIActionSheet+Blocks.h>
 #import "StatsTableViewController.h"
 #import "AppFeatures.h"
+#import "CoreDataClient.h"
 typedef enum{
     HabitDetailCellIndexCalendar,
     HabitDetailCellIndexDayPicker,
@@ -85,7 +86,8 @@ typedef enum{
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.habit.title = self.titleTextField.text;
-    [self.habit save];
+    // TODO: save
+//    [self.habit save];
 }
 
 -(void)onHabitColorChanged{
@@ -130,7 +132,7 @@ typedef enum{
 }
 -(void)saveReminder{
     self.habit.reminderTime = [[NSCalendar currentCalendar] components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:self.timePicker.date];
-    [self.habit save];
+    // TODO: save habit
     [self updateRemindersButtonTitle];
 }
 - (IBAction)didPressRemindersButton:(id)sender {
@@ -157,14 +159,16 @@ typedef enum{
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     self.habit.title = textField.text;
-    [self.habit save];
+    // TODO make habit ssave
+//    [self.habit save];
     return YES;
 }
 #pragma mark - pause
 - (IBAction)didPressToggleActive:(id)sender {
     self.habit.isActive = @(!self.habit.isActive.boolValue);
     [self updateActiveState];
-    [self.habit save];
+    // TODO make habit ssave
+//    [self.habit save];
 }
 -(void)updateActiveState{
     NSString * title;
@@ -185,9 +189,13 @@ typedef enum{
 #pragma mark - delete
 - (IBAction)didPressDeleteButton:(id)sender {
     [[[UIActionSheet alloc] initWithTitle:@"Delete this habit? This cannot be undone." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] destructiveButtonItem:[RIButtonItem itemWithLabel:@"Delete" action:^{
-        [HabitsList deleteHabit:self.habit];
+        NSManagedObjectContext * context = [CoreDataClient defaultClient].managedObjectContext;
+        [context deleteObject:self.habit];
+        NSError * error;
+        [context save:&error];
+        if(error) NSLog(@"Error deleting habit %@", error.localizedDescription);
+        self.habit = nil;
         [self.navigationController popViewControllerAnimated:YES];
-        [HabitsList saveAll];
     }] otherButtonItems:nil] showInView:self.view];
 }
 @end

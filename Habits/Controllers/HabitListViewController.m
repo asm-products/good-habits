@@ -16,9 +16,8 @@
 #import "Calendar.h"
 #import "HabitDetailViewController.h"
 #import "Constants.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "InfoTask.h"
-#import "AuditViewController.h"
 #import <NSArray+F.h>
 typedef enum {
     HabitListSectionActive,
@@ -59,10 +58,10 @@ typedef enum {
 }
 -(void)loadGroups{
     groups = @[
-               [HabitsList activeToday].mutableCopy,
-               [HabitsList carriedOver].mutableCopy,
-               [HabitsList activeButNotToday].mutableCopy,
-               [HabitsList inactive].mutableCopy
+               [HabitsQueries activeToday].mutableCopy,
+               [HabitsQueries carriedOver].mutableCopy,
+               [HabitsQueries activeButNotToday].mutableCopy,
+               [HabitsQueries inactive].mutableCopy
                ];
 }
 -(void)build{
@@ -100,7 +99,7 @@ typedef enum {
     cell.now = now;
     Habit * habit = [self habitForIndexPath:indexPath];
     cell.inactive = NO;
-    cell.habit = habit;
+    cell.chain = [habit chainForDate:now];
     if (habit){
         BOOL habitIsRequiredToday = habit.isActive.boolValue && [habit isRequiredOnWeekday:now];
         if(habitIsRequiredToday){
@@ -108,13 +107,12 @@ typedef enum {
         }else{
             cell.color = [Colors cobalt];
             cell.inactive = YES;
-            cell.habit = habit;
         }
         if(indexPath.section == HabitListSectionCarriedOver){
             cell.inactive = NO;
             cell.color = habit.color;
-            cell.habit = habit;
         }
+        [cell update];
     }
     return cell;
 }
@@ -162,16 +160,17 @@ typedef enum {
             habit.order = @(idx);
         }];
     }
-    [HabitsList saveAll];
+    // TODO: fix sorting
+//    [HabitsQueries saveAll];
 }
 -(void)insertHabit:(Habit *)habit{
-    [self loadGroups];
-    NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
-    [self.tableView beginUpdates];
-    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[groups[section] count ] - 1 inSection:section];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic ];
-    [self.tableView endUpdates];
-    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+//    [self loadGroups];
+//    NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
+//    [self.tableView beginUpdates];
+//    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[groups[section] count ] - 1 inSection:section];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic ];
+//    [self.tableView endUpdates];
+//    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 #pragma mark - Reordering
 -(UITableViewCell *)cellIdenticalToCellAtIndexPath:(NSIndexPath *)indexPath forDragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController{

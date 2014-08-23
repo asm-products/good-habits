@@ -7,18 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef enum {
-    CalendarDayStateFuture,
-    CalendarDayStateFirstInChain,
-    CalendarDayStateLastInChain,
-    CalendarDayStateMidChain,
-    CalendarDayStateAlone,
-    CalendarDayStateBetweenSubchains,
-    CalendarDayStateMissed,
-    CalendarDayStateBeforeStart,
-    CalendarDayStateNotRequired
-} CalendarDayState;
+#import "HabitDay.h"
 
 @interface Calendar : NSObject
 +(NSString*)labelForState:(CalendarDayState)state;

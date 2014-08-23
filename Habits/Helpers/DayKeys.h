@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface DayKeys : NSObject
-+(NSDate*)dateFromKey:(NSString*)key;
-+(NSString*)keyFromDate:(NSDate*)date;
-+(NSArray *)dateKeysIncluding:(NSString *)first last:(NSString *)last forwardPadding:(NSInteger)numberOfDays;
-+(void)clearDateKeysCache;
++(NSDate*)dateFromKey:(NSString*)key inTimeZone:(NSTimeZone*)timeZone;
++(NSString*)keyFromDate:(NSDate*)date inTimeZone:(NSTimeZone*)timeZone;
 @end

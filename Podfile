@@ -1,6 +1,7 @@
 platform :ios, "7.0"
 
 target "Habits" do
+    pod 'CWLSynthesizeSingleton', '~> 1.0'
     pod 'Functional.m', '~> 1.0'
     pod 'AVHexColor', '~> 1.1.0'
     pod 'Mantle', '~> 1.5'
@@ -9,7 +10,7 @@ target "Habits" do
     pod 'UIAlertView-Blocks', '~> 1.0'
     pod 'SHMessageUIBlocks', '~> 1.2'
     pod 'SVProgressHUD', '~> 1.0'
-    pod 'KiipSDK', '~> 2.0'
+    #    pod 'KiipSDK', '~> 2.0'
 end
 
 target "HabitsTests" do
