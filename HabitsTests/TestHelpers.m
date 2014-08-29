@@ -12,12 +12,13 @@
 #import "DayKeys.h"
 @implementation TestHelpers
 +(Habit *)habit:(NSDictionary *)dict daysChecked:(NSArray *)dayKeys{
-    NSError * error;
-    Habit * result = [[Habit alloc] initWithDictionary:dict error:&error];
-    if(error) @throw [NSException exceptionWithName:@"Bad habit error" reason:error.localizedDescription userInfo:@{@"error":error}];
-    if(dayKeys)
-        [result checkDays:dayKeys];
-    return result;
+//    NSError * error;
+//    Habit * result = [[Habit alloc] initWithDictionary:dict error:&error];
+//    if(error) @throw [NSException exceptionWithName:@"Bad habit error" reason:error.localizedDescription userInfo:@{@"error":error}];
+//    if(dayKeys)
+//        [result checkDays:dayKeys];
+//    return result;
+    return  nil;
 }
 +(NSMutableArray *)everyDay{
     return [[Calendar days] map:^id(id obj) {
@@ -25,8 +26,9 @@
     }].mutableCopy;
 }
 +(NSArray *)days:(NSArray *)dayStrings{
-    return [dayStrings map:^id(NSString * string) {
-        return [DayKeys dateFromKey:string];
-    }];
+//    return [dayStrings map:^id(NSString * string) {
+//        return [DayKeys dateFromKey:string];
+//    }];
+    return nil;
 }
 @end

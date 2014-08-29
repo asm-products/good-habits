@@ -23,6 +23,20 @@
 
 static NSDate * selectedDate = nil;
 @implementation TimeHelper
++(NSCalendar *)UTCCalendar{
+    static NSCalendar * calendar = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    });
+    return calendar;
+}
++(NSDate *)startOfDayInUTC:(NSDate *)date{
+    YLMoment * moment = [YLMoment momentWithDate:date];
+    moment.calendar = [self UTCCalendar];
+    return [moment startOfCalendarUnit:NSDayCalendarUnit].date;
+}
 +(NSDateComponents *)dateComponentsForHour:(NSInteger)hour minute:(NSInteger)minute{
     NSDateComponents * result = [NSDateComponents new];
     result.hour = hour;
@@ -36,14 +50,17 @@ static NSDate * selectedDate = nil;
     if(selectedDate) return selectedDate;
     return [NSDate date];
 }
++(NSDate *)today{
+    return [self startOfDayInUTC:[NSDate date]];
+}
 +(NSInteger)weekday:(NSDate *)date{
-    NSDateComponents * components = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:date];
+    NSDateComponents * components = [[self UTCCalendar] components:NSWeekdayCalendarUnit fromDate:date];
     return components.weekday - 1;
 }
 +(NSDate *)addDays:(NSInteger)count toDate:(NSDate *)date{
     NSDateComponents * dateComponents = [NSDateComponents new];
     dateComponents.day = count;
-    return [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:date options:0];
+    return [[self UTCCalendar] dateByAddingComponents:dateComponents toDate:date options:0];
 }
 +(NSString*)formattedTime:(NSDateComponents *)components{
     static NSDateFormatter * formatter = nil;
@@ -53,7 +70,7 @@ static NSDate * selectedDate = nil;
         formatter.dateStyle = NSDateFormatterNoStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;
     });
-    return [formatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:components]];
+    return [formatter stringFromDate:[[self UTCCalendar] dateFromComponents:components]];
 }
 +(NSString *)timeAgoString:(NSDate *)date{
     YLMoment * moment = [YLMoment momentWithDate:date];

@@ -63,17 +63,16 @@
     };
 }
 +(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSDictionary*)daysChecked context:(NSManagedObjectContext*)context{
-    NSTimeZone * timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:context];
     [habit addChainsObject:chain];
-    for (NSString * dayKey in daysChecked.allKeys) { // all values are @YES so I can just iterate through the keys
-        NSDate * date = [DayKeys dateFromKey:dayKey inTimeZone:timeZone];
+    NSArray * dayKeys = [daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    for (NSString * dayKey in dayKeys) { // all values are @YES so I can just iterate through the keys
+        NSDate * date = [DayKeys dateFromKey:dayKey];
         chain = [self returnOrReplaceChain:chain forHabit:habit inContext:context withKey:dayKey onDate: date];
         
         HabitDay * habitDay = [NSEntityDescription insertNewObjectForEntityForName:@"HabitDay" inManagedObjectContext:context];
         habitDay.date = date;
         habitDay.dayKey = dayKey; // just for posterity really.
-        habitDay.timeZoneOffset = @(timeZone.secondsFromGMT);
         [chain addDaysObject:habitDay];
 
         habitDay.runningTotalCache = @(chain.days.count);
@@ -86,11 +85,12 @@
  */
 +(Chain*)returnOrReplaceChain:(Chain*)chain forHabit:(Habit*)habit inContext:(NSManagedObjectContext*)context withKey:(NSString*)dayKey onDate:(NSDate*) date{
     if(chain.days.count == 0) return chain;
-    if(chain.nextRequiredDate < date){
+    if([chain.nextRequiredDate compare:date] == NSOrderedAscending){
         // create a new chain
         chain.breakDetected = @YES;
         Chain * newChain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:context];
         [habit addChainsObject:newChain];
+//        NSLog(@"Replaced chain at date %@", date);
         return newChain;
     }else{
         return chain;

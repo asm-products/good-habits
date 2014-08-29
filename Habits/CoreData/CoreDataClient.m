@@ -27,8 +27,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 -(instancetype)init{
     if(self = [super init]){
         
-        if([[[NSProcessInfo processInfo] arguments] indexOfObject:@"Testing=1"] != NSNotFound) return self;
-        [self build];
+        if([[[NSProcessInfo processInfo] arguments] indexOfObject:@"Testing=1"] != NSNotFound){
+            [self buildTestStore];
+        }else{
+            [self build];
+        }
     }
     return self;
 }
@@ -36,6 +39,16 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
     [self registerForiCloudNotifications];
     [self setupManagedObjectContext];
 //    [self nukeStore];
+}
+-(void)buildTestStore{
+    NSURL * storeURL = [self storeURLWithName:@"testing.sqlite"];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    
+    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    NSError* error;
+    self.persistentStore = [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+    self.managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
 }
 -(void)nukeStore{
     NSError * error;
@@ -67,12 +80,15 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
     return @{NSPersistentStoreUbiquitousContentNameKey:STORE_NAME, NSMigratePersistentStoresAutomaticallyOption: @YES,
              NSInferMappingModelAutomaticallyOption: @YES}; // @"MyHabitsStore". @"HabitsStore"
 }
--(NSURL*)storeURL{
+-(NSURL*)storeURLWithName:(NSString*)name{
     NSURL *documentsDirectory = [[[NSFileManager defaultManager]
                                   URLsForDirectory:NSDocumentDirectory
                                   inDomains:NSUserDomainMask] lastObject];
-    NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:DB_NAME];
+    NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:name];
     return storeURL;
+}
+-(NSURL*)storeURL{
+    return [self storeURLWithName:DB_NAME];
 }
 -(NSManagedObjectModel*)managedObjectModel{
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Habits" withExtension:@"momd"];

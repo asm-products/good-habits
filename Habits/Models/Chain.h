@@ -40,6 +40,7 @@ typedef enum{
 -(BOOL)isBroken;
 -(NSDate*)nextRequiredDate;
 -(NSDate*)startDate;
+-(NSInteger)countOfDaysOverdue;
 #pragma mark - Chain manipulation
 /**
  *  It is the caller's responsibility to delete the joined chain (I think)

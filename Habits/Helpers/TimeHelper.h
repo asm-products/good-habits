@@ -13,6 +13,15 @@
 -(BOOL)isBefore:(NSDate*)date;
 @end
 @interface TimeHelper : NSObject
++(NSCalendar*)UTCCalendar;
++(NSDate*)startOfDayInUTC:(NSDate*)date;
+/**
+ *  Start of today in UTC
+ */
++(NSDate*)today;
+/**
+ *  Now in local time
+ */
 +(NSDate*)now;
 +(void)selectDate:(NSDate*)date;
 +(NSInteger)weekday:(NSDate*)date;

@@ -13,6 +13,7 @@
 #define REFRESH @"REFRESH"
 
 @interface HabitsQueries : NSObject
++(void)refresh;
 +(NSArray*)all;
 #pragma  mark - Groups
 +(NSArray*)active;

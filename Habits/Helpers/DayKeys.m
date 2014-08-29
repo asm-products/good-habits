@@ -13,28 +13,48 @@ NSDateFormatter * dateKeyFormatter(){
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         formatter = [NSDateFormatter new];
-        [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-        [formatter setTimeZone:[[NSCalendar currentCalendar] timeZone]];
+        [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
         formatter.dateFormat = @"yyyy-MM-dd";
     });
     return formatter;
 }
-NSString * dayKey(NSDate* date, NSTimeZone * timeZone){
+NSString * dayKey(NSDate* date){
     NSDateFormatter * formatter = dateKeyFormatter();
-    formatter.timeZone = timeZone;
+    NSDateComponents * components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:date];
+    static NSTimeZone * gmt = nil;
+    static NSCalendar * calendar = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        gmt = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        calendar.timeZone = gmt;
+    });
+    date = [calendar dateFromComponents:components];
     return [formatter stringFromDate:date];
 }
-NSDate * dateFromKey(NSString * key, NSTimeZone*timeZone){
-    NSDateFormatter * formatter = dateKeyFormatter();
-    formatter.timeZone = timeZone;
-    return [formatter dateFromString:key];
+NSDate * dateFromKey(NSString * key){
+    static NSCalendar * calendar = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSTimeZone * gmt = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        calendar.timeZone = gmt;
+    });
+    NSDateComponents * components = [NSDateComponents new];
+    NSArray * d = [key componentsSeparatedByString:@"-"];
+    components.year = [d[0] integerValue];
+    components.month = [d[1] integerValue];
+    components.day = [d[2] integerValue];
+    NSDate * result = [calendar dateFromComponents:components];
+    return result;
+
 }
 @implementation DayKeys
 
-+(NSDate *)dateFromKey:(NSString *)key inTimeZone:(NSTimeZone *)timeZone{
-    return dateFromKey(key,timeZone);
++(NSDate *)dateFromKey:(NSString *)key {
+    return dateFromKey(key);
 }
-+(NSString *)keyFromDate:(NSDate *)date inTimeZone:(NSTimeZone *)timeZone{
-    return dayKey(date,timeZone);
++(NSString *)keyFromDate:(NSDate *)date{
+    return dayKey(date);
 }
 @end

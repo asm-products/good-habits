@@ -40,7 +40,7 @@
 -(NSDate *)nextRequiredDate{
     NSDate * result;
     HabitDay * lastDay = self.sortedDays.lastObject;
-    for (NSInteger i = 0; i < 7; i++) {
+    for (NSInteger i = 1; i < 8; i++) {
         result = [TimeHelper addDays:i toDate:lastDay.date];
         if([self.habit isRequiredOnWeekday:result]){
             return result;
@@ -48,6 +48,10 @@
     }
     // just spotted a crash - what if somebody unchecks all the days of the week?
     return nil;
+}
+-(NSInteger)countOfDaysOverdue{
+    NSDateComponents * components = [[TimeHelper UTCCalendar] components:NSDayCalendarUnit fromDate:self.nextRequiredDate toDate:[TimeHelper today] options:0];
+    return components.day;
 }
 -(NSDate *)startDate{
     return [[self.sortedDays firstObject] date];

@@ -43,7 +43,9 @@
         self.chain.habit.title;
     self.label.textColor = [self labelTextColor];
     
-    NSInteger currentChainLength = self.chain.length;
+    NSInteger countOfDaysOverdue = self.chain.countOfDaysOverdue;
+    NSLog(@"Count of days overdue for %@ = %@ (next due date %@)", self.chain.habit.title, @(countOfDaysOverdue), self.chain.nextRequiredDate);
+    NSInteger currentChainLength = countOfDaysOverdue > 0 ? -countOfDaysOverdue : self.chain.length;
     NSInteger longestChain = self.chain.habit.longestChain.length;
     countView.color = self.chain.habit.color;
     countView.text = @[ @(currentChainLength), @(longestChain) ];

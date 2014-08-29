@@ -16,15 +16,27 @@
 #import <SVProgressHUD.h>
 #import "CoreDataClient.h"
 @implementation HabitsQueries
-+(NSArray*)all{
-    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]];
-    NSError * error;
-    NSArray * result = [[CoreDataClient defaultClient].managedObjectContext executeFetchRequest:request error:&error ];
-    if(error) NSLog(@"Error fetching habits %@", error.localizedDescription);
-    return result;
++(NSFetchedResultsController*)fetched{
+    static NSFetchedResultsController * fetched = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]];
+        fetched = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:[CoreDataClient defaultClient].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+        NSError * error;
+        [fetched performFetch:&error];
+        if(error) NSLog(@"Error initially fetching habits %@", error.localizedDescription);
+    });
+    return fetched;
 }
-
++(NSArray*)all{
+    return [self fetched].fetchedObjects;
+}
++(void)refresh{
+    NSError * error;
+    [self.fetched performFetch:&error];
+    if(error) NSLog(@"Error fetching habits %@", error.localizedDescription);
+}
 #pragma mark - Groups
 +(NSArray *)active{
     return [[[self all] filter:^BOOL(Habit* habit) {
@@ -38,12 +50,12 @@
 }
 +(NSArray *)activeButNotToday{
     return [self.active filter:^BOOL(Habit * habit) {
-        return !habit.isRequiredToday && [habit.sortedChains.lastObject runningTotalCache] != 0;
+        return !habit.isRequiredToday;// && [habit.sortedChains.lastObject runningTotalCache] != 0;
     }];
 }
 +(NSArray *)carriedOver{
     return [self.active filter:^BOOL(Habit * habit) {
-        return !habit.isRequiredToday && [habit.sortedChains.lastObject runningTotalCache] == 0;
+        return !habit.isRequiredToday;// && [habit.sortedChains.lastObject runningTotalCache] == 0;
     }];
 }
 +(NSArray *)inactive{

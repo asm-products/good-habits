@@ -39,7 +39,9 @@
                 });
             }];
             dispatch_async(dispatch_get_main_queue(), ^{
+                [HabitsQueries refresh];
                 [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
             });
         });
 //    }

@@ -10,7 +10,6 @@
 		030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F79A2189454A3AAF48A73F /* libPods-Habits.a */; };
 		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
 		AC0B78031976718500CEC018 /* DayKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0B78021976718500CEC018 /* DayKeys.m */; };
-		AC0B78051976753D00CEC018 /* DateKeysSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0B78041976753D00CEC018 /* DateKeysSpec.m */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */; };
 		AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */; };
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
@@ -21,8 +20,6 @@
 		AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */; };
 		AC3237BE196C438900A2FF9F /* Stats.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237BC196C438900A2FF9F /* Stats.png */; };
 		AC3237BF196C438900A2FF9F /* Stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237BD196C438900A2FF9F /* Stats@2x.png */; };
-		AC3237C4196D3C6300A2FF9F /* AuditingFlowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237C3196D3C6300A2FF9F /* AuditingFlowTests.m */; };
-		AC3237C6196D407000A2FF9F /* ChainBreakTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237C5196D407000A2FF9F /* ChainBreakTests.m */; };
 		AC3237C9196D423400A2FF9F /* TestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237C8196D423400A2FF9F /* TestHelpers.m */; };
 		AC40187519504ADB0033407B /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
 		AC40187919504E630033407B /* PlistStoreToCoreDataMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187819504E630033407B /* PlistStoreToCoreDataMigrator.m */; };
@@ -75,7 +72,6 @@
 		ACADB3F4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3F5190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
 		ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACADB3FB190D23B90030CC82 /* InfoPlist.strings */; };
-		ACADB3FF190D23B90030CC82 /* HabitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB3FE190D23B90030CC82 /* HabitsTests.m */; };
 		ACADB456190D27960030CC82 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB40D190D27960030CC82 /* Default-568h@2x.png */; };
 		ACADB457190D27960030CC82 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB40E190D27960030CC82 /* Default@2x.png */; };
 		ACADB458190D27960030CC82 /* info_nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB40F190D27960030CC82 /* info_nav@2x.png */; };
@@ -157,6 +153,9 @@
 		ACB35F3519A78DBD000C03F5 /* HabitDayQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3419A78DBD000C03F5 /* HabitDayQueries.m */; };
 		ACB35F3819A7AB5C000C03F5 /* ChainQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3719A7AB5C000C03F5 /* ChainQueries.m */; };
 		ACB35F3E19A8C378000C03F5 /* ChainStatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3D19A8C378000C03F5 /* ChainStatsCell.m */; };
+		ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */; };
+		ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */; };
+		ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */; };
 		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
 		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
@@ -179,7 +178,6 @@
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0B78011976718500CEC018 /* DayKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayKeys.h; sourceTree = "<group>"; };
 		AC0B78021976718500CEC018 /* DayKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayKeys.m; sourceTree = "<group>"; };
-		AC0B78041976753D00CEC018 /* DateKeysSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateKeysSpec.m; sourceTree = "<group>"; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_lots.json; sourceTree = "<group>"; };
 		AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConversionTests.m; sourceTree = "<group>"; };
 		AC24B641197194FC00B33CCF /* CheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMarkView.h; sourceTree = "<group>"; };
@@ -194,8 +192,6 @@
 		AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
 		AC3237BC196C438900A2FF9F /* Stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stats.png; sourceTree = "<group>"; };
 		AC3237BD196C438900A2FF9F /* Stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stats@2x.png"; sourceTree = "<group>"; };
-		AC3237C3196D3C6300A2FF9F /* AuditingFlowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuditingFlowTests.m; sourceTree = "<group>"; };
-		AC3237C5196D407000A2FF9F /* ChainBreakTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainBreakTests.m; sourceTree = "<group>"; };
 		AC3237C7196D423400A2FF9F /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
 		AC3237C8196D423400A2FF9F /* TestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelpers.m; sourceTree = "<group>"; };
 		AC40187319504ADB0033407B /* TimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeHelper.h; sourceTree = "<group>"; };
@@ -292,7 +288,6 @@
 		ACADB3F2190D23B90030CC82 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ACADB3FA190D23B90030CC82 /* HabitsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HabitsTests-Info.plist"; sourceTree = "<group>"; };
 		ACADB3FC190D23B90030CC82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ACADB3FE190D23B90030CC82 /* HabitsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HabitsTests.m; sourceTree = "<group>"; };
 		ACADB40D190D27960030CC82 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACADB40E190D27960030CC82 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ACADB40F190D27960030CC82 /* info_nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_nav@2x.png"; sourceTree = "<group>"; };
@@ -383,6 +378,9 @@
 		ACB35F3B19A89F76000C03F5 /* aw.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = aw.goodtohear.habits.plist; sourceTree = "<group>"; };
 		ACB35F3C19A8C378000C03F5 /* ChainStatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainStatsCell.h; sourceTree = "<group>"; };
 		ACB35F3D19A8C378000C03F5 /* ChainStatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainStatsCell.m; sourceTree = "<group>"; };
+		ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationTests.m; sourceTree = "<group>"; };
+		ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testing_habit_expectation.png; sourceTree = "<group>"; };
+		ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = testing.goodtohear.habits.plist; sourceTree = "<group>"; };
 		ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsTableViewController.h; sourceTree = "<group>"; };
 		ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsTableViewController.m; sourceTree = "<group>"; };
 		ACDC63BD196F2CD700F68BD6 /* HabitSparklineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitSparklineTableViewCell.h; sourceTree = "<group>"; };
@@ -628,12 +626,9 @@
 				ACB35F3919A7ACA6000C03F5 /* UserDefaults */,
 				AC1EB1041960C5B100549AC9 /* Fixtures */,
 				ACADB3F9190D23B90030CC82 /* Supporting Files */,
-				ACADB3FE190D23B90030CC82 /* HabitsTests.m */,
 				AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */,
 				AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */,
-				AC3237C3196D3C6300A2FF9F /* AuditingFlowTests.m */,
-				AC3237C5196D407000A2FF9F /* ChainBreakTests.m */,
-				AC0B78041976753D00CEC018 /* DateKeysSpec.m */,
+				ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */,
 			);
 			path = HabitsTests;
 			sourceTree = "<group>";
@@ -829,6 +824,8 @@
 		ACB35F3919A7ACA6000C03F5 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */,
+				ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */,
 				ACB35F3B19A89F76000C03F5 /* aw.goodtohear.habits.plist */,
 				ACB35F3A19A89E91000C03F5 /* mf.goodtohear.habits.plist */,
 			);
@@ -1023,6 +1020,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */,
+				ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */,
+				ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */,
 				AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1158,12 +1157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */,
 				AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */,
 				AC3237C9196D423400A2FF9F /* TestHelpers.m in Sources */,
-				AC3237C6196D407000A2FF9F /* ChainBreakTests.m in Sources */,
-				ACADB3FF190D23B90030CC82 /* HabitsTests.m in Sources */,
-				AC0B78051976753D00CEC018 /* DateKeysSpec.m in Sources */,
-				AC3237C4196D3C6300A2FF9F /* AuditingFlowTests.m in Sources */,
 				AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
