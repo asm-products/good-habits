@@ -24,7 +24,7 @@
     [self.checkbox addGestureRecognizer:tap];
 }
 -(void)onCheckboxTapped{
-    DayCheckedState state = [self.chain stepToNextStateForDate: self.now];
+    DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
     [self setState:state];
 }
 
@@ -33,7 +33,10 @@
     // TODO: make the due habits red again
 //    return (([self.habit due:self.now] && ![self.habit done:(self.now)]) || (!self.inactive && self.habit.currentChainLength == 0)) ? [Colors red] : [UIColor blackColor];
 }
-//-(void)setHabit:(Habit *)habit{
+-(void)setChain:(Chain *)chain{
+    _chain = chain;
+    if(chain == nil) @throw [NSException exceptionWithName:@"NoChainProvided" reason:nil userInfo:nil];
+}
 -(void)setState:(DayCheckedState)state{
     _state = state;
     self.label.alpha = self.inactive ? 0.5 : 1.0;

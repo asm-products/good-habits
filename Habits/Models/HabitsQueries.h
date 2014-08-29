@@ -30,4 +30,7 @@
 #pragma mark - Helper
 +(NSInteger)nextUnusedColorIndex;
 
+#pragma mark - Destructive
++(void)deleteAllHabits;
+
 @end

@@ -86,8 +86,7 @@ typedef enum{
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.habit.title = self.titleTextField.text;
-    // TODO: save
-//    [self.habit save];
+    [[CoreDataClient defaultClient] save];
 }
 
 -(void)onHabitColorChanged{
@@ -132,7 +131,7 @@ typedef enum{
 }
 -(void)saveReminder{
     self.habit.reminderTime = [[NSCalendar currentCalendar] components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:self.timePicker.date];
-    // TODO: save habit
+    [[CoreDataClient defaultClient] save];
     [self updateRemindersButtonTitle];
 }
 - (IBAction)didPressRemindersButton:(id)sender {
@@ -159,16 +158,14 @@ typedef enum{
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     self.habit.title = textField.text;
-    // TODO make habit ssave
-//    [self.habit save];
+    [[CoreDataClient defaultClient] save];
     return YES;
 }
 #pragma mark - pause
 - (IBAction)didPressToggleActive:(id)sender {
     self.habit.isActive = @(!self.habit.isActive.boolValue);
     [self updateActiveState];
-    // TODO make habit ssave
-//    [self.habit save];
+    [[CoreDataClient defaultClient] save];
 }
 -(void)updateActiveState{
     NSString * title;

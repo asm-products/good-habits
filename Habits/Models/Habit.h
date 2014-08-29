@@ -53,6 +53,7 @@
 -(NSArray*)sortedChains;
 -(Chain*)longestChain;
 -(NSInteger)currentChainLength;
+-(Chain*)currentChain;
 -(Chain*)chainForDate:(NSDate*)date;
 #pragma mark - Data management
 +(Habit*)createNew;

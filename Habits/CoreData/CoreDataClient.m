@@ -26,8 +26,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 
 -(instancetype)init{
     if(self = [super init]){
-        
-        if([[[NSProcessInfo processInfo] arguments] indexOfObject:@"Testing=1"] != NSNotFound){
+        if(TEST_ENVIRONMENT){
             [self buildTestStore];
         }else{
             [self build];
@@ -162,6 +161,16 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 - (void)storesDidChange:(NSNotification *)notification {
     // Refresh User Interface.
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:self];
+    
+}
+#pragma mark - Saving
+-(void)save{
+    NSError * error;
+    if([self.managedObjectContext save:&error]){
+        NSLog(@"Saved");
+    }else{
+        NSLog(@"Saving failed %@", error.localizedDescription);
+    }
     
 }
 @end

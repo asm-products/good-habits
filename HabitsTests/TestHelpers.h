@@ -13,6 +13,9 @@
 +(Habit*)habit:(NSDictionary*)dictionary daysChecked:(NSArray*)dayKeys;
 +(NSMutableArray*)everyDay;
 +(NSArray*)days:(NSArray*)dayStrings;
+
++(void)loadFixtureFromUserDefaultsNamed:(NSString*)name;
+
 @end
 
 static inline NSDate * d(NSString* string){

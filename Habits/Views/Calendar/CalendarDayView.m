@@ -8,7 +8,9 @@
 
 #import "CalendarDayView.h"
 #define CIRCLE_INSET 7
+#define TODAY_CIRCLE_INSET 4
 #import "Colors.h"
+#import "TimeHelper.h"
 
 BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
     for(NSNumber * option in options){
@@ -20,6 +22,8 @@ BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
 @implementation CalendarDayView{
     UIView * block;
     UIView * circle;
+    UIView * todayCircle;
+    UIImageView * cross;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -36,11 +40,24 @@ BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
         circle.layer.cornerRadius = circle.frame.size.height * 0.5;
         circle.userInteractionEnabled = NO;
         
+        todayCircle = [[UIView alloc] initWithFrame:CGRectInset(self.bounds, TODAY_CIRCLE_INSET, TODAY_CIRCLE_INSET)];
+        [self addSubview:todayCircle];
+        todayCircle.layer.cornerRadius = todayCircle.frame.size.height * 0.5;
+        todayCircle.layer.borderColor = [UIColor blackColor].CGColor;
+        todayCircle.layer.borderWidth = 1.5;
+        todayCircle.userInteractionEnabled = NO;
+
         self.label = [[UILabel alloc] initWithFrame:self.bounds];
         self.label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
         self.label.backgroundColor = [UIColor clearColor];
         self.label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.label];
+
+        cross = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"broken_chain_cross"]];
+        [self addSubview:cross];
+        cross.contentMode = UIViewContentModeCenter;
+        cross.frame = self.bounds;
+        
         [self setSelectionState: CalendarDayStateFuture color: nil];
     }
     return self;
@@ -48,6 +65,11 @@ BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
 -(BOOL)isAccessibilityElement{
     return YES;
 }
+-(void)setDay:(NSDate *)day{
+    _day = day;
+    todayCircle.hidden = ![day isEqualToDate:[TimeHelper today]];
+}
+
 -(void)setSelectionState:(CalendarDayState)state color:(UIColor*)color{
     if(stateIsOneOf(state, // do we need a dark background and white text?
                     @[@(CalendarDayStateFirstInChain),
@@ -71,9 +93,9 @@ BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
         block.frame = self.bounds; // it's part of [o]
     }
     
-    circle.hidden = state != CalendarDayStateBetweenSubchains;
+    circle.hidden = !(stateIsOneOf(state, @[@(CalendarDayStateBrokenChain), @(CalendarDayStateBetweenSubchains)]));
     
-    if(stateIsOneOf(state, @[@(CalendarDayStateMissed), @(CalendarDayStateFuture), @(CalendarDayStateBeforeStart)])){
+    if(stateIsOneOf(state, @[@(CalendarDayStateMissed), @(CalendarDayStateFuture), @(CalendarDayStateBeforeStart), @(CalendarDayStateBrokenChain)])){
         self.backgroundColor = [UIColor whiteColor];
         self.label.textColor = [Colors futureColor];
     }
@@ -86,6 +108,9 @@ BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
     if(state == CalendarDayStateMissed){
         self.label.textColor = [Colors missedColor];
     }
+    cross.hidden = state != CalendarDayStateBrokenChain;
+    
+    todayCircle.layer.borderColor = state == CalendarDayStateLastInChain ? [UIColor whiteColor].CGColor : [UIColor blackColor].CGColor;
 }
 
 

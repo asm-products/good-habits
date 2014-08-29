@@ -26,7 +26,9 @@
     
     [HabitsQueries recalculateAllNotifications];
     [Notifications reschedule];
-    [self performAnyNecessaryUpgrades];
+    if(!TEST_ENVIRONMENT){
+        [self performAnyNecessaryUpgrades];
+    }
     return YES;
 }
 -(void)performAnyNecessaryUpgrades{

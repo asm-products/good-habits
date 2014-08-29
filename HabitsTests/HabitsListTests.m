@@ -25,7 +25,7 @@ NSMutableArray * everyDay(){
 }
 
 SpecBegin(HabitsListTests)
-xdescribe(@"list", ^{
+describe(@"list", ^{
     describe(@"first use", ^{
         beforeAll(^{
 //            [HabitsQueries overwriteHabits:@[]];
@@ -40,13 +40,7 @@ xdescribe(@"list", ^{
     describe(@"groupings", ^{
         beforeAll(^{
             [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-01-01"].date];
-            
-//            [HabitsQueries overwriteHabits:@[
-//                                          habit(@{@"title": @"Todo today", @"active":@YES, @"color":[Colors green], @"daysRequired":everyDay(),@"identifier":@"1"},nil),
-//                                          habit(@{@"title": @"Todo yesterday", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@YES, @NO, @NO, @NO, @NO, @NO, @NO].mutableCopy , @"identifier":@"2"} ,nil),
-//                                          habit(@{@"title": @"Todo other days", @"active":@YES, @"color":[Colors green], @"daysRequired":@[@NO,@NO,@YES,@NO,@NO,@NO,@NO].mutableCopy, @"identifier": @"3"},@[@"2013-12-31"]),
-//                                          habit(@{@"title": @"Todo some other time", @"active":@NO, @"color":[Colors green], @"identifier":@"4"}, nil)
-//                                          ]];
+            [TestHelpers loadFixtureFromUserDefaultsNamed:@"list-tests.goodtohear.habits"];
         });
         beforeEach(^{
             if([UIAccessibilityElement accessibilityElement:nil view:nil withLabel:@"Dismiss" value:nil traits:UIAccessibilityTraitNone tappable:YES error:nil]){
@@ -66,6 +60,11 @@ xdescribe(@"list", ^{
         });
         it(@"should show paused habits", ^{
             [tester waitForViewWithAccessibilityLabel:@"Paused habits"];
+        });
+        it(@"Should not show any duplicates", ^{
+            UITableView * listTable = (UITableView*) [tester waitForViewWithAccessibilityLabel:@"Habits List"];
+            expect([listTable numberOfRowsInSection:1]).to.equal(1);
+            expect([listTable numberOfRowsInSection:2]).to.equal(1);
         });
     });
 });

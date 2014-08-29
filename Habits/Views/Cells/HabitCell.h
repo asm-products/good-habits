@@ -13,7 +13,7 @@
 @interface HabitCell : CellWithCheckBox
 @property (nonatomic, strong) Chain * chain;
 @property (nonatomic) BOOL inactive;
-@property (nonatomic, strong) NSDate * now;
+@property (nonatomic, strong) NSDate * day;
 @property (nonatomic) DayCheckedState state;
 -(void)update;
 @end

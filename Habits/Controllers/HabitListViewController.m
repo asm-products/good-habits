@@ -29,6 +29,7 @@ typedef enum {
     dispatch_queue_t reloadQueue;
     NSArray * groups;
     NSDate * now;
+    NSDate * today;
     DayNavigation * dayNavigation;
     InactiveHabitsHeader * carriedOver;
     InactiveHabitsHeader * notRequiredTodayTitle;
@@ -65,12 +66,15 @@ typedef enum {
                ];
 }
 -(void)build{
+    self.tableView.accessibilityLabel = @"Habits List";
     now = [TimeHelper now];
+    today = [TimeHelper today];
     reloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 }
 -(void)refresh{
     dispatch_async(reloadQueue, ^{
         now = [TimeHelper now];
+        today = [TimeHelper today];
         dayNavigation.date = now;
         notRequiredTodayTitle = nil;
         [self loadGroups];
@@ -96,7 +100,7 @@ typedef enum {
     return cell;
 }
 -(HabitCell*)configureCell:(HabitCell*)cell forIndexPath:(NSIndexPath*)indexPath{
-    cell.now = now;
+    cell.day = today;
     Habit * habit = [self habitForIndexPath:indexPath];
     cell.inactive = NO;
     cell.chain = [habit chainForDate:now];
@@ -161,7 +165,7 @@ typedef enum {
         }];
     }
     // TODO: fix sorting
-//    [HabitsQueries saveAll];
+    [[CoreDataClient defaultClient] save];
 }
 -(void)insertHabit:(Habit *)habit{
 //    [self loadGroups];

@@ -28,7 +28,8 @@
     [self addSubview:checkmark];
     
     cross = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cross"]];
-    cross.frame = (CGRect){ CGPointMake(12, 12), cross.frame.size };
+    cross.contentMode = UIViewContentModeCenter;
+    cross.frame = self.bounds;
     [self addSubview:cross];
     
     [self setState:DayCheckedStateNull];

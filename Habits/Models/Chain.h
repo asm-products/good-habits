@@ -32,6 +32,7 @@ typedef enum{
 @property (nonatomic, strong) NSSet * days;
 @property (nonatomic, strong) Habit * habit;
 @property (nonatomic, strong) NSNumber * daysCountCache;
+@property (nonatomic, strong) NSDate * firstDateCache;
 @property (nonatomic, strong) NSDate * lastDateCache;
 
 #pragma mark - Sugar
@@ -41,6 +42,7 @@ typedef enum{
 -(NSDate*)nextRequiredDate;
 -(NSDate*)startDate;
 -(NSInteger)countOfDaysOverdue;
+-(BOOL)overlapsDate:(NSDate*)date;
 #pragma mark - Chain manipulation
 /**
  *  It is the caller's responsibility to delete the joined chain (I think)

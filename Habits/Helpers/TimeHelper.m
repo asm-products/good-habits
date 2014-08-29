@@ -51,7 +51,7 @@ static NSDate * selectedDate = nil;
     return [NSDate date];
 }
 +(NSDate *)today{
-    return [self startOfDayInUTC:[NSDate date]];
+    return [self startOfDayInUTC: selectedDate ? selectedDate : [NSDate date]];
 }
 +(NSInteger)weekday:(NSDate *)date{
     NSDateComponents * components = [[self UTCCalendar] components:NSWeekdayCalendarUnit fromDate:date];

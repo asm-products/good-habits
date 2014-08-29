@@ -12,6 +12,14 @@
 		AC0B78031976718500CEC018 /* DayKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0B78021976718500CEC018 /* DayKeys.m */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */; };
 		AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */; };
+		AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB93019B0967500BF7EAF /* AdminTableViewController.m */; };
+		AC1EB93219B096C300BF7EAF /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */; };
+		AC1EB93319B096C300BF7EAF /* aw.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F3B19A89F76000C03F5 /* aw.goodtohear.habits.plist */; };
+		AC1EB93419B096C300BF7EAF /* mf.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F3A19A89E91000C03F5 /* mf.goodtohear.habits.plist */; };
+		AC1EB93619B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93519B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist */; };
+		AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */; };
+		AC1EB93B19B0F71A00BF7EAF /* broken_chain_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */; };
+		AC1EB93C19B0F71A00BF7EAF /* broken_chain_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */; };
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
@@ -180,6 +188,12 @@
 		AC0B78021976718500CEC018 /* DayKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayKeys.m; sourceTree = "<group>"; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_lots.json; sourceTree = "<group>"; };
 		AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConversionTests.m; sourceTree = "<group>"; };
+		AC1EB92F19B0967500BF7EAF /* AdminTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminTableViewController.h; sourceTree = "<group>"; };
+		AC1EB93019B0967500BF7EAF /* AdminTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminTableViewController.m; sourceTree = "<group>"; };
+		AC1EB93519B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "list-tests.goodtohear.habits.plist"; sourceTree = "<group>"; };
+		AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainManipulationTests.m; sourceTree = "<group>"; };
+		AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broken_chain_cross.png; sourceTree = "<group>"; };
+		AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "broken_chain_cross@2x.png"; sourceTree = "<group>"; };
 		AC24B641197194FC00B33CCF /* CheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMarkView.h; sourceTree = "<group>"; };
 		AC24B642197194FC00B33CCF /* CheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkView.m; sourceTree = "<group>"; };
 		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
@@ -628,6 +642,7 @@
 				ACADB3F9190D23B90030CC82 /* Supporting Files */,
 				AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */,
 				AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */,
+				AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */,
 				ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */,
 			);
 			path = HabitsTests;
@@ -681,6 +696,8 @@
 				ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */,
 				AC735DE7197156D0007CD2B7 /* LandingViewController.h */,
 				AC735DE8197156D0007CD2B7 /* LandingViewController.m */,
+				AC1EB92F19B0967500BF7EAF /* AdminTableViewController.h */,
+				AC1EB93019B0967500BF7EAF /* AdminTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -725,6 +742,8 @@
 		ACADB40C190D26940030CC82 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */,
+				AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */,
 				AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */,
 				AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */,
 				AC3237BC196C438900A2FF9F /* Stats.png */,
@@ -828,6 +847,7 @@
 				ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */,
 				ACB35F3B19A89F76000C03F5 /* aw.goodtohear.habits.plist */,
 				ACB35F3A19A89E91000C03F5 /* mf.goodtohear.habits.plist */,
+				AC1EB93519B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -969,12 +989,14 @@
 				ACADB472190D27960030CC82 /* guide_11.png in Resources */,
 				ACADB47A190D27960030CC82 /* guide_15.png in Resources */,
 				ACADB471190D27960030CC82 /* guide_10@2x.png in Resources */,
+				AC1EB93319B096C300BF7EAF /* aw.goodtohear.habits.plist in Resources */,
 				ACADB475190D27960030CC82 /* guide_12@2x.png in Resources */,
 				ACADB492190D27960030CC82 /* icon_512.png in Resources */,
 				ACADB491190D27960030CC82 /* icon_57.png in Resources */,
 				ACADB463190D27960030CC82 /* guide_3@2x.png in Resources */,
 				ACADB489190D27960030CC82 /* play@2x.png in Resources */,
 				ACADB473190D27960030CC82 /* guide_11@2x.png in Resources */,
+				AC1EB93219B096C300BF7EAF /* testing.goodtohear.habits.plist in Resources */,
 				ACADB49D190D27960030CC82 /* arrow_back.png in Resources */,
 				ACADB483190D27960030CC82 /* happiness_shape@2x.png in Resources */,
 				ACADB48E190D27960030CC82 /* main_screen.png in Resources */,
@@ -985,6 +1007,8 @@
 				ACADB48B190D27960030CC82 /* pause@2x.png in Resources */,
 				ACADB457190D27960030CC82 /* Default@2x.png in Resources */,
 				ACADB45C190D27960030CC82 /* back.png in Resources */,
+				AC1EB93C19B0F71A00BF7EAF /* broken_chain_cross@2x.png in Resources */,
+				AC1EB93419B096C300BF7EAF /* mf.goodtohear.habits.plist in Resources */,
 				ACADB48F190D27960030CC82 /* info@2x.png in Resources */,
 				ACADB481190D27960030CC82 /* guide_18@2x.png in Resources */,
 				ACADB482190D27960030CC82 /* happiness_shape.png in Resources */,
@@ -1009,6 +1033,7 @@
 				AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */,
 				ACADB47E190D27960030CC82 /* guide_17.png in Resources */,
 				ACADB46F190D27960030CC82 /* guide_9@2x.png in Resources */,
+				AC1EB93B19B0F71A00BF7EAF /* broken_chain_cross.png in Resources */,
 				ACADB47B190D27960030CC82 /* guide_15@2x.png in Resources */,
 				AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */,
 				ACADB3E7190D23B90030CC82 /* Main.storyboard in Resources */,
@@ -1022,6 +1047,7 @@
 				ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */,
 				ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */,
 				ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */,
+				AC1EB93619B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist in Resources */,
 				AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1099,6 +1125,7 @@
 				AC40187D195058650033407B /* CellWithCheckBox.m in Sources */,
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */,
+				AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */,
 				AC735DDE19704F67007CD2B7 /* AppFeatures.m in Sources */,
 				AC4018F219518EBC0033407B /* DataExport.m in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
@@ -1160,6 +1187,7 @@
 				ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */,
 				AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */,
 				AC3237C9196D423400A2FF9F /* TestHelpers.m in Sources */,
+				AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */,
 				AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

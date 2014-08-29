@@ -9,12 +9,13 @@
 #import "Chain.h"
 #import "Habit.h"
 #import "TimeHelper.h"
+#import "CoreDataClient.h"
 
 @implementation Chain
-@dynamic notes,explicitlyBroken,days,habit,breakDetected,daysCountCache,lastDateCache;
+@dynamic notes,explicitlyBroken,days,habit,breakDetected,daysCountCache,lastDateCache,firstDateCache;
 -(BOOL)isBroken{
     NSLog(@"isBroken needs implementing!");
-    return YES;
+    return self.explicitlyBroken.boolValue;
 }
 #pragma mark - chain manipulation
 -(Chain *)chainByJoiningChain:(Chain *)chain{
@@ -54,10 +55,14 @@
     return components.day;
 }
 -(NSDate *)startDate{
-    return [[self.sortedDays firstObject] date];
+    return self.firstDateCache;
 }
 -(HabitDay*)habitDayForDate:(NSDate*)date{
-    return nil;
+    return [self.days filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"date == %@", date]].anyObject;
+}
+-(BOOL)overlapsDate:(NSDate *)date{
+    NSTimeInterval dateInterval = date.timeIntervalSinceReferenceDate;
+    return dateInterval >= self.startDate.timeIntervalSinceReferenceDate && dateInterval <= self.lastDateCache.timeIntervalSinceReferenceDate;
 }
 #pragma mark - Interaction
 -(DayCheckedState)stepToNextStateForDate:(NSDate *)date{
@@ -66,16 +71,19 @@
         HabitDay * habitDay = [NSEntityDescription insertNewObjectForEntityForName:@"HabitDay" inManagedObjectContext:self.managedObjectContext];
         habitDay.date = date;
         [self addDaysObject:habitDay];
-//        TODO: save
+        [[CoreDataClient defaultClient].managedObjectContext save:nil];
+
         return DayCheckedStateComplete;
     }else if(!self.explicitlyBroken){
         [self removeDaysObject:existingDay];
         self.explicitlyBroken = @YES;
-        // TODO: save
+        [[CoreDataClient defaultClient].managedObjectContext save:nil];
+
         return DayCheckedStateBroken;
     }else{
         self.explicitlyBroken = nil;
-        // TODO: save
+        [[CoreDataClient defaultClient].managedObjectContext save:nil];
+
         return DayCheckedStateNull;
     }
 }

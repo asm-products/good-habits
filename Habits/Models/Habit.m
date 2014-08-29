@@ -157,11 +157,16 @@
     return [[self.chains sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"daysCountCache" ascending:YES]]] lastObject];
 }
 -(NSInteger)currentChainLength{
-    Chain * chain = self.sortedChains.lastObject;
-    return [chain.daysCountCache integerValue];
+    return [self.currentChain.daysCountCache integerValue];
+}
+-(Chain *)currentChain{
+    return self.sortedChains.lastObject;
 }
 -(Chain *)chainForDate:(NSDate *)date{
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"lastDateCache <= %@", date]];
+    if(chains.count == 0){
+        NSLog(@"Hmmm - we don't have have a chain here. Why?");
+    }
     return chains.lastObject;
 }
 #pragma mark - Data management

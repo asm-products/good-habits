@@ -29,12 +29,10 @@
 {
     float storedCount = source.count;
     __block float progress = 0;
-//    [[CoreDataClient defaultClient] nukeStore];
     CoreDataClient * client = [CoreDataClient defaultClient];
     NSManagedObjectContext * context = [client createPrivateContext];
     for (NSDictionary * dict in source) {
         Habit * habit = [HabitsQueries findHabitByIdentifier:dict[@"title"]];
-        NSLog(@"Next habit: %@", dict[@"title"]);
         if(habit == nil){
             habit = [NSEntityDescription insertNewObjectForEntityForName:@"Habit" inManagedObjectContext:context];
             habit.isActive = dict[@"active"];
@@ -68,6 +66,8 @@
     NSArray * dayKeys = [daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     for (NSString * dayKey in dayKeys) { // all values are @YES so I can just iterate through the keys
         NSDate * date = [DayKeys dateFromKey:dayKey];
+        if(!chain.firstDateCache) chain.firstDateCache = date;
+        
         chain = [self returnOrReplaceChain:chain forHabit:habit inContext:context withKey:dayKey onDate: date];
         
         HabitDay * habitDay = [NSEntityDescription insertNewObjectForEntityForName:@"HabitDay" inManagedObjectContext:context];
@@ -78,6 +78,16 @@
         habitDay.runningTotalCache = @(chain.days.count);
         chain.daysCountCache = @(chain.days.count);
         chain.lastDateCache = date;
+    }
+    // This affects testing and should hopefully not cause any problems in real life...
+    
+    if(!chain.firstDateCache) {
+        NSLog(@"Warning, setting firstDateCache to %@ for %@", [TimeHelper today], habit.title);
+        chain.firstDateCache = [TimeHelper today];
+    }
+    if(!chain.lastDateCache) {
+        NSLog(@"Warning, setting lastDateCache to %@ on %@", [TimeHelper today], habit.title);
+        chain.lastDateCache = [TimeHelper today];
     }
 }
 /**

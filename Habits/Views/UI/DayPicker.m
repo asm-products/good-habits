@@ -11,6 +11,7 @@
 #import "DayToggle.h"
 #import <ALActionBlocks.h>
 #import "Notifications.h"
+#import "CoreDataClient.h"
 
 #define ITEM_WIDTH 34
 #define VERTICAL_PADDING 4
@@ -39,9 +40,10 @@
         
         [button handleControlEvents:UIControlEventTouchUpInside withBlock:^(id weakSender) {
             [button toggleOn:!button.isOn];
-            self.habit.daysRequired[i] = @(button.isOn);
-            // TODO: save when picking day
-//            [self.habit save];
+            NSMutableArray * daysRequired = self.habit.daysRequired.mutableCopy;
+            daysRequired[i] = @(button.isOn);
+            self.habit.daysRequired = daysRequired;
+            [[CoreDataClient defaultClient] save];
             [Notifications reschedule];
             [self.delegate dayPickerDidChange:self];
         }];

@@ -13,4 +13,5 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #define TEST_ENVIRONMENT ([[[NSProcessInfo processInfo] arguments] indexOfObject:@"Testing=1"] != NSNotFound)
 #endif

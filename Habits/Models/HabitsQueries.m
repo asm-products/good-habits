@@ -15,6 +15,7 @@
 #import "HabitDay.h"
 #import <SVProgressHUD.h>
 #import "CoreDataClient.h"
+#import "Chain.h"
 @implementation HabitsQueries
 +(NSFetchedResultsController*)fetched{
     static NSFetchedResultsController * fetched = nil;
@@ -50,12 +51,15 @@
 }
 +(NSArray *)activeButNotToday{
     return [self.active filter:^BOOL(Habit * habit) {
-        return !habit.isRequiredToday;// && [habit.sortedChains.lastObject runningTotalCache] != 0;
+        return !habit.isRequiredToday && habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate > [TimeHelper today].timeIntervalSinceReferenceDate;
     }];
 }
 +(NSArray *)carriedOver{
     return [self.active filter:^BOOL(Habit * habit) {
-        return !habit.isRequiredToday;// && [habit.sortedChains.lastObject runningTotalCache] == 0;
+        BOOL chainHasNotBeenBroken = habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate <= [TimeHelper today].timeIntervalSinceReferenceDate;
+//        BOOL wasNotDoneOnTheScheduledDay =
+        // I'm gonna come back to these when I have implemented the ticking saving and chain breaking flow
+        return !habit.isRequiredToday && chainHasNotBeenBroken;
     }];
 }
 +(NSArray *)inactive{
@@ -91,5 +95,14 @@
         [habit recalculateNotifications];
     }
 }
-
+#pragma mark - Destructive
++(void)deleteAllHabits{
+    [self refresh];
+    for (Habit*habit in [self all]) {
+        [[CoreDataClient defaultClient].managedObjectContext deleteObject:habit];
+    }
+    NSError * error;
+    [[CoreDataClient defaultClient].managedObjectContext save:&error];
+    if(error) NSLog(@"Error deleting all habits %@", error);
+}
 @end

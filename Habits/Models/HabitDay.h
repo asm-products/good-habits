@@ -20,7 +20,8 @@ typedef enum {
     CalendarDayStateBetweenSubchains,
     CalendarDayStateMissed,
     CalendarDayStateBeforeStart,
-    CalendarDayStateNotRequired
+    CalendarDayStateNotRequired,
+    CalendarDayStateBrokenChain
 } CalendarDayState;
 
 @interface HabitDay : NSManagedObject<MTLJSONSerializing>

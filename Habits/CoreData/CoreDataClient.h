@@ -16,4 +16,8 @@ CWL_DECLARE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 @property (nonatomic, strong) NSPersistentStore * persistentStore;
 -(NSManagedObjectContext*)createPrivateContext;
 -(void)nukeStore;
+/**
+ *  Save the default managed object context
+ */
+-(void)save;
 @end

@@ -76,27 +76,49 @@
     CalendarDayView * firstCell = cells.firstObject;
     CalendarDayView * lastCell = cells.lastObject;
     NSArray * days = [HabitDayQueries daysForHabit:habit betweenDate:firstCell.day andDate:lastCell.day];
-    CalendarDayState previousState = CalendarDayStateBeforeStart;
+    NSSet * chains = [NSSet setWithArray:[days valueForKey:@"chain"]];
+    Chain * chainOverlappingFirstDay;
+    for (Chain * chain in chains) {
+        if([chain overlapsDate: firstCell.day]){
+            chainOverlappingFirstDay = chain;
+        }
+    }
+    
+    CalendarDayState previousState = chainOverlappingFirstDay ? CalendarDayStateFirstInChain : CalendarDayStateBeforeStart;
+    
     for (NSInteger gridIndex = 0; gridIndex < CELL_COUNT; gridIndex ++) {
         CalendarDayView * cell = cells[gridIndex];
         NSInteger dayIndex = [days indexOfObjectPassingTest:^BOOL(HabitDay * day, NSUInteger idx, BOOL *stop) {
             return [day.date isEqualToDate:cell.day];
         }];
-        if(dayIndex != NSNotFound){
+        if(dayIndex == NSNotFound){
+            cell.accessibilityLabel = [[self accessibilityDateFormatter] stringFromDate:cell.day];
+            if ([habit isRequiredOnWeekday:cell.day] == NO && ( previousState == CalendarDayStateMidChain || previousState == CalendarDayStateFirstInChain)) {
+                [cell setSelectionState:CalendarDayStateBetweenSubchains color:habit.color];
+            }
+        }else{
             HabitDay * habitDay = days[dayIndex];
             cell.habitDay = habitDay;
             [cell setSelectionState:habitDay.dayState color:habit.color];
             cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[self accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:habitDay.dayState] ];
             previousState = habitDay.dayState;
         }
-        if ([habit isRequiredOnWeekday:cell.day] == NO && ( previousState == CalendarDayStateMidChain || previousState == CalendarDayStateFirstInChain)) {
-            [cell setSelectionState:CalendarDayStateBetweenSubchains color:habit.color];
+    }
+    for (Chain * chain in chains) {
+        if(chain.isBroken){
+            NSInteger cellIndex = [cells indexOfObjectPassingTest:^BOOL(CalendarDayView*cell, NSUInteger idx, BOOL *stop) {
+                return [cell.day isEqualToDate:[chain nextRequiredDate]];
+            }];
+            if(cellIndex != NSNotFound){
+                CalendarDayView * cell = cells[cellIndex];
+                [cell setSelectionState:CalendarDayStateBrokenChain color:habit.color];
+            }
         }
     }
 }
 
 +(BOOL)isFutureDate:(NSDate*)date{
-    return [[TimeHelper now] timeIntervalSinceDate:date] < 0;
+    return [[TimeHelper today] timeIntervalSinceDate:date] < 0;
 }
 #pragma mark - Interaction
 -(void)addGestures{
@@ -108,12 +130,15 @@
     UIView * subview = [self.view hitTest:location withEvent:nil];
     if(subview.class == [CalendarDayView class]){
         CalendarDayView * cell = (CalendarDayView*)subview;
-//        if([[self class] isFutureDate:cell.day]) return;
+        if([[self class] isFutureDate:cell.day]) return;
+        Chain * chain = [self.habit chainForDate:cell.day];
+        [chain stepToNextStateForDate:cell.day];
+        
 //        togglingOn = ![self.habit includesDate:cell.day];
 //        [cell setSelectionState:togglingOn ? CalendarDayStateAlone : CalendarDayStateBeforeStart color:self.habit.color];
 //        [self.habit setDaysChecked:@[[DayKeys keyFromDate:cell.day]] checked:togglingOn];
 //        [self.habit save];
-//        [self showChainsForHabit:self.habit callback:nil];
+        [self showChainsForHabit:self.habit callback:nil];
         
     }
 }
