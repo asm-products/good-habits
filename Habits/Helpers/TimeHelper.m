@@ -101,4 +101,13 @@ static NSDate * selectedDate = nil;
 }
 
 
++(NSDateFormatter*)accessibilityDateFormatter{
+    static NSDateFormatter * formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [NSDateFormatter new];
+        formatter.dateFormat = @"d MMMM";
+    });
+    return formatter;
+}
 @end

@@ -163,7 +163,7 @@
     return self.sortedChains.lastObject;
 }
 -(Chain *)chainForDate:(NSDate *)date{
-    NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"lastDateCache <= %@", date]];
+    NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache <= %@", date]];
     if(chains.count == 0){
         NSLog(@"Hmmm - we don't have have a chain here. Why?");
     }

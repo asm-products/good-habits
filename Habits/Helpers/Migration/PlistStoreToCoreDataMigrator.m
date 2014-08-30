@@ -66,7 +66,6 @@
     NSArray * dayKeys = [daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     for (NSString * dayKey in dayKeys) { // all values are @YES so I can just iterate through the keys
         NSDate * date = [DayKeys dateFromKey:dayKey];
-        if(!chain.firstDateCache) chain.firstDateCache = date;
         
         chain = [self returnOrReplaceChain:chain forHabit:habit inContext:context withKey:dayKey onDate: date];
         
@@ -74,6 +73,7 @@
         habitDay.date = date;
         habitDay.dayKey = dayKey; // just for posterity really.
         [chain addDaysObject:habitDay];
+        if(!chain.firstDateCache) chain.firstDateCache = date;
 
         habitDay.runningTotalCache = @(chain.days.count);
         chain.daysCountCache = @(chain.days.count);
@@ -100,7 +100,10 @@
         chain.breakDetected = @YES;
         Chain * newChain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:context];
         [habit addChainsObject:newChain];
+        newChain.firstDateCache = date;
 //        NSLog(@"Replaced chain at date %@", date);
+        NSLog(@"Chain %@, firstDateCache: %@ lastDateCache: %@", [chain.sortedDays valueForKey:@"date"], chain.firstDateCache, chain.lastDateCache);
+
         return newChain;
     }else{
         return chain;

@@ -8,16 +8,35 @@ describe(@"chain manipulations", ^{
        it(@"Should correctly update the chains when checking today", ^{
            [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-22"].date];
            [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
+           
+           [tester waitForTimeInterval:100];
+           // List: toggle today
            [tester waitForViewWithAccessibilityLabel:@"3"]; // current chain length
            [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
            [tester waitForViewWithAccessibilityLabel:@"4"];
            [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
            [tester waitForViewWithAccessibilityLabel:@"3"];
            [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Broken"];
+           
+           // Calendar: toggle today
            [tester tapViewWithAccessibilityLabel:@"Testing habit"];
            [tester waitForViewWithAccessibilityLabel:@"21 August, last in chain"];
            [tester tapViewWithAccessibilityLabel:@"22 August"];
-           [tester waitForViewWithAccessibilityLabel:@"22 August, last in chain"];
+           [tester tapViewWithAccessibilityLabel:@"22 August, last in chain"];
+           [tester tapViewWithAccessibilityLabel:@"22 August, broken"];
+           [tester waitForViewWithAccessibilityLabel:@"22 August"];
+           
+           // Mid chain: toggle today
+           [tester tapViewWithAccessibilityLabel:@"11 August, mid-chain"];
+           [tester waitForViewWithAccessibilityLabel:@"10 August, isolated day"];
+           [tester waitForViewWithAccessibilityLabel:@"12 August, isolated day"];
+           [tester tapViewWithAccessibilityLabel:@"11 August"];
+           
+           [tester waitForViewWithAccessibilityLabel:@"11 August, mid-chain"];
+           [tester tapViewWithAccessibilityLabel:@"12 August, last in chain"];
+           
+           
+           
            [tester waitForTimeInterval:100];
        });
    });

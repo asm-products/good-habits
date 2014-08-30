@@ -44,15 +44,6 @@ typedef enum{
 -(NSInteger)countOfDaysOverdue;
 -(BOOL)overlapsDate:(NSDate*)date;
 #pragma mark - Chain manipulation
-/**
- *  It is the caller's responsibility to delete the joined chain (I think)
- *
- */
--(Chain*)chainByJoiningChain:(Chain*)chain;
-/**
- *  It is the caller's responsibility to create another chain with the second result
- */
--(NSArray*)chainsBySplittingAtDay:(HabitDay*)day;
 
 #pragma mark - User interaction
 -(DayCheckedState)stepToNextStateForDate:(NSDate*)date;
@@ -61,6 +52,7 @@ typedef enum{
 @end
 
 @interface Chain(DaysAccessors)
+-(void)addDays:(NSSet*)days;
 -(void)addDaysObject:(HabitDay *)object;
 -(void)removeDaysObject:(HabitDay*)object;
 @end

@@ -20,6 +20,7 @@
         case CalendarDayStateMidChain: return @"mid-chain";
         case CalendarDayStateMissed: return @"missed day";
         case CalendarDayStateNotRequired: return @"not required";
+        case CalendarDayStateBrokenChain: return @"broken";
     }
     return @"";
 }

@@ -62,16 +62,12 @@
     });
     return formatter;
 }
--(NSDateFormatter*)accessibilityDateFormatter{
-    static NSDateFormatter * formatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        formatter = [NSDateFormatter new];
-        formatter.dateFormat = @"d MMMM";
-    });
-    return formatter;
-}
 -(void)showChainsForHabit:(Habit*)habit callback:(void(^)())callback{
+    for (CalendarDayView * cell in cells) {
+        [cell setSelectionState:CalendarDayStateFuture color:habit.color];
+    }
+    
+    
     self.habit = habit;
     CalendarDayView * firstCell = cells.firstObject;
     CalendarDayView * lastCell = cells.lastObject;
@@ -92,7 +88,7 @@
             return [day.date isEqualToDate:cell.day];
         }];
         if(dayIndex == NSNotFound){
-            cell.accessibilityLabel = [[self accessibilityDateFormatter] stringFromDate:cell.day];
+            cell.accessibilityLabel = [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day];
             if ([habit isRequiredOnWeekday:cell.day] == NO && ( previousState == CalendarDayStateMidChain || previousState == CalendarDayStateFirstInChain)) {
                 [cell setSelectionState:CalendarDayStateBetweenSubchains color:habit.color];
             }
@@ -100,7 +96,7 @@
             HabitDay * habitDay = days[dayIndex];
             cell.habitDay = habitDay;
             [cell setSelectionState:habitDay.dayState color:habit.color];
-            cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[self accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:habitDay.dayState] ];
+            cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:habitDay.dayState] ];
             previousState = habitDay.dayState;
         }
     }
@@ -112,6 +108,7 @@
             if(cellIndex != NSNotFound){
                 CalendarDayView * cell = cells[cellIndex];
                 [cell setSelectionState:CalendarDayStateBrokenChain color:habit.color];
+                cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:CalendarDayStateBrokenChain] ];
             }
         }
     }

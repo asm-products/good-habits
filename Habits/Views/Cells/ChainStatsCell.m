@@ -12,11 +12,13 @@
 @implementation ChainStatsCell{
     __weak IBOutlet UILabel *dateLabel;
     __weak IBOutlet UILabel *lengthLabel;
+    __weak IBOutlet UILabel *dateRangeLabel;
 }
 -(void)setChain:(Chain *)chain{
     _chain = chain;
     dateLabel.text = [TimeHelper timeAgoString:chain.startDate];//[NSString stringWithFormat:@"%@ - %@",, nil]; // chainBreak.date];
 //    cell.detailTextLabel.text = chain.notes;
     lengthLabel.text = [NSString stringWithFormat:@"Length: %@", @(chain.length)];
+    dateRangeLabel.text = [NSString stringWithFormat:@"%@ - %@", [[TimeHelper accessibilityDateFormatter] stringFromDate:chain.firstDateCache], [[TimeHelper accessibilityDateFormatter] stringFromDate:chain.lastDateCache]];
 }
 @end
