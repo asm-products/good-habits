@@ -166,6 +166,9 @@
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache <= %@", date]];
     if(chains.count == 0){
         Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
+        chain.firstDateCache = [TimeHelper today];
+        chain.lastDateCache = [TimeHelper today];
+        chain.daysCountCache = @0;
         [self addChainsObject:chain];
         return chain;
     }else{

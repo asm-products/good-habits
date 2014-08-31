@@ -85,6 +85,9 @@
 +(Habit *)findHabitByIdentifier:(NSString *)identifier{
     return [[[self all] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", identifier]] firstObject];
 }
++(Habit *)findHabitByTitle:(NSString *)identifier{
+    return [[[self all] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"title == %@", identifier]] firstObject];
+}
 #pragma mark - Data management
 +(NSString*)localPath{
     NSString * documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;

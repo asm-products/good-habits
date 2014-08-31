@@ -58,6 +58,7 @@ typedef enum {
     [self refresh];   
 }
 -(void)loadGroups{
+    [HabitsQueries refresh];
     groups = @[
                [HabitsQueries activeToday].mutableCopy,
                [HabitsQueries carriedOver].mutableCopy,

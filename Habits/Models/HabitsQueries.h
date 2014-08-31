@@ -23,7 +23,10 @@
 +(NSArray*)inactive;
 +(NSInteger)habitCountForDate:(NSDate*)day;
 +(Habit*)findHabitByIdentifier:(NSString*)identifier;
-
+/**
+ *  Only really intended to be used in tests
+ */
++(Habit *)findHabitByTitle:(NSString *)identifier;
 #pragma mark - Notifications
 +(void)recalculateAllNotifications;
 
