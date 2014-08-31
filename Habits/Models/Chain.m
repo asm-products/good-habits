@@ -40,6 +40,7 @@
 }
 -(NSDate *)nextRequiredDate{
     NSDate * result;
+    if(self.days.count == 0 && self.habit.chains.count == 1) return [TimeHelper today];
     HabitDay * lastDay = self.sortedDays.lastObject;
     for (NSInteger i = 1; i < 8; i++) {
         result = [TimeHelper addDays:i toDate:lastDay.date];

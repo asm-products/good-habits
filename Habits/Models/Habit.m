@@ -109,7 +109,7 @@
 }
 #pragma mark - Individual state
 -(BOOL)isRequiredToday{
-    return [self isRequiredOnWeekday:[TimeHelper now]];
+    return [self isRequiredOnWeekday:[TimeHelper today]];
 }
 -(BOOL)done:(NSDate *)date{
 //    [self chainForDate:date]

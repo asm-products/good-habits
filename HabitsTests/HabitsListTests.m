@@ -25,7 +25,7 @@ NSMutableArray * everyDay(){
 }
 
 SpecBegin(HabitsListTests)
-xdescribe(@"list", ^{
+describe(@"list", ^{
     describe(@"first use", ^{
         beforeAll(^{
 //            [HabitsQueries overwriteHabits:@[]];
@@ -39,7 +39,7 @@ xdescribe(@"list", ^{
    
     describe(@"groupings", ^{
         beforeAll(^{
-            [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-01-01"].date];
+            [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-23"].date];
             [TestHelpers loadFixtureFromUserDefaultsNamed:@"list-tests.goodtohear.habits"];
         });
         beforeEach(^{
@@ -48,7 +48,7 @@ xdescribe(@"list", ^{
             }
         });
         it(@"should show today's habits", ^{
-            [tester waitForViewWithAccessibilityLabel:@"Wednesday 1 January"];
+            [tester waitForViewWithAccessibilityLabel:@"Monday 23 December"];
             [tester waitForViewWithAccessibilityLabel:@"Todo today"];
         });
         it(@"should show habits carried over from yesterday", ^{
@@ -56,7 +56,7 @@ xdescribe(@"list", ^{
             [tester waitForViewWithAccessibilityLabel:@"Todo yesterday"];
         });
         it(@"should show habits not required today", ^{
-            [tester waitForViewWithAccessibilityLabel:@"Not on Wednesdays"];
+            [tester waitForViewWithAccessibilityLabel:@"Not on Mondays"];
         });
         it(@"should show paused habits", ^{
             [tester waitForViewWithAccessibilityLabel:@"Paused habits"];

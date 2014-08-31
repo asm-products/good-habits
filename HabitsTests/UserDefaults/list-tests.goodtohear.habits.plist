@@ -10,11 +10,14 @@
 			<key>time_to_do</key>
 			<string></string>
 			<key>days_checked</key>
-			<dict/>
+			<dict>
+				<key>2013-12-21</key>
+				<true/>
+			</dict>
 			<key>order</key>
 			<integer>24</integer>
 			<key>created_at</key>
-			<date>2014-08-23T16:49:44Z</date>
+			<date>2014-08-21T16:49:44Z</date>
 			<key>longest_chain</key>
 			<integer>5</integer>
 			<key>title</key>
@@ -40,11 +43,14 @@
 			<key>time_to_do</key>
 			<string></string>
 			<key>days_checked</key>
-			<dict/>
+			<dict>
+				<key>2013-12-20</key>
+				<true/>
+			</dict>
 			<key>order</key>
 			<integer>24</integer>
 			<key>created_at</key>
-			<date>2014-08-23T16:49:44Z</date>
+			<date>2014-08-21T16:49:44Z</date>
 			<key>longest_chain</key>
 			<integer>5</integer>
 			<key>title</key>
@@ -77,7 +83,7 @@
 			<key>order</key>
 			<integer>24</integer>
 			<key>created_at</key>
-			<date>2014-08-23T16:49:44Z</date>
+			<date>2014-08-21T16:49:44Z</date>
 			<key>longest_chain</key>
 			<integer>5</integer>
 			<key>title</key>
@@ -103,11 +109,14 @@
 			<key>time_to_do</key>
 			<string></string>
 			<key>days_checked</key>
-			<dict/>
+			<dict>
+				<key>2013-12-20</key>
+				<true/>
+			</dict>
 			<key>order</key>
 			<integer>24</integer>
 			<key>created_at</key>
-			<date>2014-08-23T16:49:44Z</date>
+			<date>2014-08-21T16:49:44Z</date>
 			<key>longest_chain</key>
 			<integer>5</integer>
 			<key>title</key>

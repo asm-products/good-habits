@@ -60,7 +60,7 @@ static NSDate * selectedDate = nil;
 +(NSDate *)addDays:(NSInteger)count toDate:(NSDate *)date{
     NSDateComponents * dateComponents = [NSDateComponents new];
     dateComponents.day = count;
-    assert(date);
+//    assert(date);
     return [[self UTCCalendar] dateByAddingComponents:dateComponents toDate:date options:0];
 }
 +(NSString*)formattedTime:(NSDateComponents *)components{
