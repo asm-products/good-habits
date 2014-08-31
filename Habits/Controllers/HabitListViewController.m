@@ -72,17 +72,12 @@ typedef enum {
     reloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 }
 -(void)refresh{
-    dispatch_async(reloadQueue, ^{
-        now = [TimeHelper now];
-        today = [TimeHelper today];
-        dayNavigation.date = now;
-        notRequiredTodayTitle = nil;
-        [self loadGroups];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-            
-        });
-    });
+    now = [TimeHelper now];
+    today = [TimeHelper today];
+    dayNavigation.date = now;
+    notRequiredTodayTitle = nil;
+    [self loadGroups];
+    [self.tableView reloadData];
 }
 #pragma mark - Table View Controller
 -(Habit*)habitForIndexPath:(NSIndexPath*)indexPath{

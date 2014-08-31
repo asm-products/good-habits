@@ -1,15 +1,18 @@
 #import <KIF.h>
 #import <YLMoment.h>
 #import "TimeHelper.h"
+#import "Habit.h"
+#import "HabitsQueries.h"
 SpecBegin(ChainManipulationTests)
 
 describe(@"chain manipulations", ^{
-   describe(@"Checking today", ^{
-       it(@"Should correctly update the chains when checking today", ^{
+   describe(@"Lots of chains, list and calendar editing", ^{
+       it(@"Should correctly update the chains", ^{
            [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-22"].date];
            [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
+          
+           Habit * habit = [HabitsQueries findHabitByIdentifier:@"Testing habit"];
            
-           [tester waitForTimeInterval:100];
            // List: toggle today
            [tester waitForViewWithAccessibilityLabel:@"3"]; // current chain length
            [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
@@ -20,26 +23,51 @@ describe(@"chain manipulations", ^{
            
            // Calendar: toggle today
            [tester tapViewWithAccessibilityLabel:@"Testing habit"];
+           expect(habit.chains.count).to.equal(5);
+           
            [tester waitForViewWithAccessibilityLabel:@"21 August, last in chain"];
            [tester tapViewWithAccessibilityLabel:@"22 August"];
+           expect(habit.chains.count).to.equal(5);
            [tester tapViewWithAccessibilityLabel:@"22 August, last in chain"];
-           [tester tapViewWithAccessibilityLabel:@"22 August, broken"];
            [tester waitForViewWithAccessibilityLabel:@"22 August"];
+           expect(habit.chains.count).to.equal(5);
            
            // Mid chain: toggle today
            [tester tapViewWithAccessibilityLabel:@"11 August, mid-chain"];
+           expect(habit.chains.count).to.equal(6);
            [tester waitForViewWithAccessibilityLabel:@"10 August, isolated day"];
            [tester waitForViewWithAccessibilityLabel:@"12 August, isolated day"];
            [tester tapViewWithAccessibilityLabel:@"11 August"];
+           expect(habit.chains.count).to.equal(5);
            
            [tester waitForViewWithAccessibilityLabel:@"11 August, mid-chain"];
            [tester tapViewWithAccessibilityLabel:@"12 August, last in chain"];
+           expect(habit.chains.count).to.equal(5);
            
+           // Make sure we don't get a weird gap in a re-joined chain
+           [tester tapViewWithAccessibilityLabel:@"19 August, mid-chain"];
+           expect(habit.chains.count).to.equal(6);
+           [tester tapViewWithAccessibilityLabel:@"20 August"];
+           expect(habit.chains.count).to.equal(6);
+           [tester waitForViewWithAccessibilityLabel:@"19 August"];
+           [tester waitForViewWithAccessibilityLabel:@"20 August, first in chain"];
            
+           // Make sure toggling a single day works
+           [tester tapViewWithAccessibilityLabel:@"1 August, isolated day"];
+           expect(habit.chains.count).to.equal(5);
+           [tester tapViewWithAccessibilityLabel:@"1 August"];
+           expect(habit.chains.count).to.equal(6);
+           [tester waitForViewWithAccessibilityLabel:@"1 August, isolated day"];
            
-           [tester waitForTimeInterval:100];
+           [tester tapViewWithAccessibilityLabel:@"Back"];
        });
    });
+    describe(@"Checking today to make a new chain", ^{
+        it(@"should do so", ^{
+            [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
+            [tester waitForViewWithAccessibilityLabel:@"Current chain length 1, longest chain 1"];
+        });
+    });
 });
 
 SpecEnd

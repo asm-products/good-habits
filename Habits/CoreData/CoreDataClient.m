@@ -31,6 +31,8 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
         }else{
             [self build];
         }
+       
+        [self listenForPrivateQueueSaves];
     }
     return self;
 }
@@ -48,6 +50,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
     NSError* error;
     self.persistentStore = [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
     self.managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
+}
+-(void)listenForPrivateQueueSaves{
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
+    }];
 }
 -(void)nukeStore{
     NSError * error;

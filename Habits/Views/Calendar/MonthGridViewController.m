@@ -16,6 +16,7 @@
 #import "HabitDay.h"
 #import "Chain.h"
 #import "HabitDayQueries.h"
+#import <SVProgressHUD.h>
 #define CELL_SIZE CGSizeMake(45, 44)
 #define CELL_COUNT (7*5)
 
@@ -39,6 +40,7 @@
     NSDateComponents * components = [NSDateComponents new];
     for (int gridIndex = 0; gridIndex < CELL_COUNT; gridIndex ++) {
         components.day = gridIndex;
+        assert(self.firstDay);
         NSDate * day = [[TimeHelper UTCCalendar] dateByAddingComponents:components toDate:self.firstDay options:0];
         CalendarDayView * cell = [[CalendarDayView alloc] initWithFrame:CGRectMake(nextPoint.x + 1, nextPoint.y, CELL_SIZE.width, 43)];
         cell.day = day;
@@ -129,13 +131,13 @@
         CalendarDayView * cell = (CalendarDayView*)subview;
         if([[self class] isFutureDate:cell.day]) return;
         Chain * chain = [self.habit chainForDate:cell.day];
-        [chain stepToNextStateForDate:cell.day];
         
-//        togglingOn = ![self.habit includesDate:cell.day];
-//        [cell setSelectionState:togglingOn ? CalendarDayStateAlone : CalendarDayStateBeforeStart color:self.habit.color];
-//        [self.habit setDaysChecked:@[[DayKeys keyFromDate:cell.day]] checked:togglingOn];
-//        [self.habit save];
+        [chain toggleDayInCalendarForDate:cell.day];
         [self showChainsForHabit:self.habit callback:nil];
+
+        [self.habit recalculateRunningTotalsInBackground:^{
+        }];
+        
         
     }
 }

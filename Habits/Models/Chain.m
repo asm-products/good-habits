@@ -69,10 +69,15 @@
     HabitDay * existingDay = [self habitDayForDate:date];
     DayCheckedState result;
     BOOL dateIsAtEndOfChain = [date isEqualToDate:self.lastDateCache] || date.timeIntervalSinceReferenceDate >= self.nextRequiredDate.timeIntervalSinceReferenceDate;
-    if(dateIsAtEndOfChain && (self.days.count > 1 || existingDay == nil) ){
-        // toggle check / explicit break / null:
+    BOOL dateIsTooLateForThisChain = self.days.count > 0 && (date.timeIntervalSinceReferenceDate > self.nextRequiredDate.timeIntervalSinceReferenceDate);
+    if(dateIsTooLateForThisChain){
+        Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
+        [self.habit addChainsObject:chain];
+        [chain tickLastDayInChainOnDate:date];
+        result = DayCheckedStateComplete;
         
-#pragma mark - actions for last item in chain
+    }else if(dateIsAtEndOfChain){
+        // toggle check / explicit break / null:
         if(self.explicitlyBroken.boolValue == YES){
             // Was explicity broken - null out the broken
             self.explicitlyBroken = nil;
@@ -94,9 +99,36 @@
             }
         }
     }else{
-        // either split or join to another chain
-        if (existingDay == nil) { // only happens if day was not required
+        NSLog(@"Error - something bad has happened.");
+    }
+    [[CoreDataClient defaultClient].managedObjectContext save:nil];
+    return result;
+}
+-(DayCheckedState)toggleDayInCalendarForDate:(NSDate *)date{
+    HabitDay * existingDay = [self habitDayForDate:date];
+    DayCheckedState result;
+    BOOL dateIsAtEndOfChain = self.days.count > 0 && ( [date isEqualToDate:self.lastDateCache] || date.timeIntervalSinceReferenceDate >= self.nextRequiredDate.timeIntervalSinceReferenceDate);
+    BOOL dateIsTooLateForThisChain = self.days.count > 0 && (date.timeIntervalSinceReferenceDate > self.nextRequiredDate.timeIntervalSinceReferenceDate);
+    if (existingDay == nil) { // only happens if day was not required
+        if(dateIsAtEndOfChain){
+            if(dateIsTooLateForThisChain){
+                Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
+                [self.habit addChainsObject:chain];
+                [chain tickLastDayInChainOnDate:date];
+            }else{
+                [self tickLastDayInChainOnDate:date];
+            }
+        }else{
             [self createHabitDayAtDate:date];
+        }
+    }else{
+        if(self.days.count == 1) {
+            // delete this chain
+            [self.habit removeChainsObject:self];
+            
+        }else if(dateIsAtEndOfChain){
+            [self removeDaysObject:existingDay];
+            self.lastDateCache = [self.sortedDays.lastObject date];
         }else{
             result = [self handleMidChainDeletionForHabitDay:existingDay date:date];
         }
@@ -108,6 +140,7 @@
     HabitDay * habitDay = [NSEntityDescription insertNewObjectForEntityForName:@"HabitDay" inManagedObjectContext:self.managedObjectContext];
     habitDay.date = date;
     [self addDaysObject:habitDay];
+    self.daysCountCache = @(self.days.count);
 }
 -(DayCheckedState)tickLastDayInChainOnDate:(NSDate*)date{
     [self createHabitDayAtDate:date];
@@ -119,11 +152,16 @@
     if(chain != self){
         NSSet * nextChainDays = chain.days;
         [self.habit removeChainsObject:chain]; // wondering if the cascade thing will hurt me here.
-         [self addDays:nextChainDays];
+        NSInteger runningTotal = self.days.count;
+        for (HabitDay * day in [nextChainDays sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES ]]]) {
+            runningTotal ++;
+            day.runningTotalCache = @(runningTotal);
+        }
+        [self addDays:nextChainDays];
     }
     
     self.daysCountCache = @(self.days.count);
-    
+    self.lastDateCache = [self.sortedDays.lastObject date];
     
     
     return DayCheckedStateComplete;
@@ -132,11 +170,7 @@
     if ([self.habit isRequiredOnWeekday:date]) {
         NSArray * sortedDays = self.sortedDays;
         
-        if(sortedDays.count == 1) {
-            // delete this chain
-            [self.habit removeChainsObject:self];
-            
-        }else if(sortedDays.count == 2){
+        if(sortedDays.count == 2){
             // remove the day, update the caches, return
             [self removeDaysObject:existingDay];
             self.lastDateCache = self.firstDateCache = [self.days.anyObject date];
@@ -167,6 +201,31 @@
         return DayCheckedStateNull;
     }
 
+}
+#pragma mark - Caches in case they didn't get set for whatever reason
+-(NSNumber *)daysCountCache{
+    NSNumber * result = [self primitiveValueForKey:@"daysCountCache"];
+    if(result == nil) {
+        result = @(self.days.count);
+        [self setPrimitiveValue:result forKey:@"daysCountCache"];
+    }
+    return result;
+}
+-(NSDate *)firstDateCache{
+    NSDate * result = [self primitiveValueForKey:@"firstDateCache"];
+    if(result == nil){
+        result = [self.sortedDays.firstObject date];
+        [self setPrimitiveValue:result forKey:@"firstDateCache"];
+    }
+    return result;
+}
+-(NSDate *)lastDateCache{
+    NSDate * result = [self primitiveValueForKey:@"lastDateCache"];
+    if(result == nil){
+        result = [self.sortedDays.lastObject date];
+        [self setPrimitiveValue:result forKey:@"lastDateCache"];
+    }
+    return result;
 }
 
 @end

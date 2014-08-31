@@ -25,7 +25,7 @@ NSMutableArray * everyDay(){
 }
 
 SpecBegin(HabitsListTests)
-describe(@"list", ^{
+xdescribe(@"list", ^{
     describe(@"first use", ^{
         beforeAll(^{
 //            [HabitsQueries overwriteHabits:@[]];

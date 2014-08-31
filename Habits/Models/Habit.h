@@ -55,6 +55,7 @@
 -(NSInteger)currentChainLength;
 -(Chain*)currentChain;
 -(Chain*)chainForDate:(NSDate*)date;
+-(void)recalculateRunningTotalsInBackground:(void(^)())completionCallback;
 #pragma mark - Data management
 +(Habit*)createNew;
 #pragma mark - Notifications

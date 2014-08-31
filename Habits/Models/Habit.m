@@ -165,9 +165,30 @@
 -(Chain *)chainForDate:(NSDate *)date{
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache <= %@", date]];
     if(chains.count == 0){
-        NSLog(@"Hmmm - we don't have have a chain here. Why?");
+        Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
+        [self addChainsObject:chain];
+        return chain;
+    }else{
+        return chains.lastObject;
     }
-    return chains.lastObject;
+}
+-(void)recalculateRunningTotalsInBackground:(void (^)())completionCallback{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSManagedObjectContext * privateContext = [[CoreDataClient defaultClient] createPrivateContext];
+        Habit * habit = (Habit*)[privateContext objectWithID:self.objectID];
+        for (Chain * chain in habit.chains) {
+            [chain.sortedDays enumerateObjectsUsingBlock:^(HabitDay *day, NSUInteger index, BOOL *stop) {
+                day.runningTotalCache = @(index);
+            }];
+        }
+        NSError * error;
+        [privateContext save:&error];
+        if(error) NSLog(@"Error saving private context %@", error.localizedDescription);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionCallback();
+        });
+    });
+
 }
 #pragma mark - Data management
 +(Habit *)createNew{

@@ -25,6 +25,7 @@
 }
 -(void)onCheckboxTapped{
     DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
+    self.chain = [self.chain.habit chainForDate:self.day];
     [self setState:state];
 }
 

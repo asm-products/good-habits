@@ -47,6 +47,7 @@ typedef enum{
 
 #pragma mark - User interaction
 -(DayCheckedState)stepToNextStateForDate:(NSDate*)date;
+-(DayCheckedState)toggleDayInCalendarForDate:(NSDate*)date;
 
 
 @end
