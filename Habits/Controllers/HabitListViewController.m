@@ -112,7 +112,7 @@ typedef enum {
             cell.inactive = NO;
             cell.color = habit.color;
         }
-        [cell update];
+        cell.state = habit.currentChain.dayState;
     }
     return cell;
 }

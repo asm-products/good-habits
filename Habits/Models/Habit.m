@@ -112,8 +112,7 @@
     return [self isRequiredOnWeekday:[TimeHelper today]];
 }
 -(BOOL)done:(NSDate *)date{
-//    [self chainForDate:date]
-    return YES; //[self habitDayForDate:date].isChecked.boolValue;
+    return [[[self chainForDate:date] lastDateCache] isEqualToDate:date];
 }
 -(BOOL)due:(NSDate *)date{
     if(!self.isActive.boolValue) return NO;
@@ -126,7 +125,8 @@
     return [self.daysRequired[[TimeHelper weekday:date]] boolValue];
 }
 -(BOOL)needsToBeDone:(NSDate *)date{
-    return NO; //![self done:date] && [self isRequiredOnWeekday:date];
+    date = [TimeHelper startOfDayInUTC:date];
+    return ![self done:date] && [self isRequiredOnWeekday:date];
 }
 -(BOOL)hasReminders{
     return self.reminderTime != nil;

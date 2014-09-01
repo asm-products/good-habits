@@ -50,6 +50,7 @@ describe(@"list", ^{
         it(@"should show today's habits", ^{
             [tester waitForViewWithAccessibilityLabel:@"Monday 23 December"];
             [tester waitForViewWithAccessibilityLabel:@"Todo today"];
+            [tester waitForViewWithAccessibilityLabel:@"Checkbox for Done today Checked"];
         });
         it(@"should show habits carried over from yesterday", ^{
             [tester waitForViewWithAccessibilityLabel:@"Carried over from yesterday"];

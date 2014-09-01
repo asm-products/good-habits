@@ -203,6 +203,15 @@
     }
 
 }
+-(DayCheckedState)dayState{
+    if([self.lastDateCache isEqualToDate:[TimeHelper today]]){
+        return DayCheckedStateComplete;
+    }else if(self.explicitlyBroken.boolValue){
+        return DayCheckedStateBroken;
+    }else{
+        return DayCheckedStateNull;
+    }
+}
 #pragma mark - Caches in case they didn't get set for whatever reason
 -(NSNumber *)daysCountCache{
     NSNumber * result = [self primitiveValueForKey:@"daysCountCache"];
