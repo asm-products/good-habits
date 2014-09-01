@@ -71,7 +71,7 @@ static NSDate * selectedDate = nil;
         formatter.dateStyle = NSDateFormatterNoStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;
     });
-    return [formatter stringFromDate:[[self UTCCalendar] dateFromComponents:components]];
+    return [formatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:components]];
 }
 +(NSString *)timeAgoString:(NSDate *)date{
     YLMoment * moment = [YLMoment momentWithDate:date];

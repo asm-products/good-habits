@@ -112,9 +112,11 @@
     return [self isRequiredOnWeekday:[TimeHelper today]];
 }
 -(BOOL)done:(NSDate *)date{
+    date = [TimeHelper startOfDayInUTC:date];
     return [[[self chainForDate:date] lastDateCache] isEqualToDate:date];
 }
 -(BOOL)due:(NSDate *)date{
+    date = [TimeHelper startOfDayInUTC:date];
     if(!self.isActive.boolValue) return NO;
     if(![self isRequiredOnWeekday:date]) return NO;
     if(!self.reminderTime) return NO;
@@ -122,6 +124,7 @@
     return components.hour > self.reminderTime.hour && components.minute > self.reminderTime.minute;
 }
 -(BOOL)isRequiredOnWeekday:(NSDate *)date{
+    date = [TimeHelper startOfDayInUTC:date];
     return [self.daysRequired[[TimeHelper weekday:date]] boolValue];
 }
 -(BOOL)needsToBeDone:(NSDate *)date{
