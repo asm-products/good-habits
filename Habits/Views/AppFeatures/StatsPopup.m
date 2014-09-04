@@ -40,7 +40,12 @@
     _habit = habit;
     
     titleLabel.text = habit.title.uppercaseString;
-    periodLabel.text = [SparklineHelper periodText:habit.earliestDate].uppercaseString;
+    NSDate * earliestDate = habit.earliestDate;
+    if(earliestDate){ // can't be bothered to figure this out right now.
+        periodLabel.text = [SparklineHelper periodText:habit.earliestDate].uppercaseString;
+    }else{
+        periodLabel.text = @"";
+    }
     sparkline.color = habit.color;
     sparkline.dataPoints = [SparklineHelper dataForHabit:habit];
     [sparkline setNeedsDisplay];

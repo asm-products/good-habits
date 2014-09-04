@@ -12,8 +12,11 @@
 #import "HabitsQueries.h"
 #import "CountView.h"
 #import "Habit.h"
+
+
 @implementation HabitCell{
     __weak IBOutlet CountView *countView;
+    Habit * habit; // cache to directly access habit in case checking the box makes the chain disappear!
 }
 -(void)build{
     [super build];
@@ -25,7 +28,7 @@
 }
 -(void)onCheckboxTapped{
     DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
-    self.chain = [self.chain.habit chainForDate:self.day];
+    self.chain = [habit chainForDate:self.day];
     [self setState:state];
 }
 
@@ -36,6 +39,7 @@
 }
 -(void)setChain:(Chain *)chain{
     _chain = chain;
+    habit = chain.habit;
     if(chain == nil) @throw [NSException exceptionWithName:@"NoChainProvided" reason:nil userInfo:nil];
 }
 -(void)setState:(DayCheckedState)state{
@@ -55,6 +59,9 @@
     countView.text = @[ @(currentChainLength), @(longestChain) ];
     countView.isHappy = currentChainLength > 0 && currentChainLength == longestChain;
     countView.highlighted = false;
+    
+    
+    if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:self.chain];
 }
 -(void)update{
     [self setState:self.state];

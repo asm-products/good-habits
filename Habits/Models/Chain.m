@@ -71,33 +71,37 @@
     DayCheckedState result;
     BOOL dateIsAtEndOfChain = [date isEqualToDate:self.lastDateCache] || date.timeIntervalSinceReferenceDate >= self.nextRequiredDate.timeIntervalSinceReferenceDate;
     BOOL dateIsTooLateForThisChain = self.days.count > 0 && (date.timeIntervalSinceReferenceDate > self.nextRequiredDate.timeIntervalSinceReferenceDate);
-    if(dateIsTooLateForThisChain){
+    if(self.explicitlyBroken.boolValue == YES){
+        // Was explicity broken - null out the broken
+        self.explicitlyBroken = nil;
+        result = DayCheckedStateNull;
+        
+    }else if(dateIsTooLateForThisChain){
         Chain * chain = [self.habit addNewChain];
         [chain tickLastDayInChainOnDate:date];
         result = DayCheckedStateComplete;
         
     }else if(dateIsAtEndOfChain){
         // toggle check / explicit break / null:
-        if(self.explicitlyBroken.boolValue == YES){
-            // Was explicity broken - null out the broken
-            self.explicitlyBroken = nil;
-            result = DayCheckedStateNull;
-         
+        if(existingDay == nil){
+            // Tick the day
+            result = [self tickLastDayInChainOnDate: date];
+            
         }else{
-            if(existingDay == nil){
-                // Tick the day
-                result = [self tickLastDayInChainOnDate: date];
-                
-            }else{
-                // Was checked - make explicitly broken.
-                [self removeDaysObject:existingDay];
-                self.lastDateCache = [self.sortedDays.lastObject date];
-                self.explicitlyBroken = @YES;
-                
-                
-                result = DayCheckedStateBroken;
+            // Was checked - make explicitly broken.
+            [self removeDaysObject:existingDay];
+            Chain * chain = self;
+            Habit * habit = chain.habit;
+            if(self.days.count == 0){
+                [self.habit removeChainsObject:self];
+                chain = [habit chainForDate:date];
             }
+            chain.lastDateCache = [chain.sortedDays.lastObject date];
+            chain.explicitlyBroken = @YES;
+            
+            result = DayCheckedStateBroken;
         }
+
     }else{
         NSLog(@"Error - something bad has happened.");
     }

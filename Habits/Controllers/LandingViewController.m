@@ -75,21 +75,21 @@
     statsPopup.viewablePixels = 120;
     [statsPopup animateOut];
     statsPopup.animateInOutTime = 0.6;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDayToggledForHabit:) name:DAY_TOGGLED_FOR_HABIT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTodayCheckedForChain:) name:TODAY_CHECKED_FOR_CHAIN object:nil];
 }
 
--(void)onDayToggledForHabit:(NSNotification*)notification{
-    Habit * habit = notification.object;
+-(void)onTodayCheckedForChain:(NSNotification*)notification{
+    Chain * chain = notification.object;
     if(statsPopup.frame.origin.y < self.view.frame.size.height) {
         [UIView animateWithDuration:0.1 animations:^{
             statsPopup.frame = (CGRect){CGPointMake(0, statsPopup.frame.origin.y + 20), statsPopup.frame.size};
         } completion:^(BOOL finished) {
-            statsPopup.habit = habit;
+            statsPopup.habit = chain.habit;
             [statsPopup animateIn];
         }];
         
     }else{
-        statsPopup.habit = habit;
+        statsPopup.habit = chain.habit;
         [statsPopup animateIn];
     }
     

@@ -66,6 +66,9 @@
 -(void)testNewChainCreatedByTickingToday{
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
     [tester waitForViewWithAccessibilityLabel:@"Current chain length 1, longest chain 1"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Broken"];
+    [tester waitForViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
 }
 -(void)testChangingRequiredDatesDoesNotRuinExistingChain{
     [tester tapViewWithAccessibilityLabel:@"Testing habit"];

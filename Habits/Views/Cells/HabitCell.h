@@ -8,7 +8,7 @@
 
 #import "CellWithCheckBox.h"
 #import "Chain.h"
-#define DAY_TOGGLED_FOR_HABIT @"DAY_TOGGLED_FOR_HABIT"
+#define TODAY_CHECKED_FOR_CHAIN @"TODAY_CHECKED_FOR_CHAIN"
 
 @interface HabitCell : CellWithCheckBox
 @property (nonatomic, strong) Chain * chain;
