@@ -142,6 +142,7 @@
 -(void)createHabitDayAtDate:(NSDate*)date{
     HabitDay * habitDay = [NSEntityDescription insertNewObjectForEntityForName:@"HabitDay" inManagedObjectContext:self.managedObjectContext];
     habitDay.date = date;
+    habitDay.runningTotalCache = @(self.days.count);
     [self addDaysObject:habitDay];
     self.daysCountCache = @(self.days.count);
 }
