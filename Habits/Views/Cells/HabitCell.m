@@ -16,10 +16,15 @@
 
 @implementation HabitCell{
     __weak IBOutlet CountView *countView;
+    __weak IBOutlet UITextField *reasonEntryField;
     Habit * habit; // cache to directly access habit in case checking the box makes the chain disappear!
 }
 -(void)build{
     [super build];
+    
+    reasonEntryField.rightViewMode = UITextFieldViewModeAlways;
+    reasonEntryField.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"locked"]];
+    
     //  y = 8 because the check box starts at 10. yes. not ideal.
     countView.text = @[@0, @0];
     
@@ -30,6 +35,7 @@
     DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
     self.chain = [habit chainForDate:self.day];
     [self setState:state];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CHAIN_MODIFIED object:self.chain userInfo:nil];
 }
 
 -(UIColor*)labelTextColor{
@@ -40,6 +46,8 @@
 -(void)setChain:(Chain *)chain{
     _chain = chain;
     habit = chain.habit;
+    // The following is intended to be monitored by HabitsListViewController to update the height of the cell
+    // that was changed, thus hiding or revealing the reason text field
     if(chain == nil) @throw [NSException exceptionWithName:@"NoChainProvided" reason:nil userInfo:nil];
 }
 -(void)setState:(DayCheckedState)state{

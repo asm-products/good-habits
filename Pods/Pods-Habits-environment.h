@@ -30,6 +30,12 @@
 #define COCOAPODS_VERSION_MINOR_Functional_m 0
 #define COCOAPODS_VERSION_PATCH_Functional_m 0
 
+// GTHRectHelpers
+#define COCOAPODS_POD_AVAILABLE_GTHRectHelpers
+#define COCOAPODS_VERSION_MAJOR_GTHRectHelpers 0
+#define COCOAPODS_VERSION_MINOR_GTHRectHelpers 0
+#define COCOAPODS_VERSION_PATCH_GTHRectHelpers 1
+
 // Mantle
 #define COCOAPODS_POD_AVAILABLE_Mantle
 #define COCOAPODS_VERSION_MAJOR_Mantle 1

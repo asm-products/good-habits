@@ -68,6 +68,8 @@
 		AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */; };
 		AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */; };
 		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
+		AC94093419B8E75F003E6257 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = AC94093219B8E75F003E6257 /* locked.png */; };
+		AC94093519B8E75F003E6257 /* locked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC94093319B8E75F003E6257 /* locked@2x.png */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -288,6 +290,8 @@
 		AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron.png"; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
+		AC94093219B8E75F003E6257 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
+		AC94093319B8E75F003E6257 /* locked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked@2x.png"; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -749,6 +753,8 @@
 		ACADB40C190D26940030CC82 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AC94093219B8E75F003E6257 /* locked.png */,
+				AC94093319B8E75F003E6257 /* locked@2x.png */,
 				AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */,
 				AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */,
 				AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */,
@@ -965,6 +971,7 @@
 				ACADB49B190D27960030CC82 /* fabric_1.png in Resources */,
 				ACADB46E190D27960030CC82 /* guide_9.png in Resources */,
 				ACADB464190D27960030CC82 /* guide_4.png in Resources */,
+				AC94093419B8E75F003E6257 /* locked.png in Resources */,
 				ACADB488190D27960030CC82 /* trash.png in Resources */,
 				ACADB3EC190D23B90030CC82 /* Images.xcassets in Resources */,
 				AC3237BE196C438900A2FF9F /* Stats.png in Resources */,
@@ -1025,6 +1032,7 @@
 				ACADB49C190D27960030CC82 /* arrow_back@2x.png in Resources */,
 				ACADB46B190D27960030CC82 /* guide_7@2x.png in Resources */,
 				ACADB498190D27960030CC82 /* blank.png in Resources */,
+				AC94093519B8E75F003E6257 /* locked@2x.png in Resources */,
 				ACADB470190D27960030CC82 /* guide_10.png in Resources */,
 				ACADB467190D27960030CC82 /* guide_5@2x.png in Resources */,
 				ACADB495190D27960030CC82 /* date_background.png in Resources */,

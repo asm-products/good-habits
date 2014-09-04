@@ -10,6 +10,7 @@ target "Habits" do
     pod 'UIAlertView-Blocks', '~> 1.0'
     pod 'SHMessageUIBlocks', '~> 1.2'
     pod 'SVProgressHUD', '~> 1.0'
+    pod 'GTHRectHelpers', :git=>'https://github.com/goodtohear/GTHRectHelpers.git'
     #    pod 'KiipSDK', '~> 2.0'
 end
 

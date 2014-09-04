@@ -10,7 +10,9 @@ describe(@"Adding a new habit", ^{
         [tester tapViewWithAccessibilityLabel:@"add"];
         [tester enterTextIntoCurrentFirstResponder:@"Floss\n"];
         [tester tapViewWithAccessibilityLabel:@"Back"];
+        
         [tester waitForViewWithAccessibilityLabel:@"Wednesday 1 January"];
+                
         [tester tapViewWithAccessibilityLabel:@"Floss"];
         
         Habit * habit = [HabitsQueries findHabitByTitle:@"Floss"];
@@ -22,7 +24,6 @@ describe(@"Adding a new habit", ^{
         
         [tester tapViewWithAccessibilityLabel:@"Delete this habit"];
         [tester tapViewWithAccessibilityLabel:@"Delete"];
-        
     });
 });
 SpecEnd

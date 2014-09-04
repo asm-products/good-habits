@@ -19,6 +19,7 @@
 #import "HabitsQueries.h"
 #import "InfoTask.h"
 #import <NSArray+F.h>
+#import <GTHRectHelpers.h>
 typedef enum {
     HabitListSectionActive,
     HabitListSectionCarriedOver,
@@ -51,6 +52,11 @@ typedef enum {
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:REFRESH object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [self refresh];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:CHAIN_MODIFIED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        // trigger animated recalculation of row heights
+        [self.tableView beginUpdates];
+        [self.tableView endUpdates];
     }];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -116,6 +122,11 @@ typedef enum {
     }
     return cell;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    Habit * habit = [self habitForIndexPath:indexPath];
+    CGFloat result = [habit chainForDate:today].explicitlyBroken.boolValue == YES ? 81 : 44;
+    return result;
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if(HabitListSectionActive == section){
         return 44;
@@ -149,7 +160,9 @@ typedef enum {
         return;
     }
     if(HabitListSectionInactive != destinationIndexPath.section){
-        moved.daysRequired[ [TimeHelper weekday:now] ] = @(destinationIndexPath.section == HabitListSectionActive);
+        NSMutableArray * daysRequired = moved.daysRequired.mutableCopy;
+        daysRequired[ [TimeHelper weekday:now] ] = @(destinationIndexPath.section == HabitListSectionActive);
+        moved.daysRequired = daysRequired;
     }
     [groups[sourceIndexPath.section] removeObjectAtIndex:sourceIndexPath.row];
     [groups[destinationIndexPath.section] insertObject:moved atIndex:destinationIndexPath.row];
@@ -160,7 +173,6 @@ typedef enum {
             habit.order = @(idx);
         }];
     }
-    // TODO: fix sorting
     [[CoreDataClient defaultClient] save];
 }
 -(void)insertHabit:(Habit *)habit{

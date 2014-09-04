@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSDateComponents * reminderTime;
 @property (nonatomic, strong) NSNumber * isActive;
 @property (nonatomic, strong) NSNumber * order;
-@property (nonatomic, strong) NSMutableArray * daysRequired;
+@property (nonatomic, strong) NSArray * daysRequired;
 
 @property (nonatomic, strong) NSSet * chains;
 
