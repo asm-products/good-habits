@@ -11,7 +11,12 @@
 #import "Calendar.h"
 #import "TimeHelper.h"
 #import <YLMoment.h>
-#import "HabitsList.h"
+#import "HabitsQueries.h"
+#import "DayKeys.h"
+#import "HabitDay.h"
+#import "Chain.h"
+#import "HabitDayQueries.h"
+#import <SVProgressHUD.h>
 #define CELL_SIZE CGSizeMake(45, 44)
 #define CELL_COUNT (7*5)
 
@@ -31,11 +36,12 @@
     queue = dispatch_queue_create("goodtohear.habits.calendar", DISPATCH_QUEUE_CONCURRENT);
     CGPoint nextPoint = CGPointZero;
     cells = [[NSMutableArray alloc] initWithCapacity:CELL_COUNT];
-    
+    self.firstDay = [TimeHelper startOfDayInUTC:self.firstDay];
     NSDateComponents * components = [NSDateComponents new];
     for (int gridIndex = 0; gridIndex < CELL_COUNT; gridIndex ++) {
         components.day = gridIndex;
-        NSDate * day = [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self.firstDay options:0];
+        assert(self.firstDay);
+        NSDate * day = [[TimeHelper UTCCalendar] dateByAddingComponents:components toDate:self.firstDay options:0];
         CalendarDayView * cell = [[CalendarDayView alloc] initWithFrame:CGRectMake(nextPoint.x + 1, nextPoint.y, CELL_SIZE.width, 43)];
         cell.day = day;
         cell.label.text = [[self dayFormatter] stringFromDate:day];
@@ -58,53 +64,60 @@
     });
     return formatter;
 }
--(NSDateFormatter*)accessibilityDateFormatter{
-    static NSDateFormatter * formatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        formatter = [NSDateFormatter new];
-        formatter.dateFormat = @"d MMMM";
-    });
-    return formatter;
-}
 -(void)showChainsForHabit:(Habit*)habit callback:(void(^)())callback{
+    for (CalendarDayView * cell in cells) {
+        [cell setSelectionState:CalendarDayStateFuture color:habit.color];
+    }
+    
+    
     self.habit = habit;
-    dispatch_async(queue, ^{
-        for (int gridIndex = 0; gridIndex < CELL_COUNT; gridIndex ++) {
-            CalendarDayView * cell = cells[gridIndex];
-            CalendarDayState state = [MonthGridViewController cellStateForHabit:habit date: cell.day];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [cell setSelectionState:state color: habit.color];
-                cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[self accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:state] ];
-            });
+    CalendarDayView * firstCell = cells.firstObject;
+    CalendarDayView * lastCell = cells.lastObject;
+    NSArray * days = [HabitDayQueries daysForHabit:habit betweenDate:firstCell.day andDate:lastCell.day];
+    NSSet * chains = [NSSet setWithArray:[days valueForKey:@"chain"]];
+    Chain * chainOverlappingFirstDay;
+    for (Chain * chain in chains) {
+        if([chain overlapsDate: firstCell.day]){
+            chainOverlappingFirstDay = chain;
         }
-        if(callback) dispatch_async(dispatch_get_main_queue(), callback);
-    });
+    }
+    
+    CalendarDayState previousState = chainOverlappingFirstDay ? CalendarDayStateFirstInChain : CalendarDayStateBeforeStart;
+    
+    for (NSInteger gridIndex = 0; gridIndex < CELL_COUNT; gridIndex ++) {
+        CalendarDayView * cell = cells[gridIndex];
+        NSInteger dayIndex = [days indexOfObjectPassingTest:^BOOL(HabitDay * day, NSUInteger idx, BOOL *stop) {
+            return [day.date isEqualToDate:cell.day];
+        }];
+        if(dayIndex == NSNotFound){
+            cell.accessibilityLabel = [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day];
+            if (( previousState == CalendarDayStateMidChain || previousState == CalendarDayStateFirstInChain)) {
+                [cell setSelectionState:CalendarDayStateBetweenSubchains color:habit.color];
+            }
+        }else{
+            HabitDay * habitDay = days[dayIndex];
+            cell.habitDay = habitDay;
+            [cell setSelectionState:habitDay.dayState color:habit.color];
+            cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:habitDay.dayState] ];
+            previousState = habitDay.dayState;
+        }
+    }
+    for (Chain * chain in chains) {
+        if(chain.isBroken){
+            NSInteger cellIndex = [cells indexOfObjectPassingTest:^BOOL(CalendarDayView*cell, NSUInteger idx, BOOL *stop) {
+                return [cell.day isEqualToDate:[chain nextRequiredDate]];
+            }];
+            if(cellIndex != NSNotFound){
+                CalendarDayView * cell = cells[cellIndex];
+                [cell setSelectionState:CalendarDayStateBrokenChain color:habit.color];
+                cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:CalendarDayStateBrokenChain] ];
+            }
+        }
+    }
+}
 
-}
-+(CalendarDayState)cellStateForHabit:(Habit*)habit date:(NSDate*)date{
-    if(!date) return CalendarDayStateBeforeStart;
-    if( [self isFutureDate:date] ) return CalendarDayStateFuture;
-    NSDate * day = [[YLMoment momentWithDate:date] startOfCalendarUnit:NSDayCalendarUnit].date;
-    NSDate * dayAfter = [TimeHelper addDays:1 toDate:day];
-    if([habit includesDate: day]){
-        BOOL isFirstInChain = ![habit continuesActivityBefore: day];
-        BOOL isLastInChain = ![habit continuesActivityAfter:day] || [dayAfter timeIntervalSinceDate:[TimeHelper now]] > 0;
-        BOOL alone = isFirstInChain && isLastInChain;
-        if(alone) return CalendarDayStateAlone;
-        if(isFirstInChain) return CalendarDayStateFirstInChain;
-        if(isLastInChain) return CalendarDayStateLastInChain;
-        return CalendarDayStateMidChain;
-    }
-    if([habit.earliestDate timeIntervalSinceDate:date] > 0) return CalendarDayStateBeforeStart;
-    if(![habit isRequiredOnWeekday:date]){
-        if([habit continuesActivityBefore:day] && [habit continuesActivityAfter:day]) return CalendarDayStateBetweenSubchains;
-        return CalendarDayStateNotRequired;
-    }
-    return CalendarDayStateMissed;
-}
 +(BOOL)isFutureDate:(NSDate*)date{
-    return [[TimeHelper now] timeIntervalSinceDate:date] < 0;
+    return [[TimeHelper today] timeIntervalSinceDate:date] < 0;
 }
 #pragma mark - Interaction
 -(void)addGestures{
@@ -117,15 +130,14 @@
     if(subview.class == [CalendarDayView class]){
         CalendarDayView * cell = (CalendarDayView*)subview;
         if([[self class] isFutureDate:cell.day]) return;
-        togglingOn = ![self.habit includesDate:cell.day];
-        [cell setSelectionState:togglingOn ? CalendarDayStateAlone : CalendarDayStateBeforeStart color:self.habit.color];
-        if(togglingOn){
-            [self.habit checkDays: @[cell.day]];
-        }else{
-            [self.habit uncheckDays: @[cell.day]];
-        }
-        [self.habit save];
+        Chain * chain = [self.habit chainForDate:cell.day];
+        
+        [chain toggleDayInCalendarForDate:cell.day];
         [self showChainsForHabit:self.habit callback:nil];
+
+        [self.habit recalculateRunningTotalsInBackground:^{
+        }];
+        
         
     }
 }

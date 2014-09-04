@@ -10,4 +10,5 @@
 
 @interface DataExport : NSObject
 +(void)run:(UIViewController*)controller;
++(void)importDataFromBase64EncodedString:(NSString*)string;
 @end

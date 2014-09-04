@@ -9,12 +9,28 @@
 /* Begin PBXBuildFile section */
 		030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F79A2189454A3AAF48A73F /* libPods-Habits.a */; };
 		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
+		AC0B78031976718500CEC018 /* DayKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0B78021976718500CEC018 /* DayKeys.m */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */; };
-		AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */; };
+		AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */; };
+		AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB93019B0967500BF7EAF /* AdminTableViewController.m */; };
+		AC1EB93219B096C300BF7EAF /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */; };
+		AC1EB93319B096C300BF7EAF /* aw.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F3B19A89F76000C03F5 /* aw.goodtohear.habits.plist */; };
+		AC1EB93419B096C300BF7EAF /* mf.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F3A19A89E91000C03F5 /* mf.goodtohear.habits.plist */; };
+		AC1EB93619B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93519B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist */; };
+		AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */; };
+		AC1EB93B19B0F71A00BF7EAF /* broken_chain_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */; };
+		AC1EB93C19B0F71A00BF7EAF /* broken_chain_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */; };
+		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
+		AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237AF196C2FB400A2FF9F /* Cross.png */; };
+		AC3237B2196C2FB400A2FF9F /* Cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237B0196C2FB400A2FF9F /* Cross@2x.png */; };
+		AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */; };
+		AC3237BE196C438900A2FF9F /* Stats.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237BC196C438900A2FF9F /* Stats.png */; };
+		AC3237BF196C438900A2FF9F /* Stats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237BD196C438900A2FF9F /* Stats@2x.png */; };
+		AC3237C9196D423400A2FF9F /* TestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237C8196D423400A2FF9F /* TestHelpers.m */; };
 		AC40187519504ADB0033407B /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
-		AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187819504E630033407B /* MotionToMantleMigrator.m */; };
+		AC40187919504E630033407B /* PlistStoreToCoreDataMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187819504E630033407B /* PlistStoreToCoreDataMigrator.m */; };
 		AC40187D195058650033407B /* CellWithCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187C195058650033407B /* CellWithCheckBox.m */; };
 		AC401880195058720033407B /* HabitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187F195058720033407B /* HabitCell.m */; };
 		AC4018841950596A0033407B /* CheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018831950596A0033407B /* CheckBox.m */; };
@@ -42,10 +58,15 @@
 		AC4018EC195187370033407B /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018EB195187370033407B /* UserGuideViewController.m */; };
 		AC4018EF195187BC0033407B /* AppSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018EE195187BC0033407B /* AppSharing.m */; };
 		AC4018F219518EBC0033407B /* DataExport.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F119518EBC0033407B /* DataExport.m */; };
-		AC4018F51951A5FE0033407B /* HabitsList.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F41951A5FE0033407B /* HabitsList.m */; };
+		AC4018F51951A5FE0033407B /* HabitsQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F41951A5FE0033407B /* HabitsQueries.m */; };
 		AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F91951BF2E0033407B /* CoreDataClient.m */; };
-		AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC4018FB1951C2950033407B /* Habits.xcdatamodeld */; };
 		AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */; };
+		AC735DDE19704F67007CD2B7 /* AppFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DDD19704F67007CD2B7 /* AppFeatures.m */; };
+		AC735DE219705080007CD2B7 /* StatsPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE119705080007CD2B7 /* StatsPopup.m */; };
+		AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE519705642007CD2B7 /* SparklineHelper.m */; };
+		AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE8197156D0007CD2B7 /* LandingViewController.m */; };
+		AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */; };
+		AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */; };
 		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
@@ -59,7 +80,6 @@
 		ACADB3F4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3F5190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
 		ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACADB3FB190D23B90030CC82 /* InfoPlist.strings */; };
-		ACADB3FF190D23B90030CC82 /* HabitsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB3FE190D23B90030CC82 /* HabitsTests.m */; };
 		ACADB456190D27960030CC82 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB40D190D27960030CC82 /* Default-568h@2x.png */; };
 		ACADB457190D27960030CC82 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB40E190D27960030CC82 /* Default@2x.png */; };
 		ACADB458190D27960030CC82 /* info_nav@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB40F190D27960030CC82 /* info_nav@2x.png */; };
@@ -136,6 +156,20 @@
 		ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A0190D2C270030CC82 /* HabitListViewController.m */; };
 		ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A3190D2F5C0030CC82 /* Habit.m */; };
 		ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A6190D34BE0030CC82 /* Colors.m */; };
+		ACB35F2A19A750DC000C03F5 /* Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F2919A750DC000C03F5 /* Chain.m */; };
+		ACB35F3519A78DBD000C03F5 /* HabitDayQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3419A78DBD000C03F5 /* HabitDayQueries.m */; };
+		ACB35F3819A7AB5C000C03F5 /* ChainQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3719A7AB5C000C03F5 /* ChainQueries.m */; };
+		ACB35F3E19A8C378000C03F5 /* ChainStatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3D19A8C378000C03F5 /* ChainStatsCell.m */; };
+		ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */; };
+		ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */; };
+		ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */; };
+		ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */; };
+		ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BC19B456DD00085A95 /* ReminderTests.m */; };
+		ACBCD3C819B4BEEA00085A95 /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */; };
+		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
+		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
+		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
+		ACE31AC119756936007173A0 /* HabitDay.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE31AC019756936007173A0 /* HabitDay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,16 +186,34 @@
 		218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.xcconfig"; path = "Pods/Pods-HabitsTests.xcconfig"; sourceTree = "<group>"; };
 		623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.xcconfig"; path = "Pods/Pods-Habits.xcconfig"; sourceTree = "<group>"; };
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0B78011976718500CEC018 /* DayKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayKeys.h; sourceTree = "<group>"; };
+		AC0B78021976718500CEC018 /* DayKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayKeys.m; sourceTree = "<group>"; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_lots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_lots.json; sourceTree = "<group>"; };
-		AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONImportTests.m; sourceTree = "<group>"; };
+		AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConversionTests.m; sourceTree = "<group>"; };
+		AC1EB92F19B0967500BF7EAF /* AdminTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminTableViewController.h; sourceTree = "<group>"; };
+		AC1EB93019B0967500BF7EAF /* AdminTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminTableViewController.m; sourceTree = "<group>"; };
+		AC1EB93519B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "list-tests.goodtohear.habits.plist"; sourceTree = "<group>"; };
+		AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainManipulationTests.m; sourceTree = "<group>"; };
+		AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broken_chain_cross.png; sourceTree = "<group>"; };
+		AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "broken_chain_cross@2x.png"; sourceTree = "<group>"; };
+		AC24B641197194FC00B33CCF /* CheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMarkView.h; sourceTree = "<group>"; };
+		AC24B642197194FC00B33CCF /* CheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkView.m; sourceTree = "<group>"; };
 		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
 		AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCell.m; sourceTree = "<group>"; };
 		AC3237AC196BFE9D00A2FF9F /* ColorPickerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerButton.h; sourceTree = "<group>"; };
 		AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerButton.m; sourceTree = "<group>"; };
+		AC3237AF196C2FB400A2FF9F /* Cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cross.png; sourceTree = "<group>"; };
+		AC3237B0196C2FB400A2FF9F /* Cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cross@2x.png"; sourceTree = "<group>"; };
+		AC3237B9196C3DAC00A2FF9F /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
+		AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
+		AC3237BC196C438900A2FF9F /* Stats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stats.png; sourceTree = "<group>"; };
+		AC3237BD196C438900A2FF9F /* Stats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stats@2x.png"; sourceTree = "<group>"; };
+		AC3237C7196D423400A2FF9F /* TestHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelpers.h; sourceTree = "<group>"; };
+		AC3237C8196D423400A2FF9F /* TestHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelpers.m; sourceTree = "<group>"; };
 		AC40187319504ADB0033407B /* TimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeHelper.h; sourceTree = "<group>"; };
 		AC40187419504ADB0033407B /* TimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelper.m; sourceTree = "<group>"; };
-		AC40187719504E630033407B /* MotionToMantleMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionToMantleMigrator.h; sourceTree = "<group>"; };
-		AC40187819504E630033407B /* MotionToMantleMigrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionToMantleMigrator.m; sourceTree = "<group>"; };
+		AC40187719504E630033407B /* PlistStoreToCoreDataMigrator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistStoreToCoreDataMigrator.h; sourceTree = "<group>"; };
+		AC40187819504E630033407B /* PlistStoreToCoreDataMigrator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistStoreToCoreDataMigrator.m; sourceTree = "<group>"; };
 		AC40187B195058650033407B /* CellWithCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellWithCheckBox.h; sourceTree = "<group>"; };
 		AC40187C195058650033407B /* CellWithCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellWithCheckBox.m; sourceTree = "<group>"; };
 		AC40187E195058720033407B /* HabitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitCell.h; sourceTree = "<group>"; };
@@ -218,16 +270,24 @@
 		AC4018EE195187BC0033407B /* AppSharing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSharing.m; sourceTree = "<group>"; };
 		AC4018F019518EBC0033407B /* DataExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataExport.h; sourceTree = "<group>"; };
 		AC4018F119518EBC0033407B /* DataExport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataExport.m; sourceTree = "<group>"; };
-		AC4018F31951A5FE0033407B /* HabitsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitsList.h; sourceTree = "<group>"; };
-		AC4018F41951A5FE0033407B /* HabitsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitsList.m; sourceTree = "<group>"; };
+		AC4018F31951A5FE0033407B /* HabitsQueries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HabitsQueries.h; path = ../../Models/HabitsQueries.h; sourceTree = "<group>"; };
+		AC4018F41951A5FE0033407B /* HabitsQueries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HabitsQueries.m; path = ../../Models/HabitsQueries.m; sourceTree = "<group>"; };
 		AC4018F61951B9C80033407B /* Habits.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Habits.entitlements; sourceTree = "<group>"; };
 		AC4018F81951BF2E0033407B /* CoreDataClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataClient.h; sourceTree = "<group>"; };
 		AC4018F91951BF2E0033407B /* CoreDataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataClient.m; sourceTree = "<group>"; };
-		AC4018FC1951C2950033407B /* Habits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Habits.xcdatamodel; sourceTree = "<group>"; };
 		AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitsListTests.m; sourceTree = "<group>"; };
+		AC735DDC19704F67007CD2B7 /* AppFeatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFeatures.h; sourceTree = "<group>"; };
+		AC735DDD19704F67007CD2B7 /* AppFeatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppFeatures.m; sourceTree = "<group>"; };
+		AC735DE019705080007CD2B7 /* StatsPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsPopup.h; sourceTree = "<group>"; };
+		AC735DE119705080007CD2B7 /* StatsPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsPopup.m; sourceTree = "<group>"; };
+		AC735DE419705642007CD2B7 /* SparklineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SparklineHelper.h; sourceTree = "<group>"; };
+		AC735DE519705642007CD2B7 /* SparklineHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SparklineHelper.m; sourceTree = "<group>"; };
+		AC735DE7197156D0007CD2B7 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		AC735DE8197156D0007CD2B7 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron@2x.png"; sourceTree = "<group>"; };
+		AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron.png"; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
-		ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 2.xcdatamodel"; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -244,7 +304,6 @@
 		ACADB3F2190D23B90030CC82 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ACADB3FA190D23B90030CC82 /* HabitsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HabitsTests-Info.plist"; sourceTree = "<group>"; };
 		ACADB3FC190D23B90030CC82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ACADB3FE190D23B90030CC82 /* HabitsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HabitsTests.m; sourceTree = "<group>"; };
 		ACADB40D190D27960030CC82 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACADB40E190D27960030CC82 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ACADB40F190D27960030CC82 /* info_nav@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info_nav@2x.png"; sourceTree = "<group>"; };
@@ -324,6 +383,31 @@
 		ACADB4A3190D2F5C0030CC82 /* Habit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
 		ACADB4A5190D34BE0030CC82 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		ACADB4A6190D34BE0030CC82 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		ACB35F2819A750DC000C03F5 /* Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chain.h; sourceTree = "<group>"; };
+		ACB35F2919A750DC000C03F5 /* Chain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chain.m; sourceTree = "<group>"; };
+		ACB35F3319A78DBD000C03F5 /* HabitDayQueries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDayQueries.h; sourceTree = "<group>"; };
+		ACB35F3419A78DBD000C03F5 /* HabitDayQueries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDayQueries.m; sourceTree = "<group>"; };
+		ACB35F3619A7AB5C000C03F5 /* ChainQueries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainQueries.h; sourceTree = "<group>"; };
+		ACB35F3719A7AB5C000C03F5 /* ChainQueries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainQueries.m; sourceTree = "<group>"; };
+		ACB35F3A19A89E91000C03F5 /* mf.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = mf.goodtohear.habits.plist; sourceTree = "<group>"; };
+		ACB35F3B19A89F76000C03F5 /* aw.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = aw.goodtohear.habits.plist; sourceTree = "<group>"; };
+		ACB35F3C19A8C378000C03F5 /* ChainStatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainStatsCell.h; sourceTree = "<group>"; };
+		ACB35F3D19A8C378000C03F5 /* ChainStatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainStatsCell.m; sourceTree = "<group>"; };
+		ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationTests.m; sourceTree = "<group>"; };
+		ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testing_habit_expectation.png; sourceTree = "<group>"; };
+		ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = testing.goodtohear.habits.plist; sourceTree = "<group>"; };
+		ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitCreationTests.m; sourceTree = "<group>"; };
+		ACBCD3BC19B456DD00085A95 /* ReminderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTests.m; sourceTree = "<group>"; };
+		ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 10.xcdatamodel"; sourceTree = "<group>"; };
+		ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 11.xcdatamodel"; sourceTree = "<group>"; };
+		ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsTableViewController.h; sourceTree = "<group>"; };
+		ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsTableViewController.m; sourceTree = "<group>"; };
+		ACDC63BD196F2CD700F68BD6 /* HabitSparklineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitSparklineTableViewCell.h; sourceTree = "<group>"; };
+		ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitSparklineTableViewCell.m; sourceTree = "<group>"; };
+		ACDC63C1196F2D2F00F68BD6 /* DailySparklineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailySparklineView.h; sourceTree = "<group>"; };
+		ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailySparklineView.m; sourceTree = "<group>"; };
+		ACE31ABF19756936007173A0 /* HabitDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDay.h; sourceTree = "<group>"; };
+		ACE31AC019756936007173A0 /* HabitDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDay.m; sourceTree = "<group>"; };
 		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -364,8 +448,8 @@
 		AC40187619504E450033407B /* Migration */ = {
 			isa = PBXGroup;
 			children = (
-				AC40187719504E630033407B /* MotionToMantleMigrator.h */,
-				AC40187819504E630033407B /* MotionToMantleMigrator.m */,
+				AC40187719504E630033407B /* PlistStoreToCoreDataMigrator.h */,
+				AC40187819504E630033407B /* PlistStoreToCoreDataMigrator.m */,
 			);
 			path = Migration;
 			sourceTree = "<group>";
@@ -387,6 +471,10 @@
 				AC4018E81950FB510033407B /* LinkCell.m */,
 				AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */,
 				AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */,
+				ACDC63BD196F2CD700F68BD6 /* HabitSparklineTableViewCell.h */,
+				ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */,
+				ACB35F3C19A8C378000C03F5 /* ChainStatsCell.h */,
+				ACB35F3D19A8C378000C03F5 /* ChainStatsCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -408,6 +496,10 @@
 				AC4018DC1950E9940033407B /* DebuggingView.m */,
 				AC3237AC196BFE9D00A2FF9F /* ColorPickerButton.h */,
 				AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */,
+				AC3237B9196C3DAC00A2FF9F /* RoundedButton.h */,
+				AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */,
+				AC24B641197194FC00B33CCF /* CheckMarkView.h */,
+				AC24B642197194FC00B33CCF /* CheckMarkView.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -456,11 +548,30 @@
 		AC4018F71951BF0A0033407B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */,
+				ACB35F3219A78DA6000C03F5 /* Queries */,
 				AC4018F81951BF2E0033407B /* CoreDataClient.h */,
 				AC4018F91951BF2E0033407B /* CoreDataClient.m */,
-				AC4018FB1951C2950033407B /* Habits.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		AC735DDF19705065007CD2B7 /* AppFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				AC735DE019705080007CD2B7 /* StatsPopup.h */,
+				AC735DE119705080007CD2B7 /* StatsPopup.m */,
+			);
+			path = AppFeatures;
+			sourceTree = "<group>";
+		};
+		AC735DE319705608007CD2B7 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				AC735DE419705642007CD2B7 /* SparklineHelper.h */,
+				AC735DE519705642007CD2B7 /* SparklineHelper.m */,
+			);
+			path = Stats;
 			sourceTree = "<group>";
 		};
 		ACADB3C7190D23B90030CC82 = {
@@ -531,11 +642,15 @@
 		ACADB3F8190D23B90030CC82 /* HabitsTests */ = {
 			isa = PBXGroup;
 			children = (
+				ACB35F3919A7ACA6000C03F5 /* UserDefaults */,
 				AC1EB1041960C5B100549AC9 /* Fixtures */,
 				ACADB3F9190D23B90030CC82 /* Supporting Files */,
-				ACADB3FE190D23B90030CC82 /* HabitsTests.m */,
-				AC1EB1071960CA9A00549AC9 /* JSONImportTests.m */,
+				AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */,
 				AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */,
+				AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */,
+				ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */,
+				ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */,
+				ACBCD3BC19B456DD00085A95 /* ReminderTests.m */,
 			);
 			path = HabitsTests;
 			sourceTree = "<group>";
@@ -546,6 +661,8 @@
 				ACADB3FA190D23B90030CC82 /* HabitsTests-Info.plist */,
 				ACADB3FB190D23B90030CC82 /* InfoPlist.strings */,
 				AC4018D11950BFAC0033407B /* HabitsTests-Prefix.pch */,
+				AC3237C7196D423400A2FF9F /* TestHelpers.h */,
+				AC3237C8196D423400A2FF9F /* TestHelpers.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -553,6 +670,7 @@
 		ACADB408190D24BE0030CC82 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AC735DE319705608007CD2B7 /* Stats */,
 				AC4018AE19506B300033407B /* UI */,
 				AC40187619504E450033407B /* Migration */,
 				ACADB4A5190D34BE0030CC82 /* Colors.h */,
@@ -560,6 +678,8 @@
 				AC40187319504ADB0033407B /* TimeHelper.h */,
 				AC40187419504ADB0033407B /* TimeHelper.m */,
 				AC4018BB195073160033407B /* Constants.h */,
+				AC0B78011976718500CEC018 /* DayKeys.h */,
+				AC0B78021976718500CEC018 /* DayKeys.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -579,6 +699,12 @@
 				AC4018EB195187370033407B /* UserGuideViewController.m */,
 				AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */,
 				AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */,
+				ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */,
+				ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */,
+				AC735DE7197156D0007CD2B7 /* LandingViewController.h */,
+				AC735DE8197156D0007CD2B7 /* LandingViewController.m */,
+				AC1EB92F19B0967500BF7EAF /* AdminTableViewController.h */,
+				AC1EB93019B0967500BF7EAF /* AdminTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -586,6 +712,8 @@
 		ACADB40A190D24EE0030CC82 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC735DDF19705065007CD2B7 /* AppFeatures */,
+				ACDC63C0196F2CFB00F68BD6 /* Charts */,
 				AC4018C1195090120033407B /* Calendar */,
 				AC401881195059510033407B /* UI */,
 				AC40187A195058470033407B /* Cells */,
@@ -598,6 +726,10 @@
 			children = (
 				ACADB4A2190D2F5C0030CC82 /* Habit.h */,
 				ACADB4A3190D2F5C0030CC82 /* Habit.m */,
+				ACB35F2819A750DC000C03F5 /* Chain.h */,
+				ACB35F2919A750DC000C03F5 /* Chain.m */,
+				ACE31ABF19756936007173A0 /* HabitDay.h */,
+				ACE31AC019756936007173A0 /* HabitDay.m */,
 				AC4018CE195098A50033407B /* Calendar.h */,
 				AC4018CF195098A50033407B /* Calendar.m */,
 				AC4018D81950C7C00033407B /* Notifications.h */,
@@ -608,8 +740,8 @@
 				AC4018EE195187BC0033407B /* AppSharing.m */,
 				AC4018F019518EBC0033407B /* DataExport.h */,
 				AC4018F119518EBC0033407B /* DataExport.m */,
-				AC4018F31951A5FE0033407B /* HabitsList.h */,
-				AC4018F41951A5FE0033407B /* HabitsList.m */,
+				AC735DDC19704F67007CD2B7 /* AppFeatures.h */,
+				AC735DDD19704F67007CD2B7 /* AppFeatures.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -617,6 +749,14 @@
 		ACADB40C190D26940030CC82 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */,
+				AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */,
+				AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */,
+				AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */,
+				AC3237BC196C438900A2FF9F /* Stats.png */,
+				AC3237BD196C438900A2FF9F /* Stats@2x.png */,
+				AC3237AF196C2FB400A2FF9F /* Cross.png */,
+				AC3237B0196C2FB400A2FF9F /* Cross@2x.png */,
 				ACADB40D190D27960030CC82 /* Default-568h@2x.png */,
 				ACADB40E190D27960030CC82 /* Default@2x.png */,
 				ACADB40F190D27960030CC82 /* info_nav@2x.png */,
@@ -692,6 +832,40 @@
 				ACADB455190D27960030CC82 /* add@2x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		ACB35F3219A78DA6000C03F5 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				AC4018F31951A5FE0033407B /* HabitsQueries.h */,
+				AC4018F41951A5FE0033407B /* HabitsQueries.m */,
+				ACB35F3319A78DBD000C03F5 /* HabitDayQueries.h */,
+				ACB35F3419A78DBD000C03F5 /* HabitDayQueries.m */,
+				ACB35F3619A7AB5C000C03F5 /* ChainQueries.h */,
+				ACB35F3719A7AB5C000C03F5 /* ChainQueries.m */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		ACB35F3919A7ACA6000C03F5 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */,
+				ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */,
+				ACB35F3B19A89F76000C03F5 /* aw.goodtohear.habits.plist */,
+				ACB35F3A19A89E91000C03F5 /* mf.goodtohear.habits.plist */,
+				AC1EB93519B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		ACDC63C0196F2CFB00F68BD6 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC63C1196F2D2F00F68BD6 /* DailySparklineView.h */,
+				ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -793,17 +967,21 @@
 				ACADB464190D27960030CC82 /* guide_4.png in Resources */,
 				ACADB488190D27960030CC82 /* trash.png in Resources */,
 				ACADB3EC190D23B90030CC82 /* Images.xcassets in Resources */,
+				AC3237BE196C438900A2FF9F /* Stats.png in Resources */,
 				ACADB49A190D27960030CC82 /* arrow_next.png in Resources */,
 				ACADB461190D27960030CC82 /* guide_2@2x.png in Resources */,
 				ACADB479190D27960030CC82 /* guide_14@2x.png in Resources */,
+				AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */,
 				ACADB46D190D27960030CC82 /* guide_8@2x.png in Resources */,
 				ACADB47D190D27960030CC82 /* guide_16@2x.png in Resources */,
+				AC3237B2196C2FB400A2FF9F /* Cross@2x.png in Resources */,
 				ACADB48D190D27960030CC82 /* main_screen@2x.png in Resources */,
 				ACADB493190D27960030CC82 /* detail_screen@2x.png in Resources */,
 				ACADB490190D27960030CC82 /* info.png in Resources */,
 				ACADB484190D27960030CC82 /* info_nav.png in Resources */,
 				ACADB456190D27960030CC82 /* Default-568h@2x.png in Resources */,
 				ACADB477190D27960030CC82 /* guide_13@2x.png in Resources */,
+				AC3237BF196C438900A2FF9F /* Stats@2x.png in Resources */,
 				ACADB494190D27960030CC82 /* detail_screen.png in Resources */,
 				ACADB45F190D27960030CC82 /* guide_1@2x.png in Resources */,
 				ACADB474190D27960030CC82 /* guide_12.png in Resources */,
@@ -818,12 +996,14 @@
 				ACADB472190D27960030CC82 /* guide_11.png in Resources */,
 				ACADB47A190D27960030CC82 /* guide_15.png in Resources */,
 				ACADB471190D27960030CC82 /* guide_10@2x.png in Resources */,
+				AC1EB93319B096C300BF7EAF /* aw.goodtohear.habits.plist in Resources */,
 				ACADB475190D27960030CC82 /* guide_12@2x.png in Resources */,
 				ACADB492190D27960030CC82 /* icon_512.png in Resources */,
 				ACADB491190D27960030CC82 /* icon_57.png in Resources */,
 				ACADB463190D27960030CC82 /* guide_3@2x.png in Resources */,
 				ACADB489190D27960030CC82 /* play@2x.png in Resources */,
 				ACADB473190D27960030CC82 /* guide_11@2x.png in Resources */,
+				AC1EB93219B096C300BF7EAF /* testing.goodtohear.habits.plist in Resources */,
 				ACADB49D190D27960030CC82 /* arrow_back.png in Resources */,
 				ACADB483190D27960030CC82 /* happiness_shape@2x.png in Resources */,
 				ACADB48E190D27960030CC82 /* main_screen.png in Resources */,
@@ -834,6 +1014,8 @@
 				ACADB48B190D27960030CC82 /* pause@2x.png in Resources */,
 				ACADB457190D27960030CC82 /* Default@2x.png in Resources */,
 				ACADB45C190D27960030CC82 /* back.png in Resources */,
+				AC1EB93C19B0F71A00BF7EAF /* broken_chain_cross@2x.png in Resources */,
+				AC1EB93419B096C300BF7EAF /* mf.goodtohear.habits.plist in Resources */,
 				ACADB48F190D27960030CC82 /* info@2x.png in Resources */,
 				ACADB481190D27960030CC82 /* guide_18@2x.png in Resources */,
 				ACADB482190D27960030CC82 /* happiness_shape.png in Resources */,
@@ -855,9 +1037,12 @@
 				ACADB48A190D27960030CC82 /* play.png in Resources */,
 				ACADB462190D27960030CC82 /* guide_3.png in Resources */,
 				ACADB478190D27960030CC82 /* guide_14.png in Resources */,
+				AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */,
 				ACADB47E190D27960030CC82 /* guide_17.png in Resources */,
 				ACADB46F190D27960030CC82 /* guide_9@2x.png in Resources */,
+				AC1EB93B19B0F71A00BF7EAF /* broken_chain_cross.png in Resources */,
 				ACADB47B190D27960030CC82 /* guide_15@2x.png in Resources */,
+				AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */,
 				ACADB3E7190D23B90030CC82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -867,6 +1052,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */,
+				ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */,
+				ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */,
+				AC1EB93619B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist in Resources */,
 				AC1EB1061960C5CA00549AC9 /* habits_data_lots.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,42 +1132,58 @@
 				AC40187D195058650033407B /* CellWithCheckBox.m in Sources */,
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */,
+				AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */,
+				AC735DDE19704F67007CD2B7 /* AppFeatures.m in Sources */,
 				AC4018F219518EBC0033407B /* DataExport.m in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
 				AC4018B419506C690033407B /* DayNavigation.m in Sources */,
+				ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */,
 				AC4018BA195071380033407B /* HabitDetailViewController.m in Sources */,
 				AC4018A0195066E00033407B /* ATSDragToReorderTableViewController.m in Sources */,
 				AC4018FA1951BF2E0033407B /* CoreDataClient.m in Sources */,
+				AC735DE219705080007CD2B7 /* StatsPopup.m in Sources */,
 				AC401880195058720033407B /* HabitCell.m in Sources */,
 				AC40187519504ADB0033407B /* TimeHelper.m in Sources */,
-				AC4018F51951A5FE0033407B /* HabitsList.m in Sources */,
+				AC4018F51951A5FE0033407B /* HabitsQueries.m in Sources */,
 				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
+				ACE31AC119756936007173A0 /* HabitDay.m in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
-				AC4018FD1951C2950033407B /* Habits.xcdatamodeld in Sources */,
+				AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */,
 				AC4018D0195098A50033407B /* Calendar.m in Sources */,
 				ACADB3E4190D23B90030CC82 /* AppDelegate.m in Sources */,
 				AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */,
 				AC4018CA195095030033407B /* MonthGridViewController.m in Sources */,
 				AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */,
 				AC4018B119506B4A0033407B /* Labels.m in Sources */,
-				AC40187919504E630033407B /* MotionToMantleMigrator.m in Sources */,
+				AC40187919504E630033407B /* PlistStoreToCoreDataMigrator.m in Sources */,
 				AC4018EC195187370033407B /* UserGuideViewController.m in Sources */,
 				AC4018DA1950C7C00033407B /* Notifications.m in Sources */,
 				ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */,
+				AC0B78031976718500CEC018 /* DayKeys.m in Sources */,
 				AC4018EF195187BC0033407B /* AppSharing.m in Sources */,
 				AC4018E61950FAB70033407B /* InfoCell.m in Sources */,
 				AC4018841950596A0033407B /* CheckBox.m in Sources */,
 				AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */,
+				ACBCD3C819B4BEEA00085A95 /* Habits.xcdatamodeld in Sources */,
 				AC4018E01950F79C0033407B /* InfoViewController.m in Sources */,
 				ACADB3E0190D23B90030CC82 /* main.m in Sources */,
 				AC4018D41950C3DE0033407B /* DayPicker.m in Sources */,
+				ACB35F2A19A750DC000C03F5 /* Chain.m in Sources */,
+				ACB35F3819A7AB5C000C03F5 /* ChainQueries.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
+				ACB35F3519A78DBD000C03F5 /* HabitDayQueries.m in Sources */,
+				ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */,
+				AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */,
+				ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */,
+				AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */,
 				AC4018E31950F84C0033407B /* InfoTask.m in Sources */,
 				AC4018C4195090260033407B /* CalendarTopView.m in Sources */,
 				AC4018D71950C51D0033407B /* DayToggle.m in Sources */,
+				ACB35F3E19A8C378000C03F5 /* ChainStatsCell.m in Sources */,
 				AC4018CD195096A70033407B /* CalendarDayView.m in Sources */,
 				AC4018E91950FB510033407B /* LinkCell.m in Sources */,
 				AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */,
+				AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,9 +1191,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */,
 				AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */,
-				ACADB3FF190D23B90030CC82 /* HabitsTests.m in Sources */,
-				AC1EB1081960CA9A00549AC9 /* JSONImportTests.m in Sources */,
+				AC3237C9196D423400A2FF9F /* TestHelpers.m in Sources */,
+				ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */,
+				ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */,
+				AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */,
+				AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1222,13 +1430,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		AC4018FB1951C2950033407B /* Habits.xcdatamodeld */ = {
+		ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */,
-				AC4018FC1951C2950033407B /* Habits.xcdatamodel */,
+				ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */,
+				ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */,
 			);
-			currentVersion = ACA8AEA81960366A00C9DBA0 /* Habits 2.xcdatamodel */;
+			currentVersion = ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */;
 			path = Habits.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

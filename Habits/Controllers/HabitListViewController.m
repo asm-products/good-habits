@@ -16,8 +16,9 @@
 #import "Calendar.h"
 #import "HabitDetailViewController.h"
 #import "Constants.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "InfoTask.h"
+#import <NSArray+F.h>
 typedef enum {
     HabitListSectionActive,
     HabitListSectionCarriedOver,
@@ -28,11 +29,12 @@ typedef enum {
     dispatch_queue_t reloadQueue;
     NSArray * groups;
     NSDate * now;
+    NSDate * today;
     DayNavigation * dayNavigation;
     InactiveHabitsHeader * carriedOver;
     InactiveHabitsHeader * notRequiredTodayTitle;
     InactiveHabitsHeader * inactiveTitle;
-    __weak IBOutlet UILabel *infoCountBadge;
+    
     
 }
 -(void)viewDidLoad{
@@ -53,33 +55,30 @@ typedef enum {
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self refresh];
+    [self refresh];   
 }
 -(void)loadGroups{
+    [HabitsQueries refresh];
     groups = @[
-               [HabitsList activeToday].mutableCopy,
-               [HabitsList carriedOver].mutableCopy,
-               [HabitsList activeButNotToday].mutableCopy,
-               [HabitsList inactive].mutableCopy
+               [HabitsQueries activeToday].mutableCopy,
+               [HabitsQueries carriedOver].mutableCopy,
+               [HabitsQueries activeButNotToday].mutableCopy,
+               [HabitsQueries inactive].mutableCopy
                ];
 }
 -(void)build{
+    self.tableView.accessibilityLabel = @"Habits List";
     now = [TimeHelper now];
+    today = [TimeHelper today];
     reloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 }
 -(void)refresh{
-    infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
-    infoCountBadge.hidden = [InfoTask unopenedCount] == 0;
-    dispatch_async(reloadQueue, ^{
-        now = [TimeHelper now];
-        dayNavigation.date = now;
-        notRequiredTodayTitle = nil;
-        [self loadGroups];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-            
-        });
-    });
+    now = [TimeHelper now];
+    today = [TimeHelper today];
+    dayNavigation.date = now;
+    notRequiredTodayTitle = nil;
+    [self loadGroups];
+    [self.tableView reloadData];
 }
 #pragma mark - Table View Controller
 -(Habit*)habitForIndexPath:(NSIndexPath*)indexPath{
@@ -97,10 +96,10 @@ typedef enum {
     return cell;
 }
 -(HabitCell*)configureCell:(HabitCell*)cell forIndexPath:(NSIndexPath*)indexPath{
-    cell.now = now;
+    cell.day = today;
     Habit * habit = [self habitForIndexPath:indexPath];
     cell.inactive = NO;
-    cell.habit = habit;
+    cell.chain = [habit chainForDate:now];
     if (habit){
         BOOL habitIsRequiredToday = habit.isActive.boolValue && [habit isRequiredOnWeekday:now];
         if(habitIsRequiredToday){
@@ -108,13 +107,12 @@ typedef enum {
         }else{
             cell.color = [Colors cobalt];
             cell.inactive = YES;
-            cell.habit = habit;
         }
         if(indexPath.section == HabitListSectionCarriedOver){
             cell.inactive = NO;
             cell.color = habit.color;
-            cell.habit = habit;
         }
+        cell.state = habit.currentChain.dayState;
     }
     return cell;
 }
@@ -162,7 +160,17 @@ typedef enum {
             habit.order = @(idx);
         }];
     }
-    [HabitsList saveAll];
+    // TODO: fix sorting
+    [[CoreDataClient defaultClient] save];
+}
+-(void)insertHabit:(Habit *)habit{
+//    [self loadGroups];
+//    NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
+//    [self.tableView beginUpdates];
+//    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[groups[section] count ] - 1 inSection:section];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic ];
+//    [self.tableView endUpdates];
+//    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 #pragma mark - Reordering
 -(UITableViewCell *)cellIdenticalToCellAtIndexPath:(NSIndexPath *)indexPath forDragTableViewController:(ATSDragToReorderTableViewController *)dragTableViewController{
@@ -177,20 +185,6 @@ typedef enum {
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"New"]){
-        Habit * habit = [Habit new];
-        [HabitsList.all addObject:habit];
-        [self loadGroups];
-        NSInteger section = habit.isActive.boolValue ? HabitListSectionActive : HabitListSectionInactive;
-        [self.tableView beginUpdates];
-        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[groups[section] count ] - 1 inSection:section];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic ];
-        [self.tableView endUpdates];
-        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-        
-        HabitDetailViewController * dest = segue.destinationViewController;
-        dest.habit = habit;
-    }
     if([segue.identifier isEqualToString:@"Detail"]){
         HabitDetailViewController * dest = segue.destinationViewController;
         dest.habit = [self habitForIndexPath:self.tableView.indexPathForSelectedRow];

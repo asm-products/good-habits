@@ -10,6 +10,7 @@
 #import "Colors.h"
 #import <ALActionBlocks.h>
 #import "ColorPickerButton.h"
+#import "CoreDataClient.h"
 @implementation ColorPickerCell{
     NSMutableArray * buttons;
 }
@@ -41,7 +42,7 @@
 -(void)configureButton:(UIButton*)button color:(UIColor*)color{
     [button handleControlEvents:UIControlEventTouchUpInside withBlock:^(id weakSender) {
         self.habit.color = color;
-        [self.habit save];
+        [[CoreDataClient defaultClient] save];
         [self refreshButtonSelectionState];
         [[NSNotificationCenter defaultCenter] postNotificationName:HABIT_COLOR_CHANGED object:nil];
     }];

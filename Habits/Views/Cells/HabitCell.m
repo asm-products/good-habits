@@ -9,10 +9,14 @@
 #import "HabitCell.h"
 #import "CheckBox.h"
 #import "Colors.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "CountView.h"
+#import "Habit.h"
+
+
 @implementation HabitCell{
     __weak IBOutlet CountView *countView;
+    Habit * habit; // cache to directly access habit in case checking the box makes the chain disappear!
 }
 -(void)build{
     [super build];
@@ -23,34 +27,43 @@
     [self.checkbox addGestureRecognizer:tap];
 }
 -(void)onCheckboxTapped{
-    self.checkbox.checked = !self.checkbox.checked;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self.habit toggle: self.now];
-        [self.habit save];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.habit = self.habit;
-        });
-    });
-
+    DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
+    self.chain = [habit chainForDate:self.day];
+    [self setState:state];
 }
 
 -(UIColor*)labelTextColor{
-    return (([self.habit due:self.now] && ![self.habit done:(self.now)]) || (!self.inactive && self.habit.currentChainLength == 0)) ? [Colors red] : [UIColor blackColor];
+    return [UIColor blackColor];
+    // TODO: make the due habits red again
+//    return (([self.habit due:self.now] && ![self.habit done:(self.now)]) || (!self.inactive && self.habit.currentChainLength == 0)) ? [Colors red] : [UIColor blackColor];
 }
--(void)setHabit:(Habit *)habit{
-    _habit = habit;
+-(void)setChain:(Chain *)chain{
+    _chain = chain;
+    habit = chain.habit;
+    if(chain == nil) @throw [NSException exceptionWithName:@"NoChainProvided" reason:nil userInfo:nil];
+}
+-(void)setState:(DayCheckedState)state{
+    _state = state;
     self.label.alpha = self.inactive ? 0.5 : 1.0;
-    self.checkbox.checked = [habit done: self.now];
-    self.checkbox.label = habit.title;
+    self.checkbox.state = state;
+    self.checkbox.label = self.chain.habit.title;
     self.label.text =// [NSString stringWithFormat:@"%@ %@",habit.identifier,habit.title];//
-        habit.title;
+        self.chain.habit.title;
     self.label.textColor = [self labelTextColor];
     
-    NSInteger currentChainLength = habit.currentChainLength;
-    NSInteger longestChain = habit.longestChain.intValue;
+    NSInteger countOfDaysOverdue = self.chain.countOfDaysOverdue;
+    NSLog(@"Count of days overdue for %@ = %@ (next due date %@)", self.chain.habit.title, @(countOfDaysOverdue), self.chain.nextRequiredDate);
+    NSInteger currentChainLength = countOfDaysOverdue > 0 ? -countOfDaysOverdue : self.chain.length;
+    NSInteger longestChain = self.chain.habit.longestChain.length;
+    countView.color = self.chain.habit.color;
     countView.text = @[ @(currentChainLength), @(longestChain) ];
     countView.isHappy = currentChainLength > 0 && currentChainLength == longestChain;
     countView.highlighted = false;
+    
+    
+    if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:self.chain];
 }
-
+-(void)update{
+    [self setState:self.state];
+}
 @end

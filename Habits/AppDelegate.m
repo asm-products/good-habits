@@ -7,25 +7,46 @@
 //
 
 #import "AppDelegate.h"
-#import "MotionToMantleMigrator.h"
+#import "PlistStoreToCoreDataMigrator.h"
 #import "InfoTask.h"
 #import "Habit.h"
-#import "HabitsList.h"
+#import "HabitsQueries.h"
 #import "CoreDataClient.h"
 #import "Notifications.h"
+#import "DataExport.h"
+#import <UIAlertView+Blocks.h>
+#import <SVProgressHUD.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [InfoTask trackInstallationDate];
+//    [Audits initialize];
     [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)
     
-    if([MotionToMantleMigrator dataCanBeMigrated] && [HabitsList all].count == 0) {
-        [MotionToMantleMigrator performMigration];
-    }
-    [HabitsList recalculateAllNotifications];
+    [HabitsQueries recalculateAllNotifications];
     [Notifications reschedule];
+    if(!TEST_ENVIRONMENT){
+        [self performAnyNecessaryUpgrades];
+    }
     return YES;
+}
+-(void)performAnyNecessaryUpgrades{
+//    if([MotionToMantleMigrator dataCanBeMigrated] && [HabitsList all].count == 0) {
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [PlistStoreToCoreDataMigrator performMigrationWithArray:[PlistStoreToCoreDataMigrator habitsStoredByMotion] progress:^(float progress) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD showProgress:progress status:@"Upgrading" maskType:SVProgressHUDMaskTypeBlack];
+                });
+            }];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [HabitsQueries refresh];
+                [SVProgressHUD dismiss];
+                [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
+            });
+        });
+//    }
 }
 -(void)afterEvent:(NSString*)event performBlock:(void(^)())block{
     [[NSNotificationCenter defaultCenter]
@@ -54,27 +75,48 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
     
 }
-//-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+//    if([notification.userInfo[@"type"] isEqualToString:@"audit"]){
+//        [self showAuditScreenIfNeeded];
+//    }
 //    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
 //    [HabitsList recalculateAllNotifications];
 //    [Notifications reschedule];
-//}
+}
 -(void)applicationWillResignActive:(UIApplication *)application{
-    [HabitsList recalculateAllNotifications];
+    [HabitsQueries recalculateAllNotifications];
     [Notifications reschedule];
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
+//    [self showAuditScreenIfNeeded];
     
 }
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    NSArray * components = [url.absoluteString componentsSeparatedByString:@"goodhabits://import?json="];
+    if(components.count > 1){
+        [[[UIAlertView alloc] initWithTitle:@"Restore data?" message:@"Restore your data? This action will delete your current data. It might also make any iCloud syncing behave strangely. Proceed with caution." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:@"Restore Data" action:^{
+            [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [DataExport importDataFromBase64EncodedString:components[1]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
+            });
 
--(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
-    return YES;
+
+        }], nil] show];
+        return YES;
+    }
+    return NO;
 }
--(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder{
-    NSString * restoringFrom = [coder decodeObjectForKey:UIApplicationStateRestorationBundleVersionKey];
-    if(restoringFrom.integerValue < 2.0) return NO;
-    return YES;
-}
+//-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
+//    return YES;
+//}
+//-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder{
+//    NSString * restoringFrom = [coder decodeObjectForKey:UIApplicationStateRestorationBundleVersionKey];
+//    if(restoringFrom.integerValue < 2.0) return NO;
+//    return YES;
+//}
 
 @end

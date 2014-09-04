@@ -8,20 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle.h>
-@interface Habit : MTLModel<MTLManagedObjectSerializing,MTLJSONSerializing>
+#import "HabitDay.h"
+@import CoreData;
+
+@class ChainAnalysis;
+
+@interface Habit : NSManagedObject<MTLJSONSerializing>
+
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, strong) UIColor * color;
 @property (nonatomic, strong) NSDate * createdAt;
-@property (nonatomic, strong) NSMutableDictionary * daysChecked;
 @property (nonatomic, strong) NSDateComponents * reminderTime;
 @property (nonatomic, strong) NSNumber * isActive;
 @property (nonatomic, strong) NSNumber * order;
 @property (nonatomic, strong) NSMutableArray * daysRequired;
-@property (nonatomic, strong) NSNumber * longestChain;
+
+@property (nonatomic, strong) NSSet * chains;
 
 @property (nonatomic, strong) NSMutableArray * notifications;
-
 
 #pragma mark - Individual item state
 -(BOOL)isRequiredToday;
@@ -31,28 +36,37 @@
 -(BOOL)needsToBeDone:(NSDate*)date;
 -(BOOL)hasReminders;
 -(BOOL)isNew;
+-(NSDate*)nextDayRequiredAfter:(NSDate*)date;
 
 #pragma mark - Meta
 -(NSDate*)earliestDate;
 
 #pragma mark - Interactions
--(void)toggle:(NSDate*)date;
--(void)checkDays:(NSArray*)days;
--(void)uncheckDays:(NSArray*)days;
+//-(void)toggle:(NSDate*)date;
+//-(void)checkDays:(NSArray*)days;
+//-(void)uncheckDays:(NSArray*)days;
+//-(void)setDaysChecked:(NSArray *)dayKeys checked:(BOOL)checked;
+//-(HabitDay*)habitDayForDate:(NSDate*)date;
+//-(HabitDay*)habitDayForKey:(NSString*)key;
 
 #pragma mark - Chains
--(void)recalculateLongestChain;
+-(Chain*)addNewChain;
+-(Chain*)addNewChainInContext:(NSManagedObjectContext*)context;
+-(NSArray*)sortedChains;
+-(Chain*)longestChain;
 -(NSInteger)currentChainLength;
--(BOOL)includesDate:(NSDate*)date;
--(BOOL)continuesActivityBefore:(NSDate*)date;
--(BOOL)continuesActivityAfter:(NSDate*)date;
-
+-(Chain*)currentChain;
+-(Chain*)chainForDate:(NSDate*)date;
+-(void)recalculateRunningTotalsInBackground:(void(^)())completionCallback;
 #pragma mark - Data management
--(void)save;
-
-#pragma mark - Helper
-+(NSDate*)dateFromString:(NSString*)date;
-
++(Habit*)createNew;
 #pragma mark - Notifications
 -(void)recalculateNotifications;
+
+@end
+
+
+@interface Habit(ChainsAccessors)
+-(void)addChainsObject:(Chain *)object;
+-(void)removeChainsObject:(Chain*)object;
 @end

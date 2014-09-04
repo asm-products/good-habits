@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_AVHexColor 1
 #define COCOAPODS_VERSION_PATCH_AVHexColor 0
 
+// CWLSynthesizeSingleton
+#define COCOAPODS_POD_AVAILABLE_CWLSynthesizeSingleton
+#define COCOAPODS_VERSION_MAJOR_CWLSynthesizeSingleton 1
+#define COCOAPODS_VERSION_MINOR_CWLSynthesizeSingleton 0
+#define COCOAPODS_VERSION_PATCH_CWLSynthesizeSingleton 0
+
 // Functional.m
 #define COCOAPODS_POD_AVAILABLE_Functional_m
 #define COCOAPODS_VERSION_MAJOR_Functional_m 1
@@ -36,11 +42,17 @@
 #define COCOAPODS_VERSION_MINOR_Mantle_extobjc 5
 #define COCOAPODS_VERSION_PATCH_Mantle_extobjc 0
 
-// Reveal-iOS-SDK
-#define COCOAPODS_POD_AVAILABLE_Reveal_iOS_SDK
-#define COCOAPODS_VERSION_MAJOR_Reveal_iOS_SDK 1
-#define COCOAPODS_VERSION_MINOR_Reveal_iOS_SDK 0
-#define COCOAPODS_VERSION_PATCH_Reveal_iOS_SDK 4
+// SHMessageUIBlocks
+#define COCOAPODS_POD_AVAILABLE_SHMessageUIBlocks
+#define COCOAPODS_VERSION_MAJOR_SHMessageUIBlocks 1
+#define COCOAPODS_VERSION_MINOR_SHMessageUIBlocks 2
+#define COCOAPODS_VERSION_PATCH_SHMessageUIBlocks 0
+
+// SVProgressHUD
+#define COCOAPODS_POD_AVAILABLE_SVProgressHUD
+#define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
+#define COCOAPODS_VERSION_MINOR_SVProgressHUD 0
+#define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
 
 // UIAlertView-Blocks
 #define COCOAPODS_POD_AVAILABLE_UIAlertView_Blocks

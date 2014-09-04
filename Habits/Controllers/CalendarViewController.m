@@ -37,6 +37,10 @@
     [self.view addSubview:self.container];
     [self showMonthIncludingTime:self.dateToShow];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if(self.habit) [self showChainsForHabit:self.habit];
+}
 -(void)didPressPrevButton{
     [self.navigationDelegate backward];
 }
@@ -59,19 +63,24 @@
     self.grid = nil;
     
     self.top.label.text = [self.topTimeFormatter stringFromDate:time];
-    NSDate * firstDay = [[YLMoment momentWithDate:time] startOfCalendarUnit:NSMonthCalendarUnit].date;
+    YLMoment * moment = [YLMoment momentWithDate:time];
+    
+    // always work with GMT 
+    moment.calendar = [TimeHelper UTCCalendar];
+    NSDate * firstDay = [moment startOfCalendarUnit:NSMonthCalendarUnit].date;
     dayInPreviousMonth = [TimeHelper addDays:-10 toDate:firstDay];
     dayInNextMonth = [TimeHelper addDays:46 toDate:firstDay];
     
     while ([TimeHelper weekday:firstDay] != 0) {
         firstDay = [TimeHelper addDays: -1 toDate: firstDay];
     }
+    NSLog(@"First day of calendar %@", firstDay);
     
     self.grid = [MonthGridViewController new];
     self.grid.firstDay = firstDay;
     self.grid.month = month;
     [self.container addSubview:self.grid.view];
-    if(self.habit) [self showChainsForHabit:self.habit];
+//    if(self.habit) [self showChainsForHabit:self.habit];
     
 }
 -(NSDate *)dayInPreviousMonth{

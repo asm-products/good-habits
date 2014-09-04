@@ -7,10 +7,10 @@
 //
 
 #import "DayToggle.h"
-
+#import "CheckMarkView.h"
 @implementation DayToggle{
     UILabel * title;
-    UIImageView * checkmark;
+    CheckMarkView * checkmark;
     
 }
 
@@ -34,20 +34,27 @@
 -(void)addLabel{
     title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 18)];
     title.textAlignment = NSTextAlignmentCenter;
-    title.textColor = [UIColor whiteColor];
-    title.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:10];
+    title.textColor = self.color;
+    title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:8];
     title.backgroundColor = [UIColor clearColor];
     [self addSubview:title];
     title.text = self.day;
 }
 -(void)addCheckmark{
-    checkmark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check_mark"]];
-    checkmark.frame = (CGRect){ CGPointMake(8, 19), checkmark.frame.size};
+    checkmark = [[CheckMarkView alloc] initWithFrame:CGRectMake(8, 19, 24, 24)];
+    checkmark.color = self.color;
+    checkmark.userInteractionEnabled = NO;
     [self addSubview:checkmark];
 }
 -(void)toggleOn:(BOOL)isOn{
     self.isOn = isOn;
     checkmark.hidden = !isOn;
+    self.accessibilityLabel = [NSString stringWithFormat:@"%@ required? %@", self.day, isOn ? @"Yes" : @"No"];
 }
-
+-(void)setColor:(UIColor *)color{
+    _color = color;
+    checkmark.color = self.color;
+    [checkmark setNeedsDisplay];
+    title.textColor = self.color;
+}
 @end

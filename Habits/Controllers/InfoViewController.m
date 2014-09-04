@@ -24,6 +24,10 @@
 @implementation InfoViewController
 -(void)viewDidLoad{
     [super viewDidLoad];
+#if DEBUG
+#else
+    self.navigationItem.leftBarButtonItem = nil;
+#endif
 }
 -(NSArray *)tasks{
     if(!_tasks) _tasks = [InfoTask due];

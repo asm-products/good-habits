@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Calendar.h"
-
+#import "HabitDay.h"
 @interface CalendarDayView : UIView
 @property (nonatomic, strong) UILabel * label;
 @property (nonatomic, strong) NSDate * day;
+@property (nonatomic, strong) HabitDay * habitDay;
 -(void)setSelectionState:(CalendarDayState)state color:(UIColor*)color;
 @end

@@ -11,6 +11,7 @@
 #import "DayToggle.h"
 #import <ALActionBlocks.h>
 #import "Notifications.h"
+#import "CoreDataClient.h"
 
 #define ITEM_WIDTH 34
 #define VERTICAL_PADDING 4
@@ -22,9 +23,10 @@
 -(void)awakeFromNib{
     self.habit = [self.delegate habit];
     [self build];
+    [self refresh];
 }
 -(void)build{
-    [self applyBackground];
+    self.backgroundColor = [UIColor clearColor];
     dayButtons = [[NSMutableArray alloc] initWithCapacity:7];
     CGFloat x = 8;
     
@@ -38,8 +40,10 @@
         
         [button handleControlEvents:UIControlEventTouchUpInside withBlock:^(id weakSender) {
             [button toggleOn:!button.isOn];
-            self.habit.daysRequired[i] = @(button.isOn);
-            [self.habit save];
+            NSMutableArray * daysRequired = self.habit.daysRequired.mutableCopy;
+            daysRequired[i] = @(button.isOn);
+            self.habit.daysRequired = daysRequired;
+            [[CoreDataClient defaultClient] save];
             [Notifications reschedule];
             [self.delegate dayPickerDidChange:self];
         }];
@@ -47,8 +51,11 @@
         x += ITEM_WIDTH + SPACE;
     }
 }
--(void)applyBackground{
-    self.backgroundColor = self.habit.color;
-    self.layer.cornerRadius = self.frame.size.height * 0.5;
+-(void)refresh{
+    for (DayToggle * button in dayButtons) {
+        button.color = self.habit.color;
+        [button setNeedsDisplay];
+    }
 }
+
 @end
