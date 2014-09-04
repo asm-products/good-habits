@@ -12,7 +12,7 @@
 #import "CoreDataClient.h"
 
 @implementation Chain
-@dynamic notes,explicitlyBroken,days,habit,breakDetected,daysCountCache,lastDateCache,firstDateCache;
+@dynamic notes,explicitlyBroken,days,habit,breakDetected,daysCountCache,lastDateCache,firstDateCache,daysRequired;
 -(BOOL)isBroken{
     NSLog(@"isBroken needs implementing!");
     return self.explicitlyBroken.boolValue;
@@ -72,8 +72,7 @@
     BOOL dateIsAtEndOfChain = [date isEqualToDate:self.lastDateCache] || date.timeIntervalSinceReferenceDate >= self.nextRequiredDate.timeIntervalSinceReferenceDate;
     BOOL dateIsTooLateForThisChain = self.days.count > 0 && (date.timeIntervalSinceReferenceDate > self.nextRequiredDate.timeIntervalSinceReferenceDate);
     if(dateIsTooLateForThisChain){
-        Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
-        [self.habit addChainsObject:chain];
+        Chain * chain = [self.habit addNewChain];
         [chain tickLastDayInChainOnDate:date];
         result = DayCheckedStateComplete;
         
@@ -113,8 +112,7 @@
     if (existingDay == nil) { // only happens if day was not required
         if(dateIsAtEndOfChain){
             if(dateIsTooLateForThisChain){
-                Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
-                [self.habit addChainsObject:chain];
+                Chain * chain = [self.habit addNewChain];
                 [chain tickLastDayInChainOnDate:date];
             }else{
                 [self tickLastDayInChainOnDate:date];
@@ -182,10 +180,9 @@
             NSArray * firstList  = [sortedDays subarrayWithRange:NSMakeRange(0, index )];
             NSArray * secondList = [sortedDays subarrayWithRange:NSMakeRange(index + 1, sortedDays.count - index - 1)];
             self.days = [NSSet setWithArray:firstList];
-            Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
+            Chain * chain = [self.habit addNewChain];
             chain.days = [NSSet setWithArray:secondList];
             chain.daysCountCache = @(secondList.count);
-            [self.habit addChainsObject:chain];
             
             chain.firstDateCache = [secondList.firstObject date];
             chain.lastDateCache = [secondList.lastObject date];

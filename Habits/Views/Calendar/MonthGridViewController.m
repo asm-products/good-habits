@@ -91,7 +91,7 @@
         }];
         if(dayIndex == NSNotFound){
             cell.accessibilityLabel = [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day];
-            if ([habit isRequiredOnWeekday:cell.day] == NO && ( previousState == CalendarDayStateMidChain || previousState == CalendarDayStateFirstInChain)) {
+            if (( previousState == CalendarDayStateMidChain || previousState == CalendarDayStateFirstInChain)) {
                 [cell setSelectionState:CalendarDayStateBetweenSubchains color:habit.color];
             }
         }else{

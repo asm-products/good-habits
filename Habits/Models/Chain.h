@@ -34,6 +34,7 @@ typedef enum{
 @property (nonatomic, strong) NSNumber * daysCountCache;
 @property (nonatomic, strong) NSDate * firstDateCache;
 @property (nonatomic, strong) NSDate * lastDateCache;
+@property (nonatomic, strong) NSArray * daysRequired;
 
 #pragma mark - Sugar
 -(NSArray*)sortedDays;

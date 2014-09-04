@@ -61,8 +61,7 @@
     };
 }
 +(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSDictionary*)daysChecked context:(NSManagedObjectContext*)context{
-    Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:context];
-    [habit addChainsObject:chain];
+    Chain * chain = [habit addNewChainInContext:context];
     NSArray * dayKeys = [daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     for (NSString * dayKey in dayKeys) { // all values are @YES so I can just iterate through the keys
         NSDate * date = [DayKeys dateFromKey:dayKey];
@@ -98,8 +97,7 @@
     if([chain.nextRequiredDate compare:date] == NSOrderedAscending){
         // create a new chain
         chain.breakDetected = @YES;
-        Chain * newChain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:context];
-        [habit addChainsObject:newChain];
+        Chain * newChain = [habit addNewChainInContext:context];
         newChain.firstDateCache = date;
 //        NSLog(@"Replaced chain at date %@", date);
         NSLog(@"Chain %@, firstDateCache: %@ lastDateCache: %@", [chain.sortedDays valueForKey:@"date"], chain.firstDateCache, chain.lastDateCache);

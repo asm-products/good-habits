@@ -50,6 +50,8 @@
 //-(HabitDay*)habitDayForKey:(NSString*)key;
 
 #pragma mark - Chains
+-(Chain*)addNewChain;
+-(Chain*)addNewChainInContext:(NSManagedObjectContext*)context;
 -(NSArray*)sortedChains;
 -(Chain*)longestChain;
 -(NSInteger)currentChainLength;

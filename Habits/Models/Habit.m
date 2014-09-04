@@ -153,6 +153,16 @@
 #pragma mark - Interactions
 
 #pragma mark - Chains
+-(Chain *)addNewChainInContext:(NSManagedObjectContext *)context{
+    Chain * result = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:context];
+    result.daysRequired = self.daysRequired;
+    Habit * habitInContext = (Habit*) [context objectWithID:self.objectID];
+    [habitInContext addChainsObject:result];
+    return result;
+}
+-(Chain *)addNewChain{
+    return [self addNewChainInContext:[CoreDataClient defaultClient].managedObjectContext];
+}
 -(NSArray *)sortedChains{
     return [self.chains sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lastDateCache" ascending:YES]]];
 }
@@ -168,11 +178,10 @@
 -(Chain *)chainForDate:(NSDate *)date{
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache <= %@", date]];
     if(chains.count == 0){
-        Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
+        Chain * chain = [self addNewChain];
         chain.firstDateCache = [TimeHelper today];
         chain.lastDateCache = [TimeHelper today];
         chain.daysCountCache = @0;
-        [self addChainsObject:chain];
         return chain;
     }else{
         return chains.lastObject;
@@ -187,10 +196,10 @@
                 day.runningTotalCache = @(index);
             }];
         }
-        NSError * error;
-        [privateContext save:&error];
-        if(error) NSLog(@"Error saving private context %@", error.localizedDescription);
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSError * error;
+            [privateContext save:&error];
+            if(error) NSLog(@"Error saving private context %@", error.localizedDescription);
             completionCallback();
         });
     });

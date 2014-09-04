@@ -49,6 +49,7 @@
 -(void)toggleOn:(BOOL)isOn{
     self.isOn = isOn;
     checkmark.hidden = !isOn;
+    self.accessibilityLabel = [NSString stringWithFormat:@"%@ required? %@", self.day, isOn ? @"Yes" : @"No"];
 }
 -(void)setColor:(UIColor *)color{
     _color = color;
