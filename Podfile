@@ -11,6 +11,7 @@ target "Habits" do
     pod 'SHMessageUIBlocks', '~> 1.2'
     pod 'SVProgressHUD', '~> 1.0'
     pod 'GTHRectHelpers', :git=>'https://github.com/goodtohear/GTHRectHelpers.git'
+    pod 'LMAlertView', '~> 1.1'
     #    pod 'KiipSDK', '~> 2.0'
 end
 
@@ -19,5 +20,6 @@ target "HabitsTests" do
     pod 'Expecta'
     pod 'OCMock', '~> 3.0'
     pod 'KIF', '~> 3.0'
+    pod 'BlocksKit', '~> 2.2'
     pod 'Reveal-iOS-SDK', '~> 1.0'
 end

@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_AVHexColor 1
 #define COCOAPODS_VERSION_PATCH_AVHexColor 0
 
+// CAAnimationBlocks
+#define COCOAPODS_POD_AVAILABLE_CAAnimationBlocks
+#define COCOAPODS_VERSION_MAJOR_CAAnimationBlocks 0
+#define COCOAPODS_VERSION_MINOR_CAAnimationBlocks 0
+#define COCOAPODS_VERSION_PATCH_CAAnimationBlocks 1
+
 // CWLSynthesizeSingleton
 #define COCOAPODS_POD_AVAILABLE_CWLSynthesizeSingleton
 #define COCOAPODS_VERSION_MAJOR_CWLSynthesizeSingleton 1
@@ -36,6 +42,12 @@
 #define COCOAPODS_VERSION_MINOR_GTHRectHelpers 0
 #define COCOAPODS_VERSION_PATCH_GTHRectHelpers 1
 
+// LMAlertView
+#define COCOAPODS_POD_AVAILABLE_LMAlertView
+#define COCOAPODS_VERSION_MAJOR_LMAlertView 1
+#define COCOAPODS_VERSION_MINOR_LMAlertView 1
+#define COCOAPODS_VERSION_PATCH_LMAlertView 0
+
 // Mantle
 #define COCOAPODS_POD_AVAILABLE_Mantle
 #define COCOAPODS_VERSION_MAJOR_Mantle 1
@@ -47,6 +59,12 @@
 #define COCOAPODS_VERSION_MAJOR_Mantle_extobjc 1
 #define COCOAPODS_VERSION_MINOR_Mantle_extobjc 5
 #define COCOAPODS_VERSION_PATCH_Mantle_extobjc 0
+
+// RBBAnimation
+#define COCOAPODS_POD_AVAILABLE_RBBAnimation
+#define COCOAPODS_VERSION_MAJOR_RBBAnimation 0
+#define COCOAPODS_VERSION_MINOR_RBBAnimation 3
+#define COCOAPODS_VERSION_PATCH_RBBAnimation 0
 
 // SHMessageUIBlocks
 #define COCOAPODS_POD_AVAILABLE_SHMessageUIBlocks
