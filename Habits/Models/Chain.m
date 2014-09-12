@@ -17,6 +17,9 @@
     NSLog(@"isBroken needs implementing!");
     return self.explicitlyBroken.boolValue;
 }
+-(void)save{
+    [[CoreDataClient defaultClient].managedObjectContext save:nil];
+}
 #pragma mark - chain manipulation
 -(Chain *)chainByJoiningChain:(Chain *)chain{
     // add other chain's days to this chain

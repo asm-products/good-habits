@@ -20,6 +20,7 @@
 #import "InfoTask.h"
 #import <NSArray+F.h>
 #import <GTHRectHelpers.h>
+#import "AppFeatures.h"
 typedef enum {
     HabitListSectionActive,
     HabitListSectionCarriedOver,
@@ -54,14 +55,20 @@ typedef enum {
         [self refresh];
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:CHAIN_MODIFIED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        // trigger animated recalculation of row heights
-        [self.tableView beginUpdates];
-        [self.tableView endUpdates];
+        [self recalculateRowHeights];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NAGGING_DISABLED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [self recalculateRowHeights];
     }];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self refresh];   
+}
+-(void)recalculateRowHeights{
+    // trigger animated recalculation of row heights
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
 }
 -(void)loadGroups{
     [HabitsQueries refresh];
@@ -124,7 +131,7 @@ typedef enum {
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Habit * habit = [self habitForIndexPath:indexPath];
-    CGFloat result = [habit chainForDate:today].explicitlyBroken.boolValue == YES ? 81 : 44;
+    CGFloat result = [habit chainForDate:today].explicitlyBroken.boolValue == YES && [AppFeatures shouldShowReasonInput]  ? 81 : 44;
     return result;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

@@ -12,4 +12,7 @@
 +(BOOL)statsEnabled{
     return YES;
 }
++(BOOL)shouldShowReasonInput{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"prompt_for_in_app_purchases"] != NO;
+}
 @end

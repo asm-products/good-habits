@@ -51,6 +51,8 @@ typedef enum{
 -(DayCheckedState)dayState;
 -(DayCheckedState)toggleDayInCalendarForDate:(NSDate*)date;
 
+-(void)save;
+
 
 @end
 

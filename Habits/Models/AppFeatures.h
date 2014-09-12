@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define NAGGING_DISABLED @"NAGGING_DISABLED"
+
 @interface AppFeatures : NSObject
 +(BOOL)statsEnabled;
++(BOOL)shouldShowReasonInput;
 @end

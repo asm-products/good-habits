@@ -12,7 +12,12 @@
 #import "HabitsQueries.h"
 #import "CountView.h"
 #import "Habit.h"
+#import "AppFeatures.h"
+#import "StatisticsFeaturePurchaseController.h"
 
+@interface HabitCell()<UITextFieldDelegate>
+
+@end
 
 @implementation HabitCell{
     __weak IBOutlet CountView *countView;
@@ -22,8 +27,7 @@
 -(void)build{
     [super build];
     
-    reasonEntryField.rightViewMode = UITextFieldViewModeAlways;
-    reasonEntryField.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"locked"]];
+    [self buildReasonEntryField];
     
     //  y = 8 because the check box starts at 10. yes. not ideal.
     countView.text = @[@0, @0];
@@ -31,10 +35,34 @@
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onCheckboxTapped)];
     [self.checkbox addGestureRecognizer:tap];
 }
+-(void)buildReasonEntryField{
+    reasonEntryField.rightViewMode = UITextFieldViewModeAlways;
+    if([AppFeatures statsEnabled] == NO){
+        reasonEntryField.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"locked"]];
+    }
+    reasonEntryField.delegate = self;
+}
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if([AppFeatures statsEnabled] == NO){
+        StatisticsFeaturePurchaseController * controller = [StatisticsFeaturePurchaseController sharedController];
+        [controller showPrompt];
+        return NO;
+    }else{
+        return YES;
+    }
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    self.chain.notes = textField.text;
+    [self.chain save];
+    
+    [textField resignFirstResponder];
+    return YES;
+}
 -(void)onCheckboxTapped{
     DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
     self.chain = [habit chainForDate:self.day];
     [self setState:state];
+    if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:self.chain];
     [[NSNotificationCenter defaultCenter] postNotificationName:CHAIN_MODIFIED object:self.chain userInfo:nil];
 }
 
@@ -46,6 +74,7 @@
 -(void)setChain:(Chain *)chain{
     _chain = chain;
     habit = chain.habit;
+    reasonEntryField.text = chain.notes;
     // The following is intended to be monitored by HabitsListViewController to update the height of the cell
     // that was changed, thus hiding or revealing the reason text field
     if(chain == nil) @throw [NSException exceptionWithName:@"NoChainProvided" reason:nil userInfo:nil];
@@ -61,7 +90,7 @@
     
     NSInteger countOfDaysOverdue = self.chain.countOfDaysOverdue;
     NSLog(@"Count of days overdue for %@ = %@ (next due date %@)", self.chain.habit.title, @(countOfDaysOverdue), self.chain.nextRequiredDate);
-    NSInteger currentChainLength = countOfDaysOverdue > 0 ? -countOfDaysOverdue : self.chain.length;
+    NSInteger currentChainLength = countOfDaysOverdue > 0 ? -(countOfDaysOverdue - 1) : self.chain.length;
     NSInteger longestChain = self.chain.habit.longestChain.length;
     countView.color = self.chain.habit.color;
     countView.text = @[ @(currentChainLength), @(longestChain) ];
@@ -69,7 +98,6 @@
     countView.highlighted = false;
     
     
-    if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:self.chain];
 }
 -(void)update{
     [self setState:self.state];
