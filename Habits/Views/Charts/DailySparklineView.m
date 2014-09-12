@@ -54,7 +54,6 @@
 {
     [super drawRect:rect];
     CGRect bounds = CGRectInset(self.bounds, INSET, INSET);
-    if(self.dataPoints.count < 3) return;
     CGSize unit = [self unitSize:self.dataPoints bounds:bounds];
     UIBezierPath * checkBoxPath = [self checkBoxPath];
     UIBezierPath * checkPath = [self checkPath];
