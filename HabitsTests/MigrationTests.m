@@ -10,18 +10,21 @@
 #import "Chain.h"
 #import "HabitDay.h"
 #import "HabitsQueries.h"
-SpecBegin(MigrationTests)
 
-describe(@"upgrade expectations", ^{
-    it(@"should detect the correct number of chains", ^{
-        // See testing_habits_expectation.png
-        [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
-        Habit * habit = [HabitsQueries findHabitByIdentifier:@"Testing habit"];
-        expect(habit).notTo.beNil();
-        expect(habit.chains.count).to.equal(5);
-        [habit.sortedChains enumerateObjectsUsingBlock:^(Chain * chain, NSUInteger idx, BOOL *stop) {
-            expect(chain.length).to.equal([@[@1,@5,@3, @2, @3][idx] intValue]);
-        }];
-    });
-});
-SpecEnd
+@interface MigrationTests : XCTestCase
+
+@end
+
+@implementation MigrationTests
+-(void)testCorrectChainCountsDetected{
+    // See testing_habits_expectation.png
+    [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
+    Habit * habit = [HabitsQueries findHabitByIdentifier:@"Testing habit"];
+    expect(habit).notTo.beNil();
+    expect(habit.chains.count).to.equal(5);
+    [habit.sortedChains enumerateObjectsUsingBlock:^(Chain * chain, NSUInteger idx, BOOL *stop) {
+        expect(chain.length).to.equal([@[@1,@5,@3, @2, @3][idx] intValue]);
+    }];
+ 
+}
+@end
