@@ -27,7 +27,7 @@
     checkmark.frame = (CGRect){ CGPointMake(12, 12), checkmark.frame.size };
     [self addSubview:checkmark];
     
-    cross = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cross"]];
+    cross = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Cross"]];
     cross.contentMode = UIViewContentModeCenter;
     cross.frame = self.bounds;
     [self addSubview:cross];
