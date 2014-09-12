@@ -39,4 +39,8 @@
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:STATS_PURCHASED];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+- (IBAction)didPressEnableInAppPurchases:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STATS_PURCHASED];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 @end
