@@ -129,7 +129,7 @@
 }
 -(BOOL)needsToBeDone:(NSDate *)date{
     date = [TimeHelper startOfDayInUTC:date];
-    return ![self done:date] && [self isRequiredOnWeekday:date];
+    return ![self done:date] && [self isRequiredOnWeekday:date] && self.currentChain.explicitlyBroken.boolValue != YES;
 }
 -(BOOL)hasReminders{
     return self.reminderTime != nil;
