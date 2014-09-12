@@ -21,9 +21,9 @@
 }
 
 +(CGFloat)heightWithReasonText:(NSString *)text{
-    CGSize result = [text boundingRectWithSize:CGSizeMake(290, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{
+    CGSize result = [text boundingRectWithSize:CGSizeMake(280, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{
                                                                                                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:16]
                                                                                                                        } context:nil].size;
-    return result.height + 40;
+    return result.height + 50;
 }
 @end
