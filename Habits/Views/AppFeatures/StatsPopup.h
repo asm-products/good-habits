@@ -15,6 +15,7 @@
 @property (nonatomic) CGFloat initialSpringVelocity;
 @property (nonatomic) CGFloat viewablePixels;
 @property (nonatomic) CGFloat springDamping;
+-(void)hide;
 -(void)animateIn;
 -(void)animateOut;
 @end

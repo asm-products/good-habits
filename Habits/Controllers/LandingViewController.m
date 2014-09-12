@@ -40,7 +40,7 @@
     }
 }
 -(void)viewDidLayoutSubviews{
-    [statsPopup animateOut];
+    [statsPopup hide];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -49,6 +49,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [statsPopup animateOut];
     if([segue.identifier isEqualToString:@"HabitList"]){
         self.habitListViewController = segue.destinationViewController;
     }
@@ -59,17 +60,16 @@
         [self.habitListViewController insertHabit:habit];
         HabitDetailViewController * dest = segue.destinationViewController;
         dest.habit = habit;
-        [statsPopup animateOut];
     }
     if([segue.identifier isEqualToString:@"Stats"]){
         StatsTableViewController * controller = (StatsTableViewController*)segue.destinationViewController;
         controller.habit = statsPopup.habit;
-        [statsPopup animateOut];
     }
 }
 
 #pragma mark - Stats
 -(void)enableStatsPopup{
+    statsPopup.translatesAutoresizingMaskIntoConstraints = NO;
     statsPopup.springDamping = 0.5;
     statsPopup.initialSpringVelocity = 0.5;
     statsPopup.viewablePixels = 120;
@@ -80,7 +80,7 @@
 
 -(void)onTodayCheckedForChain:(NSNotification*)notification{
     Chain * chain = notification.object;
-    if(statsPopup.frame.origin.y < self.view.frame.size.height) {
+    if(self.statsVisible) {
         [UIView animateWithDuration:0.1 animations:^{
             statsPopup.frame = (CGRect){CGPointMake(0, statsPopup.frame.origin.y + 20), statsPopup.frame.size};
         } completion:^(BOOL finished) {
@@ -92,9 +92,8 @@
         statsPopup.habit = chain.habit;
         [statsPopup animateIn];
     }
-    
-    
-    
-    
+}
+-(BOOL)statsVisible{
+    return statsPopup.frame.origin.y < self.view.frame.size.height;
 }
 @end

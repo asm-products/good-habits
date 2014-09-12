@@ -82,12 +82,14 @@
          [self restartDismissTimer];
      }];
 }
-
+-(void)hide{
+    self.frame = CGRectMake(self.frame.origin.x, self.superview.frame.size.height, self.frame.size.width, self.frame.size.height);
+}
 - (void)animateOut
 {
     [UIView animateWithDuration:self.animateInOutTime delay:0 usingSpringWithDamping:self.springDamping initialSpringVelocity:self.initialSpringVelocity options:UIViewAnimationOptionCurveEaseInOut animations:^(void)
      {
-         self.frame = CGRectMake(self.frame.origin.x, self.superview.frame.size.height, self.frame.size.width, self.frame.size.height);
+         [self hide];
          
      } completion:nil];
 }
