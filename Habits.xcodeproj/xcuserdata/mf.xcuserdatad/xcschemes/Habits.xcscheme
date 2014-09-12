@@ -37,6 +37,20 @@
                BlueprintName = "HabitsTests"
                ReferencedContainer = "container:Habits.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ChainManipulationTests">
+               </Test>
+               <Test
+                  Identifier = "HabitCreationTestsSpec">
+               </Test>
+               <Test
+                  Identifier = "HabitsListTestsSpec">
+               </Test>
+               <Test
+                  Identifier = "JSONConversionTestsSpec">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

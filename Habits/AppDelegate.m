@@ -16,11 +16,13 @@
 #import "DataExport.h"
 #import <UIAlertView+Blocks.h>
 #import <SVProgressHUD.h>
+#import "StatisticsFeaturePurchaseController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [InfoTask trackInstallationDate];
+    [[StatisticsFeaturePurchaseController sharedController] listenForTransactions];
 //    [Audits initialize];
     [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)
     
