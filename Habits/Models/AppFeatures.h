@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define NAGGING_DISABLED @"NAGGING_DISABLED"
+#define STATS_PURCHASED @"STATUS_PURCHASED"
 
 @interface AppFeatures : NSObject
 +(BOOL)statsEnabled;

@@ -9,6 +9,7 @@
 #import "AdminTableViewController.h"
 #import "PlistStoreToCoreDataMigrator.h"
 #import "HabitsQueries.h"
+#import "AppFeatures.h"
 @interface AdminTableViewController ()
 
 @end
@@ -33,5 +34,9 @@
 }
 - (IBAction)didPressRestoreAWData:(id)sender {
     [self restoreDataFromPrefsFileNamed:@"aw.goodtohear.habits"];
+}
+- (IBAction)clearInAppPurchases:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:STATS_PURCHASED];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 @end

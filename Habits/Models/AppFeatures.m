@@ -10,7 +10,7 @@
 
 @implementation AppFeatures
 +(BOOL)statsEnabled{
-    return YES;
+    return [[NSUserDefaults standardUserDefaults] boolForKey:STATS_PURCHASED];
 }
 +(BOOL)shouldShowReasonInput{
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"prompt_for_in_app_purchases"] != NO;

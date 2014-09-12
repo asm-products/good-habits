@@ -17,6 +17,7 @@
 #import "StatsTableViewController.h"
 #import "AppFeatures.h"
 #import "CoreDataClient.h"
+#import "StatisticsFeaturePurchaseController.h"
 typedef enum{
     HabitDetailCellIndexCalendar,
     HabitDetailCellIndexDayPicker,
@@ -43,6 +44,17 @@ typedef enum{
 @end
 
 @implementation HabitDetailViewController
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
+    if ([identifier isEqualToString:@"Stats"]) {
+        if ([AppFeatures statsEnabled]) {
+            return YES;
+        }else{
+            [[StatisticsFeaturePurchaseController sharedController] showPrompt];
+            return NO;
+        }
+    }
+    return YES;
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"Calendar"]){
         self.calendar = segue.destinationViewController;
@@ -60,7 +72,7 @@ typedef enum{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onHabitColorChanged) name:HABIT_COLOR_CHANGED object:nil];
 }
 -(void)build{
-    self.statsButton.enabled = [AppFeatures statsEnabled];
+    self.statsButton.tintColor = [AppFeatures statsEnabled] ? [[UIApplication sharedApplication].delegate window].tintColor : [UIColor lightGrayColor];
     self.navigationItem.title = @"";
     self.titleTextField.text = self.habit.title;
     self.colorPickerCell.habit = self.habit;

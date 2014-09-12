@@ -46,6 +46,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"prompt_for_in_app_purchases"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[[UIAlertView alloc] initWithTitle:@":-(" message:@"Ok, we won't ask again. You can re-enable this prompt from the Settings app under Habits" cancelButtonItem:[RIButtonItem itemWithLabel:@"Got it"] otherButtonItems: nil] show];
+
     [[NSNotificationCenter defaultCenter] postNotificationName:NAGGING_DISABLED object:nil userInfo:nil];
 }
 #pragma mark - Purchase process
