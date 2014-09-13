@@ -16,5 +16,6 @@
 @property (nonatomic) BOOL inactive;
 @property (nonatomic, strong) NSDate * day;
 @property (nonatomic) DayCheckedState state;
+@property (nonatomic, weak) UIViewController * delegate;
 -(void)update;
 @end

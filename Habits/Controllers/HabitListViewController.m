@@ -110,6 +110,7 @@ typedef enum {
 }
 -(HabitCell*)configureCell:(HabitCell*)cell forIndexPath:(NSIndexPath*)indexPath{
     cell.day = today;
+    cell.delegate = self;
     Habit * habit = [self habitForIndexPath:indexPath];
     cell.inactive = NO;
     cell.chain = [habit chainForDate:now];

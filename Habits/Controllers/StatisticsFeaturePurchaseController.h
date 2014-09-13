@@ -14,5 +14,5 @@
 @interface StatisticsFeaturePurchaseController : NSObject<SKPaymentTransactionObserver>
 CWL_DECLARE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseController, sharedController);
 -(void)listenForTransactions;
--(void)showPrompt;
+-(void)showPromptInViewController:(UIViewController*)controller;
 @end

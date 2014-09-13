@@ -12,6 +12,7 @@ target "Habits" do
     pod 'SVProgressHUD', '~> 1.0'
     pod 'GTHRectHelpers', :git=>'https://github.com/goodtohear/GTHRectHelpers.git'
     pod 'LMAlertView', '~> 1.1'
+    pod 'MVModalTransitions', :git=>'git@github.com:michaelforrest/MVModalTransitions.git'
     #    pod 'KiipSDK', '~> 2.0'
 end
 

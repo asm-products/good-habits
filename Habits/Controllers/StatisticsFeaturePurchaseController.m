@@ -11,7 +11,11 @@
 #import "AppFeatures.h"
 #import "SKProductsRequest+Blocks.h"
 #import <SVProgressHUD.h>
-@implementation StatisticsFeaturePurchaseController
+#import "StatisticsFeaturePurchaseViewController.h"
+@implementation StatisticsFeaturePurchaseController{
+    
+
+}
 CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseController, sharedController);
 
 #pragma mark - Prices
@@ -19,7 +23,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
 }
 
 #pragma mark - UI
--(void)showPrompt{
+-(void)showPromptInViewController:(UIViewController *)controller{
     RIButtonItem * buyNowItem = [RIButtonItem itemWithLabel:@"Buy now ([$0.99])" action:^{
         [self startPurchase];
     }];
@@ -32,23 +36,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
         }
         buyNowItem.label = @"Different label";
     }];
+    StatisticsFeaturePurchaseViewController * alert = [[StatisticsFeaturePurchaseViewController alloc] initWithNibName:@"StatisticsFeaturePurchaseView" bundle:nil];
     
-    [[[UIAlertView alloc] initWithTitle:@"Beggar Bot" message:@"Beggarbot wants you to buy this as a feature." cancelButtonItem:[RIButtonItem itemWithLabel:@"Not now, thanks"] otherButtonItems:
-      buyNowItem,
-      [RIButtonItem itemWithLabel:@"Unlock existing purchase" action:^{
-        [self unlockPurchase];
-    }],
-      [RIButtonItem itemWithLabel:@"Never ask again" action:^{
-        [self disableNagging];
-    }] , nil] show];
+    [controller presentViewController:alert animated:YES completion:nil];
 }
--(void)disableNagging{
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"prompt_for_in_app_purchases"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [[[UIAlertView alloc] initWithTitle:@":-(" message:@"Ok, we won't ask again. You can re-enable this prompt from the Settings app under Habits" cancelButtonItem:[RIButtonItem itemWithLabel:@"Got it"] otherButtonItems: nil] show];
 
-    [[NSNotificationCenter defaultCenter] postNotificationName:NAGGING_DISABLED object:nil userInfo:nil];
-}
 #pragma mark - Purchase process
 -(void)startPurchase{
     

@@ -39,6 +39,7 @@
     [tester tapViewWithAccessibilityLabel:@"Not now, thanks"];
     
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Never ask again"];
+    [tester waitForTimeInterval:1000];
 }
 
 @end

@@ -49,7 +49,7 @@ typedef enum{
         if ([AppFeatures statsEnabled]) {
             return YES;
         }else{
-            [[StatisticsFeaturePurchaseController sharedController] showPrompt];
+            [[StatisticsFeaturePurchaseController sharedController] showPromptInViewController:self];
             return NO;
         }
     }

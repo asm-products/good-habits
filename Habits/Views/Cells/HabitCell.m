@@ -42,7 +42,8 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if([AppFeatures statsEnabled] == NO){
         StatisticsFeaturePurchaseController * controller = [StatisticsFeaturePurchaseController sharedController];
-        [controller showPrompt];
+        [controller showPromptInViewController:self.delegate];
+        
         return NO;
     }else{
         return YES;

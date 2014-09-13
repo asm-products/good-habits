@@ -163,6 +163,9 @@
 		ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A0190D2C270030CC82 /* HabitListViewController.m */; };
 		ACADB4A4190D2F5C0030CC82 /* Habit.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A3190D2F5C0030CC82 /* Habit.m */; };
 		ACADB4A7190D34BE0030CC82 /* Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A6190D34BE0030CC82 /* Colors.m */; };
+		ACAE5F4419C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAE5F4319C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m */; };
+		ACAE5F4719C4B080003B0893 /* preview-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE5F4519C4B080003B0893 /* preview-chart.png */; };
+		ACAE5F4819C4B080003B0893 /* preview-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE5F4619C4B080003B0893 /* preview-chart@2x.png */; };
 		ACB35F2A19A750DC000C03F5 /* Chain.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F2919A750DC000C03F5 /* Chain.m */; };
 		ACB35F3519A78DBD000C03F5 /* HabitDayQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3419A78DBD000C03F5 /* HabitDayQueries.m */; };
 		ACB35F3819A7AB5C000C03F5 /* ChainQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3719A7AB5C000C03F5 /* ChainQueries.m */; };
@@ -179,6 +182,7 @@
 		ACE31AC119756936007173A0 /* HabitDay.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE31AC019756936007173A0 /* HabitDay.m */; };
 		ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */; };
 		ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */; };
+		ACEDA1EF19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEDA1EE19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -403,6 +407,10 @@
 		ACADB4A3190D2F5C0030CC82 /* Habit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
 		ACADB4A5190D34BE0030CC82 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
 		ACADB4A6190D34BE0030CC82 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colors.m; sourceTree = "<group>"; };
+		ACAE5F4219C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsFeaturePurchaseViewController.h; sourceTree = "<group>"; };
+		ACAE5F4319C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsFeaturePurchaseViewController.m; sourceTree = "<group>"; };
+		ACAE5F4519C4B080003B0893 /* preview-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview-chart.png"; sourceTree = "<group>"; };
+		ACAE5F4619C4B080003B0893 /* preview-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview-chart@2x.png"; sourceTree = "<group>"; };
 		ACB35F2819A750DC000C03F5 /* Chain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chain.h; sourceTree = "<group>"; };
 		ACB35F2919A750DC000C03F5 /* Chain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chain.m; sourceTree = "<group>"; };
 		ACB35F3319A78DBD000C03F5 /* HabitDayQueries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDayQueries.h; sourceTree = "<group>"; };
@@ -431,6 +439,7 @@
 		ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayBoundaryTests.m; sourceTree = "<group>"; };
 		ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStatsTableViewController.h; sourceTree = "<group>"; };
 		ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStatsTableViewController.m; sourceTree = "<group>"; };
+		ACEDA1EE19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticsFeaturePurchaseView.xib; path = ../Views/AppFeatures/StatisticsFeaturePurchaseView.xib; sourceTree = "<group>"; };
 		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -749,6 +758,9 @@
 				AC94093B19B8FCD4003E6257 /* StatisticsFeaturePurchaseController.m */,
 				ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */,
 				ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */,
+				ACAE5F4219C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.h */,
+				ACAE5F4319C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m */,
+				ACEDA1EE19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -793,6 +805,8 @@
 		ACADB40C190D26940030CC82 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ACAE5F4519C4B080003B0893 /* preview-chart.png */,
+				ACAE5F4619C4B080003B0893 /* preview-chart@2x.png */,
 				AC94093219B8E75F003E6257 /* locked.png */,
 				AC94093319B8E75F003E6257 /* locked@2x.png */,
 				AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */,
@@ -1002,6 +1016,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACADB486190D27960030CC82 /* nav@2x.png in Resources */,
+				ACAE5F4719C4B080003B0893 /* preview-chart.png in Resources */,
 				ACADB45E190D27960030CC82 /* guide_1.png in Resources */,
 				ACADB468190D27960030CC82 /* guide_6.png in Resources */,
 				ACADB45D190D27960030CC82 /* back@2x.png in Resources */,
@@ -1010,6 +1025,7 @@
 				ACADB46E190D27960030CC82 /* guide_9.png in Resources */,
 				ACADB464190D27960030CC82 /* guide_4.png in Resources */,
 				AC94093419B8E75F003E6257 /* locked.png in Resources */,
+				ACAE5F4819C4B080003B0893 /* preview-chart@2x.png in Resources */,
 				ACADB488190D27960030CC82 /* trash.png in Resources */,
 				ACADB3EC190D23B90030CC82 /* Images.xcassets in Resources */,
 				AC3237BE196C438900A2FF9F /* Stats.png in Resources */,
@@ -1052,6 +1068,7 @@
 				AC1EB93219B096C300BF7EAF /* testing.goodtohear.habits.plist in Resources */,
 				ACADB49D190D27960030CC82 /* arrow_back.png in Resources */,
 				ACADB483190D27960030CC82 /* happiness_shape@2x.png in Resources */,
+				ACEDA1EF19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib in Resources */,
 				ACADB48E190D27960030CC82 /* main_screen.png in Resources */,
 				ACADB45A190D27960030CC82 /* icon_120.png in Resources */,
 				ACADB485190D27960030CC82 /* nav.png in Resources */,
@@ -1233,6 +1250,7 @@
 				ACB35F3E19A8C378000C03F5 /* ChainStatsCell.m in Sources */,
 				AC4018CD195096A70033407B /* CalendarDayView.m in Sources */,
 				AC4018E91950FB510033407B /* LinkCell.m in Sources */,
+				ACAE5F4419C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m in Sources */,
 				AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */,
 				AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */,
 			);
