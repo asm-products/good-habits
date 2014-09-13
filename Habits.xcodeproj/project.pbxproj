@@ -177,6 +177,8 @@
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
 		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
 		ACE31AC119756936007173A0 /* HabitDay.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE31AC019756936007173A0 /* HabitDay.m */; };
+		ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */; };
+		ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -426,6 +428,9 @@
 		ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailySparklineView.m; sourceTree = "<group>"; };
 		ACE31ABF19756936007173A0 /* HabitDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDay.h; sourceTree = "<group>"; };
 		ACE31AC019756936007173A0 /* HabitDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDay.m; sourceTree = "<group>"; };
+		ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayBoundaryTests.m; sourceTree = "<group>"; };
+		ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStatsTableViewController.h; sourceTree = "<group>"; };
+		ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStatsTableViewController.m; sourceTree = "<group>"; };
 		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -683,6 +688,7 @@
 				ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */,
 				ACBCD3BC19B456DD00085A95 /* ReminderTests.m */,
 				AC94093619B8F5EA003E6257 /* PremiumFeatureTests.m */,
+				ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */,
 			);
 			path = HabitsTests;
 			sourceTree = "<group>";
@@ -741,6 +747,8 @@
 				AC1EB93019B0967500BF7EAF /* AdminTableViewController.m */,
 				AC94093A19B8FCD4003E6257 /* StatisticsFeaturePurchaseController.h */,
 				AC94093B19B8FCD4003E6257 /* StatisticsFeaturePurchaseController.m */,
+				ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */,
+				ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1209,6 +1217,7 @@
 				ACBCD3C819B4BEEA00085A95 /* Habits.xcdatamodeld in Sources */,
 				AC4018E01950F79C0033407B /* InfoViewController.m in Sources */,
 				ACADB3E0190D23B90030CC82 /* main.m in Sources */,
+				ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */,
 				AC4018D41950C3DE0033407B /* DayPicker.m in Sources */,
 				ACB35F2A19A750DC000C03F5 /* Chain.m in Sources */,
 				ACB35F3819A7AB5C000C03F5 /* ChainQueries.m in Sources */,
@@ -1239,6 +1248,7 @@
 				ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */,
 				ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */,
 				AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */,
+				ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */,
 				AC94093719B8F5EA003E6257 /* PremiumFeatureTests.m in Sources */,
 				AC6EC67119C374B000640590 /* GTHStoreKitMock.m in Sources */,
 				AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */,

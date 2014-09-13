@@ -177,14 +177,15 @@
 }
 -(Chain *)chainForDate:(NSDate *)date{
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache <= %@", date]];
-    if(chains.count == 0){
+    Chain * lastObject = chains.lastObject;
+    if(chains.count == 0 || (lastObject && lastObject.explicitlyBroken.boolValue && lastObject.countOfDaysOverdue > 0)){
         Chain * chain = [self addNewChain];
         chain.firstDateCache = [TimeHelper today];
         chain.lastDateCache = [TimeHelper today];
         chain.daysCountCache = @0;
         return chain;
     }else{
-        return chains.lastObject;
+        return lastObject;
     }
 }
 -(void)recalculateRunningTotalsInBackground:(void (^)())completionCallback{

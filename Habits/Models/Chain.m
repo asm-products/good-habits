@@ -14,8 +14,7 @@
 @implementation Chain
 @dynamic notes,explicitlyBroken,days,habit,breakDetected,daysCountCache,lastDateCache,firstDateCache,daysRequired;
 -(BOOL)isBroken{
-    NSLog(@"isBroken needs implementing!");
-    return self.explicitlyBroken.boolValue;
+    return self.explicitlyBroken.boolValue || self.countOfDaysOverdue > 0;
 }
 -(void)save{
     [[CoreDataClient defaultClient].managedObjectContext save:nil];
@@ -45,6 +44,9 @@
     NSDate * result;
     if(self.days.count == 0 && self.habit.chains.count == 1) return [TimeHelper today];
     HabitDay * lastDay = self.sortedDays.lastObject;
+    if (self.days.count == 0) {
+        return [TimeHelper today];
+    }
     for (NSInteger i = 1; i < 8; i++) {
         result = [TimeHelper addDays:i toDate:lastDay.date];
         if([self.habit isRequiredOnWeekday:result]){
@@ -77,6 +79,7 @@
     if(self.explicitlyBroken.boolValue == YES){
         // Was explicity broken - null out the broken
         self.explicitlyBroken = nil;
+        NSLog(@"Clearing explicit break on %@ from %@", self.habit.title, self.firstDateCache);
         result = DayCheckedStateNull;
         
     }else if(dateIsTooLateForThisChain){
@@ -99,10 +102,15 @@
                 [self.habit removeChainsObject:self];
                 chain = [habit chainForDate:date];
             }
-            chain.lastDateCache = [chain.sortedDays.lastObject date];
-            chain.explicitlyBroken = @YES;
+            chain.lastDateCache = chain.days.count > 0 ? [chain.sortedDays.lastObject date] : [TimeHelper today];
+            if(chain.countOfDaysOverdue < 2){
+                chain.explicitlyBroken = @YES;
+                NSLog(@"Explicitly breaking %@ chain from %@", chain.habit.title, chain.firstDateCache);
+                result = DayCheckedStateBroken;
+            }else{
+                result = DayCheckedStateNull;
+            }
             
-            result = DayCheckedStateBroken;
         }
 
     }else{
@@ -210,7 +218,7 @@
 }
 -(DayCheckedState)dayState{
     if([self.lastDateCache isEqualToDate:[TimeHelper today]]){
-        return DayCheckedStateComplete;
+        return self.days.count > 0 ? DayCheckedStateComplete : DayCheckedStateNull;
     }else if(self.explicitlyBroken.boolValue){
         return DayCheckedStateBroken;
     }else{

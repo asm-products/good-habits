@@ -48,10 +48,11 @@ static NSDate * selectedDate = nil;
 }
 +(NSDate *)now{
     if(selectedDate) return selectedDate;
-    return [NSDate date];
+    NSCalendar * calendar = [NSCalendar currentCalendar];
+    return [[NSDate date] dateByAddingTimeInterval:calendar.timeZone.secondsFromGMT];
 }
 +(NSDate *)today{
-    return [self startOfDayInUTC: selectedDate ? selectedDate : [NSDate date]];
+    return [self startOfDayInUTC: selectedDate ? selectedDate : self.now];
 }
 +(NSInteger)weekday:(NSDate *)date{
     NSDateComponents * components = [[self UTCCalendar] components:NSWeekdayCalendarUnit fromDate:date];

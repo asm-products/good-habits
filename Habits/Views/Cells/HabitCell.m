@@ -37,9 +37,6 @@
 }
 -(void)buildReasonEntryField{
     reasonEntryField.rightViewMode = UITextFieldViewModeAlways;
-    if([AppFeatures statsEnabled] == NO){
-        reasonEntryField.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"locked"]];
-    }
     reasonEntryField.delegate = self;
 }
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
@@ -62,6 +59,7 @@
     DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
     self.chain = [habit chainForDate:self.day];
     [self setState:state];
+    if (state != DayCheckedStateBroken) [reasonEntryField resignFirstResponder];
     if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:self.chain];
     [[NSNotificationCenter defaultCenter] postNotificationName:CHAIN_MODIFIED object:self.chain userInfo:nil];
 }
@@ -78,6 +76,9 @@
     // The following is intended to be monitored by HabitsListViewController to update the height of the cell
     // that was changed, thus hiding or revealing the reason text field
     if(chain == nil) @throw [NSException exceptionWithName:@"NoChainProvided" reason:nil userInfo:nil];
+    if([AppFeatures statsEnabled] == NO){
+        reasonEntryField.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"locked"]];
+    }
 }
 -(void)setState:(DayCheckedState)state{
     _state = state;

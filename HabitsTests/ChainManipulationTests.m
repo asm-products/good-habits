@@ -67,7 +67,6 @@
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
     [tester waitForViewWithAccessibilityLabel:@"Current chain length 1, longest chain 1"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
-    [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Broken"];
     [tester waitForViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
 }
 -(void)testChangingRequiredDatesDoesNotRuinExistingChain{
@@ -78,5 +77,25 @@
     [tester tapViewWithAccessibilityLabel:@"19 August, mid-chain"];
     [tester waitForViewWithAccessibilityLabel:@"21 August, isolated day"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
+}
+-(void)testCanExplicitlyBreakTwoChainsInSequence{
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
+    [tester tapViewWithAccessibilityLabel:@"" value:@"What happened?" traits:UIAccessibilityTraitNone];
+    [tester enterTextIntoCurrentFirstResponder:@"I messed it up. Sorry.\n"];
+    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-23"].date];
+    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:@"I messed it up. Sorry."];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
+    [tester tapViewWithAccessibilityLabel:@"" value:@"What happened?" traits:UIAccessibilityTraitNone];
+    [tester enterTextIntoCurrentFirstResponder:@"Oh no, not again\n"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Broken"];
+
+}
+-(void)testPastChainsAreNotExplicitlyBroken{
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
+    [tester waitForViewWithAccessibilityLabel:@"-19"];
 }
 @end

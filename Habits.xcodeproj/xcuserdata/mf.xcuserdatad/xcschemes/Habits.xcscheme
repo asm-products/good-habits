@@ -39,9 +39,6 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "ChainManipulationTests">
-               </Test>
-               <Test
                   Identifier = "HabitCreationTestsSpec">
                </Test>
                <Test

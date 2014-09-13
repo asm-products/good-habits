@@ -35,6 +35,12 @@
     UIBarButtonItem * fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpace.width = -26;
     self.navigationItem.leftBarButtonItems = @[fixedSpace, self.navigationItem.leftBarButtonItem];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTodayCheckedForChain:) name:TODAY_CHECKED_FOR_CHAIN object:nil];
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.habitListViewController refresh];
     if([AppFeatures statsEnabled]){
         [self enableStatsPopup];
     }
@@ -75,11 +81,12 @@
     statsPopup.viewablePixels = 120;
     [statsPopup animateOut];
     statsPopup.animateInOutTime = 0.6;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTodayCheckedForChain:) name:TODAY_CHECKED_FOR_CHAIN object:nil];
+
 }
 
 -(void)onTodayCheckedForChain:(NSNotification*)notification{
     Chain * chain = notification.object;
+    if([AppFeatures statsEnabled] == NO) return;
     if(self.statsVisible) {
         [UIView animateWithDuration:0.1 animations:^{
             statsPopup.frame = (CGRect){CGPointMake(0, statsPopup.frame.origin.y + 20), statsPopup.frame.size};

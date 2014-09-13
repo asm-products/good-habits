@@ -14,6 +14,7 @@
 #import "Chain.h"
 #import "ChainStatsCell.h"
 #import "ReasonCellTableViewCell.h"
+#import "CoreDataClient.h"
 typedef enum {
     StatsSectionSparkline,
     StatsSectionReasons,
@@ -37,12 +38,16 @@ typedef enum {
     self.title = self.habit.title;
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    self.chains = self.habit.sortedChains.reverse;
-    self.chainsWithReasons = [self.chains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"notes != nil && notes != %@", @""]];
+    [self loadChains];
     
     [self.tableView reloadData];
 }
 
+-(void)loadChains{
+    
+    self.chains = self.habit.sortedChains.reverse;
+    self.chainsWithReasons = [self.chains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"notes != nil && notes != %@", @""]];
+}
 #pragma mark - Table view data source
 -(Chain*)chainWithReasonAtIndexPath:(NSIndexPath*)indexPath{
     return self.chainsWithReasons[indexPath.row];
@@ -107,13 +112,13 @@ typedef enum {
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Do nothing because I'm not sure how editing works with the chain-based model.
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        Chain * chain = self.chains[indexPath.row];
-//        habitDay.chainBreakStatus = @"deleted";
-//        self.chainBreaks = [self.chainBreaks filter:^BOOL(id obj) {
-//            return obj != habitDay;
-//        }];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Chain * chain = self.chains[indexPath.row];
+        [self.habit removeChainsObject:chain];
+        [[CoreDataClient defaultClient].managedObjectContext save:nil];
+        [self loadChains];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 //    }else if(editingStyle == UITableViewCellEditingStyleInsert){
 //        [tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 //    }

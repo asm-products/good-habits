@@ -102,18 +102,18 @@
             previousState = habitDay.dayState;
         }
     }
-    for (Chain * chain in chains) {
-        if(chain.isBroken){
-            NSInteger cellIndex = [cells indexOfObjectPassingTest:^BOOL(CalendarDayView*cell, NSUInteger idx, BOOL *stop) {
-                return [cell.day isEqualToDate:[chain nextRequiredDate]];
-            }];
-            if(cellIndex != NSNotFound){
-                CalendarDayView * cell = cells[cellIndex];
-                [cell setSelectionState:CalendarDayStateBrokenChain color:habit.color];
-                cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:CalendarDayStateBrokenChain] ];
-            }
-        }
-    }
+//    for (Chain * chain in chains) {
+//        if(chain.isBroken){
+//            NSInteger cellIndex = [cells indexOfObjectPassingTest:^BOOL(CalendarDayView*cell, NSUInteger idx, BOOL *stop) {
+//                return [cell.day isEqualToDate:[chain nextRequiredDate]];
+//            }];
+//            if(cellIndex != NSNotFound){
+//                CalendarDayView * cell = cells[cellIndex];
+//                [cell setSelectionState:CalendarDayStateBrokenChain color:habit.color];
+//                cell.accessibilityLabel = [NSString stringWithFormat:@"%@, %@", [[TimeHelper accessibilityDateFormatter] stringFromDate:cell.day], [Calendar labelForState:CalendarDayStateBrokenChain] ];
+//            }
+//        }
+//    }
 }
 
 +(BOOL)isFutureDate:(NSDate*)date{
