@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C9Y-ae-7A0">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -170,14 +171,26 @@
                                             <rect key="frame" x="240" y="8" width="70" height="28"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What happened?" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dcF-l7-O64">
-                                            <rect key="frame" x="10" y="44" width="300" height="30"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What happened?" minimumFontSize="10" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dcF-l7-O64">
+                                            <rect key="frame" x="40" y="44" width="270" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Uz-Qp-wQ7">
+                                            <rect key="frame" x="0.0" y="42" width="44" height="38"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="╳">
+                                                <color key="titleColor" red="0.66274511814117432" green="0.12549020349979401" blue="0.12156863510608673" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didPressCancelSkippedDayButton:" destination="Hgd-gt-8C4" eventType="touchUpInside" id="ZYg-XP-t4j"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="cancelSkippedDayButton" destination="5Uz-Qp-wQ7" id="juy-hs-Lt9"/>
                                     <outlet property="checkbox" destination="ee6-Mg-IDX" id="lxw-Rm-v5Z"/>
                                     <outlet property="countView" destination="oUz-aC-COL" id="c8Z-99-lak"/>
                                     <outlet property="label" destination="BsF-qM-NUI" id="Cfz-DH-Gdd"/>
@@ -825,8 +838,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="t3i-Zh-mBS"/>
         <segue reference="chS-Yr-Ljg"/>
-        <segue reference="toc-2m-8Zg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.27843138575553894" green="0.56078433990478516" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
 </document>

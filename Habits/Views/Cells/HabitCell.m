@@ -14,8 +14,12 @@
 #import "Habit.h"
 #import "AppFeatures.h"
 #import "StatisticsFeaturePurchaseController.h"
+#import <YLMoment.h>
+#import "TimeHelper.h"
+#import <GTHRectHelpers.h>
 
 @interface HabitCell()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *cancelSkippedDayButton;
 
 @end
 
@@ -83,6 +87,20 @@
         reasonEntryField.rightView = nil;
     }
 }
+-(NSString*)timeAgoString:(NSInteger)daysOverdue{
+    switch (daysOverdue) {
+        case 0: return @"today";
+        case 1: return @"yesterday";
+        default: return [NSString stringWithFormat:@"%@ days ago", @(daysOverdue - 1)];
+    }
+}
+- (IBAction)didPressCancelSkippedDayButton:(id)sender {
+    [self.chain checkNextRequiredDate];
+    [self update];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CHAIN_MODIFIED object:nil];
+    self.chain = self.chain;
+}
+
 -(void)setState:(DayCheckedState)state{
     _state = state;
     self.label.alpha = self.inactive ? 0.5 : 1.0;
@@ -102,6 +120,19 @@
     countView.highlighted = false;
     
     
+    self.cancelSkippedDayButton.titleLabel.textColor = self.chain.habit.color;
+    if([self.chain.nextRequiredDate isEqualToDate:[TimeHelper today]]){
+        self.cancelSkippedDayButton.hidden = YES;
+        
+    }else{
+        self.cancelSkippedDayButton.hidden = NO;
+    }
+    if(self.chain.isBroken){
+        NSInteger daysOverdue = self.chain.countOfDaysOverdue;
+        NSString * timeMissedString = [self timeAgoString:daysOverdue];
+        reasonEntryField.placeholder = [NSString stringWithFormat:@"Missed %@. What happened?", timeMissedString];
+    }
+
 }
 -(void)update{
     [self setState:self.state];

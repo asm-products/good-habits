@@ -98,4 +98,8 @@
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
     [tester waitForViewWithAccessibilityLabel:@"-19"];
 }
+-(void)testPastChainsShowChainBreakDateAndButtonToAddDay{
+    [tester waitForViewWithAccessibilityLabel:@"Missed 19 days ago. Why?"];
+    [tester tapViewWithAccessibilityLabel:@"Another testing habit Missed day"];
+}
 @end

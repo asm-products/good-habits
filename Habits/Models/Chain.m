@@ -225,6 +225,10 @@
         return DayCheckedStateNull;
     }
 }
+-(void)checkNextRequiredDate{
+    if(self.nextRequiredDate.timeIntervalSince1970 >= [TimeHelper today].timeIntervalSince1970) return;
+    [self createHabitDayAtDate:self.nextRequiredDate];
+}
 #pragma mark - Caches in case they didn't get set for whatever reason
 -(NSNumber *)daysCountCache{
     NSNumber * result = [self primitiveValueForKey:@"daysCountCache"];

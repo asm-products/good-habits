@@ -50,6 +50,10 @@ typedef enum{
 -(DayCheckedState)stepToNextStateForDate:(NSDate*)date;
 -(DayCheckedState)dayState;
 -(DayCheckedState)toggleDayInCalendarForDate:(NSDate*)date;
+/**
+ *  Should only be called when there are definitely no chains after this one
+ */
+-(void)checkNextRequiredDate;
 
 -(void)save;
 
