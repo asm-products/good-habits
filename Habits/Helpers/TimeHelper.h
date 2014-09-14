@@ -34,4 +34,5 @@
 +(NSDateFormatter*)jsonDateFormatter;
 +(NSDateFormatter*)accessibilityDateFormatter;
 
++(NSDateFormatter*)fullDateFormatter;
 @end

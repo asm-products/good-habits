@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class Habit;
 @interface ChainQueries : NSObject
 +(NSArray *)chainsInMonthStarting:(NSDate *)date;
-
++(NSArray *)chainLengthsDistributionForHabit:(Habit*)habit;
 @end

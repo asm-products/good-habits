@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DailySparklineView : UIView
-@property (nonatomic, strong) NSArray * dataPoints;
+@property (nonatomic, strong) NSArray * chains;
 @property (nonatomic, strong) UIColor * color;
 @end

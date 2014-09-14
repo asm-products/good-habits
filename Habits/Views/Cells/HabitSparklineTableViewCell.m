@@ -32,23 +32,23 @@
    
     periodLabel.text = [SparklineHelper periodText:self.habit.earliestDate].uppercaseString;
     
-    currentChainLengthLabel.text = @(self.habit.currentChainLength).stringValue;
+    currentChainLengthLabel.text = [self labelInDays: self.habit.currentChainLength];
     
     NSSet * chains = habit.chains;
-    longestChainLabel.text = [[chains.allObjects reduce:^id(NSNumber *memo, Chain* chain) {
+    longestChainLabel.text = [self labelInDays:[[chains.allObjects reduce:^id(NSNumber *memo, Chain* chain) {
         if (chain.length > memo.integerValue) {
             memo = @(chain.length);
         }
         return memo;
-    } withInitialMemo:@0] stringValue];
+    } withInitialMemo:@0] integerValue]];
     
     chainCountLabel.text = @(chains.count).stringValue;
     
-    CGFloat averageLength = [[chains.allObjects reduce:^id(NSNumber* memo, Chain* chain) {
+    CGFloat averageLength = chains.count == 0 ? 0 : [[chains.allObjects reduce:^id(NSNumber* memo, Chain* chain) {
         return @(chain.length + memo.integerValue);
     } withInitialMemo:@0] floatValue] / (CGFloat)chains.count;
     
-    averageChainLengthLabel.text = [NSString stringWithFormat:@"%1.1f", averageLength];
+    averageChainLengthLabel.text = [NSString stringWithFormat:@"%1.1f day%@", averageLength, averageLength == 1 ? @"" : @"s"];
     
     currentChainLengthLabel.textColor = habit.color;
     chainCountLabel.textColor = habit.color;
@@ -56,9 +56,11 @@
     averageChainLengthLabel.textColor = habit.color;
     
     sparklineView.color = habit.color;
-    sparklineView.dataPoints = [SparklineHelper dataForHabit:habit];
+    sparklineView.chains = [SparklineHelper dataForHabit:habit];
 }
-
+-(NSString*)labelInDays:(NSInteger)count{
+    return [NSString stringWithFormat:@"%@ day%@",@(count), count == 1 ? @"" : @"s"];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

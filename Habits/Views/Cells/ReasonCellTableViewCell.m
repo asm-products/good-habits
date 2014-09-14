@@ -8,16 +8,18 @@
 
 #import "ReasonCellTableViewCell.h"
 #import "TimeHelper.h"
+#import "Habit.h"
 @implementation ReasonCellTableViewCell{
     
     __weak IBOutlet UILabel *dateLabel;
     __weak IBOutlet UILabel *reasonLabel;
-    __weak IBOutlet UILabel *chainLengthLabel;
+
 }
 -(void)setChain:(Chain *)chain{
-    dateLabel.text = [NSString stringWithFormat:@"%@ - %@", [[TimeHelper accessibilityDateFormatter] stringFromDate:chain.firstDateCache], [[TimeHelper accessibilityDateFormatter] stringFromDate:chain.lastDateCache]];
+    _chain = chain;
+    dateLabel.text = [[[TimeHelper fullDateFormatter] stringFromDate:chain.lastDateCache] stringByAppendingFormat:@" - chain length %@ day%@", chain.daysCountCache, chain.daysCountCache.integerValue == 1 ? @"" : @"s" ];
     reasonLabel.text = chain.notes;
-    chainLengthLabel.text = @(chain.length).stringValue;
+
 }
 
 +(CGFloat)heightWithReasonText:(NSString *)text{

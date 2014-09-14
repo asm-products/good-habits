@@ -47,7 +47,7 @@
         periodLabel.text = @"";
     }
     sparkline.color = habit.color;
-    sparkline.dataPoints = [SparklineHelper dataForHabit:habit];
+    sparkline.chains = [SparklineHelper dataForHabit:habit];
     [sparkline setNeedsDisplay];
 }
 -(void)addDismissGesture{

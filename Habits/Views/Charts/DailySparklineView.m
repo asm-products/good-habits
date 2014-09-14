@@ -11,7 +11,7 @@
 #import <NSArray+F.h>
 #import "HabitDay.h"
 #import "Chain.h"
-#define INSET 2
+#define INSET 5
 #define SCALE 1.0
 
 @implementation DailySparklineView{
@@ -38,9 +38,9 @@
 -(UIBezierPath*)checkBoxPath{
     return [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 4 * SCALE, 4 * SCALE)];;
 }
--(CGSize)unitSize:(NSArray*)dataPoints bounds:(CGRect)bounds{
-    CGFloat step = bounds.size.width / [[dataPoints valueForKeyPath:@"@sum.length"] floatValue];
-    NSInteger max = [[dataPoints reduce:^id(id memo, Chain * chain) {
+-(CGSize)unitSize:(NSArray*)chains bounds:(CGRect)bounds{
+    CGFloat step = bounds.size.width  / [[chains valueForKeyPath:@"@sum.length"] floatValue];
+    NSInteger max = [[chains reduce:^id(id memo, Chain * chain) {
         return @(MAX([memo integerValue], chain.length));
     } withInitialMemo:@0] integerValue];
     CGFloat verticalStep = max != 0 ? bounds.size.height / (CGFloat) max : 0;
@@ -54,7 +54,8 @@
 {
     [super drawRect:rect];
     CGRect bounds = CGRectInset(self.bounds, INSET, INSET);
-    CGSize unit = [self unitSize:self.dataPoints bounds:bounds];
+    bounds.size.width -= 10;
+    CGSize unit = [self unitSize:self.chains bounds:bounds];
     UIBezierPath * checkBoxPath = [self checkBoxPath];
     UIBezierPath * checkPath = [self checkPath];
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -64,7 +65,8 @@
 
     __block NSInteger chainOffset = 0;
     
-    [self.dataPoints enumerateObjectsUsingBlock:^(Chain * chain, NSUInteger chainIndex, BOOL *stop) {
+    // LINES
+    [self.chains enumerateObjectsUsingBlock:^(Chain * chain, NSUInteger chainIndex, BOOL *stop) {
         [chain.sortedDays enumerateObjectsUsingBlock:^(HabitDay * habitDay, NSUInteger idx, BOOL *stop) {
             CGPoint p = [self pointForStepWithUnitSize:unit index:idx + chainOffset value:habitDay.runningTotalCache.floatValue bounds:bounds.size];
             if(idx == 0){
@@ -81,7 +83,8 @@
     [path stroke];
     
     chainOffset = 0;
-    [self.dataPoints enumerateObjectsUsingBlock:^(Chain * chain, NSUInteger chainIndex, BOOL *stop) {
+    // POINTS
+    [self.chains enumerateObjectsUsingBlock:^(Chain * chain, NSUInteger chainIndex, BOOL *stop) {
         if(chain.length > 0){
             [chain.sortedDays enumerateObjectsUsingBlock:^(HabitDay * habitDay, NSUInteger dayIndex, BOOL *stop) {
                 CGPoint p = [self pointForStepWithUnitSize:unit index:chainOffset + dayIndex value:[habitDay.runningTotalCache floatValue] bounds:bounds.size];
@@ -93,6 +96,14 @@
                 
                 [[UIColor whiteColor] setFill];
                 [checkPath fill];
+                
+                if (dayIndex == chain.length - 1 && habitDay.runningTotalCache.integerValue > 5) {
+                    [(habitDay.runningTotalCache).stringValue drawAtPoint:CGPointMake(6, -4) withAttributes:@{
+                                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Bold" size:9],
+                                                        NSForegroundColorAttributeName: [UIColor lightGrayColor]
+                                                        }];
+                }
+                
                 CGContextRestoreGState(context);
             }];
         }

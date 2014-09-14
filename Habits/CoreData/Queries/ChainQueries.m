@@ -9,6 +9,7 @@
 #import "ChainQueries.h"
 #import <YLMoment.h>
 #import "CoreDataClient.h"
+#import "Habit.h"
 @import CoreData;
 
 @implementation ChainQueries
@@ -23,5 +24,24 @@
     NSArray * result = [[CoreDataClient defaultClient].managedObjectContext executeFetchRequest:request error:&error];
     if(error) NSLog(@"Error fetching chains %@", error.localizedDescription);
     return result;
+}
++(NSArray *)chainLengthsDistributionForHabit:(Habit *)habit{
+    NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Chain"];
+    NSExpressionDescription * countExpressionDescription = [NSExpressionDescription new];
+    countExpressionDescription.name = @"count";
+    countExpressionDescription.expression = [NSExpression expressionForFunction:@"count:" arguments: @[[NSExpression expressionForKeyPath:@"daysCountCache"]]];
+    fetchRequest.propertiesToFetch = @[@"daysCountCache", countExpressionDescription];
+    fetchRequest.propertiesToGroupBy = @[@"daysCountCache"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"habit == %@", habit];
+    
+    fetchRequest.resultType = NSDictionaryResultType;
+    NSError * error;
+    NSArray * result = [[CoreDataClient defaultClient].managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if(error){
+        NSLog(@"error %@", error.localizedDescription);
+    }else{
+        NSLog(@"Result %@", result);
+    }
+    return [result sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"daysCountCache" ascending:NO]]];
 }
 @end

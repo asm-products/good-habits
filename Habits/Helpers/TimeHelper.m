@@ -102,7 +102,16 @@ static NSDate * selectedDate = nil;
     return __dateFormatter;
 }
 
-
++(NSDateFormatter*)fullDateFormatter{
+    static NSDateFormatter * formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [NSDateFormatter new];
+        formatter.dateFormat = @"EEEE d MMMM yyyy";
+    });
+    return formatter;
+    
+}
 +(NSDateFormatter*)accessibilityDateFormatter{
     static NSDateFormatter * formatter = nil;
     static dispatch_once_t onceToken;
