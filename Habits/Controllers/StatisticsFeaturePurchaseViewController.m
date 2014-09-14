@@ -10,8 +10,13 @@
 #import <UIAlertView+Blocks.h>
 #import "AppFeatures.h"
 #import <MVPopupTransition.h>
+#import "SKProductsRequest+Blocks.h"
+#import <SVProgressHUD.h>
 @interface StatisticsFeaturePurchaseViewController ()<UIViewControllerTransitioningDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *unlockNowButton;
+@property (weak, nonatomic) IBOutlet UIButton *restorePurchaseButton;
 @property (nonatomic, strong) MVModalTransition * animator;
+@property (nonatomic, strong) SKProduct * product;
 @end
 
 @implementation StatisticsFeaturePurchaseViewController
@@ -19,17 +24,61 @@
     if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]){
         self.modalPresentationStyle = UIModalPresentationCustom;
         self.transitioningDelegate = self;
-        self.animator = [MVPopupTransition createWithSize:CGSizeMake(300, 310) dimBackground:YES shouldDismissOnBackgroundViewTap:YES delegate:nil];
+        self.animator = [MVPopupTransition createWithSize:CGSizeMake(280, 330) dimBackground:YES shouldDismissOnBackgroundViewTap:YES delegate:nil];
     }
     return self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.layer.cornerRadius = 10;
+    [self fetchPriceFromAppStore];
+}
+-(void)fetchPriceFromAppStore{
+    NSSet * set = [NSSet setWithObject:@"statistics"];
+    [SKProductsRequest requestWithProductIdentifiers:set withBlock:^(SKProductsResponse *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(error){
+                self.unlockNowButton.enabled = YES;
+                if(error.code == 0){
+                    [self.unlockNowButton setTitle:@"Couldn't connect" forState:UIControlStateNormal];
+                    self.restorePurchaseButton.enabled = NO;
+                }else{
+                    [self.unlockNowButton setTitle:error.localizedDescription forState:UIControlStateNormal];
+                }
+                self.unlockNowButton.enabled = NO;
+            }else{
+                SKProduct * product = [response.products firstObject];
+                [self enableBuyNowWithProduct:product];
+            }
+            
+        });
+    }];
+}
+-(void)enableBuyNowWithProduct:(SKProduct*)product{
+    NSNumberFormatter * formatter = [[NSNumberFormatter alloc] init];
+    formatter.formatterBehavior = NSNumberFormatterBehavior10_4;
+    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    formatter.locale = product.priceLocale;
+    NSString * title = [NSString stringWithFormat:@"Unlock now (%@)", [formatter stringFromNumber:product.price]];
+    [self.unlockNowButton setTitle:title forState:UIControlStateNormal];
+    self.unlockNowButton.enabled = YES;
+    self.product = product;
+    self.restorePurchaseButton.enabled = YES;
 }
 - (IBAction)didPressUnlockNow:(id)sender {
+    // start purchase
+    SKMutablePayment * payment = [SKMutablePayment paymentWithProduct:self.product];
+    payment.quantity = 1;
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    }];
 }
 - (IBAction)didPressRestorePurchase:(id)sender {
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    }];
 }
 - (IBAction)didPressDoNotAskAgain:(id)sender {
     [self disableNagging];

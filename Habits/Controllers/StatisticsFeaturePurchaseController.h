@@ -11,7 +11,7 @@
 
 @import StoreKit;
 
-@interface StatisticsFeaturePurchaseController : NSObject<SKPaymentTransactionObserver>
+@interface StatisticsFeaturePurchaseController : NSObject<SKPaymentTransactionObserver,SKRequestDelegate>
 CWL_DECLARE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseController, sharedController);
 -(void)listenForTransactions;
 -(void)showPromptInViewController:(UIViewController*)controller;

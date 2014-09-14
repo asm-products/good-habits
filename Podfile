@@ -13,6 +13,7 @@ target "Habits" do
     pod 'GTHRectHelpers', :git=>'https://github.com/goodtohear/GTHRectHelpers.git'
     pod 'LMAlertView', '~> 1.1'
     pod 'MVModalTransitions', :git=>'git@github.com:michaelforrest/MVModalTransitions.git'
+    pod 'DHAppleReceiptParser', '~> 1.0'
     #    pod 'KiipSDK', '~> 2.0'
 end
 

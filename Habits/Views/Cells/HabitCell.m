@@ -79,6 +79,8 @@
     if(chain == nil) @throw [NSException exceptionWithName:@"NoChainProvided" reason:nil userInfo:nil];
     if([AppFeatures statsEnabled] == NO){
         reasonEntryField.rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"locked"]];
+    }else{
+        reasonEntryField.rightView = nil;
     }
 }
 -(void)setState:(DayCheckedState)state{

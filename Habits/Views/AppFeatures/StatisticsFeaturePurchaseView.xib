@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatisticsFeaturePurchaseViewController">
             <connections>
+                <outlet property="restorePurchaseButton" destination="VFV-6N-wXn" id="v31-er-X16"/>
+                <outlet property="unlockNowButton" destination="FqL-2v-qkd" id="3Z4-s8-2P1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="WPt-9D-Zaq"/>
             </connections>
         </placeholder>
@@ -93,7 +95,7 @@
                                 <action selector="didPressDoNotAskAgain:" destination="-1" eventType="touchUpInside" id="dE6-kC-Hag"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFV-6N-wXn">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFV-6N-wXn">
                             <rect key="frame" x="20" y="161" width="332" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="8FN-QY-hKc"/>
@@ -108,12 +110,12 @@
                                 <action selector="didPressRestorePurchase:" destination="-1" eventType="touchUpInside" id="hIV-vU-1EH"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FqL-2v-qkd">
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FqL-2v-qkd">
                             <rect key="frame" x="20" y="117" width="332" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="CGE-QK-Hwq"/>
                             </constraints>
-                            <state key="normal" title="Unlock now ([$0.99])">
+                            <state key="normal" title="Connecting...">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <variation key="heightClass=compact-widthClass=compact" misplaced="YES">

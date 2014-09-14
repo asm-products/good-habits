@@ -9,45 +9,65 @@
 #import "StatisticsFeaturePurchaseController.h"
 #import <UIAlertView+Blocks.h>
 #import "AppFeatures.h"
-#import "SKProductsRequest+Blocks.h"
 #import <SVProgressHUD.h>
 #import "StatisticsFeaturePurchaseViewController.h"
+#import <SVProgressHUD.h>
+#import "HabitsQueries.h"
 @implementation StatisticsFeaturePurchaseController{
     
 
 }
 CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseController, sharedController);
 
-#pragma mark - Prices
+#pragma mark - Transactions
 -(void)listenForTransactions{
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+    if([NSData dataWithContentsOfURL:[[NSBundle mainBundle] appStoreReceiptURL]] == nil){
+        SKReceiptRefreshRequest *refreshReceiptRequest = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties:@{}];
+        refreshReceiptRequest.delegate = self;
+        [refreshReceiptRequest start];
+    }
 }
+-(void)request:(SKRequest *)request didFailWithError:(NSError *)error{
+    NSLog(@"Error refreshing receipts %@", error.localizedDescription);
+}
+-(void)requestDidFinish:(SKRequest *)request{
+    [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
+}
+
+-(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
+    for (SKPaymentTransaction * transaction in transactions) {
+        switch (transaction.transactionState)
+        {
+            case SKPaymentTransactionStatePurchasing:
+                break;
+            case SKPaymentTransactionStateFailed:
+                if (transaction.error.code == SKErrorPaymentCancelled) {
+                    // user cancelled payment
+                }else{
+                    // Optionally, display an error here.
+                    NSLog(@"Transaction failed for some reason %@", transaction.error);
+                    [SVProgressHUD showErrorWithStatus:[transaction.error.userInfo valueForKey:NSLocalizedDescriptionKey]];
+                    break;
+                }
+            case SKPaymentTransactionStatePurchased:
+            case SKPaymentTransactionStateRestored:
+               [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
+                });
+            default:
+                break;
+        }
+    }
+}
+
 
 #pragma mark - UI
 -(void)showPromptInViewController:(UIViewController *)controller{
-    RIButtonItem * buyNowItem = [RIButtonItem itemWithLabel:@"Buy now ([$0.99])" action:^{
-        [self startPurchase];
-    }];
-    NSSet * set = [NSSet setWithObject:@"statistics"];
-    [SKProductsRequest requestWithProductIdentifiers:set withBlock:^(SKProductsResponse *response, NSError *error) {
-        if(error){
-            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-        }else{
-            buyNowItem.label = @"Different label";
-        }
-        buyNowItem.label = @"Different label";
-    }];
     StatisticsFeaturePurchaseViewController * alert = [[StatisticsFeaturePurchaseViewController alloc] initWithNibName:@"StatisticsFeaturePurchaseView" bundle:nil];
-    
     [controller presentViewController:alert animated:YES completion:nil];
 }
-
-#pragma mark - Purchase process
--(void)startPurchase{
-    
-}
--(void)unlockPurchase{
-    
-}
-
 
 @end

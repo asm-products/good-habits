@@ -11,6 +11,7 @@
 #import "CoreDataClient.h"
 #define HABITS_UPDATED @"HABITS_UPDATED"
 #define REFRESH @"REFRESH"
+#define PURCHASE_COMPLETED @"PURCHASE_COMPLETED"
 
 @interface HabitsQueries : NSObject
 +(void)refresh;

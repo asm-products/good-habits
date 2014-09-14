@@ -30,6 +30,12 @@
 #define COCOAPODS_VERSION_MINOR_CWLSynthesizeSingleton 0
 #define COCOAPODS_VERSION_PATCH_CWLSynthesizeSingleton 0
 
+// DHAppleReceiptParser
+#define COCOAPODS_POD_AVAILABLE_DHAppleReceiptParser
+#define COCOAPODS_VERSION_MAJOR_DHAppleReceiptParser 1
+#define COCOAPODS_VERSION_MINOR_DHAppleReceiptParser 0
+#define COCOAPODS_VERSION_PATCH_DHAppleReceiptParser 1
+
 // Functional.m
 #define COCOAPODS_POD_AVAILABLE_Functional_m
 #define COCOAPODS_VERSION_MAJOR_Functional_m 1

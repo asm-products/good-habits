@@ -51,6 +51,9 @@ typedef enum {
         NSLog(@"RELOADING LIST COS HABITS CHANGED");
         [self refresh];
     }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:PURCHASE_COMPLETED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [self refresh];
+    }];
     [[NSNotificationCenter defaultCenter] addObserverForName:REFRESH object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [self refresh];
     }];

@@ -70,9 +70,12 @@ typedef enum{
     [super viewDidLoad];
     [self build];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onHabitColorChanged) name:HABIT_COLOR_CHANGED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserverForName:PURCHASE_COMPLETED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        [self updateStatsButtonTint];
+    }];
 }
 -(void)build{
-    self.statsButton.tintColor = [AppFeatures statsEnabled] ? [[UIApplication sharedApplication].delegate window].tintColor : [UIColor lightGrayColor];
+    [self updateStatsButtonTint];
     self.navigationItem.title = @"";
     self.titleTextField.text = self.habit.title;
     self.colorPickerCell.habit = self.habit;
@@ -82,6 +85,9 @@ typedef enum{
     if(self.habit.reminderTime){
         [self.timePicker setDate:[[NSCalendar currentCalendar] dateFromComponents:self.habit.reminderTime]];
     }
+}
+-(void)updateStatsButtonTint{
+    self.statsButton.tintColor = [AppFeatures statsEnabled] ? [[UIApplication sharedApplication].delegate window].tintColor : [UIColor lightGrayColor];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

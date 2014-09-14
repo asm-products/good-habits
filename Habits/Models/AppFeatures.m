@@ -7,11 +7,15 @@
 //
 
 #import "AppFeatures.h"
+#import <DHAppStoreReceipt.h>
 
 @implementation AppFeatures
 +(BOOL)statsEnabled{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:STATS_PURCHASED];
+    DHAppStoreReceipt * mainBundleReceipt = [DHAppStoreReceipt mainBundleReceipt];
+    DHInAppReceipt * receipt = [mainBundleReceipt receiptForProductId:@"statistics"];
+    return receipt.receiptData != nil;
 }
+
 +(BOOL)shouldShowReasonInput{
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"prompt_for_in_app_purchases"] != NO;
 }
