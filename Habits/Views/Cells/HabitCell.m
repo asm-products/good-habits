@@ -120,7 +120,7 @@
     countView.highlighted = false;
     
     
-    self.cancelSkippedDayButton.titleLabel.textColor = self.chain.habit.color;
+//    self.cancelSkippedDayButton.titleLabel.textColor = self.chain.habit.color;
     if([self.chain.nextRequiredDate isEqualToDate:[TimeHelper today]]){
         self.cancelSkippedDayButton.hidden = YES;
         
@@ -131,6 +131,7 @@
         NSInteger daysOverdue = self.chain.countOfDaysOverdue;
         NSString * timeMissedString = [self timeAgoString:daysOverdue];
         reasonEntryField.placeholder = [NSString stringWithFormat:@"Missed %@. What happened?", timeMissedString];
+        self.cancelSkippedDayButton.accessibilityLabel = [NSString stringWithFormat:@"Check %@", [self timeAgoString:daysOverdue]];
     }
 
 }

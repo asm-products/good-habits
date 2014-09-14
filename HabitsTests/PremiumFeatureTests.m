@@ -33,13 +33,12 @@
     OCMockObject * mockClass = [OCMockObject mockForClass:[AppFeatures class]];
     [[[mockClass stub] andReturnValue:@NO] statsEnabled];
     
-    [tester tapViewWithAccessibilityLabel:@"" value:@"What happened?" traits:UIAccessibilityTraitNone];
+    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
    
-    [tester waitForViewWithAccessibilityLabel:@"Never ask again"];
+    [tester waitForViewWithAccessibilityLabel:@"Don't ask me again"];
     [tester tapViewWithAccessibilityLabel:@"Not now, thanks"];
     
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Never ask again"];
-    [tester waitForTimeInterval:1000];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Don't ask me again"];
 }
 
 @end

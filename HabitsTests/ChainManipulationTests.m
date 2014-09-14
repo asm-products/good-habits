@@ -3,10 +3,14 @@
 #import "TimeHelper.h"
 #import "Habit.h"
 #import "HabitsQueries.h"
+#import <OCMock.h>
+#import "AppFeatures.h"
 @interface ChainManipulationTests : XCTestCase
 @end
 @implementation ChainManipulationTests
 -(void)setUp{
+    OCMockObject * mockClass = [OCMockObject mockForClass:[AppFeatures class]];
+    [[[mockClass stub] andReturnValue:@YES] statsEnabled];
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-22"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
     
@@ -79,16 +83,17 @@
     [tester tapViewWithAccessibilityLabel:@"Back"];
 }
 -(void)testCanExplicitlyBreakTwoChainsInSequence{
+    
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
-    [tester tapViewWithAccessibilityLabel:@"" value:@"What happened?" traits:UIAccessibilityTraitNone];
+    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
     [tester enterTextIntoCurrentFirstResponder:@"I messed it up. Sorry.\n"];
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-23"].date];
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"I messed it up. Sorry."];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
-    [tester tapViewWithAccessibilityLabel:@"" value:@"What happened?" traits:UIAccessibilityTraitNone];
+    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
     [tester enterTextIntoCurrentFirstResponder:@"Oh no, not again\n"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Broken"];
 
@@ -99,7 +104,7 @@
     [tester waitForViewWithAccessibilityLabel:@"-19"];
 }
 -(void)testPastChainsShowChainBreakDateAndButtonToAddDay{
-    [tester waitForViewWithAccessibilityLabel:@"Missed 19 days ago. Why?"];
-    [tester tapViewWithAccessibilityLabel:@"Another testing habit Missed day"];
+    [tester waitForViewWithAccessibilityLabel:@"Missed 19 days ago. What happened?"];
+    [tester tapViewWithAccessibilityLabel:@"Check 19 days ago"];
 }
 @end

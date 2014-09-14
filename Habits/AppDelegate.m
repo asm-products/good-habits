@@ -17,7 +17,9 @@
 #import <UIAlertView+Blocks.h>
 #import <SVProgressHUD.h>
 #import "StatisticsFeaturePurchaseController.h"
-@implementation AppDelegate
+@implementation AppDelegate{
+    BOOL hasBeenActiveYet;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -26,11 +28,6 @@
 //    [Audits initialize];
     [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)
     
-    [HabitsQueries recalculateAllNotifications];
-    [Notifications reschedule];
-    if(!TEST_ENVIRONMENT){
-        [self performAnyNecessaryUpgrades];
-    }
     return YES;
 }
 -(void)performAnyNecessaryUpgrades{
@@ -92,6 +89,14 @@
 -(void)applicationDidBecomeActive:(UIApplication *)application{
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
 //    [self showAuditScreenIfNeeded];
+    [HabitsQueries recalculateAllNotifications];
+    [Notifications reschedule];
+    if(!TEST_ENVIRONMENT){
+        if(!hasBeenActiveYet){
+            [self performAnyNecessaryUpgrades];
+        }
+    }
+    hasBeenActiveYet = YES;
     
 }
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{

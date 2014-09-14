@@ -53,13 +53,13 @@
     return [self.active filter:^BOOL(Habit * habit) {
         NSLog(@"%@ activeButNotToday: required today? %@ nextRequiredDate: %@, today: %@", habit.title, @(habit.isRequiredToday), habit.currentChain.nextRequiredDate, [TimeHelper today] );
         BOOL chainHasNotBeenBroken = habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate > [TimeHelper today].timeIntervalSinceReferenceDate;
-        return !habit.isRequiredToday && (!chainHasNotBeenBroken || habit.currentChain.isBroken) ;
+        return !habit.isRequiredToday && (!chainHasNotBeenBroken );//|| habit.currentChain.isBroken) ;
     }];
 }
 +(NSArray *)carriedOver{
     return [self.active filter:^BOOL(Habit * habit) {
         BOOL chainHasNotBeenBroken = habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate <= [TimeHelper today].timeIntervalSinceReferenceDate;
-        return !habit.isRequiredToday && chainHasNotBeenBroken && !habit.currentChain.isBroken;
+        return !habit.isRequiredToday && chainHasNotBeenBroken; // && !habit.currentChain.isBroken;
     }];
 }
 +(NSArray *)inactive{

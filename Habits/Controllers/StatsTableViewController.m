@@ -66,7 +66,7 @@ typedef enum {
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
         case StatsSectionSparkline: return @"STATS";
-        case StatsSectionReasons: return @"Notes";
+        case StatsSectionReasons: return self.chainsWithReasons.count > 0 ? @"Notes" : nil;
         case StatsSectionChainBreaks: return self.chains.count > 0 ? @"Chains" : @"";
         default: return @"";
     }
