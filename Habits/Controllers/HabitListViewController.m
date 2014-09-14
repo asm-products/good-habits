@@ -135,7 +135,7 @@ typedef enum {
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Habit * habit = [self habitForIndexPath:indexPath];
-    CGFloat result = [habit chainForDate:today].isBroken && [AppFeatures shouldShowReasonInput]  ? 81 : 44;
+    CGFloat result = [habit chainForDate:today].isBroken && [AppFeatures shouldShowReasonInput] && indexPath.section == HabitListSectionActive ? 81 : 44;
     return result;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

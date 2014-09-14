@@ -52,15 +52,14 @@
 +(NSArray *)activeButNotToday{
     return [self.active filter:^BOOL(Habit * habit) {
         NSLog(@"%@ activeButNotToday: required today? %@ nextRequiredDate: %@, today: %@", habit.title, @(habit.isRequiredToday), habit.currentChain.nextRequiredDate, [TimeHelper today] );
-        return !habit.isRequiredToday && habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate > [TimeHelper today].timeIntervalSinceReferenceDate;
+        BOOL chainHasNotBeenBroken = habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate > [TimeHelper today].timeIntervalSinceReferenceDate;
+        return !habit.isRequiredToday && (!chainHasNotBeenBroken || habit.currentChain.isBroken) ;
     }];
 }
 +(NSArray *)carriedOver{
     return [self.active filter:^BOOL(Habit * habit) {
         BOOL chainHasNotBeenBroken = habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate <= [TimeHelper today].timeIntervalSinceReferenceDate;
-//        BOOL wasNotDoneOnTheScheduledDay =
-        // I'm gonna come back to these when I have implemented the ticking saving and chain breaking flow
-        return !habit.isRequiredToday && chainHasNotBeenBroken;
+        return !habit.isRequiredToday && chainHasNotBeenBroken && !habit.currentChain.isBroken;
     }];
 }
 +(NSArray *)inactive{

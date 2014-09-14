@@ -11,9 +11,7 @@
 
 @implementation AppFeatures
 +(BOOL)statsEnabled{
-    DHAppStoreReceipt * mainBundleReceipt = [DHAppStoreReceipt mainBundleReceipt];
-    DHInAppReceipt * receipt = [mainBundleReceipt receiptForProductId:@"statistics"];
-    return receipt.receiptData != nil;
+    return [[NSUserDefaults standardUserDefaults] boolForKey:STATS_PURCHASED];
 }
 
 +(BOOL)shouldShowReasonInput{

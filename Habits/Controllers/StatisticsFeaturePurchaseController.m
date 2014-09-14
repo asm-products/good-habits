@@ -22,17 +22,6 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
 #pragma mark - Transactions
 -(void)listenForTransactions{
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
-    if([NSData dataWithContentsOfURL:[[NSBundle mainBundle] appStoreReceiptURL]] == nil){
-        SKReceiptRefreshRequest *refreshReceiptRequest = [[SKReceiptRefreshRequest alloc] initWithReceiptProperties:@{}];
-        refreshReceiptRequest.delegate = self;
-        [refreshReceiptRequest start];
-    }
-}
--(void)request:(SKRequest *)request didFailWithError:(NSError *)error{
-    NSLog(@"Error refreshing receipts %@", error.localizedDescription);
-}
--(void)requestDidFinish:(SKRequest *)request{
-    [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
 }
 
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
@@ -54,6 +43,8 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
             case SKPaymentTransactionStateRestored:
                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STATS_PURCHASED];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
                     [SVProgressHUD dismiss];
                     [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
                 });
