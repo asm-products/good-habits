@@ -45,7 +45,7 @@
             habit.identifier = habit.title;
 
             NSDictionary * daysChecked = dict[@"days_checked"]; // these will be BOOLs
-            [self generateChainsForHabit:habit fromDaysChecked:daysChecked context:context];
+            [self generateChainsForHabit:habit fromDaysChecked:daysChecked.allKeys context:context];
             
             NSLog(@"Imported %@, chain count %@", habit.title, @(habit.chains.count));
             
@@ -60,9 +60,9 @@
         progressCallback( progress / storedCount );
     };
 }
-+(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSDictionary*)daysChecked context:(NSManagedObjectContext*)context{
++(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSArray*)daysChecked context:(NSManagedObjectContext*)context{
+    NSArray * dayKeys = [daysChecked sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     Chain * chain = [habit addNewChainInContext:context];
-    NSArray * dayKeys = [daysChecked.allKeys sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     for (NSString * dayKey in dayKeys) { // all values are @YES so I can just iterate through the keys
         NSDate * date = [DayKeys dateFromKey:dayKey];
         

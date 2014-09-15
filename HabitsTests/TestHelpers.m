@@ -35,6 +35,10 @@
 //    }];
     return nil;
 }
++(void)deleteAllData{
+    [HabitsQueries deleteAllHabits];
+    [HabitsQueries refresh];
+}
 +(void)loadFixtureFromUserDefaultsNamed:(NSString *)name{
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];

@@ -70,6 +70,8 @@
 		AC5F3B5319C63DE100398F81 /* status-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5119C63DE100398F81 /* status-bar@2x.png */; };
 		AC5F3B5519C63E0B00398F81 /* grabs in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5419C63E0B00398F81 /* grabs */; };
 		AC5F3B5619C63E0B00398F81 /* grabs in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5419C63E0B00398F81 /* grabs */; };
+		AC5F3B5919C6F1C700398F81 /* LegacyJSONImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B5819C6F1C700398F81 /* LegacyJSONImporter.m */; };
+		AC5F3B5D19C6F22D00398F81 /* JSONConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B5C19C6F22D00398F81 /* JSONConversion.m */; };
 		AC6EC67119C374B000640590 /* GTHStoreKitMock.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6EC67019C374B000640590 /* GTHStoreKitMock.m */; };
 		AC6EC67419C384B200640590 /* ReasonCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6EC67319C384B200640590 /* ReasonCellTableViewCell.m */; };
 		AC735DDE19704F67007CD2B7 /* AppFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DDD19704F67007CD2B7 /* AppFeatures.m */; };
@@ -271,6 +273,10 @@
 		AC5F3B4E19C62D5D00398F81 /* demo.habits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = demo.habits.plist; sourceTree = "<group>"; };
 		AC5F3B5119C63DE100398F81 /* status-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-bar@2x.png"; sourceTree = "<group>"; };
 		AC5F3B5419C63E0B00398F81 /* grabs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = grabs; sourceTree = "<group>"; };
+		AC5F3B5719C6F1C700398F81 /* LegacyJSONImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacyJSONImporter.h; sourceTree = "<group>"; };
+		AC5F3B5819C6F1C700398F81 /* LegacyJSONImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyJSONImporter.m; sourceTree = "<group>"; };
+		AC5F3B5B19C6F22D00398F81 /* JSONConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONConversion.h; sourceTree = "<group>"; };
+		AC5F3B5C19C6F22D00398F81 /* JSONConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConversion.m; sourceTree = "<group>"; };
 		AC6EC66F19C374B000640590 /* GTHStoreKitMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTHStoreKitMock.h; sourceTree = "<group>"; };
 		AC6EC67019C374B000640590 /* GTHStoreKitMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTHStoreKitMock.m; sourceTree = "<group>"; };
 		AC6EC67219C384B200640590 /* ReasonCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReasonCellTableViewCell.h; sourceTree = "<group>"; };
@@ -431,6 +437,10 @@
 			children = (
 				AC40187719504E630033407B /* PlistStoreToCoreDataMigrator.h */,
 				AC40187819504E630033407B /* PlistStoreToCoreDataMigrator.m */,
+				AC5F3B5719C6F1C700398F81 /* LegacyJSONImporter.h */,
+				AC5F3B5819C6F1C700398F81 /* LegacyJSONImporter.m */,
+				AC5F3B5B19C6F22D00398F81 /* JSONConversion.h */,
+				AC5F3B5C19C6F22D00398F81 /* JSONConversion.m */,
 			);
 			path = Migration;
 			sourceTree = "<group>";
@@ -1107,6 +1117,7 @@
 				AC4018F51951A5FE0033407B /* HabitsQueries.m in Sources */,
 				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
 				ACE31AC119756936007173A0 /* HabitDay.m in Sources */,
+				AC5F3B5919C6F1C700398F81 /* LegacyJSONImporter.m in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
 				AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */,
 				AC4018D0195098A50033407B /* Calendar.m in Sources */,
@@ -1139,6 +1150,7 @@
 				AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */,
 				ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */,
 				AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */,
+				AC5F3B5D19C6F22D00398F81 /* JSONConversion.m in Sources */,
 				AC4018E31950F84C0033407B /* InfoTask.m in Sources */,
 				AC4018C4195090260033407B /* CalendarTopView.m in Sources */,
 				AC4018D71950C51D0033407B /* DayToggle.m in Sources */,

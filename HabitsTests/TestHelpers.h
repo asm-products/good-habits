@@ -13,7 +13,7 @@
 +(Habit*)habit:(NSDictionary*)dictionary daysChecked:(NSArray*)dayKeys;
 +(NSMutableArray*)everyDay;
 +(NSArray*)days:(NSArray*)dayStrings;
-
++(void)deleteAllData;
 +(void)loadFixtureFromUserDefaultsNamed:(NSString*)name;
 +(void)setStatsEnabled:(BOOL)enabled;
 @end

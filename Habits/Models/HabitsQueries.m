@@ -10,7 +10,6 @@
 #import <NSArray+F.h>
 #import "Colors.h"
 #import "CoreDataClient.h"
-#import <Mantle.h>
 #import "TimeHelper.h"
 #import "HabitDay.h"
 #import <SVProgressHUD.h>

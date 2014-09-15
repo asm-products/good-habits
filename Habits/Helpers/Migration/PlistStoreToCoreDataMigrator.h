@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Habit.h"
 
 @interface PlistStoreToCoreDataMigrator : NSObject
 +(BOOL)dataCanBeMigrated;
@@ -19,4 +20,5 @@
  *  Migrate from the RubyMotion version (<2.0)
  */
 +(NSArray*)habitsStoredByMotion;
++(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSArray*)dayKeys context:(NSManagedObjectContext*)context;
 @end
