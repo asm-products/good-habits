@@ -33,6 +33,7 @@ NSMutableArray * everyDay(){
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Paused habits"];
+    [tester waitForTimeInterval:1000];
 }
 -(void)testGroupings{
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-23"].date];

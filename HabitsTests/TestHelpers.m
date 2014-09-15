@@ -12,6 +12,8 @@
 #import "DayKeys.h"
 #import "PlistStoreToCoreDataMigrator.h"
 #import "HabitsQueries.h"
+#import <OCMock.h>
+#import "AppFeatures.h"
 @implementation TestHelpers
 +(Habit *)habit:(NSDictionary *)dict daysChecked:(NSArray *)dayKeys{
 //    NSError * error;
@@ -46,5 +48,10 @@
     [HabitsQueries refresh];
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
     
+}
++(void)setStatsEnabled:(BOOL)enabled{
+    OCMockObject * mockClass = [OCMockObject mockForClass:[AppFeatures class]];
+    [[[mockClass stub] andReturnValue:@(enabled)] statsEnabled];
+    [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
 }
 @end

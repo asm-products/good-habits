@@ -15,7 +15,7 @@
 +(NSArray*)days:(NSArray*)dayStrings;
 
 +(void)loadFixtureFromUserDefaultsNamed:(NSString*)name;
-
++(void)setStatsEnabled:(BOOL)enabled;
 @end
 
 static inline NSDate * d(NSString* string){

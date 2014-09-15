@@ -42,6 +42,7 @@ typedef enum {
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self build];
+    self.tableView.rowHeight = 44;
     reloadQueue = dispatch_queue_create("reload", DISPATCH_QUEUE_CONCURRENT);
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 40, 0, 0);
     [self loadGroups];

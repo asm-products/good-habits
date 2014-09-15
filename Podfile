@@ -23,5 +23,7 @@ target "HabitsTests" do
     pod 'OCMock', '~> 3.0'
     pod 'KIF', '~> 3.0'
     pod 'BlocksKit', '~> 2.2'
+    pod 'FCOverlay', '~> 1.0'
+    pod 'UIImage-Helpers', '~> 0.0'
     pod 'Reveal-iOS-SDK', '~> 1.0'
 end

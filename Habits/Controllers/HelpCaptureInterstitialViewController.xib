@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpCaptureInterstitialViewController">
+            <connections>
+                <outlet property="detailLabel" destination="AoG-45-O0S" id="shq-St-epJ"/>
+                <outlet property="titleLabel" destination="Jgo-ge-1Ss" id="QDb-yq-rVM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="343"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="De0-Xx-Llz">
+                    <rect key="frame" x="20" y="105" width="344" height="133.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="And then this other thing will happen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoG-45-O0S">
+                            <rect key="frame" x="20" y="48" width="304" height="65.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do something" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgo-ge-1Ss">
+                            <rect key="frame" x="20" y="20" width="304" height="20.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="AoG-45-O0S" secondAttribute="trailing" constant="20" id="246-oh-fOm"/>
+                        <constraint firstItem="AoG-45-O0S" firstAttribute="top" secondItem="Jgo-ge-1Ss" secondAttribute="bottom" constant="8" id="55V-tK-PDf"/>
+                        <constraint firstItem="AoG-45-O0S" firstAttribute="leading" secondItem="De0-Xx-Llz" secondAttribute="leading" constant="20" id="Ava-Pa-J4B"/>
+                        <constraint firstItem="Jgo-ge-1Ss" firstAttribute="leading" secondItem="De0-Xx-Llz" secondAttribute="leading" constant="20" id="njn-1j-6VV"/>
+                        <constraint firstAttribute="trailing" secondItem="Jgo-ge-1Ss" secondAttribute="trailing" constant="20" id="rWa-Ff-w4F"/>
+                        <constraint firstItem="Jgo-ge-1Ss" firstAttribute="top" secondItem="De0-Xx-Llz" secondAttribute="top" constant="20" id="vUu-bT-YVl"/>
+                        <constraint firstAttribute="bottom" secondItem="AoG-45-O0S" secondAttribute="bottom" constant="20" id="xV2-H0-zl2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.22" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="De0-Xx-Llz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="Qbk-Sx-ahO"/>
+                <constraint firstAttribute="trailing" secondItem="De0-Xx-Llz" secondAttribute="trailing" constant="20" id="Rqc-fs-mO0"/>
+                <constraint firstAttribute="centerY" secondItem="De0-Xx-Llz" secondAttribute="centerY" id="Usb-dg-ww1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="515" y="346.5"/>
+        </view>
+    </objects>
+</document>

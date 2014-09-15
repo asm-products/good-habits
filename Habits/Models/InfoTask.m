@@ -11,7 +11,7 @@
 #import "Colors.h"
 #import "AppSharing.h"
 #import "TimeHelper.h"
-
+#import "UserGuideViewController.h"
 #define INSTALLED_DATE_KEY @"goodtohear.habits_installed_date"
 
 
@@ -26,6 +26,10 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         result = @[
+                   [InfoTask create:@"guide-2" due:0 text:@"Look at the guide" color:[Colors green] action:^(UIViewController *controller) {
+                       UserGuideViewController * guide = [UserGuideViewController new];
+                       [controller.navigationController pushViewController:guide animated:YES];
+                   }],
                    [InfoTask create:@"share" due:0 text:@"Share this app" color:[Colors orange] action:^(UIViewController *controller) {
                        NSArray * items = @[[AppSharing new], [NSURL URLWithString:@"https://itunes.apple.com/gb/app/good-habits/id573844300?mt=8"]];
                        UIActivityViewController * sheet = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
