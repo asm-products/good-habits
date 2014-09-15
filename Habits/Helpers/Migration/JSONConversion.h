@@ -10,4 +10,5 @@
 
 @interface JSONConversion : NSObject
 +(NSArray*)allHabitsAsJSON;
++(void)performImportWithArray:(NSArray*)array;
 @end

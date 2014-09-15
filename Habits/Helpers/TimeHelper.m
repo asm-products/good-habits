@@ -98,6 +98,7 @@ static NSDate * selectedDate = nil;
         __dateFormatter = [[NSDateFormatter alloc] init];
 //        __dateFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
         __dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss Z";
+        __dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     });
     return __dateFormatter;
 }

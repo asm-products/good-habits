@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Good To Hear. All rights reserved.
 //
 
-#import <Mantle.h>
 @import CoreData;
 
 @class Chain;
@@ -24,7 +23,7 @@ typedef enum {
     CalendarDayStateBrokenChain
 } CalendarDayState;
 
-@interface HabitDay : NSManagedObject<MTLJSONSerializing>
+@interface HabitDay : NSManagedObject
 
 /**
  *  Not sure what I'm using this for if I'm gonna start using date like a grown-up. Might even delete it.

@@ -6,6 +6,9 @@
 #import "LegacyJSONImporter.h"
 #import "HabitsQueries.h"
 #import "JSONConversion.h"
+#import "Chain.h"
+#import "HabitDay.h"
+#import <KIF.h>
 @interface JSONConversionTests : XCTestCase
 
 @end
@@ -13,7 +16,7 @@
 @implementation JSONConversionTests
 -(void)testReadingLegacyJSON{
     [TestHelpers deleteAllData];
-    NSString * path = [[NSBundle bundleForClass:[self class]] pathForResource:@"habits_data_lots" ofType:@"json"];
+    NSString * path = [[NSBundle bundleForClass:[self class]] pathForResource:@"habits_data_legacy" ofType:@"json"];
     NSArray * json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
     
     [LegacyJSONImporter performMigrationWithArray:json];
@@ -36,42 +39,54 @@
     
     NSArray * everything = [JSONConversion allHabitsAsJSON];
     NSDictionary * json = everything.firstObject;
-    
-//        [TimeHelper selectDate:d(@"2014-01-02")];
-//        [DayKeys clearDateKeysCache];
-//        habit = [[Habit alloc] initWithDictionary:@{
-//                                                    @"title": @"Title",
-//                                                    @"order": @1,
-//                                                    @"identifier": @"123",
-//                                                    @"createdAt": [DayKeys dateFromKey:@"2014-01-01"],
-//                                                    @"color": [Colors blue],
-//                                                    @"daysRequired": [TestHelpers everyDay],
-//                                                    @"reminderTime": [TimeHelper dateComponentsForHour:14 minute:45]
-//                                                    } error:nil];
-//        [habit checkDays:@[@"2014-01-01", @"2014-01-02"]];
-//        json = [MTLJSONAdapter JSONDictionaryFromModel:habit];
 
-    expect(json[@"title"]).to.equal(@"Title");
-    expect(json[@"id"]).to.equal(@"123");
-    expect(json[@"order"]).to.equal(@1);
-    expect(json[@"created_at"]).to.equal(@"2014-01-01 00:00:00 +0100"); // DaysKeys helper always creates dates in the current time zone. This test will break in different time zones for now.
-    expect(json.allKeys.count).to.equal(10);
-    expect(json[@"latestAnalysis"]).to.beNil();
-    expect(json[@"color"]).to.equal(@"#488FB4");
-    expect(json[@"days_required"]).to.equal(@[@"Sun",@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat"]);
-    expect(json[@"days_checked"]).to.equal([NSNull null]);
-    expect([json[@"days"] count]).to.equal(2);
-    NSDictionary *first = json[@"days"][0];
-    expect(first[@"day"]).to.equal(@"2014-01-01");
-    expect(first[@"running_total"]).to.equal(1);
-    NSDictionary * second = json[@"days"][1];
-    expect(second[@"day"]).to.equal(@"2014-01-02");
-    expect(second[@"running_total"]).to.equal(2);
-    expect(json[@"time_to_do"]).to.equal(@"14:45");
-    
+    expect(json[@"title"]).to.equal(@"Testing habit");
+    expect(json[@"identifier"]).to.equal(@"Testing habit");
+    expect(json[@"order"]).to.equal(@24);
+    expect(json[@"createdAt"]).to.equal(@"2014-08-23 16:49:44 +0000"); // DaysKeys helper always creates dates in the current time zone. This test will break in different time zones for now.
+    expect(json.allKeys.count).to.equal(9);
+    expect(json[@"color"]).to.equal(@"#D28895");
+    expect(json[@"daysRequired"]).to.equal(@[@"Sun",@"Mon",@"Tue",@"Thu",@"Fri",@"Sat"]);
+    expect([json[@"chains"] count]).to.equal(5);
+    NSDictionary *firstChain = json[@"chains"][0];
+    expect(firstChain[@"days"][0][@"date"]).to.equal(@"2014-08-01 00:00:00 +0000");
+    expect(firstChain[@"days"][0][@"runningTotal"]).to.equal(1);
 }
 -(void)testReadingJSON{
+    [TestHelpers deleteAllData];
+    NSString * path = [[NSBundle bundleForClass:[self class]] pathForResource:@"habits_data" ofType:@"json"];
+    NSArray * json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
+    [JSONConversion performImportWithArray:json];
+    Habit * habit = [HabitsQueries findHabitByIdentifier:@"Vocal exercises"];
+    expect(habit.title).to.equal(@"Vocal exercises");
+    expect(habit.order).to.equal(1);
+    expect(habit.createdAt).to.equal([[TimeHelper jsonDateFormatter] dateFromString:@"2012-08-10 19:58:33 +0000"]);
+    expect(habit.chains.count).to.equal(16);
+    Chain * firstChain = habit.sortedChains.firstObject;
+    expect(firstChain.days.count).to.equal(8);
+}
+-(void)testOpeningUrlForLegacyJSON{
+    [TestHelpers deleteAllData];
+    [self launchApplicationWithURLContainingDataFromFixture:@"habits_data_legacy"];
+    [tester tapViewWithAccessibilityLabel:@"Restore Data"];
+    
+    [tester waitForViewWithAccessibilityLabel:@"Pull ups"];
+}
+-(void)testOpeningUrlForJSON{
+    [TestHelpers deleteAllData];
+    [self launchApplicationWithURLContainingDataFromFixture:@"habits_data"];
+    [tester tapViewWithAccessibilityLabel:@"Restore Data"];
+    [tester waitForViewWithAccessibilityLabel:@"Pull ups"];
+}
+-(void)launchApplicationWithURLContainingDataFromFixture:(NSString*)fixture{
+    
+    NSString * path = [[NSBundle bundleForClass:[self class]] pathForResource:fixture ofType:@"json"];
+    NSArray * json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
+    
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:json];
+    NSString * linkString = [data base64EncodedStringWithOptions:0];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"goodhabits://import?json=%@", linkString]]];
     
 }
-
 @end

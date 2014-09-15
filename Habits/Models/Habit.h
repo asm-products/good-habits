@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Mantle.h>
 #import "HabitDay.h"
 @import CoreData;
 
 @class ChainAnalysis;
 
-@interface Habit : NSManagedObject<MTLJSONSerializing>
+@interface Habit : NSManagedObject
 
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, strong) NSString * title;

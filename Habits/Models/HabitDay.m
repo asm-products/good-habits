@@ -13,15 +13,6 @@
 @implementation HabitDay
 @dynamic dayKey,dayStateCache,date,chain,runningTotalCache,timeZoneOffset;
 
-+(NSDictionary *)JSONKeyPathsByPropertyKey{
-    return @{
-             @"habitIdentifier": @"habit_id",
-             @"isChecked": @"checked",
-             @"runningTotal": @"running_total",
-             @"renderStatus": [NSNull null],
-             @"chainBreakStatus": @"chain_break"
-             };
-}
 -(CalendarDayState)dayState{
     if(self.chain.length == 1) return CalendarDayStateAlone;
     if (self.chain.sortedDays.firstObject == self) {
