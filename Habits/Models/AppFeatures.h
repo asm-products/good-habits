@@ -14,4 +14,5 @@
 @interface AppFeatures : NSObject
 +(BOOL)statsEnabled;
 +(BOOL)shouldShowReasonInput;
++(void)setDefaults;
 @end
