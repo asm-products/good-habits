@@ -47,6 +47,7 @@ NSMutableArray * everyDay(){
     [tester waitForViewWithAccessibilityLabel:@"Carried over from yesterday"];
     [tester waitForViewWithAccessibilityLabel:@"Todo yesterday"];
     [tester waitForViewWithAccessibilityLabel:@"Not on Mondays"];
+    [tester waitForViewWithAccessibilityLabel:@"Todo other days"];
     [tester waitForViewWithAccessibilityLabel:@"Paused habits"];
     UITableView * listTable = (UITableView*) [tester waitForViewWithAccessibilityLabel:@"Habits List"];
     expect([listTable numberOfRowsInSection:1]).to.equal(1);
