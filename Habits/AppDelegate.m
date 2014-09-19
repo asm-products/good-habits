@@ -16,6 +16,7 @@
 #import "DataExport.h"
 #import <UIAlertView+Blocks.h>
 #import <SVProgressHUD.h>
+#import "AppFeatures.h"
 #import "StatisticsFeaturePurchaseController.h"
 @implementation AppDelegate{
     BOOL hasBeenActiveYet;
@@ -24,6 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [InfoTask trackInstallationDate];
+    [AppFeatures setDefaults];
     [[StatisticsFeaturePurchaseController sharedController] listenForTransactions];
 //    [Audits initialize];
     [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)

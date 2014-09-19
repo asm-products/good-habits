@@ -15,6 +15,10 @@
 }
 
 +(BOOL)shouldShowReasonInput{
-    return [[NSUserDefaults standardUserDefaults] boolForKey:@"prompt_for_in_app_purchases"] != NO;
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"prompt_for_in_app_purchases"] == YES;
+}
++(void)setDefaults{
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"prompt_for_in_app_purchases": @YES}];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 @end
