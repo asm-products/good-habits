@@ -32,8 +32,8 @@ NSMutableArray * everyDay(){
 -(void)testFirstUse{
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];
+    [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Paused habits"];
-    [tester waitForTimeInterval:1000];
 }
 -(void)testGroupings{
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-23"].date];
