@@ -21,4 +21,5 @@
  */
 +(NSArray*)habitsStoredByMotion;
 +(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSArray*)dayKeys context:(NSManagedObjectContext*)context;
++(NSArray*)useProperty:(NSString*)sourceKey toPopulateUniqueIdentifierProperty:(NSString*)destinationKey withArray:(NSArray*)array;
 @end

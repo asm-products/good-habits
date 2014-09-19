@@ -27,4 +27,17 @@
     }];
  
 }
+-(void)testIdentifiersAreUnique{
+    NSArray * source = @[
+                         @{@"title": @"Thing"},
+                         @{@"title": @"Thing"},
+                         @{@"title": @"Thing"},
+                         @{@"title": @"Other thing"}
+                         ];
+    NSArray * result = [PlistStoreToCoreDataMigrator useProperty:@"title" toPopulateUniqueIdentifierProperty:@"identifier" withArray:source];
+    expect(result[0][@"identifier"]).to.equal(@"Thing");
+    expect(result[1][@"identifier"]).to.equal(@"Thing.");
+    expect(result[2][@"identifier"]).to.equal(@"Thing..");
+    expect(result[3][@"identifier"]).to.equal(@"Other thing");
+}
 @end

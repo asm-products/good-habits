@@ -31,6 +31,9 @@
     __block float progress = 0;
     CoreDataClient * client = [CoreDataClient defaultClient];
     NSManagedObjectContext * context = [client createPrivateContext];
+    
+    source = [self useProperty:@"title" toPopulateUniqueIdentifierProperty: @"identifier" withArray:source];
+    
     for (NSDictionary * dict in source) {
         Habit * habit = [HabitsQueries findHabitByIdentifier:dict[@"title"]];
         if(habit == nil){
@@ -42,7 +45,7 @@
             habit.title = dict[@"title"];
             habit.daysRequired = dict[@"days_required"];
             habit.color = [Colors colorsFromMotion][[dict[@"color_index"] integerValue]];
-            habit.identifier = habit.title;
+            habit.identifier = dict[@"identifier"];
 
             NSDictionary * daysChecked = dict[@"days_checked"]; // these will be BOOLs
             [self generateChainsForHabit:habit fromDaysChecked:daysChecked.allKeys context:context];
@@ -59,6 +62,27 @@
         progress += 1;
         progressCallback( progress / storedCount );
     };
+}
+/**
+ *  Returns an array with unique identifiers based on the @sourceKey value. Basically just appends full stops.
+ *
+ *  @param sourceKey      Key to use (e.g. @"title")
+ *  @param destinationKey Key to populate in result (e.g. @"identifier")
+ *  @param source         Array of dictionaries
+ */
++(NSArray *)useProperty:(NSString *)sourceKey toPopulateUniqueIdentifierProperty:(NSString *)destinationKey withArray:(NSArray *)source{
+   NSMutableDictionary * uniquelyNamedItems = [[NSMutableDictionary alloc] initWithCapacity:source.count];
+    [source enumerateObjectsUsingBlock:^(NSDictionary * dict, NSUInteger index, BOOL *stop) {
+        NSMutableString * identifier = [dict[sourceKey] mutableCopy];
+        while (uniquelyNamedItems[identifier] != nil) {
+            [identifier appendString:@"."];
+        }
+        NSMutableDictionary * mutableDict = dict.mutableCopy;
+        mutableDict[destinationKey] = identifier;
+        mutableDict[@"__sort"] = @(index);
+        uniquelyNamedItems[identifier] = mutableDict;
+    }];
+    return [uniquelyNamedItems.allValues sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"__sort" ascending:YES]]];
 }
 +(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSArray*)daysChecked context:(NSManagedObjectContext*)context{
     NSArray * dayKeys = [daysChecked sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
