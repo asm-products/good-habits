@@ -39,7 +39,7 @@ typedef enum {
     // self.clearsSelectionOnViewWillAppear = NO;
     
     self.title = self.habit.title;
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+//    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     [self loadChains];
     
