@@ -162,12 +162,17 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
     }];
     
     // Refresh User Interface.
+    [HabitsQueries refresh];
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:self];
 }
 
 - (void)storesDidChange:(NSNotification *)notification {
     // Refresh User Interface.
-    [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [HabitsQueries refresh];
+        [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:self];
+        
+    });
     
 }
 #pragma mark - Saving
