@@ -29,6 +29,7 @@
     NSFetchRequest * fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Chain"];
     NSExpressionDescription * countExpressionDescription = [NSExpressionDescription new];
     countExpressionDescription.name = @"count";
+    countExpressionDescription.expressionResultType = NSInteger16AttributeType;
     countExpressionDescription.expression = [NSExpression expressionForFunction:@"count:" arguments: @[[NSExpression expressionForKeyPath:@"daysCountCache"]]];
     fetchRequest.propertiesToFetch = @[@"daysCountCache", countExpressionDescription];
     fetchRequest.propertiesToGroupBy = @[@"daysCountCache"];
