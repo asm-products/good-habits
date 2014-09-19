@@ -91,7 +91,7 @@
     switch (daysOverdue) {
         case 0: return @"today";
         case 1: return @"yesterday";
-        default: return [NSString stringWithFormat:@"%@ days ago", @(daysOverdue - 1)];
+        default: return [NSString stringWithFormat:@"%@ days ago", @(daysOverdue)];
     }
 }
 - (IBAction)didPressCancelSkippedDayButton:(id)sender {

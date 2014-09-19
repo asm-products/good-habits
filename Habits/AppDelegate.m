@@ -33,7 +33,7 @@
     return YES;
 }
 -(void)performAnyNecessaryUpgrades{
-//    if([MotionToMantleMigrator dataCanBeMigrated] && [HabitsList all].count == 0) {
+    if([PlistStoreToCoreDataMigrator dataCanBeMigrated] && [HabitsQueries all].count == 0) {
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             [PlistStoreToCoreDataMigrator performMigrationWithArray:[PlistStoreToCoreDataMigrator habitsStoredByMotion] progress:^(float progress) {
@@ -47,7 +47,7 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
             });
         });
-//    }
+    }
 }
 -(void)afterEvent:(NSString*)event performBlock:(void(^)())block{
     [[NSNotificationCenter defaultCenter]
