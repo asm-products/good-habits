@@ -36,7 +36,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
                 }else{
                     // Optionally, display an error here.
                     NSLog(@"Transaction failed for some reason %@", transaction.error);
-                    [SVProgressHUD showErrorWithStatus:[transaction.error.userInfo valueForKey:NSLocalizedDescriptionKey]];
+//                    [SVProgressHUD showErrorWithStatus:[transaction.error.userInfo valueForKey:NSLocalizedDescriptionKey]];
                     break;
                 }
             case SKPaymentTransactionStatePurchased:
