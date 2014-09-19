@@ -8,8 +8,6 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>Configuration</key>
-	<string>${CONFIGURATION}</string>
 	<key>CFBundleIdentifier</key>
 	<string>goodtohear.habits</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -22,10 +20,6 @@
 	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>1.0</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -37,6 +31,12 @@
 			</array>
 		</dict>
 	</array>
+	<key>CFBundleVersion</key>
+	<string>2.0</string>
+	<key>Configuration</key>
+	<string>${CONFIGURATION}</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
