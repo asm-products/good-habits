@@ -29,6 +29,9 @@
     self.navigationItem.leftBarButtonItem = nil;
 #endif
 }
+- (IBAction)didPressDone:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 -(NSArray *)tasks{
     if(!_tasks) _tasks = [InfoTask due];
     return _tasks;
