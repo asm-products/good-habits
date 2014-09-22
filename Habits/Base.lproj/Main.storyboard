@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="C9Y-ae-7A0">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -148,10 +147,11 @@
         <scene sceneID="CAQ-fP-Nhg">
             <objects>
                 <tableViewController storyboardIdentifier="HabitsList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OsE-D3-UbI" customClass="HabitListViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="7GG-hI-RmV">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="7GG-hI-RmV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Habit" rowHeight="82" id="Hgd-gt-8C4" customClass="HabitCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="82"/>
@@ -170,16 +170,12 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUz-aC-COL" customClass="CountView">
-                                            <rect key="frame" x="240" y="8" width="70" height="28"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What happened?" minimumFontSize="10" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dcF-l7-O64">
-                                            <rect key="frame" x="40" y="44" width="270" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What happened?" minimumFontSize="10" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dcF-l7-O64">
+                                            <rect key="frame" x="10" y="44" width="300" height="30"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Uz-Qp-wQ7">
+                                        <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Uz-Qp-wQ7">
                                             <rect key="frame" x="0.0" y="42" width="44" height="38"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <state key="normal" title="╳">
@@ -190,12 +186,22 @@
                                                 <action selector="didPressCancelSkippedDayButton:" destination="Hgd-gt-8C4" eventType="touchUpInside" id="ZYg-XP-t4j"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnY-qI-qlP">
+                                            <rect key="frame" x="273" y="0.0" width="44" height="44"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                                            <state key="normal" title="☹">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didPressHabitStatusButton:" destination="Hgd-gt-8C4" eventType="touchUpInside" id="kU1-Vk-bwf"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cancelSkippedDayButton" destination="5Uz-Qp-wQ7" id="juy-hs-Lt9"/>
                                     <outlet property="checkbox" destination="ee6-Mg-IDX" id="lxw-Rm-v5Z"/>
-                                    <outlet property="countView" destination="oUz-aC-COL" id="c8Z-99-lak"/>
+                                    <outlet property="habitStatusButton" destination="BnY-qI-qlP" id="pBX-mi-Vuh"/>
                                     <outlet property="label" destination="BsF-qM-NUI" id="Cfz-DH-Gdd"/>
                                     <outlet property="reasonEntryField" destination="dcF-l7-O64" id="9GU-50-W9p"/>
                                     <segue destination="7RM-Qo-hbm" kind="push" identifier="Detail" id="t3i-Zh-mBS"/>

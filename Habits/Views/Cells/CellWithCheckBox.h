@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CheckBox.h"
-@interface CellWithCheckBox : UITableViewCell
+#import <MCSwipeTableViewCell.h>
+@interface CellWithCheckBox : MCSwipeTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet CheckBox *checkbox;
 @property (nonatomic, strong) UIColor * color;

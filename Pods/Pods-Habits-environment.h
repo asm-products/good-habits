@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_LMAlertView 1
 #define COCOAPODS_VERSION_PATCH_LMAlertView 0
 
+// MCSwipeTableViewCell
+#define COCOAPODS_POD_AVAILABLE_MCSwipeTableViewCell
+#define COCOAPODS_VERSION_MAJOR_MCSwipeTableViewCell 2
+#define COCOAPODS_VERSION_MINOR_MCSwipeTableViewCell 1
+#define COCOAPODS_VERSION_PATCH_MCSwipeTableViewCell 0
+
 // MVModalTransitions
 #define COCOAPODS_POD_AVAILABLE_MVModalTransitions
 #define COCOAPODS_VERSION_MAJOR_MVModalTransitions 1

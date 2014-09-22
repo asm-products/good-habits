@@ -20,6 +20,8 @@
 		AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */; };
 		AC1EB93B19B0F71A00BF7EAF /* broken_chain_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */; };
 		AC1EB93C19B0F71A00BF7EAF /* broken_chain_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */; };
+		AC21B23319CCBDC00024BE96 /* AwardImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AC21B23219CCBDC00024BE96 /* AwardImage.m */; };
+		AC21B23619CEDA250024BE96 /* PastDayCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC21B23519CEDA250024BE96 /* PastDayCheckView.m */; };
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
 		AC2BC91C19C77C61007C378D /* habits_data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2BC91A19C77C61007C378D /* habits_data.json */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
@@ -187,6 +189,10 @@
 		AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainManipulationTests.m; sourceTree = "<group>"; };
 		AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broken_chain_cross.png; sourceTree = "<group>"; };
 		AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "broken_chain_cross@2x.png"; sourceTree = "<group>"; };
+		AC21B23119CCBDC00024BE96 /* AwardImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardImage.h; sourceTree = "<group>"; };
+		AC21B23219CCBDC00024BE96 /* AwardImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardImage.m; sourceTree = "<group>"; };
+		AC21B23419CEDA250024BE96 /* PastDayCheckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastDayCheckView.h; sourceTree = "<group>"; };
+		AC21B23519CEDA250024BE96 /* PastDayCheckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastDayCheckView.m; sourceTree = "<group>"; };
 		AC24B641197194FC00B33CCF /* CheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMarkView.h; sourceTree = "<group>"; };
 		AC24B642197194FC00B33CCF /* CheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkView.m; sourceTree = "<group>"; };
 		AC2BC91A19C77C61007C378D /* habits_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data.json; sourceTree = "<group>"; };
@@ -498,6 +504,10 @@
 				AC3237BA196C3DAC00A2FF9F /* RoundedButton.m */,
 				AC24B641197194FC00B33CCF /* CheckMarkView.h */,
 				AC24B642197194FC00B33CCF /* CheckMarkView.m */,
+				AC21B23119CCBDC00024BE96 /* AwardImage.h */,
+				AC21B23219CCBDC00024BE96 /* AwardImage.m */,
+				AC21B23419CEDA250024BE96 /* PastDayCheckView.h */,
+				AC21B23519CEDA250024BE96 /* PastDayCheckView.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1143,9 +1153,11 @@
 				AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */,
 				ACBCD3C819B4BEEA00085A95 /* Habits.xcdatamodeld in Sources */,
 				AC4018E01950F79C0033407B /* InfoViewController.m in Sources */,
+				AC21B23619CEDA250024BE96 /* PastDayCheckView.m in Sources */,
 				ACADB3E0190D23B90030CC82 /* main.m in Sources */,
 				ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */,
 				AC4018D41950C3DE0033407B /* DayPicker.m in Sources */,
+				AC21B23319CCBDC00024BE96 /* AwardImage.m in Sources */,
 				ACB35F2A19A750DC000C03F5 /* Chain.m in Sources */,
 				ACB35F3819A7AB5C000C03F5 /* ChainQueries.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,

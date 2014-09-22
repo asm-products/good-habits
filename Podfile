@@ -14,6 +14,7 @@ target "Habits" do
     pod 'LMAlertView', '~> 1.1'
     pod 'MVModalTransitions', :git=>'git@github.com:michaelforrest/MVModalTransitions.git'
     pod 'DHAppleReceiptParser', '~> 1.0'
+    pod 'MCSwipeTableViewCell', '~> 2.1'
     #    pod 'KiipSDK', '~> 2.0'
 end
 

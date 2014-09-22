@@ -217,10 +217,10 @@
 
 }
 -(DayCheckedState)dayState{
-    if([self.lastDateCache isEqualToDate:[TimeHelper today]]){
-        return self.days.count > 0 ? DayCheckedStateComplete : DayCheckedStateNull;
-    }else if(self.explicitlyBroken.boolValue){
+    if(self.explicitlyBroken.boolValue){
         return DayCheckedStateBroken;
+    }else if([self.lastDateCache isEqualToDate:[TimeHelper today]]){
+        return self.days.count > 0 ? DayCheckedStateComplete : DayCheckedStateNull;
     }else{
         return DayCheckedStateNull;
     }
