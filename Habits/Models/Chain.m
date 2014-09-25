@@ -70,6 +70,10 @@
     NSTimeInterval dateInterval = date.timeIntervalSinceReferenceDate;
     return dateInterval >= self.startDate.timeIntervalSinceReferenceDate && dateInterval <= self.lastDateCache.timeIntervalSinceReferenceDate;
 }
+-(BOOL)isRecord{
+    NSInteger currentChainLength = self.currentChainLengthForDisplay;
+    return currentChainLength > 0 && currentChainLength == self.habit.longestChain.daysCountCache.integerValue;
+}
 #pragma mark - Interaction
 -(DayCheckedState)stepToNextStateForDate:(NSDate *)date{
     HabitDay * existingDay = [self habitDayForDate:date];

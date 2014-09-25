@@ -44,6 +44,10 @@ typedef enum{
 -(NSDate*)startDate;
 -(NSInteger)countOfDaysOverdue;
 -(BOOL)overlapsDate:(NSDate*)date;
+/**
+ *  Is this the longest ever chain?   
+ */
+-(BOOL)isRecord;
 #pragma mark - Chain manipulation
 
 #pragma mark - User interaction

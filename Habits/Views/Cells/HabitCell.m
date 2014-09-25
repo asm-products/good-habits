@@ -20,8 +20,7 @@
 #import "AwardImage.h"
 #import <UIAlertView+Blocks.h>
 #import "PastDayCheckView.h"
-#define CHAR_MISSED @"☹"
-#define CHAR_PAUSED @""
+#import <SVProgressHUD.h>
 
 @interface HabitCell()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cancelSkippedDayButton;
@@ -36,7 +35,7 @@
 }
 -(void)build{
     [super build];
-    
+    self.habitStatusButton.backgroundColor = [UIColor clearColor];
     [self buildReasonEntryField];
     //  y = 8 because the check box starts at 10. yes. not ideal.
     countView.text = @[@0, @0];
@@ -67,8 +66,10 @@
     return YES;
 }
 -(void)onCheckboxTapped{
+    if (self.chain && self.chain.explicitlyBroken.boolValue && self.chain.countOfDaysOverdue > 0){
+        self.chain = [self.chain.habit addNewChainForToday];
+    }
     DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
-    self.chain = [habit chainForDate:self.day];
     [self setState:state];
     if (state != DayCheckedStateBroken) [reasonEntryField resignFirstResponder];
     if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:self.chain];
@@ -134,10 +135,16 @@
 }
 - (IBAction)didPressHabitStatusButton:(id)sender {
     if(self.chain.isBroken &!self.chain.explicitlyBroken.boolValue){
-        [[[UIAlertView alloc] initWithTitle:self.chain.habit.title message:[NSString stringWithFormat:@"Check this day off for %@? (You can also swipe left to check this date off)",[[TimeHelper fullDateFormatter]  stringFromDate:self.chain.nextRequiredDate]] cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:[NSString stringWithFormat:@"✓ %@",[self timeAgoString:self.chain.countOfDaysOverdue]] action:^{
+        [[[UIAlertView alloc] initWithTitle:self.chain.habit.title message:[NSString stringWithFormat:@"Check %@? (You can also swipe left to check this date off)",[[TimeHelper fullDateFormatter]  stringFromDate:self.chain.nextRequiredDate]] cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:[NSString stringWithFormat:@"✓ %@",[self timeAgoString:self.chain.countOfDaysOverdue]] action:^{
             [self checkNextRequiredDate];
         }], nil] show];
+    }else{
+        NSInteger currentLength = self.chain.currentChainLengthForDisplay;
+        NSInteger longest = self.chain.habit.longestChain.length;
+        NSString * status = [NSString stringWithFormat:@"Current length: %@ day%@\nLongest chain: %@ day%@", @(currentLength), currentLength == 1 ? @"" : @"s", @(longest), longest == 1 ? @"" : @"s"];
+        [SVProgressHUD showImage:self.chain.isRecord ? [AwardImage starColored:self.chain.habit.color] : [AwardImage circleColored:self.chain.habit.color] status:status];
     }
+
 }
 
 -(void)setState:(DayCheckedState)state{
@@ -149,39 +156,31 @@
         self.chain.habit.title;
     self.label.textColor = [self labelTextColor];
     
-    NSInteger countOfDaysOverdue = self.chain.countOfDaysOverdue;
-    NSLog(@"Count of days overdue for %@ = %@ (next due date %@)", self.chain.habit.title, @(countOfDaysOverdue), self.chain.nextRequiredDate);
-    NSInteger currentChainLength = countOfDaysOverdue > 0 ? -(countOfDaysOverdue - 1) : self.chain.length;
-
-    BOOL isRecord = currentChainLength > 0 && currentChainLength == self.chain.habit.longestChain.daysCountCache.integerValue;
     
-    
-    if(self.chain.isBroken){
-        NSInteger daysOverdue = self.chain.countOfDaysOverdue;
-        NSString * timeMissedString = [self timeAgoString:daysOverdue];
-        reasonEntryField.placeholder = [NSString stringWithFormat:@"Missed %@. What happened?", timeMissedString];
-        self.cancelSkippedDayButton.accessibilityLabel = [NSString stringWithFormat:@"Check %@", [self timeAgoString:daysOverdue]];
-        [self.habitStatusButton setTitle:CHAR_MISSED forState:UIControlStateNormal];
-        [self.habitStatusButton setImage:nil forState:UIControlStateNormal];
-        [self.habitStatusButton setTitleColor:self.chain.habit.color forState:UIControlStateNormal];
-        [self.habitStatusButton setBackgroundImage:nil forState:UIControlStateNormal];
-        [self.habitStatusButton.titleLabel setFont:[self.habitStatusButton.titleLabel.font fontWithSize:35]];
+    __weak id welf = self;
+    if(self.chain.habit.isActive.boolValue){
+        
+        [self.habitStatusButton setTitle:@(self.chain.currentChainLengthForDisplay).stringValue forState:UIControlStateNormal];
+        if(self.chain.isBroken){
+            NSInteger daysOverdue = self.chain.countOfDaysOverdue;
+            NSString * timeMissedString = [self timeAgoString:daysOverdue];
+            reasonEntryField.placeholder = [NSString stringWithFormat:@"Missed %@. What happened?", timeMissedString];
+            self.cancelSkippedDayButton.accessibilityLabel = [NSString stringWithFormat:@"Check %@", [self timeAgoString:daysOverdue]];
 
-    }else{
-        [self.habitStatusButton setTitle:@(currentChainLength).stringValue forState:UIControlStateNormal];
-        UIImage * backgroundImage = isRecord ? [AwardImage starColored:self.chain.habit.color] : [AwardImage circleColored:self.chain.habit.color];
-        [self.habitStatusButton setBackgroundImage:backgroundImage forState:UIControlStateNormal];
-        [self.habitStatusButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.habitStatusButton.titleLabel setFont:[self.habitStatusButton.titleLabel.font fontWithSize:14]];
+            [self.habitStatusButton setBackgroundImage:[AwardImage circleColored:[Colors cobalt]] forState:UIControlStateNormal];
 
-    }
-    id welf = self;
-    if(self.chain.isBroken){
-        [self setSwipeGestureWithView:[PastDayCheckView viewWithText:[self timeAgoString:self.chain.countOfDaysOverdue] frame:CGRectMake(0, 0, 100, self.frame.size.height)] color:self.chain.habit.color mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
-            [welf checkNextRequiredDate];
-        }];
-    }else{
+            [self setSwipeGestureWithView:[PastDayCheckView viewWithText:[self timeAgoString:self.chain.countOfDaysOverdue] frame:CGRectMake(0, 0, 100, self.frame.size.height)] color:self.chain.habit.color mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
+                [welf checkNextRequiredDate];
+            }];
+        }else{
+            UIImage * backgroundImage = self.chain.isRecord ? [AwardImage starColored:self.chain.habit.color] : [AwardImage circleColored:self.chain.habit.color];
+            [self.habitStatusButton setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+            self.modeForState3 = MCSwipeTableViewCellModeNone;
+        }
+    }else{ // paused
         self.modeForState3 = MCSwipeTableViewCellModeNone;
+        [self.habitStatusButton setBackgroundImage:[AwardImage circleColored:[Colors cobalt]] forState:UIControlStateNormal];
+        [self.habitStatusButton setTitle:@(self.chain.habit.currentChainLength).stringValue forState:UIControlStateNormal];
     }
 }
 -(void)update{

@@ -101,10 +101,12 @@
 -(void)testPastChainsAreNotExplicitlyBroken{
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
-    [tester waitForViewWithAccessibilityLabel:@"-19"];
+    [tester waitForViewWithAccessibilityLabel:@"-20"];
 }
 -(void)testPastChainsShowChainBreakDateAndButtonToAddDay{
-    [tester waitForViewWithAccessibilityLabel:@"Missed 19 days ago. What happened?"];
-    [tester tapViewWithAccessibilityLabel:@"Check 19 days ago"];
+    [tester waitForViewWithAccessibilityLabel:@"Missed 20 days ago. What happened?"];
+    [tester tapViewWithAccessibilityLabel:@"-20"];
+    [tester tapViewWithAccessibilityLabel:@"✓ 20 days ago"];
+    [tester waitForViewWithAccessibilityLabel:@"-19"];
 }
 @end
