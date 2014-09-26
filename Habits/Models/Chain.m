@@ -74,54 +74,59 @@
     NSInteger currentChainLength = self.currentChainLengthForDisplay;
     return currentChainLength > 0 && currentChainLength == self.habit.longestChain.daysCountCache.integerValue;
 }
+-(NSInteger)currentChainLengthForDisplay{
+    NSInteger countOfDaysOverdue = self.countOfDaysOverdue;
+    NSInteger currentChainLength = countOfDaysOverdue > 0 ? -(countOfDaysOverdue) : self.length;
+    return currentChainLength;
+}
 #pragma mark - Interaction
 -(DayCheckedState)stepToNextStateForDate:(NSDate *)date{
     HabitDay * existingDay = [self habitDayForDate:date];
     DayCheckedState result;
     BOOL dateIsAtEndOfChain = [date isEqualToDate:self.lastDateCache] || date.timeIntervalSinceReferenceDate >= self.nextRequiredDate.timeIntervalSinceReferenceDate;
     BOOL dateIsTooLateForThisChain = self.days.count > 0 && (date.timeIntervalSinceReferenceDate > self.nextRequiredDate.timeIntervalSinceReferenceDate);
-    if(self.explicitlyBroken.boolValue == YES){
-        // Was explicity broken - null out the broken
-        self.explicitlyBroken = nil;
-        NSLog(@"Clearing explicit break on %@ from %@", self.habit.title, self.firstDateCache);
-        result = DayCheckedStateNull;
-        
-    }else if(dateIsTooLateForThisChain){
-        Chain * chain = [self.habit addNewChain];
-        [chain tickLastDayInChainOnDate:date];
-        result = DayCheckedStateComplete;
-        
+    if(self.explicitlyBroken.boolValue == YES){ // was explicitly broken, reset to nill
+        result = [self revertToNullStateForToday];
+    }else if(dateIsTooLateForThisChain){ // wasn't checked but caused a break
+        result = [self createNewChainAndCheckDate:date];
     }else if(dateIsAtEndOfChain){
-        // toggle check / explicit break / null:
-        if(existingDay == nil){
-            // Tick the day
+        if(existingDay == nil){// wasn't checked, check
             result = [self tickLastDayInChainOnDate: date];
-            
-        }else{
-            // Was checked - make explicitly broken.
-            [self removeDaysObject:existingDay];
-            Chain * chain = self;
-            Habit * habit = chain.habit;
-            if(self.days.count == 0){
-                [self.habit removeChainsObject:self];
-                chain = [habit chainForDate:date];
-            }
-            chain.lastDateCache = chain.days.count > 0 ? [chain.sortedDays.lastObject date] : [TimeHelper today];
-            if(chain.countOfDaysOverdue < 2){
-                chain.explicitlyBroken = @YES;
-                NSLog(@"Explicitly breaking %@ chain from %@", chain.habit.title, chain.firstDateCache);
-                result = DayCheckedStateBroken;
-            }else{
-                result = DayCheckedStateNull;
-            }
-            
+        }else{ // was checked, explicitly break
+            result = [self uncheckDay:existingDay andBreakChain:date];
         }
-
     }else{
         NSLog(@"Error - something bad has happened.");
     }
     [[CoreDataClient defaultClient].managedObjectContext save:nil];
     return result;
+}
+-(DayCheckedState)revertToNullStateForToday{
+    self.explicitlyBroken = nil;
+    NSLog(@"Clearing explicit break on %@ from %@", self.habit.title, self.firstDateCache);
+    return DayCheckedStateNull;
+}
+-(DayCheckedState)createNewChainAndCheckDate:(NSDate*)date{
+    Chain * chain = [self.habit addNewChainForToday];
+    [chain tickLastDayInChainOnDate:date];
+    return DayCheckedStateComplete;
+}
+-(DayCheckedState)uncheckDay:(HabitDay*)existingDay andBreakChain:(NSDate*)date{
+    [self removeDaysObject:existingDay];
+    Chain * chain = self;
+    Habit * habit = chain.habit;
+    if(self.days.count == 0){
+        [self.habit removeChainsObject:self];
+        chain = [habit chainForDate:date];
+    }
+    chain.lastDateCache = chain.days.count > 0 ? [chain.sortedDays.lastObject date] : [TimeHelper today];
+    if(chain.countOfDaysOverdue < 2){
+        chain.explicitlyBroken = @YES;
+        NSLog(@"Explicitly breaking %@ chain from %@", chain.habit.title, chain.firstDateCache);
+        return DayCheckedStateBroken;
+    }else{
+        return DayCheckedStateNull;
+    }
 }
 -(DayCheckedState)toggleDayInCalendarForDate:(NSDate *)date{
     HabitDay * existingDay = [self habitDayForDate:date];

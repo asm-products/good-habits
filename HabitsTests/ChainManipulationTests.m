@@ -69,7 +69,8 @@
 }
 -(void)testNewChainCreatedByTickingToday{
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
-    [tester waitForViewWithAccessibilityLabel:@"Current chain length 1, longest chain 1"];
+    [tester tapViewWithAccessibilityLabel:@"1"];
+    [tester waitForViewWithAccessibilityLabel:@"Current length: 1 day\nLongest chain: 1 day"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
     [tester waitForViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
 }
@@ -90,6 +91,7 @@
     [tester enterTextIntoCurrentFirstResponder:@"I messed it up. Sorry.\n"];
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-23"].date];
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil];
+    [tester waitForTimeInterval:10];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"I messed it up. Sorry."];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
@@ -109,4 +111,20 @@
     [tester tapViewWithAccessibilityLabel:@"✓ 20 days ago"];
     [tester waitForViewWithAccessibilityLabel:@"-19"];
 }
+
+-(void)testThatOtherBug{
+    [tester tapViewWithAccessibilityLabel:@"Testing habit"];
+    [tester tapViewWithAccessibilityLabel:@"21 August, last in chain"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
+    [tester waitForViewWithAccessibilityLabel:@"Checkbox for Testing habit Broken"];
+    [tester tapViewWithAccessibilityLabel:@"Testing habit"];
+    [tester tapViewWithAccessibilityLabel:@"20 August"];
+    [tester tapViewWithAccessibilityLabel:@"21 August"];
+//    [tester waitForTimeInterval:1000];
+    [tester waitForViewWithAccessibilityLabel:@"20 August, mid-chain"];
+    [tester waitForViewWithAccessibilityLabel:@"21 August, end of chain"];
+}
+
 @end

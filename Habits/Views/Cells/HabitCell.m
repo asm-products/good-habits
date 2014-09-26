@@ -66,9 +66,6 @@
     return YES;
 }
 -(void)onCheckboxTapped{
-    if (self.chain && self.chain.explicitlyBroken.boolValue && self.chain.countOfDaysOverdue > 0){
-        self.chain = [self.chain.habit addNewChainForToday];
-    }
     DayCheckedState state = [self.chain stepToNextStateForDate: self.day];
     [self setState:state];
     if (state != DayCheckedStateBroken) [reasonEntryField resignFirstResponder];

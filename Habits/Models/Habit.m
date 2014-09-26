@@ -78,6 +78,13 @@
 -(Chain *)addNewChain{
     return [self addNewChainInContext:[CoreDataClient defaultClient].managedObjectContext];
 }
+-(Chain*)addNewChainForToday{
+    Chain * chain = [self addNewChain];
+    chain.firstDateCache = [TimeHelper today];
+    chain.lastDateCache = [TimeHelper today];
+    chain.daysCountCache = @0;
+    return chain;
+}
 -(NSArray *)sortedChains{
     return [self.chains sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lastDateCache" ascending:YES]]];
 }
@@ -93,11 +100,8 @@
 -(Chain *)chainForDate:(NSDate *)date{
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache <= %@", date]];
     Chain * lastObject = chains.lastObject;
-    if(chains.count == 0 || (lastObject && lastObject.explicitlyBroken.boolValue && lastObject.countOfDaysOverdue > 0)){
-        Chain * chain = [self addNewChain];
-        chain.firstDateCache = [TimeHelper today];
-        chain.lastDateCache = [TimeHelper today];
-        chain.daysCountCache = @0;
+    if(chains.count == 0 ){
+        Chain * chain = [self addNewChainForToday];
         return chain;
     }else{
         return lastObject;

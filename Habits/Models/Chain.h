@@ -48,6 +48,7 @@ typedef enum{
  *  Is this the longest ever chain?   
  */
 -(BOOL)isRecord;
+-(NSInteger)currentChainLengthForDisplay;
 #pragma mark - Chain manipulation
 
 #pragma mark - User interaction

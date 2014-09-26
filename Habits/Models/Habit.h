@@ -50,6 +50,7 @@
 
 #pragma mark - Chains
 -(Chain*)addNewChain;
+-(Chain*)addNewChainForToday;
 -(Chain*)addNewChainInContext:(NSManagedObjectContext*)context;
 -(NSArray*)sortedChains;
 -(Chain*)longestChain;
