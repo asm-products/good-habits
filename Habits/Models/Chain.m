@@ -12,9 +12,9 @@
 #import "CoreDataClient.h"
 
 @implementation Chain
-@dynamic notes,explicitlyBroken,days,habit,breakDetected,daysCountCache,lastDateCache,firstDateCache,daysRequired;
+@dynamic days,habit,breakDetected,daysCountCache,lastDateCache,firstDateCache,daysRequired;
 -(BOOL)isBroken{
-    return self.explicitlyBroken.boolValue || self.countOfDaysOverdue > 0;
+    return self.countOfDaysOverdue > 0;
 }
 -(void)save{
     [[CoreDataClient defaultClient].managedObjectContext save:nil];
@@ -79,30 +79,7 @@
     NSInteger currentChainLength = countOfDaysOverdue > 0 ? -(countOfDaysOverdue) : self.length;
     return currentChainLength;
 }
-#pragma mark - Interaction
--(DayCheckedState)stepToNextStateForDate:(NSDate *)date{
-    HabitDay * existingDay = [self habitDayForDate:date];
-    DayCheckedState result;
-    BOOL dateIsAtEndOfChain = [date isEqualToDate:self.lastDateCache] || date.timeIntervalSinceReferenceDate >= self.nextRequiredDate.timeIntervalSinceReferenceDate;
-    BOOL dateIsTooLateForThisChain = self.days.count > 0 && (date.timeIntervalSinceReferenceDate > self.nextRequiredDate.timeIntervalSinceReferenceDate);
-    if(self.explicitlyBroken.boolValue == YES){ // was explicitly broken, reset to nill
-        result = [self revertToNullStateForToday];
-    }else if(dateIsTooLateForThisChain){ // wasn't checked but caused a break
-        result = [self createNewChainAndCheckDate:date];
-    }else if(dateIsAtEndOfChain){
-        if(existingDay == nil){// wasn't checked, check
-            result = [self tickLastDayInChainOnDate: date];
-        }else{ // was checked, explicitly break
-            result = [self uncheckDay:existingDay andBreakChain:date];
-        }
-    }else{
-        NSLog(@"Error - something bad has happened.");
-    }
-    [[CoreDataClient defaultClient].managedObjectContext save:nil];
-    return result;
-}
 -(DayCheckedState)revertToNullStateForToday{
-    self.explicitlyBroken = nil;
     NSLog(@"Clearing explicit break on %@ from %@", self.habit.title, self.firstDateCache);
     return DayCheckedStateNull;
 }
@@ -121,7 +98,6 @@
     }
     chain.lastDateCache = chain.days.count > 0 ? [chain.sortedDays.lastObject date] : [TimeHelper today];
     if(chain.countOfDaysOverdue < 2){
-        chain.explicitlyBroken = @YES;
         NSLog(@"Explicitly breaking %@ chain from %@", chain.habit.title, chain.firstDateCache);
         return DayCheckedStateBroken;
     }else{
@@ -226,7 +202,7 @@
 
 }
 -(DayCheckedState)dayState{
-    if(self.explicitlyBroken.boolValue){
+    if([self.habit existingFailureForDate:[TimeHelper today]].active.boolValue){
         return DayCheckedStateBroken;
     }else if([self.lastDateCache isEqualToDate:[TimeHelper today]]){
         return self.days.count > 0 ? DayCheckedStateComplete : DayCheckedStateNull;

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Chain.h"
+#import "Failure.h"
 @interface ReasonCellTableViewCell : UITableViewCell
 +(CGFloat)heightWithReasonText:(NSString*)text;
-@property (nonatomic, strong) Chain * chain;
+@property (nonatomic, strong) Failure * failure;
 @end

@@ -16,17 +16,18 @@
 #import "ReasonCellTableViewCell.h"
 #import "CoreDataClient.h"
 #import "ChainLengthDistributionTableViewCell.h"
+#import "Failure.h"
 typedef enum {
     StatsSectionSparkline,
     StatsSectionChainLengthDistribution,
     StatsSectionReasons,
     StatsSectionCount,
-    StatsSectionChainBreaks
+    StatsSectionChainBreaks,
 } StatsSection;
 
 @interface StatsTableViewController ()
 @property (nonatomic, strong) NSArray * chains;
-@property (nonatomic, strong) NSArray * chainsWithReasons;
+@property (nonatomic, strong) NSArray * failures;
 @property (nonatomic, strong) ChainLengthDistributionTableViewCell * chainLengthDistributionCell;
 @end
 
@@ -51,7 +52,7 @@ typedef enum {
 -(void)loadChains{
     
     self.chains = self.habit.sortedChains.reverse;
-    self.chainsWithReasons = [self.chains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"notes != nil && notes != %@", @""]];
+    self.failures = [self.habit.failures sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
 }
 #pragma mark - Pre-made cells
 -(void)createChainLengthDistributionCell{
@@ -62,14 +63,14 @@ typedef enum {
 }
 
 #pragma mark - Table view data source
--(Chain*)chainWithReasonAtIndexPath:(NSIndexPath*)indexPath{
-    return self.chainsWithReasons[indexPath.row];
+-(Failure*)failureWithReasonAtIndexPath:(NSIndexPath*)indexPath{
+    return self.failures[indexPath.row];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case StatsSectionSparkline: return 230;
         case StatsSectionChainLengthDistribution: return self.chainLengthDistributionCell.height;
-        case StatsSectionReasons: return [ReasonCellTableViewCell heightWithReasonText:[self chainWithReasonAtIndexPath:indexPath].notes];
+        case StatsSectionReasons: return [ReasonCellTableViewCell heightWithReasonText:[self failureWithReasonAtIndexPath:indexPath].notes];
         default: return 44;
     }
 }
@@ -81,7 +82,7 @@ typedef enum {
     switch (section) {
         case StatsSectionSparkline: return @"STATS";
         case StatsSectionChainLengthDistribution: return self.chains.count > 0 ? @"Length distribution" : nil;
-        case StatsSectionReasons: return self.chainsWithReasons.count > 0 ? @"Notes" : nil;
+        case StatsSectionReasons: return self.failures.count > 0 ? @"Notes" : nil;
         case StatsSectionChainBreaks: return self.chains.count > 0 ? @"Chains" : @"";
         default: return @"";
     }
@@ -90,7 +91,7 @@ typedef enum {
 {
     if(section == StatsSectionSparkline) return 1;
     if(section == StatsSectionChainLengthDistribution) return 1;
-    if(section == StatsSectionReasons) return self.chainsWithReasons.count;
+    if(section == StatsSectionReasons) return self.failures.count;
     if(section == StatsSectionChainBreaks){
         return self.chains.count;
     }
@@ -110,7 +111,7 @@ typedef enum {
     }
     if(indexPath.section == StatsSectionReasons){
         ReasonCellTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ReasonCell" forIndexPath:indexPath];
-        cell.chain = [self chainWithReasonAtIndexPath:indexPath];
+        cell.failure = [self failureWithReasonAtIndexPath:indexPath];
         return cell;
     }
     if(indexPath.section == StatsSectionChainBreaks){

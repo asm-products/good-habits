@@ -159,6 +159,7 @@
 		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
 		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
+		ACDC730D19D5511700D2B137 /* Failure.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC730C19D5511700D2B137 /* Failure.m */; };
 		ACE31AC119756936007173A0 /* HabitDay.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE31AC019756936007173A0 /* HabitDay.m */; };
 		ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */; };
 		ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */; };
@@ -397,6 +398,9 @@
 		ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitSparklineTableViewCell.m; sourceTree = "<group>"; };
 		ACDC63C1196F2D2F00F68BD6 /* DailySparklineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailySparklineView.h; sourceTree = "<group>"; };
 		ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailySparklineView.m; sourceTree = "<group>"; };
+		ACDC730A19D496EA00D2B137 /* Habits 12.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 12.xcdatamodel"; sourceTree = "<group>"; };
+		ACDC730B19D5511700D2B137 /* Failure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Failure.h; sourceTree = "<group>"; };
+		ACDC730C19D5511700D2B137 /* Failure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Failure.m; sourceTree = "<group>"; };
 		ACE31ABF19756936007173A0 /* HabitDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDay.h; sourceTree = "<group>"; };
 		ACE31AC019756936007173A0 /* HabitDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDay.m; sourceTree = "<group>"; };
 		ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayBoundaryTests.m; sourceTree = "<group>"; };
@@ -777,6 +781,8 @@
 				AC4018F119518EBC0033407B /* DataExport.m */,
 				AC735DDC19704F67007CD2B7 /* AppFeatures.h */,
 				AC735DDD19704F67007CD2B7 /* AppFeatures.m */,
+				ACDC730B19D5511700D2B137 /* Failure.h */,
+				ACDC730C19D5511700D2B137 /* Failure.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1168,6 +1174,7 @@
 				AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */,
 				AC5F3B5D19C6F22D00398F81 /* JSONConversion.m in Sources */,
 				AC4018E31950F84C0033407B /* InfoTask.m in Sources */,
+				ACDC730D19D5511700D2B137 /* Failure.m in Sources */,
 				AC4018C4195090260033407B /* CalendarTopView.m in Sources */,
 				AC4018D71950C51D0033407B /* DayToggle.m in Sources */,
 				ACB35F3E19A8C378000C03F5 /* ChainStatsCell.m in Sources */,
@@ -1429,10 +1436,11 @@
 		ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				ACDC730A19D496EA00D2B137 /* Habits 12.xcdatamodel */,
 				ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */,
 				ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */,
 			);
-			currentVersion = ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */;
+			currentVersion = ACDC730A19D496EA00D2B137 /* Habits 12.xcdatamodel */;
 			path = Habits.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -32,8 +32,6 @@
         result[@"daysRequired"] = [[self daysRequiredJSONTransformer] reverseTransformedValue:habit.daysRequired];
         result[@"chains"] = [habit.sortedChains map:^NSDictionary*(Chain *chain) {
             NSMutableDictionary * result = [NSMutableDictionary new];
-            if(chain.notes) result[@"notes"] = chain.notes;
-            if(chain.explicitlyBroken) result[@"explicitlyBroken"] = chain.explicitlyBroken;
             result[@"days"] = [chain.sortedDays map:^NSDictionary*(HabitDay *day) {
                 NSMutableDictionary * result = [NSMutableDictionary new];
                 result[@"date"] = [[TimeHelper jsonDateFormatter] stringFromDate:day.date];
@@ -65,8 +63,6 @@
             
             for (NSDictionary * chainDict in dict[@"chains"]) {
                 Chain * chain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:context];
-                if(chainDict[@"notes"]) chain.notes = chainDict[@"notes"];
-                if(chainDict[@"explicitlyBroken"]) chain.explicitlyBroken = chainDict[@"explicitlyBroken"];
                 [habit addChainsObject:chain];
                 for (NSDictionary * dayDict in chainDict[@"days"]) {
                     HabitDay * day = [NSEntityDescription insertNewObjectForEntityForName:@"HabitDay" inManagedObjectContext:context];

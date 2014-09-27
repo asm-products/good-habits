@@ -9,16 +9,18 @@
 #import "ReasonCellTableViewCell.h"
 #import "TimeHelper.h"
 #import "Habit.h"
+#import "Chain.h"
 @implementation ReasonCellTableViewCell{
     
     __weak IBOutlet UILabel *dateLabel;
     __weak IBOutlet UILabel *reasonLabel;
 
 }
--(void)setChain:(Chain *)chain{
-    _chain = chain;
-    dateLabel.text = [[[TimeHelper fullDateFormatter] stringFromDate:chain.lastDateCache] stringByAppendingFormat:@" - chain length %@ day%@", chain.daysCountCache, chain.daysCountCache.integerValue == 1 ? @"" : @"s" ];
-    reasonLabel.text = chain.notes;
+-(void)setFailure:(Failure *)failure{
+    _failure = failure;
+    Chain  * chain = [failure.habit chainForDate:failure.date];
+    dateLabel.text = [[[TimeHelper fullDateFormatter] stringFromDate:failure.date] stringByAppendingFormat:@" - chain length %@ day%@", chain.daysCountCache, chain.daysCountCache.integerValue == 1 ? @"" : @"s" ];
+    reasonLabel.text = failure.notes;
 
 }
 

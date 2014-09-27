@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HabitDay.h"
+#import "Failure.h"
 @import CoreData;
 
 @class ChainAnalysis;
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) NSArray * daysRequired;
 
 @property (nonatomic, strong) NSSet * chains;
+@property (nonatomic, strong) NSSet * failures;
 
 @property (nonatomic, strong) NSMutableArray * notifications;
 
@@ -40,14 +42,6 @@
 #pragma mark - Meta
 -(NSDate*)earliestDate;
 
-#pragma mark - Interactions
-//-(void)toggle:(NSDate*)date;
-//-(void)checkDays:(NSArray*)days;
-//-(void)uncheckDays:(NSArray*)days;
-//-(void)setDaysChecked:(NSArray *)dayKeys checked:(BOOL)checked;
-//-(HabitDay*)habitDayForDate:(NSDate*)date;
-//-(HabitDay*)habitDayForKey:(NSString*)key;
-
 #pragma mark - Chains
 -(Chain*)addNewChain;
 -(Chain*)addNewChainForToday;
@@ -58,6 +52,11 @@
 -(Chain*)currentChain;
 -(Chain*)chainForDate:(NSDate*)date;
 -(void)recalculateRunningTotalsInBackground:(void(^)())completionCallback;
+
+#pragma mark - Failures
+-(Failure*)existingFailureForDate:(NSDate*)date;
+-(Failure*)createFailureForDate:(NSDate*)date;
+
 #pragma mark - Data management
 +(Habit*)createNew;
 #pragma mark - Notifications
@@ -66,7 +65,11 @@
 @end
 
 
-@interface Habit(ChainsAccessors)
+@interface Habit(CoreDataAccessors)
 -(void)addChainsObject:(Chain *)object;
 -(void)removeChainsObject:(Chain*)object;
+-(void)addFailuresObject:(Failure*)object;
+-(void)removeFailuresObject:(Failure*)object;
 @end
+
+

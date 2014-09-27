@@ -72,6 +72,7 @@
     [tester tapViewWithAccessibilityLabel:@"1"];
     [tester waitForViewWithAccessibilityLabel:@"Current length: 1 day\nLongest chain: 1 day"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Broken"];
     [tester waitForViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
 }
 -(void)testChangingRequiredDatesDoesNotRuinExistingChain{
@@ -91,7 +92,6 @@
     [tester enterTextIntoCurrentFirstResponder:@"I messed it up. Sorry.\n"];
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-23"].date];
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil];
-    [tester waitForTimeInterval:10];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"I messed it up. Sorry."];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
@@ -103,6 +103,7 @@
 -(void)testPastChainsAreNotExplicitlyBroken{
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Broken"];
     [tester waitForViewWithAccessibilityLabel:@"-20"];
 }
 -(void)testPastChainsShowChainBreakDateAndButtonToAddDay{
@@ -110,6 +111,9 @@
     [tester tapViewWithAccessibilityLabel:@"-20"];
     [tester tapViewWithAccessibilityLabel:@"✓ 20 days ago"];
     [tester waitForViewWithAccessibilityLabel:@"-19"];
+    [tester tapViewWithAccessibilityLabel:@"" value: @"Missed 19 days ago. What happened?" traits:UIAccessibilityTraitNone];
+    [tester waitForKeyboard];
+    [tester waitForViewWithAccessibilityLabel:@"" value: @"Missed 19 days ago. What happened?" traits:UIAccessibilityTraitNone];
 }
 
 -(void)testThatOtherBug{
@@ -124,7 +128,8 @@
     [tester tapViewWithAccessibilityLabel:@"21 August"];
 //    [tester waitForTimeInterval:1000];
     [tester waitForViewWithAccessibilityLabel:@"20 August, mid-chain"];
-    [tester waitForViewWithAccessibilityLabel:@"21 August, end of chain"];
+    [tester waitForViewWithAccessibilityLabel:@"21 August, last in chain"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
 }
 
 @end

@@ -117,7 +117,7 @@ typedef enum {
     cell.delegate = self;
     Habit * habit = [self habitForIndexPath:indexPath];
     cell.inactive = NO;
-    cell.chain = [habit chainForDate:now];
+    cell.habit = habit;
     if (habit){
         BOOL habitIsRequiredToday = habit.isActive.boolValue && [habit isRequiredOnWeekday:now];
         if(habitIsRequiredToday){
@@ -136,7 +136,9 @@ typedef enum {
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Habit * habit = [self habitForIndexPath:indexPath];
-    CGFloat result = [habit chainForDate:today].isBroken && [AppFeatures shouldShowReasonInput] && indexPath.section == HabitListSectionActive ? 81 : 44;
+    Chain * chain = [habit chainForDate:today];
+    Failure * failure = [habit existingFailureForDate:today];
+    CGFloat result = (chain.isBroken || failure.active.boolValue) && [AppFeatures shouldShowReasonInput] && (indexPath.section == HabitListSectionActive || indexPath.section == HabitListSectionCarriedOver) ? 81 : 44;
     return result;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

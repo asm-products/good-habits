@@ -20,7 +20,7 @@
 #import "Chain.h"
 
 @implementation Habit
-@dynamic identifier,title,color,createdAt,reminderTime,isActive,order,daysRequired,chains;
+@dynamic identifier,title,color,createdAt,reminderTime,isActive,order,daysRequired,chains,failures;
 @synthesize notifications;
 #pragma mark - Individual state
 -(BOOL)isRequiredToday{
@@ -44,7 +44,9 @@
 }
 -(BOOL)needsToBeDone:(NSDate *)date{
     date = [TimeHelper startOfDayInUTC:date];
-    return ![self done:date] && [self isRequiredOnWeekday:date] && self.currentChain.explicitlyBroken.boolValue != YES;
+    Failure * failure = [self existingFailureForDate:date];
+    BOOL failedToday = failure && failure.active.boolValue;
+    return ![self done:date] && [self isRequiredOnWeekday:date] && !failedToday;
 }
 -(BOOL)hasReminders{
     return self.reminderTime != nil;
@@ -107,6 +109,22 @@
         return lastObject;
     }
 }
+#pragma mark - Failures
+-(Failure*)existingFailureForDate:(NSDate*)date;
+{
+    NSSet * results = [self.failures filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"date == %@", date]];
+    assert(results.count <= 1);
+    return results.anyObject;
+}
+-(Failure*)createFailureForDate:(NSDate*)date;
+{
+    Failure * failure = [NSEntityDescription insertNewObjectForEntityForName:@"Failure" inManagedObjectContext:[CoreDataClient defaultClient].managedObjectContext];
+    failure.date = date;
+    failure.active = @YES;
+    [self addFailuresObject:failure];
+    return failure;
+}
+
 -(void)recalculateRunningTotalsInBackground:(void (^)())completionCallback{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSManagedObjectContext * privateContext = [[CoreDataClient defaultClient] createPrivateContext];

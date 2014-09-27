@@ -21,13 +21,9 @@ typedef enum{
 @class Habit;
 @interface Chain : NSManagedObject
 /**
- *  Used for recording reasons the chain got broken.
- */
-@property (nonatomic, strong) NSString * notes;
-/**
  *  If the user specifies that the chain is broken.
  */
-@property (nonatomic, strong) NSNumber * explicitlyBroken;
+//@property (nonatomic, strong) NSNumber * explicitlyBroken;
 @property (nonatomic, strong) NSNumber * breakDetected;
 @property (nonatomic, strong) NSSet * days;
 @property (nonatomic, strong) Habit * habit;
@@ -49,10 +45,10 @@ typedef enum{
  */
 -(BOOL)isRecord;
 -(NSInteger)currentChainLengthForDisplay;
-#pragma mark - Chain manipulation
+-(HabitDay*)habitDayForDate:(NSDate*)date;
+-(DayCheckedState)tickLastDayInChainOnDate:(NSDate*)date;
 
 #pragma mark - User interaction
--(DayCheckedState)stepToNextStateForDate:(NSDate*)date;
 -(DayCheckedState)dayState;
 -(DayCheckedState)toggleDayInCalendarForDate:(NSDate*)date;
 /**
