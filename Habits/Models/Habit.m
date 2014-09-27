@@ -103,7 +103,10 @@
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache <= %@", date]];
     Chain * lastObject = chains.lastObject;
     if(chains.count == 0 ){
-        Chain * chain = [self addNewChainForToday];
+        Chain * chain = [self addNewChain];
+        chain.firstDateCache = date;
+        chain.lastDateCache = date;
+        chain.daysCountCache = @0;
         return chain;
     }else{
         return lastObject;

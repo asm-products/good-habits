@@ -56,7 +56,7 @@
     }else{
         if(!self.failure.active.boolValue){
             self.failure = [self.habit createFailureForDate:self.habit.currentChain.nextRequiredDate];
-            [self setState:DayCheckedStateBroken];
+//            [self setState:DayCheckedStateBroken];
         }
         return YES;
     }
@@ -107,6 +107,7 @@
 }
 -(void)setHabit:(Habit *)habit{
     _habit = habit;
+    reasonEntryField.text = @"";
     // The following is intended to be monitored by HabitsListViewController to update the height of the cell
     // that was changed, thus hiding or revealing the reason text field
     if([AppFeatures statsEnabled] == NO){
@@ -188,15 +189,18 @@
         Chain * chain = self.habit.currentChain;
         [self.habitStatusButton setTitle:@(chain.currentChainLengthForDisplay).stringValue forState:UIControlStateNormal];
         NSInteger daysOverdue = chain.countOfDaysOverdue;
+        if(!self.failure) self.failure = [self.habit existingFailureForDate:self.day];
         if(self.failure || daysOverdue > 0){
             NSString * timeMissedString = self.failure.active.boolValue && [self.failure.date isEqualToDate:self.day] ? @"today" : [self timeAgoString:daysOverdue];
             reasonEntryField.placeholder = [NSString stringWithFormat:@"Missed %@. What happened?", timeMissedString];
+            if(self.failure.active.boolValue) reasonEntryField.text = self.failure.notes;
             self.cancelSkippedDayButton.accessibilityLabel = [NSString stringWithFormat:@"Check %@", [self timeAgoString:daysOverdue]];
 
             [self.habitStatusButton setBackgroundImage:[AwardImage circleColored:[Colors cobalt]] forState:UIControlStateNormal];
 
             [self setSwipeGestureWithView:[PastDayCheckView viewWithText:[self timeAgoString:chain.countOfDaysOverdue] frame:CGRectMake(0, 0, 100, self.frame.size.height)] color:chain.habit.color mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
                 [welf checkNextRequiredDate];
+                [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Check %@", [welf timeAgoString:daysOverdue]]];
             }];
         }else{
             UIImage * backgroundImage = chain.isRecord ? [AwardImage starColored:chain.habit.color] : [AwardImage circleColored:chain.habit.color];

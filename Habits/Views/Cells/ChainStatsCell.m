@@ -1,4 +1,4 @@
-//
+
 //  ChainStatsCell.m
 //  Habits
 //

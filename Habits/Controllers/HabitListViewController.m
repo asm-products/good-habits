@@ -132,6 +132,9 @@ typedef enum {
         }
         cell.state = habit.currentChain.dayState;
     }
+#ifdef DEBUG
+    cell.contentView.accessibilityLabel = [NSString stringWithFormat:@"Habit Cell %@", habit.title];
+#endif
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

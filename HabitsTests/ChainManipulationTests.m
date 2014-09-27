@@ -131,5 +131,16 @@
     [tester waitForViewWithAccessibilityLabel:@"21 August, last in chain"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
 }
+-(void)testNewHabitChainManipulationWorks{
+    [tester tapViewWithAccessibilityLabel:@"add"];
+    [tester enterTextIntoCurrentFirstResponder:@"New one\n"];
+    [tester tapViewWithAccessibilityLabel:@"18 August"];
+    [tester tapViewWithAccessibilityLabel:@"19 August"];
+    [tester tapViewWithAccessibilityLabel:@"20 August"];
+    [tester waitForViewWithAccessibilityLabel:@"18 August, first in chain"];
+    [tester waitForViewWithAccessibilityLabel:@"19 August, mid-chain"];
+    [tester waitForViewWithAccessibilityLabel:@"20 August, last in chain"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
+}
 
 @end

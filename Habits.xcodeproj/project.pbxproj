@@ -23,6 +23,7 @@
 		AC21B23319CCBDC00024BE96 /* AwardImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AC21B23219CCBDC00024BE96 /* AwardImage.m */; };
 		AC21B23619CEDA250024BE96 /* PastDayCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC21B23519CEDA250024BE96 /* PastDayCheckView.m */; };
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
+		AC2B474C19D72A64008FE6DE /* Habits Tutorial.mov in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */; };
 		AC2BC91C19C77C61007C378D /* habits_data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2BC91A19C77C61007C378D /* habits_data.json */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
@@ -196,6 +197,7 @@
 		AC21B23519CEDA250024BE96 /* PastDayCheckView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastDayCheckView.m; sourceTree = "<group>"; };
 		AC24B641197194FC00B33CCF /* CheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMarkView.h; sourceTree = "<group>"; };
 		AC24B642197194FC00B33CCF /* CheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkView.m; sourceTree = "<group>"; };
+		AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Habits Tutorial.mov"; sourceTree = "<group>"; };
 		AC2BC91A19C77C61007C378D /* habits_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data.json; sourceTree = "<group>"; };
 		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
 		AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCell.m; sourceTree = "<group>"; };
@@ -445,6 +447,14 @@
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
+		AC2B474A19D72A64008FE6DE /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		AC40187619504E450033407B /* Migration */ = {
 			isa = PBXGroup;
 			children = (
@@ -632,6 +642,7 @@
 		ACADB3D9190D23B90030CC82 /* Habits */ = {
 			isa = PBXGroup;
 			children = (
+				AC2B474A19D72A64008FE6DE /* Tutorial */,
 				AC94093D19B8FF04003E6257 /* Lib */,
 				AC4018F71951BF0A0033407B /* CoreData */,
 				AC4018F61951B9C80033407B /* Habits.entitlements */,
@@ -991,6 +1002,7 @@
 				ACADB494190D27960030CC82 /* detail_screen.png in Resources */,
 				AC4018A7195066E00033407B /* LICENSE in Resources */,
 				ACADB49E190D27960030CC82 /* add@2x.png in Resources */,
+				AC2B474C19D72A64008FE6DE /* Habits Tutorial.mov in Resources */,
 				AC5F3B4F19C62D5D00398F81 /* demo.habits.plist in Resources */,
 				AC94093919B8FAF8003E6257 /* Settings.bundle in Resources */,
 				AC1EB93319B096C300BF7EAF /* aw.goodtohear.habits.plist in Resources */,

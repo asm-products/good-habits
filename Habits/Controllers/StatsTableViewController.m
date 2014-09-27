@@ -50,7 +50,6 @@ typedef enum {
 }
 
 -(void)loadChains{
-    
     self.chains = self.habit.sortedChains.reverse;
     self.failures = [self.habit.failures sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]]];
 }
@@ -133,8 +132,14 @@ typedef enum {
 {
     // Do nothing because I'm not sure how editing works with the chain-based model.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        Chain * chain = self.chains[indexPath.row];
-        [self.habit removeChainsObject:chain];
+        if(indexPath.section == StatsSectionChainBreaks){
+            Chain * chain = self.chains[indexPath.row];
+            [self.habit removeChainsObject:chain];
+        }
+        if(indexPath.section == StatsSectionReasons){
+            Failure * failure = self.failures[indexPath.row];
+            [self.habit removeFailuresObject:failure];
+        }
         [[CoreDataClient defaultClient].managedObjectContext save:nil];
         [self loadChains];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];

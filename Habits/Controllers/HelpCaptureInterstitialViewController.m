@@ -9,6 +9,7 @@
 #import "HelpCaptureInterstitialViewController.h"
 
 @interface HelpCaptureInterstitialViewController ()
+@property (weak, nonatomic) IBOutlet UIView *overlay;
 @property (nonatomic, strong) NSString * detail;
 @end
 
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     self.titleLabel.text = self.title;
     self.detailLabel.text = self.detail;
+    self.overlay.layer.cornerRadius = 20;
 }
 
 - (void)didReceiveMemoryWarning {
