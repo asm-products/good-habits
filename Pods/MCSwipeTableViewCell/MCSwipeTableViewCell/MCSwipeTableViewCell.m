@@ -327,7 +327,6 @@ typedef NS_ENUM(NSUInteger, MCSwipeTableViewCellDirection) {
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    
     if ([gestureRecognizer class] == [UIPanGestureRecognizer class]) {
         
         UIPanGestureRecognizer *g = (UIPanGestureRecognizer *)gestureRecognizer;

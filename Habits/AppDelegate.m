@@ -18,12 +18,17 @@
 #import <SVProgressHUD.h>
 #import "AppFeatures.h"
 #import "StatisticsFeaturePurchaseController.h"
+#import "Colors.h"
 @implementation AppDelegate{
     BOOL hasBeenActiveYet;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    [[SVProgressHUD appearance] setHudBackgroundColor:[Colors cobalt]];
+//    [[SVProgressHUD appearance] setHudForegroundColor:[UIColor whiteColor]];
+//    [[SVProgressHUD appearance] setHudRingBackgroundColor:[UIColor blackColor]];
+    
     [InfoTask trackInstallationDate];
     [AppFeatures setDefaults];
     [[StatisticsFeaturePurchaseController sharedController] listenForTransactions];

@@ -15,8 +15,18 @@
 #import "HabitsQueries.h"
 #import "TimeHelper.h"
 #import <UIImage+Screenshot.h>
+#import <OCMock.h>
+#import "HabitCell.h"
 
 #define GRABS_PATH @"/Users/mf/code/habits/Habits/Habits/Images/grabs"
+
+@interface HabitCell(TestingHacks)
+@end
+@implementation HabitCell(TestingHacks)
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return YES;
+}
+@end
 
 @interface UserGuideCaptureTests : XCTestCase
 
@@ -64,11 +74,9 @@
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-24"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"demo.habits"];
     [self showNote:@"Later..."];
-//    UIView * view = [tester waitForViewWithAccessibilityLabel:@"Habit Cell Exercise"];
-//    [view.superview dragFromPoint:CGPointMake(160, 20) toPoint:CGPointMake(100, 20) steps:30];
-//    [tester waitForTimeInterval:100];
+    
+    [self showNote:@"If you missed today, you can tap the box twice"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
-    [self showNote:@"If you missed today, you can tap the box again"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Floss Checked"];
     [self screenshot:@"missed"];
     
@@ -83,12 +91,19 @@
     [tester tapViewWithAccessibilityLabel:@"Stats"];
     [self screenshot:@"stats"];
     [self showNote:@"You'll see chain information and also a list of reasons you missed a day"];
+    [tester scrollViewWithAccessibilityIdentifier:@"Stats" byFractionOfSizeHorizontal:0 vertical:-1.0];
     [tester waitForTimeInterval:1.0];
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [self showNote:@"If you didn't open the app for a few days but didn't miss any days, you can check them off by swiping the list"];
-    [tester waitForTimeInterval:20];
-//    [tester scrollViewWithAccessibilityIdentifier:@"" byFractionOfSizeHorizontal:0.5 vertical:0];
+    UIView * view = [tester waitForViewWithAccessibilityLabel:@"Habit Cell Exercise"];
+    [view dragFromPoint:CGPointMake(300, 10) toPoint:CGPointMake(150, 10) steps:100];
+    [tester waitForTimeInterval:2.0];
+    [self showNote:@"You can also pause or delete habits this way"];
+    [view dragFromPoint:CGPointMake(150, 10) toPoint:CGPointMake(300, 10) steps:100];
+    
+    [self showNote:@"It takes about a month to form a new habit."];
+    [self showNote:@"Have fun, and don't break the chain!"];
     
 }
 -(void)showNote:(NSString*)text{
@@ -102,7 +117,7 @@
             controller.view.alpha = 1;
         }];
     }];
-    [tester waitForTimeInterval:1];
+    [tester waitForTimeInterval:2];
     [self screenshot:filename];
     [UIView animateWithDuration:0.3 animations:^{
         controller.view.alpha = 0;

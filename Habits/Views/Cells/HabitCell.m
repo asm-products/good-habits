@@ -38,7 +38,7 @@
     [self buildReasonEntryField];
     //  y = 8 because the check box starts at 10. yes. not ideal.
     countView.text = @[@0, @0];
-    
+    self.defaultColor = [Colors cobalt];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onCheckboxTapped)];
     [self.checkbox addGestureRecognizer:tap];
     
@@ -200,7 +200,7 @@
 
             [self setSwipeGestureWithView:[PastDayCheckView viewWithText:[self timeAgoString:chain.countOfDaysOverdue] frame:CGRectMake(0, 0, 100, self.frame.size.height)] color:chain.habit.color mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
                 [welf checkNextRequiredDate];
-                [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Check %@", [welf timeAgoString:daysOverdue]]];
+                [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Checked %@", [welf timeAgoString:daysOverdue]]];
             }];
         }else{
             UIImage * backgroundImage = chain.isRecord ? [AwardImage starColored:chain.habit.color] : [AwardImage circleColored:chain.habit.color];
