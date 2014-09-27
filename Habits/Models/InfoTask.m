@@ -13,7 +13,7 @@
 #import "TimeHelper.h"
 #import "UserGuideViewController.h"
 #define INSTALLED_DATE_KEY @"goodtohear.habits_installed_date"
-
+@import MediaPlayer;
 
 @implementation InfoTask
 +(NSArray *)due{
@@ -27,8 +27,21 @@
     dispatch_once(&onceToken, ^{
         result = @[
                    [InfoTask create:@"guide-2" due:0 text:@"Look at the guide" color:[Colors green] action:^(UIViewController *controller) {
-                       UserGuideViewController * guide = [UserGuideViewController new];
-                       [controller.navigationController pushViewController:guide animated:YES];
+                       NSString * path  = [[NSBundle mainBundle] pathForResource:@"Habits Tutorial" ofType:@"mov"];
+                       MPMoviePlayerViewController * player = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
+                       [controller presentViewController:player animated:YES completion:^{
+                           for (UIView * view  in player.view.subviews) {
+                               for (UIView * subview in view.subviews) {
+                                   for (UIView * subsubview in subview.subviews) {
+                                       if([NSStringFromClass([subsubview class]) isEqualToString:@"MPVideoView"]){
+                                           subsubview.layer.transform = CATransform3DMakeScale(0.7, 0.7, 1);
+                                       }
+                                   }
+
+                               }
+
+                           }
+                       }];
                    }],
                    [InfoTask create:@"share" due:0 text:@"Share this app" color:[Colors orange] action:^(UIViewController *controller) {
                        NSArray * items = @[[AppSharing new], [NSURL URLWithString:@"https://itunes.apple.com/gb/app/good-habits/id573844300?mt=8"]];

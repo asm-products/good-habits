@@ -52,13 +52,15 @@
     [self screenshot:@"unchecked_days"];
     [self showNote:@"Set a reminder"];
     [tester tapViewWithAccessibilityLabel:@"Set reminder"];
+    [tester waitForTimeInterval:0.5];
     [tester tapViewWithAccessibilityLabel:@"Set reminder"];
+    [tester waitForTimeInterval:0.5];
     [self screenshot:@"reminder_set"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [self showNote:@"Check the box when you've done it"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
     [self screenshot:@"checked_today"];
-//
+
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-24"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"demo.habits"];
     [self showNote:@"Later..."];
@@ -81,6 +83,7 @@
     [tester tapViewWithAccessibilityLabel:@"Stats"];
     [self screenshot:@"stats"];
     [self showNote:@"You'll see chain information and also a list of reasons you missed a day"];
+    [tester waitForTimeInterval:1.0];
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [self showNote:@"If you didn't open the app for a few days but didn't miss any days, you can check them off by swiping the list"];

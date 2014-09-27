@@ -72,8 +72,6 @@
 		AC5F3B5019C62D5D00398F81 /* demo.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B4E19C62D5D00398F81 /* demo.habits.plist */; };
 		AC5F3B5219C63DE100398F81 /* status-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5119C63DE100398F81 /* status-bar@2x.png */; };
 		AC5F3B5319C63DE100398F81 /* status-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5119C63DE100398F81 /* status-bar@2x.png */; };
-		AC5F3B5519C63E0B00398F81 /* grabs in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5419C63E0B00398F81 /* grabs */; };
-		AC5F3B5619C63E0B00398F81 /* grabs in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5419C63E0B00398F81 /* grabs */; };
 		AC5F3B5919C6F1C700398F81 /* LegacyJSONImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B5819C6F1C700398F81 /* LegacyJSONImporter.m */; };
 		AC5F3B5D19C6F22D00398F81 /* JSONConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B5C19C6F22D00398F81 /* JSONConversion.m */; };
 		AC6EC67119C374B000640590 /* GTHStoreKitMock.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6EC67019C374B000640590 /* GTHStoreKitMock.m */; };
@@ -283,7 +281,6 @@
 		AC5F3B4B19C6245900398F81 /* HelpCaptureInterstitialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpCaptureInterstitialViewController.xib; sourceTree = "<group>"; };
 		AC5F3B4E19C62D5D00398F81 /* demo.habits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = demo.habits.plist; sourceTree = "<group>"; };
 		AC5F3B5119C63DE100398F81 /* status-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-bar@2x.png"; sourceTree = "<group>"; };
-		AC5F3B5419C63E0B00398F81 /* grabs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = grabs; sourceTree = "<group>"; };
 		AC5F3B5719C6F1C700398F81 /* LegacyJSONImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacyJSONImporter.h; sourceTree = "<group>"; };
 		AC5F3B5819C6F1C700398F81 /* LegacyJSONImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyJSONImporter.m; sourceTree = "<group>"; };
 		AC5F3B5B19C6F22D00398F81 /* JSONConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONConversion.h; sourceTree = "<group>"; };
@@ -801,7 +798,6 @@
 		ACADB40C190D26940030CC82 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AC5F3B5419C63E0B00398F81 /* grabs */,
 				AC5F3B5119C63DE100398F81 /* status-bar@2x.png */,
 				ACAE5F4519C4B080003B0893 /* preview-chart.png */,
 				ACAE5F4619C4B080003B0893 /* preview-chart@2x.png */,
@@ -983,7 +979,6 @@
 				ACADB45D190D27960030CC82 /* back@2x.png in Resources */,
 				ACADB487190D27960030CC82 /* trash@2x.png in Resources */,
 				ACADB49B190D27960030CC82 /* fabric_1.png in Resources */,
-				AC5F3B5519C63E0B00398F81 /* grabs in Resources */,
 				AC94093419B8E75F003E6257 /* locked.png in Resources */,
 				ACAE5F4819C4B080003B0893 /* preview-chart@2x.png in Resources */,
 				ACADB488190D27960030CC82 /* trash.png in Resources */,
@@ -1052,7 +1047,6 @@
 				ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */,
 				ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */,
 				AC5F3B5319C63DE100398F81 /* status-bar@2x.png in Resources */,
-				AC5F3B5619C63E0B00398F81 /* grabs in Resources */,
 				AC5F3B5019C62D5D00398F81 /* demo.habits.plist in Resources */,
 				AC1EB93619B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist in Resources */,
 				AC1EB1061960C5CA00549AC9 /* habits_data_legacy.json in Resources */,
