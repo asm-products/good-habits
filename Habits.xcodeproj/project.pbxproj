@@ -24,6 +24,9 @@
 		AC21B23619CEDA250024BE96 /* PastDayCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC21B23519CEDA250024BE96 /* PastDayCheckView.m */; };
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
 		AC2B474C19D72A64008FE6DE /* Habits Tutorial.mov in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */; };
+		AC2B474E19D73F44008FE6DE /* appstore.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474D19D73F44008FE6DE /* appstore.habits.plist */; };
+		AC2B474F19D73F6A008FE6DE /* appstore.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474D19D73F44008FE6DE /* appstore.habits.plist */; };
+		AC2B475219D74458008FE6DE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2B475119D74458008FE6DE /* Crashlytics.framework */; };
 		AC2BC91C19C77C61007C378D /* habits_data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2BC91A19C77C61007C378D /* habits_data.json */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
@@ -196,6 +199,8 @@
 		AC24B641197194FC00B33CCF /* CheckMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckMarkView.h; sourceTree = "<group>"; };
 		AC24B642197194FC00B33CCF /* CheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkView.m; sourceTree = "<group>"; };
 		AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Habits Tutorial.mov"; sourceTree = "<group>"; };
+		AC2B474D19D73F44008FE6DE /* appstore.habits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = appstore.habits.plist; sourceTree = "<group>"; };
+		AC2B475119D74458008FE6DE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		AC2BC91A19C77C61007C378D /* habits_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data.json; sourceTree = "<group>"; };
 		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
 		AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCell.m; sourceTree = "<group>"; };
@@ -415,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */,
+				AC2B475219D74458008FE6DE /* Crashlytics.framework in Frameworks */,
 				ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */,
 				ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */,
 				030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */,
@@ -626,6 +632,7 @@
 		ACADB3D2190D23B90030CC82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC2B475119D74458008FE6DE /* Crashlytics.framework */,
 				ACADB3D3190D23B90030CC82 /* Foundation.framework */,
 				ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */,
 				ACADB3D7190D23B90030CC82 /* UIKit.framework */,
@@ -873,6 +880,7 @@
 				ACB35F3A19A89E91000C03F5 /* mf.goodtohear.habits.plist */,
 				AC1EB93519B0C52B00BF7EAF /* list-tests.goodtohear.habits.plist */,
 				AC5F3B4E19C62D5D00398F81 /* demo.habits.plist */,
+				AC2B474D19D73F44008FE6DE /* appstore.habits.plist */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -898,6 +906,7 @@
 				ACADB3CD190D23B90030CC82 /* Frameworks */,
 				ACADB3CE190D23B90030CC82 /* Resources */,
 				AC6330D8047E459BBB329047 /* Copy Pods Resources */,
+				AC2B475019D74424008FE6DE /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -1002,6 +1011,7 @@
 				AC94093919B8FAF8003E6257 /* Settings.bundle in Resources */,
 				AC1EB93319B096C300BF7EAF /* aw.goodtohear.habits.plist in Resources */,
 				ACADB492190D27960030CC82 /* icon_512.png in Resources */,
+				AC2B474F19D73F6A008FE6DE /* appstore.habits.plist in Resources */,
 				ACADB491190D27960030CC82 /* icon_57.png in Resources */,
 				ACADB489190D27960030CC82 /* play@2x.png in Resources */,
 				AC1EB93219B096C300BF7EAF /* testing.goodtohear.habits.plist in Resources */,
@@ -1044,6 +1054,7 @@
 			files = (
 				AC2BC91C19C77C61007C378D /* habits_data.json in Resources */,
 				ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */,
+				AC2B474E19D73F44008FE6DE /* appstore.habits.plist in Resources */,
 				ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */,
 				ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */,
 				AC5F3B5319C63DE100398F81 /* status-bar@2x.png in Resources */,
@@ -1056,6 +1067,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AC2B475019D74424008FE6DE /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 3254ccee18a98f4b57c4dc9d4fdd5d961828f59d 3d342277e5866602e57cf63e100c248a8ae2614513986fa7e265a13234b1d651";
+		};
 		AC6330D8047E459BBB329047 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1328,6 +1353,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Forrest (2Y46T85LFL)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
@@ -1350,6 +1379,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Forrest (2Y46T85LFL)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";

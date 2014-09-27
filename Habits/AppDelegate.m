@@ -19,6 +19,7 @@
 #import "AppFeatures.h"
 #import "StatisticsFeaturePurchaseController.h"
 #import "Colors.h"
+#import <Crashlytics/Crashlytics.h>
 @implementation AppDelegate{
     BOOL hasBeenActiveYet;
 }
@@ -28,7 +29,7 @@
 //    [[SVProgressHUD appearance] setHudBackgroundColor:[Colors cobalt]];
 //    [[SVProgressHUD appearance] setHudForegroundColor:[UIColor whiteColor]];
 //    [[SVProgressHUD appearance] setHudRingBackgroundColor:[UIColor blackColor]];
-    
+    [Crashlytics startWithAPIKey:@"3254ccee18a98f4b57c4dc9d4fdd5d961828f59d"];
     [InfoTask trackInstallationDate];
     [AppFeatures setDefaults];
     [[StatisticsFeaturePurchaseController sharedController] listenForTransactions];

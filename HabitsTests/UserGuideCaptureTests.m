@@ -47,7 +47,21 @@
         if(error) NSLog(@"error: %@", error);
     }
 }
-
+-(void)testGrabAppStoreScreens{
+    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-24"].date];
+    [TestHelpers loadFixtureFromUserDefaultsNamed:@"appstore.habits"];
+    [tester waitForTimeInterval:0.4];
+    [self screenshot:@"screenshot_1"];
+    [tester tapViewWithAccessibilityLabel:@"Floss"];
+    [tester waitForTimeInterval:0.4];
+    [self screenshot:@"screenshot_2"];
+    [tester tapViewWithAccessibilityLabel:@"Stats"];
+    [tester waitForTimeInterval:0.4];
+    [self screenshot:@"screenshot_3"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
+    
+}
 -(void)testGrabAllScreens{
     [TestHelpers setStatsEnabled:NO];
     
@@ -135,6 +149,6 @@
     NSString * outputPath = [GRABS_PATH stringByAppendingPathComponent:filename];
     outputPath = [outputPath stringByAppendingPathExtension:@"jpg"];
     NSLog(@"Saving file to %@", outputPath);
-    [UIImagePNGRepresentation(image) writeToFile:outputPath atomically:YES];
+    [UIImageJPEGRepresentation(image, 100) writeToFile:outputPath atomically:YES];
 }
 @end
