@@ -74,6 +74,7 @@
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Broken"];
     [tester waitForViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
+    [tester waitForTimeInterval:1000];
 }
 -(void)testChangingRequiredDatesDoesNotRuinExistingChain{
     [tester tapViewWithAccessibilityLabel:@"Testing habit"];
@@ -140,7 +141,17 @@
     [tester waitForViewWithAccessibilityLabel:@"18 August, first in chain"];
     [tester waitForViewWithAccessibilityLabel:@"19 August, mid-chain"];
     [tester waitForViewWithAccessibilityLabel:@"20 August, last in chain"];
+    
+    [tester tapViewWithAccessibilityLabel:@"21 August"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
+    
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for New one Not checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for New one Checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for New one Broken"];
+    
+    [tester tapViewWithAccessibilityLabel:@"New one"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Checkbox for New one Checked"];
 }
 
 @end

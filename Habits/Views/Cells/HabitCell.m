@@ -78,6 +78,7 @@
         state = DayCheckedStateNull;
     }else if(habitDay){ // we had a day so turn it into a failure
         [chain removeDaysObject:habitDay];
+        chain.lastDateCache = [chain.sortedDays.lastObject valueForKey:@"date"];
         if(chain.days.count == 0) [self.habit removeChainsObject:chain];
         if(!failure){
             failure = [self.habit createFailureForDate:self.day];

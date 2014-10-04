@@ -21,7 +21,7 @@
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"mf.goodtohear.habits"];
 }
 -(void)testHistograms{
-    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed 55 days ago. What happened?" traits:UIAccessibilityTraitNone];
+    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed 62 days ago. What happened?" traits:UIAccessibilityTraitNone];
     [tester enterTextIntoCurrentFirstResponder:@"Something bad\n"];
     [tester tapViewWithAccessibilityLabel:@"Pull ups"];
     [tester tapViewWithAccessibilityLabel:@"Stats"];

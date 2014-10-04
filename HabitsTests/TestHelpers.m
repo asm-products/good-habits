@@ -58,4 +58,5 @@
     [[[mockClass stub] andReturnValue:@(enabled)] statsEnabled];
     [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
 }
+
 @end
