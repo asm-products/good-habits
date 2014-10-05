@@ -31,6 +31,9 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
             case SKPaymentTransactionStatePurchasing:
                 break;
             case SKPaymentTransactionStateFailed:
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
                 if (transaction.error.code == SKErrorPaymentCancelled) {
                     // user cancelled payment
                 }else{
@@ -49,6 +52,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
                     [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
                 });
             default:
+                [SVProgressHUD dismiss];
                 break;
         }
     }
