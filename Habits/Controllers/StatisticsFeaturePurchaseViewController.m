@@ -48,7 +48,11 @@
                 self.unlockNowButton.enabled = NO;
             }else{
                 SKProduct * product = [response.products firstObject];
-                [self enableBuyNowWithProduct:product];
+                if(!product){
+                    [self.unlockNowButton setTitle:@"No product found" forState:UIControlStateNormal];
+                }else{
+                    [self enableBuyNowWithProduct:product];
+                }
             }
             
         });
@@ -67,6 +71,10 @@
 }
 - (IBAction)didPressUnlockNow:(id)sender {
     // start purchase
+    if(!self.product){
+        NSLog(@"Error, no product id");
+        return;
+    }
     SKMutablePayment * payment = [SKMutablePayment paymentWithProduct:self.product];
     payment.quantity = 1;
     [[SKPaymentQueue defaultQueue] addPayment:payment];

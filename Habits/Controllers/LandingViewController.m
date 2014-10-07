@@ -42,7 +42,7 @@
     [super viewWillAppear:animated];
     [self.habitListViewController refresh];
     if([AppFeatures statsEnabled]){
-        [self enableStatsPopup];
+//        [self enableStatsPopup];
     }
 }
 -(void)viewDidLayoutSubviews{
