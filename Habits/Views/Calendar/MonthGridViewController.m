@@ -36,7 +36,6 @@
     queue = dispatch_queue_create("goodtohear.habits.calendar", DISPATCH_QUEUE_CONCURRENT);
     CGPoint nextPoint = CGPointZero;
     cells = [[NSMutableArray alloc] initWithCapacity:CELL_COUNT];
-    self.firstDay = [TimeHelper startOfDayInUTC:self.firstDay];
     NSDateComponents * components = [NSDateComponents new];
     for (int gridIndex = 0; gridIndex < CELL_COUNT; gridIndex ++) {
         components.day = gridIndex;
@@ -61,6 +60,8 @@
     dispatch_once(&onceToken, ^{
         formatter = [NSDateFormatter new];
         formatter.dateFormat = @"d";
+        formatter.calendar = [TimeHelper UTCCalendar];
+        formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     });
     return formatter;
 }

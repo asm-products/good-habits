@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F79A2189454A3AAF48A73F /* libPods-Habits.a */; };
 		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
+		AC088A7519EB120C0068F6EC /* TimeHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AC088A7419EB120C0068F6EC /* TimeHelperTest.m */; };
 		AC0B78031976718500CEC018 /* DayKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0B78021976718500CEC018 /* DayKeys.m */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_legacy.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */; };
 		AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */; };
@@ -182,6 +183,7 @@
 		218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.xcconfig"; path = "Pods/Pods-HabitsTests.xcconfig"; sourceTree = "<group>"; };
 		623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.xcconfig"; path = "Pods/Pods-Habits.xcconfig"; sourceTree = "<group>"; };
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC088A7419EB120C0068F6EC /* TimeHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelperTest.m; sourceTree = "<group>"; };
 		AC0B78011976718500CEC018 /* DayKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayKeys.h; sourceTree = "<group>"; };
 		AC0B78021976718500CEC018 /* DayKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayKeys.m; sourceTree = "<group>"; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_legacy.json; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */,
 				ACAE5F4C19C5D492003B0893 /* StatisticsTests.m */,
 				AC5F3B4519C6228800398F81 /* UserGuideCaptureTests.m */,
+				AC088A7419EB120C0068F6EC /* TimeHelperTest.m */,
 			);
 			path = HabitsTests;
 			sourceTree = "<group>";
@@ -1230,6 +1233,7 @@
 				ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */,
 				AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */,
 				ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */,
+				AC088A7519EB120C0068F6EC /* TimeHelperTest.m in Sources */,
 				AC94093719B8F5EA003E6257 /* PremiumFeatureTests.m in Sources */,
 				AC6EC67119C374B000640590 /* GTHStoreKitMock.m in Sources */,
 				AC5F3B4619C6228800398F81 /* UserGuideCaptureTests.m in Sources */,
