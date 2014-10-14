@@ -25,6 +25,5 @@
     [tester enterTextIntoCurrentFirstResponder:@"Something bad\n"];
     [tester tapViewWithAccessibilityLabel:@"Pull ups"];
     [tester tapViewWithAccessibilityLabel:@"Stats"];
-    [tester waitForTimeInterval:10000];
 }
 @end

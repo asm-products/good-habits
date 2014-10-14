@@ -74,7 +74,6 @@
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Broken"];
     [tester waitForViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
-    [tester waitForTimeInterval:1000];
 }
 -(void)testChangingRequiredDatesDoesNotRuinExistingChain{
     [tester tapViewWithAccessibilityLabel:@"Testing habit"];

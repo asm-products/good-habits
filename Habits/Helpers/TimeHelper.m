@@ -110,6 +110,7 @@ static NSDate * selectedDate = nil;
     dispatch_once(&onceToken, ^{
         formatter = [NSDateFormatter new];
         formatter.dateFormat = @"EEEE d MMMM yyyy";
+        formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     });
     return formatter;
     
@@ -120,6 +121,7 @@ static NSDate * selectedDate = nil;
     dispatch_once(&onceToken, ^{
         formatter = [NSDateFormatter new];
         formatter.dateFormat = @"d MMMM";
+        formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     });
     return formatter;
 }
