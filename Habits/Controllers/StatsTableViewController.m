@@ -67,7 +67,7 @@ typedef enum {
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
-        case StatsSectionSparkline: return 230;
+        case StatsSectionSparkline: return 270;
         case StatsSectionChainLengthDistribution: return self.chainLengthDistributionCell.height;
         case StatsSectionReasons: return [ReasonCellTableViewCell heightWithReasonText:[self failureWithReasonAtIndexPath:indexPath].notes];
         default: return 44;

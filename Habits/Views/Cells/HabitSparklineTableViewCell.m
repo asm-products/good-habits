@@ -20,6 +20,7 @@
     __weak IBOutlet UILabel *currentChainLengthLabel;
     __weak IBOutlet UILabel *longestChainLabel;
     __weak IBOutlet UILabel *chainCountLabel;
+    __weak IBOutlet UILabel *totalDaysCheckedLabel;
     __weak IBOutlet UILabel *averageChainLengthLabel;
 }
 
@@ -50,10 +51,15 @@
     
     averageChainLengthLabel.text = [NSString stringWithFormat:@"%1.1f day%@", averageLength, averageLength == 1 ? @"" : @"s"];
     
+    totalDaysCheckedLabel.text = [self labelInDays: [[[chains allObjects] reduce:^NSNumber*(NSNumber* memo, Chain* chain) {
+        return @(memo.integerValue + chain.daysCountCache.integerValue);
+    } withInitialMemo:@0] integerValue] ];
+    
     currentChainLengthLabel.textColor = habit.color;
     chainCountLabel.textColor = habit.color;
     longestChainLabel.textColor = habit.color;
     averageChainLengthLabel.textColor = habit.color;
+    totalDaysCheckedLabel.textColor = habit.color;
     
     sparklineView.color = habit.color;
     sparklineView.chains = [SparklineHelper dataForHabit:habit];
