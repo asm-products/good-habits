@@ -36,7 +36,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m8i-n3-60M">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8i-n3-60M">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -87,6 +87,12 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cde-CF-zmd" firstAttribute="top" secondItem="m8i-n3-60M" secondAttribute="bottom" id="0ik-07-RZt"/>
+                            <constraint firstAttribute="trailing" secondItem="m8i-n3-60M" secondAttribute="trailing" id="SMJ-M7-DnV"/>
+                            <constraint firstItem="m8i-n3-60M" firstAttribute="leading" secondItem="XvX-bC-gv1" secondAttribute="leading" id="a1F-Fi-518"/>
+                            <constraint firstItem="m8i-n3-60M" firstAttribute="top" secondItem="mZd-kW-Okx" secondAttribute="bottom" constant="-64" id="efg-Xi-lJD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TUN-wc-ebG">
                         <nil key="title"/>
@@ -868,8 +874,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="t3i-Zh-mBS"/>
-        <segue reference="chS-Yr-Ljg"/>
+        <segue reference="toc-2m-8Zg"/>
+        <segue reference="LRt-8p-1fe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.27843138575553894" green="0.56078433990478516" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
 </document>
