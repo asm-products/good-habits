@@ -152,5 +152,12 @@
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Checkbox for New one Checked"];
 }
+-(void)testTogglingAChainOnAndOffDoesNotRuinBadgeState{
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
+    [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Broken"];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Broken at 3 days"];
+    [tester waitForViewWithAccessibilityLabel:@"Length at 3 days"];
+}
 
 @end

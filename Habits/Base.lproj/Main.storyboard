@@ -177,17 +177,6 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                         </textField>
-                                        <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Uz-Qp-wQ7">
-                                            <rect key="frame" x="0.0" y="42" width="44" height="38"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <state key="normal" title="╳">
-                                                <color key="titleColor" red="0.66274511814117432" green="0.12549020349979401" blue="0.12156863510608673" alpha="1" colorSpace="deviceRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="didPressCancelSkippedDayButton:" destination="Hgd-gt-8C4" eventType="touchUpInside" id="ZYg-XP-t4j"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnY-qI-qlP">
                                             <rect key="frame" x="273" y="0.0" width="44" height="44"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,7 +192,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cancelSkippedDayButton" destination="5Uz-Qp-wQ7" id="juy-hs-Lt9"/>
                                     <outlet property="checkbox" destination="ee6-Mg-IDX" id="lxw-Rm-v5Z"/>
                                     <outlet property="habitStatusButton" destination="BnY-qI-qlP" id="pBX-mi-Vuh"/>
                                     <outlet property="label" destination="BsF-qM-NUI" id="Cfz-DH-Gdd"/>

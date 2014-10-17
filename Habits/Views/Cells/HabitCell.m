@@ -23,7 +23,6 @@
 #import <SVProgressHUD.h>
 
 @interface HabitCell()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *cancelSkippedDayButton;
 @property (weak, nonatomic) IBOutlet UIButton *habitStatusButton;
 
 @end
@@ -185,19 +184,19 @@
     self.label.textColor = [self labelTextColor];
     
     
+    Chain * chain = self.habit.currentChain;
     __weak id welf = self;
     if(self.habit.isActive.boolValue){
-        Chain * chain = self.habit.currentChain;
         [self.habitStatusButton setTitle:@(chain.currentChainLengthForDisplay).stringValue forState:UIControlStateNormal];
         NSInteger daysOverdue = chain.countOfDaysOverdue;
         if(!self.failure) self.failure = [self.habit existingFailureForDate:self.day];
-        if(self.failure || daysOverdue > 0){
+        if((self.failure && self.failure.active.boolValue ) || daysOverdue > 0){
             NSString * timeMissedString = self.failure.active.boolValue && [self.failure.date isEqualToDate:self.day] ? @"today" : [self timeAgoString:daysOverdue];
             reasonEntryField.placeholder = [NSString stringWithFormat:@"Missed %@. What happened?", timeMissedString];
             if(self.failure.active.boolValue) reasonEntryField.text = self.failure.notes;
-            self.cancelSkippedDayButton.accessibilityLabel = [NSString stringWithFormat:@"Check %@", [self timeAgoString:daysOverdue]];
 
             [self.habitStatusButton setBackgroundImage:[AwardImage circleColored:[Colors cobalt]] forState:UIControlStateNormal];
+            self.habitStatusButton.accessibilityLabel = [NSString stringWithFormat:@"Broken at %@ day%@", @(chain.currentChainLengthForDisplay), chain.currentChainLengthForDisplay == 1 ? @"" : @"s" ];
 
             [self setSwipeGestureWithView:[PastDayCheckView viewWithText:[self timeAgoString:chain.countOfDaysOverdue] frame:CGRectMake(0, 0, 100, self.frame.size.height)] color:chain.habit.color mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
                 [welf checkNextRequiredDate];
@@ -205,11 +204,13 @@
             }];
         }else{
             UIImage * backgroundImage = chain.isRecord ? [AwardImage starColored:chain.habit.color] : [AwardImage circleColored:chain.habit.color];
+            self.habitStatusButton.accessibilityLabel = [NSString stringWithFormat:@"%@ at %@ day%@",chain.isRecord ? @"Record length" : @"Length", @(chain.currentChainLengthForDisplay),chain.currentChainLengthForDisplay == 1 ? @"" : @"s" ];
             [self.habitStatusButton setBackgroundImage:backgroundImage forState:UIControlStateNormal];
             self.modeForState3 = MCSwipeTableViewCellModeNone;
         }
     }else{ // paused
         self.modeForState3 = MCSwipeTableViewCellModeNone;
+        self.habitStatusButton.accessibilityLabel = [NSString stringWithFormat:@"Paused at %@ day%@", @(chain.currentChainLengthForDisplay), chain.currentChainLengthForDisplay == 1 ? @"" : @"s" ];
         [self.habitStatusButton setBackgroundImage:[AwardImage circleColored:[Colors cobalt]] forState:UIControlStateNormal];
         [self.habitStatusButton setTitle:@(self.habit.currentChainLength).stringValue forState:UIControlStateNormal];
     }
