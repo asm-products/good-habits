@@ -24,6 +24,20 @@
         x += itemWidth;
     }
 }
+-(void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    if (buttons) {
+        [self layoutButtons];
+    }
+}
+-(void)layoutButtons{
+    CGFloat x = 0;
+    CGFloat itemWidth = self.frame.size.width / buttons.count;
+    for (UIButton * button in buttons) {
+        button.frame = CGRectMake(x, 0, itemWidth, self.frame.size.height);
+        x += itemWidth;
+    }
+}
 -(void)setHabit:(Habit *)habit{
     _habit = habit;
     [self refreshButtonSelectionState];

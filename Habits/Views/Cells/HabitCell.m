@@ -162,7 +162,7 @@
     Chain * chain = self.habit.currentChain;
     NSInteger daysOverdue = chain.countOfDaysOverdue;
     if(self.failure != nil || daysOverdue > 0){
-        [[[UIAlertView alloc] initWithTitle:self.habit.title message:[NSString stringWithFormat:@"Check %@? (You can also swipe left to check this date off)",[[TimeHelper fullDateFormatter]  stringFromDate:chain.nextRequiredDate]] cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:[NSString stringWithFormat:@"✓ %@",[self timeAgoString:chain.countOfDaysOverdue]] action:^{
+        [[[UIAlertView alloc] initWithTitle:self.habit.title message:[NSString stringWithFormat:@"Check %@? (You can also swipe left to check this date off). \n Longest chain: %@ day%@",[[TimeHelper fullDateFormatter]  stringFromDate:chain.nextRequiredDate], @(self.habit.longestChain.length), self.habit.longestChain.length == 1 ? @"" : @"s"] cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:[NSString stringWithFormat:@"✓ %@",[self timeAgoString:chain.countOfDaysOverdue]] action:^{
             [self checkNextRequiredDate];
         }], nil] show];
     }else{

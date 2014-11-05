@@ -26,7 +26,10 @@
     [super awakeFromNib];
     [self build];
 }
-
+-(void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    backgroundColorView.frame = self.bounds;
+}
 -(void)build{
     self.backgroundColor = [UIColor whiteColor];
     backgroundColorView = [[UIView alloc] initWithFrame:self.bounds];

@@ -26,9 +26,13 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
 
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
     for (SKPaymentTransaction * transaction in transactions) {
+        NSLog(@"TRansaction state %@", @(transaction.transactionState));
         switch (transaction.transactionState)
         {
             case SKPaymentTransactionStatePurchasing:
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+                });
                 break;
             case SKPaymentTransactionStateFailed:
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -49,6 +53,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
                     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STATS_PURCHASED];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                     [SVProgressHUD dismiss];
+                    [SVProgressHUD showSuccessWithStatus:@"Statistics unlocked"];
                     [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
                 });
             default:

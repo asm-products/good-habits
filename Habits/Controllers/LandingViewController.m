@@ -30,17 +30,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
-    infoCountBadge.hidden = [InfoTask unopenedCount] == 0;
+    [self updateInfoCountBadge];
     UIBarButtonItem * fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpace.width = -26;
     self.navigationItem.leftBarButtonItems = @[fixedSpace, self.navigationItem.leftBarButtonItem];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTodayCheckedForChain:) name:TODAY_CHECKED_FOR_CHAIN object:nil];
     
 }
+-(void)updateInfoCountBadge{
+    infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
+    infoCountBadge.hidden = [InfoTask unopenedCount] == 0;
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.habitListViewController refresh];
+    [self updateInfoCountBadge];
     if([AppFeatures statsEnabled]){
 //        [self enableStatsPopup];
     }

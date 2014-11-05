@@ -65,11 +65,15 @@
     expect(habit.chains.count).to.equal(6);
     [tester waitForViewWithAccessibilityLabel:@"1 August, isolated day"];
     
+    
+    [tester tapViewWithAccessibilityLabel:@"3 August"];
+    [tester waitForViewWithAccessibilityLabel:@"3 August, first in chain"];
+    
     [tester tapViewWithAccessibilityLabel:@"Back"];
 }
 -(void)testNewChainCreatedByTickingToday{
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
-    [tester tapViewWithAccessibilityLabel:@"1"];
+    [tester tapViewWithAccessibilityLabel:@"Record length at 1 day"];
     [tester waitForViewWithAccessibilityLabel:@"Current length: 1 day\nLongest chain: 1 day"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Broken"];
@@ -108,9 +112,9 @@
 }
 -(void)testPastChainsShowChainBreakDateAndButtonToAddDay{
     [tester waitForViewWithAccessibilityLabel:@"Missed 20 days ago. What happened?"];
-    [tester tapViewWithAccessibilityLabel:@"-20"];
+    [tester tapViewWithAccessibilityLabel:@"Broken at -20 days"];
     [tester tapViewWithAccessibilityLabel:@"✓ 20 days ago"];
-    [tester waitForViewWithAccessibilityLabel:@"-19"];
+    [tester waitForViewWithAccessibilityLabel:@"Broken at -19 days"];
     [tester tapViewWithAccessibilityLabel:@"" value: @"Missed 19 days ago. What happened?" traits:UIAccessibilityTraitNone];
     [tester waitForKeyboard];
     [tester waitForViewWithAccessibilityLabel:@"" value: @"Missed 19 days ago. What happened?" traits:UIAccessibilityTraitNone];

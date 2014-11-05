@@ -1,2 +1,0 @@
-PODS_HABITS_KIIPSDK_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/KiipSDK/Kiip/"
-PODS_HABITS_KIIPSDK_OTHER_LDFLAGS = -lKiip -lz -framework AdSupport -framework CoreTelephony -framework MediaPlayer -framework Passkit -framework QuartzCore -framework SystemConfiguration

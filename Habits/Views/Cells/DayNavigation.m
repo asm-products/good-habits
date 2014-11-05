@@ -17,6 +17,10 @@
     }
     return self;
 }
+-(void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    self.textLabel.frame = CGRectMake(10, 0, frame.size.width - 20, 44);
+}
 -(void)build{
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, 44)];
     label.backgroundColor = [UIColor clearColor];

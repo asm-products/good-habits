@@ -85,7 +85,6 @@
 - (IBAction)didPressRestorePurchase:(id)sender {
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
     [self dismissViewControllerAnimated:YES completion:^{
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     }];
 }
 - (IBAction)didPressDoNotAskAgain:(id)sender {

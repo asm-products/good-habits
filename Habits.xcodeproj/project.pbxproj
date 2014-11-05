@@ -87,6 +87,13 @@
 		AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */; };
 		AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */; };
 		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
+		AC7E012D1A0A51AA00E37979 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7E012C1A0A51AA00E37979 /* Launch Screen.xib */; };
+		AC7E01341A0A539300E37979 /* dont_break_the_chain.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E012E1A0A539300E37979 /* dont_break_the_chain.png */; };
+		AC7E01351A0A539300E37979 /* dont_break_the_chain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E012F1A0A539300E37979 /* dont_break_the_chain@2x.png */; };
+		AC7E01361A0A539300E37979 /* good_to_hear_crane.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01301A0A539300E37979 /* good_to_hear_crane.png */; };
+		AC7E01371A0A539300E37979 /* good_to_hear_crane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01311A0A539300E37979 /* good_to_hear_crane@2x.png */; };
+		AC7E01381A0A539300E37979 /* good_to_hear_playfair.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01321A0A539300E37979 /* good_to_hear_playfair.png */; };
+		AC7E01391A0A539300E37979 /* good_to_hear_playfair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01331A0A539300E37979 /* good_to_hear_playfair@2x.png */; };
 		AC94093419B8E75F003E6257 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = AC94093219B8E75F003E6257 /* locked.png */; };
 		AC94093519B8E75F003E6257 /* locked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC94093319B8E75F003E6257 /* locked@2x.png */; };
 		AC94093719B8F5EA003E6257 /* PremiumFeatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC94093619B8F5EA003E6257 /* PremiumFeatureTests.m */; };
@@ -180,9 +187,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.xcconfig"; path = "Pods/Pods-HabitsTests.xcconfig"; sourceTree = "<group>"; };
-		623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.xcconfig"; path = "Pods/Pods-Habits.xcconfig"; sourceTree = "<group>"; };
+		473447AF77B0FB2FE7BD78FC /* Pods-HabitsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests.release.xcconfig"; sourceTree = "<group>"; };
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C6C3ACDC59645D5628516D7 /* Pods-Habits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.release.xcconfig"; path = "Pods/Target Support Files/Pods-Habits/Pods-Habits.release.xcconfig"; sourceTree = "<group>"; };
+		98493DE36D14591060371E19 /* Pods-HabitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC088A7419EB120C0068F6EC /* TimeHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelperTest.m; sourceTree = "<group>"; };
 		AC0B78011976718500CEC018 /* DayKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayKeys.h; sourceTree = "<group>"; };
 		AC0B78021976718500CEC018 /* DayKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayKeys.m; sourceTree = "<group>"; };
@@ -308,6 +316,13 @@
 		AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron.png"; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
+		AC7E012C1A0A51AA00E37979 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		AC7E012E1A0A539300E37979 /* dont_break_the_chain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dont_break_the_chain.png; sourceTree = "<group>"; };
+		AC7E012F1A0A539300E37979 /* dont_break_the_chain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dont_break_the_chain@2x.png"; sourceTree = "<group>"; };
+		AC7E01301A0A539300E37979 /* good_to_hear_crane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good_to_hear_crane.png; sourceTree = "<group>"; };
+		AC7E01311A0A539300E37979 /* good_to_hear_crane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "good_to_hear_crane@2x.png"; sourceTree = "<group>"; };
+		AC7E01321A0A539300E37979 /* good_to_hear_playfair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good_to_hear_playfair.png; sourceTree = "<group>"; };
+		AC7E01331A0A539300E37979 /* good_to_hear_playfair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "good_to_hear_playfair@2x.png"; sourceTree = "<group>"; };
 		AC94093219B8E75F003E6257 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
 		AC94093319B8E75F003E6257 /* locked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked@2x.png"; sourceTree = "<group>"; };
 		AC94093619B8F5EA003E6257 /* PremiumFeatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PremiumFeatureTests.m; sourceTree = "<group>"; };
@@ -413,6 +428,7 @@
 		ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStatsTableViewController.h; sourceTree = "<group>"; };
 		ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStatsTableViewController.m; sourceTree = "<group>"; };
 		ACEDA1EE19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticsFeaturePurchaseView.xib; path = ../Views/AppFeatures/StatisticsFeaturePurchaseView.xib; sourceTree = "<group>"; };
+		B430E7DA9758A053F5C63407 /* Pods-Habits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Habits/Pods-Habits.debug.xcconfig"; sourceTree = "<group>"; };
 		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -443,6 +459,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D7BA1AED4D3609EBA5597E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B430E7DA9758A053F5C63407 /* Pods-Habits.debug.xcconfig */,
+				8C6C3ACDC59645D5628516D7 /* Pods-Habits.release.xcconfig */,
+				98493DE36D14591060371E19 /* Pods-HabitsTests.debug.xcconfig */,
+				473447AF77B0FB2FE7BD78FC /* Pods-HabitsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AC1EB1041960C5B100549AC9 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,8 +644,7 @@
 				ACADB3F8190D23B90030CC82 /* HabitsTests */,
 				ACADB3D2190D23B90030CC82 /* Frameworks */,
 				ACADB3D1190D23B90030CC82 /* Products */,
-				623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */,
-				218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */,
+				8D7BA1AED4D3609EBA5597E3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -675,6 +701,7 @@
 				ACADB3DC190D23B90030CC82 /* InfoPlist.strings */,
 				ACADB3DF190D23B90030CC82 /* main.m */,
 				ACADB3E1190D23B90030CC82 /* Habits-Prefix.pch */,
+				AC7E012C1A0A51AA00E37979 /* Launch Screen.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -808,6 +835,12 @@
 		ACADB40C190D26940030CC82 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AC7E012E1A0A539300E37979 /* dont_break_the_chain.png */,
+				AC7E012F1A0A539300E37979 /* dont_break_the_chain@2x.png */,
+				AC7E01301A0A539300E37979 /* good_to_hear_crane.png */,
+				AC7E01311A0A539300E37979 /* good_to_hear_crane@2x.png */,
+				AC7E01321A0A539300E37979 /* good_to_hear_playfair.png */,
+				AC7E01331A0A539300E37979 /* good_to_hear_playfair@2x.png */,
 				AC5F3B5119C63DE100398F81 /* status-bar@2x.png */,
 				ACAE5F4519C4B080003B0893 /* preview-chart.png */,
 				ACAE5F4619C4B080003B0893 /* preview-chart@2x.png */,
@@ -1012,6 +1045,7 @@
 				AC2B474C19D72A64008FE6DE /* Habits Tutorial.mov in Resources */,
 				AC5F3B4F19C62D5D00398F81 /* demo.habits.plist in Resources */,
 				AC94093919B8FAF8003E6257 /* Settings.bundle in Resources */,
+				AC7E01351A0A539300E37979 /* dont_break_the_chain@2x.png in Resources */,
 				AC1EB93319B096C300BF7EAF /* aw.goodtohear.habits.plist in Resources */,
 				ACADB492190D27960030CC82 /* icon_512.png in Resources */,
 				AC2B474F19D73F6A008FE6DE /* appstore.habits.plist in Resources */,
@@ -1023,8 +1057,11 @@
 				ACEDA1EF19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib in Resources */,
 				ACADB48E190D27960030CC82 /* main_screen.png in Resources */,
 				ACADB45A190D27960030CC82 /* icon_120.png in Resources */,
+				AC7E01371A0A539300E37979 /* good_to_hear_crane@2x.png in Resources */,
 				AC5F3B4D19C6245900398F81 /* HelpCaptureInterstitialViewController.xib in Resources */,
+				AC7E01341A0A539300E37979 /* dont_break_the_chain.png in Resources */,
 				ACADB485190D27960030CC82 /* nav.png in Resources */,
+				AC7E01391A0A539300E37979 /* good_to_hear_playfair@2x.png in Resources */,
 				ACADB458190D27960030CC82 /* info_nav@2x.png in Resources */,
 				ACADB48B190D27960030CC82 /* pause@2x.png in Resources */,
 				ACADB457190D27960030CC82 /* Default@2x.png in Resources */,
@@ -1033,6 +1070,8 @@
 				AC1EB93419B096C300BF7EAF /* mf.goodtohear.habits.plist in Resources */,
 				ACADB48F190D27960030CC82 /* info@2x.png in Resources */,
 				ACADB482190D27960030CC82 /* happiness_shape.png in Resources */,
+				AC7E01361A0A539300E37979 /* good_to_hear_crane.png in Resources */,
+				AC7E012D1A0A51AA00E37979 /* Launch Screen.xib in Resources */,
 				ACADB496190D27960030CC82 /* check_mark@2x.png in Resources */,
 				ACADB459190D27960030CC82 /* icon_114.png in Resources */,
 				ACADB49C190D27960030CC82 /* arrow_back@2x.png in Resources */,
@@ -1042,6 +1081,7 @@
 				ACADB497190D27960030CC82 /* check_mark.png in Resources */,
 				ACADB48C190D27960030CC82 /* pause.png in Resources */,
 				ACADB499190D27960030CC82 /* arrow_next@2x.png in Resources */,
+				AC7E01381A0A539300E37979 /* good_to_hear_playfair.png in Resources */,
 				ACADB3DE190D23B90030CC82 /* InfoPlist.strings in Resources */,
 				ACADB48A190D27960030CC82 /* play.png in Resources */,
 				AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */,
@@ -1096,7 +1136,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Habits-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Habits/Pods-Habits-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B3FA9C7B1AD44752AF42074C /* Check Pods Manifest.lock */ = {
@@ -1126,7 +1166,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-HabitsTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E6AE7841480C44CAA2E75022 /* Check Pods Manifest.lock */ = {
@@ -1351,12 +1391,12 @@
 		};
 		ACADB403190D23B90030CC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */;
+			baseConfigurationReference = B430E7DA9758A053F5C63407 /* Pods-Habits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Forrest (2Y46T85LFL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Forrest (2Y46T85LFL)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1370,19 +1410,19 @@
 					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneSimulator",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "eda680cd-28f9-431e-9ffe-6f086b670301";
+				PROVISIONING_PROFILE = "77ed520f-3063-4e12-ade5-c7840e219a22";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		ACADB404190D23B90030CC82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 623263D10DE345609A1C91C6 /* Pods-Habits.xcconfig */;
+			baseConfigurationReference = 8C6C3ACDC59645D5628516D7 /* Pods-Habits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Good To Hear Ltd (TNRLJ4WU59)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1403,7 +1443,7 @@
 		};
 		ACADB406190D23B90030CC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */;
+			baseConfigurationReference = 98493DE36D14591060371E19 /* Pods-HabitsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Habits.app/Habits";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1426,7 +1466,7 @@
 		};
 		ACADB407190D23B90030CC82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 218AE2401E924089901338F7 /* Pods-HabitsTests.xcconfig */;
+			baseConfigurationReference = 473447AF77B0FB2FE7BD78FC /* Pods-HabitsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Habits.app/Habits";
 				FRAMEWORK_SEARCH_PATHS = (
