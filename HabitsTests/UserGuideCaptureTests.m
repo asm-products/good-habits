@@ -39,6 +39,8 @@
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
+}
+-(void)deleteAllGrabs{
     NSArray * grabs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:GRABS_PATH error:nil];
     for (NSString * path in grabs) {
         NSLog(@"Delete %@", path);
@@ -50,6 +52,7 @@
 -(void)testGrabAppStoreScreens{
     [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-24"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"appstore.habits"];
+    [TestHelpers setStatsEnabled:YES];
     [tester waitForTimeInterval:0.4];
     [self screenshot:@"screenshot_1"];
     [tester tapViewWithAccessibilityLabel:@"Floss"];
@@ -145,7 +148,7 @@
     screenshotIndex ++;
     UIImage * image = [UIImage screenshot];
 //    UIImage * sta[UIImage imageNamed:@"status-bar"];
-    NSString * filename = [NSString stringWithFormat:@"%@ - %@", @(screenshotIndex), name];
+    NSString * filename = [NSString stringWithFormat:@"%@h %@ - %@", @([UIScreen mainScreen].bounds.size.height), @(screenshotIndex), name];
     NSString * outputPath = [GRABS_PATH stringByAppendingPathComponent:filename];
     outputPath = [outputPath stringByAppendingPathExtension:@"jpg"];
     NSLog(@"Saving file to %@", outputPath);

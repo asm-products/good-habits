@@ -47,7 +47,7 @@
         [self.view addSubview:cell];
         [cells addObject:cell];
         nextPoint.x += cell.frame.size.width;
-        if(nextPoint.x + CELL_SIZE.width > self.view.frame.size.width){
+        if(nextPoint.x + CELL_SIZE.width > 320){
             nextPoint.x = 0;
             nextPoint.y += CELL_SIZE.height;
         }

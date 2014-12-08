@@ -47,6 +47,9 @@
                <Test
                   Identifier = "JSONConversionTestsSpec">
                </Test>
+               <Test
+                  Identifier = "UserGuideCaptureTests">
+               </Test>
             </SkippedTests>
          </TestableReference>
       </Testables>

@@ -26,7 +26,7 @@ typedef enum{
     HabitDetailCellIndexReminderPicker
 } HabitDetailCellIndex;
 
-@interface HabitDetailViewController ()<DayPickerDelegate,UITextFieldDelegate>{
+@interface HabitDetailViewController ()<DayPickerDelegate,UITextFieldDelegate, UITextViewDelegate>{
     __weak IBOutlet UITableViewCell *datePickerCell;
     BOOL showingTimePicker;
 }
@@ -41,6 +41,8 @@ typedef enum{
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UILabel *pausedLabel;
 @property (weak, nonatomic) IBOutlet ColorPickerCell *colorPickerCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *notesCell;
+@property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 @end
 
 @implementation HabitDetailViewController
@@ -212,5 +214,16 @@ typedef enum{
         self.habit = nil;
         [self.navigationController popViewControllerAnimated:YES];
     }] otherButtonItems:nil] showInView:self.view];
+}
+#pragma mark - notes field
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+{
+    CGFloat width = textView.frame.size.width;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(width, MAXFLOAT)];
+    CGRect newFrame = textView.frame;
+    newFrame.size = CGSizeMake(fmaxf(newSize.width, width), newSize.height);
+    textView.frame = newFrame;
+    return YES;
 }
 @end

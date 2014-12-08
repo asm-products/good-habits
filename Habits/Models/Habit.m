@@ -99,8 +99,9 @@
 -(Chain *)currentChain{
     return self.sortedChains.lastObject;
 }
--(Chain *)chainForDate:(NSDate *)date{
-    NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache <= %@", date]];
+-(Chain *)chainForDate:(NSDate *)date{  
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"firstDateCache <= %@", date];
+    NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:predicate];
     Chain * lastObject = chains.lastObject;
     if(chains.count == 0 ){
         Chain * chain = [self addNewChain];

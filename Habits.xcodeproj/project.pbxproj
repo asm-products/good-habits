@@ -166,6 +166,7 @@
 		ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */; };
 		ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BC19B456DD00085A95 /* ReminderTests.m */; };
 		ACBCD3C819B4BEEA00085A95 /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */; };
+		ACDBF4031A1C258200843BAD /* MultilineAutoshrinkingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDBF4021A1C258200843BAD /* MultilineAutoshrinkingLabel.m */; };
 		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
 		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
@@ -413,6 +414,8 @@
 		ACBCD3BC19B456DD00085A95 /* ReminderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTests.m; sourceTree = "<group>"; };
 		ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 10.xcdatamodel"; sourceTree = "<group>"; };
 		ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 11.xcdatamodel"; sourceTree = "<group>"; };
+		ACDBF4011A1C258200843BAD /* MultilineAutoshrinkingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineAutoshrinkingLabel.h; sourceTree = "<group>"; };
+		ACDBF4021A1C258200843BAD /* MultilineAutoshrinkingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineAutoshrinkingLabel.m; sourceTree = "<group>"; };
 		ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsTableViewController.h; sourceTree = "<group>"; };
 		ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsTableViewController.m; sourceTree = "<group>"; };
 		ACDC63BD196F2CD700F68BD6 /* HabitSparklineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitSparklineTableViewCell.h; sourceTree = "<group>"; };
@@ -554,6 +557,8 @@
 				AC21B23219CCBDC00024BE96 /* AwardImage.m */,
 				AC21B23419CEDA250024BE96 /* PastDayCheckView.h */,
 				AC21B23519CEDA250024BE96 /* PastDayCheckView.m */,
+				ACDBF4011A1C258200843BAD /* MultilineAutoshrinkingLabel.h */,
+				ACDBF4021A1C258200843BAD /* MultilineAutoshrinkingLabel.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1212,6 +1217,7 @@
 				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
 				ACE31AC119756936007173A0 /* HabitDay.m in Sources */,
 				AC5F3B5919C6F1C700398F81 /* LegacyJSONImporter.m in Sources */,
+				ACDBF4031A1C258200843BAD /* MultilineAutoshrinkingLabel.m in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
 				AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */,
 				AC4018D0195098A50033407B /* Calendar.m in Sources */,
