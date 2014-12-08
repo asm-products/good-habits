@@ -155,6 +155,11 @@
     [tester tapViewWithAccessibilityLabel:@"New one"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Checkbox for New one Checked"];
+
+    [tester tapViewWithAccessibilityLabel:@"New one"];
+    [tester tapViewWithAccessibilityLabel:@"17 August"];
+    [tester waitForViewWithAccessibilityLabel:@"17 August, first in chain"];
+    
 }
 -(void)testTogglingAChainOnAndOffDoesNotRuinBadgeState{
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
