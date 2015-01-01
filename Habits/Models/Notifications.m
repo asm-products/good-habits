@@ -15,9 +15,11 @@
 +(void)reschedule{
     NSLog(@"Rescheduling notifications");
     NSDate * now = [TimeHelper now];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:[[[HabitsQueries active] filter:^BOOL(Habit * h) {
-        return [h needsToBeDone: now];
-    }] count]];
+    NSDate * today = [TimeHelper today];
+    NSInteger requiredTodayCount = [[[HabitsQueries active] filter:^BOOL(Habit * h) {
+        return [h needsToBeDone: today];
+    }] count];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:requiredTodayCount];
     NSMutableArray * notifications = [[NSMutableArray alloc] initWithCapacity:100];
     for (Habit * habit in [HabitsQueries active]) {
         [notifications addObjectsFromArray:habit.notifications];
