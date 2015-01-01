@@ -341,30 +341,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mPE-dl-y1Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mPE-dl-y1Z" id="ZUR-4p-5g0">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlE-Ht-oTV">
-                                                    <rect key="frame" x="8" y="8" width="304" height="27.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="7RM-Qo-hbm" id="aya-ha-9XG"/>
-                                                    </connections>
-                                                </textView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="HlE-Ht-oTV" secondAttribute="trailing" id="41I-5T-hIh"/>
-                                                <constraint firstItem="HlE-Ht-oTV" firstAttribute="top" secondItem="ZUR-4p-5g0" secondAttribute="topMargin" id="GoC-K8-IWW"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="HlE-Ht-oTV" secondAttribute="bottom" id="JxN-Vw-7Ye"/>
-                                                <constraint firstItem="HlE-Ht-oTV" firstAttribute="leading" secondItem="ZUR-4p-5g0" secondAttribute="leadingMargin" id="anI-vg-i4b"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="J2P-fW-65j" userLabel="Reminder">
                                         <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -462,6 +438,30 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mPE-dl-y1Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mPE-dl-y1Z" id="ZUR-4p-5g0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlE-Ht-oTV">
+                                                    <rect key="frame" x="8" y="8" width="304" height="27.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="7RM-Qo-hbm" id="aya-ha-9XG"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HlE-Ht-oTV" secondAttribute="trailing" id="41I-5T-hIh"/>
+                                                <constraint firstItem="HlE-Ht-oTV" firstAttribute="top" secondItem="ZUR-4p-5g0" secondAttribute="topMargin" id="GoC-K8-IWW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="HlE-Ht-oTV" secondAttribute="bottom" id="JxN-Vw-7Ye"/>
+                                                <constraint firstItem="HlE-Ht-oTV" firstAttribute="leading" secondItem="ZUR-4p-5g0" secondAttribute="leadingMargin" id="anI-vg-i4b"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>

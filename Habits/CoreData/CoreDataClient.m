@@ -112,6 +112,8 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 
     if (error) {
         NSLog(@"error: %@", error);
+    }else{
+        NSLog(@"Connected to store url %@", self.storeURL);
     }
 }
 #pragma mark - Notification Observers

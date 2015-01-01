@@ -27,6 +27,7 @@ typedef enum {
     HabitListSectionNotToday,
     HabitListSectionInactive
 } HabitListSection;
+
 @implementation HabitListViewController{
     dispatch_queue_t reloadQueue;
     NSArray * groups;
@@ -36,8 +37,6 @@ typedef enum {
     InactiveHabitsHeader * carriedOver;
     InactiveHabitsHeader * notRequiredTodayTitle;
     InactiveHabitsHeader * inactiveTitle;
-    
-    
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
