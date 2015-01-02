@@ -108,7 +108,8 @@
         }
     }
     hasBeenActiveYet = YES;
-    
+    [DataExport scanForJSONFile:^(BOOL success) {
+    }];
 }
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     NSArray * components = [url.absoluteString componentsSeparatedByString:@"goodhabits://import?json="];
@@ -116,13 +117,14 @@
         [[[UIAlertView alloc] initWithTitle:@"Restore data?" message:@"Restore your data? This action will delete your current data. It might also make any iCloud syncing behave strangely. Proceed with caution." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:@"Restore Data" action:^{
             [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                [DataExport importDataFromBase64EncodedString:components[1]];
+                BOOL success = [DataExport importDataFromBase64EncodedString:components[1]];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [SVProgressHUD dismiss];
+                    if(!success){
+                        [[[UIAlertView alloc] initWithTitle:@"Too much data for restore link" message:@"The email restore links turned out to be unreliable for users with a lot of data. To restore from a backup, please copy the `habits_data.json` file to your device using iTunes." cancelButtonItem:[RIButtonItem itemWithLabel:@"Ok"] otherButtonItems:nil] show];
+                    }
                 });
             });
-
-
         }], nil] show];
         return YES;
     }

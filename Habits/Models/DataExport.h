@@ -10,5 +10,6 @@
 
 @interface DataExport : NSObject
 +(void)run:(UIViewController*)controller;
-+(void)importDataFromBase64EncodedString:(NSString*)string;
++(BOOL)importDataFromBase64EncodedString:(NSString*)string;
++(void)scanForJSONFile:(void(^)(BOOL success))callback;
 @end

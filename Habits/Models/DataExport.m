@@ -15,6 +15,7 @@
 #import <SVProgressHUD.h>
 #import "JSONConversion.h"
 #import "LegacyJSONImporter.h"
+#import <UIAlertView+Blocks.h>
 @import MessageUI;
 @implementation DataExport
 
@@ -51,9 +52,14 @@
 
 
 }
-+(void)importDataFromBase64EncodedString:(NSString *)string{
++(BOOL)importDataFromBase64EncodedString:(NSString *)string{
     NSData * data = [[NSData alloc] initWithBase64EncodedString:string options:0];
+    if(data == nil) return NO;
     NSArray * array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [self importDataFromArray:array];
+    return YES;
+}
++(void)importDataFromArray:(NSArray*)array{
     BOOL isLegacyFormat = array.firstObject[@"days_checked"] != nil;
     if(isLegacyFormat){
         [LegacyJSONImporter performMigrationWithArray:array];
@@ -62,5 +68,38 @@
     }
     [HabitsQueries refresh];
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
+}
++(void)scanForJSONFile:(void (^)(BOOL))callback{
+    callback(YES);
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    NSArray * files = [fileManager contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:nil ];
+    for (NSString * file in files) {
+        if ([file hasSuffix:@"json"]) {
+            [self promptImportOfJSONFile: [[self applicationDocumentsDirectory] stringByAppendingPathComponent:file]];
+        }
+    }
+}
++(void)promptImportOfJSONFile:(NSString*)path{
+    [[[UIAlertView alloc] initWithTitle:@"JSON file detected" message:@"Would you like to import the data from this backup? This cannot be undone." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:@"Delete File" action:^{
+        [self deleteJSONFile:path];
+    }], [RIButtonItem itemWithLabel:@"Import Data" action:^{
+        [self importAndDeleteJSONFile:path];
+    }], nil] show];
+}
++(void)importAndDeleteJSONFile:(NSString*)path{
+    NSData * data = [NSData dataWithContentsOfFile:path];
+    NSError * error;
+    NSArray * array = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    [self importDataFromArray:array];
+    [self deleteJSONFile:path];
+}
++(void)deleteJSONFile:(NSString*)path{
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+}
++ (NSString *)applicationDocumentsDirectory
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return basePath;
 }
 @end
