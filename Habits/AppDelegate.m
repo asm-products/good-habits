@@ -20,6 +20,7 @@
 #import "StatisticsFeaturePurchaseController.h"
 #import "Colors.h"
 #import <Crashlytics/Crashlytics.h>
+#import <Lookback/Lookback.h>
 @implementation AppDelegate{
     BOOL hasBeenActiveYet;
 }
@@ -32,6 +33,9 @@
     [Crashlytics startWithAPIKey:@"3254ccee18a98f4b57c4dc9d4fdd5d961828f59d"];
     [InfoTask trackInstallationDate];
     [AppFeatures setDefaults];
+    
+    [Lookback_Weak setupWithAppToken:@"bGofRBSyqLvCF98Nj"];
+    
     [[StatisticsFeaturePurchaseController sharedController] listenForTransactions];
 //    [Audits initialize];
     [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)
@@ -127,6 +131,9 @@
             });
         }], nil] show];
         return YES;
+    }
+    if([url.absoluteString isEqualToString:@"goodhabits://lookback"]){
+        [LookbackRecordingViewController presentOntoScreenAnimated:YES];
     }
     return NO;
 }

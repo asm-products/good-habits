@@ -42,6 +42,7 @@
                                [DataExport run: self];
                            }},
                            @{@"text": @"Log an issue", @"url": @"https://github.com/goodtohear/habits/issues" },
+                           @{@"text": @"Video bug report", @"url":@"goodhabits://lookback"},
                            @{@"text": @"Contact us", @"url": @"http://goodtohear.co.uk/contact"}
                            ];
     return _links;

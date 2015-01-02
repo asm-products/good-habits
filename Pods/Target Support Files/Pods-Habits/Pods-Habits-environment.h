@@ -54,6 +54,12 @@
 #define COCOAPODS_VERSION_MINOR_LMAlertView 1
 #define COCOAPODS_VERSION_PATCH_LMAlertView 0
 
+// LookbackSafe
+#define COCOAPODS_POD_AVAILABLE_LookbackSafe
+#define COCOAPODS_VERSION_MAJOR_LookbackSafe 0
+#define COCOAPODS_VERSION_MINOR_LookbackSafe 8
+#define COCOAPODS_VERSION_PATCH_LookbackSafe 1
+
 // MCSwipeTableViewCell
 #define COCOAPODS_POD_AVAILABLE_MCSwipeTableViewCell
 #define COCOAPODS_VERSION_MAJOR_MCSwipeTableViewCell 2

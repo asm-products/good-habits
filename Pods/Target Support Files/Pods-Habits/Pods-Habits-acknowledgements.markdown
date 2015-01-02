@@ -164,6 +164,13 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
+## LookbackSafe
+
+All text and design is copyright © 2014 Lookback AB
+
+All rights reserved. Terms of use as defined at http://lookback.io applies.
+
+
 ## MCSwipeTableViewCell
 
 Copyright (c) 2014 Ali Karagoz (http://alikaragoz.net/)

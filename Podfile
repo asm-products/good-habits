@@ -16,6 +16,7 @@ target "Habits" do
     pod 'DHAppleReceiptParser', '~> 1.0'
     pod 'MCSwipeTableViewCell', '~> 2.1'
     #    pod 'KiipSDK', '~> 2.0'
+    pod 'LookbackSafe'#, :configurations => ['Release']
 end
 
 target "HabitsTests" do
