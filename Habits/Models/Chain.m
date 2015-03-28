@@ -107,7 +107,7 @@
 -(DayCheckedState)toggleDayInCalendarForDate:(NSDate *)date{
     HabitDay * existingDay = [self habitDayForDate:date];
     DayCheckedState result;
-    BOOL dateIsAtEndOfChain = self.days.count > 0 && ( [date isEqualToDate:self.lastDateCache] || date.timeIntervalSinceReferenceDate >= self.nextRequiredDate.timeIntervalSinceReferenceDate);
+    BOOL dateIsAtEndOfChain = (self.days.count > 0 && ( [date isEqualToDate:self.lastDateCache] || date.timeIntervalSinceReferenceDate >= self.nextRequiredDate.timeIntervalSinceReferenceDate)) || self.days.count == 0 ;
     BOOL dateIsTooLateForThisChain = self.days.count > 0 && (date.timeIntervalSinceReferenceDate > self.nextRequiredDate.timeIntervalSinceReferenceDate);
     if (existingDay == nil) { // only happens if day was not required
         if(dateIsAtEndOfChain){

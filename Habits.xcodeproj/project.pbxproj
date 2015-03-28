@@ -948,6 +948,7 @@
 				ACADB3CE190D23B90030CC82 /* Resources */,
 				AC6330D8047E459BBB329047 /* Copy Pods Resources */,
 				AC2B475019D74424008FE6DE /* Run Script */,
+				AC28A56A1A562BCB002E083C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1115,6 +1116,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AC28A56A1A562BCB002E083C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "productVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\nif [ \"${CONFIGURATION}\" = \"Release\" ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\necho \"Bumped build number to\" $buildNumber\nelse\necho \"Skipped build number bump\"\nfi";
+		};
 		AC2B475019D74424008FE6DE /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

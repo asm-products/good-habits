@@ -159,6 +159,7 @@
     [tester tapViewWithAccessibilityLabel:@"New one"];
     [tester tapViewWithAccessibilityLabel:@"17 August"];
     [tester waitForViewWithAccessibilityLabel:@"17 August, first in chain"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
     
 }
 -(void)testTogglingAChainOnAndOffDoesNotRuinBadgeState{
