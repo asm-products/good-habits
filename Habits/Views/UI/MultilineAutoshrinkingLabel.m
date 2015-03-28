@@ -11,7 +11,7 @@
 @implementation MultilineAutoshrinkingLabel
 -(void)setText:(NSString *)text{
     [super setText:text];
-    int maxDesiredFontSize = self.font.pointSize;
+    int maxDesiredFontSize = 20; //self.font.pointSize;
     int minFontSize = self.minimumScaleFactor * self.font.pointSize;
     CGFloat labelWidth = self.frame.size.width;
     CGFloat labelRequiredHeight = self.frame.size.height;
