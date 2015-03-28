@@ -60,6 +60,10 @@
         return YES;
     }
 }
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    self.failure.notes = textField.text;
+    [[CoreDataClient defaultClient] save];
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     self.failure.notes = textField.text;
     [[CoreDataClient defaultClient] save];

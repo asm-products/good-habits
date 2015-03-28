@@ -104,6 +104,19 @@
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Broken"];
 
 }
+
+-(void)testEditsGetSavedWhenSwitchingReasonFields{
+    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed 20 days ago. What happened?" traits:UIAccessibilityTraitNone];
+    [tester enterTextIntoCurrentFirstResponder:@"Make sure this saves"];
+    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed 19 days ago. What happened?" traits:UIAccessibilityTraitNone];
+    [tester enterTextIntoCurrentFirstResponder:@"Pressing enter.\n"];
+    [tester tapViewWithAccessibilityLabel:@"Another testing habit"];
+    [tester tapViewWithAccessibilityLabel:@"Stats"];
+    [tester waitForViewWithAccessibilityLabel:@"Make sure this saves"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
+    [tester tapViewWithAccessibilityLabel:@"Back"];
+}
+
 -(void)testPastChainsAreNotExplicitlyBroken{
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Not checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Another testing habit Checked"];
