@@ -72,7 +72,7 @@
 }
 -(BOOL)isRecord{
     NSInteger currentChainLength = self.currentChainLengthForDisplay;
-    return currentChainLength > 0 && currentChainLength == self.habit.longestChain.daysCountCache.integerValue;
+    return currentChainLength >= 28 && currentChainLength == self.habit.longestChain.daysCountCache.integerValue;
 }
 -(NSInteger)currentChainLengthForDisplay{
     NSInteger countOfDaysOverdue = self.countOfDaysOverdue;
