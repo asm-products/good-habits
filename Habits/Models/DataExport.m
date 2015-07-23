@@ -27,26 +27,44 @@
         NSLog(@"Habits json: %@", habits);
         //    NSString * hash = habits
         NSData * data = [NSKeyedArchiver archivedDataWithRootObject:habits];
+        
         NSString * linkString = [data base64EncodedStringWithOptions:0];
         NSString * messageBody = [NSString stringWithFormat:@"Attached is a JSON file of data exported from Habits by <a href='http://goodtohear.co.uk'>Good To Hear</a>.  To restore this data to the app, tap this <a href='goodhabits://import?json=%@'>RESTORE LINK</a>.", linkString];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            MFMailComposeViewController * controller = [MFMailComposeViewController new];
-            [controller setSubject:@"Habits data"];
-            [controller setMessageBody:messageBody isHTML:YES];
-            [controller addAttachmentData:[NSJSONSerialization dataWithJSONObject:habits options:NSUTF8StringEncoding error:nil] mimeType:@"application/json" fileName:@"habits_data.json"];
-            [controller SH_setComposerCompletionBlock:^(MFMailComposeViewController *theController, MFMailComposeResult result, NSError *error) {
-                if(error){
-                    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-                }
-                if(result == MFMailComposeResultSent || result == MFMailComposeResultCancelled){
-                    [parentController dismissViewControllerAnimated:YES completion:nil];
-                }
-            }];
-
-            [parentController presentViewController:controller animated:YES completion:^{
+            NSData * jsonData = [NSJSONSerialization dataWithJSONObject:habits options:NSUTF8StringEncoding error:nil];
+            NSString * jsonPath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"habits.json"];
+            [jsonData writeToFile:jsonPath atomically:YES];
+            
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Data export" message:@"You can email your data to yourself if you use the default email app, or you can copy the JSON to the clipboard" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Send email" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+                MFMailComposeViewController * controller = [MFMailComposeViewController new];
+                [controller setSubject:@"Habits data"];
+                [controller setMessageBody:messageBody isHTML:YES];
+                [controller addAttachmentData:jsonData mimeType:@"application/json" fileName:@"habits_data.json"];
+                [controller SH_setComposerCompletionBlock:^(MFMailComposeViewController *theController, MFMailComposeResult result, NSError *error) {
+                    if(error){
+                        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+                    }
+                    if(result == MFMailComposeResultSent || result == MFMailComposeResultCancelled){
+                        [parentController dismissViewControllerAnimated:YES completion:nil];
+                    }
+                }];
+                [parentController presentViewController:controller animated:YES completion:^{
+                }];
+            }]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Copy JSON" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                NSString * jsonString = [NSString stringWithContentsOfFile:jsonPath encoding:NSUTF8StringEncoding error:nil];
+                [[UIPasteboard generalPasteboard] setString:jsonString];
+                [SVProgressHUD showSuccessWithStatus:@"Copied"];
+            }]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+            [parentController presentViewController:alert animated:true completion:^{
                 [SVProgressHUD dismiss];                
             }];
+
+
         });
     });
 
