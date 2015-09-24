@@ -38,27 +38,27 @@
         notification.applicationIconBadgeNumber = [HabitsQueries habitCountForDate: day];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }
-    
-//    [self scheduleAuditNotification];
 }
-+(void)scheduleAuditNotification{
-//    NSDateComponents * components = [Audits scheduledTime];
-//    if(!components) return;
-//    UILocalNotification * notification = [UILocalNotification new];
-//
-//    NSDate * nextDate = [TimeHelper dateForTimeToday: components];
-//    NSArray * habitsDue = [Audits habitsToBeAudited];
-//    if(habitsDue.count == 0){
-//        nextDate = [TimeHelper addDays:1 toDate:nextDate];
-//    }
-//    notification.fireDate = nextDate;
-//    notification.repeatInterval = NSDayCalendarUnit;
-//    notification.soundName = UILocalNotificationDefaultSoundName;
-//    NSInteger count = (habitsDue.count == 0) ? [HabitsQueries habitCountForDate:nextDate] : habitsDue.count;
-//    NSString * message = [NSString stringWithFormat:@"%@ habit%@ due", @(count), count == 1 ? @"" : @"s"];
-//    notification.alertBody = message;
-//    notification.userInfo = @{@"type": @"audit"};
-//    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
++(void)registerCategories{
+    UIMutableUserNotificationAction * check = [UIMutableUserNotificationAction new];
+    check.identifier = @"check";
+    check.title = @"Done!";
+    check.activationMode = UIUserNotificationActivationModeBackground;
+    
+    UIMutableUserNotificationAction * snooze = [UIMutableUserNotificationAction new];
+    snooze.identifier = @"snooze";
+    snooze.title = @"Snooze";
+    snooze.activationMode = UIUserNotificationActivationModeBackground;
+    
+    UIMutableUserNotificationCategory * category = [UIMutableUserNotificationCategory new];
+    category.identifier = @"Checkable";
+    [category setActions:@[check,snooze] forContext:UIUserNotificationActionContextMinimal];
+    
+    NSSet * categories = [NSSet setWithObject:category];
+    NSUInteger types = (UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge);
+    UIUserNotificationSettings * settings = [UIUserNotificationSettings settingsForTypes:types categories:categories];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    
     
 }
 @end

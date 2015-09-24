@@ -10,4 +10,5 @@
 
 @interface Notifications : NSObject
 +(void)reschedule;
++(void)registerCategories;
 @end

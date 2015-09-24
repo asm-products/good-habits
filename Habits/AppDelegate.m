@@ -21,6 +21,9 @@
 #import "Colors.h"
 #import <Crashlytics/Crashlytics.h>
 #import <Lookback/Lookback.h>
+#import "TimeHelper.h"
+#import "HabitDay.h"
+#import "Chain.h"
 @implementation AppDelegate{
     BOOL hasBeenActiveYet;
 }
@@ -41,7 +44,7 @@
     [self trackCoreDataChanges]; // put this before dealing with core data to ensure that events are handled (see https://developer.apple.com/library/Mac/documentation/DataManagement/Conceptual/UsingCoreDataWithiCloudPG/UsingSQLiteStoragewithiCloud/UsingSQLiteStoragewithiCloud.html)
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+        [Notifications registerCategories];
     }
     return YES;
 }
@@ -89,14 +92,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
     
 }
--(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-//    if([notification.userInfo[@"type"] isEqualToString:@"audit"]){
-//        [self showAuditScreenIfNeeded];
-//    }
-//    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
-//    [HabitsList recalculateAllNotifications];
-//    [Notifications reschedule];
-}
+//-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+////    if([notification.userInfo[@"type"] isEqualToString:@"audit"]){
+////        [self showAuditScreenIfNeeded];
+////    }
+////    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
+////    [HabitsList recalculateAllNotifications];
+////    [Notifications reschedule];
+//}
 -(void)applicationWillResignActive:(UIApplication *)application{
     [HabitsQueries recalculateAllNotifications];
     [Notifications reschedule];
@@ -136,6 +139,45 @@
         [LookbackRecordingViewController presentOntoScreenAnimated:YES];
     }
     return NO;
+}
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    
+    // Get the notifications types that have been allowed, do whatever with them
+    UIUserNotificationType allowedTypes = [notificationSettings types];
+    
+    NSLog(@"Registered for notification types: %lu", (unsigned long)allowedTypes);
+    
+    // You can get this setting anywhere in your app by using this:
+    // UIUserNotificationSettings *currentSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+}
+-(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)())completionHandler{
+    if([identifier isEqualToString:@"check"]){
+        NSString * identifier = notification.userInfo[@"identifier"];
+        Habit * habit = [HabitsQueries findHabitByIdentifier:identifier];
+        NSDate * day = [TimeHelper today];
+        // some logic duplicated from HabitCell onCheckboxTapped
+        Chain * chain = habit.currentChain; // should never be nil; lazily created if habit has no chains
+        HabitDay * habitDay = [chain habitDayForDate:day];
+        if(habitDay == nil){
+            BOOL dateIsTooLateForExistingChain = chain.days.count > 0 && (day.timeIntervalSinceReferenceDate > chain.nextRequiredDate.timeIntervalSinceReferenceDate);
+            if(dateIsTooLateForExistingChain){
+                chain = [habit addNewChainForToday];
+            }
+            [chain tickLastDayInChainOnDate:day];
+            [[CoreDataClient defaultClient] save];
+            [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil];
+            [Notifications reschedule]; // updates badge count
+        }
+    }
+    if([identifier isEqualToString:@"snooze"]){
+        UILocalNotification * snooze = [UILocalNotification new];
+        snooze.alertBody = [NSString stringWithFormat:@"%@ (snoozed)", notification.alertBody];
+        snooze.category = notification.category;
+        snooze.fireDate = [[NSDate new] dateByAddingTimeInterval: 60 * 9]; // 9 minutes from now
+        snooze.userInfo = notification.userInfo;
+        [application scheduleLocalNotification:snooze];
+    }
+    completionHandler();
 }
 //-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
 //    return YES;

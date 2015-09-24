@@ -40,6 +40,9 @@
 -(BOOL)isNew;
 -(NSDate*)nextDayRequiredAfter:(NSDate*)date;
 
+// checks off today
+-(void)checkToday;
+
 #pragma mark - Meta
 -(NSDate*)earliestDate;
 

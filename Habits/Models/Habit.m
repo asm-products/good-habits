@@ -61,6 +61,7 @@
     }
     return date;
 }
+
 #pragma mark - Meta
 -(NSDate*)earliestDate{
     Chain * chain = self.sortedChains.firstObject;
@@ -180,6 +181,10 @@
             notification.fireDate = [[NSCalendar currentCalendar] dateFromComponents:components];
             notification.alertBody = self.title;
             notification.repeatInterval = NSWeekCalendarUnit;
+            notification.category = @"Checkable";
+            notification.userInfo = @{
+                                      @"identifier": self.identifier
+                                      };
             [self.notifications addObject: notification];
         }
     }

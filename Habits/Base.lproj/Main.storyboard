@@ -387,7 +387,7 @@
                                             <rect key="frame" x="0.0" y="-0.5" width="320" height="0.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="evx-sa-1Uc">
+                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="evx-sa-1Uc">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="424731584.16510701">
                                                         <!--2014-06-17 20:59:44 +0000-->
@@ -980,13 +980,13 @@
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9ky-Mr-h4v">
                                             <rect key="frame" x="8" y="8" width="304" height="229.5"/>
-                                            <mutableString key="text">Some users have had trouble with data disappearing.
+                                            <string key="text">Some users have had trouble with data disappearing.
 
 Here, you can see all Habits data currently on your device, with the full path visible (“CoreDataUbiquitySupport” means it’s to do with iCloud).
 
 The hope is that this will reveal missing data and allow you to recover it by sending yourself an email and using its “restore link”, or by dropping its “habits_data.json” file into iTunes. 
 
-If this doesn’t reveal your missing data, please provide a screenshot of this screen, and forward the data exported to info@goodtohear.co.uk. </mutableString>
+If this doesn’t reveal your missing data, please provide a screenshot of this screen, and forward the data exported to info@goodtohear.co.uk. </string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
