@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CWLSynthesizeSingleton.h>
 #import "Habit.h"
 #import "CoreDataClient.h"
 #define HABITS_UPDATED @"HABITS_UPDATED"
@@ -14,30 +15,28 @@
 #define PURCHASE_COMPLETED @"PURCHASE_COMPLETED"
 
 @interface HabitsQueries : NSObject
-@property (nonatomic, strong) CoreDataClient * client;
-
--(instancetype)initWithClient:(CoreDataClient*)client;
--(void)refresh;
--(NSArray*)all;
++(NSFetchedResultsController*)fetchedResultsControllerForClient:(CoreDataClient*)client;
++(void)refresh;
++(NSArray*)all;
 #pragma  mark - Groups
--(NSArray*)active;
--(NSArray*)activeToday;
--(NSArray*)carriedOver;
--(NSArray*)activeButNotToday;
--(NSArray*)inactive;
--(NSInteger)habitCountForDate:(NSDate*)day;
--(Habit*)findHabitByIdentifier:(NSString*)identifier;
++(NSArray*)active;
++(NSArray*)activeToday;
++(NSArray*)carriedOver;
++(NSArray*)activeButNotToday;
++(NSArray*)inactive;
++(NSInteger)habitCountForDate:(NSDate*)day;
++(Habit*)findHabitByIdentifier:(NSString*)identifier;
 /**
  *  Only really intended to be used in tests
  */
--(Habit *)findHabitByTitle:(NSString *)identifier;
++(Habit *)findHabitByTitle:(NSString *)identifier;
 #pragma mark - Notifications
--(void)recalculateAllNotifications;
++(void)recalculateAllNotifications;
 
 #pragma mark - Helper
--(NSInteger)nextUnusedColorIndex;
++(NSInteger)nextUnusedColorIndex;
 
 #pragma mark - Destructive
--(void)deleteAllHabits;
++(void)deleteAllHabits;
 
 @end

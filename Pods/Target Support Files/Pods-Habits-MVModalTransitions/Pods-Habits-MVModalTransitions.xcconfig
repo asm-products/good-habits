@@ -1,1 +1,0 @@
-PODS_HABITS_MVMODALTRANSITIONS_OTHER_LDFLAGS = -framework "CoreGraphics" -framework "Foundation" -framework "UIKit"

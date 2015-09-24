@@ -11,6 +11,7 @@ import UIKit
 class DataStoreInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var fileInfoLabel: UILabel!
+    weak var delegate: UIViewController!
     var client: CoreDataClient!{
         didSet{
             populate()
@@ -22,7 +23,7 @@ class DataStoreInfoTableViewCell: UITableViewCell {
     }
     func fileInfoText()->String{
         let request = NSFetchRequest(entityName: "Habit")
-        let habits = client.managedObjectContext.executeFetchRequest(request, error: nil) as! [Habit]
+        let habits = (try! client.managedObjectContext.executeFetchRequest(request)) as! [Habit]
         let nextRequiredDate = habits.reduce(NSDate(timeIntervalSince1970: 0), combine: { (date, habit) -> NSDate in
             if let chain = habit.currentChain(){
                 return chain.nextRequiredDate().laterDate(date)
@@ -31,5 +32,8 @@ class DataStoreInfoTableViewCell: UITableViewCell {
             }
         })
         return "\(habits.count) habit(s), most recent \(nextRequiredDate)"
+    }
+    @IBAction func didPressExport(sender: AnyObject) {
+        DataExport.run(delegate, client: client)
     }
 }

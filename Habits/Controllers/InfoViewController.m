@@ -14,6 +14,7 @@
 #import "Colors.h"
 #import "Labels.h"
 #import "DataExport.h"
+#import "Habits-Swift.h"
 @interface InfoViewController ()
 @property (nonatomic, strong) NSArray * tasks;
 @property (nonatomic, strong) NSArray * links;
@@ -39,7 +40,10 @@
 -(NSArray *)links{
     if(!_links) _links = @[
                            @{@"text": @"Export your data", @"action": ^{
-                               [DataExport run: self];
+                               [DataExport run:self client:[CoreDataClient defaultClient]];
+                           }},
+                           @{@"text": @"Recover data", @"action": ^{
+                               [self performSegueWithIdentifier:@"RecoverData" sender:self];
                            }},
                            @{@"text": @"Log an issue", @"url": @"https://github.com/goodtohear/habits/issues" },
                            @{@"text": @"Video bug report", @"url":@"goodhabits://lookback"},

@@ -23,5 +23,8 @@
 - (void)dismissAnimated:(BOOL)animated;
 @end
 
+/*! Sent when the recorder is displayed on screen. */
+static NSString *const LookbackRecordingVCWasPresentedNotification = @"io.lookback.recorder.presented";
+
 /*! Sent when the recorder is no longer on screen. */
 static NSString *const LookbackRecordingVCWasDismissedNotification = @"io.lookback.recorder.dismissed";

@@ -20,10 +20,10 @@
 @implementation DataExport
 
 
-+(void)run:(UIViewController *)parentController{
++(void)run:(UIViewController *)parentController client:(CoreDataClient*)client{
     [SVProgressHUD showWithStatus:@"Exporting..." maskType:SVProgressHUDMaskTypeBlack];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray * habits = [JSONConversion allHabitsAsJSON];
+        NSArray * habits = [JSONConversion allHabitsAsJSONWithClient:client];
         NSLog(@"Habits json: %@", habits);
         //    NSString * hash = habits
         NSData * data = [NSKeyedArchiver archivedDataWithRootObject:habits];

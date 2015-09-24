@@ -13,13 +13,13 @@ class DataRecoveryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! NSString
-        let url = NSURL(fileURLWithPath: documentsPath as! String)!
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let url = NSURL(fileURLWithPath: documentsPath as String)
         let enumerator = NSFileManager.defaultManager().enumeratorAtURL(url, includingPropertiesForKeys: [NSURLIsDirectoryKey], options: NSDirectoryEnumerationOptions.SkipsHiddenFiles, errorHandler: nil)!
         for file in enumerator{
             if let url = file as? NSURL{
-                if url.lastPathComponent == "HabitsStore.sqlite"{
-                    println("found a Sqlite file at \(url)")
+                if url.lastPathComponent!.hasSuffix("sqlite"){
+                    print("found a Sqlite file at \(url)")
                     clients.append(CoreDataClient(storeUrl: url))
                 }
             }
@@ -30,19 +30,22 @@ class DataRecoveryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return clients.count
+        return section == 0 ? 1 : clients.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Info", forIndexPath: indexPath) as! DataStoreInfoTableViewCell
-        
-        cell.client = clients[indexPath.row]
-
-        return cell
+        if indexPath.section == 0{
+            return tableView.dequeueReusableCellWithIdentifier("Explanation", forIndexPath: indexPath)
+        }else{
+            let cell = tableView.dequeueReusableCellWithIdentifier("Info", forIndexPath: indexPath) as! DataStoreInfoTableViewCell
+            cell.delegate = self
+            cell.client = clients[indexPath.row]
+            return cell
+        }
     }
 
     /*

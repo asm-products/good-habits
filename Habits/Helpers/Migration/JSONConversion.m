@@ -17,8 +17,9 @@
 #import "Chain.h"
 #import "HabitDay.h"
 @implementation JSONConversion
-+(NSArray *)allHabitsAsJSON{
-    return [[HabitsQueries all] map:^NSDictionary*(Habit * habit) {
++(NSArray *)allHabitsAsJSONWithClient:(CoreDataClient *)coreDataClient{
+    NSArray * allHabits = [HabitsQueries fetchedResultsControllerForClient:coreDataClient].fetchedObjects;
+    return [allHabits map:^NSDictionary*(Habit * habit) {
         NSMutableDictionary * result = [NSMutableDictionary new];
         result[@"identifier"] = habit.identifier;
         result[@"title"] = habit.title;

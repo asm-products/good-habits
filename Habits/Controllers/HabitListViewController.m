@@ -76,17 +76,16 @@ typedef enum {
     [self.tableView endUpdates];
 }
 -(void)loadGroups{
-    [queries refresh];
+    [HabitsQueries refresh];
     groups = @[
-               [queries activeToday].mutableCopy,
-               [queries carriedOver].mutableCopy,
-               [queries activeButNotToday].mutableCopy,
-               [queries inactive].mutableCopy
+               [HabitsQueries activeToday].mutableCopy,
+               [HabitsQueries carriedOver].mutableCopy,
+               [HabitsQueries activeButNotToday].mutableCopy,
+               [HabitsQueries inactive].mutableCopy
                ];
 }
 -(void)build{
-    coreDataClient = [CoreDataClient new];
-    queries = [[HabitsQueries alloc] initWithClient:coreDataClient];
+    coreDataClient = [CoreDataClient defaultClient];
     self.tableView.accessibilityLabel = @"Habits List";
     now = [TimeHelper now];
     today = [TimeHelper today];

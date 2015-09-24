@@ -22,7 +22,7 @@
 
 @implementation CoreDataClient
 
-//CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
+CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 
 -(instancetype)init{
     if(self = [super init]){

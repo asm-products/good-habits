@@ -1,2 +1,0 @@
-PODS_HABITS_LOOKBACKSAFE_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/LookbackSafe/lookback/Safe"
-PODS_HABITS_LOOKBACKSAFE_OTHER_LDFLAGS = -framework "AVFoundation" -framework "AudioToolbox" -framework "CoreMedia" -framework "CoreVideo" -framework "Lookback" -framework "MediaPlayer" -framework "QuartzCore" -framework "SystemConfiguration"

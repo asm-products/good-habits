@@ -1,6 +1,11 @@
 #import <Foundation/Foundation.h>
+#import <Lookback/LookbackDeprecated.h>
+#import <Lookback/LookbackRecordingOptions.h>
+#import <Lookback/LookbackRecordingSession.h>
+#if TARGET_OS_IPHONE
 #import <Lookback/LookbackSettingsViewController.h>
 #import <Lookback/LookbackRecordingViewController.h>
+#endif
 
 /*! @header Lookback Public API
     Public interface for Lookback, the UX testing tool that records your screen
@@ -10,85 +15,126 @@
 /*! @class Lookback
 
     Lookback should be +[Lookback @link setupWithAppToken: @/link] before being used. After
-    that, you can set its [Lookback @link enabled @/link] property to start and stop recording
-    at any time. You can use @link LookbackSettingsViewController @/link to provide a user
-    interface to do so.
-    
-    Rather than doing so manually, you can set -[Lookback @link shakeToRecord @/link] to
-    display this UI whenever you shake your device.
+    that, you can:
+	* start recording using -[Lookback @link startRecording @/link] at any time,
+	* present @link LookbackRecordingViewController @/link to let the user do so, or
+    * set -[Lookback @link shakeToRecord @/link] to YES to display a recording UI
+	  whenever you shake your device.
 */
 @interface Lookback : NSObject
 
-#pragma mark Setup
-
 /*! In your applicationDidFinishLaunching: or similar, call this method to prepare
-    Lookback for use, using the App Token from your integration guide at lookback.io.
-    @param appToken A string identifying your app, received from your app settings at http://lookback.io
+    Lookback for use, using the Team Token from your integration guide at lookback.io. You can call
+    this method again later to change the token.
+    @param teamToken A string identifying your team, received from your team settings at http://lookback.io
 */
-+ (void)setupWithAppToken:(NSString*)appToken;
++ (void)setupWithAppToken:(NSString*)teamToken;
 
 /*! Shared instance of Lookback to use from your code. You must call
     +[Lookback @link setupWithAppToken:@/link] before calling this method.
  */
 + (Lookback*)sharedLookback;
+@end
 
-/*! Deprecated: use @link sharedLookback @/link instead. This is because Swift
-	disallows the use of a static method with the same name as the class that isn't
-	a constructor.
+
+@interface Lookback (LookbackRecording)
+/*! Whether Lookback is set to currently record. Setting this to YES is equivalent to calling
+	-[Lookback startRecording], and setting it to NO is equivalent to calling
+	[[[Lookback sharedLookback] currentRecordingSession] stopRecording];
  */
-+ (Lookback*)lookback;
+@property(nonatomic,getter=isRecording) BOOL recording;
 
-#pragma mark Recording
+/*! Start recording with the provided options, overriding the default options. Note that
+	recording might not start immediately: user may need to accept privacy policy first. */
+- (LookbackRecordingSession*)startRecordingWithOptions:(LookbackRecordingOptions*)options;
 
-/*! Whether Lookback is set to recording. You can either set this programmatically,
-    or use @link LookbackSettingsViewController @/link to let the user activate it.
+/*! Equivalent to [lookback startRecordingWithOptions:[lookback options]]; */
+- (LookbackRecordingSession*)startRecording; // Uses default options
+
+/*! Stop recording */
+- (void)stopRecording;
+
+/*! Retrieve the current recording, if one is ongoing. This is nil if recording is off. */
+@property(readonly) LookbackRecordingSession *currentRecordingSession;
+
+/*! Default recording options. These are stored in NSUserDefaults, and some can be overridden
+	by the user from LookbackSettingsViewController. Changing the default options does not affect
+	the current recording, if there is one. */
+@property(readonly) LookbackDefaultRecordingOptions *options;
+
+/*! Is Lookback paused? Lookback will pause automatically when showing the Recorder.
+    This property doesn't do anything if Lookback is not recording (as there is nothing
+	to pause).
  */
-@property(nonatomic) BOOL enabled;
+@property(nonatomic,getter=isPaused) BOOL paused;
+@end
 
-/*! If enabled, displays UI to start recording when you shake the device. Default NO.
-    
-    @discussion This is just a convenience method. It's roughly equivalent to implementing
-    -[motionEnded:withEvent:] in your first responder, and modally displaying a
-    LookbackSettingsViewController on the window's root view controller.
+#if TARGET_OS_IPHONE
+@interface Lookback (LookbackUI)
+
+/*! If enabled, shows the feedback bubble when you shake the device. Tapping this bubble will
+	show the LookbackRecordingViewController and let the user record. Default NO.
 */
 @property(nonatomic) BOOL shakeToRecord;
 
-/*! Is Lookback paused? Lookback will pause automatically when app is inactive.
-    The value of this property is undefined if recording is not enabled (as there
-    is nothing to pause).
- */
-@property(nonatomic,getter=isPaused) BOOL paused;
-
-/*! Lookback automatically sets a screen recording framerate that is suitable for your
-	device. However, if your app is very performance intense, you might want to decrease
-	the framerate at which Lookback records to free up some CPU time for your app. This
-	multiplier lets you adapt the framerate that Lookback chooses for you to something
-	more suitable for your app.
-	
-	Default value: 1.0
-	Range: 0.1 to 1.0
-	
-	@see LookbackScreenRecorderFramerateLimitKey
+/*! Whether the feedback bubble (from "shakeToRecord") is currently shown. Defaults to NO,
+	but you can set it to YES immediately on app start to default to it showing, e g.
 */
-@property(nonatomic) float framerateMultiplier;
+@property(nonatomic) BOOL feedbackBubbleVisible;
 
-#pragma mark Metadata
 
-/*! Identifier for the user who's currently using the app. You can filter on
-    this property at lookback.io later. If your service has log in user names,
-    you can use that here. Optional.
-    @seealso http://lookback.io/docs/log-username
+/*! The feedback bubble will pick up your navigation bar's appearance proxy's
+	foreground tint color. Override it with this property.
 */
-@property(nonatomic,copy) NSString *userIdentifier;
+@property(nonatomic) UIColor *feedbackBubbleForegroundColor;
+/*! The feedback bubble will pick up your navigation bar's appearance proxy's bar
+	tint. Override it with this property.
+*/
+@property(nonatomic) UIColor *feedbackBubbleBackgroundColor;
+/*!	You can override the icon of the feedback bubble. It will be tinted with foregroundColor. */
+@property(nonatomic) UIImage *feedbackBubbleIcon;
 
-/*! Track user navigation manually, if automatic tracking has been disabled.
-    @see LookbackAutomaticallyLogViewAppearance
+/*! Where on the screen should the bubble appear? Use positive values as insets from top-left, or negative
+    values for insets from bottom-right. */
+@property(nonatomic) CGPoint feedbackBubbleInitialPosition;
+
+
+/*!
+	Whether the built-in LookbackRecordingViewController is currently being shown,
+	either from pressing the feedback bubble or from setting this property to YES.
+*/
+@property(nonatomic) BOOL recorderVisible;
+/*! The currently presented LookbackRecordingViewController. nil if recorderVisible is NO. */
+@property(nonatomic,readonly) LookbackRecordingViewController *presentedRecorder;
+
+
+/*!
+	If set to YES, Lookback will show introduction dialogs if applicable at the following occasions:
+	
+	 * When the recorder is displayed, to solicit feedback from the user
+	 * When recording starts, with instructions on how to stop recording (if recording
+	   started by tapping the feedback bubble).
+	 * When the feedback bubble is dismissed, with instructions on how to show it again
+	
+	@default YES
+*/
+@property(nonatomic) BOOL showIntroductionDialogs;
+
+@end
+
+#endif
+
+@interface Lookback (LookbackMetadata)
+
+/*! If you are not using view controllers, or if automaticallyRecordViewControllerNames is NO,
+	and you still want to track the user's location in your app, call this method whenever
+	the user enters a new distinct view within your app.
     @param viewIdentifier Unique human readable identifier for a specific view
 */
 - (void)enteredView:(NSString*)viewIdentifier;
 
-/*! Track user navigation manually, if automatic tracking has been disabled.
-    @see LookbackAutomaticallyLogViewAppearance
+/*! Like enteredView:, but for when the user exists the view.
+    @see enteredView:
     @param viewIdentifier Unique human readable identifier for a specific view
 */
 - (void)exitedView:(NSString*)viewIdentifier;
@@ -111,12 +157,13 @@
 	                 code, interaction variation, etc.
 */
 - (void)logEvent:(NSString*)event eventInfo:(NSString*)eventInfo;
-
-
-// For debugging
-@property(nonatomic,readonly) NSString *appToken;
-
 @end
+
+
+@interface Lookback (Debugging)
+@property(nonatomic,readonly) NSString *appToken;
+@end
+
 
 /*! If you only want to use Lookback in builds sent to testers (e g by using the
     CocoaPods :configurations=> feature), you need to avoid both linking with
@@ -127,9 +174,9 @@
  
     @example <pre>
         [Lookback_Weak setupWithAppToken:@"<MYAPPTOKEN>"];
-        [Lookback_Weak lookback].shakeToRecord = YES;
+        [Lookback_Weak sharedLookback].shakeToRecord = YES;
         
-        [[Lookback_Weak lookback] enteredView:@"Settings"];
+        [[Lookback_Weak sharedLookback] enteredView:@"Settings"];
         </pre>
 */
 #define Lookback_Weak (NSClassFromString(@"Lookback"))
@@ -137,6 +184,7 @@
 
 #pragma mark UIKit extensions
 
+#if TARGET_OS_IPHONE
 /*!
  *  Lookback-specific extenions to UIView.
  */
@@ -159,111 +207,26 @@
 
 @end
 
+/*! Implement either of these to customize the view name that is logged whenever
+	the user enters your view controller during a recording. */
+@interface UIViewController (LookbackViewIdentifier)
++ (NSString*)lookbackIdentifier;
+- (NSString*)lookbackIdentifier;
+@end
 
-#pragma mark Settings
+#endif
 
-/*! @group Settings
-    These settings can be set using [NSUserDefaults standardUserDefaults] to modify
-    the behavior of Lookback. Some of these settings can be modified by the user
-    from LookbackSettingsViewController.
-*/
-
-/*! If you implement the method `+(NSString*)lookBackIdentifier` in your view controller, that view will automatically be logged under that name (and later filter on it at lookback.io). Otherwise, your view controller's class name will be used instead, with prefix ("UI") and suffix ("ViewController") removed. You can disable this behavior by setting the NSUserDefaults key `LookbackAutomaticallyLogViewAppearance` to NO, and calling `-[LookBack enteredView:]` and `-[Lookback exitedView:]` methods manually.*/
-static NSString *const LookbackAutomaticallyLogViewAppearance = @"GFio.lookback.autologViews";
-
-/*! LookbackCameraEnabledSettingsKey controls whether the front-facing camera will record, in addition to recording the screen. */
-static NSString *const LookbackCameraEnabledSettingsKey = @"com.thirdcog.lookback.camera.enabled";
-
-/*! The BOOL NSUserDefaults key LookbackAudioEnabledSettingsKey controls whether audio will be recorded together with the front-facing camera. Does nothing if LookbackCameraEnabledSettingsKey is NO. */
-static NSString *const LookbackAudioEnabledSettingsKey = @"com.thirdcog.lookback.audio.enabled";
-
-/*! The BOOL NSUserDefaults key LookbackShowPreviewSettingsKey controls whether the user should be shown a preview image of their face at the bottom-right of the screen while recording, to make sure that they are holding their iPhone correctly and are well-framed. */
-static NSString *const LookbackShowPreviewSettingsKey = @"com.thirdcog.lookback.preview.enabled";
-
-/*! The integer NSUserDefaults key LookbackScreenRecorderFramerateLimitKey lets you set a specific framerate to limit screen
-	recording to. Note that Lookback adapts framerate to something suitable for the current device: setting the framerate
-	manually will override this.
-	
-	Decreasing the framerate is the best way to fix performance problems with Lookback. However, instead of hard-coding
-	a specific framerate, consider setting -[Lookback framerateMultiplier] instead, as this will let Lookback adapt the
-	framerate to something suitable for your device.
-	
-	Default value: Depends on hardware
-	Range: 1 to 60
-*/
-static NSString *const LookbackScreenRecorderFramerateLimitKey = @"com.thirdcog.lookback.screenrecorder.fpsLimit";
-
-/*! Standard timeout options for LookbackRecordingTimeoutSettingsKey. */
-typedef NS_ENUM(NSInteger, LookbackTimeoutOption) {
-	LookbackTimeoutImmediately = 0,
-	LookbackTimeoutAfter1Minutes = 60,
-	LookbackTimeoutAfter3Minutes = 180,
-	LookbackTimeoutAfter5Minutes = 300,
-	LookbackTimeoutAfter15Minutes = 900,
-	LookbackTimeoutAfter30Minutes = 1800,
-	LookbackTimeoutNever = NSIntegerMax,
-};
-
-/*! The NSTimeInterval/double key LookbackRecordingTimeoutOptionSettingsKey controls the timeout option when
-	the app becomes inactive. Using 0 will stop a recording as soon as the app becomes inactive.
-	Using DBL_MAX will never terminate a recording when the app becomes inactive. Any value in between will
-	timeout and end the recording after the specified duration.
- */
-static NSString *const LookbackRecordingTimeoutSettingsKey = @"io.lookback.recording.timeoutDuration";
-
-typedef NS_ENUM(NSInteger, LookbackAfterTimeoutOption) {
-	LookbackAfterTimeoutReview = 0,
-	LookbackAfterTimeoutUpload,
-	LookbackAfterTimeoutUploadAndStartNewRecording,
-};
-
-/*! The LookbackAfterTimeoutOption key LookbackRecordingAfterTimeoutOptionSettingsKey controls the behavior of
-	Lookback when it times out after the app has become inactive. LookbackAfterTimeoutReview will let the user
-	manually review and decide the next the app is open. LookbackAfterTimeoutUpload will proceed with uploading.
-	LookbackAfterTimeoutUploadAndStartNewRecording will proceed with uploading and also start a new recording the
-	next time the app is brought to the foreground.
- */
-static NSString *const LookbackRecordingAfterTimeoutOptionSettingsKey = @"io.lookback.recording.afterTimeoutOption";
-
-#pragma mark Notifications
-/*! @group Notifications
-    These notifications can be observed from [NSNotificationCenter defaultCenter].
-*/
-
-/*! When an experience upload starts, its URL is determined. You can then attach this URL to a bug report or similar.
-
-    @example <pre>
-        // Automatically put an experience's URL on the user's pasteboard when recording ends and upload starts.
-        [[NSNotificationCenter defaultCenter] addObserverForName:LookbackStartedUploadingNotificationName object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-            NSDate *when = [note userInfo][LookbackExperienceStartedAtUserInfoKey];
-            if(fabs([when timeIntervalSinceNow]) < 60) { // Only if it's for an experience we just recorded
-                NSURL *url = [note userInfo][LookbackExperienceDestinationURLUserInfoKey];
-                [UIPasteboard generalPasteboard].URL = url;
-            }
-        }];</pre>
-*/
-static NSString *const LookbackStartedUploadingNotificationName = @"com.thirdcog.lookback.notification.startedUploading";
-
-/*! UserInfo key in a @link LookbackStartedUploadingNotificationName @/link notification. The value is an NSURL that the user can visit
-    on a computer to view the experience he/she just recorded. */
-static NSString *const LookbackExperienceDestinationURLUserInfoKey = @"com.thirdcog.lookback.notification.startedUploading.destinationURL";
-
-/*! UserInfo key in a @link LookbackStartedUploadingNotificationName @/link notification. The value is an NSDate of when the given experience
-    was recorded (so you can correlate the upload with the recording). */
-static NSString *const LookbackExperienceStartedAtUserInfoKey = @"com.thirdcog.lookback.notification.startedUploading.sessionStartedAt";
-
-
-#pragma mark Compatibility macros
+@interface Lookback (LookbackDeprecated)
 /*!
-	@group Compatibility macros
-	For compatibility with old code using Lookback under the miscapitalized or misprefixed names.
- */
-#define LookBack Lookback
-#define GFAutomaticallyLogViewAppearance LookbackAutomaticallyLogViewAppearance
-#define GFCameraEnabledSettingsKey LookbackCameraEnabledSettingsKey
-#define GFAudioEnabledSettingsKey LookbackAudioEnabledSettingsKey
-#define GFShowPreviewSettingsKey LookbackShowPreviewSettingsKey
-#define GFStartedUploadingNotificationName LookbackStartedUploadingNotificationName
-#define GFExperienceDestinationURLUserInfoKey LookbackExperienceDestinationURLUserInfoKey
-#define GFExperienceStartedAtUserInfoKey LookbackExperienceStartedAtUserInfoKey
+	This property has been renamed to 'recording'.
+	@see setRecording:
+*/
+@property(nonatomic) DEPRECATED_MSG_ATTRIBUTE("Use .recording instead") BOOL enabled;
+@property(nonatomic) DEPRECATED_MSG_ATTRIBUTE("Use .options.userIdentifier instead") NSString *userIdentifier;
 
+/*! Deprecated: use @link sharedLookback @/link instead. This is because Swift
+	disallows the use of a static method with the same name as the class that isn't
+	a constructor.
+ */
++ (Lookback*)lookback;
+@end

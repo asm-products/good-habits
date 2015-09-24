@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-@class Lookback;
+@class Lookback, LookbackRecordingOptions;
 
 /*! @header Lookback Settings
     Class with helpers for managing Lookback recordings.
@@ -23,6 +23,11 @@
 + (instancetype)settingsViewController;
 
 /*!
+ *	Allow user to customize a specific options instance before you start recording with it.
+ */
++ (instancetype)settingsViewControllerForInstance:(Lookback*)lookback options:(LookbackRecordingOptions*)options;
+
+/*!
  *  Compatibility method for old code using the less convenient method.
  *  @deprecated
  *  @param lookback Shall only be the singleton instance [Lookback @link lookback @/link].
@@ -31,8 +36,7 @@
 
 /*!
 	Whether it should be possible to start/stop recording from this view.
-	Defaults to YES for compatibility with apps that don't use
-	LookbackRecordingViewController.
+	Defaults to NO. You are encouraged to use LookbackRecordingViewController instead.
  */
 @property(nonatomic) BOOL showsRecordButton;
 @end

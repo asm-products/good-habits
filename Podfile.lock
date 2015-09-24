@@ -1,0 +1,120 @@
+PODS:
+  - ALActionBlocks (1.0.3)
+  - AVHexColor (1.1.0)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - CAAnimationBlocks (0.0.1)
+  - CWLSynthesizeSingleton (1.0.0)
+  - DHAppleReceiptParser (1.0.1)
+  - Expecta (0.3.0)
+  - FCOverlay (1.0.5)
+  - Functional.m (1.0.0)
+  - GTHRectHelpers (0.0.1)
+  - KIF (3.0.8):
+    - KIF/XCTest (= 3.0.8)
+  - KIF/XCTest (3.0.8)
+  - LMAlertView (1.1.0):
+    - CAAnimationBlocks (~> 0.0.1)
+    - RBBAnimation (~> 0.3.0)
+  - LookbackSafe (1.1.1):
+    - PDKTZipArchive
+  - Mantle (1.5):
+    - Mantle/extobjc (= 1.5)
+  - Mantle/extobjc (1.5)
+  - Masonry (0.5.3)
+  - MCSwipeTableViewCell (2.1.0)
+  - MVModalTransitions (1.0.0):
+    - Masonry (~> 0.5.0)
+  - OCMock (3.1.1)
+  - PDKTZipArchive (0.3.5)
+  - RBBAnimation (0.3.0)
+  - Reveal-iOS-SDK (1.0.6)
+  - SHMessageUIBlocks (1.2.0)
+  - Specta (0.2.1)
+  - SVProgressHUD (1.0)
+  - UIAlertView-Blocks (1.0)
+  - UIImage-Helpers (0.0.2)
+  - YLMoment (0.5.1)
+
+DEPENDENCIES:
+  - ALActionBlocks (~> 1.0)
+  - AVHexColor (~> 1.1.0)
+  - BlocksKit (~> 2.2)
+  - CWLSynthesizeSingleton (~> 1.0)
+  - DHAppleReceiptParser (~> 1.0)
+  - Expecta
+  - FCOverlay (~> 1.0)
+  - Functional.m (~> 1.0)
+  - GTHRectHelpers (from `https://github.com/goodtohear/GTHRectHelpers.git`)
+  - KIF (~> 3.0)
+  - LMAlertView (~> 1.1)
+  - LookbackSafe (~> 1.1)
+  - Mantle (~> 1.5)
+  - MCSwipeTableViewCell (~> 2.1)
+  - MVModalTransitions (from `https://github.com/michaelforrest/MVModalTransitions.git`)
+  - OCMock (~> 3.0)
+  - Reveal-iOS-SDK (~> 1.0)
+  - SHMessageUIBlocks (~> 1.2)
+  - Specta (~> 0.2.1)
+  - SVProgressHUD (~> 1.0)
+  - UIAlertView-Blocks (~> 1.0)
+  - UIImage-Helpers (~> 0.0)
+  - YLMoment (~> 0.5)
+
+EXTERNAL SOURCES:
+  GTHRectHelpers:
+    :git: https://github.com/goodtohear/GTHRectHelpers.git
+  MVModalTransitions:
+    :git: https://github.com/michaelforrest/MVModalTransitions.git
+
+CHECKOUT OPTIONS:
+  GTHRectHelpers:
+    :commit: 453e1b46840e1a995032600e713651dd668800f0
+    :git: https://github.com/goodtohear/GTHRectHelpers.git
+  MVModalTransitions:
+    :commit: e6818fa0acd9f80d24a9ff7a71e74edeced02aa9
+    :git: https://github.com/michaelforrest/MVModalTransitions.git
+
+SPEC CHECKSUMS:
+  ALActionBlocks: ac91b1a37b60a8004fb687ddade0600446f3d3fa
+  AVHexColor: 375181a12d4891801cecf09a97c55b35b7aba3f1
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CAAnimationBlocks: 1aaca5fb6447a95d83b20cc786992956ef46e4ee
+  CWLSynthesizeSingleton: 6ccef3170409e87bc9e49544efdc1ea7713c2849
+  DHAppleReceiptParser: 57663acea9b76fec8648cada173d2e76fe402be0
+  Expecta: 917bda2935b63ca7175741b8cf1b26796db6205f
+  FCOverlay: 865895ae983c8d3a4bcdbe201c2edefa5b6aa00a
+  Functional.m: 072ea6a57954f7792a3aaf19042ed6d3258e3026
+  GTHRectHelpers: 089a90816a7d2741cf594e6c245e2f29299b018f
+  KIF: 3c2cb8e66fb216f9c3abcd714699411f0256f767
+  LMAlertView: fa4589ea2cb540b888636ff6739fc39b16ac1e4b
+  LookbackSafe: 7ea54733fa249e33707e7bee4d05a83b41004cbd
+  Mantle: 3bf6db311c8b4a19b6be01f2483fa4590aa166f3
+  Masonry: 9f515466afe48632562342a40a1c224071a1a022
+  MCSwipeTableViewCell: 8161493fb4bf61e47a4d00aa622c5f8ff6b80c7a
+  MVModalTransitions: ad4483cd7c7f3676c31a3d6b5358a0afc48dee13
+  OCMock: a73f69963a8a542b0b343e2617650e4dca0cbbc2
+  PDKTZipArchive: 81c4824eb5587131e422fc58b92c043c4aa96466
+  RBBAnimation: cb6cb419f511434ce932f7d0fabf369612fafb4e
+  Reveal-iOS-SDK: 5c06829ab290f1314d15c0f66aaa572fd2342c81
+  SHMessageUIBlocks: 5a5be5ffa8717ac01a927330c5dd6db46ce0d3c6
+  Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
+  SVProgressHUD: 46088807596a795cbcb4affd92cf3f13b6ab3dda
+  UIAlertView-Blocks: 7904744fca618afbd2ec646608924f5e69d5acd1
+  UIImage-Helpers: 8750179665f4745f474f0bd2c518f57c041291d0
+  YLMoment: 5c2cc5235b235912c3706c4a9de36c496d80b127
+
+COCOAPODS: 0.38.2

@@ -15,103 +15,99 @@
 #import <SVProgressHUD.h>
 #import "CoreDataClient.h"
 #import "Chain.h"
-@implementation HabitsQueries{
-    NSFetchedResultsController * fetched;
+@implementation HabitsQueries
++(NSFetchedResultsController*)fetchedResultsControllerForClient:(CoreDataClient*)client{
+    NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]];
+    NSFetchedResultsController * fetched = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:client.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    NSError * error;
+    [fetched performFetch:&error];
+    if(error) NSLog(@"Error initially fetching habits %@", error.localizedDescription);
+    return fetched;
 }
-
--(instancetype)initWithClient:(CoreDataClient *)client{
-    if(self = [super init]){
-        self.client = client;
-    }
-    return self;
-}
--(NSFetchedResultsController*)fetched{
++(NSFetchedResultsController*)fetched{
+    static NSFetchedResultsController * fetched = nil;
     if(fetched == nil){
-        NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]];
-        fetched = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.client.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-        NSError * error;
-        [fetched performFetch:&error];
-        if(error) NSLog(@"Error initially fetching habits %@", error.localizedDescription);
+        fetched = [self fetchedResultsControllerForClient:[CoreDataClient defaultClient]];
     }
     return fetched;
 }
--(NSArray*)all{
++(NSArray*)all{
     return [self fetched].fetchedObjects;
 }
--(void)refresh{
++(void)refresh{
     NSError * error;
     [self.fetched performFetch:&error];
     if(error) NSLog(@"Error fetching habits %@", error.localizedDescription);
 }
 #pragma mark - Groups
--(NSArray *)active{
++(NSArray *)active{
     return [[[self all] filter:^BOOL(Habit* habit) {
         return habit.isActive.boolValue;
     }] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
 }
--(NSArray *)activeToday{
++(NSArray *)activeToday{
     return [self.active filter:^BOOL(Habit * habit) {
         return habit.isRequiredToday;
     }];
 }
--(NSArray *)activeButNotToday{
++(NSArray *)activeButNotToday{
     return [self.active filter:^BOOL(Habit * habit) {
         NSLog(@"%@ activeButNotToday: required today? %@ nextRequiredDate: %@, today: %@", habit.title, @(habit.isRequiredToday), habit.currentChain.nextRequiredDate, [TimeHelper today] );
         BOOL chainHasNotBeenBroken = habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate <= [TimeHelper today].timeIntervalSinceReferenceDate;
         return !habit.isRequiredToday && (!chainHasNotBeenBroken );//|| habit.currentChain.isBroken) ;
     }];
 }
--(NSArray *)carriedOver{
++(NSArray *)carriedOver{
     return [self.active filter:^BOOL(Habit * habit) {
         BOOL chainHasNotBeenBroken = habit.currentChain.nextRequiredDate.timeIntervalSinceReferenceDate <= [TimeHelper today].timeIntervalSinceReferenceDate;
         return !habit.isRequiredToday && chainHasNotBeenBroken; // && !habit.currentChain.isBroken;
     }];
 }
--(NSArray *)inactive{
++(NSArray *)inactive{
     return [self.all filter:^BOOL(Habit * habit) {
         return !habit.isActive.boolValue;
     }];
 }
--(NSInteger)habitCountForDate:(NSDate *)day{
++(NSInteger)habitCountForDate:(NSDate *)day{
     NSInteger count = 0;
     for(Habit * habit in [self active]) {
         if([habit isRequiredOnWeekday:day]) count += 1;
     }
     return count;
 }
--(NSInteger)nextOrder{
++(NSInteger)nextOrder{
     return [[self all] count];
 }
 
--(NSInteger)nextUnusedColorIndex{
++(NSInteger)nextUnusedColorIndex{
     return self.all.count % [Colors colorsFromMotion].count;
 }
--(Habit *)findHabitByIdentifier:(NSString *)identifier{
++(Habit *)findHabitByIdentifier:(NSString *)identifier{
     return [[[self all] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", identifier]] firstObject];
 }
--(Habit *)findHabitByTitle:(NSString *)identifier{
++(Habit *)findHabitByTitle:(NSString *)identifier{
     return [[[self all] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"title == %@", identifier]] firstObject];
 }
 #pragma mark - Data management
--(NSString*)localPath{
++(NSString*)localPath{
     NSString * documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     return [documentsPath stringByAppendingPathComponent:@"habits"];
 }
 #pragma mark - Notifications
--(void)recalculateAllNotifications{
++(void)recalculateAllNotifications{
     for(Habit *habit in self.active){
         [habit recalculateNotifications];
     }
 }
 #pragma mark - Destructive
--(void)deleteAllHabits{
++(void)deleteAllHabits{
     [self refresh];
     for (Habit*habit in [self all]) {
-        [self.client.managedObjectContext deleteObject:habit];
+        [habit.managedObjectContext deleteObject:habit];
     }
     NSError * error;
-    [self.client.managedObjectContext save:&error];
+    [[CoreDataClient defaultClient].managedObjectContext save:&error];
     if(error) NSLog(@"Error deleting all habits %@", error);
 }
 @end

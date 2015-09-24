@@ -1,1 +1,0 @@
-../../../LookbackSafe/lookback/Safe/Lookback.framework/Versions/A/Headers/GFSettingsViewController.h

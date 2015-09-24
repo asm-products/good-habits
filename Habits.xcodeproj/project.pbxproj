@@ -27,8 +27,8 @@
 		AC2B474C19D72A64008FE6DE /* Habits Tutorial.mov in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */; };
 		AC2B474E19D73F44008FE6DE /* appstore.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474D19D73F44008FE6DE /* appstore.habits.plist */; };
 		AC2B474F19D73F6A008FE6DE /* appstore.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474D19D73F44008FE6DE /* appstore.habits.plist */; };
-		AC2B475219D74458008FE6DE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2B475119D74458008FE6DE /* Crashlytics.framework */; };
 		AC2BC91C19C77C61007C378D /* habits_data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2BC91A19C77C61007C378D /* habits_data.json */; };
+		AC3220671BB42BA300A6AD30 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3220661BB42BA300A6AD30 /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
 		AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237AF196C2FB400A2FF9F /* Cross.png */; };
@@ -163,6 +163,7 @@
 		ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */; };
 		ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */; };
 		ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */; };
+		ACBBCD941BB42A2800BEA2D6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
 		ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */; };
 		ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BC19B456DD00085A95 /* ReminderTests.m */; };
 		ACBCD3C819B4BEEA00085A95 /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */; };
@@ -213,8 +214,8 @@
 		AC24B642197194FC00B33CCF /* CheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkView.m; sourceTree = "<group>"; };
 		AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Habits Tutorial.mov"; sourceTree = "<group>"; };
 		AC2B474D19D73F44008FE6DE /* appstore.habits.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = appstore.habits.plist; sourceTree = "<group>"; };
-		AC2B475119D74458008FE6DE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		AC2BC91A19C77C61007C378D /* habits_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data.json; sourceTree = "<group>"; };
+		AC3220661BB42BA300A6AD30 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
 		AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCell.m; sourceTree = "<group>"; };
 		AC3237AC196BFE9D00A2FF9F /* ColorPickerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerButton.h; sourceTree = "<group>"; };
@@ -412,6 +413,7 @@
 		ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationTests.m; sourceTree = "<group>"; };
 		ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testing_habit_expectation.png; sourceTree = "<group>"; };
 		ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = testing.goodtohear.habits.plist; sourceTree = "<group>"; };
+		ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitCreationTests.m; sourceTree = "<group>"; };
 		ACBCD3BC19B456DD00085A95 /* ReminderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTests.m; sourceTree = "<group>"; };
 		ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 10.xcdatamodel"; sourceTree = "<group>"; };
@@ -446,10 +448,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */,
-				AC2B475219D74458008FE6DE /* Crashlytics.framework in Frameworks */,
 				ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */,
 				ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */,
+				ACBBCD941BB42A2800BEA2D6 /* Crashlytics.framework in Frameworks */,
 				030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */,
+				AC3220671BB42BA300A6AD30 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,7 +675,8 @@
 		ACADB3D2190D23B90030CC82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC2B475119D74458008FE6DE /* Crashlytics.framework */,
+				AC3220661BB42BA300A6AD30 /* Fabric.framework */,
+				ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */,
 				ACADB3D3190D23B90030CC82 /* Foundation.framework */,
 				ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */,
 				ACADB3D7190D23B90030CC82 /* UIKit.framework */,
@@ -993,7 +997,9 @@
 		ACADB3C8190D23B90030CC82 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Good To Hear";
 				TargetAttributes = {
 					ACADB3CF190D23B90030CC82 = {
@@ -1367,6 +1373,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1429,6 +1436,7 @@
 				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1437,11 +1445,8 @@
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneOS",
-					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneSimulator",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Habits/Views/Cells/Habits-Bridging-Header.h";
@@ -1460,6 +1465,7 @@
 				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1468,11 +1474,8 @@
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneOS",
-					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneSimulator",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Habits/Views/Cells/Habits-Bridging-Header.h";
@@ -1497,6 +1500,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "HabitsTests/HabitsTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "goodtohear.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1516,6 +1520,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HabitsTests/HabitsTests-Prefix.pch";
 				INFOPLIST_FILE = "HabitsTests/HabitsTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "goodtohear.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

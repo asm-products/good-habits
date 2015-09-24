@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CoreDataClient.h"
 @interface DataExport : NSObject
-+(void)run:(UIViewController*)controller;
++(void)run:(UIViewController*)controller client:(CoreDataClient*)client;
 +(BOOL)importDataFromBase64EncodedString:(NSString*)string;
 +(void)scanForJSONFile:(void(^)(BOOL success))callback;
 @end

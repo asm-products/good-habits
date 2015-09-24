@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CoreDataClient.h"
 @interface JSONConversion : NSObject
-+(NSArray*)allHabitsAsJSON;
++(NSArray*)allHabitsAsJSONWithClient:(CoreDataClient*)coreDataClient;
 +(void)performImportWithArray:(NSArray*)array;
 @end

@@ -12,11 +12,12 @@ target "Habits" do
     pod 'SVProgressHUD', '~> 1.0'
     pod 'GTHRectHelpers', :git=>'https://github.com/goodtohear/GTHRectHelpers.git'
     pod 'LMAlertView', '~> 1.1'
-    pod 'MVModalTransitions', :git=>'git@github.com:michaelforrest/MVModalTransitions.git'
+    pod 'MVModalTransitions', :git=>'https://github.com/michaelforrest/MVModalTransitions.git'
     pod 'DHAppleReceiptParser', '~> 1.0'
     pod 'MCSwipeTableViewCell', '~> 2.1'
     #    pod 'KiipSDK', '~> 2.0'
-    pod 'LookbackSafe'#, :configurations => ['Release']
+    pod 'LookbackSafe', '~> 1.1'
+#pod 'LookbackSafe'#, :configurations => ['Release']
 end
 
 target "HabitsTests" do
