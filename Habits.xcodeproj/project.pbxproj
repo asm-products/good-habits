@@ -166,6 +166,8 @@
 		ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */; };
 		ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BC19B456DD00085A95 /* ReminderTests.m */; };
 		ACBCD3C819B4BEEA00085A95 /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */; };
+		ACBD81EF1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */; };
+		ACBD81F11B7A328500CCED14 /* DataRecoveryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD81F01B7A328500CCED14 /* DataRecoveryTableViewController.swift */; };
 		ACDBF4031A1C258200843BAD /* MultilineAutoshrinkingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDBF4021A1C258200843BAD /* MultilineAutoshrinkingLabel.m */; };
 		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
@@ -414,6 +416,9 @@
 		ACBCD3BC19B456DD00085A95 /* ReminderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTests.m; sourceTree = "<group>"; };
 		ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 10.xcdatamodel"; sourceTree = "<group>"; };
 		ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 11.xcdatamodel"; sourceTree = "<group>"; };
+		ACBD81ED1B7A325600CCED14 /* Habits-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Habits-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreInfoTableViewCell.swift; sourceTree = "<group>"; };
+		ACBD81F01B7A328500CCED14 /* DataRecoveryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRecoveryTableViewController.swift; sourceTree = "<group>"; };
 		ACDBF4011A1C258200843BAD /* MultilineAutoshrinkingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultilineAutoshrinkingLabel.h; sourceTree = "<group>"; };
 		ACDBF4021A1C258200843BAD /* MultilineAutoshrinkingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultilineAutoshrinkingLabel.m; sourceTree = "<group>"; };
 		ACDC63BA196EC18C00F68BD6 /* StatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsTableViewController.h; sourceTree = "<group>"; };
@@ -528,6 +533,8 @@
 				AC6EC67319C384B200640590 /* ReasonCellTableViewCell.m */,
 				ACAE5F4919C5C839003B0893 /* ChainLengthDistributionTableViewCell.h */,
 				ACAE5F4A19C5C839003B0893 /* ChainLengthDistributionTableViewCell.m */,
+				ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */,
+				ACBD81ED1B7A325600CCED14 /* Habits-Bridging-Header.h */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -794,6 +801,7 @@
 				AC5F3B4919C6245900398F81 /* HelpCaptureInterstitialViewController.h */,
 				AC5F3B4A19C6245900398F81 /* HelpCaptureInterstitialViewController.m */,
 				AC5F3B4B19C6245900398F81 /* HelpCaptureInterstitialViewController.xib */,
+				ACBD81F01B7A328500CCED14 /* DataRecoveryTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1232,6 +1240,7 @@
 				ACE31AC119756936007173A0 /* HabitDay.m in Sources */,
 				AC5F3B5919C6F1C700398F81 /* LegacyJSONImporter.m in Sources */,
 				ACDBF4031A1C258200843BAD /* MultilineAutoshrinkingLabel.m in Sources */,
+				ACBD81F11B7A328500CCED14 /* DataRecoveryTableViewController.swift in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
 				AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */,
 				AC4018D0195098A50033407B /* Calendar.m in Sources */,
@@ -1261,6 +1270,7 @@
 				ACB35F2A19A750DC000C03F5 /* Chain.m in Sources */,
 				ACB35F3819A7AB5C000C03F5 /* ChainQueries.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
+				ACBD81EF1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift in Sources */,
 				ACB35F3519A78DBD000C03F5 /* HabitDayQueries.m in Sources */,
 				ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */,
 				AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */,
@@ -1415,6 +1425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1425,6 +1436,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneOS",
@@ -1432,6 +1444,8 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Habits/Views/Cells/Habits-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1442,6 +1456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Habits/Habits.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1452,6 +1467,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Habits/Habits-Prefix.pch";
 				INFOPLIST_FILE = "Habits/Habits-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Habits/Vendor/ReorderingTableViewController/build-iPhoneOS",
@@ -1459,6 +1475,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Habits/Views/Cells/Habits-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

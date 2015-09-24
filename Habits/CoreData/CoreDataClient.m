@@ -22,7 +22,7 @@
 
 @implementation CoreDataClient
 
-CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
+//CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 
 -(instancetype)init{
     if(self = [super init]){
@@ -36,15 +36,23 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
     }
     return self;
 }
+-(instancetype)initWithStoreUrl:(NSURL *)storeUrl{
+    if(self = [super init]){
+        [self buildStoreWithURL:storeUrl];
+    }
+    return self;
+}
 -(void)build{
     [self registerForiCloudNotifications];
     [self setupManagedObjectContext];
 //    [self nukeStore];
 }
 -(void)buildTestStore{
-    NSURL * storeURL = [self storeURLWithName:@"testing.sqlite"];
+    NSURL  * storeURL = [self storeURLWithName:@"testing.sqlite"];
     [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
-    
+    [self buildStoreWithURL:storeURL];
+}
+-(void)buildStoreWithURL:(NSURL*)storeURL{
     self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     NSError* error;

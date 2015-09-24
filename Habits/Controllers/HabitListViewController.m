@@ -37,6 +37,8 @@ typedef enum {
     InactiveHabitsHeader * carriedOver;
     InactiveHabitsHeader * notRequiredTodayTitle;
     InactiveHabitsHeader * inactiveTitle;
+    CoreDataClient * coreDataClient;
+    HabitsQueries * queries;
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -74,15 +76,17 @@ typedef enum {
     [self.tableView endUpdates];
 }
 -(void)loadGroups{
-    [HabitsQueries refresh];
+    [queries refresh];
     groups = @[
-               [HabitsQueries activeToday].mutableCopy,
-               [HabitsQueries carriedOver].mutableCopy,
-               [HabitsQueries activeButNotToday].mutableCopy,
-               [HabitsQueries inactive].mutableCopy
+               [queries activeToday].mutableCopy,
+               [queries carriedOver].mutableCopy,
+               [queries activeButNotToday].mutableCopy,
+               [queries inactive].mutableCopy
                ];
 }
 -(void)build{
+    coreDataClient = [CoreDataClient new];
+    queries = [[HabitsQueries alloc] initWithClient:coreDataClient];
     self.tableView.accessibilityLabel = @"Habits List";
     now = [TimeHelper now];
     today = [TimeHelper today];
@@ -189,7 +193,7 @@ typedef enum {
             habit.order = @(idx);
         }];
     }
-    [[CoreDataClient defaultClient] save];
+    [coreDataClient save];
 }
 -(void)insertHabit:(Habit *)habit{
 //    [self loadGroups];

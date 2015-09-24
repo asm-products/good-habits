@@ -10,6 +10,7 @@
 #import "HabitDay.h"
 #import "Failure.h"
 @import CoreData;
+@import UIKit;
 
 @class ChainAnalysis;
 
