@@ -15,8 +15,9 @@ target "Habits" do
     pod 'MVModalTransitions', :git=>'https://github.com/michaelforrest/MVModalTransitions.git'
     pod 'DHAppleReceiptParser', '~> 1.0'
     pod 'MCSwipeTableViewCell', '~> 2.1'
+    pod 'ZipUtilities', '~> 1.6'
     #    pod 'KiipSDK', '~> 2.0'
-    pod 'LookbackSafe', '~> 1.1'
+#    pod 'LookbackSafe', '~> 1.1'
 #pod 'LookbackSafe'#, :configurations => ['Release']
 end
 
@@ -24,7 +25,7 @@ target "HabitsTests" do
     pod 'Specta', '~> 0.2.1'
     pod 'Expecta'
     pod 'OCMock', '~> 3.0'
-    pod 'KIF', '~> 3.0'
+    pod 'KIF', '~> 3.3'
     pod 'BlocksKit', '~> 2.2'
     pod 'FCOverlay', '~> 1.0'
     pod 'UIImage-Helpers', '~> 0.0'
