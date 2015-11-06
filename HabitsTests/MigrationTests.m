@@ -40,4 +40,15 @@
     expect(result[2][@"identifier"]).to.equal(@"Thing..");
     expect(result[3][@"identifier"]).to.equal(@"Other thing");
 }
+-(void)testMigrationAwayFrom_iCloud{
+    // if migrating from < 2.1
+    
+    // alert user that iCloud has been discontinued (including an icon)
+    
+    // auto-migrate all data from most recently active data store
+    
+    // create a zip file of HabitsStore.sqlite and the contents of CoreDataUbiquitySupport if it exists
+    
+    // let the user know that if they have problems they can email this file to me with a description of their problem
+}
 @end

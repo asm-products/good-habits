@@ -28,7 +28,7 @@
 		AC2B474E19D73F44008FE6DE /* appstore.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474D19D73F44008FE6DE /* appstore.habits.plist */; };
 		AC2B474F19D73F6A008FE6DE /* appstore.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474D19D73F44008FE6DE /* appstore.habits.plist */; };
 		AC2BC91C19C77C61007C378D /* habits_data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2BC91A19C77C61007C378D /* habits_data.json */; };
-		AC3220671BB42BA300A6AD30 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3220661BB42BA300A6AD30 /* Fabric.framework */; settings = {ASSET_TAGS = (); }; };
+		AC3220671BB42BA300A6AD30 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3220661BB42BA300A6AD30 /* Fabric.framework */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
 		AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237AF196C2FB400A2FF9F /* Cross.png */; };
@@ -86,6 +86,11 @@
 		AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE8197156D0007CD2B7 /* LandingViewController.m */; };
 		AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */; };
 		AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */; };
+		AC7881801BED3F6700675C75 /* HabitsCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = AC78817F1BED3F6700675C75 /* HabitsCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC7881871BED3F6700675C75 /* HabitsCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC78817D1BED3F6700675C75 /* HabitsCommon.framework */; };
+		AC78818E1BED3F6700675C75 /* HabitsCommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC78818D1BED3F6700675C75 /* HabitsCommonTests.m */; };
+		AC7881921BED3F6700675C75 /* HabitsCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC78817D1BED3F6700675C75 /* HabitsCommon.framework */; };
+		AC7881931BED3F6700675C75 /* HabitsCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC78817D1BED3F6700675C75 /* HabitsCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */; };
 		AC7E012D1A0A51AA00E37979 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7E012C1A0A51AA00E37979 /* Launch Screen.xib */; };
 		AC7E01341A0A539300E37979 /* dont_break_the_chain.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E012E1A0A539300E37979 /* dont_break_the_chain.png */; };
@@ -163,7 +168,7 @@
 		ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */; };
 		ACB35F4219A8FF57000C03F5 /* testing_habit_expectation.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4119A8FF57000C03F5 /* testing_habit_expectation.png */; };
 		ACB35F4419A8FFBA000C03F5 /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACB35F4319A8FFBA000C03F5 /* testing.goodtohear.habits.plist */; };
-		ACBBCD941BB42A2800BEA2D6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */; settings = {ASSET_TAGS = (); }; };
+		ACBBCD941BB42A2800BEA2D6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */; };
 		ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */; };
 		ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BC19B456DD00085A95 /* ReminderTests.m */; };
 		ACBCD3C819B4BEEA00085A95 /* Habits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */; };
@@ -181,6 +186,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AC7881881BED3F6700675C75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACADB3C8190D23B90030CC82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC78817C1BED3F6700675C75;
+			remoteInfo = HabitsCommon;
+		};
+		AC78818A1BED3F6700675C75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACADB3C8190D23B90030CC82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACADB3CF190D23B90030CC82;
+			remoteInfo = Habits;
+		};
+		AC7881901BED3F6700675C75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACADB3C8190D23B90030CC82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC78817C1BED3F6700675C75;
+			remoteInfo = HabitsCommon;
+		};
 		ACADB3F6190D23B90030CC82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ACADB3C8190D23B90030CC82 /* Project object */;
@@ -189,6 +215,20 @@
 			remoteInfo = Habits;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC7881971BED3F6700675C75 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC7881931BED3F6700675C75 /* HabitsCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		473447AF77B0FB2FE7BD78FC /* Pods-HabitsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -318,6 +358,12 @@
 		AC735DE8197156D0007CD2B7 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron@2x.png"; sourceTree = "<group>"; };
 		AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron.png"; sourceTree = "<group>"; };
+		AC78817D1BED3F6700675C75 /* HabitsCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HabitsCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC78817F1BED3F6700675C75 /* HabitsCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HabitsCommon.h; sourceTree = "<group>"; };
+		AC7881811BED3F6700675C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC7881861BED3F6700675C75 /* HabitsCommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitsCommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC78818D1BED3F6700675C75 /* HabitsCommonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HabitsCommonTests.m; sourceTree = "<group>"; };
+		AC78818F1BED3F6700675C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7AF2B119520F6B00BF3000 /* CalendarPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarPageViewController.h; sourceTree = "<group>"; };
 		AC7AF2B219520F6B00BF3000 /* CalendarPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarPageViewController.m; sourceTree = "<group>"; };
 		AC7E012C1A0A51AA00E37979 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -443,6 +489,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AC7881791BED3F6700675C75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC7881831BED3F6700675C75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC7881871BED3F6700675C75 /* HabitsCommon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACADB3CD190D23B90030CC82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,6 +512,7 @@
 				ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */,
 				ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */,
 				ACBBCD941BB42A2800BEA2D6 /* Crashlytics.framework in Frameworks */,
+				AC7881921BED3F6700675C75 /* HabitsCommon.framework in Frameworks */,
 				030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */,
 				AC3220671BB42BA300A6AD30 /* Fabric.framework in Frameworks */,
 			);
@@ -643,6 +705,24 @@
 			path = Stats;
 			sourceTree = "<group>";
 		};
+		AC78817E1BED3F6700675C75 /* HabitsCommon */ = {
+			isa = PBXGroup;
+			children = (
+				AC78817F1BED3F6700675C75 /* HabitsCommon.h */,
+				AC7881811BED3F6700675C75 /* Info.plist */,
+			);
+			path = HabitsCommon;
+			sourceTree = "<group>";
+		};
+		AC78818C1BED3F6700675C75 /* HabitsCommonTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC78818D1BED3F6700675C75 /* HabitsCommonTests.m */,
+				AC78818F1BED3F6700675C75 /* Info.plist */,
+			);
+			path = HabitsCommonTests;
+			sourceTree = "<group>";
+		};
 		AC94093D19B8FF04003E6257 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +737,8 @@
 			children = (
 				ACADB3D9190D23B90030CC82 /* Habits */,
 				ACADB3F8190D23B90030CC82 /* HabitsTests */,
+				AC78817E1BED3F6700675C75 /* HabitsCommon */,
+				AC78818C1BED3F6700675C75 /* HabitsCommonTests */,
 				ACADB3D2190D23B90030CC82 /* Frameworks */,
 				ACADB3D1190D23B90030CC82 /* Products */,
 				8D7BA1AED4D3609EBA5597E3 /* Pods */,
@@ -668,6 +750,8 @@
 			children = (
 				ACADB3D0190D23B90030CC82 /* Habits.app */,
 				ACADB3F1190D23B90030CC82 /* HabitsTests.xctest */,
+				AC78817D1BED3F6700675C75 /* HabitsCommon.framework */,
+				AC7881861BED3F6700675C75 /* HabitsCommonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -949,7 +1033,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		AC78817A1BED3F6700675C75 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC7881801BED3F6700675C75 /* HabitsCommon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		AC78817C1BED3F6700675C75 /* HabitsCommon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC7881941BED3F6700675C75 /* Build configuration list for PBXNativeTarget "HabitsCommon" */;
+			buildPhases = (
+				AC7881781BED3F6700675C75 /* Sources */,
+				AC7881791BED3F6700675C75 /* Frameworks */,
+				AC78817A1BED3F6700675C75 /* Headers */,
+				AC78817B1BED3F6700675C75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HabitsCommon;
+			productName = HabitsCommon;
+			productReference = AC78817D1BED3F6700675C75 /* HabitsCommon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AC7881851BED3F6700675C75 /* HabitsCommonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC7881981BED3F6700675C75 /* Build configuration list for PBXNativeTarget "HabitsCommonTests" */;
+			buildPhases = (
+				AC7881821BED3F6700675C75 /* Sources */,
+				AC7881831BED3F6700675C75 /* Frameworks */,
+				AC7881841BED3F6700675C75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC7881891BED3F6700675C75 /* PBXTargetDependency */,
+				AC78818B1BED3F6700675C75 /* PBXTargetDependency */,
+			);
+			name = HabitsCommonTests;
+			productName = HabitsCommonTests;
+			productReference = AC7881861BED3F6700675C75 /* HabitsCommonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		ACADB3CF190D23B90030CC82 /* Habits */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACADB402190D23B90030CC82 /* Build configuration list for PBXNativeTarget "Habits" */;
@@ -961,10 +1093,13 @@
 				AC6330D8047E459BBB329047 /* Copy Pods Resources */,
 				AC2B475019D74424008FE6DE /* Run Script */,
 				AC28A56A1A562BCB002E083C /* ShellScript */,
+				ECC24DF8084B2BB0E2C49D13 /* Embed Pods Frameworks */,
+				AC7881971BED3F6700675C75 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AC7881911BED3F6700675C75 /* PBXTargetDependency */,
 			);
 			name = Habits;
 			productName = Habits;
@@ -980,6 +1115,7 @@
 				ACADB3EE190D23B90030CC82 /* Frameworks */,
 				ACADB3EF190D23B90030CC82 /* Resources */,
 				DC22106C3E1642EFA7A41949 /* Copy Pods Resources */,
+				D7B8E735F9A9E127A5E7652D /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1002,11 +1138,22 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Good To Hear";
 				TargetAttributes = {
+					AC78817C1BED3F6700675C75 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = TNRLJ4WU59;
+					};
+					AC7881851BED3F6700675C75 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = ACADB3CF190D23B90030CC82;
+					};
 					ACADB3CF190D23B90030CC82 = {
 						DevelopmentTeam = TNRLJ4WU59;
 						SystemCapabilities = {
-							com.apple.iCloud = {
+							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
 							};
 						};
 					};
@@ -1030,11 +1177,27 @@
 			targets = (
 				ACADB3CF190D23B90030CC82 /* Habits */,
 				ACADB3F0190D23B90030CC82 /* HabitsTests */,
+				AC78817C1BED3F6700675C75 /* HabitsCommon */,
+				AC7881851BED3F6700675C75 /* HabitsCommonTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AC78817B1BED3F6700675C75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC7881841BED3F6700675C75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACADB3CE190D23B90030CC82 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1187,6 +1350,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		D7B8E735F9A9E127A5E7652D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DC22106C3E1642EFA7A41949 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1217,9 +1395,39 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		ECC24DF8084B2BB0E2C49D13 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Habits/Pods-Habits-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AC7881781BED3F6700675C75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC7881821BED3F6700675C75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC78818E1BED3F6700675C75 /* HabitsCommonTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ACADB3CC190D23B90030CC82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1320,6 +1528,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AC7881891BED3F6700675C75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC78817C1BED3F6700675C75 /* HabitsCommon */;
+			targetProxy = AC7881881BED3F6700675C75 /* PBXContainerItemProxy */;
+		};
+		AC78818B1BED3F6700675C75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACADB3CF190D23B90030CC82 /* Habits */;
+			targetProxy = AC78818A1BED3F6700675C75 /* PBXContainerItemProxy */;
+		};
+		AC7881911BED3F6700675C75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC78817C1BED3F6700675C75 /* HabitsCommon */;
+			targetProxy = AC7881901BED3F6700675C75 /* PBXContainerItemProxy */;
+		};
 		ACADB3F7190D23B90030CC82 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ACADB3CF190D23B90030CC82 /* Habits */;
@@ -1355,6 +1578,98 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AC7881951BED3F6700675C75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HabitsCommon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.HabitsCommon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AC7881961BED3F6700675C75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HabitsCommon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.HabitsCommon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AC7881991BED3F6700675C75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HabitsCommonTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.HabitsCommonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habits.app/Habits";
+			};
+			name = Debug;
+		};
+		AC78819A1BED3F6700675C75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = HabitsCommonTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.HabitsCommonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Habits.app/Habits";
+			};
+			name = Release;
+		};
 		ACADB400190D23B90030CC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1530,6 +1845,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AC7881941BED3F6700675C75 /* Build configuration list for PBXNativeTarget "HabitsCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC7881951BED3F6700675C75 /* Debug */,
+				AC7881961BED3F6700675C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AC7881981BED3F6700675C75 /* Build configuration list for PBXNativeTarget "HabitsCommonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC7881991BED3F6700675C75 /* Debug */,
+				AC78819A1BED3F6700675C75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		ACADB3CB190D23B90030CC82 /* Build configuration list for PBXProject "Habits" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
