@@ -18,7 +18,7 @@
     
     [tester waitForViewWithAccessibilityLabel:@"Wednesday 1 January"];
     
-    [tester tapViewWithAccessibilityLabel:@"Floss"];
+    [tester tapViewWithAccessibilityLabel:@"Floss"]; // Florida?
     
     Habit * habit = [HabitsQueries findHabitByTitle:@"Floss"];
     expect(habit.chains.count).to.equal(1);

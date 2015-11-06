@@ -20,7 +20,7 @@
 #import "StatisticsFeaturePurchaseController.h"
 #import "Colors.h"
 #import <Crashlytics/Crashlytics.h>
-#import <Lookback/Lookback.h>
+//#import <Lookback/Lookback.h>
 #import "TimeHelper.h"
 #import "HabitDay.h"
 #import "Chain.h"
@@ -37,7 +37,7 @@
     [InfoTask trackInstallationDate];
     [AppFeatures setDefaults];
     
-    [Lookback_Weak setupWithAppToken:@"bGofRBSyqLvCF98Nj"];
+//    [Lookback_Weak setupWithAppToken:@"bGofRBSyqLvCF98Nj"];
     
     [[StatisticsFeaturePurchaseController sharedController] listenForTransactions];
 //    [Audits initialize];
@@ -105,6 +105,7 @@
     [Notifications reschedule];
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application{
+    return;
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
 //    [self showAuditScreenIfNeeded];
     [HabitsQueries recalculateAllNotifications];
@@ -135,9 +136,9 @@
         }], nil] show];
         return YES;
     }
-    if([url.absoluteString isEqualToString:@"goodhabits://lookback"]){
-        [LookbackRecordingViewController presentOntoScreenAnimated:YES];
-    }
+//    if([url.absoluteString isEqualToString:@"goodhabits://lookback"]){
+//        [LookbackRecordingViewController presentOntoScreenAnimated:YES];
+//    }
     return NO;
 }
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {

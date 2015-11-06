@@ -19,8 +19,9 @@ class DataRecoveryTableViewController: UITableViewController {
         for file in enumerator{
             if let url = file as? NSURL{
                 if url.lastPathComponent!.hasSuffix("sqlite"){
-                    print("found a Sqlite file at \(url)")
-                    clients.append(CoreDataClient(storeUrl: url))
+                    let client = CoreDataClient(storeUrl: url)
+                    print("found a Sqlite file at \(url) client \(client)")
+                    clients.append(client)
                 }
             }
         }

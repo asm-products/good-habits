@@ -10,11 +10,11 @@
 #import <CWLSynthesizeSingleton.h>
 @import CoreData;
 @interface CoreDataClient : NSObject
-CWL_DECLARE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 @property (nonatomic, strong) NSManagedObjectContext * managedObjectContext;
 @property (nonatomic, strong) NSPersistentStoreCoordinator * persistentStoreCoordinator;
 @property (nonatomic, strong) NSPersistentStore * persistentStore;
 
++(instancetype)defaultClient;
 -(instancetype)initWithStoreUrl:(NSURL*)storeUrl;
 
 -(NSManagedObjectContext*)createPrivateContext;

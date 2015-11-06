@@ -37,7 +37,7 @@
 -(void)testWritingJSON{
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
     
-    NSArray * everything = [JSONConversion allHabitsAsJSON];
+    NSArray * everything = [JSONConversion allHabitsAsJSONWithClient:[CoreDataClient defaultClient]];
     NSDictionary * json = everything.firstObject;
 
     expect(json[@"title"]).to.equal(@"Testing habit");
@@ -64,6 +64,9 @@
     expect(habit.chains.count).to.equal(16);
     Chain * firstChain = habit.sortedChains.firstObject;
     expect(firstChain.days.count).to.equal(8);
+    [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil];
+    [tester waitForViewWithAccessibilityLabel:@"Vocal exercises"];
+    
 }
 -(void)testOpeningUrlForLegacyJSON{
     [TestHelpers deleteAllData];

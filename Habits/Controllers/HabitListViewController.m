@@ -50,13 +50,15 @@ typedef enum {
     [self.tableView reloadData];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:HABITS_UPDATED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
-        NSLog(@"RELOADING LIST COS HABITS CHANGED");
+        NSLog(@"Refresh in response to HABITS_UPDATED");
         [self refresh];
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:PURCHASE_COMPLETED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        NSLog(@"Refresh in response to PURCHASE_COMPLETED");
         [self refresh];
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:REFRESH object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
+        NSLog(@"Refresh in response to REFRESH");
         [self refresh];
     }];
     [[NSNotificationCenter defaultCenter] addObserverForName:CHAIN_MODIFIED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {

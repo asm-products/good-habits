@@ -21,9 +21,13 @@
 @end
 
 @implementation CoreDataClient
-
-CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
-
++(instancetype)defaultClient{
+    static CoreDataClient * client = nil;
+    if (client == nil){
+        client = [CoreDataClient new];
+    }
+    return client;
+}
 -(instancetype)init{
     if(self = [super init]){
         if(TEST_ENVIRONMENT){
@@ -91,8 +95,12 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 }
 /// Use these options in your call to -addPersistentStore:
 - (NSDictionary *)iCloudPersistentStoreOptions {
-    return @{NSPersistentStoreUbiquitousContentNameKey:STORE_NAME, NSMigratePersistentStoresAutomaticallyOption: @YES,
-             NSInferMappingModelAutomaticallyOption: @YES}; // @"MyHabitsStore". @"HabitsStore"
+    return @{
+//             NSPersistentStoreUbiquitousContentNameKey:STORE_NAME,
+//             NSPersistentStoreRebuildFromUbiquitousContentOption: @YES,
+             NSMigratePersistentStoresAutomaticallyOption: @YES,
+             NSInferMappingModelAutomaticallyOption: @YES
+            }; // @"MyHabitsStore". @"HabitsStore"
 }
 -(NSURL*)storeURLWithName:(NSString*)name{
     NSURL *documentsDirectory = [[[NSFileManager defaultManager]
@@ -112,16 +120,24 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
 }
 - (void)setupManagedObjectContext
 {
+    NSLog(@"Setting up managed object context");
     self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     NSError* error;
-    self.persistentStore = [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeURL options:self.iCloudPersistentStoreOptions error:&error];
+    self.persistentStore = [self.persistentStoreCoordinator
+                            addPersistentStoreWithType:NSSQLiteStoreType
+                            configuration:nil
+                            URL:self.storeURL
+                            options:self.iCloudPersistentStoreOptions
+                            error:&error];
     self.managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
+    NSURL * final_iCloudURL = self.persistentStore.URL;
+//    self.storeURL = final_iCloudURL;
 
     if (error) {
-        NSLog(@"error: %@", error);
+        NSLog(@"Managed object context setup error: %@", error);
     }else{
-        NSLog(@"Connected to store url %@", self.storeURL);
+        NSLog(@"Connected to store url %@ (tried to connect to %@)", final_iCloudURL, self.storeURL);
     }
 }
 #pragma mark - Notification Observers
@@ -152,8 +168,22 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
         [context mergeChangesFromContextDidSaveNotification:changeNotification];
     }];
 }
-
+// If the application is running, Core Data will post this before responding to iCloud account changes or "Delete All" from Documents & Data.
+/*
+ SPersistentStoreCoordinatorStoresWillChangeNotification; object = <NSPersistentStoreCoordinator: 0x7f9a2b869270>; userInfo = {
+ NSPersistentStoreUbiquitousTransitionTypeKey = 2;
+ added =     (
+ "<NSSQLCore: 0x7f9a2b81d290> (URL: 
+ file:///Users/mf/Library/Developer/CoreSimulator/Devices/C9F4458D-F53F-4D67-AAA5-B1C0517FEED3/data/Containers/Data/Application/99262965-3130-4F66-A450-48E44AAF84CB/Documents/CoreDataUbiquitySupport/nobody~simB3C771C1-BF8F-5702-975F-E5F2669D8BC2/HabitsStore/local/store/HabitsStore.sqlite)"
+ );
+ removed =     (
+ "<NSSQLCore: 0x7f9a2b81d290> (URL: 
+ file:///Users/mf/Library/Developer/CoreSimulator/Devices/C9F4458D-F53F-4D67-AAA5-B1C0517FEED3/data/Containers/Data/Application/99262965-3130-4F66-A450-48E44AAF84CB/Documents/CoreDataUbiquitySupport/nobody~simB3C771C1-BF8F-5702-975F-E5F2669D8BC2/HabitsStore/local/store/HabitsStore.sqlite)"
+ );
+ }}
+ */
 - (void)storesWillChange:(NSNotification *)notification {
+    NSLog(@"CORE DATA: Stores will change, %@", notification);
     NSManagedObjectContext *context = self.managedObjectContext;
 	
     [context performBlockAndWait:^{
@@ -164,7 +194,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(CoreDataClient, defaultClient);
             
             if (!success && error) {
                 // perform error handling
-                NSLog(@"%@",[error localizedDescription]);
+                NSLog(@"Stores will change error: %@",[error localizedDescription]);
             }
         }
         
