@@ -1,17 +1,14 @@
 #import <KIF.h>
-#import <YLMoment.h>
-#import "TimeHelper.h"
-#import "Habit.h"
-#import "HabitsQueries.h"
 #import <OCMock.h>
 #import "AppFeatures.h"
+#import "TimeHelper.h"
 @interface ChainManipulationTests : XCTestCase
 @end
 @implementation ChainManipulationTests
 -(void)setUp{
     OCMockObject * mockClass = [OCMockObject mockForClass:[AppFeatures class]];
     [[[mockClass stub] andReturnValue:@YES] statsEnabled];
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-22"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2014-08-22"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
     
 }
@@ -94,7 +91,7 @@
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
     [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
     [tester enterTextIntoCurrentFirstResponder:@"I messed it up. Sorry.\n"];
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-23"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2014-08-23"].date];
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"I messed it up. Sorry."];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];

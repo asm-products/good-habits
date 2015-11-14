@@ -12,6 +12,7 @@
 #import "Specta.h"
 #define EXP_SHORTHAND
 #import "Expecta.h"
+#import "HabitsCommon.h"
 #import "TestHelpers.h"
 
 #endif

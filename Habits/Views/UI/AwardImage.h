@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AwardImage : UIImage
+@interface AwardImage : NSObject
 +(UIImage*)starColored:(UIColor*)color;
 +(UIImage*)circleColored:(UIColor*)color;
 @end

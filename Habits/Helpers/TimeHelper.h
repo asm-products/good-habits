@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YLMoment.h"
 
 @interface NSDate(rounding)
 -(NSDate*)beginningOfDay;
 -(BOOL)isBefore:(NSDate*)date;
 @end
+
+@interface Moment : YLMoment
+//-(void) momentInitiated;
+@end
+
 @interface TimeHelper : NSObject
 +(NSCalendar*)UTCCalendar;
 +(NSDate*)startOfDayInUTC:(NSDate*)date;

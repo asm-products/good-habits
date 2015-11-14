@@ -16,6 +16,7 @@
 #import "StatsPopup.h"
 #import "HabitCell.h" // for the notification name
 #import "StatsTableViewController.h"
+#import "HabitToggler.h"
 @interface LandingViewController (){
     __weak IBOutlet UILabel *infoCountBadge;
 #pragma mark stats enabled only

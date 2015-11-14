@@ -14,13 +14,13 @@
 #import "Habit.h"
 #import "AppFeatures.h"
 #import "StatisticsFeaturePurchaseController.h"
-#import <YLMoment.h>
 #import "TimeHelper.h"
 #import <GTHRectHelpers.h>
 #import "AwardImage.h"
 #import <UIAlertView+Blocks.h>
 #import "PastDayCheckView.h"
 #import <SVProgressHUD.h>
+#import "HabitToggler.h"
 
 @interface HabitCell()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *habitStatusButton;
@@ -71,37 +71,11 @@
     return YES;
 }
 -(void)onCheckboxTapped{
-    
-    Failure * failure = [self.habit existingFailureForDate:self.day];
-    Chain * chain = self.habit.currentChain; // should never be nil; lazily created if habit has no chains
-    HabitDay * habitDay = [chain habitDayForDate:self.day];
-    DayCheckedState state;
-    if(failure && failure.active.boolValue){ // we had a failure so uncheck it
-        failure.active = @NO;
-        state = DayCheckedStateNull;
-    }else if(habitDay){ // we had a day so turn it into a failure
-        [chain removeDaysObject:habitDay];
-        chain.lastDateCache = [chain.sortedDays.lastObject valueForKey:@"date"];
-        if(chain.days.count == 0) [self.habit removeChainsObject:chain];
-        if(!failure){
-            failure = [self.habit createFailureForDate:self.day];
-        }else{
-            failure.active = @YES;
-        }
-        state = DayCheckedStateBroken;
-    }else if(habitDay == nil){ // we need to add a check for today
-        BOOL dateIsTooLateForExistingChain = chain.days.count > 0 && (self.day.timeIntervalSinceReferenceDate > chain.nextRequiredDate.timeIntervalSinceReferenceDate);
-        if(dateIsTooLateForExistingChain){
-            chain = [self.habit addNewChainForToday];
-        }
-        state = [chain tickLastDayInChainOnDate:self.day];
-    }
-    [[CoreDataClient defaultClient] save];
-    self.failure = failure;
+    HabitToggler * toggler = [HabitToggler new];
+    DayCheckedState state = [toggler toggleTodayForHabit:self.habit];
+    self.failure = toggler.failure;
     [self setState:state];
     if (state != DayCheckedStateBroken) [reasonEntryField resignFirstResponder];
-    if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:chain];
-    [[NSNotificationCenter defaultCenter] postNotificationName:CHAIN_MODIFIED object:chain userInfo:nil];
 }
 
 -(UIColor*)labelTextColor{

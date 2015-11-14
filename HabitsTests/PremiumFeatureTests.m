@@ -7,11 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "TimeHelper.h"
-#import <YLMoment.h>
 #import <KIF.h>
 #import <OCMock.h>
 #import "AppFeatures.h"
+#import "TimeHelper.h"
 @interface PremiumFeatureTests : XCTestCase
 
 @end
@@ -21,7 +20,7 @@
 - (void)setUp
 {
     [super setUp];
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-22"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2014-08-22"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
 }
 

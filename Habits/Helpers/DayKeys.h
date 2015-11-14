@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Good To Hear. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
 
 @interface DayKeys : NSObject
 +(NSDate*)dateFromKey:(NSString*)key;

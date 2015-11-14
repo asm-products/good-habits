@@ -8,7 +8,6 @@
 
 #import "SparklineHelper.h"
 #import "TimeHelper.h"
-#import <YLMoment.h>
 #import <NSArray+F.h>
 #import "DayKeys.h"
 @implementation SparklineHelper
@@ -16,6 +15,6 @@
     return habit.sortedChains;
 }
 +(NSString *)periodText:(NSDate *)date{
-    return [[YLMoment momentWithDate:date] fromDate:[TimeHelper now] withSuffix:NO];
+    return [[Moment momentWithDate:date] fromDate:[TimeHelper now] withSuffix:NO];
 }
 @end

@@ -6,10 +6,6 @@
 //  Copyright (c) 2014 Good To Hear. All rights reserved.
 //
 #import "PlistStoreToCoreDataMigrator.h"
-#import "Habit.h"
-#import "Chain.h"
-#import "HabitDay.h"
-#import "HabitsQueries.h"
 
 @interface MigrationTests : XCTestCase
 

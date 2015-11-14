@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Good To Hear. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
 
 @interface Colors : NSObject
 +(UIColor*)cobalt;
@@ -33,5 +33,4 @@
 +(UIColor*)onColor;
 +(UIColor*)beforeStartColor;
 +(UIColor*)notRequiredColor;
-+(UIColor*)globalTint;
 @end

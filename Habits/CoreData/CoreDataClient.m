@@ -9,6 +9,8 @@
 #import "CoreDataClient.h"
 #import "HabitsQueries.h"
 #import <UIAlertView+Blocks.h>
+#import <NSArray+F.h>
+#import "Chain.h"
 
 #define STORE_NAME @"HabitsStore"
 #define DB_NAME @"HabitsStore.sqlite"
@@ -40,9 +42,9 @@
     }
     return self;
 }
--(instancetype)initWithStoreUrl:(NSURL *)storeUrl{
+-(instancetype)initWithReadOnlyStoreUrl:(NSURL *)readOnlyStoreUrl{
     if(self = [super init]){
-        [self buildStoreWithURL:storeUrl];
+        [self buildWithReadOnlyStoreURL:readOnlyStoreUrl];
     }
     return self;
 }
@@ -55,6 +57,18 @@
     NSURL  * storeURL = [self storeURLWithName:@"testing.sqlite"];
     [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     [self buildStoreWithURL:storeURL];
+}
+
+-(void)buildWithReadOnlyStoreURL:(NSURL*)storeURL{
+    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    NSError* error;
+    NSDictionary * options =@{
+                              NSPersistentStoreRemoveUbiquitousMetadataOption: @YES,
+                              };
+    self.persistentStore = [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+    
+    self.managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
 }
 -(void)buildStoreWithURL:(NSURL*)storeURL{
     self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
@@ -103,24 +117,30 @@
             }; // @"MyHabitsStore". @"HabitsStore"
 }
 -(NSURL*)storeURLWithName:(NSString*)name{
-    NSURL *documentsDirectory = [[[NSFileManager defaultManager]
-                                  URLsForDirectory:NSDocumentDirectory
-                                  inDomains:NSUserDomainMask] lastObject];
+//    NSURL *documentsDirectory = [[[NSFileManager defaultManager]
+//                                  URLsForDirectory:NSDocumentDirectory
+//                                  inDomains:NSUserDomainMask] lastObject];
+    NSURL *documentsDirectory = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.goodtohear.habits"];
     NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:name];
+    return storeURL;
+}
++(NSURL*)groupStoreURL{
+    NSURL *documentsDirectory = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.goodtohear.habits"];
+    NSURL *storeURL = [documentsDirectory URLByAppendingPathComponent:DB_NAME];
     return storeURL;
 }
 -(NSURL*)storeURL{
     return [self storeURLWithName:DB_NAME];
 }
 -(NSManagedObjectModel*)managedObjectModel{
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Habits" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle bundleForClass:self.class] URLForResource:@"Habits" withExtension:@"momd"];
     NSManagedObjectModel * model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     if(!model) @throw [NSException exceptionWithName:@"ManagedObjectModelNotFound" reason:@"Couldn't load managed object model" userInfo:nil];
     return model;
 }
 - (void)setupManagedObjectContext
 {
-    NSLog(@"Setting up managed object context");
+    NSLog(@"Setting up default managed object context");
     self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     NSError* error;
@@ -215,6 +235,44 @@
     });
     
 }
+-(void)migrateToAppGroupStore:(void (^)())completion{
+    CoreDataClient * groupStoreClient = [CoreDataClient defaultClient];
+    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Habit"];
+    request.predicate = [NSPredicate predicateWithValue:YES];
+    NSArray * habits = [self.managedObjectContext executeFetchRequest:request error:nil];
+    for (Habit * habit in habits){
+        NSMutableDictionary * habitDict = [habit committedValuesForKeys:nil].mutableCopy;
+        [habitDict removeObjectsForKeys:@[@"chains",@"failures"]];
+        Habit * newHabit = [NSEntityDescription insertNewObjectForEntityForName:@"Habit" inManagedObjectContext:groupStoreClient.managedObjectContext];
+        [newHabit setValuesForKeysWithDictionary:habitDict];
+        // habit
+        // ^ failures ^ chains
+        //               ^ days
+        for(Failure *failure in habit.failures){
+            Failure * newFailure = [NSEntityDescription insertNewObjectForEntityForName:@"Failure" inManagedObjectContext:groupStoreClient.managedObjectContext];
+            NSMutableDictionary * failureDict = [failure committedValuesForKeys:nil].mutableCopy;
+            [failureDict removeObjectsForKeys:@[@"habit"]];
+            [newFailure setValuesForKeysWithDictionary:failureDict];
+            [newHabit addFailuresObject:newFailure];
+        }
+        for(Chain * chain in habit.chains){
+            Chain * newChain = [NSEntityDescription insertNewObjectForEntityForName:@"Chain" inManagedObjectContext:groupStoreClient.managedObjectContext];
+            NSMutableDictionary * chainDict = [chain committedValuesForKeys:nil].mutableCopy;
+            [chainDict removeObjectsForKeys:@[@"days",@"habit"]];
+            [newChain setValuesForKeysWithDictionary:chainDict];
+            [newHabit addChainsObject:newChain];
+            for(HabitDay * day in chain.days){
+                HabitDay * newDay = [NSEntityDescription insertNewObjectForEntityForName:@"HabitDay" inManagedObjectContext:groupStoreClient.managedObjectContext];
+                NSMutableDictionary * dayDict = [day committedValuesForKeys:nil].mutableCopy;
+                [dayDict removeObjectForKey:@"chain"];
+                [newDay setValuesForKeysWithDictionary:dayDict];
+                [newChain addDaysObject:newDay];
+            }
+        }
+    }
+    [groupStoreClient.managedObjectContext save:nil];
+    completion();
+}
 #pragma mark - Saving
 -(void)save{
     NSError * error;
@@ -224,5 +282,21 @@
         NSLog(@"Saving failed %@", error.localizedDescription);
     }
     
+}
+
+-(NSArray*)allHabits{
+    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Habit"];
+    NSError * error;
+    return [self.managedObjectContext executeFetchRequest:request error:&error];
+}
+-(NSDate *)lastUsedDate{
+    return [[self allHabits] reduce:^id(NSDate * date, Habit * habit) {
+        Chain * chain = habit.currentChain;
+        if (chain.lastDateCache != nil){
+            return [chain.lastDateCache laterDate: date];
+        }else{
+            return date;
+        }
+    } withInitialMemo:[NSDate dateWithTimeIntervalSince1970:0]];
 }
 @end

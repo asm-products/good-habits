@@ -21,6 +21,7 @@
 #import <NSArray+F.h>
 #import <GTHRectHelpers.h>
 #import "AppFeatures.h"
+#import "HabitToggler.h"
 typedef enum {
     HabitListSectionActive,
     HabitListSectionCarriedOver,

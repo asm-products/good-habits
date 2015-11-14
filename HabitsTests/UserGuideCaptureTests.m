@@ -12,11 +12,10 @@
 #import "HelpCaptureInterstitialViewController.h"
 #import <KIF.h>
 #import <YLMoment.h>
-#import "HabitsQueries.h"
-#import "TimeHelper.h"
 #import <UIImage+Screenshot.h>
 #import <OCMock.h>
 #import "HabitCell.h"
+#import "TimeHelper.h"
 
 #define GRABS_PATH @"/Users/mf/code/habits/Habits/Habits/Images/grabs"
 
@@ -50,7 +49,7 @@
     }
 }
 -(void)testGrabAppStoreScreens{
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-24"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-24"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"appstore.habits"];
     [TestHelpers setStatsEnabled:YES];
     [tester waitForTimeInterval:0.4];
@@ -88,7 +87,7 @@
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
     [self screenshot:@"checked_today"];
 
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-24"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-24"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"demo.habits"];
     [self showNote:@"Later..."];
     

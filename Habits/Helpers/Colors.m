@@ -70,7 +70,4 @@ COLOR_ACCESSOR(notRequiredColor, 0xA6B4C3);
     }
     return result;
 }
-+(UIColor *)globalTint{
-    return [[[UIApplication sharedApplication] keyWindow] tintColor];
-}
 @end

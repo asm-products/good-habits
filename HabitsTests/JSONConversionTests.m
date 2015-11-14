@@ -1,6 +1,6 @@
 #import "Habit.h"
 #import <YLMoment.h>
-#import "TimeHelper.h"
+#import "HabitsCommon.h"
 #import "Colors.h"
 #import "TestHelpers.h"
 #import "LegacyJSONImporter.h"
@@ -9,6 +9,7 @@
 #import "Chain.h"
 #import "HabitDay.h"
 #import <KIF.h>
+#import "TimeHelper.h"
 @interface JSONConversionTests : XCTestCase
 
 @end

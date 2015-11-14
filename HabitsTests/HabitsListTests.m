@@ -8,15 +8,10 @@
 
 #import <KIF.h>
 #import <OCMock.h>
-#import "Habit.h"
-#import "HabitsQueries.h"
-#import "Colors.h"
-#import "Calendar.h"
 #import <NSArray+F.h>
-#import "TimeHelper.h"
-#import <YLMoment.h>
 #import "TestHelpers.h"
 #import <UIAccessibilityElement-KIFAdditions.h>
+#import "TimeHelper.h"
 Habit * habit(NSDictionary*dict, NSArray * daysChecked){
     return [TestHelpers habit:dict daysChecked:daysChecked];
 }
@@ -36,7 +31,7 @@ NSMutableArray * everyDay(){
     [tester waitForAbsenceOfViewWithAccessibilityLabel:@"Paused habits"];
 }
 -(void)testGroupings{
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-23"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-23"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"list-tests.goodtohear.habits"];
     if([UIAccessibilityElement accessibilityElement:nil view:nil withLabel:@"Dismiss" value:nil traits:UIAccessibilityTraitNone tappable:YES error:nil]){
         [tester tapViewWithAccessibilityLabel:@"Dismiss"];

@@ -37,6 +37,7 @@
 }
 +(void)refresh{
     NSError * error;
+    [self.fetched.managedObjectContext reset];
     [self.fetched performFetch:&error];
     if(error) NSLog(@"Error fetching habits %@", error.localizedDescription);
 }
@@ -45,6 +46,12 @@
     return [[[self all] filter:^BOOL(Habit* habit) {
         return habit.isActive.boolValue;
     }] sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES]]];
+}
++(NSArray *)outstandingToday{
+    NSDate * today = [TimeHelper today];
+    return [[self active] filter:^BOOL(Habit * h) {
+        return [h needsToBeDone: today];
+    }];
 }
 +(NSArray *)activeToday{
     return [self.active filter:^BOOL(Habit * habit) {

@@ -8,16 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "TimeHelper.h"
-#import <YLMoment.h>
 #import <KIF.h>
+#import "TimeHelper.h"
 @interface StatisticsTests : XCTestCase
 
 @end
 
 @implementation StatisticsTests
 -(void)setUp{
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-08-04"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2014-08-04"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"mf.goodtohear.habits"];
 }
 -(void)testHistograms{

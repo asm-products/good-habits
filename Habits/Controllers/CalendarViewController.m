@@ -9,7 +9,6 @@
 #import "CalendarViewController.h"
 #import "CalendarTopView.h"
 #import "TimeHelper.h"
-#import <YLMoment.h>
 #import "MonthGridViewController.h"
 @interface CalendarViewController (){
     NSDate * dayInPreviousMonth;
@@ -57,13 +56,13 @@
     return result;
 }
 -(void)showMonthIncludingTime:(NSDate*)time{
-    NSInteger month = [YLMoment momentWithDate:time].month;
+    NSInteger month = [Moment momentWithDate:time].month;
     if(self.grid && self.grid.month == month) return;
     if(self.grid.view.superview)[self.grid.view removeFromSuperview];
     self.grid = nil;
     
     self.top.label.text = [self.topTimeFormatter stringFromDate:time];
-    YLMoment * moment = [YLMoment momentWithDate:time];
+    Moment * moment = [Moment momentWithDate:time];
     
     // always work with GMT 
     moment.calendar = [TimeHelper UTCCalendar];

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "HabitDay.h"
 #import "Failure.h"
+#import "Chain.h"
 @import CoreData;
 @import UIKit;
 
@@ -40,9 +41,6 @@
 -(BOOL)isNew;
 -(NSDate*)nextDayRequiredAfter:(NSDate*)date;
 
-// checks off today
--(void)checkToday;
-
 #pragma mark - Meta
 -(NSDate*)earliestDate;
 
@@ -53,16 +51,16 @@
 -(NSArray*)sortedChains;
 -(Chain*)longestChain;
 -(NSInteger)currentChainLength;
--(Chain*)currentChain;
--(Chain*)chainForDate:(NSDate*)date;
--(void)recalculateRunningTotalsInBackground:(void(^)())completionCallback;
+-( Chain* _Nullable )currentChain;
+-(Chain* _Nonnull)chainForDate:(NSDate*_Nonnull)date;
+-(void)recalculateRunningTotalsInBackground:(void(^_Nonnull)())completionCallback;
 
 #pragma mark - Failures
--(Failure*)existingFailureForDate:(NSDate*)date;
--(Failure*)createFailureForDate:(NSDate*)date;
+-(Failure*_Nullable)existingFailureForDate:(NSDate*_Nonnull)date;
+-(Failure*_Nonnull)createFailureForDate:(NSDate*_Nonnull)date;
 
 #pragma mark - Data management
-+(Habit*)createNew;
++(Habit*_Nonnull)createNew;
 #pragma mark - Notifications
 -(void)recalculateNotifications;
 

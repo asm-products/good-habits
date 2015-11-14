@@ -1,8 +1,5 @@
 #import <KIF.h>
 #import "TimeHelper.h"
-#import <YLMoment.h>
-#import "Habit.h"
-#import "HabitsQueries.h"
 
 @interface HabitCreationTests : XCTestCase
 
@@ -11,7 +8,7 @@
 
 @implementation HabitCreationTests
 -(void)testAddingNewHabit{
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2014-01-01"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2014-01-01"].date];
     [tester tapViewWithAccessibilityLabel:@"add"];
     [tester enterTextIntoCurrentFirstResponder:@"Floss\n"];
     [tester tapViewWithAccessibilityLabel:@"Back"];

@@ -12,17 +12,32 @@
 		<key>HabitsCommon.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>27</integer>
+			<integer>1</integer>
+		</dict>
+		<key>HabitsTodayExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>29</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>AC373F361BF754CF00A212D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AC78817C1BED3F6700675C75</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AC7881851BED3F6700675C75</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC7A48311BED449300A8FBAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

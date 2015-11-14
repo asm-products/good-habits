@@ -12,7 +12,6 @@
 #import <NSDictionary+F.h>
 #import "Colors.h"
 #import "TimeHelper.h"
-#import <YLMoment.h>
 #import "Calendar.h"
 #import "HabitsQueries.h"
 #import <AVHexColor.h>
@@ -69,6 +68,8 @@
     return firstDay.date;
 }
 #pragma mark - Interactions
+
+
 
 #pragma mark - Chains
 -(Chain *)addNewChainInContext:(NSManagedObjectContext *)context{
@@ -148,6 +149,7 @@
     });
 
 }
+
 #pragma mark - Data management
 +(Habit *)createNew{
     NSManagedObjectContext * context = [CoreDataClient defaultClient].managedObjectContext;
@@ -171,7 +173,7 @@
     NSDate * now = [TimeHelper now];
     NSInteger dayOffset = ([self due:now] || [self done:now]) ? TOMORROW : TODAY;
     for(int n = 0; n < 7; n ++){
-        YLMoment * moment =[ YLMoment momentWithDate: [TimeHelper addDays:dayOffset + n toDate:now]];
+        Moment * moment =[Moment momentWithDate: [TimeHelper addDays:dayOffset + n toDate:now]];
         if([self isRequiredOnWeekday:moment.date]){
             UILocalNotification * notification = [UILocalNotification new];
             NSDateComponents * components = self.reminderTime.copy;

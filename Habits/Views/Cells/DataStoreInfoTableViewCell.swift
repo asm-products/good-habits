@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import HabitsCommon
 class DataStoreInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var fileInfoLabel: UILabel!

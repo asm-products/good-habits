@@ -5,7 +5,7 @@ target "Habits" do
     pod 'Functional.m', '~> 1.0'
     pod 'AVHexColor', '~> 1.1.0'
     pod 'Mantle', '~> 1.5'
-    pod 'YLMoment', '~> 0.5'
+    pod 'YLMoment', '~> 0.6'
     pod 'ALActionBlocks', '~> 1.0'
     pod 'UIAlertView-Blocks', '~> 1.0'
     pod 'SHMessageUIBlocks', '~> 1.2'
@@ -21,6 +21,13 @@ target "Habits" do
 #pod 'LookbackSafe'#, :configurations => ['Release']
 end
 
+target "HabitsCommon" do
+    pod 'CWLSynthesizeSingleton', '~> 1.0'
+    pod 'YLMoment', '~> 0.6'
+    pod 'Functional.m', '~> 1.0'
+    pod 'AVHexColor', '~> 1.1.0'
+end
+
 target "HabitsTests" do
     pod 'Specta', '~> 0.2.1'
     pod 'Expecta'
@@ -30,4 +37,5 @@ target "HabitsTests" do
     pod 'FCOverlay', '~> 1.0'
     pod 'UIImage-Helpers', '~> 0.0'
     pod 'Reveal-iOS-SDK', '~> 1.0'
+    pod 'YLMoment', '~> 0.6'
 end

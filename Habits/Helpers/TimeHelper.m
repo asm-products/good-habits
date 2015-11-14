@@ -13,13 +13,24 @@
 
 @implementation NSDate(rounding)
 -(NSDate *)beginningOfDay{
-    return [[YLMoment momentWithDate:self] startOfCalendarUnit:NSDayCalendarUnit].date;
+    return [[Moment momentWithDate:self] startOfCalendarUnit:NSCalendarUnitDay].date;
 }
 -(BOOL)isBefore:(NSDate *)date{
     return [self compare:date] == NSOrderedAscending;
 }
 @end
 
+@implementation Moment
+
+//- (void)dealloc
+//{
+//    // no KVO
+//}
+//-(void)momentInitiated{
+//    // no KVO
+//}
+
+@end
 
 static NSDate * selectedDate = nil;
 @implementation TimeHelper
@@ -27,15 +38,15 @@ static NSDate * selectedDate = nil;
     static NSCalendar * calendar = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
         calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     });
     return calendar;
 }
 +(NSDate *)startOfDayInUTC:(NSDate *)date{
-    YLMoment * moment = [YLMoment momentWithDate:date];
+    YLMoment * moment = [Moment momentWithDate:date];
     moment.calendar = [self UTCCalendar];
-    return [moment startOfCalendarUnit:NSDayCalendarUnit].date;
+    return [moment startOfCalendarUnit:NSCalendarUnitDay].date;
 }
 +(NSDateComponents *)dateComponentsForHour:(NSInteger)hour minute:(NSInteger)minute{
     NSDateComponents * result = [NSDateComponents new];
@@ -76,11 +87,11 @@ static NSDate * selectedDate = nil;
     return [formatter stringFromDate:[[NSCalendar currentCalendar] dateFromComponents:components]];
 }
 +(NSString *)timeAgoString:(NSDate *)date{
-    YLMoment * moment = [YLMoment momentWithDate:date];
+    YLMoment * moment = [Moment momentWithDate:date];
     NSString * result = [moment fromDate:[self now]];
     if([result isEqualToString:@"a day ago"]) result = @"Yesterday";
     if([result isEqualToString:@"a few seconds ago"]) result = @"Today";
-    if ([[moment startOfCalendarUnit:NSDayCalendarUnit] isEqualToMoment:[[YLMoment momentWithDate:[TimeHelper now]] startOfCalendarUnit:NSDayCalendarUnit]]) {
+    if ([[moment startOfCalendarUnit:NSDayCalendarUnit] isEqualToMoment:[[Moment momentWithDate:[TimeHelper now]] startOfCalendarUnit:NSDayCalendarUnit]]) {
         return @"Today";
     }
     return result;

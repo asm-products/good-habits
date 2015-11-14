@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CWLSynthesizeSingleton.h>
-#import "Habit.h"
 #import "CoreDataClient.h"
+#import "Habit.h"
 #define HABITS_UPDATED @"HABITS_UPDATED"
 #define REFRESH @"REFRESH"
 #define PURCHASE_COMPLETED @"PURCHASE_COMPLETED"
@@ -20,6 +19,7 @@
 +(NSArray*)all;
 #pragma  mark - Groups
 +(NSArray*)active;
++(NSArray*)outstandingToday;
 +(NSArray*)activeToday;
 +(NSArray*)carriedOver;
 +(NSArray*)activeButNotToday;

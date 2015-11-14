@@ -8,18 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "TimeHelper.h"
-#import <YLMoment.h>
 #import <KIF.h>
+#import "TimeHelper.h"
 @interface DayBoundaryTests : KIFTestCase
 @end
 
 @implementation DayBoundaryTests
 
 -(void)testDayBoundaryInBerlinTimeZone{
-    [TimeHelper selectDate:[YLMoment momentWithDateAsString:@"2013-12-23 01:00:00 -0400"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-23 01:00:00 -0400"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"list-tests.goodtohear.habits"];
-    expect([TimeHelper today]).to.equal([YLMoment momentWithDateAsString:@"2013-12-23 00:00:00 +0000"].date);
+    expect([TimeHelper today]).to.equal([Moment momentWithDateAsString:@"2013-12-23 00:00:00 +0000"].date);
 }
 
 @end

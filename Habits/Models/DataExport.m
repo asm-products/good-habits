@@ -17,6 +17,7 @@
 #import "LegacyJSONImporter.h"
 #import <UIAlertView+Blocks.h>
 @import MessageUI;
+@import HabitsCommon;
 @implementation DataExport
 
 

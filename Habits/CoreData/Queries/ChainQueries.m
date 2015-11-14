@@ -7,15 +7,15 @@
 //
 
 #import "ChainQueries.h"
-#import <YLMoment.h>
 #import "CoreDataClient.h"
 #import "Habit.h"
+#import "TimeHelper.h"
 @import CoreData;
 
 @implementation ChainQueries
 +(NSArray *)chainsInMonthStarting:(NSDate *)date{
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Chain"];
-    NSDate * endDate = [[[YLMoment momentWithDate:date] endOf:@"month"] date];
+    NSDate * endDate = [[[Moment momentWithDate:date] endOf:@"month"] date];
     request.predicate = [NSPredicate predicateWithFormat:@"days.date >= %@ && days.date <= %@", date, endDate];
     request.relationshipKeyPathsForPrefetching = @[@"days"];
     request.resultType = NSDictionaryResultType; // I'm hoping this will limit the subsequent operations to, at most, 30 records, so extracting the chains and stuff should be okay.

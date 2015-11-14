@@ -135,7 +135,7 @@ typedef enum{
     }];
 }
 -(void)updateLayoutPickerVisible:(BOOL)visible{
-    [self.remindersButton setTitleColor:visible ? [Colors globalTint]  : [UIColor blackColor] forState:UIControlStateNormal];
+    [self.remindersButton setTitleColor:visible ? [[[UIApplication sharedApplication] keyWindow] tintColor]  : [UIColor blackColor] forState:UIControlStateNormal];
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow: visible ? HabitDetailCellIndexReminderPicker : 0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];

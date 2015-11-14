@@ -10,15 +10,14 @@
 #import "TimeHelper.h"
 #import "Habit.h"
 #import <NSArray+F.h>
+#import "HabitsCommon.h"
 #import "HabitsQueries.h"
 @implementation Notifications
 +(void)reschedule{
     NSLog(@"Rescheduling notifications");
     NSDate * now = [TimeHelper now];
     NSDate * today = [TimeHelper today];
-    NSInteger requiredTodayCount = [[[HabitsQueries active] filter:^BOOL(Habit * h) {
-        return [h needsToBeDone: today];
-    }] count];
+    NSInteger requiredTodayCount = [[HabitsQueries outstandingToday] count];
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:requiredTodayCount];
     NSMutableArray * notifications = [[NSMutableArray alloc] initWithCapacity:100];
     for (Habit * habit in [HabitsQueries active]) {

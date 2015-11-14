@@ -7,7 +7,6 @@
 //
 
 #import "AppFeatures.h"
-#import <DHAppStoreReceipt.h>
 
 @implementation AppFeatures
 +(BOOL)statsEnabled{

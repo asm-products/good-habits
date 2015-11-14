@@ -15,7 +15,7 @@
 #import "Labels.h"
 #import "DataExport.h"
 #import "Habits-Swift.h"
-@interface InfoViewController ()
+@interface InfoViewController()<MigrateFrom_iCloudTableViewControllerDelegate>
 @property (nonatomic, strong) NSArray * tasks;
 @property (nonatomic, strong) NSArray * links;
 @property (nonatomic, strong) NSArray * credits;
@@ -38,18 +38,38 @@
     return _tasks;
 }
 -(NSArray *)links{
-    if(!_links) _links = @[
+    if( _links != nil){
+        return _links;
+    }
+    NSMutableArray * result = @[
                            @{@"text": @"Export your data", @"action": ^{
                                [DataExport run:self client:[CoreDataClient defaultClient]];
-                           }},
-                           @{@"text": @"Recover data", @"action": ^{
-                               [self performSegueWithIdentifier:@"RecoverData" sender:self];
                            }},
                            @{@"text": @"Log an issue", @"url": @"https://github.com/goodtohear/habits/issues" },
 //                           @{@"text": @"Video bug report", @"url":@"goodhabits://lookback"},
                            @{@"text": @"Contact us", @"url": @"http://goodtohear.co.uk/contact"}
-                           ];
-    return _links;
+                           ].mutableCopy;
+    DataRecovery * recovery = [DataRecovery new];
+    if(recovery.clients.count > 0){
+        [result insertObject:
+                           @{@"text": @"Recover data", @"action": ^{
+                               [self performSegueWithIdentifier:@"RecoverData" sender:self];
+        }} atIndex:0];
+    }
+    _links = result;
+    return result;
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"RecoverData"]){
+        MigrateFrom_iCloudTableViewController * dest = segue.destinationViewController;
+        dest.delegate = self;
+        dest.navigationItem.rightBarButtonItem.title = @"Restore";
+        dest.descriptionText = @"This is a screen to help recover missing habit data. Contact info@goodtohear.co.uk for support.";
+        dest.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissDataMigration)];
+    }
+}
+-(void)dismissDataMigration{
+    [self.navigationController popViewControllerAnimated:true];
 }
 -(NSArray *)credits{
     if(!_credits) _credits = @[

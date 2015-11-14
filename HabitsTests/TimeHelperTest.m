@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "TimeHelper.h"
-#import <YLMoment.h>
 @interface TimeHelperTest : XCTestCase
 
 @end
@@ -17,7 +16,7 @@
 @implementation TimeHelperTest
 
 - (void)testWeekdayIsCorrect {
-    NSDate * date = [YLMoment momentWithDateAsString:@"2014-09-01"].date; // should be a Monday (1)
+    NSDate * date = [Moment momentWithDateAsString:@"2014-09-01"].date; // should be a Monday (1)
     expect([TimeHelper weekday:date]).to.equal(1);
 }
 
