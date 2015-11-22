@@ -15,7 +15,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     var habits: [Habit]!
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var watchConnectionHelper = WatchConnectionHelper()
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshHabits()
@@ -26,14 +26,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
             }
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleManagedObjectContextDidSaveNotification:", name: NSManagedObjectContextDidSaveNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleManagedObjectContextObjectsDidChangeNotification:", name: NSManagedObjectContextObjectsDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserverForName(HABIT_TOGGLE_COMPLETE, object: nil, queue: nil) { _ in
+            self.watchConnectionHelper.onHabitsUpdated()
+        }
 
     }
-    func handleManagedObjectContextDidSaveNotification(notification:NSNotification){
-        refreshHabits()
-    }
-    func handleManagedObjectContextObjectsDidChangeNotification(notification:NSNotification){
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         refreshHabits()
     }
     override func viewWillAppear(animated: Bool) {
@@ -47,12 +46,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
     }
     func refreshHabits(){
-        
+        HabitsQueries.refresh()
         habits = HabitsQueries.activeToday() as! [Habit]
         tableView.reloadData()
         preferredContentSize = tableView.contentSize
 //        let notification = UILocalNotification()
 //        notification.applicationIconBadgeNumber = HabitsQueries.outstandingToday().count
+//        notification.fireDate = NSDate()
     }
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.

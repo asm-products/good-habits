@@ -17,6 +17,7 @@
 #import <AVHexColor.h>
 #import "DayKeys.h"
 #import "Chain.h"
+#import "HabitToggler.h"
 
 @implementation Habit
 @dynamic identifier,title,color,createdAt,reminderTime,isActive,order,daysRequired,chains,failures;
@@ -59,6 +60,24 @@
         date = [TimeHelper addDays:1 toDate:date];
     }
     return date;
+}
+-(void)ensureDayCheckedStateForDate:(NSDate *)date dayState:(DayCheckedState)dayCheckedState{
+    Chain * chain = [self chainForDate:date];
+    if(chain.dayState == dayCheckedState){
+        return;
+    }
+    HabitToggler * toggler = [[HabitToggler alloc] initWithNotifications:NO];
+    NSDate * day = [TimeHelper startOfDayInUTC:date];
+    if ([chain dayState] == dayCheckedState && [chain.lastDateCache isEqualToDate:day]){
+        return; // might be wrong
+    }
+    NSInteger count = DayCheckedStateCount; // just because I don't know what could go wrong with this while loop
+    while([toggler toggleHabit:self day:day] != dayCheckedState){
+        count --;
+        if (count <= 0){
+            break;
+        }
+    }
 }
 
 #pragma mark - Meta

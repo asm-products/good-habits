@@ -10,7 +10,13 @@
 		030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F79A2189454A3AAF48A73F /* libPods-Habits.a */; };
 		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
 		40D964E71EE0214E98DF6668 /* libPods-HabitsCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B80495B8295DFE3CB89574 /* libPods-HabitsCommon.a */; };
+		AC019E691C01212100EBA056 /* check_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB44D190D27960030CC82 /* check_mark@2x.png */; };
+		AC019E6A1C01212100EBA056 /* check_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB44E190D27960030CC82 /* check_mark.png */; };
+		AC019E6B1C01213400EBA056 /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237AF196C2FB400A2FF9F /* Cross.png */; };
+		AC019E6C1C01213400EBA056 /* Cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237B0196C2FB400A2FF9F /* Cross@2x.png */; };
 		AC088A7519EB120C0068F6EC /* TimeHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AC088A7419EB120C0068F6EC /* TimeHelperTest.m */; };
+		AC11B4331C01F01700378810 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */; };
+		AC11B4341C01F01900378810 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */; };
 		AC1D7DE51BF748FF00700CB0 /* MigrationToSharedContainerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D7DE41BF748FF00700CB0 /* MigrationToSharedContainerTests.m */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_legacy.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */; };
 		AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */; };
@@ -80,6 +86,8 @@
 		AC5F3B5019C62D5D00398F81 /* demo.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B4E19C62D5D00398F81 /* demo.habits.plist */; };
 		AC5F3B5219C63DE100398F81 /* status-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5119C63DE100398F81 /* status-bar@2x.png */; };
 		AC5F3B5319C63DE100398F81 /* status-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5F3B5119C63DE100398F81 /* status-bar@2x.png */; };
+		AC6137351C00D7EA00162605 /* WatchShim.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6137341C00D7EA00162605 /* WatchShim.swift */; };
+		AC61379E1C00E4D800162605 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61379D1C00E4D800162605 /* ComplicationController.swift */; };
 		AC6EC67119C374B000640590 /* GTHStoreKitMock.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6EC67019C374B000640590 /* GTHStoreKitMock.m */; };
 		AC6EC67419C384B200640590 /* ReasonCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6EC67319C384B200640590 /* ReasonCellTableViewCell.m */; };
 		AC735DE219705080007CD2B7 /* StatsPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE119705080007CD2B7 /* StatsPopup.m */; };
@@ -156,6 +164,16 @@
 		AC9A0D711BF76D1100B2C856 /* data-migration.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D6E1BF76D1100B2C856 /* data-migration.png */; };
 		AC9A0D721BF76D1100B2C856 /* data-migration@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D6F1BF76D1100B2C856 /* data-migration@2x.png */; };
 		AC9A0D731BF76D1100B2C856 /* data-migration@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D701BF76D1100B2C856 /* data-migration@3x.png */; };
+		AC9A0D7A1BF7702500B2C856 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D781BF7702500B2C856 /* Interface.storyboard */; };
+		AC9A0D7C1BF7702500B2C856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D7B1BF7702500B2C856 /* Assets.xcassets */; };
+		AC9A0D831BF7702500B2C856 /* HabitsWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AC9A0D821BF7702500B2C856 /* HabitsWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AC9A0D8A1BF7702500B2C856 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D891BF7702500B2C856 /* InterfaceController.swift */; };
+		AC9A0D8C1BF7702500B2C856 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D8B1BF7702500B2C856 /* ExtensionDelegate.swift */; };
+		AC9A0D8E1BF7702500B2C856 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D8D1BF7702500B2C856 /* NotificationController.swift */; };
+		AC9A0D901BF7702500B2C856 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D8F1BF7702500B2C856 /* GlanceController.swift */; };
+		AC9A0D941BF7702600B2C856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D931BF7702500B2C856 /* Assets.xcassets */; };
+		AC9A0D981BF7702600B2C856 /* HabitsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AC9A0D761BF7702500B2C856 /* HabitsWatchApp.app */; };
+		AC9A0DA31BF7739900B2C856 /* HabitWatchTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA21BF7739900B2C856 /* HabitWatchTableRowController.swift */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -270,6 +288,20 @@
 			remoteGlobalIDString = AC7A48311BED449300A8FBAD;
 			remoteInfo = HabitsTodayExtension;
 		};
+		AC9A0D841BF7702500B2C856 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACADB3C8190D23B90030CC82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC9A0D811BF7702500B2C856;
+			remoteInfo = "HabitsWatchApp Extension";
+		};
+		AC9A0D961BF7702600B2C856 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACADB3C8190D23B90030CC82 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC9A0D751BF7702500B2C856;
+			remoteInfo = HabitsWatchApp;
+		};
 		ACADB3F6190D23B90030CC82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ACADB3C8190D23B90030CC82 /* Project object */;
@@ -300,6 +332,28 @@
 				AC7A483E1BED449300A8FBAD /* HabitsTodayExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9A0D9C1BF7702600B2C856 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AC9A0D831BF7702500B2C856 /* HabitsWatchApp Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9A0DA01BF7702600B2C856 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				AC9A0D981BF7702600B2C856 /* HabitsWatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -434,6 +488,8 @@
 		AC5F3B5819C6F1C700398F81 /* LegacyJSONImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyJSONImporter.m; sourceTree = "<group>"; };
 		AC5F3B5B19C6F22D00398F81 /* JSONConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONConversion.h; sourceTree = "<group>"; };
 		AC5F3B5C19C6F22D00398F81 /* JSONConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConversion.m; sourceTree = "<group>"; };
+		AC6137341C00D7EA00162605 /* WatchShim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchShim.swift; sourceTree = "<group>"; };
+		AC61379D1C00E4D800162605 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		AC6EC66F19C374B000640590 /* GTHStoreKitMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTHStoreKitMock.h; sourceTree = "<group>"; };
 		AC6EC67019C374B000640590 /* GTHStoreKitMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTHStoreKitMock.m; sourceTree = "<group>"; };
 		AC6EC67219C384B200640590 /* ReasonCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReasonCellTableViewCell.h; sourceTree = "<group>"; };
@@ -488,6 +544,22 @@
 		AC9A0D6E1BF76D1100B2C856 /* data-migration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "data-migration.png"; sourceTree = "<group>"; };
 		AC9A0D6F1BF76D1100B2C856 /* data-migration@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "data-migration@2x.png"; sourceTree = "<group>"; };
 		AC9A0D701BF76D1100B2C856 /* data-migration@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "data-migration@3x.png"; sourceTree = "<group>"; };
+		AC9A0D761BF7702500B2C856 /* HabitsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9A0D791BF7702500B2C856 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		AC9A0D7B1BF7702500B2C856 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC9A0D7D1BF7702500B2C856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC9A0D821BF7702500B2C856 /* HabitsWatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HabitsWatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC9A0D881BF7702500B2C856 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		AC9A0D891BF7702500B2C856 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		AC9A0D8B1BF7702500B2C856 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		AC9A0D8D1BF7702500B2C856 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		AC9A0D8F1BF7702500B2C856 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		AC9A0D931BF7702500B2C856 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC9A0D951BF7702600B2C856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC9A0DA21BF7739900B2C856 /* HabitWatchTableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitWatchTableRowController.swift; sourceTree = "<group>"; };
+		AC9A0DA61BF7747800B2C856 /* HabitsWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HabitsWatchApp.entitlements; sourceTree = "<group>"; };
+		AC9A0DA71BF7748B00B2C856 /* HabitsWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "HabitsWatchApp Extension.entitlements"; sourceTree = "<group>"; };
+		AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectionHelper.swift; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -629,6 +701,13 @@
 			files = (
 				AC373F301BF7518300A212D9 /* HabitsCommon.framework in Frameworks */,
 				AC7A48341BED449300A8FBAD /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9A0D7F1BF7702500B2C856 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1153,6 +1232,42 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
+		AC9A0D771BF7702500B2C856 /* HabitsWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				AC9A0DA61BF7747800B2C856 /* HabitsWatchApp.entitlements */,
+				AC9A0D781BF7702500B2C856 /* Interface.storyboard */,
+				AC9A0D7B1BF7702500B2C856 /* Assets.xcassets */,
+				AC9A0D7D1BF7702500B2C856 /* Info.plist */,
+			);
+			path = HabitsWatchApp;
+			sourceTree = "<group>";
+		};
+		AC9A0D861BF7702500B2C856 /* HabitsWatchApp Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AC9A0DA71BF7748B00B2C856 /* HabitsWatchApp Extension.entitlements */,
+				AC9A0D891BF7702500B2C856 /* InterfaceController.swift */,
+				AC9A0DA21BF7739900B2C856 /* HabitWatchTableRowController.swift */,
+				AC9A0D8B1BF7702500B2C856 /* ExtensionDelegate.swift */,
+				AC9A0D8D1BF7702500B2C856 /* NotificationController.swift */,
+				AC9A0D8F1BF7702500B2C856 /* GlanceController.swift */,
+				AC61379D1C00E4D800162605 /* ComplicationController.swift */,
+				AC9A0D931BF7702500B2C856 /* Assets.xcassets */,
+				AC9A0D951BF7702600B2C856 /* Info.plist */,
+				AC9A0D871BF7702500B2C856 /* Supporting Files */,
+			);
+			path = "HabitsWatchApp Extension";
+			sourceTree = "<group>";
+		};
+		AC9A0D871BF7702500B2C856 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC9A0D881BF7702500B2C856 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		ACADB3C7190D23B90030CC82 = {
 			isa = PBXGroup;
 			children = (
@@ -1162,6 +1277,8 @@
 				AC78818C1BED3F6700675C75 /* HabitsCommonTests */,
 				AC7A48351BED449300A8FBAD /* HabitsTodayExtension */,
 				AC373F381BF754CF00A212D9 /* HabitsUITests */,
+				AC9A0D771BF7702500B2C856 /* HabitsWatchApp */,
+				AC9A0D861BF7702500B2C856 /* HabitsWatchApp Extension */,
 				ACADB3D2190D23B90030CC82 /* Frameworks */,
 				ACADB3D1190D23B90030CC82 /* Products */,
 				8D7BA1AED4D3609EBA5597E3 /* Pods */,
@@ -1177,6 +1294,8 @@
 				AC7881861BED3F6700675C75 /* HabitsCommonTests.xctest */,
 				AC7A48321BED449300A8FBAD /* HabitsTodayExtension.appex */,
 				AC373F371BF754CF00A212D9 /* HabitsUITests.xctest */,
+				AC9A0D761BF7702500B2C856 /* HabitsWatchApp.app */,
+				AC9A0D821BF7702500B2C856 /* HabitsWatchApp Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1275,6 +1394,8 @@
 				AC735DE319705608007CD2B7 /* Stats */,
 				AC4018AE19506B300033407B /* UI */,
 				AC4018BB195073160033407B /* Constants.h */,
+				AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */,
+				AC6137341C00D7EA00162605 /* WatchShim.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1556,6 +1677,40 @@
 			productReference = AC7A48321BED449300A8FBAD /* HabitsTodayExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		AC9A0D751BF7702500B2C856 /* HabitsWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC9A0D9D1BF7702600B2C856 /* Build configuration list for PBXNativeTarget "HabitsWatchApp" */;
+			buildPhases = (
+				AC9A0D741BF7702500B2C856 /* Resources */,
+				AC9A0D9C1BF7702600B2C856 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC9A0D851BF7702500B2C856 /* PBXTargetDependency */,
+			);
+			name = HabitsWatchApp;
+			productName = HabitsWatchApp;
+			productReference = AC9A0D761BF7702500B2C856 /* HabitsWatchApp.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		AC9A0D811BF7702500B2C856 /* HabitsWatchApp Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC9A0D991BF7702600B2C856 /* Build configuration list for PBXNativeTarget "HabitsWatchApp Extension" */;
+			buildPhases = (
+				AC9A0D7E1BF7702500B2C856 /* Sources */,
+				AC9A0D7F1BF7702500B2C856 /* Frameworks */,
+				AC9A0D801BF7702500B2C856 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HabitsWatchApp Extension";
+			productName = "HabitsWatchApp Extension";
+			productReference = AC9A0D821BF7702500B2C856 /* HabitsWatchApp Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		ACADB3CF190D23B90030CC82 /* Habits */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACADB402190D23B90030CC82 /* Build configuration list for PBXNativeTarget "Habits" */;
@@ -1570,12 +1725,14 @@
 				ECC24DF8084B2BB0E2C49D13 /* Embed Pods Frameworks */,
 				AC7881971BED3F6700675C75 /* Embed Frameworks */,
 				AC7A48421BED449300A8FBAD /* Embed App Extensions */,
+				AC9A0DA01BF7702600B2C856 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				AC7881911BED3F6700675C75 /* PBXTargetDependency */,
 				AC7A483D1BED449300A8FBAD /* PBXTargetDependency */,
+				AC9A0D971BF7702600B2C856 /* PBXTargetDependency */,
 			);
 			name = Habits;
 			productName = Habits;
@@ -1635,6 +1792,24 @@
 							};
 						};
 					};
+					AC9A0D751BF7702500B2C856 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = TNRLJ4WU59;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					AC9A0D811BF7702500B2C856 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = TNRLJ4WU59;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					ACADB3CF190D23B90030CC82 = {
 						DevelopmentTeam = TNRLJ4WU59;
 						SystemCapabilities = {
@@ -1670,6 +1845,8 @@
 				AC7881851BED3F6700675C75 /* HabitsCommonTests */,
 				AC7A48311BED449300A8FBAD /* HabitsTodayExtension */,
 				AC373F361BF754CF00A212D9 /* HabitsUITests */,
+				AC9A0D751BF7702500B2C856 /* HabitsWatchApp */,
+				AC9A0D811BF7702500B2C856 /* HabitsWatchApp Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1717,6 +1894,27 @@
 				AC7A486A1BEE1C6A00A8FBAD /* check_mark@2x.png in Resources */,
 				AC7A486B1BEE1C6A00A8FBAD /* check_mark.png in Resources */,
 				AC7A483A1BED449300A8FBAD /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9A0D741BF7702500B2C856 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC9A0D7C1BF7702500B2C856 /* Assets.xcassets in Resources */,
+				AC019E6C1C01213400EBA056 /* Cross@2x.png in Resources */,
+				AC019E6A1C01212100EBA056 /* check_mark.png in Resources */,
+				AC019E6B1C01213400EBA056 /* Cross.png in Resources */,
+				AC019E691C01212100EBA056 /* check_mark@2x.png in Resources */,
+				AC9A0D7A1BF7702500B2C856 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9A0D801BF7702500B2C856 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC9A0D941BF7702600B2C856 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2017,8 +2215,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC11B4341C01F01900378810 /* WatchConnectionHelper.swift in Sources */,
 				AC7A484E1BED4BCB00A8FBAD /* HabitCellTodayWidget.swift in Sources */,
 				AC7A48371BED449300A8FBAD /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC9A0D7E1BF7702500B2C856 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC9A0D8E1BF7702500B2C856 /* NotificationController.swift in Sources */,
+				AC9A0D8C1BF7702500B2C856 /* ExtensionDelegate.swift in Sources */,
+				AC9A0D8A1BF7702500B2C856 /* InterfaceController.swift in Sources */,
+				AC9A0DA31BF7739900B2C856 /* HabitWatchTableRowController.swift in Sources */,
+				AC9A0D901BF7702500B2C856 /* GlanceController.swift in Sources */,
+				AC61379E1C00E4D800162605 /* ComplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2027,6 +2239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC40187D195058650033407B /* CellWithCheckBox.m in Sources */,
+				AC11B4331C01F01700378810 /* WatchConnectionHelper.swift in Sources */,
 				AC94094019B8FF14003E6257 /* SKProductsRequest+Blocks.m in Sources */,
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */,
@@ -2046,6 +2259,7 @@
 				AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */,
 				ACADB3E4190D23B90030CC82 /* AppDelegate.m in Sources */,
 				AC94093C19B8FCD4003E6257 /* StatisticsFeaturePurchaseController.m in Sources */,
+				AC6137351C00D7EA00162605 /* WatchShim.swift in Sources */,
 				AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */,
 				AC4018CA195095030033407B /* MonthGridViewController.m in Sources */,
 				AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */,
@@ -2134,6 +2348,16 @@
 			target = AC7A48311BED449300A8FBAD /* HabitsTodayExtension */;
 			targetProxy = AC7A483C1BED449300A8FBAD /* PBXContainerItemProxy */;
 		};
+		AC9A0D851BF7702500B2C856 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC9A0D811BF7702500B2C856 /* HabitsWatchApp Extension */;
+			targetProxy = AC9A0D841BF7702500B2C856 /* PBXContainerItemProxy */;
+		};
+		AC9A0D971BF7702600B2C856 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC9A0D751BF7702500B2C856 /* HabitsWatchApp */;
+			targetProxy = AC9A0D961BF7702600B2C856 /* PBXContainerItemProxy */;
+		};
 		ACADB3F7190D23B90030CC82 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ACADB3CF190D23B90030CC82 /* Habits */;
@@ -2148,6 +2372,14 @@
 				AC7A48391BED449300A8FBAD /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		AC9A0D781BF7702500B2C856 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC9A0D791BF7702500B2C856 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		ACADB3DC190D23B90030CC82 /* InfoPlist.strings */ = {
@@ -2357,6 +2589,110 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AC9A0D9A1BF7702600B2C856 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "HabitsWatchApp Extension/HabitsWatchApp Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "HabitsWatchApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		AC9A0D9B1BF7702600B2C856 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = "HabitsWatchApp Extension/HabitsWatchApp Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "HabitsWatchApp Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		AC9A0D9E1BF7702600B2C856 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HabitsWatchApp/HabitsWatchApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = HabitsWatchApp_Extension;
+				INFOPLIST_FILE = HabitsWatchApp/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		AC9A0D9F1BF7702600B2C856 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_ENTITLEMENTS = HabitsWatchApp/HabitsWatchApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = HabitsWatchApp_Extension;
+				INFOPLIST_FILE = HabitsWatchApp/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -2571,6 +2907,24 @@
 			buildConfigurations = (
 				AC7A48401BED449300A8FBAD /* Debug */,
 				AC7A48411BED449300A8FBAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC9A0D991BF7702600B2C856 /* Build configuration list for PBXNativeTarget "HabitsWatchApp Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC9A0D9A1BF7702600B2C856 /* Debug */,
+				AC9A0D9B1BF7702600B2C856 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC9A0D9D1BF7702600B2C856 /* Build configuration list for PBXNativeTarget "HabitsWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC9A0D9E1BF7702600B2C856 /* Debug */,
+				AC9A0D9F1BF7702600B2C856 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

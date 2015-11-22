@@ -25,11 +25,11 @@
 +(NSArray*)activeButNotToday;
 +(NSArray*)inactive;
 +(NSInteger)habitCountForDate:(NSDate*)day;
-+(Habit*)findHabitByIdentifier:(NSString*)identifier;
++(Habit*__nullable)findHabitByIdentifier:(NSString*__nonnull)identifier;
 /**
  *  Only really intended to be used in tests
  */
-+(Habit *)findHabitByTitle:(NSString *)identifier;
++(Habit *__nullable)findHabitByTitle:(NSString *__nonnull)identifier;
 #pragma mark - Notifications
 +(void)recalculateAllNotifications;
 

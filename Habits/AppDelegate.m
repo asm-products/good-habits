@@ -24,8 +24,10 @@
 #import "TimeHelper.h"
 #import "HabitDay.h"
 #import "Chain.h"
+#import "Habits-Swift.h"
 @implementation AppDelegate{
     BOOL hasBeenActiveYet;
+    WatchShim * watchShim;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -36,7 +38,7 @@
     [Crashlytics startWithAPIKey:@"3254ccee18a98f4b57c4dc9d4fdd5d961828f59d"];
     [InfoTask trackInstallationDate];
     [AppFeatures setDefaults];
-    
+    watchShim = [WatchShim new];
 //    [Lookback_Weak setupWithAppToken:@"bGofRBSyqLvCF98Nj"];
     
     [[StatisticsFeaturePurchaseController sharedController] listenForTransactions];
@@ -105,7 +107,6 @@
     [Notifications reschedule];
 }
 -(void)applicationDidBecomeActive:(UIApplication *)application{
-    return;
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil userInfo:nil];
 //    [self showAuditScreenIfNeeded];
     [HabitsQueries recalculateAllNotifications];
@@ -179,6 +180,11 @@
         [application scheduleLocalNotification:snooze];
     }
     completionHandler();
+}
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(nullable NSDictionary *)userInfo reply:(void(^)(NSDictionary * __nullable replyInfo))reply NS_AVAILABLE_IOS(8_2);
+{
+    
+    [WatchShim handleWatchkitExtensionRequest:userInfo reply:reply];
 }
 //-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
 //    return YES;

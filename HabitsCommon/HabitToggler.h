@@ -13,9 +13,12 @@
 
 #define TODAY_CHECKED_FOR_CHAIN @"TODAY_CHECKED_FOR_CHAIN"
 #define CHAIN_MODIFIED @"CHAIN_MODIFIED"
+#define HABIT_TOGGLE_COMPLETE @"HABIT_TOGGLE_COMPLETE"
 
 @interface HabitToggler : NSObject
 @property (nonatomic,strong, nullable) Failure * failure;
+@property (nonatomic) BOOL shouldNotify;
+-(instancetype __nonnull)initWithNotifications:(BOOL)shouldNotify;
 NS_ASSUME_NONNULL_BEGIN
 -(DayCheckedState)toggleTodayForHabit:(Habit*)habit;
 /// Toggles day state and also assigns self.failure if there is one

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AwardImage : NSObject
-+(UIImage*)starColored:(UIColor*)color;
-+(UIImage*)circleColored:(UIColor*)color;
++(UIImage*__nonnull)starColored:(UIColor*__nonnull)color;
++(UIImage*__nonnull)circleColored:(UIColor*__nonnull)color;
 @end

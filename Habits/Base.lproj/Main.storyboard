@@ -580,7 +580,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChainBreak" textLabel="c0c-PC-DNv" detailTextLabel="iF3-eD-2GL" style="IBUITableViewCellStyleValue1" id="OtZ-lL-gk2">
-                                <rect key="frame" x="0.0" y="49.5" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="113.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OtZ-lL-gk2" id="e7r-wW-2Nf">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -608,7 +608,7 @@
                                 <animations/>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Sparkline" rowHeight="260" id="hLS-Il-nCe" customClass="HabitSparklineTableViewCell">
-                                <rect key="frame" x="0.0" y="93.5" width="320" height="260"/>
+                                <rect key="frame" x="0.0" y="157.5" width="320" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hLS-Il-nCe" id="jxe-nl-iji">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="259.5"/>
@@ -729,7 +729,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Chain" id="Neg-57-4dQ" customClass="ChainStatsCell">
-                                <rect key="frame" x="0.0" y="353.5" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="417.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Neg-57-4dQ" id="Vem-lU-odo">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -765,7 +765,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReasonCell" rowHeight="62" id="M9D-R6-CFq" customClass="ReasonCellTableViewCell">
-                                <rect key="frame" x="0.0" y="397.5" width="320" height="62"/>
+                                <rect key="frame" x="0.0" y="461.5" width="320" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M9D-R6-CFq" id="58j-Vq-SI5">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
@@ -804,7 +804,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChainLengthDistribution" rowHeight="80" id="mtS-Q2-v7z" customClass="ChainLengthDistributionTableViewCell">
-                                <rect key="frame" x="0.0" y="459.5" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="523.5" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mtS-Q2-v7z" id="9Oo-Gl-snx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
@@ -1252,9 +1252,9 @@
         <image name="info.png" width="8" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cZe-e4-Kh8"/>
-        <segue reference="LRt-8p-1fe"/>
+        <segue reference="chS-Yr-Ljg"/>
         <segue reference="t3i-Zh-mBS"/>
+        <segue reference="cZe-e4-Kh8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.27843138575553894" green="0.56078433990478516" blue="0.70588237047195435" alpha="1" colorSpace="deviceRGB"/>
 </document>

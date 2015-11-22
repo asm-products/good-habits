@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
+    </dependencies>
+    <scenes>
+        <!--Habits-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="Habits" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HabitsWatchApp" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="7FW-fX-Ney">
+                            <items>
+                                <tableRow identifier="Habit" id="Z5r-jY-4vU" customClass="HabitWatchTableRowController" customModule="HabitsWatchApp_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="RLu-kx-lwG">
+                                        <items>
+                                            <button width="39" height="39" alignment="left" id="InQ-G2-Bkm">
+                                                <connections>
+                                                    <action selector="didPressCheckButton" destination="Z5r-jY-4vU" id="uUr-8O-Dn3"/>
+                                                </connections>
+                                            </button>
+                                            <label width="86" height="38.5" alignment="left" text="[Habit]" baselineAdjustment="alignCenters" id="LC8-5o-gTB"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="checkButton" destination="InQ-G2-Bkm" id="wBu-6J-tTW"/>
+                                        <outlet property="titleLabel" destination="LC8-5o-gTB" id="KDn-YQ-UYP"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="habitsTable" destination="7FW-fX-Ney" id="oo9-dp-htC"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="235" y="347"/>
+        </scene>
+        <!--Glance Interface Controller-->
+        <scene sceneID="Xpf-Pd-5O3">
+            <objects>
+                <glanceController topTemplateType="groupLeftSmall" bottomTemplateType="extraLargeLargeBody1Footer" id="0pS-bk-F4V" customClass="GlanceController" customModule="HabitsWatchApp_Extension">
+                    <items>
+                        <group alignment="left" id="Vmw-xl-gYx">
+                            <items>
+                                <imageView width="1" height="1" alignment="left" id="RzZ-py-sii"/>
+                            </items>
+                        </group>
+                        <label alignment="left" text="Habits" id="Dg3-ED-Ixw"/>
+                        <label alignment="left" text="Label" id="S21-ZU-G1E"/>
+                        <label alignment="left" text="Label" id="Xi7-Cy-4m7"/>
+                        <label alignment="left" text="1234" id="TNQ-zc-30I"/>
+                        <label alignment="left" text="1234" id="kXG-4s-qYC"/>
+                        <label alignment="left" text="Label" id="LKx-wW-V0n"/>
+                        <label alignment="left" text="Footer" id="32W-1c-ctM"/>
+                    </items>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="235" y="598"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Habits notification" id="XkS-y5-khE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="851"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="HabitsWatchApp" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="851"/>
+        </scene>
+    </scenes>
+</document>

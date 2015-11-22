@@ -14,7 +14,7 @@ typedef enum{
     DayCheckedStateNull,
     DayCheckedStateComplete,
     DayCheckedStateBroken,
-    DayCheckedStateCount
+    DayCheckedStateCount // number of enums for iteration - not, like, the chain length count or anything
 } DayCheckedState;
 
 

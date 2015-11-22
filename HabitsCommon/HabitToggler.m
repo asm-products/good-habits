@@ -13,6 +13,18 @@
 #import "HabitsQueries.h"
 
 @implementation HabitToggler
+-(instancetype)init{
+    if(self = [super init]){
+        self.shouldNotify = YES;
+    }
+    return self;
+}
+-(instancetype)initWithNotifications:(BOOL)shouldNotify{
+    if(self = [super init]){
+        self.shouldNotify = shouldNotify;
+    }
+    return self;
+}
 -(DayCheckedState)toggleTodayForHabit:(Habit*)habit{
     return [self toggleHabit:habit day:[TimeHelper today]];
 }
@@ -45,14 +57,15 @@
     }
     [[CoreDataClient defaultClient] save];
     self.failure = failure;
-    if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:chain];
-    [[NSNotificationCenter defaultCenter] postNotificationName:CHAIN_MODIFIED object:chain userInfo:nil];
-    
-    NSUserDefaults * defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.goodtohear.habits"];
-    [defaults setObject:[NSDate date] forKey:@"updatedDate"];
-    
-    [defaults synchronize];
-    
+    if(self.shouldNotify){
+        if(state == DayCheckedStateComplete) [[NSNotificationCenter defaultCenter] postNotificationName:TODAY_CHECKED_FOR_CHAIN object:chain];
+        [[NSNotificationCenter defaultCenter] postNotificationName:CHAIN_MODIFIED object:chain userInfo:nil];
+        NSUserDefaults * defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.goodtohear.habits"];
+        [defaults setObject:[NSDate date] forKey:@"updatedDate"];
+        
+        [defaults synchronize];
+        [[NSNotificationCenter defaultCenter] postNotificationName:HABIT_TOGGLE_COMPLETE object:nil];
+    }
     return state;
 }
 @end

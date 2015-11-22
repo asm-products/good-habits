@@ -40,6 +40,7 @@
 -(BOOL)hasReminders;
 -(BOOL)isNew;
 -(NSDate*)nextDayRequiredAfter:(NSDate*)date;
+-(void)ensureDayCheckedStateForDate:(NSDate*__nonnull)date dayState:(DayCheckedState)dayCheckedState;
 
 #pragma mark - Meta
 -(NSDate*)earliestDate;

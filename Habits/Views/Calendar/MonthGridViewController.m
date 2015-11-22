@@ -17,6 +17,8 @@
 #import "Chain.h"
 #import "HabitDayQueries.h"
 #import <SVProgressHUD.h>
+#import "Habits-Swift.h"
+#import "HabitToggler.h"
 #define CELL_SIZE CGSizeMake(45, 44)
 #define CELL_COUNT (7*5)
 
@@ -137,6 +139,7 @@
         [self showChainsForHabit:self.habit callback:nil];
 
         [self.habit recalculateRunningTotalsInBackground:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:CHAIN_MODIFIED object:nil];
         }];
         
         
