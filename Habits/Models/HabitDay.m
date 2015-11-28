@@ -8,7 +8,6 @@
 
 #import "HabitDay.h"
 #import "Habit.h"
-#import "DayKeys.h"
 #import "Chain.h"
 @implementation HabitDay
 @dynamic dayKey,dayStateCache,date,chain,runningTotalCache,timeZoneOffset;

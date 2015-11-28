@@ -29,18 +29,41 @@ import HabitsCommon
             print("couldn't update watch application context")
         }
     }
-    func latestData()->[String:AnyObject]{
+    func habitStructFromHabit(habit:Habit)->HabitStruct{
+        return HabitStruct(
+            identifier: habit.identifier,
+            title: habit.title,
+            order: Int(habit.order),
+            color: habit.color,
+            state: HabitDayState(rawValue: Int(habit.chainForDate(NSDate()).dayState().rawValue))!
+        )
+    }
+    func habitDaysWithJustToday()->[String: [HabitStructDictionary]]{
         let habits = HabitsQueries.activeToday() as! [Habit]
-        let habitDicts:[[String:AnyObject]] = habits.map { habit in
-            let state:DayCheckedState = habit.chainForDate(NSDate()).dayState()
-            return [
-                "identifier": habit.identifier,
-                "title": habit.title,
-                "order": habit.order,
-                "state": Int(state.rawValue)
-            ]
+        let habitDicts = habits.map {
+            habitStructFromHabit($0).toDictionary()
         }
-        let info:[String:AnyObject] = ["habits":habitDicts]
+        return [dayKey(NSDate()): habitDicts]
+    }
+    func dayTemplates()->[String:[HabitStructDictionary]]{ // fuck, this is a bit weird - should just send the list of habits with the days they're needed
+        let habits = HabitsQueries.active() as! [Habit]
+        var result = [String:[HabitStructDictionary]]()
+        for day in (1...7){
+            result[weekdayNameOfWeekdayComponent(day)] =
+                habits.filter({
+                    Bool($0.daysRequired[day-1] as! NSNumber)
+                }).map {
+                    habitStructFromHabit($0).toDictionary()
+                }
+        }
+        return result
+    }
+    func latestData()->AppContextFormat{
+        // just need to add today when creating the latest data
+        let info:AppContextFormat = [
+            "habits": habitDaysWithJustToday(),
+            "templates": dayTemplates()
+        ]
 //        var reminders = [[NSDate:Int]]()
 //        let baseCount = habits.filter({$0.hasReminders() == false } ).count
 //        let today = TimeHelper.startOfDayInUTC(NSDate())
@@ -53,17 +76,24 @@ import HabitsCommon
         return info
     }
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
-        if let habits = applicationContext["habits"] as? [[String:AnyObject]]{
-            for dict in habits{
-                updateHabitWithDict(dict)
+        guard let context = applicationContext as? AppContextFormat, dates = context["habits"] else {
+                print("Failed to parse habits from application context \(applicationContext)")
+            return
+        }
+        for (dateKey, habits) in dates{
+            if let date = dateFromKey(dateKey){
+                for habit in habits.map({ HabitStruct(dict: $0)}) {
+                    self.updateHabitWithStruct(habit, date: date)
+                }
+            }else{
+                print("Error! Unknown date \(dateKey)")
             }
         }
     }
-    func updateHabitWithDict(dict:[String:AnyObject]){
-        let id = dict["identifier"] as! String
-        let state = dict["state"] as! Int
-        let dayCheckedState = DayCheckedState(rawValue: UInt32(state))
-        if let habit = HabitsQueries.findHabitByIdentifier(id){
+    func updateHabitWithStruct(source:HabitStruct, date: NSDate){
+        let state = UInt32(source.state.rawValue)
+        let dayCheckedState = DayCheckedState(rawValue: state)
+        if let habit = HabitsQueries.findHabitByIdentifier(source.identifier){
             habit.ensureDayCheckedStateForDate(NSDate(), dayState: dayCheckedState)
         }
         NSNotificationCenter.defaultCenter().postNotificationName(REFRESH, object: nil)

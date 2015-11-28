@@ -16,8 +16,7 @@
 #import "CoreDataClient.h"
 #import "Chain.h"
 #import "HabitDay.h"
-#import "DayKeys.h"
-
+#import "Habits-Swift.h"
 @implementation PlistStoreToCoreDataMigrator
 +(BOOL)dataCanBeMigrated{
     return [self habitsStoredByMotion] != nil;

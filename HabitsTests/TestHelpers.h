@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Habit.h"
-#import "DayKeys.h"
+@import HabitsCommon;
+
 @interface TestHelpers : NSObject
 +(Habit*)habit:(NSDictionary*)dictionary daysChecked:(NSArray*)dayKeys;
 +(NSMutableArray*)everyDay;

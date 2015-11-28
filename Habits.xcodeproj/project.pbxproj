@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		030F35DE447B4E78BEA68A7F /* libPods-Habits.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F79A2189454A3AAF48A73F /* libPods-Habits.a */; };
 		08EBF733EDB44E95988EEE3C /* libPods-HabitsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */; };
+		0D127C0D61956254468091F2 /* libPods-HabitsTodayExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4012AE22AD698970C4F9F58 /* libPods-HabitsTodayExtension.a */; };
 		40D964E71EE0214E98DF6668 /* libPods-HabitsCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B80495B8295DFE3CB89574 /* libPods-HabitsCommon.a */; };
 		AC019E691C01212100EBA056 /* check_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB44D190D27960030CC82 /* check_mark@2x.png */; };
 		AC019E6A1C01212100EBA056 /* check_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB44E190D27960030CC82 /* check_mark.png */; };
@@ -16,7 +17,6 @@
 		AC019E6C1C01213400EBA056 /* Cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237B0196C2FB400A2FF9F /* Cross@2x.png */; };
 		AC088A7519EB120C0068F6EC /* TimeHelperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AC088A7419EB120C0068F6EC /* TimeHelperTest.m */; };
 		AC11B4331C01F01700378810 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */; };
-		AC11B4341C01F01900378810 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */; };
 		AC1D7DE51BF748FF00700CB0 /* MigrationToSharedContainerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D7DE41BF748FF00700CB0 /* MigrationToSharedContainerTests.m */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_legacy.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */; };
 		AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */; };
@@ -28,6 +28,12 @@
 		AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */; };
 		AC1EB93B19B0F71A00BF7EAF /* broken_chain_cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */; };
 		AC1EB93C19B0F71A00BF7EAF /* broken_chain_cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */; };
+		AC1FDDBB1C09DC1A00A99B05 /* DayKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDB81C09D4F900A99B05 /* DayKeys.swift */; };
+		AC1FDDBC1C09DC1C00A99B05 /* DayKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDB81C09D4F900A99B05 /* DayKeys.swift */; };
+		AC1FDDBF1C09EF8E00A99B05 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDBE1C09EF8E00A99B05 /* Habit.swift */; };
+		AC1FDDC01C09FD2D00A99B05 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDBE1C09EF8E00A99B05 /* Habit.swift */; };
+		AC1FDDC11C0A091D00A99B05 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDBE1C09EF8E00A99B05 /* Habit.swift */; };
+		AC1FDDC31C0A124800A99B05 /* WatchLandingInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDC21C0A124800A99B05 /* WatchLandingInterfaceController.swift */; };
 		AC21B23619CEDA250024BE96 /* PastDayCheckView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC21B23519CEDA250024BE96 /* PastDayCheckView.m */; };
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
 		AC2B474C19D72A64008FE6DE /* Habits Tutorial.mov in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */; };
@@ -113,7 +119,6 @@
 		AC7A481F1BED418400A8FBAD /* ChainQueries.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3719A7AB5C000C03F5 /* ChainQueries.m */; };
 		AC7A48201BED418400A8FBAD /* CoreDataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018F91951BF2E0033407B /* CoreDataClient.m */; };
 		AC7A48221BED420300A8FBAD /* InfoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018E21950F84C0033407B /* InfoTask.m */; };
-		AC7A48281BED432700A8FBAD /* DayKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0B78021976718500CEC018 /* DayKeys.m */; };
 		AC7A48291BED437400A8FBAD /* PlistStoreToCoreDataMigrator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187819504E630033407B /* PlistStoreToCoreDataMigrator.m */; };
 		AC7A482A1BED437400A8FBAD /* LegacyJSONImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B5819C6F1C700398F81 /* LegacyJSONImporter.m */; };
 		AC7A482B1BED437400A8FBAD /* JSONConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B5C19C6F22D00398F81 /* JSONConversion.m */; };
@@ -167,13 +172,13 @@
 		AC9A0D7A1BF7702500B2C856 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D781BF7702500B2C856 /* Interface.storyboard */; };
 		AC9A0D7C1BF7702500B2C856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D7B1BF7702500B2C856 /* Assets.xcassets */; };
 		AC9A0D831BF7702500B2C856 /* HabitsWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AC9A0D821BF7702500B2C856 /* HabitsWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AC9A0D8A1BF7702500B2C856 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D891BF7702500B2C856 /* InterfaceController.swift */; };
+		AC9A0D8A1BF7702500B2C856 /* WatchHabitsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D891BF7702500B2C856 /* WatchHabitsListController.swift */; };
 		AC9A0D8C1BF7702500B2C856 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D8B1BF7702500B2C856 /* ExtensionDelegate.swift */; };
 		AC9A0D8E1BF7702500B2C856 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D8D1BF7702500B2C856 /* NotificationController.swift */; };
-		AC9A0D901BF7702500B2C856 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0D8F1BF7702500B2C856 /* GlanceController.swift */; };
 		AC9A0D941BF7702600B2C856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9A0D931BF7702500B2C856 /* Assets.xcassets */; };
 		AC9A0D981BF7702600B2C856 /* HabitsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AC9A0D761BF7702500B2C856 /* HabitsWatchApp.app */; };
 		AC9A0DA31BF7739900B2C856 /* HabitWatchTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA21BF7739900B2C856 /* HabitWatchTableRowController.swift */; };
+		ACAC10AF1C020B1000457ECB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC10AE1C020B1000457ECB /* UIColorExtension.swift */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -359,13 +364,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A56CF0EE90F5868C54AF36B /* Pods-HabitsTodayExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTodayExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsTodayExtension/Pods-HabitsTodayExtension.release.xcconfig"; sourceTree = "<group>"; };
 		473447AF77B0FB2FE7BD78FC /* Pods-HabitsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests.release.xcconfig"; sourceTree = "<group>"; };
 		88F79A2189454A3AAF48A73F /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6C3ACDC59645D5628516D7 /* Pods-Habits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.release.xcconfig"; path = "Pods/Target Support Files/Pods-Habits/Pods-Habits.release.xcconfig"; sourceTree = "<group>"; };
 		98493DE36D14591060371E19 /* Pods-HabitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A4012AE22AD698970C4F9F58 /* libPods-HabitsTodayExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTodayExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC088A7419EB120C0068F6EC /* TimeHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelperTest.m; sourceTree = "<group>"; };
-		AC0B78011976718500CEC018 /* DayKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayKeys.h; path = ../Habits/Helpers/DayKeys.h; sourceTree = "<group>"; };
-		AC0B78021976718500CEC018 /* DayKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayKeys.m; path = ../Habits/Helpers/DayKeys.m; sourceTree = "<group>"; };
 		AC1D7DE41BF748FF00700CB0 /* MigrationToSharedContainerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationToSharedContainerTests.m; sourceTree = "<group>"; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_legacy.json; sourceTree = "<group>"; };
 		AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConversionTests.m; sourceTree = "<group>"; };
@@ -375,6 +380,9 @@
 		AC1EB93719B0D76100BF7EAF /* ChainManipulationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainManipulationTests.m; sourceTree = "<group>"; };
 		AC1EB93919B0F71A00BF7EAF /* broken_chain_cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broken_chain_cross.png; sourceTree = "<group>"; };
 		AC1EB93A19B0F71A00BF7EAF /* broken_chain_cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "broken_chain_cross@2x.png"; sourceTree = "<group>"; };
+		AC1FDDB81C09D4F900A99B05 /* DayKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayKeys.swift; sourceTree = "<group>"; };
+		AC1FDDBE1C09EF8E00A99B05 /* Habit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		AC1FDDC21C0A124800A99B05 /* WatchLandingInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchLandingInterfaceController.swift; sourceTree = "<group>"; };
 		AC21B23119CCBDC00024BE96 /* AwardImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AwardImage.h; path = ../Habits/Views/UI/AwardImage.h; sourceTree = "<group>"; };
 		AC21B23219CCBDC00024BE96 /* AwardImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AwardImage.m; path = ../Habits/Views/UI/AwardImage.m; sourceTree = "<group>"; };
 		AC21B23419CEDA250024BE96 /* PastDayCheckView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastDayCheckView.h; sourceTree = "<group>"; };
@@ -550,16 +558,17 @@
 		AC9A0D7D1BF7702500B2C856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC9A0D821BF7702500B2C856 /* HabitsWatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HabitsWatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9A0D881BF7702500B2C856 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		AC9A0D891BF7702500B2C856 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		AC9A0D891BF7702500B2C856 /* WatchHabitsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHabitsListController.swift; sourceTree = "<group>"; };
 		AC9A0D8B1BF7702500B2C856 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		AC9A0D8D1BF7702500B2C856 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		AC9A0D8F1BF7702500B2C856 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		AC9A0D931BF7702500B2C856 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9A0D951BF7702600B2C856 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC9A0DA21BF7739900B2C856 /* HabitWatchTableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitWatchTableRowController.swift; sourceTree = "<group>"; };
 		AC9A0DA61BF7747800B2C856 /* HabitsWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HabitsWatchApp.entitlements; sourceTree = "<group>"; };
 		AC9A0DA71BF7748B00B2C856 /* HabitsWatchApp Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "HabitsWatchApp Extension.entitlements"; sourceTree = "<group>"; };
 		AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectionHelper.swift; sourceTree = "<group>"; };
+		ACAC10AE1C020B1000457ECB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		ACAC10B41C020E4500457ECB /* HabitsTodayExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HabitsTodayExtension-Bridging-Header.h"; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -643,7 +652,7 @@
 		ACBCD3BC19B456DD00085A95 /* ReminderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTests.m; sourceTree = "<group>"; };
 		ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 10.xcdatamodel"; sourceTree = "<group>"; };
 		ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 11.xcdatamodel"; sourceTree = "<group>"; };
-		ACBD81ED1B7A325600CCED14 /* Habits-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Habits-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACBD81ED1B7A325600CCED14 /* Habits-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Habits-Bridging-Header.h"; path = "Views/Cells/Habits-Bridging-Header.h"; sourceTree = "<group>"; };
 		ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreInfoTableViewCell.swift; sourceTree = "<group>"; };
 		ACDABCFF1BF37505007A7274 /* HabitToggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitToggler.h; sourceTree = "<group>"; };
 		ACDABD001BF37505007A7274 /* HabitToggler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitToggler.m; sourceTree = "<group>"; };
@@ -665,6 +674,7 @@
 		ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStatsTableViewController.m; sourceTree = "<group>"; };
 		ACEDA1EE19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticsFeaturePurchaseView.xib; path = ../Views/AppFeatures/StatisticsFeaturePurchaseView.xib; sourceTree = "<group>"; };
 		B430E7DA9758A053F5C63407 /* Pods-Habits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Habits/Pods-Habits.debug.xcconfig"; sourceTree = "<group>"; };
+		B99F7D55F1EB41FEF51D6C5D /* Pods-HabitsTodayExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTodayExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsTodayExtension/Pods-HabitsTodayExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		C8B80495B8295DFE3CB89574 /* libPods-HabitsCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsCommon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98972F6CF3DF4A67D574881 /* Pods-HabitsCommon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsCommon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsCommon/Pods-HabitsCommon.debug.xcconfig"; sourceTree = "<group>"; };
@@ -701,6 +711,7 @@
 			files = (
 				AC373F301BF7518300A212D9 /* HabitsCommon.framework in Frameworks */,
 				AC7A48341BED449300A8FBAD /* NotificationCenter.framework in Frameworks */,
+				0D127C0D61956254468091F2 /* libPods-HabitsTodayExtension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +760,8 @@
 				473447AF77B0FB2FE7BD78FC /* Pods-HabitsTests.release.xcconfig */,
 				D98972F6CF3DF4A67D574881 /* Pods-HabitsCommon.debug.xcconfig */,
 				F5FF3CC0CD5C005735ED37CE /* Pods-HabitsCommon.release.xcconfig */,
+				B99F7D55F1EB41FEF51D6C5D /* Pods-HabitsTodayExtension.debug.xcconfig */,
+				3A56CF0EE90F5868C54AF36B /* Pods-HabitsTodayExtension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -760,6 +773,14 @@
 				AC2BC91A19C77C61007C378D /* habits_data.json */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		AC1FDDBD1C09EF7B00A99B05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC1FDDBE1C09EF8E00A99B05 /* Habit.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		AC2B474A19D72A64008FE6DE /* Tutorial */ = {
@@ -1039,7 +1060,6 @@
 				ACAE5F4919C5C839003B0893 /* ChainLengthDistributionTableViewCell.h */,
 				ACAE5F4A19C5C839003B0893 /* ChainLengthDistributionTableViewCell.m */,
 				ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */,
-				ACBD81ED1B7A325600CCED14 /* Habits-Bridging-Header.h */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1182,10 +1202,9 @@
 				ACADB4A6190D34BE0030CC82 /* Colors.m */,
 				AC40187319504ADB0033407B /* TimeHelper.h */,
 				AC40187419504ADB0033407B /* TimeHelper.m */,
-				AC0B78011976718500CEC018 /* DayKeys.h */,
-				AC0B78021976718500CEC018 /* DayKeys.m */,
 				ACDABCFF1BF37505007A7274 /* HabitToggler.h */,
 				ACDABD001BF37505007A7274 /* HabitToggler.m */,
+				AC1FDDB81C09D4F900A99B05 /* DayKeys.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1198,6 +1217,7 @@
 				AC7A48381BED449300A8FBAD /* MainInterface.storyboard */,
 				AC7A483B1BED449300A8FBAD /* Info.plist */,
 				AC7A484D1BED4BCB00A8FBAD /* HabitCellTodayWidget.swift */,
+				ACAC10B41C020E4500457ECB /* HabitsTodayExtension-Bridging-Header.h */,
 			);
 			path = HabitsTodayExtension;
 			sourceTree = "<group>";
@@ -1246,12 +1266,15 @@
 		AC9A0D861BF7702500B2C856 /* HabitsWatchApp Extension */ = {
 			isa = PBXGroup;
 			children = (
+				AC9A0D881BF7702500B2C856 /* PushNotificationPayload.apns */,
+				AC1FDDC21C0A124800A99B05 /* WatchLandingInterfaceController.swift */,
+				AC9A0D891BF7702500B2C856 /* WatchHabitsListController.swift */,
+				AC1FDDBD1C09EF7B00A99B05 /* Models */,
+				ACAC10AE1C020B1000457ECB /* UIColorExtension.swift */,
 				AC9A0DA71BF7748B00B2C856 /* HabitsWatchApp Extension.entitlements */,
-				AC9A0D891BF7702500B2C856 /* InterfaceController.swift */,
 				AC9A0DA21BF7739900B2C856 /* HabitWatchTableRowController.swift */,
 				AC9A0D8B1BF7702500B2C856 /* ExtensionDelegate.swift */,
 				AC9A0D8D1BF7702500B2C856 /* NotificationController.swift */,
-				AC9A0D8F1BF7702500B2C856 /* GlanceController.swift */,
 				AC61379D1C00E4D800162605 /* ComplicationController.swift */,
 				AC9A0D931BF7702500B2C856 /* Assets.xcassets */,
 				AC9A0D951BF7702600B2C856 /* Info.plist */,
@@ -1263,7 +1286,6 @@
 		AC9A0D871BF7702500B2C856 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AC9A0D881BF7702500B2C856 /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1313,6 +1335,7 @@
 				D17C3D26666A496993D7D391 /* libPods-HabitsTests.a */,
 				C8B80495B8295DFE3CB89574 /* libPods-HabitsCommon.a */,
 				AC7A48331BED449300A8FBAD /* NotificationCenter.framework */,
+				A4012AE22AD698970C4F9F58 /* libPods-HabitsTodayExtension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1343,6 +1366,7 @@
 		ACADB3DA190D23B90030CC82 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACBD81ED1B7A325600CCED14 /* Habits-Bridging-Header.h */,
 				ACADB3DB190D23B90030CC82 /* Habits-Info.plist */,
 				ACADB3DC190D23B90030CC82 /* InfoPlist.strings */,
 				ACADB3DF190D23B90030CC82 /* main.m */,
@@ -1664,9 +1688,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC7A483F1BED449300A8FBAD /* Build configuration list for PBXNativeTarget "HabitsTodayExtension" */;
 			buildPhases = (
+				17DC70CB135E0D609C06A7E5 /* Check Pods Manifest.lock */,
 				AC7A482E1BED449300A8FBAD /* Sources */,
 				AC7A482F1BED449300A8FBAD /* Frameworks */,
 				AC7A48301BED449300A8FBAD /* Resources */,
+				9E2AFB6514DE55CDAE07BC13 /* Embed Pods Frameworks */,
+				331E992A6B63019CFB3A135F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2035,6 +2062,51 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		17DC70CB135E0D609C06A7E5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		331E992A6B63019CFB3A135F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitsTodayExtension/Pods-HabitsTodayExtension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E2AFB6514DE55CDAE07BC13 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitsTodayExtension/Pods-HabitsTodayExtension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AC28A56A1A562BCB002E083C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2194,9 +2266,9 @@
 				AC7A482D1BED43A400A8FBAD /* TimeHelper.m in Sources */,
 				AC7A480A1BED414B00A8FBAD /* Chain.m in Sources */,
 				AC7A480C1BED414B00A8FBAD /* HabitDay.m in Sources */,
-				AC7A48281BED432700A8FBAD /* DayKeys.m in Sources */,
 				AC7A481A1BED414B00A8FBAD /* Failure.m in Sources */,
 				ACDABD1F1BF54A48007A7274 /* AwardImage.m in Sources */,
+				AC1FDDC11C0A091D00A99B05 /* Habit.swift in Sources */,
 				AC7A480E1BED414B00A8FBAD /* Calendar.m in Sources */,
 				AC7A481D1BED418400A8FBAD /* HabitsQueries.m in Sources */,
 			);
@@ -2215,7 +2287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC11B4341C01F01900378810 /* WatchConnectionHelper.swift in Sources */,
 				AC7A484E1BED4BCB00A8FBAD /* HabitCellTodayWidget.swift in Sources */,
 				AC7A48371BED449300A8FBAD /* TodayViewController.swift in Sources */,
 			);
@@ -2226,10 +2297,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC9A0D8E1BF7702500B2C856 /* NotificationController.swift in Sources */,
+				AC1FDDC31C0A124800A99B05 /* WatchLandingInterfaceController.swift in Sources */,
+				ACAC10AF1C020B1000457ECB /* UIColorExtension.swift in Sources */,
 				AC9A0D8C1BF7702500B2C856 /* ExtensionDelegate.swift in Sources */,
-				AC9A0D8A1BF7702500B2C856 /* InterfaceController.swift in Sources */,
+				AC9A0D8A1BF7702500B2C856 /* WatchHabitsListController.swift in Sources */,
+				AC1FDDBC1C09DC1C00A99B05 /* DayKeys.swift in Sources */,
 				AC9A0DA31BF7739900B2C856 /* HabitWatchTableRowController.swift in Sources */,
-				AC9A0D901BF7702500B2C856 /* GlanceController.swift in Sources */,
+				AC1FDDBF1C09EF8E00A99B05 /* Habit.swift in Sources */,
 				AC61379E1C00E4D800162605 /* ComplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2244,6 +2318,7 @@
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
+				AC1FDDC01C09FD2D00A99B05 /* Habit.swift in Sources */,
 				AC4018B419506C690033407B /* DayNavigation.m in Sources */,
 				AC7A48601BED58D000A8FBAD /* DataRecovery.swift in Sources */,
 				AC6EC67419C384B200640590 /* ReasonCellTableViewCell.m in Sources */,
@@ -2278,6 +2353,7 @@
 				ACDABD031BF3E28A007A7274 /* Notifications.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
 				AC7A48291BED437400A8FBAD /* PlistStoreToCoreDataMigrator.m in Sources */,
+				AC1FDDBB1C09DC1A00A99B05 /* DayKeys.swift in Sources */,
 				ACBD81EF1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift in Sources */,
 				ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */,
 				AC8F99471BF74B4700902C73 /* AppFeatures.m in Sources */,
@@ -2467,7 +2543,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = HabitsCommon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.HabitsCommon;
@@ -2501,7 +2577,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = HabitsCommon/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.HabitsCommon;
@@ -2550,6 +2626,7 @@
 		};
 		AC7A48401BED449300A8FBAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B99F7D55F1EB41FEF51D6C5D /* Pods-HabitsTodayExtension.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = HabitsTodayExtension/HabitsTodayExtension.entitlements;
@@ -2566,12 +2643,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HabitsTodayExtension/HabitsTodayExtension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		AC7A48411BED449300A8FBAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A56CF0EE90F5868C54AF36B /* Pods-HabitsTodayExtension.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = HabitsTodayExtension/HabitsTodayExtension.entitlements;
@@ -2589,6 +2668,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HabitsTodayExtension/HabitsTodayExtension-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -9,7 +9,6 @@
 #import "SparklineHelper.h"
 #import "TimeHelper.h"
 #import <NSArray+F.h>
-#import "DayKeys.h"
 @implementation SparklineHelper
 +(NSArray *)dataForHabit:(Habit *)habit{
     return habit.sortedChains;

@@ -9,9 +9,14 @@
 import WatchKit
 
 class HabitWatchTableRowController: NSObject {
-    var identifier: String!
-    weak var delegate:InterfaceController!
+    var habit: HabitStruct!
+    weak var delegate:WatchHabitsListController!
     var state:HabitDayState!
+    var color: UIColor?{
+        didSet{
+            checkButton.setBackgroundColor(color)
+        }
+    }
     @IBOutlet var checkButton: WKInterfaceButton!
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBAction func didPressCheckButton() {

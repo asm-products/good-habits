@@ -15,7 +15,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     var habits: [Habit]!
     
     @IBOutlet weak var tableView: UITableView!
-    var watchConnectionHelper = WatchConnectionHelper()
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshHabits()
@@ -25,11 +24,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
                 self.refreshHabits()
             }
         }
-        
-        NSNotificationCenter.defaultCenter().addObserverForName(HABIT_TOGGLE_COMPLETE, object: nil, queue: nil) { _ in
-            self.watchConnectionHelper.onHabitsUpdated()
-        }
-
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

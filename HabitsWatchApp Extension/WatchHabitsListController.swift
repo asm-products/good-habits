@@ -9,13 +9,7 @@
 import WatchKit
 import Foundation
 
-enum HabitDayState:Int{ // maps to Chain->DayCheckedState
-    case Null
-    case Complete
-    case Broken
-}
-
-class InterfaceController: WKInterfaceController{
+class WatchHabitsListController: WKInterfaceController{
 
     @IBOutlet var habitsTable: WKInterfaceTable!
     override func awakeWithContext(context: AnyObject?) {
@@ -29,23 +23,15 @@ class InterfaceController: WKInterfaceController{
         return WKExtension.sharedExtension().delegate as! ExtensionDelegate
     }
     func refresh(){
-        if let context = delegate.applicationContext{
-            showHabits(context)
-        }
-    }
-    func showHabits(applicationContext:[String:AnyObject]){
-        let habits = applicationContext["habits"] as! [[String:AnyObject]]
+        guard let habits = delegate.todaysHabits else { return }
         habitsTable.setNumberOfRows(habits.count, withRowType: "Habit")
-        
-        for (index,habit) in habits.enumerate(){
-            guard let id = habit["identifier"] as? String else { break }
+        for (index,(_,habit)) in habits.sort({ $0.1.order < $1.1.order}).enumerate(){
             let row = habitsTable.rowControllerAtIndex(index) as! HabitWatchTableRowController
-            row.identifier = id
+            row.habit = habit
             row.delegate = self
-            row.titleLabel.setText(habit["title"] as? String)
-            if let stateInt = habit["state"] as? Int, state = HabitDayState(rawValue: stateInt){
-                row.setState(state)
-            }
+            row.titleLabel.setText(habit.title)
+            row.color = habit.color
+            row.setState(habit.state)
         }
     }
     func toggleStateForHabitRow(row:HabitWatchTableRowController, currentState: HabitDayState){
@@ -54,7 +40,8 @@ class InterfaceController: WKInterfaceController{
         if raw > 2{ raw = 0 }
         let newState = HabitDayState(rawValue: raw)!
         row.setState(newState)
-        delegate.updateHabit(row.identifier, state:newState)
+        row.habit.state = newState
+        delegate.storeHabitUpdate(row.habit)
         
     }
     override func willActivate() {

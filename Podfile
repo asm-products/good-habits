@@ -39,3 +39,7 @@ target "HabitsTests" do
     pod 'Reveal-iOS-SDK', '~> 1.0'
     pod 'YLMoment', '~> 0.6'
 end
+
+target "HabitsTodayExtension" do
+    pod 'AVHexColor', '~> 1.1.0'
+end

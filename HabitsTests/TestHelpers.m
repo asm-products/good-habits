@@ -9,7 +9,6 @@
 #import "TestHelpers.h"
 #import "Calendar.h"
 #import <NSArray+F.h>
-#import "DayKeys.h"
 #import "PlistStoreToCoreDataMigrator.h"
 #import "HabitsQueries.h"
 #import <OCMock.h>

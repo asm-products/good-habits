@@ -10,13 +10,15 @@ import WatchKit
 import WatchConnectivity
 import ClockKit
 let UpdateNotificationName = "UPDATE"
+
+
 class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
     var session:WCSession!
-    var habitsKeyedByIdentifier = [String:[String:AnyObject]]()
+    var todaysHabits: [String:HabitStruct]?
     var applicationContext: [String:AnyObject]?{
         didSet{
             saveApplicationContextToLocalStorage()
-            populateHabitsFromApplicationContext()
+            populateTodayFromApplicationContext()
             dispatch_async(dispatch_get_main_queue()) {
                 NSNotificationCenter.defaultCenter().postNotificationName(UpdateNotificationName, object: nil)
             }
@@ -28,12 +30,25 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         session.delegate = self
         session.activateSession()
     }
-    func populateHabitsFromApplicationContext(){
-        guard let context = applicationContext, habits = context["habits"] as? [[String:AnyObject]] else {return}
-        for habit in habits{
-            if let id = habit["identifier"] as? String{
-                habitsKeyedByIdentifier[id] = habit
+    func populateTodayFromApplicationContext(){
+        guard let context = applicationContext as? AppContextFormat, habits = context["habits"], templates = context["templates"]  else {
+            print("ERROR - bad context format \(applicationContext)")
+            return
+        }
+        todaysHabits = [String:HabitStruct]()
+        if let todaysHabits = habits[dayKey(NSDate())] {
+            // found today in the context
+            for habit in todaysHabits.map({HabitStruct(dict: $0)}){
+                self.todaysHabits![habit.identifier] = habit
             }
+        }else{
+            // need to create today from a template and add it to the context
+            let weekday = weekdayOfDate(NSDate()) // e.g. "mon"
+            let template = templates[weekday]! // crash if we don't get this. because wtf.
+            for habit in template.map({HabitStruct(dict: $0)}){
+                self.todaysHabits![habit.identifier] = habit
+            }
+            
         }
     }
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
@@ -54,15 +69,14 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
             dictionary.writeToFile(storeURL.path!, atomically: true)
         }
     }
-    func updateHabit(id:String, state:HabitDayState){
-        guard var context = applicationContext else {
+    func storeHabitUpdate(habit:HabitStruct){
+        guard var context = applicationContext as? AppContextFormat, habits = context["habits"] else {
             print("no application context found on which to update state!")
             return
         }
-        var habit = habitsKeyedByIdentifier[id]!
-        habit["state"] = state.rawValue
-        habitsKeyedByIdentifier[id] = habit
-        context["habits"] = habitsKeyedByIdentifier.keys.map({ self.habitsKeyedByIdentifier[$0]! }).sort({ $0["order"] as? Int ?? 0 > $1["order"] as? Int ?? 0})
+        todaysHabits![habit.identifier] = habit
+        let todaysHabitsDictArray = todaysHabits!.map({$1.toDictionary()})
+        context["habits"]![dayKey(NSDate())] = todaysHabitsDictArray
         self.applicationContext = context
         do{
             try session.updateApplicationContext(context)
@@ -88,9 +102,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         return []
     }
     func currentCount()->ReminderTime?{
-        let count = habitsKeyedByIdentifier.reduce(0) { (memo, pair) -> Int in
+        guard let todaysHabits = todaysHabits else { return nil }
+        let count = todaysHabits.reduce(0) { (memo, pair) -> Int in
             let (_, habit) = pair
-            if habit["state"] as? Int != HabitDayState.Complete.rawValue{
+            if habit.state != .Complete{
                 return memo + 1
             }else {
                 return memo

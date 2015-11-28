@@ -30,19 +30,24 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(.ShowOnLockScreen)
     }
     func templateForFamily(family:CLKComplicationFamily, count: Int)->CLKComplicationTemplate?{
-        let textProvider = CLKSimpleTextProvider(text: "\(count)")
+        let total = delegate.todaysHabits?.count ?? 0
+        let progress = Float(total - count) / Float(total)
+        let textProvider = CLKSimpleTextProvider(text: count == 0 ? "✓" : "\(count)")
         switch family{
         case .CircularSmall:
             let result = CLKComplicationTemplateCircularSmallRingText()
             result.textProvider = textProvider
+            result.fillFraction = progress
             return result
         case .ModularSmall:
             let result = CLKComplicationTemplateModularSmallRingText()
             result.textProvider = textProvider
+            result.fillFraction = progress
             return result
         case .UtilitarianSmall:
             let result = CLKComplicationTemplateUtilitarianSmallRingText()
             result.textProvider = textProvider
+            result.fillFraction = progress
             return result
         default:
             return nil
@@ -81,11 +86,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Update Scheduling
     
     func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-        if let reminderCount = delegate.reminderCountsAfterDate(NSDate(), limit: 1).first{
-            handler(reminderCount.date);
-        }else{
-            handler(nil)
-        }
+        handler(NSDate().dateByAddingTimeInterval(84000))
     }
     
     // MARK: - Placeholder Templates

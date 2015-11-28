@@ -1,27 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VPd-of-z6O">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
+        <!--Watch Landing Interface Controller-->
+        <scene sceneID="Bya-JI-ciM">
+            <objects>
+                <controller id="VPd-of-z6O" customClass="WatchLandingInterfaceController" customModule="HabitsWatchApp_Extension">
+                    <items>
+                        <imageView alignment="center" image="launch_app_on_phone" contentMode="center" id="jVg-3q-02D"/>
+                        <label alignment="center" text="Please launch Habits on your iPhone" textAlignment="center" numberOfLines="2" minimumScaleFactor="0.90000000000000002" id="oVd-bH-CKo">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="217" y="355"/>
+        </scene>
         <!--Habits-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="Habits" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HabitsWatchApp" customModuleProvider="target">
+                <controller identifier="HabitsList" title="Habits" id="AgC-eL-Hgc" customClass="WatchHabitsListController" customModule="HabitsWatchApp_Extension">
                     <items>
                         <table alignment="left" id="7FW-fX-Ney">
                             <items>
-                                <tableRow identifier="Habit" id="Z5r-jY-4vU" customClass="HabitWatchTableRowController" customModule="HabitsWatchApp_Extension">
+                                <tableRow identifier="Habit" selectable="NO" id="Z5r-jY-4vU" customClass="HabitWatchTableRowController" customModule="HabitsWatchApp_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="RLu-kx-lwG">
                                         <items>
-                                            <button width="39" height="39" alignment="left" id="InQ-G2-Bkm">
+                                            <button width="39" height="39" alignment="left" title="✓" id="InQ-G2-Bkm">
+                                                <fontDescription key="font" type="system" weight="heavy" pointSize="23"/>
                                                 <connections>
                                                     <action selector="didPressCheckButton" destination="Z5r-jY-4vU" id="uUr-8O-Dn3"/>
                                                 </connections>
                                             </button>
-                                            <label width="86" height="38.5" alignment="left" text="[Habit]" baselineAdjustment="alignCenters" id="LC8-5o-gTB"/>
+                                            <separator alignment="left" id="kRS-LN-7ha">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </separator>
+                                            <label width="89" height="38.5" alignment="left" text="[Habit]" baselineAdjustment="alignCenters" numberOfLines="0" id="LC8-5o-gTB">
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
                                         </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
                                     <connections>
                                         <outlet property="checkButton" destination="InQ-G2-Bkm" id="wBu-6J-tTW"/>
@@ -36,29 +58,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="347"/>
-        </scene>
-        <!--Glance Interface Controller-->
-        <scene sceneID="Xpf-Pd-5O3">
-            <objects>
-                <glanceController topTemplateType="groupLeftSmall" bottomTemplateType="extraLargeLargeBody1Footer" id="0pS-bk-F4V" customClass="GlanceController" customModule="HabitsWatchApp_Extension">
-                    <items>
-                        <group alignment="left" id="Vmw-xl-gYx">
-                            <items>
-                                <imageView width="1" height="1" alignment="left" id="RzZ-py-sii"/>
-                            </items>
-                        </group>
-                        <label alignment="left" text="Habits" id="Dg3-ED-Ixw"/>
-                        <label alignment="left" text="Label" id="S21-ZU-G1E"/>
-                        <label alignment="left" text="Label" id="Xi7-Cy-4m7"/>
-                        <label alignment="left" text="1234" id="TNQ-zc-30I"/>
-                        <label alignment="left" text="1234" id="kXG-4s-qYC"/>
-                        <label alignment="left" text="Label" id="LKx-wW-V0n"/>
-                        <label alignment="left" text="Footer" id="32W-1c-ctM"/>
-                    </items>
-                </glanceController>
-            </objects>
-            <point key="canvasLocation" x="235" y="598"/>
+            <point key="canvasLocation" x="421" y="355"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
