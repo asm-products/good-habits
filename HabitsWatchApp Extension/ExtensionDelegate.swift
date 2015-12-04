@@ -11,6 +11,10 @@ import WatchConnectivity
 import ClockKit
 let UpdateNotificationName = "UPDATE"
 
+func today()->NSDate{
+    let components = NSCalendar.currentCalendar().components([.Year,.Month,.Day], fromDate: NSDate())
+    return NSCalendar.currentCalendar().dateFromComponents(components)!
+}
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
     var session:WCSession!
@@ -97,7 +101,23 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
     }
 
     func reminderCountsAfterDate(date:NSDate, limit:Int)->[ReminderTime]{
-        return []
+        guard let context = applicationContext as? AppContextFormat, templates = context["templates"]  else {
+            print("No templates found for complication after date \(date)")
+            return []
+        }
+        print("getting reminder counts after \(date)")
+        var date = today()
+        let oneDay = NSDateComponents()
+        oneDay.day = 1
+        let result = [currentCount() ?? ReminderTime(today(), 0)] + (1...2).map { n->ReminderTime in
+            let weekday = weekdayOfDate(date)
+            let template = templates[weekday]!
+            let count = template.count
+            date = NSCalendar.currentCalendar().dateByAddingComponents(oneDay, toDate: date, options: [])!
+            return ReminderTime(date, count)
+        }
+        print("counts for timeline \(result)")
+        return result
     }
     func currentCount()->ReminderTime?{
         guard let todaysHabits = todaysHabits else { return nil }
@@ -109,7 +129,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
                 return memo
             }
         }
-        return ReminderTime(NSDate(), count)
+        let result = ReminderTime(today(), count)
+        if todaysHabits.count > 0{
+            result.progress = Float(todaysHabits.count - count) / Float(todaysHabits.count)
+        }
+        return result
     }
     func handleActionWithIdentifier(identifier: String?, forLocalNotification localNotification: UILocalNotification) {
         
@@ -118,11 +142,15 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         
     }
 }
-class ReminderTime{
+class ReminderTime:CustomStringConvertible{
     var count: Int
     var date: NSDate
+    var progress:Float?
     init(_ date:NSDate, _ count: Int){
         self.date = date
         self.count = count
+    }
+    var description:String{
+        return "ReminderTime: \(date):\(count)"
     }
 }

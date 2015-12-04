@@ -29,7 +29,7 @@ class WatchHabitsListController: WKInterfaceController{
             let row = habitsTable.rowControllerAtIndex(index) as! HabitWatchTableRowController
             row.habit = habit
             row.delegate = self
-            row.titleLabel.setText("\(habit.title) \(habit.order)")
+            row.titleLabel.setText(habit.title)
             row.color = habit.color
             row.setState(habit.state)
         }
