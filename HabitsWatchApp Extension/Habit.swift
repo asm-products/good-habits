@@ -22,6 +22,7 @@ struct HabitStruct{
     var order: Int
     var color: UIColor?
     var state: HabitDayState = .Null
+    var updatedTime = NSDate()
     init(dict:[String:AnyObject]){
         identifier = dict["identifier"] as? String ?? "unknown"
         title = dict["title"] as? String ?? ""

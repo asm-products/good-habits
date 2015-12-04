@@ -29,31 +29,37 @@ import HabitsCommon
             print("couldn't update watch application context")
         }
     }
-    func habitStructFromHabit(habit:Habit)->HabitStruct{
+    func habitStructFromHabit(habit:Habit, order:Int)->HabitStruct{
         return HabitStruct(
             identifier: habit.identifier,
             title: habit.title,
-            order: Int(habit.order),
+            order: order,
             color: habit.color,
             state: HabitDayState(rawValue: Int(habit.chainForDate(NSDate()).dayState().rawValue))!
         )
     }
     func habitDaysWithJustToday()->[String: [HabitStructDictionary]]{
         let habits = HabitsQueries.activeToday() as! [Habit]
-        let habitDicts = habits.map {
-            habitStructFromHabit($0).toDictionary()
+        var order = 0
+        let habitDicts = habits.map { habit->HabitStructDictionary in
+            order += 1
+            return habitStructFromHabit(habit, order: order).toDictionary()
         }
         return [dayKey(NSDate()): habitDicts]
     }
     func dayTemplates()->[String:[HabitStructDictionary]]{ // fuck, this is a bit weird - should just send the list of habits with the days they're needed
         let habits = HabitsQueries.active() as! [Habit]
         var result = [String:[HabitStructDictionary]]()
+        var order = 0
         for day in (1...7){
             result[weekdayNameOfWeekdayComponent(day)] =
                 habits.filter({
                     Bool($0.daysRequired[day-1] as! NSNumber)
-                }).map {
-                    habitStructFromHabit($0).toDictionary()
+                }).map { habit in
+                    order += 1
+                    // this results in a slightly odd 'global' ordering but it gives the desired result on the watch
+                    // and all we save when the watch gives back data is the dayCheckedState so it won't get sucked back in
+                    return habitStructFromHabit(habit, order: order).toDictionary()
                 }
         }
         return result
@@ -64,15 +70,6 @@ import HabitsCommon
             "habits": habitDaysWithJustToday(),
             "templates": dayTemplates()
         ]
-//        var reminders = [[NSDate:Int]]()
-//        let baseCount = habits.filter({$0.hasReminders() == false } ).count
-//        let today = TimeHelper.startOfDayInUTC(NSDate())
-//        for habit in habits.filter({$0.hasReminders()}){
-//            let time = habit.reminderTime
-//            
-//            
-//        }
-//        info["reminders"] = reminders
         return info
     }
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
@@ -94,7 +91,7 @@ import HabitsCommon
         let state = UInt32(source.state.rawValue)
         let dayCheckedState = DayCheckedState(rawValue: state)
         if let habit = HabitsQueries.findHabitByIdentifier(source.identifier){
-            habit.ensureDayCheckedStateForDate(NSDate(), dayState: dayCheckedState)
+            habit.ensureDayCheckedStateForDate(date, dayState: dayCheckedState)
         }
         NSNotificationCenter.defaultCenter().postNotificationName(REFRESH, object: nil)
         

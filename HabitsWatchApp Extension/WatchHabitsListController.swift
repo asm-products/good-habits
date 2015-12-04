@@ -29,7 +29,7 @@ class WatchHabitsListController: WKInterfaceController{
             let row = habitsTable.rowControllerAtIndex(index) as! HabitWatchTableRowController
             row.habit = habit
             row.delegate = self
-            row.titleLabel.setText(habit.title)
+            row.titleLabel.setText("\(habit.title) \(habit.order)")
             row.color = habit.color
             row.setState(habit.state)
         }
@@ -45,12 +45,13 @@ class WatchHabitsListController: WKInterfaceController{
         
     }
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        if delegate.todaysHabits == nil {
+            pushControllerWithName("PleaseLaunchHabits", context: nil)
+        }
     }
 
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
 

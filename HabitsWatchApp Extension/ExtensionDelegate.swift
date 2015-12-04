@@ -36,8 +36,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
             return
         }
         todaysHabits = [String:HabitStruct]()
-        if let todaysHabits = habits[dayKey(NSDate())] {
+        let key = dayKey(NSDate())
+        print("loading habits for \(key)")
+        if let todaysHabits = habits[key] {
             // found today in the context
+            print("found in the current context")
             for habit in todaysHabits.map({HabitStruct(dict: $0)}){
                 self.todaysHabits![habit.identifier] = habit
             }
@@ -45,11 +48,14 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
             // need to create today from a template and add it to the context
             let weekday = weekdayOfDate(NSDate()) // e.g. "mon"
             let template = templates[weekday]! // crash if we don't get this. because wtf.
+            print("creating from template \(template)")
             for habit in template.map({HabitStruct(dict: $0)}){
+                var habit = habit
+                habit.state = .Null
                 self.todaysHabits![habit.identifier] = habit
             }
-            
         }
+        NSNotificationCenter.defaultCenter().postNotificationName(UpdateNotificationName, object: nil)
     }
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         self.applicationContext = applicationContext
@@ -70,7 +76,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         }
     }
     func storeHabitUpdate(habit:HabitStruct){
-        guard var context = applicationContext as? AppContextFormat, habits = context["habits"] else {
+        guard var context = applicationContext as? AppContextFormat, _ = context["habits"] else {
             print("no application context found on which to update state!")
             return
         }
@@ -89,15 +95,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         }
         
     }
-    
-    func applicationDidBecomeActive() {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
 
-    func applicationWillResignActive() {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, etc.
-    }
     func reminderCountsAfterDate(date:NSDate, limit:Int)->[ReminderTime]{
         return []
     }

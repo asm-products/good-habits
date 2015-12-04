@@ -22,7 +22,7 @@ class WatchLandingInterfaceController: WKInterfaceController {
     }
     func showHabitsListIfAvailableAnimated(animated:Bool){
         if delegate.todaysHabits != nil {
-            pushControllerWithName("HabitsList", context: nil)
+            popToRootController()
             NSNotificationCenter.defaultCenter().removeObserver(self)
         }
     }
