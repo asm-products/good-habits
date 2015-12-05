@@ -18,6 +18,7 @@ func today()->NSDate{
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
     var session:WCSession!
+    var currentDay: NSDate?
     var todaysHabits: [String:HabitStruct]?
     var applicationContext: [String:AnyObject]?{
         didSet{
@@ -33,6 +34,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         session = WCSession.defaultSession()
         session.delegate = self
         session.activateSession()
+    }
+    func applicationDidBecomeActive() {
+        if today() != currentDay{
+            populateTodayFromApplicationContext()
+        }
     }
     func populateTodayFromApplicationContext(){
         guard let context = applicationContext as? AppContextFormat, habits = context["habits"], templates = context["templates"]  else {
@@ -59,6 +65,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
                 self.todaysHabits![habit.identifier] = habit
             }
         }
+        currentDay = today()
         NSNotificationCenter.defaultCenter().postNotificationName(UpdateNotificationName, object: nil)
     }
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {

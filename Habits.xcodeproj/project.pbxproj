@@ -1694,6 +1694,7 @@
 				AC7A48301BED449300A8FBAD /* Resources */,
 				9E2AFB6514DE55CDAE07BC13 /* Embed Pods Frameworks */,
 				331E992A6B63019CFB3A135F /* Copy Pods Resources */,
+				ACB4F9F81C120D9B00163E3F /* Remove Frameworks dir to fix "appex contains disallowed file 'Frameworks'" */,
 			);
 			buildRules = (
 			);
@@ -2164,6 +2165,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Habits/Pods-Habits-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		ACB4F9F81C120D9B00163E3F /* Remove Frameworks dir to fix "appex contains disallowed file 'Frameworks'" */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Remove Frameworks dir to fix \"appex contains disallowed file 'Frameworks'\"";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then\nrm -fr Frameworks\nfi";
 		};
 		B3FA9C7B1AD44752AF42074C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
