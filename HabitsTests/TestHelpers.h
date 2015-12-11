@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Habit.h"
+#import "HabitsTests-Swift.h"
 @import HabitsCommon;
 
 @interface TestHelpers : NSObject

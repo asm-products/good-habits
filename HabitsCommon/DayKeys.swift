@@ -32,6 +32,9 @@ func dayKey(date:NSDate)->String{
 func dateFromKey(key:String)->NSDate?{
     return dateKeyFormatter.dateFromString(key)
 }
+func _dateFromKey(key:String)->NSDate?{
+    return dateFromKey(key)
+}
 func weekdayNameOfWeekdayComponent(weekday:Int)->String{
     return [
         "sun", "mon", "tue", "wed", "thu", "fri", "sat"
@@ -41,11 +44,11 @@ func weekdayOfDate(date:NSDate)->String{
     let components = NSCalendar.currentCalendar().components(.Weekday, fromDate: date)
     return weekdayNameOfWeekdayComponent(components.weekday)
 }
-class DayKeys: NSObject {
-    static func dateFromKey(key:String)->NSDate?{
-        return dateFromKey(key)
+@objc public class DayKeys: NSObject {
+    static public func dateFromKey(key:String)->NSDate?{
+        return _dateFromKey(key)
     }
-    static func keyFromDate(date:NSDate)->String{
-        return keyFromDate(date)
+    static public func keyFromDate(date:NSDate)->String{
+        return dayKey(date)
     }
 }

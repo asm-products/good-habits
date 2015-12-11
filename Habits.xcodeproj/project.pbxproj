@@ -159,7 +159,6 @@
 		AC7E01391A0A539300E37979 /* good_to_hear_playfair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01331A0A539300E37979 /* good_to_hear_playfair@2x.png */; };
 		AC8F99471BF74B4700902C73 /* AppFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DDD19704F67007CD2B7 /* AppFeatures.m */; };
 		AC8F99481BF74EC200902C73 /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
-		AC8F99491BF74FCB00902C73 /* HabitsCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC78817D1BED3F6700675C75 /* HabitsCommon.framework */; };
 		AC94093419B8E75F003E6257 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = AC94093219B8E75F003E6257 /* locked.png */; };
 		AC94093519B8E75F003E6257 /* locked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC94093319B8E75F003E6257 /* locked@2x.png */; };
 		AC94093719B8F5EA003E6257 /* PremiumFeatureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC94093619B8F5EA003E6257 /* PremiumFeatureTests.m */; };
@@ -251,6 +250,7 @@
 		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
 		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
+		ACE4B2261C1AE0DD00A8E83B /* DayKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDB81C09D4F900A99B05 /* DayKeys.swift */; };
 		ACE7D27E1BF338DC007FCDAC /* TimeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AC40187319504ADB0033407B /* TimeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */; };
 		ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */; };
@@ -740,7 +740,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC8F99491BF74FCB00902C73 /* HabitsCommon.framework in Frameworks */,
 				ACADB3F3190D23B90030CC82 /* XCTest.framework in Frameworks */,
 				ACADB3F5190D23B90030CC82 /* UIKit.framework in Frameworks */,
 				ACADB3F4190D23B90030CC82 /* Foundation.framework in Frameworks */,
@@ -2420,6 +2419,7 @@
 				ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */,
 				AC088A7519EB120C0068F6EC /* TimeHelperTest.m in Sources */,
 				AC94093719B8F5EA003E6257 /* PremiumFeatureTests.m in Sources */,
+				ACE4B2261C1AE0DD00A8E83B /* DayKeys.swift in Sources */,
 				AC6EC67119C374B000640590 /* GTHStoreKitMock.m in Sources */,
 				AC5F3B4619C6228800398F81 /* UserGuideCaptureTests.m in Sources */,
 				AC1D7DE51BF748FF00700CB0 /* MigrationToSharedContainerTests.m in Sources */,
