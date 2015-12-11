@@ -142,15 +142,22 @@
     }];
     [tester waitForTimeInterval:0.3];
 }
+-(NSString*)screenSizeName{
+    CGFloat h = [UIScreen mainScreen].bounds.size.height;
+    if(h == 568) return @"4.0"; // iPhone 5
+    if(h == 667) return @"4.7"; // iPhone 6
+    if(h == 736) return @"5.5"; // iPhone 6 Plus
+    return @"dunno";
+}
 -(void)screenshot:(NSString*)name{
     static NSInteger screenshotIndex = 0;
     screenshotIndex ++;
     UIImage * image = [UIImage screenshot];
 //    UIImage * sta[UIImage imageNamed:@"status-bar"];
-    NSString * filename = [NSString stringWithFormat:@"%@h %@ - %@", @([UIScreen mainScreen].bounds.size.height), @(screenshotIndex), name];
+    NSString * filename = [NSString stringWithFormat:@"en-%@-%@-%@", [self screenSizeName], @(screenshotIndex), name];
     NSString * outputPath = [GRABS_PATH stringByAppendingPathComponent:filename];
-    outputPath = [outputPath stringByAppendingPathExtension:@"jpg"];
     NSLog(@"Saving file to %@", outputPath);
-    [UIImageJPEGRepresentation(image, 100) writeToFile:outputPath atomically:YES];
+//    [UIImageJPEGRepresentation(image, 100) writeToFile:[outputPath stringByAppendingPathExtension:@"jpg"] atomically:YES];
+    [UIImagePNGRepresentation(image) writeToFile:[outputPath stringByAppendingPathExtension:@"png"] atomically:YES];
 }
 @end
