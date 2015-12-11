@@ -37,6 +37,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
     }
     func applicationDidBecomeActive() {
         if today() != currentDay{
+            print("Day changed from \(currentDay) to \(today()), repopulating")
             populateTodayFromApplicationContext()
         }
     }
@@ -67,10 +68,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         }
         currentDay = today()
         NSNotificationCenter.defaultCenter().postNotificationName(UpdateNotificationName, object: nil)
+        updateComplication()
     }
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         self.applicationContext = applicationContext
-        print("context = \(applicationContext)")
+        print("received app context")
     }
     private var storeURL:NSURL{
         return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.goodtohear.habits")!.URLByAppendingPathComponent("ApplicationContext.plist")
@@ -100,13 +102,16 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         }catch{
             print("Couldn't update application context")
         }
-        let server = CLKComplicationServer.sharedInstance()
-        for complication in server.activeComplications{
-            server.reloadTimelineForComplication(complication)
-        }
-        
+        updateComplication()
     }
-
+    func updateComplication(){
+        let server = CLKComplicationServer.sharedInstance()
+        if let complications = server.activeComplications{
+            for complication in complications{
+                server.reloadTimelineForComplication(complication)
+            }
+        }
+    }
     func reminderCountsAfterDate(date:NSDate, limit:Int)->[ReminderTime]{
         guard let context = applicationContext as? AppContextFormat, templates = context["templates"]  else {
             print("No templates found for complication after date \(date)")
@@ -116,7 +121,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
         var date = today()
         let oneDay = NSDateComponents()
         oneDay.day = 1
-        let result = [currentCount() ?? ReminderTime(today(), 0)] + (1...2).map { n->ReminderTime in
+        let result = [currentCount() ?? ReminderTime(NSDate(), 0)] + (1...2).map { n->ReminderTime in
             let weekday = weekdayOfDate(date)
             let template = templates[weekday]!
             let count = template.count
@@ -136,7 +141,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
                 return memo
             }
         }
-        let result = ReminderTime(today(), count)
+        let result = ReminderTime(NSDate(), count)
         if todaysHabits.count > 0{
             result.progress = Float(todaysHabits.count - count) / Float(todaysHabits.count)
         }
