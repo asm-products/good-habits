@@ -9,9 +9,9 @@
 import UIKit
 import HabitsCommon
 private enum Section: Int{
-    case Header
-    case Store
-    case Count
+    case header
+    case store
+    case count
 }
 @objc public protocol MigrateFrom_iCloudTableViewControllerDelegate{
     func dismissDataMigration()
@@ -48,10 +48,10 @@ class MigrateFrom_iCloudTableViewController: UITableViewController {
         if let delegate = self.delegate{
             delegate.dismissDataMigration()
         }else{
-            self.performSegueWithIdentifier("Continue", sender: self)
+            self.performSegue(withIdentifier: "Continue", sender: self)
         }
     }
-    @IBAction func didPressContinue(sender: AnyObject) {
+    @IBAction func didPressContinue(_ sender: AnyObject) {
         SVProgressHUD.show()
         dataRecovery.migrateSelectedStoreToSharedContainer {
             SVProgressHUD.dismiss()
@@ -62,63 +62,63 @@ class MigrateFrom_iCloudTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return Section.Count.rawValue
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.count.rawValue
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch Section(rawValue: section)!{
-        case .Header: return 1
-        case .Store: return dataRecovery.clients.count
+        case .header: return 1
+        case .store: return dataRecovery.clients.count
         default: return 0
         }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        switch Section(rawValue: indexPath.section)!{
-        case .Header:
-            let cell = tableView.dequeueReusableCellWithIdentifier("Header", forIndexPath: indexPath) as! MigrationHeaderCell
+        switch Section(rawValue: (indexPath as NSIndexPath).section)!{
+        case .header:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath) as! MigrationHeaderCell
             if let text = self.descriptionText{
                 cell.descriptionLabel.text = text
             }
             return cell
-        case .Store:
-           let cell = tableView.dequeueReusableCellWithIdentifier("Store", forIndexPath: indexPath) as! DataRecoveryStoreTableViewCell
-           cell.client = dataRecovery.clients[indexPath.row]
-           cell.accessoryType = dataRecovery.selectedStoreIndex == indexPath.row ? .Checkmark : .None
+        case .store:
+           let cell = tableView.dequeueReusableCell(withIdentifier: "Store", for: indexPath) as! DataRecoveryStoreTableViewCell
+           cell.client = dataRecovery.clients[(indexPath as NSIndexPath).row]
+           cell.accessoryType = dataRecovery.selectedStoreIndex == (indexPath as NSIndexPath).row ? .checkmark : .none
            return cell
         default: return UITableViewCell() // meh
         }
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if Section(rawValue: indexPath.section)! == .Store{
-            dataRecovery.selectedStoreIndex = indexPath.row
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if Section(rawValue: (indexPath as NSIndexPath).section)! == .store{
+            dataRecovery.selectedStoreIndex = (indexPath as NSIndexPath).row
             tableView.reloadData()
         }
     }
-    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if Section(rawValue: section)! == .Store{
-            return tableView.dequeueReusableCellWithIdentifier("Footer")?.contentView
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if Section(rawValue: section)! == .store{
+            return tableView.dequeueReusableCell(withIdentifier: "Footer")?.contentView
         }else{
             return nil
         }
     }
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if Section(rawValue: section)! == .Store && dataRecovery.clients.count > 0{
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if Section(rawValue: section)! == .store && dataRecovery.clients.count > 0{
             return 40
         }else{
             return 0
         }
     }
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return Section(rawValue: indexPath.section)! == .Store
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return Section(rawValue: (indexPath as NSIndexPath).section)! == .store
     }
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        if Section(rawValue: indexPath.section) == .Store{
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if Section(rawValue: (indexPath as NSIndexPath).section) == .store{
             
-            let export = UITableViewRowAction(style: .Normal, title: "Export") { (action, indexPath) -> Void in
-                let client = self.dataRecovery.clients[indexPath.row]
+            let export = UITableViewRowAction(style: .normal, title: "Export") { (action, indexPath) -> Void in
+                let client = self.dataRecovery.clients[(indexPath as NSIndexPath).row]
                 DataExport.run(self, client: client)
             }
             export.backgroundColor = Colors.green()

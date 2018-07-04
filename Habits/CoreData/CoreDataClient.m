@@ -11,7 +11,7 @@
 #import <UIAlertView+Blocks.h>
 #import <NSArray+F.h>
 #import "Chain.h"
-
+#import "Habit.h" 
 #define STORE_NAME @"HabitsStore"
 #define DB_NAME @"HabitsStore.sqlite"
 

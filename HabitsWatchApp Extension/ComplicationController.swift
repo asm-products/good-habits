@@ -14,35 +14,35 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Configuration
     
-    func getSupportedTimeTravelDirectionsForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.Forward]) // just show the daily counts
+    func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
+        handler([.forward]) // just show the daily counts
     }
     
-    func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        handler(NSDate()) // start now
+    func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
+        handler(Date()) // start now
     }
     
-    func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (NSDate?) -> Void) {
-        handler(NSDate().dateByAddingTimeInterval(60 * 60 * 36)) // 36 hours
+    func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
+        handler(Date().addingTimeInterval(60 * 60 * 36)) // 36 hours
     }
     
-    func getPrivacyBehaviorForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationPrivacyBehavior) -> Void) {
-        handler(.ShowOnLockScreen)
+    func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
+        handler(.showOnLockScreen)
     }
-    func templateForFamily(family:CLKComplicationFamily, count: Int, progress:Float)->CLKComplicationTemplate?{
+    func templateForFamily(_ family:CLKComplicationFamily, count: Int, progress:Float)->CLKComplicationTemplate?{
         let textProvider = CLKSimpleTextProvider(text: count == 0 ? "✓" : "\(count)")
         switch family{
-        case .CircularSmall:
+        case .circularSmall:
             let result = CLKComplicationTemplateCircularSmallRingText()
             result.textProvider = textProvider
             result.fillFraction = progress
             return result
-        case .ModularSmall:
+        case .modularSmall:
             let result = CLKComplicationTemplateModularSmallRingText()
             result.textProvider = textProvider
             result.fillFraction = progress
             return result
-        case .UtilitarianSmall:
+        case .utilitarianSmall:
             let result = CLKComplicationTemplateUtilitarianSmallRingText()
             result.textProvider = textProvider
             result.fillFraction = progress
@@ -51,7 +51,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             return nil
         }
     }
-    func timelineEntry(complication:CLKComplication, date:NSDate, count:Int, progress:Float)->CLKComplicationTimelineEntry?{
+    func timelineEntry(_ complication:CLKComplication, date:Date, count:Int, progress:Float)->CLKComplicationTimelineEntry?{
         if let template = templateForFamily(complication.family, count: count, progress: progress){
             return CLKComplicationTimelineEntry(date: date, complicationTemplate: template)
         }else{
@@ -59,17 +59,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         }
     }
     // MARK: - Timeline Population
-    func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
+    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: (@escaping (CLKComplicationTimelineEntry?) -> Void)) {
         if let count = delegate.currentCount(){
             let total = delegate.todaysHabits?.count ?? 0
             let progress = Float(total - count.count) / Float(total)
-            handler(timelineEntry(complication, date: count.date, count: count.count, progress: progress))
+            handler(timelineEntry(complication, date: count.date as Date, count: count.count, progress: progress))
         }else{
             handler(nil)
         }
     }
     
-    func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+    func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: (@escaping ([CLKComplicationTimelineEntry]?) -> Void)) {
         handler(nil)
     }
     func requestedUpdateDidBegin() {
@@ -80,29 +80,29 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         print("no budget!")
     }
     var callsoCount = 0
-    func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
+    func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: (@escaping ([CLKComplicationTimelineEntry]?) -> Void)) {
         // Call the handler with the timeline entries after to the given date
         print("getTimelineEntriesForComplication after date \(date) call \(callsoCount)")
         callsoCount += 1
         handler(delegate.reminderCountsAfterDate(date, limit:limit).map { self.timelineEntry(complication, date: $0.date, count:$0.count, progress: $0.progress ?? 0)! } )
     }
     var delegate: ExtensionDelegate{
-        return WKExtension.sharedExtension().delegate as! ExtensionDelegate
+        return WKExtension.shared().delegate as! ExtensionDelegate
     }
     
     // MARK: - Update Scheduling
-    func getNextRequestedUpdateDateWithHandler(handler: (NSDate?) -> Void) {
-        let components = NSDateComponents()
+    func getNextRequestedUpdateDate(handler: @escaping (Date?) -> Void) {
+        var components = DateComponents()
         components.day = 1
 
-        let tomorrow = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: today(), options: [])
+        let tomorrow = (Calendar.current as NSCalendar).date(byAdding: components, to: today() as Date, options: [])
         print("Will update habits \(tomorrow)")
         handler(tomorrow)
     }
     
     // MARK: - Placeholder Templates
     
-    func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void) {
+    func getPlaceholderTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
         handler( templateForFamily(complication.family, count: 0, progress: 1) )
     }

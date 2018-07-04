@@ -9,7 +9,7 @@
 import UIKit
 
 class WatchShim: NSObject {
-    private var watchConnectionHelper:AnyObject?
+    fileprivate var watchConnectionHelper:AnyObject?
     override init(){
         super.init()
         
@@ -19,6 +19,6 @@ class WatchShim: NSObject {
             // Fallback on earlier versions
         }
     }
-    class func handleWatchkitExtensionRequest(userInfo:NSDictionary?, reply:(reply:NSDictionary?)->Void){
+    class func handleWatchkitExtensionRequest(_ userInfo:NSDictionary?, reply:(_ reply:NSDictionary?)->Void){
     }
 }

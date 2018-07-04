@@ -16,27 +16,27 @@ class DataRecoveryStoreTableViewCell: UITableViewCell {
         }
     }
     
-    func infoText(client:CoreDataClient)->String{
+    func infoText(_ client:CoreDataClient)->String{
         let lastUsedDate = client.lastUsedDate()
-        let formattedDate = lastUsedDate == NSDate(timeIntervalSince1970: 0) ? "never" : Moment(date: lastUsedDate).fromNowWithSuffix(true)
+        let formattedDate = lastUsedDate == Date(timeIntervalSince1970: 0) ? "never" : Moment(date: lastUsedDate).fromNow(withSuffix: true)
         let habits = client.allHabits() as! [Habit]
         return "\(habits.count) habit\(habits.count == 1 ? "" : "s"), used \(formattedDate)"
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        let longPress = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(DataRecoveryStoreTableViewCell.handleLongPress(_:)))
         addGestureRecognizer(longPress)
     }
-    func handleLongPress(longPress:UILongPressGestureRecognizer){
-        if longPress.state != .Began { return }
+    @objc func handleLongPress(_ longPress:UILongPressGestureRecognizer){
+        if longPress.state != .began { return }
         if let habits = client?.allHabits() as? [Habit]{
             let titles = habits.map{ $0.title }
-            let alert = UIAlertView(title: "Store Details", message: "\(titles)\n\(client!.persistentStore.URL!)", delegate: nil, cancelButtonTitle: "Ok")
+            let alert = UIAlertView(title: "Store Details", message: "\(titles)\n\(client!.persistentStore.url!)", delegate: nil, cancelButtonTitle: "Ok")
             alert.show()
         }
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

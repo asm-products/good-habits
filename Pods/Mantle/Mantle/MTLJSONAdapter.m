@@ -144,19 +144,18 @@ static NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapter
 
 	NSSet *propertyKeys = [self.modelClass propertyKeys];
 
-	for (NSString *JSONKeyPath in self.JSONKeyPathsByPropertyKey) {
-		if ([propertyKeys containsObject:JSONKeyPath]) continue;
-
-		if (error != NULL) {
-			NSDictionary *userInfo = @{
-				NSLocalizedDescriptionKey: NSLocalizedString(@"Invalid JSON mapping", nil),
-				NSLocalizedFailureReasonErrorKey: [NSString stringWithFormat:NSLocalizedString(@"%1$@ could not be parsed because its JSON mapping contains illegal property keys.", nil), modelClass]
-			};
-
-			*error = [NSError errorWithDomain:MTLJSONAdapterErrorDomain code:MTLJSONAdapterErrorInvalidJSONMapping userInfo:userInfo];
+	for (NSString *mappedPropertyKey in self.JSONKeyPathsByPropertyKey) {
+		if (![propertyKeys containsObject:mappedPropertyKey]) {
+			NSAssert(NO, @"%@ is not a property of %@.", mappedPropertyKey, modelClass);
+			return nil;
 		}
 
-		return nil;
+		id value = self.JSONKeyPathsByPropertyKey[mappedPropertyKey];
+
+		if (![value isKindOfClass:NSString.class] && value != NSNull.null) {
+			NSAssert(NO, @"%@ must either map to a JSON key path or NSNull, got: %@.",mappedPropertyKey, value);
+			return nil;
+		}
 	}
 
 	for (NSString *propertyKey in propertyKeys) {
@@ -276,14 +275,10 @@ static NSString * const MTLJSONAdapterThrownExceptionErrorKey = @"MTLJSONAdapter
 
 	SEL selector = MTLSelectorWithKeyPattern(key, "JSONTransformer");
 	if ([self.modelClass respondsToSelector:selector]) {
-		NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self.modelClass methodSignatureForSelector:selector]];
-		invocation.target = self.modelClass;
-		invocation.selector = selector;
-		[invocation invoke];
-
-		__unsafe_unretained id result = nil;
-		[invocation getReturnValue:&result];
-		return result;
+		IMP imp = [self.modelClass methodForSelector:selector];
+		NSValueTransformer * (*function)(id, SEL) = (__typeof__(function))imp;
+		NSValueTransformer *transformer = function(self.modelClass, selector);
+		return transformer;
 	}
 
 	if ([self.modelClass respondsToSelector:@selector(JSONTransformerForKey:)]) {

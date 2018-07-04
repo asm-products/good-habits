@@ -22,6 +22,7 @@ typedef CGPoint KIFDisplacement;
 - (UIAccessibilityElement *)accessibilityElementWithLabel:(NSString *)label;
 - (UIAccessibilityElement *)accessibilityElementWithLabel:(NSString *)label traits:(UIAccessibilityTraits)traits;
 - (UIAccessibilityElement *)accessibilityElementWithLabel:(NSString *)label accessibilityValue:(NSString *)value traits:(UIAccessibilityTraits)traits;
++ (BOOL)accessibilityElement:(UIAccessibilityElement *)element hasLabel:(NSString *)label accessibilityValue:(NSString *)value traits:(UIAccessibilityTraits)traits;
 
 /*!
  @method accessibilityElementMatchingBlock:
@@ -95,6 +96,11 @@ typedef CGPoint KIFDisplacement;
  @abstract Evaluates if the view and all its superviews are visible.
  */
 - (BOOL)isVisibleInViewHierarchy;
+
+/*!
+ @abstract Evaluates if the view has some portion of its frame intersect with its ancestor views clip it from being visible on the screen.
+ */
+- (BOOL)isVisibleInWindowFrame;
 
 /*!
  @method performBlockOnDescendentViews:

@@ -75,6 +75,7 @@ typedef enum{
     [[NSNotificationCenter defaultCenter] addObserverForName:PURCHASE_COMPLETED object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
         [self updateStatsButtonTint];
     }];
+    self.statsButton.accessibilityLabel = @"Stats";
 #if DEBUG
     self.timePicker.minuteInterval = 1;
 #endif

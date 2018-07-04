@@ -7,13 +7,13 @@
 //
 
 import UIKit
-typealias HabitStructDictionary = [String:AnyObject]
+typealias HabitStructDictionary = [String:Any]
 typealias AppContextFormat = [String:[String:[HabitStructDictionary]]]
 
 enum HabitDayState:Int{ // maps to Chain->DayCheckedState
-    case Null = 0
-    case Complete = 1
-    case Broken = 2 
+    case null = 0
+    case complete = 1
+    case broken = 2 
 }
 
 struct HabitStruct{
@@ -21,14 +21,14 @@ struct HabitStruct{
     var title: String
     var order: Int
     var color: UIColor?
-    var state: HabitDayState = .Null
-    var updatedTime = NSDate()
+    var state: HabitDayState = .null
+    var updatedTime = Date()
     init(dict:[String:AnyObject]){
         identifier = dict["identifier"] as? String ?? "unknown"
         title = dict["title"] as? String ?? ""
         order = dict["order"] as? Int ?? 0
-        color = NSKeyedUnarchiver.unarchiveObjectWithData(dict["color"] as? NSData ?? NSData()) as? UIColor
-        if let stateInt = dict["state"] as? Int, state = HabitDayState(rawValue: stateInt){
+        color = NSKeyedUnarchiver.unarchiveObject(with: dict["color"] as? Data ?? Data()) as? UIColor
+        if let stateInt = dict["state"] as? Int, let state = HabitDayState(rawValue: stateInt){
             self.state = state
         }
     }
@@ -44,7 +44,7 @@ struct HabitStruct{
             "identifier": identifier,
             "title": title,
             "order": order,
-            "color": NSKeyedArchiver.archivedDataWithRootObject(color ?? UIColor.clearColor()),
+            "color": NSKeyedArchiver.archivedData(withRootObject: color ?? UIColor.clear),
             "state": state.rawValue
         ]
     }

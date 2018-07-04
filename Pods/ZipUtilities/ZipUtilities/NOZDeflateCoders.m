@@ -4,7 +4,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2015 Nolan O'Brien
+//  Copyright (c) 2016 Nolan O'Brien
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -33,11 +33,15 @@
 
 #include "zlib.h"
 
+#define kDEFLATE_DEFAULT_COMPRESSION_LEVEL (6)
+
 #pragma mark - Deflate Encoder
+
+static UInt16 NOZCompressionLevelToDeflateLevel(NOZCompressionLevel level);
 
 @interface NOZDeflateEncoderContext : NSObject <NOZEncoderContext>
 @property (nonatomic, copy, nullable) NOZFlushCallback flushCallback;
-@property (nonatomic) NOZCompressionLevel compressionLevel;
+@property (nonatomic) int compressionLevel;
 @property (nonatomic) BOOL zStreamOpen;
 
 @property (nonatomic, readonly) z_stream *zStream;
@@ -57,14 +61,15 @@
     return &_zStream;
 }
 
-- (nonnull instancetype)init
+- (instancetype)init
 {
     if (self = [super init]) {
-        _compressedDataBuffer = malloc(NSPageSize());
-        _compressedDataBufferSize = NSPageSize();
+        const size_t bufferSize = NOZBufferSize();
+        _compressedDataBuffer = malloc(bufferSize);
+        _compressedDataBufferSize = bufferSize;
 
         _zStream.avail_in = 0;
-        _zStream.avail_out = (UInt32)NSPageSize();
+        _zStream.avail_out = (UInt32)bufferSize;
         _zStream.next_out = _compressedDataBuffer;
         _zStream.total_in = 0;
         _zStream.total_out = 0;
@@ -73,7 +78,7 @@
         _zStream.zfree = NULL;
         _zStream.opaque = NULL;
 
-        _compressionLevel = NOZCompressionLevelDefault;
+        _compressionLevel = kDEFLATE_DEFAULT_COMPRESSION_LEVEL;
     }
     return self;
 }
@@ -90,32 +95,43 @@
 
 @implementation NOZDeflateEncoder
 
-- (UInt16)bitFlagsForEntry:(nonnull id<NOZZipEntry>)entry
+- (NSUInteger)numberOfCompressionLevels
 {
-    switch (entry.compressionLevel) {
-        case 9:
-        case 8:
+    return 1 + Z_BEST_COMPRESSION - Z_BEST_SPEED;
+}
+
+- (NSUInteger)defaultCompressionLevel
+{
+    return kDEFLATE_DEFAULT_COMPRESSION_LEVEL;
+}
+
+- (UInt16)bitFlagsForEntry:(id<NOZZipEntry>)entry
+{
+    const NSUInteger level = NOZCompressionLevelToEncoderSpecificLevel(self, entry.compressionLevel);
+    switch (level) {
+        case Z_BEST_COMPRESSION:
+        case Z_BEST_COMPRESSION - 1:
             return NOZFlagBitsMaxDeflate;
-        case 2:
+        case Z_BEST_SPEED + 1:
             return NOZFlagBitsFastDeflate;
-        case 1:
+        case Z_BEST_SPEED:
             return NOZFlagBitsSuperFastDeflate;
         default:
             return NOZFlagBitsNormalDeflate;
     }
 }
 
-- (nonnull NOZDeflateEncoderContext *)createContextWithBitFlags:(UInt16)bitFlags
-                                               compressionLevel:(NOZCompressionLevel)level
-                                                  flushCallback:(nonnull NOZFlushCallback)callback;
+- (NOZDeflateEncoderContext *)createContextWithBitFlags:(UInt16)bitFlags
+                                       compressionLevel:(NOZCompressionLevel)level
+                                          flushCallback:(NOZFlushCallback)callback;
 {
     NOZDeflateEncoderContext *context = [[NOZDeflateEncoderContext alloc] init];
     context.flushCallback = callback;
-    context.compressionLevel = level;
+    context.compressionLevel = NOZCompressionLevelToDeflateLevel(level);
     return context;
 }
 
-- (BOOL)initializeEncoderContext:(nonnull NOZDeflateEncoderContext *)context
+- (BOOL)initializeEncoderContext:(NOZDeflateEncoderContext *)context
 {
     if (Z_OK != deflateInit2(context.zStream,
                              context.compressionLevel,
@@ -130,9 +146,9 @@
     return YES;
 }
 
-- (BOOL)encodeBytes:(nonnull const Byte*)bytes
+- (BOOL)encodeBytes:(const Byte*)bytes
              length:(size_t)length
-            context:(nonnull NOZDeflateEncoderContext *)context
+            context:(NOZDeflateEncoderContext *)context
 {
     if (!context.zStreamOpen) {
         return NO;
@@ -171,7 +187,7 @@
     return success;
 }
 
-- (BOOL)finalizeEncoderContext:(nonnull NOZDeflateEncoderContext *)context
+- (BOOL)finalizeEncoderContext:(NOZDeflateEncoderContext *)context
 {
     if (!context.zStreamOpen) {
         return NO;
@@ -240,6 +256,9 @@
 @property (nonatomic, readonly) Byte *decompressedDataBuffer;
 @property (nonatomic, readonly) size_t decompressedDataBufferSize;
 //@property (nonatomic) size_t decompressedDataPosition;
+
+- (void)doubleDecompressDataBuffer;
+
 @end
 
 @implementation NOZDeflateDecoderContext
@@ -256,7 +275,7 @@
         _zStream.next_in = 0;
         _zStream.avail_in = 0;
 
-        _decompressedDataBufferSize = NSPageSize();
+        _decompressedDataBufferSize = NOZBufferSize();
         _decompressedDataBuffer = malloc(_decompressedDataBufferSize);
     }
     return self;
@@ -275,19 +294,39 @@
     return &_zStream;
 }
 
+- (void)doubleDecompressDataBuffer
+{
+    static const size_t kMaxBufferSize = 5 * 1024 * 1024; // 5MBs
+    if (_decompressedDataBufferSize == kMaxBufferSize) {
+        _decompressedDataBufferSize = 0;
+        free(_decompressedDataBuffer);
+        _decompressedDataBuffer = NULL;
+        return;
+    }
+
+    size_t newSize = _decompressedDataBufferSize * 2;
+    if (newSize > kMaxBufferSize) {
+        newSize = kMaxBufferSize;
+    }
+    _decompressedDataBuffer = reallocf(_decompressedDataBuffer, newSize);
+    if (NULL != _decompressedDataBuffer) {
+        _decompressedDataBufferSize = newSize;
+    }
+}
+
 @end
 
 @implementation NOZDeflateDecoder
 
-- (nonnull NOZDeflateDecoderContext *)createContextForDecodingWithBitFlags:(UInt16)bitFlags
-                                                             flushCallback:(nonnull NOZFlushCallback)callback
+- (NOZDeflateDecoderContext *)createContextForDecodingWithBitFlags:(UInt16)bitFlags
+                                                     flushCallback:(NOZFlushCallback)callback
 {
     NOZDeflateDecoderContext *context = [[NOZDeflateDecoderContext alloc] init];
     context.flushCallback = callback;
     return context;
 }
 
-- (BOOL)initializeDecoderContext:(nonnull NOZDeflateDecoderContext *)context
+- (BOOL)initializeDecoderContext:(NOZDeflateDecoderContext *)context
 {
     if (Z_OK != inflateInit2(context.zStream, -MAX_WBITS)) {
         return NO;
@@ -296,9 +335,9 @@
     return YES;
 }
 
-- (BOOL)decodeBytes:(nonnull const Byte*)bytes
+- (BOOL)decodeBytes:(const Byte*)bytes
              length:(size_t)length
-            context:(nonnull NOZDeflateDecoderContext *)context
+            context:(NOZDeflateDecoderContext *)context
 {
     if (context.hasFinished) {
         return YES;
@@ -318,13 +357,36 @@
         zStream->avail_out = (UInt32)context.decompressedDataBufferSize;
         zStream->next_out = context.decompressedDataBuffer;
 
-        zErr = inflate(zStream, Z_NO_FLUSH);
+        if (zStream->avail_out > 0) {
+            zErr = inflate(zStream, Z_NO_FLUSH);
+        } else {
+            // no memory provided (likely due to running out of memory)
+            zErr = Z_MEM_ERROR;
+        }
 
-        if (zErr == Z_OK || zErr == Z_STREAM_END) {
+        if (zErr == Z_OK || zErr == Z_STREAM_END || zErr == Z_BUF_ERROR) {
 
             size_t consumed = context.decompressedDataBufferSize - zStream->avail_out;
-            if (!context.flushCallback(self, context, context.decompressedDataBuffer, consumed)) {
-                zErr = Z_UNKNOWN;
+            if (consumed > 0) {
+                if (!context.flushCallback(self, context, context.decompressedDataBuffer, consumed)) {
+                    zErr = Z_UNKNOWN;
+                }
+            }
+
+            // Z_BUF_ERROR is not fatal
+            if (zErr == Z_BUF_ERROR) {
+
+                // did we run out of output buffer?
+                if (zStream->avail_out == 0 && zStream->avail_in > 0) {
+                    // not enough buffer, double it
+                    [context doubleDecompressDataBuffer];
+
+                    // retry
+                    zStream->avail_out = 0;
+                    zErr = Z_OK;
+                }
+                // else, we ran out of input buffer... move along!
+
             }
 
         }
@@ -333,6 +395,8 @@
 
     if (zErr == Z_STREAM_END) {
         context.hasFinished = YES;
+    } else if (zErr == Z_BUF_ERROR && length > 0) {
+        // continue
     } else if (zErr != Z_OK) {
         return NO;
     }
@@ -344,7 +408,7 @@
     return YES;
 }
 
-- (BOOL)finalizeDecoderContext:(nonnull NOZDeflateDecoderContext *)context
+- (BOOL)finalizeDecoderContext:(NOZDeflateDecoderContext *)context
 {
     if (context.zStreamOpen) {
         inflateEnd(context.zStream);
@@ -354,3 +418,8 @@
 }
 
 @end
+
+static UInt16 NOZCompressionLevelToDeflateLevel(NOZCompressionLevel level)
+{
+    return (UInt16)NOZCompressionLevelToCustomEncoderLevel(level, Z_BEST_SPEED, Z_BEST_COMPRESSION, kDEFLATE_DEFAULT_COMPRESSION_LEVEL);
+}

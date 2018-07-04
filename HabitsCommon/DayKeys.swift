@@ -8,47 +8,47 @@
 
 import UIKit
 
-private func createDateKeyFormatter()->NSDateFormatter{
-    let formatter = NSDateFormatter()
-    formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+private func createDateKeyFormatter()->DateFormatter{
+    let formatter = DateFormatter()
+    formatter.timeZone = TimeZone(secondsFromGMT: 0)
     formatter.dateFormat = "yyyy-MM-dd"
     return formatter
 }
 private let dateKeyFormatter = createDateKeyFormatter()
-private let gmt = NSTimeZone(forSecondsFromGMT: 0)
-private let gmtCalendar = NSCalendar(calendarIdentifier: NSCalendar.currentCalendar().calendarIdentifier)
+private let gmt = TimeZone(secondsFromGMT: 0)
+private let gmtCalendar = Calendar(identifier: Calendar.current.identifier)
 
-func dayKey(date:NSDate)->String{
+func dayKey(_ date:Date)->String{
     let formatter = dateKeyFormatter
-    let components = NSCalendar.currentCalendar().components([.Year, .Month, .Day], fromDate: date)
-    guard let calendar = gmtCalendar else { return "" }
-    calendar.timeZone = gmt
-    if let date = calendar.dateFromComponents(components){
-        return formatter.stringFromDate(date)
+    let components = (Calendar.current as NSCalendar).components([.year, .month, .day], from: date)
+    var calendar = gmtCalendar// else { return "" }
+    calendar.timeZone = gmt!
+    if let date = calendar.date(from: components){
+        return formatter.string(from: date)
     }else{
         return ""
     }
 }
-func dateFromKey(key:String)->NSDate?{
-    return dateKeyFormatter.dateFromString(key)
+func dateFromKey(_ key:String)->Date?{
+    return dateKeyFormatter.date(from: key)
 }
-func _dateFromKey(key:String)->NSDate?{
+func _dateFromKey(_ key:String)->Date?{
     return dateFromKey(key)
 }
-func weekdayNameOfWeekdayComponent(weekday:Int)->String{
+func weekdayNameOfWeekdayComponent(_ weekday:Int)->String{
     return [
         "sun", "mon", "tue", "wed", "thu", "fri", "sat"
     ][weekday - 1]
 }
-func weekdayOfDate(date:NSDate)->String{
-    let components = NSCalendar.currentCalendar().components(.Weekday, fromDate: date)
-    return weekdayNameOfWeekdayComponent(components.weekday)
+func weekdayOfDate(_ date:Date)->String{
+    let components = (Calendar.current as NSCalendar).components(.weekday, from: date)
+    return weekdayNameOfWeekdayComponent(components.weekday!)
 }
-@objc public class DayKeys: NSObject {
-    static public func dateFromKey(key:String)->NSDate?{
+@objc open class DayKeys: NSObject {
+    @objc static open func convertKeyToDate(_ key:String)->Date?{
         return _dateFromKey(key)
     }
-    static public func keyFromDate(date:NSDate)->String{
+    @objc static open func convertDateToKey(_ date:Date)->String{
         return dayKey(date)
     }
 }

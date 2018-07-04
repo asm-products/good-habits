@@ -19,33 +19,33 @@ PODS:
   - CAAnimationBlocks (0.0.1)
   - CWLSynthesizeSingleton (1.0.0)
   - DHAppleReceiptParser (1.0.1)
-  - Expecta (0.3.0)
-  - FCOverlay (1.0.5)
+  - Expecta (1.0.6)
+  - FCOverlay (1.0.6)
   - Functional.m (1.0.0)
   - GTHRectHelpers (0.0.1)
-  - KIF (3.3.0):
-    - KIF/Core (= 3.3.0)
-  - KIF/Core (3.3.0)
+  - KIF (3.7.4):
+    - KIF/Core (= 3.7.4)
+  - KIF/Core (3.7.4)
   - LMAlertView (1.1.0):
     - CAAnimationBlocks (~> 0.0.1)
     - RBBAnimation (~> 0.3.0)
-  - Mantle (1.5):
-    - Mantle/extobjc (= 1.5)
-  - Mantle/extobjc (1.5)
+  - Mantle (1.5.8):
+    - Mantle/extobjc (= 1.5.8)
+  - Mantle/extobjc (1.5.8)
   - Masonry (0.5.3)
-  - MCSwipeTableViewCell (2.1.0)
+  - MCSwipeTableViewCell (2.1.4)
   - MVModalTransitions (1.0.0):
     - Masonry (~> 0.5.0)
-  - OCMock (3.1.1)
+  - OCMock (3.3.1)
   - RBBAnimation (0.3.0)
-  - Reveal-iOS-SDK (1.0.6)
+  - Reveal-iOS-SDK (1.6.2)
   - SHMessageUIBlocks (1.2.0)
   - Specta (0.2.1)
-  - SVProgressHUD (1.0)
+  - SVProgressHUD (1.1.3)
   - UIAlertView-Blocks (1.0)
-  - UIImage-Helpers (0.0.2)
-  - YLMoment (0.6.0)
-  - ZipUtilities (1.6.6)
+  - UIImage-Helpers (0.0.3)
+  - YLMoment (0.9.1)
+  - ZipUtilities (1.10.0)
 
 DEPENDENCIES:
   - ALActionBlocks (~> 1.0)
@@ -57,7 +57,7 @@ DEPENDENCIES:
   - FCOverlay (~> 1.0)
   - Functional.m (~> 1.0)
   - GTHRectHelpers (from `https://github.com/goodtohear/GTHRectHelpers.git`)
-  - KIF (~> 3.3)
+  - KIF (~> 3.7)
   - LMAlertView (~> 1.1)
   - Mantle (~> 1.5)
   - MCSwipeTableViewCell (~> 2.1)
@@ -72,6 +72,33 @@ DEPENDENCIES:
   - YLMoment (~> 0.6)
   - ZipUtilities (~> 1.6)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ALActionBlocks
+    - AVHexColor
+    - BlocksKit
+    - CAAnimationBlocks
+    - CWLSynthesizeSingleton
+    - DHAppleReceiptParser
+    - Expecta
+    - FCOverlay
+    - Functional.m
+    - KIF
+    - LMAlertView
+    - Mantle
+    - Masonry
+    - MCSwipeTableViewCell
+    - OCMock
+    - RBBAnimation
+    - Reveal-iOS-SDK
+    - SHMessageUIBlocks
+    - Specta
+    - SVProgressHUD
+    - UIAlertView-Blocks
+    - UIImage-Helpers
+    - YLMoment
+    - ZipUtilities
+
 EXTERNAL SOURCES:
   GTHRectHelpers:
     :git: https://github.com/goodtohear/GTHRectHelpers.git
@@ -80,7 +107,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   GTHRectHelpers:
-    :commit: 453e1b46840e1a995032600e713651dd668800f0
+    :commit: e2ee24993a0cd9f7ab266fc47a35b01d4d4889a9
     :git: https://github.com/goodtohear/GTHRectHelpers.git
   MVModalTransitions:
     :commit: e6818fa0acd9f80d24a9ff7a71e74edeced02aa9
@@ -93,25 +120,27 @@ SPEC CHECKSUMS:
   CAAnimationBlocks: 1aaca5fb6447a95d83b20cc786992956ef46e4ee
   CWLSynthesizeSingleton: 6ccef3170409e87bc9e49544efdc1ea7713c2849
   DHAppleReceiptParser: 57663acea9b76fec8648cada173d2e76fe402be0
-  Expecta: 917bda2935b63ca7175741b8cf1b26796db6205f
-  FCOverlay: 865895ae983c8d3a4bcdbe201c2edefa5b6aa00a
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  FCOverlay: 28bc0baa193e4e776e585a7db371ea57c3c73752
   Functional.m: 072ea6a57954f7792a3aaf19042ed6d3258e3026
-  GTHRectHelpers: 089a90816a7d2741cf594e6c245e2f29299b018f
-  KIF: 0a82046d06f3648799cac522d2d0f7934214caac
+  GTHRectHelpers: a805ec544af6dbc4f3014f113f389ea766522859
+  KIF: f3d01c109ee9d1cfe6b0f2bb2aa278e807e971e2
   LMAlertView: fa4589ea2cb540b888636ff6739fc39b16ac1e4b
-  Mantle: 3bf6db311c8b4a19b6be01f2483fa4590aa166f3
+  Mantle: f03b2b606c3f0cabd80214ad8a2fed6b464a7359
   Masonry: 9f515466afe48632562342a40a1c224071a1a022
-  MCSwipeTableViewCell: 8161493fb4bf61e47a4d00aa622c5f8ff6b80c7a
-  MVModalTransitions: ad4483cd7c7f3676c31a3d6b5358a0afc48dee13
-  OCMock: a73f69963a8a542b0b343e2617650e4dca0cbbc2
+  MCSwipeTableViewCell: 1b303e16c3a26b1982f3a68386e9b8c5fc8344c3
+  MVModalTransitions: f48e81812f7c4a9710048a4283e8dea36012dfdc
+  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   RBBAnimation: cb6cb419f511434ce932f7d0fabf369612fafb4e
-  Reveal-iOS-SDK: 5c06829ab290f1314d15c0f66aaa572fd2342c81
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SHMessageUIBlocks: 5a5be5ffa8717ac01a927330c5dd6db46ce0d3c6
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
-  SVProgressHUD: 46088807596a795cbcb4affd92cf3f13b6ab3dda
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   UIAlertView-Blocks: 7904744fca618afbd2ec646608924f5e69d5acd1
-  UIImage-Helpers: 8750179665f4745f474f0bd2c518f57c041291d0
-  YLMoment: a342e85269150756105901c4b701070154f82c16
-  ZipUtilities: 1b00cb53bebe8f572595313ee1c8063d244f2cef
+  UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
+  YLMoment: d02accdc59d74b6f1c1b6d8f2aaf2fcb74414026
+  ZipUtilities: d64048e499434850b3d91cabb38de45d42cfd2e8
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 786eb580696870ad29ce47460deef4cb0f114875
+
+COCOAPODS: 1.5.3

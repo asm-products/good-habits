@@ -2,7 +2,7 @@
 #import <OCMock.h>
 #import "AppFeatures.h"
 #import "TimeHelper.h"
-@interface ChainManipulationTests : XCTestCase
+@interface ChainManipulationTests : KIFTestCase
 @end
 @implementation ChainManipulationTests
 -(void)setUp{

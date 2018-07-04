@@ -21,6 +21,6 @@
 @end
 
 static inline NSDate * d(NSString* string){
-    return [DayKeys dateFromKey:string];
+    return [DayKeys convertKeyToDate: string];
 }
 

@@ -15,20 +15,20 @@ class HabitCellTodayWidget: UITableViewCell {
     @IBOutlet weak var countCell: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.clearColor()
-        countCell.backgroundColor = UIColor.clearColor()
-        contentView.backgroundColor = UIColor.clearColor()
-        let tap = UITapGestureRecognizer(target: self, action: "handleTap:")
+        backgroundColor = UIColor.clear
+        countCell.backgroundColor = UIColor.clear
+        contentView.backgroundColor = UIColor.clear
+        let tap = UITapGestureRecognizer(target: self, action: #selector(HabitCellTodayWidget.handleTap(_:)))
         checkBox.addGestureRecognizer(tap)
         
     }
-    func handleTap(tap:UITapGestureRecognizer){
+    @objc func handleTap(_ tap:UITapGestureRecognizer){
         let toggler = HabitToggler()
-        let state = toggler.toggleTodayForHabit(habit)
+        let state = toggler.toggleToday(for: habit)
         checkBox.state = state
         
     }
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
@@ -40,11 +40,11 @@ class HabitCellTodayWidget: UITableViewCell {
                 checkBox.state = chain.dayState()
                 let daysOverdue = chain.countOfDaysOverdue()
                 if daysOverdue > 0{
-                    countCell.setBackgroundImage(AwardImage.circleColored(Colors.cobalt()), forState: .Normal)
-                    countCell.setTitle("-\(daysOverdue)", forState: .Normal)
+                    countCell.setBackgroundImage(AwardImage.circleColored(Colors.cobalt()), for: .normal)
+                    countCell.setTitle("-\(daysOverdue)", for: .normal)
                 }else{
-                    countCell.setTitle("\(chain.daysCountCache)", forState: .Normal)
-                    countCell.setBackgroundImage(chain.isRecord() ? AwardImage.starColored(habit.color) : AwardImage.circleColored(habit.color), forState: .Normal)
+                    countCell.setTitle("\(chain.daysCountCache)", for: .normal)
+                    countCell.setBackgroundImage(chain.isRecord() ? AwardImage.starColored(habit.color) : AwardImage.circleColored(habit.color), for: .normal)
                 }
             }
         }

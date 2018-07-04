@@ -11,6 +11,7 @@
 #import "Failure.h"
 #import "CoreDataClient.h"
 #import "HabitsQueries.h"
+#import "Habit.h"
 
 @implementation HabitToggler
 -(instancetype)init{

@@ -255,7 +255,7 @@ typedef NS_ENUM(NSUInteger, MCSwipeTableViewCellDirection) {
 
 - (void)handlePanGestureRecognizer:(UIPanGestureRecognizer *)gesture {
     
-    if (!_shouldDrag || _isExited) {
+    if (![self shouldDrag] || _isExited) {
         return;
     }
     
@@ -327,12 +327,13 @@ typedef NS_ENUM(NSUInteger, MCSwipeTableViewCellDirection) {
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    
     if ([gestureRecognizer class] == [UIPanGestureRecognizer class]) {
         
         UIPanGestureRecognizer *g = (UIPanGestureRecognizer *)gestureRecognizer;
         CGPoint point = [g velocityInView:self];
         
-        if (fabsf(point.x) > fabsf(point.y) ) {
+        if (fabs(point.x) > fabs(point.y) ) {
             if (point.x < 0 && !_modeForState3 && !_modeForState4) {
                 return NO;
             }
@@ -429,7 +430,7 @@ typedef NS_ENUM(NSUInteger, MCSwipeTableViewCellDirection) {
     }
     
     else if (percentage < 0 && percentage > -_firstTrigger) {
-        alpha = fabsf(percentage / _firstTrigger);
+        alpha = fabs(percentage / _firstTrigger);
     }
     
     else {

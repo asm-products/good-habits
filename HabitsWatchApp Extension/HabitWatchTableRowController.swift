@@ -22,13 +22,13 @@ class HabitWatchTableRowController: NSObject {
     @IBAction func didPressCheckButton() {
         delegate.toggleStateForHabitRow(self, currentState: state)
     }
-    func setState(state:HabitDayState){
+    func setState(_ state:HabitDayState){
         switch state{
-        case .Complete:
+        case .complete:
             checkButton.setTitle("✓")
-        case .Broken:
+        case .broken:
             checkButton.setTitle("╳")
-        case .Null:
+        case .null:
             checkButton.setTitle("")
         }
         self.state = state

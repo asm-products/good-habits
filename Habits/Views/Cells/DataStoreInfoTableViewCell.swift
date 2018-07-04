@@ -18,22 +18,24 @@ class DataStoreInfoTableViewCell: UITableViewCell {
         }
     }
     func populate(){
-        label.text = client.persistentStore.URL?.absoluteString
+        label.text = client.persistentStore.url?.absoluteString
         fileInfoLabel.text = fileInfoText()
     }
     func fileInfoText()->String{
-        let request = NSFetchRequest(entityName: "Habit")
-        let habits = (try! client.managedObjectContext.executeFetchRequest(request)) as! [Habit]
-        let nextRequiredDate = habits.reduce(NSDate(timeIntervalSince1970: 0), combine: { (date, habit) -> NSDate in
+//        let request = NSFetchRequest(entityName: "Habit")
+        let request = NSFetchRequest<Habit>(entityName: "Habit")
+        let habits = (try! client.managedObjectContext.fetch(request)) 
+        let nextRequiredDate = habits.reduce(Date(timeIntervalSince1970: 0), { (date, habit) -> Date in
             if let chain = habit.currentChain(){
-                return chain.nextRequiredDate().laterDate(date)
+                let nextRequiredDate = chain.nextRequiredDate()
+                return nextRequiredDate != nil && (nextRequiredDate! > date) ? nextRequiredDate! : date
             }else{
                 return date
             }
         })
         return "\(habits.count) habit(s), most recent \(nextRequiredDate)"
     }
-    @IBAction func didPressExport(sender: AnyObject) {
+    @IBAction func didPressExport(_ sender: AnyObject) {
         DataExport.run(delegate, client: client)
     }
 }

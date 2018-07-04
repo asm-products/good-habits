@@ -1,4 +1,4 @@
-platform :ios, "7.0"
+platform :ios, "8.0"
 
 target "Habits" do
     pod 'CWLSynthesizeSingleton', '~> 1.0'
@@ -28,11 +28,15 @@ target "HabitsCommon" do
     pod 'AVHexColor', '~> 1.1.0'
 end
 
+target "HabitsCommonTests" do
+    pod 'YLMoment', '~> 0.6'
+end
+
 target "HabitsTests" do
     pod 'Specta', '~> 0.2.1'
     pod 'Expecta'
     pod 'OCMock', '~> 3.0'
-    pod 'KIF', '~> 3.3'
+    pod 'KIF', '~> 3.7'
     pod 'BlocksKit', '~> 2.2'
     pod 'FCOverlay', '~> 1.0'
     pod 'UIImage-Helpers', '~> 0.0'

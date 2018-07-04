@@ -103,7 +103,7 @@
     if(indexPath.section == 0){
         InfoCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"Info" forIndexPath:indexPath];
         cell.task = self.tasks[indexPath.row];
-        cell.color = [self.tasks[indexPath.row] color];
+        cell.color = (__bridge UIColor *)([self.tasks[indexPath.row] color]);
         cell.controller = self;
         return cell;
     }else{

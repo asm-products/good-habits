@@ -12,6 +12,7 @@
 
 // private interface
 @interface FCOverlayViewController ()
+@property (nonatomic, weak) UIWindow *previousWindow;
 @property (nonatomic, strong) UIWindow *currentWindow;
 @property (nonatomic, strong) UIViewController *viewControllerToPresent;
 @property (nonatomic, copy) void (^completionBlock)();
@@ -31,6 +32,24 @@
                         queued:(BOOL)queued
                     completion:(void (^)(void))completion {
     if ((self = [super init])) {
+        self.currentWindow = window;
+        self.viewControllerToPresent = viewController;
+        self.showAnimated = animated;
+        self.completionBlock = completion;
+        self.queued = queued;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithWindow:(UIWindow *)window
+                    fromWindow:(UIWindow *)fromWindow
+                viewController:(UIViewController *)viewController
+                      animated:(BOOL)animated
+                        queued:(BOOL)queued
+                    completion:(void (^)(void))completion {
+    if ((self = [super init])) {
+        self.previousWindow = fromWindow;
         self.currentWindow = window;
         self.viewControllerToPresent = viewController;
         self.showAnimated = animated;
@@ -152,28 +171,35 @@
 // dismiss the overlay controller and corresponding window
 - (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
 {
+	self.shouldDismissWhenReady = YES;
+
 	if(self.presentedViewController && self.presentedViewController.isBeingPresented)
 	{
-		self.shouldDismissWhenReady = YES;
 		return;
 	}
 
     [super dismissViewControllerAnimated:flag completion:^{
-        NSArray *windows = [UIApplication sharedApplication].windows;
-        NSEnumerator *reverseEnumerator = [windows reverseObjectEnumerator];
+        UIWindow *keyWindow = nil;
         
-        // get current key window
-        UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
-        
-        // if we are the key window, find the next window in the hierarchy that
-        // should be made key
-        if (self.currentWindow == keyWindow) {
-            for (UIWindow *window in reverseEnumerator) {
-                if (window.rootViewController && window.rootViewController != self) {
-                    keyWindow = window;
+        if (self.previousWindow) {
+            keyWindow = self.previousWindow;
+        } else {
+            NSArray *windows = [UIApplication sharedApplication].windows;
+            NSEnumerator *reverseEnumerator = [windows reverseObjectEnumerator];
+            
+            // get current key window
+            UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+            
+            // if we are the key window, find the next window in the hierarchy that
+            // should be made key
+            if (self.currentWindow == keyWindow) {
+                for (UIWindow *window in reverseEnumerator) {
+                    if (window.rootViewController && window.rootViewController != self) {
+                        keyWindow = window;
+                    }
+                    
+                    break;
                 }
-                
-                break;
             }
         }
         
@@ -192,6 +218,8 @@
             // dequeue the next queued overlay
             [FCOverlay dequeue];
         }
+
+		self.shouldDismissWhenReady = NO;
         
         // call completion block
         if (completion) completion();

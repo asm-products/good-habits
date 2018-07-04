@@ -34,7 +34,7 @@
     if(!self.isActive.boolValue) return NO;
     if(![self isRequiredOnWeekday:date]) return NO;
     if(!self.reminderTime) return NO;
-    NSDateComponents * components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:date];
+    NSDateComponents * components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:date];
     return components.hour > self.reminderTime.hour && components.minute > self.reminderTime.minute;
 }
 -(BOOL)isRequiredOnWeekday:(NSDate *)date{
@@ -200,7 +200,7 @@
             components.day = moment.day;
             notification.fireDate = [[NSCalendar currentCalendar] dateFromComponents:components];
             notification.alertBody = self.title;
-            notification.repeatInterval = NSWeekCalendarUnit;
+            notification.repeatInterval = NSCalendarUnitWeekday; // FIXME: is this right?
             notification.category = @"Checkable";
             notification.userInfo = @{
                                       @"identifier": self.identifier

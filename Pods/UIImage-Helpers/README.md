@@ -9,6 +9,7 @@ Create a blurred images, take a screenshot, make a image with color...
 [![Build Status](https://api.travis-ci.org/NZN/UIImage-Helpers.png)](https://api.travis-ci.org/NZN/UIImage-Helpers.png)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/v/UIImage-Helpers/badge.png)](http://beta.cocoapods.org/?q=UIImage-Helpers)
 [![Cocoapods](https://cocoapod-badges.herokuapp.com/p/UIImage-Helpers/badge.png)](http://beta.cocoapods.org/?q=UIImage-Helpers)
+[![Analytics](https://ga-beacon.appspot.com/UA-48753665-1/NZN/UIImage-Helpers/README.md)](https://github.com/igrigorik/ga-beacon)
 
 ## Requirements
 
@@ -29,7 +30,7 @@ You will need LLVM 3.0 or later in order to build UIImage-Helpers.
 * Add a pod entry for UIImage-Helpers to your Podfile:
 
 ```
-pod 'UIImage-Helpers', '~> 0.0.1'
+pod 'UIImage-Helpers'
 ```
 
 * Install the pod(s) by running:
@@ -92,3 +93,7 @@ This code is distributed under the terms and conditions of the [MIT license](LIC
 ## Change-log
 
 A brief summary of each UIImage-Helpers release can be found on the [wiki](https://github.com/NZN/UIImage-Helpers/wiki/Change-log).
+
+## To-do Items
+
+- Category for crop images

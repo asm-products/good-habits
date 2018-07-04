@@ -12,30 +12,48 @@ import HabitsCommon
 
 @available(iOS 9.0, *)
 @objc class WatchConnectionHelper: NSObject, WCSessionDelegate {
+    /** Called when all delegate callbacks for the previously selected watch has occurred. The session can be re-activated for the now selected watch using activateSession. */
+    @available(iOS 9.3, *)
+    public func sessionDidDeactivate(_ session: WCSession) {
+       
+    }
+
+    /** Called when the session can no longer be used to modify or add any new transfers and, all interactive messages will be cancelled, but delegate callbacks for background transfers can still occur. This will happen when the selected watch is being changed. */
+    @available(iOS 9.3, *)
+    public func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(iOS 9.3, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
     var session: WCSession
     
     override init(){
-        session = WCSession.defaultSession()
+        session = WCSession.default
         super.init()
         session.delegate = self
-        session.activateSession()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onHabitsUpdated", name: CHAIN_MODIFIED, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onHabitsUpdated", name: HABITS_UPDATED, object: nil)
+        session.activate()
+        NotificationCenter.default.addObserver(self, selector: #selector(WatchConnectionHelper.onHabitsUpdated), name: NSNotification.Name(rawValue: CHAIN_MODIFIED), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WatchConnectionHelper.onHabitsUpdated), name: NSNotification.Name(rawValue: HABITS_UPDATED), object: nil)
     }
-    func onHabitsUpdated(){
+    @objc func onHabitsUpdated(){
         do{
             try session.updateApplicationContext(latestData())
         }catch {
             print("couldn't update watch application context")
         }
     }
-    func habitStructFromHabit(habit:Habit, order:Int)->HabitStruct{
+    func habitStructFromHabit(_ habit:Habit, order:Int)->HabitStruct{
         return HabitStruct(
             identifier: habit.identifier,
             title: habit.title,
             order: order,
             color: habit.color,
-            state: HabitDayState(rawValue: Int(habit.chainForDate(NSDate()).dayState().rawValue))!
+            state: HabitDayState(rawValue: Int(habit.chain(for: Date()).dayState().rawValue))!
         )
     }
     func habitDaysWithJustToday()->[String: [HabitStructDictionary]]{
@@ -45,7 +63,7 @@ import HabitsCommon
             order += 1
             return habitStructFromHabit(habit, order: order).toDictionary()
         }
-        return [dayKey(NSDate()): habitDicts]
+        return [dayKey(Date()): habitDicts]
     }
     func dayTemplates()->[String:[HabitStructDictionary]]{ // fuck, this is a bit weird - should just send the list of habits with the days they're needed
         let habits = HabitsQueries.active() as! [Habit]
@@ -72,14 +90,14 @@ import HabitsCommon
         ]
         return info
     }
-    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
-        guard let context = applicationContext as? AppContextFormat, dates = context["habits"] else {
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        guard let context = applicationContext as? AppContextFormat, let dates = context["habits"] else {
                 print("Failed to parse habits from application context \(applicationContext)")
             return
         }
         for (dateKey, habits) in dates{
             if let date = dateFromKey(dateKey){
-                for habit in habits.map({ HabitStruct(dict: $0)}) {
+                for habit in habits.map({ HabitStruct(dict: $0 as [String : AnyObject])}) {
                     self.updateHabitWithStruct(habit, date: date)
                 }
             }else{
@@ -87,13 +105,13 @@ import HabitsCommon
             }
         }
     }
-    func updateHabitWithStruct(source:HabitStruct, date: NSDate){
+    func updateHabitWithStruct(_ source:HabitStruct, date: Date){
         let state = UInt32(source.state.rawValue)
         let dayCheckedState = DayCheckedState(rawValue: state)
-        if let habit = HabitsQueries.findHabitByIdentifier(source.identifier){
-            habit.ensureDayCheckedStateForDate(date, dayState: dayCheckedState)
+        if let habit = HabitsQueries.findHabit(byIdentifier: source.identifier){
+            habit.ensureDayCheckedState(for: date, dayState: dayCheckedState)
         }
-        NSNotificationCenter.defaultCenter().postNotificationName(REFRESH, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: REFRESH), object: nil)
         
     }
 }

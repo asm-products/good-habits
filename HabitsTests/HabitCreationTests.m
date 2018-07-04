@@ -1,7 +1,7 @@
 #import <KIF.h>
 #import "TimeHelper.h"
 
-@interface HabitCreationTests : XCTestCase
+@interface HabitCreationTests : KIFTestCase
 
 @end
 
@@ -22,7 +22,7 @@
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [tester waitForViewWithAccessibilityLabel:@"Wednesday 1 January"];
     [tester tapViewWithAccessibilityLabel:@"Floss"];
-    expect(habit.chains.count).to.equal(1);
+    expect(habit.chains.count).to.equal(0);
     
     [tester tapViewWithAccessibilityLabel:@"Delete this habit"];
     [tester tapViewWithAccessibilityLabel:@"Delete"];

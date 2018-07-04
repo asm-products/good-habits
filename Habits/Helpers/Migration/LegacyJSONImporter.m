@@ -58,7 +58,7 @@
             NSError * error;
             [context save:&error];
             if(error) NSLog(@"Error saving private context %@: %@", context, error.localizedDescription);
-            [context reset];
+//            [context reset];
         }else{
             NSLog(@"Skipping import of %@", title);
         }

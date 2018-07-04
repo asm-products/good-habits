@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
 @class KIFTestActor;
 
 @interface UIAutomationHelper : NSObject
 
 + (BOOL)acknowledgeSystemAlert;
+
++ (BOOL)acknowledgeSystemAlertWithIndex:(NSUInteger)index;
 
 + (void)deactivateAppForDuration:(NSNumber *)duration;
 

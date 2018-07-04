@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "summary": "Utility macros for working with CGRect, CGSize, CGPoint etc...",
   "homepage": "http://github.com/goodtohear/GTHRectHelpers",
-  "license": "MIT (example)",
+  "license": "MIT",
   "authors": {
     "Michael Forrest": "michael.forrest@gmail.com"
   },

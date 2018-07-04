@@ -4,7 +4,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2015 Nolan O'Brien
+//  Copyright (c) 2016 Nolan O'Brien
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@
 //  SOFTWARE.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -85,10 +85,10 @@ typedef NS_ENUM(NSInteger, NOZErrorCode)
     /** Compress did fail to finalize the new zip file */
     NOZErrorCodeCompressFailedToFinalizeNewZipFile,
     /** Compress was cancelled */
-    NOZErrorCodeCompressCancelled = NOZErrorPageCompress + NOZErrorPageSize - 1,
+    NOZErrorCodeCompressCancelled = NOZErrorCodeCompressUnknown + NOZErrorPageSize - 1,
 
     /** Unknown decompress error */
-    NOZErrorCodeDecompressUnknown = NOZErrorPageDecompress,
+    NOZErrorCodeDecompressUnknown = NOZErrorPageDecompress * NOZErrorPageSize,
     /** Decompress did fail to open the zip archive */
     NOZErrorCodeDecompressFailedToOpenZipArchive,
     /** Decompress did fail to create the destination directory */
@@ -100,10 +100,10 @@ typedef NS_ENUM(NSInteger, NOZErrorCode)
     /** Decompress counldn't overwrite an existing file */
     NOZErrorCodeDecompressCannotOverwriteExistingFile,
     /** Decompress was cancelled */
-    NOZErrorCodeDecompressCancelled = NOZErrorPageDecompress + NOZErrorPageSize - 1,
+    NOZErrorCodeDecompressCancelled = NOZErrorCodeDecompressUnknown + NOZErrorPageSize - 1,
 
     /** Unknown zip error */
-    NOZErrorCodeZipUnknown = NOZErrorPageZip,
+    NOZErrorCodeZipUnknown = NOZErrorPageZip * NOZErrorPageSize,
     /** Zipper used with invalid file path */
     NOZErrorCodeZipInvalidFilePath,
     /** Zipper couldn't open an existing zip */
@@ -126,7 +126,7 @@ typedef NS_ENUM(NSInteger, NOZErrorCode)
     NOZErrorCodeZipFailedToCompressEntry,
 
     /** Unknown unzip error */
-    NOZErrorCodeUnzipUnknown = NOZErrorPageUnzip,
+    NOZErrorCodeUnzipUnknown = NOZErrorPageUnzip * NOZErrorPageSize,
     /** Unzipper couldn't open a zip */
     NOZErrorCodeUnzipCannotOpenZip,
     /** Unzipper used with an invalid file path */
@@ -155,6 +155,8 @@ typedef NS_ENUM(NSInteger, NOZErrorCode)
     NOZErrorCodeUnzipCannotReadFileEntry,
     /** Unzipper couldn't decompress a file entry */
     NOZErrorCodeUnzipCannotDecompressFileEntry,
+    /** Unzipping data didn't match CRC32 checksum */
+    NOZErrorCodeUnzipChecksumMissmatch,
     /** An entry failed to be decompressed */
     NOZErrorCodeUnzipFailedToDecompressEntry,
 };
@@ -174,7 +176,10 @@ NS_INLINE BOOL NOZErrorCodeIsInErrorPage(NOZErrorCode code, NOZErrorPage page)
 //! Is the given _code_ an Unzip Error
 #define NOZErrorCodeIsUnzipError(code)      NOZErrorCodeIsInErrorPage(code, NOZErrorPageUnzip)
 
-//! Convenience macro for creating an `NOZErrorDomain` `NSError`
-#define NOZErrorCreate(errCode, ui) [NSError errorWithDomain:NOZErrorDomain code:(errCode) userInfo:(ui)]
+//! Convenience function for creating an `NOZErrorDomain` `NSError`
+FOUNDATION_EXTERN NSError *NOZErrorCreate(NOZErrorCode code, NSDictionary * __nullable ui);
+
+//! Get a string value for the an error code
+FOUNDATION_EXTERN NSString *NOZErrorCodeToString(NOZErrorCode code);
 
 NS_ASSUME_NONNULL_END

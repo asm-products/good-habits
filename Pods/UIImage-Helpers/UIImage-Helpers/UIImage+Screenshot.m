@@ -13,13 +13,9 @@
 + (UIImage *)screenshot
 {
     CGSize imageSize = [[UIScreen mainScreen] bounds].size;
- 
-    if (NULL != UIGraphicsBeginImageContextWithOptions) {
-        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
-    } else {
-        UIGraphicsBeginImageContext(imageSize);
-    }
-    
+
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     for (UIWindow *window in [[UIApplication sharedApplication] windows]) {

@@ -17,19 +17,19 @@ class HabitsUITests: XCTestCase {
     }
     func pathsForStore(name:String)->String{
         return ["sqlite", "sqlite-shm", "sqlite-wal"].map { type in
-            return NSBundle(forClass: HabitsUITests.self).pathForResource(name, ofType: type)!
-            }.joinWithSeparator(";")
+            return Bundle(for: HabitsUITests.self).path(forResource: name, ofType: type)!
+            }.joined(separator: ";")
     }
     func pathsForStores(names:[String])->String{
         return names.map { name in
-            return self.pathsForStore(name)
-            }.joinWithSeparator(";")
+            return self.pathsForStore(name: name)
+            }.joined(separator: ";")
     }
     func testOnlyOneStoreFound(){
         let app = XCUIApplication()
         app.launchEnvironment = [
             "RemoveGroupStoreAtStartup": "YES",
-            "TestingStorePaths": pathsForStore("HabitsStoreSecondForTesting")
+            "TestingStorePaths": pathsForStore(name: "HabitsStoreSecondForTesting")
         ]
         app.launch()
         var habitsListTable = app.tables["Habits List"]
@@ -51,7 +51,7 @@ class HabitsUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchEnvironment = [
             "RemoveGroupStoreAtStartup": "YES",
-            "TestingStorePaths": pathsForStores([
+            "TestingStorePaths": pathsForStores(names: [
                 "HabitsStoreSecondForTesting",
                 "HabitsStoreThirdForTesting",
                 "HabitsStoreFourthForTesting"

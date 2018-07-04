@@ -23,9 +23,9 @@ import HabitsCommon
     }
     var groupStoreExists:Bool{
         let url = CoreDataClient.groupStoreURL()
-        print("Group Store URL = \(url.path)")
-        if let path = url.path{
-            return NSFileManager.defaultManager().fileExistsAtPath(path)
+        print("Group Store URL = \(url?.path)")
+        if let path = url?.path{
+            return FileManager.default.fileExists(atPath: path)
         }else{
             return false
         }
@@ -33,31 +33,31 @@ import HabitsCommon
     var hasOnlyOneOption:Bool{
         return clients.count == 1
     }
-    private func globClients(){
-        let url = NSURL(fileURLWithPath: documentsPath as String)
-        let enumerator = NSFileManager.defaultManager().enumeratorAtURL(url, includingPropertiesForKeys: [NSURLIsDirectoryKey], options: NSDirectoryEnumerationOptions.SkipsHiddenFiles, errorHandler: nil)!
+    fileprivate func globClients(){
+        let url = URL(fileURLWithPath: documentsPath as String)
+        let enumerator = FileManager.default.enumerator(at: url, includingPropertiesForKeys: [URLResourceKey.isDirectoryKey], options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles, errorHandler: nil)!
         for file in enumerator{
-            if let url = file as? NSURL{
-                if url.lastPathComponent!.hasSuffix("sqlite"){
-                    let client = CoreDataClient(readOnlyStoreUrl: url)
+            if let url = file as? URL{
+                if url.lastPathComponent.hasSuffix("sqlite"){
+                    let client = CoreDataClient(readOnlyStore: url)
                     print("found a Sqlite file at \(url) client \(client)")
-                    let count = client.allHabits().count
-                    if count > 0 {
-                        clients.append(client)
+                    let count = client?.allHabits().count
+                    if count! > 0 {
+                        clients.append(client!)
                     }
                 }
             }
         }
     }
     
-    private func determineMostLikelyClient(){
-        var newestDate = NSDate(timeIntervalSince1970: 0)
+    fileprivate func determineMostLikelyClient(){
+        var newestDate = Date(timeIntervalSince1970: 0)
         var mostHabits = 0
-        for (index,client) in clients.enumerate(){
+        for (index,client) in clients.enumerated(){
             let date = client.lastUsedDate()
             let count = client.allHabits().count
-            if date.timeIntervalSince1970 > newestDate.timeIntervalSince1970{
-                newestDate = date
+            if (date?.timeIntervalSince1970)! > newestDate.timeIntervalSince1970{
+                newestDate = date!
                 if mostHabits <= count{
                     selectedStoreIndex = index
                     mostHabits = count
@@ -66,9 +66,9 @@ import HabitsCommon
             
         }
     }
-    func migrateSelectedStoreToSharedContainer(completion:()->Void){
+    func migrateSelectedStoreToSharedContainer(_ completion:@escaping ()->Void){
         let client = clients[selectedStoreIndex]
-        client.migrateToAppGroupStore {
+        client.migrate {
             completion()
             self.cleanUpIfBeingTested()
         }
@@ -78,17 +78,17 @@ import HabitsCommon
     }
     // MARK: - Utility
     var documentsPath: NSString{
-        return NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
     }
     // MARK: - Testing
     // not ideal to put this in here but I can't see a way to bootstrap data into UI tests from the test host
-    private var testingDataSources:[TestingDataSource]?
-    private func prepareForTestingIfNecessary(){
-        let dict = NSProcessInfo.processInfo().environment
-        if let removeGroupStoreAtStartup = dict["RemoveGroupStoreAtStartup"] where removeGroupStoreAtStartup == "YES"{
+    fileprivate var testingDataSources:[TestingDataSource]?
+    fileprivate func prepareForTestingIfNecessary(){
+        let dict = ProcessInfo.processInfo.environment
+        if let removeGroupStoreAtStartup = dict["RemoveGroupStoreAtStartup"] , removeGroupStoreAtStartup == "YES"{
             let url = CoreDataClient.groupStoreURL()
             do{
-                try NSFileManager.defaultManager().removeItemAtURL(url)
+                try FileManager.default.removeItem(at: url!)
                 print("Deleted group store from url \(url)")
             }catch{
                 print("Couldn't delete group store from \(url)!")
@@ -97,17 +97,17 @@ import HabitsCommon
         }
         
         let pathsString = dict["TestingStorePaths"]
-        if let sourcePaths = pathsString?.componentsSeparatedByString(";"){
+        if let sourcePaths = pathsString?.components(separatedBy: ";"){
             self.testingDataSources = sourcePaths.map { sourcePath in
-                let fileName = NSURL(string:sourcePath)!.lastPathComponent
-                let destPath = self.documentsPath.stringByAppendingPathComponent(fileName!)
+                let fileName = URL(string:sourcePath)!.lastPathComponent
+                let destPath = self.documentsPath.appendingPathComponent(fileName)
                 let operation = TestingDataSource(source: sourcePath, dest: destPath)
                 operation.copySourceToDest()
                 return operation
             }
         }
     }
-    private func cleanUpIfBeingTested(){
+    fileprivate func cleanUpIfBeingTested(){
         if let stores = testingDataSources{
             for store in stores{
                 store.removeDest()
@@ -125,11 +125,11 @@ private class TestingDataSource{
     }
     func copySourceToDest(){
         print("Copying \(sourcePath) to \(destPath)")
-        try? NSFileManager.defaultManager().copyItemAtPath(sourcePath, toPath: destPath)
+        try? FileManager.default.copyItem(atPath: sourcePath, toPath: destPath)
     }
     func removeDest(){
         print("Remove file \(destPath)")
-        try! NSFileManager.defaultManager().removeItemAtPath(destPath)
+        try! FileManager.default.removeItem(atPath: destPath)
     }
 }
 

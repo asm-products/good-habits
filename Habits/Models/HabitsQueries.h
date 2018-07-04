@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "CoreDataClient.h"
-#import "Habit.h"
+//#import "Habit.h"
+@class Habit;
 #define HABITS_UPDATED @"HABITS_UPDATED"
 #define REFRESH @"REFRESH"
 #define PURCHASE_COMPLETED @"PURCHASE_COMPLETED"

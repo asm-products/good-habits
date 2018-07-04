@@ -19,24 +19,24 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         super.viewDidLoad()
         refreshHabits()
         
-        for name in [NSUserDefaultsDidChangeNotification, NSExtensionHostWillEnterForegroundNotification]{
-            NSNotificationCenter.defaultCenter().addObserverForName(name, object: nil, queue: NSOperationQueue.mainQueue()) { _ in
+        for name in [UserDefaults.didChangeNotification, NSNotification.Name.NSExtensionHostWillEnterForeground]{
+            NotificationCenter.default.addObserver(forName: name, object: nil, queue: OperationQueue.main) { _ in
                 self.refreshHabits()
             }
         }
     }
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         refreshHabits()
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         refreshHabits()
     }
     func onUserDefaultsChanged(){ // this is to synchronise between widget and app
         refreshHabits()
     }
-    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+    func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
     }
     func refreshHabits(){
@@ -48,7 +48,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
 //        notification.applicationIconBadgeNumber = HabitsQueries.outstandingToday().count
 //        notification.fireDate = NSDate()
     }
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed
@@ -59,18 +59,18 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         let countAfter = habits.filter({$0.currentChain()?.dayState() == DayCheckedStateComplete}).count
         
         print("Count before \(countBefore) count after \(countAfter)")
-        let result: NCUpdateResult = countAfter == countBefore ? .NoData : .NewData
+        let result: NCUpdateResult = countAfter == countBefore ? .noData : .newData
         completionHandler(result)
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return habits.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let habit = habits[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("HabitCell", forIndexPath: indexPath) as! HabitCellTodayWidget
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HabitCell", for: indexPath) as! HabitCellTodayWidget
         cell.habit = habit
         return cell
     }

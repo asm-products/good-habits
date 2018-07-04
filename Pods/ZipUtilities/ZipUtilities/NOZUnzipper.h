@@ -4,7 +4,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2015 Nolan O'Brien
+//  Copyright (c) 2016 Nolan O'Brien
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,7 @@
 //  SOFTWARE.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 #import "NOZUtils.h"
 #import "NOZZipEntry.h"
@@ -38,6 +38,17 @@
 typedef void(^NOZUnzipRecordEnumerationBlock)(NOZCentralDirectoryRecord * __nonnull record, NSUInteger index, BOOL * __nonnull stop);
 //! Callback when enumerating bytes being decompressed for an entry.  Set _stop_ to `YES` to end the enumeration early.
 typedef void(^NOZUnzipByteRangeEnumerationBlock)(const void * __nonnull bytes, NSRange byteRange, BOOL * __nonnull stop);
+
+//! Values for options when saving a record to disk
+typedef NS_OPTIONS(NSInteger, NOZUnzipperSaveRecordOptions)
+{
+    /** No options */
+    NOZUnzipperSaveRecordOptionsNone = 0,
+    /** If a file exists at the output path, overwrite it */
+    NOZUnzipperSaveRecordOptionOverwriteExisting,
+    /** If the output file would have intermediate directories, ignore them and write the file directly to the output directory. */
+    NOZUnzipperSaveRecordOptionIgnoreIntermediatePath,
+};
 
 /**
  `NOZUnzipper` unzips an archive.
@@ -153,7 +164,7 @@ typedef void(^NOZUnzipByteRangeEnumerationBlock)(const void * __nonnull bytes, N
             return YES;
         }
 
-        return [self saveRecord:record toDirectory:someDestinationRootDirectory shouldOverwrite:NO progressBlock:NULL error:error];
+        return [self saveRecord:record toDirectory:someDestinationRootDirectory options:NOZUnzipperSaveRecordOptionsNone progressBlock:NULL error:error];
     }
 
  */
@@ -168,9 +179,9 @@ typedef void(^NOZUnzipByteRangeEnumerationBlock)(const void * __nonnull bytes, N
 - (nonnull instancetype)initWithZipFile:(nonnull NSString *)zipFilePath;
 
 /** Unavailable */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 /** Unavailable */
-+ (nullable instancetype)new NS_UNAVAILABLE;
++ (nonnull instancetype)new NS_UNAVAILABLE;
 
 /**
  Open the zip archive.
@@ -229,9 +240,25 @@ typedef void(^NOZUnzipByteRangeEnumerationBlock)(const void * __nonnull bytes, N
  */
 - (BOOL)saveRecord:(nonnull NOZCentralDirectoryRecord *)record
        toDirectory:(nonnull NSString *)destinationRootDirectory
-   shouldOverwrite:(BOOL)overwrite
+           options:(NOZUnzipperSaveRecordOptions)options
      progressBlock:(nullable NOZProgressBlock)progressBlock
              error:(out NSError *__autoreleasing  __nullable * __nullable)error;
+
+/**
+ Validate a record.
+ */
+- (BOOL)validateRecord:(nonnull NOZCentralDirectoryRecord *)record
+         progressBlock:(nullable NOZProgressBlock)progressBlock
+                 error:(out NSError *__autoreleasing __nullable * __nullable)error;
+
+/**
+ *DEPRECATED*: See `saveRecord:toDirectory:options:progressBlock:error:`
+ */
+- (BOOL)saveRecord:(nonnull NOZCentralDirectoryRecord *)record
+       toDirectory:(nonnull NSString *)destinationRootDirectory
+   shouldOverwrite:(BOOL)overwrite
+     progressBlock:(nullable NOZProgressBlock)progressBlock
+             error:(out NSError *__autoreleasing  __nullable * __nullable)error __attribute__((deprecated("Use saveRecord:toDirectory:options:progressBlock:error: instead!")));
 
 
 
@@ -241,17 +268,23 @@ typedef void(^NOZUnzipByteRangeEnumerationBlock)(const void * __nonnull bytes, N
  A central directory record is a zip entry populated with all the pertinent central directory info.
  */
 @interface NOZCentralDirectoryRecord : NSObject <NOZZipEntry>
+/** name of record */
 @property (nonatomic, readonly, nonnull) NSString *name;
+/** comment for record */
 @property (nonatomic, readonly, nullable) NSString *comment;
+/** compression method for record */
 @property (nonatomic, readonly) NOZCompressionMethod compressionMethod;
-@property (nonatomic, readonly) NOZCompressionLevel compressionLevel; // a best guess
+/** compression level for record (best guess when unzipping) */
+@property (nonatomic, readonly) NOZCompressionLevel compressionLevel;
+/** compressed size of record */
 @property (nonatomic, readonly) SInt64 compressedSize;
+/** uncompressed size of record */
 @property (nonatomic, readonly) SInt64 uncompressedSize;
 
 /** Unavailable */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 /** Unavailable */
-+ (nullable instancetype)new NS_UNAVAILABLE;
++ (nonnull instancetype)new NS_UNAVAILABLE;
 @end
 
 /**
@@ -280,8 +313,8 @@ typedef void(^NOZUnzipByteRangeEnumerationBlock)(const void * __nonnull bytes, N
 @property (nonatomic, readonly) SInt64 totalUncompressedSize;
 
 /** Unavailable */
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (nonnull instancetype)init NS_UNAVAILABLE;
 /** Unavailable */
-+ (nullable instancetype)new NS_UNAVAILABLE;
++ (nonnull instancetype)new NS_UNAVAILABLE;
 @end
 

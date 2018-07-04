@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Habit.h"
+//#import "Habit.h"
+@class Habit;
 #import "Failure.h"
 #import "Chain.h"
 

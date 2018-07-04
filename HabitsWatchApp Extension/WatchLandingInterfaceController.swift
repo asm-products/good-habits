@@ -12,22 +12,22 @@ import Foundation
 
 class WatchLandingInterfaceController: WKInterfaceController {
 
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         showHabitsListIfAvailableAnimated(false)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updated", name: UpdateNotificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(WatchLandingInterfaceController.updated), name: NSNotification.Name(rawValue: UpdateNotificationName), object: nil)
     }
-    func updated(){
+    @objc func updated(){
         showHabitsListIfAvailableAnimated(true)
     }
-    func showHabitsListIfAvailableAnimated(animated:Bool){
+    func showHabitsListIfAvailableAnimated(_ animated:Bool){
         if delegate.todaysHabits != nil {
             popToRootController()
-            NSNotificationCenter.defaultCenter().removeObserver(self)
+            NotificationCenter.default.removeObserver(self)
         }
     }
     var delegate: ExtensionDelegate{
-        return WKExtension.sharedExtension().delegate as! ExtensionDelegate
+        return WKExtension.shared().delegate as! ExtensionDelegate
     }
 
     override func willActivate() {

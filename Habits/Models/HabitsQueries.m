@@ -15,6 +15,7 @@
 #import <SVProgressHUD.h>
 #import "CoreDataClient.h"
 #import "Chain.h"
+#import "Habit.h"
 @implementation HabitsQueries
 +(NSFetchedResultsController*)fetchedResultsControllerForClient:(CoreDataClient*)client{
     NSFetchRequest * request = [NSFetchRequest fetchRequestWithEntityName:@"Habit"];

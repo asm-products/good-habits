@@ -87,7 +87,7 @@
     NSArray * dayKeys = [daysChecked sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     Chain * chain = [habit addNewChainInContext:context];
     for (NSString * dayKey in dayKeys) { // all values are @YES so I can just iterate through the keys
-        NSDate * date = [DayKeys dateFromKey:dayKey];
+        NSDate * date = [DayKeys convertKeyToDate:dayKey];
         
         chain = [self returnOrReplaceChain:chain forHabit:habit inContext:context withKey:dayKey onDate: date];
         
