@@ -113,7 +113,7 @@
     [Notifications reschedule];
     if(!TEST_ENVIRONMENT){
         if(!hasBeenActiveYet){
-            [self performAnyNecessaryUpgrades];
+//            [self performAnyNecessaryUpgrades];
         }
     }
     hasBeenActiveYet = YES;
