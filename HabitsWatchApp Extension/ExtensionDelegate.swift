@@ -22,12 +22,39 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate,WCSessionDelegate {
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         applicationDidBecomeActive() // ??
     }
-
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        self.applicationContext = applicationContext
+    }
+//    func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
+//        // Sent when the system needs to launch the application in the background to process tasks. Tasks arrive in a set, so loop through and process each one.
+//        for task in backgroundTasks {
+//            // Use a switch statement to check the task type
+//            switch task {
+//            case let backgroundTask as WKApplicationRefreshBackgroundTask:
+//                // Be sure to complete the background task once you’re done.
+//                backgroundTask.setTaskCompletedWithSnapshot(false)
+//            case let snapshotTask as WKSnapshotRefreshBackgroundTask:
+//                // Snapshot tasks have a unique completion call, make sure to set your expiration date
+//                snapshotTask.setTaskCompleted(restoredDefaultState: true, estimatedSnapshotExpiration: Date.distantFuture, userInfo: nil)
+//            case let connectivityTask as WKWatchConnectivityRefreshBackgroundTask:
+//                // Be sure to complete the connectivity task once you’re done.
+//                connectivityTask.setTaskCompletedWithSnapshot(false)
+//            case let urlSessionTask as WKURLSessionRefreshBackgroundTask:
+//                // Be sure to complete the URL session task once you’re done.
+//                urlSessionTask.setTaskCompletedWithSnapshot(false)
+//            default:
+//                // make sure to complete unhandled task types
+//                task.setTaskCompletedWithSnapshot(false)
+//            }
+//        }
+//    }
+//
     var session:WCSession!
     var currentDay: Date?
     var todaysHabits: [String:HabitStruct]?
-    var applicationContext: [String:AnyObject]?{
+    var applicationContext: [String:Any]?{
         didSet{
+            print("Changed application context to \(applicationContext)")
             saveApplicationContextToLocalStorage()
             populateTodayFromApplicationContext()
             DispatchQueue.main.async {

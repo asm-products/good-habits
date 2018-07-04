@@ -43,7 +43,7 @@ class HabitCellTodayWidget: UITableViewCell {
                     countCell.setBackgroundImage(AwardImage.circleColored(Colors.cobalt()), for: .normal)
                     countCell.setTitle("-\(daysOverdue)", for: .normal)
                 }else{
-                    countCell.setTitle("\(chain.daysCountCache)", for: .normal)
+                    countCell.setTitle("\(chain.daysCountCache ?? 0)", for: .normal)
                     countCell.setBackgroundImage(chain.isRecord() ? AwardImage.starColored(habit.color) : AwardImage.circleColored(habit.color), for: .normal)
                 }
             }

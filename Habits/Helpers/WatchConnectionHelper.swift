@@ -90,7 +90,7 @@ import HabitsCommon
         ]
         return info
     }
-    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         guard let context = applicationContext as? AppContextFormat, let dates = context["habits"] else {
                 print("Failed to parse habits from application context \(applicationContext)")
             return

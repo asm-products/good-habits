@@ -26,7 +26,7 @@
     NSArray * array = [dict valueForKeyPath:@"goodtohear.habits_habits"];
     [PlistStoreToCoreDataMigrator performMigrationWithArray:array progress:^(float progress) {
     }];
-    [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName: HABITS_UPDATED object:nil];
     
 }
 - (IBAction)didPressRestoreMFData:(id)sender {
