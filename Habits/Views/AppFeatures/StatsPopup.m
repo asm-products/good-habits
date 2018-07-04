@@ -26,6 +26,7 @@
     return self;
 }
 -(void)awakeFromNib{
+    [super awakeFromNib];
     [self build];
 }
 -(void)build{

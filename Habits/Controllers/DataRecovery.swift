@@ -10,7 +10,7 @@ import UIKit
 import HabitsCommon
 
 @objc class DataRecovery: NSObject{
-    var clients = [CoreDataClient]()
+    @objc var clients = [CoreDataClient]()
     var selectedStoreIndex = 0
     override init(){
         super.init()

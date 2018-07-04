@@ -111,17 +111,18 @@
                                 <rect key="frame" x="16" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9R0-dF-VJt">
-                                        <rect key="frame" x="37" y="3" width="17" height="16"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9R0-dF-VJt">
+                                        <rect key="frame" x="17" y="-9" width="13" height="16"/>
                                         <color key="backgroundColor" red="0.70016419887542725" green="0.083946369588375092" blue="0.14360913634300232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="13" id="3YR-Cd-0dp"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-7B-Hca">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyr-7B-Hca">
                                         <rect key="frame" x="0.0" y="-3" width="60" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <inset key="contentEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="info.png">
@@ -134,6 +135,16 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eyr-7B-Hca" firstAttribute="leading" secondItem="hvW-5b-FZq" secondAttribute="leading" id="2BS-MM-fiQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="eyr-7B-Hca" secondAttribute="trailing" id="K59-oY-ny5"/>
+                                    <constraint firstAttribute="bottom" secondItem="eyr-7B-Hca" secondAttribute="bottom" constant="-2" id="Lwh-eJ-pwA"/>
+                                    <constraint firstItem="eyr-7B-Hca" firstAttribute="top" secondItem="9R0-dF-VJt" secondAttribute="bottom" constant="-10" id="iRk-Mm-9CW"/>
+                                    <constraint firstItem="eyr-7B-Hca" firstAttribute="top" secondItem="hvW-5b-FZq" secondAttribute="top" constant="-3" id="jzt-Yc-2Us"/>
+                                    <constraint firstAttribute="trailing" secondItem="eyr-7B-Hca" secondAttribute="trailing" id="m5d-iQ-Onk"/>
+                                    <constraint firstItem="eyr-7B-Hca" firstAttribute="top" secondItem="hvW-5b-FZq" secondAttribute="top" constant="-3" id="rwS-ns-wdz"/>
+                                    <constraint firstItem="eyr-7B-Hca" firstAttribute="leading" secondItem="9R0-dF-VJt" secondAttribute="trailing" constant="-30" id="vOX-Pe-xQe"/>
+                                </constraints>
                             </view>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="uvz-VS-CiY">

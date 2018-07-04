@@ -13,6 +13,9 @@
 #import "StatisticsFeaturePurchaseViewController.h"
 #import <SVProgressHUD.h>
 #import "HabitsQueries.h"
+#import <Crashlytics/Crashlytics.h>
+#import "SKProductsRequest+Blocks.h"
+
 @implementation StatisticsFeaturePurchaseController{
     
 
@@ -24,9 +27,22 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 }
 
+-(void)trackPayment: (SKPaymentTransaction *)transaction{
+    NSString * productIdentifier = transaction.payment.productIdentifier;
+    NSSet * set = [NSSet setWithObject:productIdentifier];
+    [SKProductsRequest requestWithProductIdentifiers:set withBlock:^(SKProductsResponse *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            SKProduct * product = response.products.firstObject;
+             [Answers logPurchaseWithPrice: product.price currency:product.priceLocale.currencyCode success:@YES itemName:product.localizedTitle itemType: @"Unlock" itemId:product.productIdentifier customAttributes:@{}];
+        });
+        
+    }];
+}
+
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
     for (SKPaymentTransaction * transaction in transactions) {
         NSLog(@"TRansaction state %@", @(transaction.transactionState));
+        
         switch (transaction.transactionState)
         {
             case SKPaymentTransactionStatePurchasing:
@@ -46,7 +62,11 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
 //                    [SVProgressHUD showErrorWithStatus:[transaction.error.userInfo valueForKey:NSLocalizedDescriptionKey]];
                     break;
                 }
+                break;
             case SKPaymentTransactionStatePurchased:
+                [self trackPayment: transaction];
+                // don't break, continue...
+
             case SKPaymentTransactionStateRestored:
                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -60,6 +80,8 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
                 [SVProgressHUD dismiss];
                 break;
         }
+ 
+        
     }
 }
 

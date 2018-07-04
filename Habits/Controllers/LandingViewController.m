@@ -17,6 +17,7 @@
 #import "HabitCell.h" // for the notification name
 #import "StatsTableViewController.h"
 #import "HabitToggler.h"
+#import <Crashlytics/Crashlytics.h>
 @interface LandingViewController (){
     __weak IBOutlet UILabel *infoCountBadge;
 #pragma mark stats enabled only
@@ -65,6 +66,9 @@
         self.habitListViewController = segue.destinationViewController;
     }
     if([segue.identifier isEqualToString:@"New"]){
+        [Answers logCustomEventWithName:@"Added Habit" customAttributes:@{
+                                                                          @"Current Count": [NSNumber numberWithUnsignedInteger:[[HabitsQueries all] count]]
+                                                                          }];
         Habit * habit = [Habit createNew];
         habit.identifier = [[NSUUID UUID] UUIDString];
 //        [HabitsList.all addObject:habit];
@@ -91,6 +95,7 @@
 
 -(void)onTodayCheckedForChain:(NSNotification*)notification{
     Chain * chain = notification.object;
+    [Answers logCustomEventWithName:@"Checklist Checked" customAttributes:@{@"HabitName": chain.habit.title}];
     if([AppFeatures statsEnabled] == NO) return;
     if(self.statsVisible) {
         [UIView animateWithDuration:0.1 animations:^{

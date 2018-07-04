@@ -48,6 +48,7 @@
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [Notifications registerCategories];
     }
+
     return YES;
 }
 -(void)performAnyNecessaryUpgrades{

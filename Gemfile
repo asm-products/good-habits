@@ -4,3 +4,6 @@ gem "cocoapods"
 gem "rake"
 gem 'onesky-ruby'
 gem 'frameit'
+
+
+gem "fastlane"
