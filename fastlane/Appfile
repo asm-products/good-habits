@@ -1,0 +1,8 @@
+app_identifier("goodtohear.habits") # The bundle identifier of your app
+apple_id("dev@goodtohear.co.uk") # Your Apple email address
+
+itc_team_id("1057448") # iTunes Connect Team ID
+team_id("TNRLJ4WU59") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

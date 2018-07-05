@@ -519,6 +519,8 @@
 		AC735DE8197156D0007CD2B7 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron@2x.png"; sourceTree = "<group>"; };
 		AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron.png"; sourceTree = "<group>"; };
+		AC75F6F720ED29BA00AB2BDA /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
+		AC75F6F820ED29BB00AB2BDA /* Appfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Appfile; path = fastlane/Appfile; sourceTree = "<group>"; };
 		AC78817D1BED3F6700675C75 /* HabitsCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HabitsCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC78817F1BED3F6700675C75 /* HabitsCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HabitsCommon.h; sourceTree = "<group>"; };
 		AC7881811BED3F6700675C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1306,6 +1308,8 @@
 		ACADB3C7190D23B90030CC82 = {
 			isa = PBXGroup;
 			children = (
+				AC75F6F820ED29BB00AB2BDA /* Appfile */,
+				AC75F6F720ED29BA00AB2BDA /* Fastfile */,
 				ACADB3D9190D23B90030CC82 /* Habits */,
 				ACADB3F8190D23B90030CC82 /* HabitsTests */,
 				AC78817E1BED3F6700675C75 /* HabitsCommon */,
@@ -1890,13 +1894,13 @@
 			projectRoot = "";
 			targets = (
 				ACADB3CF190D23B90030CC82 /* Habits */,
-				ACADB3F0190D23B90030CC82 /* HabitsTests */,
-				AC78817C1BED3F6700675C75 /* HabitsCommon */,
-				AC7881851BED3F6700675C75 /* HabitsCommonTests */,
-				AC7A48311BED449300A8FBAD /* HabitsTodayExtension */,
-				AC373F361BF754CF00A212D9 /* HabitsUITests */,
 				AC9A0D751BF7702500B2C856 /* HabitsWatchApp */,
+				AC7A48311BED449300A8FBAD /* HabitsTodayExtension */,
 				AC9A0D811BF7702500B2C856 /* HabitsWatchApp Extension */,
+				ACADB3F0190D23B90030CC82 /* HabitsTests */,
+				AC7881851BED3F6700675C75 /* HabitsCommonTests */,
+				AC373F361BF754CF00A212D9 /* HabitsUITests */,
+				AC78817C1BED3F6700675C75 /* HabitsCommon */,
 			);
 		};
 /* End PBXProject section */
@@ -2961,6 +2965,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2993,6 +2998,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Habits/Views/Cells/Habits-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -137,7 +137,7 @@
 -(Failure*)existingFailureForDate:(NSDate*)date;
 {
     NSSet * results = [self.failures filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"date == %@", date]];
-    assert(results.count <= 1);
+//    assert(results.count <= 1);
     return results.anyObject;
 }
 -(Failure*)createFailureForDate:(NSDate*)date;

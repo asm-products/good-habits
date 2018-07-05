@@ -27,7 +27,7 @@
 }
 @end
 
-@interface UserGuideCaptureTests : XCTestCase
+@interface UserGuideCaptureTests : KIFTestCase
 
 @end
 
@@ -147,6 +147,8 @@
     if(h == 568) return @"4.0"; // iPhone 5
     if(h == 667) return @"4.7"; // iPhone 6
     if(h == 736) return @"5.5"; // iPhone 6 Plus
+    if(h == 812) return @"5.8"; // iPhone X
+    if(h == 1366) return @"12.9"; // iPad Pro
     return @"dunno";
 }
 -(void)screenshot:(NSString*)name{
