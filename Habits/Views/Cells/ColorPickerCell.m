@@ -23,6 +23,7 @@
         [buttons addObject:[self createButtonAtX: x color: color width: itemWidth]];
         x += itemWidth;
     }
+    [self layoutButtons];
 }
 -(void)setFrame:(CGRect)frame{
     [super setFrame:frame];
@@ -32,9 +33,10 @@
 }
 -(void)layoutButtons{
     CGFloat x = 0;
-    CGFloat itemWidth = self.frame.size.width / buttons.count;
+    CGFloat itemWidth = 50;// self.frame.size.width / buttons.count;
     for (UIButton * button in buttons) {
-        button.frame = CGRectMake(x, 0, itemWidth, self.frame.size.height);
+        button.frame = CGRectMake(x, 0, itemWidth, itemWidth);
+        button.center = CGPointMake(x + itemWidth / 2, self.frame.size.height / 2);
         x += itemWidth;
     }
 }
@@ -48,7 +50,10 @@
     }
 }
 -(UIButton*)createButtonAtX:(CGFloat)x color:(UIColor*)color width:(CGFloat)width{
-    UIButton * button = [[ColorPickerButton alloc] initWithFrame:CGRectMake(x, 0, width, self.frame.size.height) color: color];
+    UIButton * button = [[ColorPickerButton alloc] initWithFrame:CGRectMake(x, 0, width, width) color: color];
+    CGPoint center = button.center;
+    center.y = self.frame.size.height / 2;
+    button.center = center;
     [self configureButton: button color: color];
     [self.contentView addSubview:button];
     return button;

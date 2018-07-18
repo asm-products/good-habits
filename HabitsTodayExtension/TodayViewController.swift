@@ -17,6 +17,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOSApplicationExtension 10.0, *) {
+            extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        }
+
         refreshHabits()
         
         for name in [UserDefaults.didChangeNotification, NSNotification.Name.NSExtensionHostWillEnterForeground]{
@@ -24,6 +28,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
                 self.refreshHabits()
             }
         }
+    }
+    @available(iOSApplicationExtension 10.0, *)
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        refreshHabits()
+        preferredContentSize = CGSize(width: maxSize.width, height: min(tableView.contentSize.height, maxSize.height)) 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -44,6 +53,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         habits = HabitsQueries.activeToday() as! [Habit]
         tableView.reloadData()
         preferredContentSize = tableView.contentSize
+        
 //        let notification = UILocalNotification()
 //        notification.applicationIconBadgeNumber = HabitsQueries.outstandingToday().count
 //        notification.fireDate = NSDate()

@@ -288,7 +288,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9n-kU-4hH">
-                                                    <rect key="frame" x="0.0" y="3" width="320" height="276"/>
+                                                    <rect key="frame" x="27.5" y="3" width="320" height="276"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="276" id="9hz-Vr-RTB"/>
@@ -299,7 +299,7 @@
                                                     </connections>
                                                 </containerView>
                                                 <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAUSED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJx-nH-POl">
-                                                    <rect key="frame" x="9.5" y="98" width="301" height="80"/>
+                                                    <rect key="frame" x="37" y="98" width="301" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="F4e-pg-hNA"/>
                                                         <constraint firstAttribute="width" constant="301" id="SfR-B3-fgD"/>
@@ -325,7 +325,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XnD-SD-cIB" customClass="DayPicker">
-                                                    <rect key="frame" x="0.0" y="4" width="320" height="49"/>
+                                                    <rect key="frame" x="27.5" y="4" width="320" height="49"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="49" id="GPm-1G-Djf"/>
@@ -350,7 +350,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4n-Ao-8LU">
-                                                    <rect key="frame" x="8" y="3" width="304" height="1"/>
+                                                    <rect key="frame" x="8" y="3" width="359" height="1"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="N9X-V4-0gu"/>
@@ -372,7 +372,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ut-8Z-WR4">
-                                                    <rect key="frame" x="186" y="9" width="113" height="33"/>
+                                                    <rect key="frame" x="241" y="9" width="113" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="Clear reminder">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -383,7 +383,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0x-E3-ClQ">
-                                                    <rect key="frame" x="23" y="9" width="150" height="33"/>
+                                                    <rect key="frame" x="23" y="9" width="205" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="[Remind at ...]">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -475,7 +475,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlE-Ht-oTV">
-                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="22"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -587,7 +587,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Drw-jI-wM0" customClass="DailySparklineView">
-                                            <rect key="frame" x="28" y="193" width="276" height="60"/>
+                                            <rect key="frame" x="28" y="193" width="331" height="60"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="lYa-HQ-goK"/>
@@ -601,13 +601,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[55]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4E-rD-enW">
-                                            <rect key="frame" x="264.5" y="48" width="32.5" height="21.5"/>
+                                            <rect key="frame" x="319.5" y="48" width="32.5" height="21.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.77186542749404907" green="0.4404531717300415" blue="0.504905104637146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[10]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7g-bR-3Zz">
-                                            <rect key="frame" x="264.5" y="77" width="32.5" height="21.5"/>
+                                            <rect key="frame" x="319.5" y="77" width="32.5" height="21.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.77186542749404907" green="0.4404531717300415" blue="0.504905104637146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -627,7 +627,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[10]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qx-om-5lg">
-                                            <rect key="frame" x="264.5" y="106" width="32.5" height="21.5"/>
+                                            <rect key="frame" x="319.5" y="106" width="32.5" height="21.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.77186542749404907" green="0.4404531717300415" blue="0.504905104637146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -640,7 +640,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[10]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIT-G3-ugi">
-                                            <rect key="frame" x="264.5" y="135" width="32.5" height="21.5"/>
+                                            <rect key="frame" x="319.5" y="135" width="32.5" height="21.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.77186542749404907" green="0.4404531717300415" blue="0.504905104637146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -653,7 +653,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[55]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOa-jb-Pai">
-                                            <rect key="frame" x="264.5" y="19" width="32.5" height="21.5"/>
+                                            <rect key="frame" x="319.5" y="19" width="32.5" height="21.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="0.77186542749404907" green="0.4404531717300415" blue="0.504905104637146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1177,9 +1177,8 @@
         <image name="info.png" width="8" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tX3-qY-GyJ"/>
         <segue reference="cZe-e4-Kh8"/>
-        <segue reference="LRt-8p-1fe"/>
+        <segue reference="chS-Yr-Ljg"/>
         <segue reference="toc-2m-8Zg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22449043393135071" green="0.48581993579864502" blue="0.64602482318878174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
