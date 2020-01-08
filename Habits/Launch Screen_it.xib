@@ -40,10 +40,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQk-IW-RoM">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="64"/>
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="72"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOOD HABITS" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                            <rect key="frame" x="169.5" y="29" width="141" height="24"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUON ABITUDINI" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                            <rect key="frame" x="156.5" y="37" width="167" height="24"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -51,9 +51,9 @@
                     </subviews>
                     <color key="backgroundColor" red="0.2274509804" green="0.2666666667" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="CQk-IW-RoM" secondAttribute="topMargin" constant="29" id="03e-RQ-FRa"/>
                         <constraint firstAttribute="bottom" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="11" id="8Rr-In-Anu"/>
                         <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="FQu-f4-xZI"/>
-                        <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="CQk-IW-RoM" secondAttribute="topMargin" constant="21" id="dfA-FK-Awd"/>
                         <constraint firstAttribute="centerY" secondItem="kId-c2-rCX" secondAttribute="centerY" id="hmx-n2-gBk"/>
                     </constraints>
                     <variation key="default">
@@ -62,7 +62,7 @@
                         </mask>
                     </variation>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dont_break_the_chain" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-1P-Bqm">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dont_break_the_chain_it" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-1P-Bqm">
                     <rect key="frame" x="121" y="193.5" width="238" height="93"/>
                 </imageView>
             </subviews>
@@ -83,7 +83,7 @@
         </view>
     </objects>
     <resources>
-        <image name="dont_break_the_chain" width="238" height="93"/>
+        <image name="dont_break_the_chain_it" width="238" height="93"/>
         <image name="good_to_hear_crane.png" width="44" height="56"/>
         <image name="good_to_hear_playfair.png" width="108" height="24"/>
     </resources>

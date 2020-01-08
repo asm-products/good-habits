@@ -39,7 +39,7 @@
 }
 -(BOOL)isRequiredOnWeekday:(NSDate *)date{
     date = [TimeHelper startOfDayInUTC:date];
-    return [self.daysRequired[[TimeHelper weekday:date]] boolValue];
+    return [self.daysRequired[[TimeHelper weekdayIndex:date]] boolValue];
 }
 -(BOOL)needsToBeDone:(NSDate *)date{
     date = [TimeHelper startOfDayInUTC:date];

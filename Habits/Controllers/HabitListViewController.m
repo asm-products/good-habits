@@ -166,7 +166,7 @@ typedef enum {
         return dayNavigation;
     }
     if(HabitListSectionNotToday == section){
-        NSString * title = [NSString stringWithFormat:@"Not on %@", [Calendar dayNamesPlural][[TimeHelper weekday:now]] ];
+        NSString * title = [Calendar dayNamesPlural][[TimeHelper weekdayIndex:now]];
         if(!notRequiredTodayTitle) notRequiredTodayTitle = [[InactiveHabitsHeader alloc] initWithTitle:title];
         return notRequiredTodayTitle;
     }
@@ -183,7 +183,7 @@ typedef enum {
     }
     if(HabitListSectionInactive != destinationIndexPath.section){
         NSMutableArray * daysRequired = moved.daysRequired.mutableCopy;
-        daysRequired[ [TimeHelper weekday:now] ] = @(destinationIndexPath.section == HabitListSectionActive);
+        daysRequired[ [TimeHelper weekdayIndex:now] ] = @(destinationIndexPath.section == HabitListSectionActive);
         moved.daysRequired = daysRequired;
     }
     [groups[sourceIndexPath.section] removeObjectAtIndex:sourceIndexPath.row];

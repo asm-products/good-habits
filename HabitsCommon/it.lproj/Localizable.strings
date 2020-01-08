@@ -1,0 +1,25 @@
+/* 
+  I18n.strings
+  Habits
+
+  Created by Michael Forrest on 19/12/2019.
+  Copyright © 2019 Good To Hear. All rights reserved.
+*/
+"Mark completed" = "Fato!";
+"Snooze" = "Snooze";
+"Look at the guide" = "Leggi la guida";
+"Get Happiness" = "Ottieni Happiness";
+"Rate this app" = "Scrivi una recensione";
+"Share this app" = "Condividi questa app";
+"Like us on Facebook" = "Like noi sul Facebook";
+"Not on Sundays" = "Non di domenica";
+"Not on Mondays" = "Non di lunedì";
+"Not on Tuesdays" = "Non il martedì";
+"Not on Wednesdays" = "Non il mercoledì";
+"Not on Thursdays" = "Non il giovedì";
+"Not on Fridays" = "Non di venerdì";
+"Not on Saturdays" = "Non di sabato";
+"Export your data" = "Exporto il suo data";
+"Log an issue" = "Reporta una problema";
+"Contact us" = "Noi contactare";
+"Recover data" = "Recoverato il data";

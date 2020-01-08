@@ -37,16 +37,16 @@
     self.nextButton.frame = CGRectMake(320-44, 0, 44, 45);
     [self.nextButton setImage:[UIImage imageNamed:@"arrow_next"] forState:UIControlStateNormal];
     [self addSubview:self.nextButton];
-    
-    [[Calendar days] enumerateObjectsUsingBlock:^(NSString* dayName, NSUInteger idx, BOOL *stop) {
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(15 + idx * 45, 40, 18, 11)];
+    for(NSInteger i = 0; i < 7; i++){
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(15 + i * 45, 40, 18, 11)];
         label.isAccessibilityElement = NO;
-        label.text = dayName;
+        NSInteger weekdayIndex = [Calendar weekdayIndexForColumn: i];
+        label.text = Calendar.days[weekdayIndex];
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:8];
         label.textColor = color;
         [self addSubview:label];
-    }];
+    }
     
 }
 @end

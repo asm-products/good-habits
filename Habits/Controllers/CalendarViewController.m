@@ -51,7 +51,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         result = [NSDateFormatter new];
-        result.dateFormat = @"MMM YYYY";
+        result.dateFormat = @"MMM yyyy";
     });
     return result;
 }
@@ -66,11 +66,11 @@
     
     // always work with GMT 
     moment.calendar = [TimeHelper UTCCalendar];
-    NSDate * firstDay = [moment startOfCalendarUnit:NSMonthCalendarUnit].date;
+    NSDate * firstDay = [moment startOfCalendarUnit:NSCalendarUnitMonth].date;
     dayInPreviousMonth = [TimeHelper addDays:-10 toDate:firstDay];
     dayInNextMonth = [TimeHelper addDays:46 toDate:firstDay];
-    
-    while ([TimeHelper weekday:firstDay] != 0) {
+    NSInteger firstWeekdayForLocale = [NSCalendar currentCalendar].firstWeekday - 1;
+    while ([TimeHelper weekdayIndex:firstDay] != firstWeekdayForLocale) {
         firstDay = [TimeHelper addDays: -1 toDate: firstDay];
     }
     NSLog(@"First day of calendar %@", firstDay);

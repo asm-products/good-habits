@@ -41,12 +41,12 @@
 +(void)registerCategories{
     UIMutableUserNotificationAction * check = [UIMutableUserNotificationAction new];
     check.identifier = @"check";
-    check.title = @"Done!";
+    check.title = NSLocalizedString(@"Mark completed", "Button to mark habit completed from notification");
     check.activationMode = UIUserNotificationActivationModeBackground;
     
     UIMutableUserNotificationAction * snooze = [UIMutableUserNotificationAction new];
     snooze.identifier = @"snooze";
-    snooze.title = @"Snooze";
+    snooze.title = NSLocalizedString(@"Snooze", "Snooze button text");
     snooze.activationMode = UIUserNotificationActivationModeBackground;
     
     UIMutableUserNotificationCategory * category = [UIMutableUserNotificationCategory new];

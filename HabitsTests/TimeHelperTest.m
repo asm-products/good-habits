@@ -17,7 +17,7 @@
 
 - (void)testWeekdayIsCorrect {
     NSDate * date = [Moment momentWithDateAsString:@"2014-09-01"].date; // should be a Monday (1)
-    expect([TimeHelper weekday:date]).to.equal(1);
+    expect([TimeHelper weekdayIndex:date]).to.equal(1);
 }
 
 @end

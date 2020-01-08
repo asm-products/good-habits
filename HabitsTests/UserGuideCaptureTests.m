@@ -148,6 +148,7 @@
     if(h == 667) return @"4.7"; // iPhone 6
     if(h == 736) return @"5.5"; // iPhone 6 Plus
     if(h == 812) return @"5.8"; // iPhone X
+    if(h == 896) return @"6.1"; // iPhone 11
     if(h == 1366) return @"12.9"; // iPad Pro
     return @"dunno";
 }
@@ -155,11 +156,11 @@
     static NSInteger screenshotIndex = 0;
     screenshotIndex ++;
     UIImage * image = [UIImage screenshot];
-//    UIImage * sta[UIImage imageNamed:@"status-bar"];
     NSString * filename = [NSString stringWithFormat:@"en-%@-%@-%@", [self screenSizeName], @(screenshotIndex), name];
     NSString * outputPath = [GRABS_PATH stringByAppendingPathComponent:filename];
     NSLog(@"Saving file to %@", outputPath);
 //    [UIImageJPEGRepresentation(image, 100) writeToFile:[outputPath stringByAppendingPathExtension:@"jpg"] atomically:YES];
+    NSLog(@"SKIP WRITING TO %@", outputPath);
     [UIImagePNGRepresentation(image) writeToFile:[outputPath stringByAppendingPathExtension:@"png"] atomically:YES];
 }
 @end

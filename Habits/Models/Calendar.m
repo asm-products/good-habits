@@ -7,6 +7,7 @@
 //
 
 #import "Calendar.h"
+#import <NSArray+F.h>
 
 @implementation Calendar
 +(NSString *)labelForState:(CalendarDayState)state{
@@ -25,9 +26,16 @@
     return @"";
 }
 +(NSArray *)dayNamesPlural{
-    return @[@"Sundays", @"Mondays", @"Tuesdays", @"Wednesdays", @"Thursdays", @"Fridays", @"Saturdays"];
+    return [@[@"Sundays", @"Mondays", @"Tuesdays", @"Wednesdays", @"Thursdays", @"Fridays", @"Saturdays"] map:^NSString*(NSString* dayName) {
+        NSString * key = [NSString stringWithFormat:@"Not on %@", dayName];
+        return NSLocalizedString(key, @"");
+    }];
 }
 +(NSArray *)days{
     return @[@"Sun", @"Mon", @"Tue", @"Wed", @"Thu", @"Fri", @"Sat" ];
+}
+
++ (NSInteger)weekdayIndexForColumn:(NSInteger)i{
+    return (i + NSCalendar.currentCalendar.firstWeekday - 1) % 7;
 }
 @end

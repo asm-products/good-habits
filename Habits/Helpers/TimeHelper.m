@@ -66,9 +66,9 @@ static NSDate * selectedDate = nil;
     NSDate * result = [self.now dateByAddingTimeInterval:calendar.timeZone.secondsFromGMT];
     return [self startOfDayInUTC: selectedDate ? selectedDate : result];
 }
-+(NSInteger)weekday:(NSDate *)date{
-    NSDateComponents * components = [[self UTCCalendar] components:NSWeekdayCalendarUnit fromDate:date];
-    return components.weekday - 1;
++(NSInteger)weekdayIndex:(NSDate *)date{
+    NSDateComponents * components = [[self UTCCalendar] components:NSCalendarUnitWeekday fromDate:date];
+    return components.weekday - 1; // weekday returned by calendar is 1-based (i.e. 
 }
 +(NSDate *)addDays:(NSInteger)count toDate:(NSDate *)date{
     NSDateComponents * dateComponents = [NSDateComponents new];

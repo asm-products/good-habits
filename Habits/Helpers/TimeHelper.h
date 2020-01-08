@@ -30,7 +30,7 @@
  */
 +(NSDate*)now;
 +(void)selectDate:(NSDate*)date;
-+(NSInteger)weekday:(NSDate*)date;
++(NSInteger)weekdayIndex:(NSDate*)date;
 +(NSDateComponents*)dateComponentsForHour:(NSInteger)hour minute:(NSInteger)minute;
 +(NSDate*)addDays:(NSInteger)count toDate:(NSDate*)date;
 +(NSString*)formattedTime:(NSDateComponents*)components;

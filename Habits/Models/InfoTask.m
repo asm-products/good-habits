@@ -27,7 +27,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         result = @[
-                   [InfoTask create:@"guide-2" due:0 text:@"Look at the guide" color:[Colors green] action:^(UIViewController *controller) {
+                   [InfoTask create:@"guide-2" due:0 text: NSLocalizedString(@"Look at the guide", @"menu button") color:[Colors green] action:^(UIViewController *controller) {
                        [Answers logCustomEventWithName:@"Viewed Guide" customAttributes:nil];
                        NSString * path  = [[NSBundle mainBundle] pathForResource:@"Habits Tutorial" ofType:@"mov"];
                        MPMoviePlayerViewController * player = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
@@ -45,22 +45,22 @@
                            }
                        }];
                    }],
-                   [InfoTask create:@"share" due:0 text:@"Share this app" color:[Colors orange] action:^(UIViewController *controller) {
+                   [InfoTask create:@"share" due:0 text:NSLocalizedString(@"Share this app", @"") color:[Colors orange] action:^(UIViewController *controller) {
                        [Answers logShareWithMethod:@"Info Screen" contentName:@"App" contentType:nil contentId:nil customAttributes:nil];
                        
                        NSArray * items = @[[AppSharing new], [NSURL URLWithString:@"https://itunes.apple.com/gb/app/good-habits/id573844300?mt=8"]];
                        UIActivityViewController * sheet = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
                        [controller presentViewController:sheet animated:YES completion:nil];
                    }],
-                   [InfoTask create:@"happiness" due:3 text:@"Get Happiness" color:[Colors yellow] action:^(UIViewController *controller) {
+                   [InfoTask create:@"happiness" due:3 text:NSLocalizedString(@"Get Happiness", @"Checklist item that links to download Happiness app") color:[Colors yellow] action:^(UIViewController *controller) {
                        [Answers logCustomEventWithName:@"Looked at happiness" customAttributes:nil];
                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://goodtohear.co.uk/happiness?from=habits"]];
                    }],
-                   [InfoTask create:@"rate" due:3 text:@"Rate this app" color:[Colors purple] action:^(UIViewController *controller) {
+                   [InfoTask create:@"rate" due:3 text:NSLocalizedString(@"Rate this app", @"") color:[Colors purple] action:^(UIViewController *controller) {
                        [Answers logCustomEventWithName:@"Tapped Rate App" customAttributes:nil];
                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/addUserReview?id=573844300&type=Purple+Software"]];
                    }],
-                   [InfoTask create:@"like" due:0 text:@"Like us on Facebook" color:[Colors blue] action:^(UIViewController *controller) {
+                   [InfoTask create:@"like" due:0 text:NSLocalizedString(@"Like us on Facebook", @"") color:[Colors blue] action:^(UIViewController *controller) {
                        [Answers logCustomEventWithName:@"Went to Facebook" customAttributes:nil];
                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.facebook.com/298561953497621"]];
                    }]

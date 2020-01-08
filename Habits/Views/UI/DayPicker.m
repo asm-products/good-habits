@@ -32,8 +32,10 @@
     
     for (int i = 0; i < 7; i++) {
         CGRect frame = CGRectMake(x, VERTICAL_PADDING, ITEM_WIDTH, self.frame.size.height - VERTICAL_PADDING * 2);
-        NSString * day = [Calendar days][i];
-        BOOL isOn = [self.habit.daysRequired[i] boolValue];
+        NSInteger weekdayIndex = [Calendar weekdayIndexForColumn:i];
+        
+        NSString * day = [Calendar days][weekdayIndex];
+        BOOL isOn = [self.habit.daysRequired[weekdayIndex] boolValue];
         UIColor * color = self.habit.color;
         DayToggle * button = [[DayToggle alloc] initWithFrame:frame day:day color:color isOn:isOn];
         [self addSubview:button];
@@ -41,7 +43,7 @@
         [button handleControlEvents:UIControlEventTouchUpInside withBlock:^(id weakSender) {
             [button toggleOn:!button.isOn];
             NSMutableArray * daysRequired = self.habit.daysRequired.mutableCopy;
-            daysRequired[i] = @(button.isOn);
+            daysRequired[weekdayIndex] = @(button.isOn);
             self.habit.daysRequired = daysRequired;
             [[CoreDataClient defaultClient] save];
             [Notifications reschedule];

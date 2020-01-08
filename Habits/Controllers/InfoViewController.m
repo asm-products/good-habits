@@ -42,17 +42,17 @@
         return _links;
     }
     NSMutableArray * result = @[
-                           @{@"text": @"Export your data", @"action": ^{
+        @{@"text": NSLocalizedString(@"Export your data", @""), @"action": ^{
                                [DataExport run:self client:[CoreDataClient defaultClient]];
                            }},
-                           @{@"text": @"Log an issue", @"url": @"https://github.com/goodtohear/habits/issues" },
+        @{@"text": NSLocalizedString(@"Log an issue", @""), @"url": @"https://github.com/goodtohear/habits/issues" },
 //                           @{@"text": @"Video bug report", @"url":@"goodhabits://lookback"},
-                           @{@"text": @"Contact us", @"url": @"http://goodtohear.co.uk/contact"}
+        @{@"text": NSLocalizedString(@"Contact us", @""), @"url": @"http://goodtohear.co.uk/contact"}
                            ].mutableCopy;
     DataRecovery * recovery = [DataRecovery new];
     if(recovery.clients.count > 0){
         [result insertObject:
-                           @{@"text": @"Recover data", @"action": ^{
+         @{@"text": NSLocalizedString(@"Recover data", @""), @"action": ^{
                                [self performSegueWithIdentifier:@"RecoverData" sender:self];
         }} atIndex:0];
     }

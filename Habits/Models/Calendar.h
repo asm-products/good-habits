@@ -13,4 +13,5 @@
 +(NSString*)labelForState:(CalendarDayState)state;
 +(NSArray*)dayNamesPlural;
 +(NSArray*)days;
++(NSInteger)weekdayIndexForColumn:(NSInteger)i;
 @end
