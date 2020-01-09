@@ -26,6 +26,8 @@
     self.titleLabel.text = self.title;
     self.detailLabel.text = self.detail;
     self.overlay.layer.cornerRadius = 20;
+    self.view.layer.shadowOpacity = 0.3;
+    self.view.layer.shadowRadius = 10;
 }
 
 - (void)didReceiveMemoryWarning {

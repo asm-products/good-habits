@@ -86,6 +86,8 @@
 		AC4018E91950FB510033407B /* LinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018E81950FB510033407B /* LinkCell.m */; };
 		AC4018EC195187370033407B /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018EB195187370033407B /* UserGuideViewController.m */; };
 		AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */; };
+		AC533F8C23C71EC10058D570 /* UserGuideCaptureOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = AC533F8B23C71EC10058D570 /* UserGuideCaptureOverlay.m */; };
+		AC533F8F23C721600058D570 /* UserGuideCaptureOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC533F8E23C721600058D570 /* UserGuideCaptureOverlayViewController.m */; };
 		AC5A6C21213844E600D409A0 /* AppStoreReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A6C20213844E600D409A0 /* AppStoreReceipt.swift */; };
 		AC5F3B4619C6228800398F81 /* UserGuideCaptureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B4519C6228800398F81 /* UserGuideCaptureTests.m */; };
 		AC5F3B4C19C6245900398F81 /* HelpCaptureInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B4A19C6245900398F81 /* HelpCaptureInterstitialViewController.m */; };
@@ -495,6 +497,10 @@
 		AC4018F81951BF2E0033407B /* CoreDataClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataClient.h; sourceTree = "<group>"; };
 		AC4018F91951BF2E0033407B /* CoreDataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataClient.m; sourceTree = "<group>"; };
 		AC501D3E195CB98A00E5F9FA /* HabitsListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitsListTests.m; sourceTree = "<group>"; };
+		AC533F8A23C71EC10058D570 /* UserGuideCaptureOverlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserGuideCaptureOverlay.h; sourceTree = "<group>"; };
+		AC533F8B23C71EC10058D570 /* UserGuideCaptureOverlay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserGuideCaptureOverlay.m; sourceTree = "<group>"; };
+		AC533F8D23C721600058D570 /* UserGuideCaptureOverlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserGuideCaptureOverlayViewController.h; sourceTree = "<group>"; };
+		AC533F8E23C721600058D570 /* UserGuideCaptureOverlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserGuideCaptureOverlayViewController.m; sourceTree = "<group>"; };
 		AC5A6C20213844E600D409A0 /* AppStoreReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppStoreReceipt.swift; path = Models/AppStoreReceipt.swift; sourceTree = "<group>"; };
 		AC5F3B4519C6228800398F81 /* UserGuideCaptureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGuideCaptureTests.m; sourceTree = "<group>"; };
 		AC5F3B4919C6245900398F81 /* HelpCaptureInterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCaptureInterstitialViewController.h; sourceTree = "<group>"; };
@@ -657,6 +663,7 @@
 		ACB7480D23C484E900CCD0E8 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		ACB7480F23C4850500CCD0E8 /* Launch Screen_it.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen_it.xib"; sourceTree = "<group>"; };
 		ACB7A43223C5DC9C00BF975C /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
+		ACB7A43323C5E11300BF975C /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitCreationTests.m; sourceTree = "<group>"; };
 		ACBCD3BC19B456DD00085A95 /* ReminderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTests.m; sourceTree = "<group>"; };
@@ -1318,6 +1325,7 @@
 		ACADB3C7190D23B90030CC82 = {
 			isa = PBXGroup;
 			children = (
+				ACB7A43323C5E11300BF975C /* Gemfile */,
 				ACB7A43223C5DC9C00BF975C /* fastlane */,
 				ACADB3D9190D23B90030CC82 /* Habits */,
 				ACADB3F8190D23B90030CC82 /* HabitsTests */,
@@ -1436,6 +1444,10 @@
 				AC3237C8196D423400A2FF9F /* TestHelpers.m */,
 				AC6EC66F19C374B000640590 /* GTHStoreKitMock.h */,
 				AC6EC67019C374B000640590 /* GTHStoreKitMock.m */,
+				AC533F8A23C71EC10058D570 /* UserGuideCaptureOverlay.h */,
+				AC533F8B23C71EC10058D570 /* UserGuideCaptureOverlay.m */,
+				AC533F8D23C721600058D570 /* UserGuideCaptureOverlayViewController.h */,
+				AC533F8E23C721600058D570 /* UserGuideCaptureOverlayViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2091,7 +2103,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HabitsTests/Pods-HabitsTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/YLMoment/YLMoment-iOS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2100,7 +2112,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HabitsTests/Pods-HabitsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		286EA338C515E193ECA27E6E /* [CP] Check Pods Manifest.lock */ = {
@@ -2163,7 +2175,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HabitsCommon/Pods-HabitsCommon-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HabitsCommon/Pods-HabitsCommon-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/YLMoment/YLMoment-iOS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2172,7 +2184,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitsCommon/Pods-HabitsCommon-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HabitsCommon/Pods-HabitsCommon-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8FBA0A96C16E8C597354E7FA /* [CP] Copy Pods Resources */ = {
@@ -2181,7 +2193,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Habits/Pods-Habits-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Habits/Pods-Habits-resources.sh",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/YLMoment/YLMoment-iOS.bundle",
 			);
@@ -2192,7 +2204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Habits/Pods-Habits-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Habits/Pods-Habits-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AC28A56A1A562BCB002E083C /* Increment build number */ = {
@@ -2257,7 +2269,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HabitsCommonTests/Pods-HabitsCommonTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HabitsCommonTests/Pods-HabitsCommonTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/YLMoment/YLMoment-iOS.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2266,7 +2278,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HabitsCommonTests/Pods-HabitsCommonTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HabitsCommonTests/Pods-HabitsCommonTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DFE9F171C184802FD4A84155 /* [CP] Check Pods Manifest.lock */ = {
@@ -2446,6 +2458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC533F8F23C721600058D570 /* UserGuideCaptureOverlayViewController.m in Sources */,
 				ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */,
 				AC501D3F195CB98A00E5F9FA /* HabitsListTests.m in Sources */,
 				ACAE5F4D19C5D492003B0893 /* StatisticsTests.m in Sources */,
@@ -2453,6 +2466,7 @@
 				ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */,
 				ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */,
 				AC1EB93819B0D76100BF7EAF /* ChainManipulationTests.m in Sources */,
+				AC533F8C23C71EC10058D570 /* UserGuideCaptureOverlay.m in Sources */,
 				ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */,
 				AC088A7519EB120C0068F6EC /* TimeHelperTest.m in Sources */,
 				AC94093719B8F5EA003E6257 /* PremiumFeatureTests.m in Sources */,

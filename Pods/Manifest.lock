@@ -20,7 +20,7 @@ PODS:
   - CWLSynthesizeSingleton (1.0.0)
   - DHAppleReceiptParser (1.0.1)
   - Expecta (1.0.6)
-  - FCOverlay (1.0.6)
+  - FCOverlay (1.0.7)
   - Functional.m (1.0.0)
   - GTHRectHelpers (0.0.1)
   - KIF (3.7.4):
@@ -54,7 +54,7 @@ DEPENDENCIES:
   - CWLSynthesizeSingleton (~> 1.0)
   - DHAppleReceiptParser (~> 1.0)
   - Expecta
-  - FCOverlay (~> 1.0)
+  - FCOverlay (~> 1.0.7)
   - Functional.m (~> 1.0)
   - GTHRectHelpers (from `https://github.com/goodtohear/GTHRectHelpers.git`)
   - KIF (~> 3.7)
@@ -73,7 +73,7 @@ DEPENDENCIES:
   - ZipUtilities (~> 1.6)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - ALActionBlocks
     - AVHexColor
     - BlocksKit
@@ -81,7 +81,6 @@ SPEC REPOS:
     - CWLSynthesizeSingleton
     - DHAppleReceiptParser
     - Expecta
-    - FCOverlay
     - Functional.m
     - KIF
     - LMAlertView
@@ -98,6 +97,8 @@ SPEC REPOS:
     - UIImage-Helpers
     - YLMoment
     - ZipUtilities
+  trunk:
+    - FCOverlay
 
 EXTERNAL SOURCES:
   GTHRectHelpers:
@@ -121,7 +122,7 @@ SPEC CHECKSUMS:
   CWLSynthesizeSingleton: 6ccef3170409e87bc9e49544efdc1ea7713c2849
   DHAppleReceiptParser: 57663acea9b76fec8648cada173d2e76fe402be0
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  FCOverlay: 28bc0baa193e4e776e585a7db371ea57c3c73752
+  FCOverlay: 9ef97b4d74442c607c3c8fe0b6b1f441ce96fe65
   Functional.m: 072ea6a57954f7792a3aaf19042ed6d3258e3026
   GTHRectHelpers: a805ec544af6dbc4f3014f113f389ea766522859
   KIF: f3d01c109ee9d1cfe6b0f2bb2aa278e807e971e2
@@ -141,6 +142,6 @@ SPEC CHECKSUMS:
   YLMoment: d02accdc59d74b6f1c1b6d8f2aaf2fcb74414026
   ZipUtilities: d64048e499434850b3d91cabb38de45d42cfd2e8
 
-PODFILE CHECKSUM: 786eb580696870ad29ce47460deef4cb0f114875
+PODFILE CHECKSUM: d3887b41a7ff9fa034233bb0f9e0f53b6fc4e7ff
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

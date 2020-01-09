@@ -8,7 +8,6 @@
 #import <UIApplication-KIFAdditions.h>
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import <FCOverlay.h>
 #import "HelpCaptureInterstitialViewController.h"
 #import <KIF.h>
 #import <YLMoment.h>
@@ -16,6 +15,7 @@
 #import <OCMock.h>
 #import "HabitCell.h"
 #import "TimeHelper.h"
+#import "UserGuideCaptureOverlayViewController.h"
 
 #define GRABS_PATH @"/Users/mf/code/habits/Habits/Habits/Images/grabs"
 
@@ -28,16 +28,20 @@
 @end
 
 @interface UserGuideCaptureTests : KIFTestCase
-
+@property (nonatomic, strong) UserGuideCaptureOverlayViewController * userGuideCaptureOverlayController;
 @end
 
 @implementation UserGuideCaptureTests
+
+
 
 - (void)setUp {
     [super setUp];
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
+    
+    
 }
 -(void)deleteAllGrabs{
     NSArray * grabs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:GRABS_PATH error:nil];
@@ -64,27 +68,40 @@
     [tester tapViewWithAccessibilityLabel:@"Back"];
     
 }
--(void)testGrabAllScreens{
+-(void)addOverlayWindow{
+    CGRect frame = [UIScreen mainScreen].bounds;
+    UIWindow * window = [[UIWindow alloc] initWithFrame:frame];
+    self.userGuideCaptureOverlayController = [[UserGuideCaptureOverlayViewController alloc] init];
+    
+    window.rootViewController = self.userGuideCaptureOverlayController;
+    [window makeKeyAndVisible];
+}
+-(void)removeOverlayWindow{
+    
+}
+-(void)testGenerateUserGuideVideo{
+    [self addOverlayWindow];
+    
     [TestHelpers setStatsEnabled:NO];
     
     [self showNote:@"Tap the + to get started"];
-    [tester tapViewWithAccessibilityLabel:@"add"];
+    [self tapViewWithAccessibilityLabel:@"add"];
     [self showNote:@"Enter the title"];
     [tester enterTextIntoCurrentFirstResponder:@"Floss\n"];
     [self screenshot:@"floss"];
     [self showNote:@"Maybe you don't need to do it every day"];
-    [tester tapViewWithAccessibilityLabel:@"Sun required? Yes"];
-    [tester tapViewWithAccessibilityLabel:@"Sat required? Yes"];
+    [self tapViewWithAccessibilityLabel:@"Sun required? Yes"];
+    [self tapViewWithAccessibilityLabel:@"Sat required? Yes"];
     [self screenshot:@"unchecked_days"];
     [self showNote:@"Set a reminder"];
-    [tester tapViewWithAccessibilityLabel:@"Set reminder"];
+    [self tapViewWithAccessibilityLabel:@"Set reminder"];
     [tester waitForTimeInterval:0.5];
-    [tester tapViewWithAccessibilityLabel:@"Set reminder"];
+    [self tapViewWithAccessibilityLabel:@"Set reminder"];
     [tester waitForTimeInterval:0.5];
     [self screenshot:@"reminder_set"];
-    [tester tapViewWithAccessibilityLabel:@"Back"];
+    [self tapViewWithAccessibilityLabel:@"Back"];
     [self showNote:@"Check the box when you've done it"];
-    [tester tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
+    [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
     [self screenshot:@"checked_today"];
 
     [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-24"].date];
@@ -92,8 +109,8 @@
     [self showNote:@"Later..."];
     
     [self showNote:@"If you missed today, you can tap the box twice"];
-    [tester tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
-    [tester tapViewWithAccessibilityLabel:@"Checkbox for Floss Checked"];
+    [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
+    [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Checked"];
     [self screenshot:@"missed"];
     
     [TestHelpers setStatsEnabled:YES];
@@ -102,15 +119,15 @@
     [tester enterTextIntoCurrentFirstResponder:@"I ran out of floss"];
     [self screenshot:@"showing_keyboard"];
     [tester enterTextIntoCurrentFirstResponder:@"\n"];
-    [tester tapViewWithAccessibilityLabel:@"Floss"];
+    [self tapViewWithAccessibilityLabel:@"Floss"];
     [self showNote:@"See stats with the top-right button"];
-    [tester tapViewWithAccessibilityLabel:@"Stats"];
+    [self tapViewWithAccessibilityLabel:@"Stats"];
     [self screenshot:@"stats"];
     [self showNote:@"You'll see chain information and also a list of reasons you missed a day"];
     [tester scrollViewWithAccessibilityIdentifier:@"Stats" byFractionOfSizeHorizontal:0 vertical:-1.0];
     [tester waitForTimeInterval:1.0];
-    [tester tapViewWithAccessibilityLabel:@"Back"];
-    [tester tapViewWithAccessibilityLabel:@"Back"];
+    [self tapViewWithAccessibilityLabel:@"Back"];
+    [self tapViewWithAccessibilityLabel:@"Back"];
     [self showNote:@"If you didn't open the app for a few days but didn't miss any days, you can check them off by swiping the list"];
     UIView * view = [tester waitForViewWithAccessibilityLabel:@"Habit Cell Exercise"];
     [view dragFromPoint:CGPointMake(300, 10) toPoint:CGPointMake(150, 10) steps:100];
@@ -120,26 +137,26 @@
     
     [self showNote:@"It takes about a month to form a new habit."];
     [self showNote:@"Have fun, and don't break the chain!"];
-    
+}
+// shows a "tap" animation
+-(void)tapViewWithAccessibilityLabel: (NSString*)label{
+    UIView *view = nil;
+    UIAccessibilityElement *element = nil;
+    [tester waitForAccessibilityElement:&element view:&view withLabel:label value:nil traits:UIAccessibilityTraitNone tappable:YES];
+    CGRect rect = [view.window convertRect:view.bounds fromView:view];
+    [self.userGuideCaptureOverlayController showTapInRect: rect];
+    [tester tapViewWithAccessibilityLabel:label];
 }
 -(void)showNote:(NSString*)text{
     NSString * filename = [text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     HelpCaptureInterstitialViewController * controller = [[HelpCaptureInterstitialViewController alloc] initWithTitle:text detail:nil];
-    
-    controller.view.alpha = 0;
-    [FCOverlay presentOverlayWithViewController:controller windowLevel:UIWindowLevelAlert animated:NO completion:^{
-        controller.view.superview.userInteractionEnabled = NO;
-        [UIView animateWithDuration:0.3 animations:^{
-            controller.view.alpha = 1;
-        }];
+    controller.extendedLayoutIncludesOpaqueBars = true;
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self.userGuideCaptureOverlayController presentViewController:controller animated:true completion:^{
     }];
     [tester waitForTimeInterval:2];
     [self screenshot:filename];
-    [UIView animateWithDuration:0.3 animations:^{
-        controller.view.alpha = 0;
-    } completion:^(BOOL finished) {
-        [FCOverlay dismissOverlayAnimated:NO completion:nil];
-    }];
+    [controller dismissViewControllerAnimated:true completion:nil];
     [tester waitForTimeInterval:0.3];
 }
 -(NSString*)screenSizeName{

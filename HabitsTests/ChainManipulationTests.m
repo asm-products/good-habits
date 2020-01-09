@@ -112,6 +112,7 @@
     [tester waitForViewWithAccessibilityLabel:@"Make sure this saves"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
     [tester tapViewWithAccessibilityLabel:@"Back"];
+    [tester waitForViewWithAccessibilityLabel:@"Make sure this saves"];
 }
 
 -(void)testPastChainsAreNotExplicitlyBroken{
