@@ -1,12 +1,12 @@
 {
   "default": {
     "keyword": {
-      /*"supported": ["en"],*/
+      "supported": ["en", "it"],
       "font": "./fonts/HelveNeuLig"
     },
     "title": {
       "font": "./fonts/HelveNeuMed",
-      /*"supported": ["en"],*/
+      "supported": ["en", "it"],
       "color": "#545454"
     },
     "background": "./background.jpg",
