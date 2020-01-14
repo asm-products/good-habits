@@ -15,10 +15,71 @@
 
 default_platform(:ios)
 
+STRINGS_FILES = {
+    "IOS_STRINGS" => [
+        "./HabitsCommon/en.lproj/Localizable.strings",
+        "./fastlane/screenshots/en-US/title.strings",
+        "./fastlane/screenshots/en-US/keyword.strings",
+    ],
+    "XLIFF" => [
+        "./localizations/en.xcloc/Localized\ Contents/en.xliff"
+    ]
+}
+
+LANGUAGES = ["en", "it"]
+
+
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do
     build_app(workspace: "Habits.xcworkspace", scheme: "Habits")
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
+    increment_build_number
+  end
+  
+  desc "Take screenshots"
+  lane :screenshots do
+    capture_ios_screenshots(localize_simulator: true)
+    frameit(path: './fastlane/screenshots')
+  end
+  
+  # use
+  # fastlane frameit
+  # to frame screenshots
+  
+  desc "Upload strings to OneSky"
+  lane :upload_strings do
+    export_localizations(
+        destination_path: "./localizations",
+        project: "Habits.xcodeproj"
+    )
+    for type in ["IOS_STRINGS", "XLIFF"]
+        for path in STRINGS_FILES[type]
+            onesky_upload(
+                public_key: "MiXDY0pND19O6IpASejyxOpfbnqiFuri",
+                secret_key: ENV["ONESKY_SECRET_KEY"],
+                project_id: "353182",
+                strings_file_path: path,
+                strings_file_format: type, # IOS_STRINGS | XLIFF
+                deprecate_missing: false
+            )
+        end
+    end
+  end
+  
+  desc "Download OneSky translations"
+  lane :download_strings do
+    for type in ["IOS_STRINGS", "XLIFF"]
+        for path in STRINGS_FILES[type]
+            onesky_download(
+              public_key: "abc123abc123abc123abc123abc123abc",
+              secret_key: "xyz890xyz890xyz890xyz890xyz890xyz",
+              project_id: "1234",
+              locale: "de",
+              filename: "en.xliff",
+              destination: "./localizations/de.xliff"
+            )
+        end
+    end
   end
 end

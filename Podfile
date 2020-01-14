@@ -1,4 +1,4 @@
-platform :ios, "8.0"
+platform :ios, "9.0"
 
 target "Habits" do
     pod 'CWLSynthesizeSingleton', '~> 1.0'
@@ -42,6 +42,10 @@ target "HabitsTests" do
     pod 'UIImage-Helpers', '~> 0.0'
     pod 'Reveal-iOS-SDK', '~> 1.0'
     pod 'YLMoment', '~> 0.6'
+end
+
+target "HabitsUITests" do
+  pod 'KIF'
 end
 
 target "HabitsTodayExtension" do

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Habits/Base.lproj/Main.storyboard" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="1ut-8Z-WR4.normalTitle" xml:space="preserve">
+        <source>Clear reminder</source>
+        <target>Clear reminder</target>
+        <note>Class = "UIButton"; normalTitle = "Clear reminder"; ObjectID = "1ut-8Z-WR4";</note>
+      </trans-unit>
+      <trans-unit id="2Ae-ve-lFQ.text" xml:space="preserve">
+        <source>GOOD HABITS</source>
+        <target>GOOD HABITS</target>
+        <note>Class = "UILabel"; text = "GOOD HABITS"; ObjectID = "2Ae-ve-lFQ";</note>
+      </trans-unit>
+      <trans-unit id="2Qx-om-5lg.text" xml:space="preserve">
+        <source>[10]</source>
+        <target>[10]</target>
+        <note>Class = "UILabel"; text = "[10]"; ObjectID = "2Qx-om-5lg";</note>
+      </trans-unit>
+      <trans-unit id="6ef-iU-MjC.normalTitle" xml:space="preserve">
+        <source>Restore MF Data</source>
+        <target>Restore MF Data</target>
+        <note>Class = "UIButton"; normalTitle = "Restore MF Data"; ObjectID = "6ef-iU-MjC";</note>
+      </trans-unit>
+      <trans-unit id="9R0-dF-VJt.text" xml:space="preserve">
+        <source>5</source>
+        <target>5</target>
+        <note>Class = "UILabel"; text = "5"; ObjectID = "9R0-dF-VJt";</note>
+      </trans-unit>
+      <trans-unit id="BWv-DR-c7Z.normalTitle" xml:space="preserve">
+        <source>Enable all features</source>
+        <target>Enable all features</target>
+        <note>Class = "UIButton"; normalTitle = "Enable all features"; ObjectID = "BWv-DR-c7Z";</note>
+      </trans-unit>
+      <trans-unit id="BnY-qI-qlP.normalTitle" xml:space="preserve">
+        <source>-100</source>
+        <target>-100</target>
+        <note>Class = "UIButton"; normalTitle = "-100"; ObjectID = "BnY-qI-qlP";</note>
+      </trans-unit>
+      <trans-unit id="BsF-qM-NUI.text" xml:space="preserve">
+        <source>[Habit label]</source>
+        <target>[Habit label]</target>
+        <note>Class = "UILabel"; text = "[Habit label]"; ObjectID = "BsF-qM-NUI";</note>
+      </trans-unit>
+      <trans-unit id="DkH-me-7TJ.text" xml:space="preserve">
+        <source>LONGEST UNBROKEN CHAIN</source>
+        <target>LONGEST UNBROKEN CHAIN</target>
+        <note>Class = "UILabel"; text = "LONGEST UNBROKEN CHAIN"; ObjectID = "DkH-me-7TJ";</note>
+      </trans-unit>
+      <trans-unit id="Eaf-xd-yLd.text" xml:space="preserve">
+        <source>HABIT NAME</source>
+        <target>HABIT NAME</target>
+        <note>Class = "UILabel"; text = "HABIT NAME"; ObjectID = "Eaf-xd-yLd";</note>
+      </trans-unit>
+      <trans-unit id="G4E-rD-enW.text" xml:space="preserve">
+        <source>[55]</source>
+        <target>[55]</target>
+        <note>Class = "UILabel"; text = "[55]"; ObjectID = "G4E-rD-enW";</note>
+      </trans-unit>
+      <trans-unit id="H4T-N8-MSX.text" xml:space="preserve">
+        <source>[Info task label]</source>
+        <target>[Info task label]</target>
+        <note>Class = "UILabel"; text = "[Info task label]"; ObjectID = "H4T-N8-MSX";</note>
+      </trans-unit>
+      <trans-unit id="HmX-Lg-pRs.text" xml:space="preserve">
+        <source>Label</source>
+        <target>Label</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "HmX-Lg-pRs";</note>
+      </trans-unit>
+      <trans-unit id="JMG-1N-4QX.normalTitle" xml:space="preserve">
+        <source>Pause this habit</source>
+        <target>Pause this habit</target>
+        <note>Class = "UIButton"; normalTitle = "Pause this habit"; ObjectID = "JMG-1N-4QX";</note>
+      </trans-unit>
+      <trans-unit id="KPl-V2-xVY.text" xml:space="preserve">
+        <source>NEW</source>
+        <target>NEW</target>
+        <note>Class = "UILabel"; text = "NEW"; ObjectID = "KPl-V2-xVY";</note>
+      </trans-unit>
+      <trans-unit id="KSH-IG-WnM.text" xml:space="preserve">
+        <source>[20 August - 1 September 2014]</source>
+        <target>[20 August - 1 September 2014]</target>
+        <note>Class = "UILabel"; text = "[20 August - 1 September 2014]"; ObjectID = "KSH-IG-WnM";</note>
+      </trans-unit>
+      <trans-unit id="Pvl-5h-Qkx.title" xml:space="preserve">
+        <source>Continue</source>
+        <target>Continue</target>
+        <note>Class = "UIBarButtonItem"; title = "Continue"; ObjectID = "Pvl-5h-Qkx";</note>
+      </trans-unit>
+      <trans-unit id="Sn9-dv-YuW.text" xml:space="preserve">
+        <source>GOOD TO HEAR</source>
+        <target>GOOD TO HEAR</target>
+        <note>Class = "UILabel"; text = "GOOD TO HEAR"; ObjectID = "Sn9-dv-YuW";</note>
+      </trans-unit>
+      <trans-unit id="TdF-L1-Jwu.text" xml:space="preserve">
+        <source>TOTAL DAYS CHECKED</source>
+        <target>TOTAL DAYS CHECKED</target>
+        <note>Class = "UILabel"; text = "TOTAL DAYS CHECKED"; ObjectID = "TdF-L1-Jwu";</note>
+      </trans-unit>
+      <trans-unit id="U7O-ce-v3o.text" xml:space="preserve">
+        <source>We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen.</source>
+        <target>We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen.</target>
+        <note>Class = "UILabel"; text = "We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen."; ObjectID = "U7O-ce-v3o";</note>
+      </trans-unit>
+      <trans-unit id="Vo4-mW-BmW.text" xml:space="preserve">
+        <source>[chain length]</source>
+        <target>[chain length]</target>
+        <note>Class = "UILabel"; text = "[chain length]"; ObjectID = "Vo4-mW-BmW";</note>
+      </trans-unit>
+      <trans-unit id="W0x-E3-ClQ.normalTitle" xml:space="preserve">
+        <source>[Remind at ...]</source>
+        <target>[Remind at ...]</target>
+        <note>Class = "UIButton"; normalTitle = "[Remind at ...]"; ObjectID = "W0x-E3-ClQ";</note>
+      </trans-unit>
+      <trans-unit id="WIT-G3-ugi.text" xml:space="preserve">
+        <source>[10]</source>
+        <target>[10]</target>
+        <note>Class = "UILabel"; text = "[10]"; ObjectID = "WIT-G3-ugi";</note>
+      </trans-unit>
+      <trans-unit id="WQr-gE-mvg.title" xml:space="preserve">
+        <source>Admin for MF</source>
+        <target>Admin for MF</target>
+        <note>Class = "UINavigationItem"; title = "Admin for MF"; ObjectID = "WQr-gE-mvg";</note>
+      </trans-unit>
+      <trans-unit id="WbE-OV-kQ2.text" xml:space="preserve">
+        <source>CHART PERIOD</source>
+        <target>CHART PERIOD</target>
+        <note>Class = "UILabel"; text = "CHART PERIOD"; ObjectID = "WbE-OV-kQ2";</note>
+      </trans-unit>
+      <trans-unit id="aSz-PV-rTQ.text" xml:space="preserve">
+        <source>Data migration</source>
+        <target>Data migration</target>
+        <note>Class = "UILabel"; text = "Data migration"; ObjectID = "aSz-PV-rTQ";</note>
+      </trans-unit>
+      <trans-unit id="bCb-0a-dVR.normalTitle" xml:space="preserve">
+        <source>Restore AW Data</source>
+        <target>Restore AW Data</target>
+        <note>Class = "UIButton"; normalTitle = "Restore AW Data"; ObjectID = "bCb-0a-dVR";</note>
+      </trans-unit>
+      <trans-unit id="c0c-PC-DNv.text" xml:space="preserve">
+        <source>Title</source>
+        <target>Title</target>
+        <note>Class = "UILabel"; text = "Title"; ObjectID = "c0c-PC-DNv";</note>
+      </trans-unit>
+      <trans-unit id="dbb-40-lz2.title" xml:space="preserve">
+        <source>add</source>
+        <target>add</target>
+        <note>Class = "UIBarButtonItem"; title = "add"; ObjectID = "dbb-40-lz2";</note>
+      </trans-unit>
+      <trans-unit id="dcF-l7-O64.placeholder" xml:space="preserve">
+        <source>What happened?</source>
+        <target>What happened?</target>
+        <note>Class = "UITextField"; placeholder = "What happened?"; ObjectID = "dcF-l7-O64";</note>
+      </trans-unit>
+      <trans-unit id="eHx-ow-yHW.text" xml:space="preserve">
+        <source>[title]</source>
+        <target>[title]</target>
+        <note>Class = "UITextField"; text = "[title]"; ObjectID = "eHx-ow-yHW";</note>
+      </trans-unit>
+      <trans-unit id="gmw-6d-XIl.normalTitle" xml:space="preserve">
+        <source>Delete this habit</source>
+        <target>Delete this habit</target>
+        <note>Class = "UIButton"; normalTitle = "Delete this habit"; ObjectID = "gmw-6d-XIl";</note>
+      </trans-unit>
+      <trans-unit id="h0z-Vh-l70.title" xml:space="preserve">
+        <source>Admin</source>
+        <target>Admin</target>
+        <note>Class = "UIBarButtonItem"; title = "Admin"; ObjectID = "h0z-Vh-l70";</note>
+      </trans-unit>
+      <trans-unit id="hLo-8Q-rir.text" xml:space="preserve">
+        <source>CHART PERIOD</source>
+        <target>CHART PERIOD</target>
+        <note>Class = "UILabel"; text = "CHART PERIOD"; ObjectID = "hLo-8Q-rir";</note>
+      </trans-unit>
+      <trans-unit id="hOa-jb-Pai.text" xml:space="preserve">
+        <source>[55]</source>
+        <target>[55]</target>
+        <note>Class = "UILabel"; text = "[55]"; ObjectID = "hOa-jb-Pai";</note>
+      </trans-unit>
+      <trans-unit id="hoL-d6-QX3.text" xml:space="preserve">
+        <source>[Link label]</source>
+        <target>[Link label]</target>
+        <note>Class = "UILabel"; text = "[Link label]"; ObjectID = "hoL-d6-QX3";</note>
+      </trans-unit>
+      <trans-unit id="hp2-BZ-5Qi.text" xml:space="preserve">
+        <source>[n habits, last used days ago]</source>
+        <target>[n habits, last used days ago]</target>
+        <note>Class = "UILabel"; text = "[n habits, last used days ago]"; ObjectID = "hp2-BZ-5Qi";</note>
+      </trans-unit>
+      <trans-unit id="i5W-OX-A9P.title" xml:space="preserve">
+        <source>Stats</source>
+        <target>Stats</target>
+        <note>Class = "UINavigationItem"; title = "Stats"; ObjectID = "i5W-OX-A9P";</note>
+      </trans-unit>
+      <trans-unit id="iF3-eD-2GL.text" xml:space="preserve">
+        <source>Detail</source>
+        <target>Detail</target>
+        <note>Class = "UILabel"; text = "Detail"; ObjectID = "iF3-eD-2GL";</note>
+      </trans-unit>
+      <trans-unit id="j7g-bR-3Zz.text" xml:space="preserve">
+        <source>[10]</source>
+        <target>[10]</target>
+        <note>Class = "UILabel"; text = "[10]"; ObjectID = "j7g-bR-3Zz";</note>
+      </trans-unit>
+      <trans-unit id="m7l-uD-RqH.text" xml:space="preserve">
+        <source>AVERAGE CHAIN LENGTH</source>
+        <target>AVERAGE CHAIN LENGTH</target>
+        <note>Class = "UILabel"; text = "AVERAGE CHAIN LENGTH"; ObjectID = "m7l-uD-RqH";</note>
+      </trans-unit>
+      <trans-unit id="na1-7c-Y5B.text" xml:space="preserve">
+        <source>[20 August - 1 September 2014]</source>
+        <target>[20 August - 1 September 2014]</target>
+        <note>Class = "UILabel"; text = "[20 August - 1 September 2014]"; ObjectID = "na1-7c-Y5B";</note>
+      </trans-unit>
+      <trans-unit id="ndi-Vo-ZBy.text" xml:space="preserve">
+        <source>[chain started at]</source>
+        <target>[chain started at]</target>
+        <note>Class = "UILabel"; text = "[chain started at]"; ObjectID = "ndi-Vo-ZBy";</note>
+      </trans-unit>
+      <trans-unit id="ngT-UO-6Bz.normalTitle" xml:space="preserve">
+        <source>Clear in app purchases</source>
+        <target>Clear in app purchases</target>
+        <note>Class = "UIButton"; normalTitle = "Clear in app purchases"; ObjectID = "ngT-UO-6Bz";</note>
+      </trans-unit>
+      <trans-unit id="oJx-nH-POl.text" xml:space="preserve">
+        <source>PAUSED</source>
+        <target>PAUSED</target>
+        <note>Class = "UILabel"; text = "PAUSED"; ObjectID = "oJx-nH-POl";</note>
+      </trans-unit>
+      <trans-unit id="tvQ-Qy-xRs.text" xml:space="preserve">
+        <source>LATEST CHAIN LENGTH</source>
+        <target>LATEST CHAIN LENGTH</target>
+        <note>Class = "UILabel"; text = "LATEST CHAIN LENGTH"; ObjectID = "tvQ-Qy-xRs";</note>
+      </trans-unit>
+      <trans-unit id="w1E-ef-LFE.text" xml:space="preserve">
+        <source>GOOD HABITS</source>
+        <target>GOOD HABITS</target>
+        <note>Class = "UILabel"; text = "GOOD HABITS"; ObjectID = "w1E-ef-LFE";</note>
+      </trans-unit>
+      <trans-unit id="yWc-mL-QxZ.text" xml:space="preserve">
+        <source>Press and hold for more information, swipe left to export and backup data.</source>
+        <target>Press and hold for more information, swipe left to export and backup data.</target>
+        <note>Class = "UILabel"; text = "Press and hold for more information, swipe left to export and backup data."; ObjectID = "yWc-mL-QxZ";</note>
+      </trans-unit>
+      <trans-unit id="yct-Ae-Wr3.text" xml:space="preserve">
+        <source>NUMBER OF CHAINS</source>
+        <target>NUMBER OF CHAINS</target>
+        <note>Class = "UILabel"; text = "NUMBER OF CHAINS"; ObjectID = "yct-Ae-Wr3";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Habits/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>Habits</source>
+        <target>Habits</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>Habits</source>
+        <target>Habits</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Habits/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="Contact us" xml:space="preserve">
+        <source>Contact us</source>
+        <target>Contact us</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Drag completed." xml:space="preserve">
+        <source>Drag completed.</source>
+        <target>Drag completed.</target>
+        <note>Voiceover annoucement</note>
+      </trans-unit>
+      <trans-unit id="Export your data" xml:space="preserve">
+        <source>Export your data</source>
+        <target>Export your data</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Get Happiness" xml:space="preserve">
+        <source>Get Happiness</source>
+        <target>Get Happiness</target>
+        <note>Checklist item that links to download Happiness app</note>
+      </trans-unit>
+      <trans-unit id="Like us on Facebook" xml:space="preserve">
+        <source>Like us on Facebook</source>
+        <target>Like us on Facebook</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Log an issue" xml:space="preserve">
+        <source>Log an issue</source>
+        <target>Log an issue</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Look at the guide" xml:space="preserve">
+        <source>Look at the guide</source>
+        <target>Look at the guide</target>
+        <note>menu button</note>
+      </trans-unit>
+      <trans-unit id="Mark completed" xml:space="preserve">
+        <source>Mark completed</source>
+        <target>Mark completed</target>
+        <note>Button to mark habit completed from notification</note>
+      </trans-unit>
+      <trans-unit id="Now dragging." xml:space="preserve">
+        <source>Now dragging.</source>
+        <target>Now dragging.</target>
+        <note>Voiceover annoucement</note>
+      </trans-unit>
+      <trans-unit id="Rate this app" xml:space="preserve">
+        <source>Rate this app</source>
+        <target>Rate this app</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Recover data" xml:space="preserve">
+        <source>Recover data</source>
+        <target>Recover data</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Share this app" xml:space="preserve">
+        <source>Share this app</source>
+        <target>Share this app</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Snooze" xml:space="preserve">
+        <source>Snooze</source>
+        <target>Snooze</target>
+        <note>Snooze button text</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Habits/Settings.bundle/en.lproj/Root.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="Enabled" xml:space="preserve">
+        <source>Enabled</source>
+        <target>Enabled</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Group" xml:space="preserve">
+        <source>Group</source>
+        <target>Group</target>
+        <note>A single strings file, whose title is specified in your preferences schema. The strings files provide the localized content to display to the user for each of your preferences.</note>
+      </trans-unit>
+      <trans-unit id="Name" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="none given" xml:space="preserve">
+        <source>none given</source>
+        <target>none given</target>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="HabitsCommon/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>HabitsCommon</source>
+        <target>HabitsCommon</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="HabitsTests/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="Back" xml:space="preserve">
+        <source>Back</source>
+        <target>Back</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="HabitsTodayExtension/Base.lproj/MainInterface.storyboard" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="TMi-3A-YKq.normalTitle" xml:space="preserve">
+        <source>-100</source>
+        <target>-100</target>
+        <note>Class = "UIButton"; normalTitle = "-100"; ObjectID = "TMi-3A-YKq";</note>
+      </trans-unit>
+      <trans-unit id="sq3-4N-dLn.text" xml:space="preserve">
+        <source>I am label</source>
+        <target>I am label</target>
+        <note>Class = "UILabel"; text = "I am label"; ObjectID = "sq3-4N-dLn";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="HabitsTodayExtension/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>Habits</source>
+        <target>Habits</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>HabitsTodayExtension</source>
+        <target>HabitsTodayExtension</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="HabitsWatchApp Extension/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>HabitsWatchApp Extension</source>
+        <target>HabitsWatchApp Extension</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>HabitsWatchApp Extension</source>
+        <target>HabitsWatchApp Extension</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="HabitsWatchApp/Base.lproj/Interface.storyboard" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="AgC-eL-Hgc.title" xml:space="preserve">
+        <source>Habits</source>
+        <target>Habits</target>
+        <note>Class = "WKInterfaceController"; title = "Habits"; ObjectID = "AgC-eL-Hgc";</note>
+      </trans-unit>
+      <trans-unit id="InQ-G2-Bkm.title" xml:space="preserve">
+        <source>✓</source>
+        <target>✓</target>
+        <note>Class = "WKInterfaceButton"; title = "✓"; ObjectID = "InQ-G2-Bkm";</note>
+      </trans-unit>
+      <trans-unit id="LC8-5o-gTB.text" xml:space="preserve">
+        <source>[Habit]</source>
+        <target>[Habit]</target>
+        <note>Class = "WKInterfaceLabel"; text = "[Habit]"; ObjectID = "LC8-5o-gTB";</note>
+      </trans-unit>
+      <trans-unit id="XkS-y5-khE.text" xml:space="preserve">
+        <source>Habits notification</source>
+        <target>Habits notification</target>
+        <note>Class = "WKInterfaceLabel"; text = "Habits notification"; ObjectID = "XkS-y5-khE";</note>
+      </trans-unit>
+      <trans-unit id="oVd-bH-CKo.text" xml:space="preserve">
+        <source>Please launch Habits on your iPhone</source>
+        <target>Please launch Habits on your iPhone</target>
+        <note>Class = "WKInterfaceLabel"; text = "Please launch Habits on your iPhone"; ObjectID = "oVd-bH-CKo";</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

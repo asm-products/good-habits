@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0800"
+   version = "1.3">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ACADB3CF190D23B90030CC82"
+               BuildableName = "Habits.app"
+               BlueprintName = "Habits"
+               ReferencedContainer = "container:Habits.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "NO">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "ACADB3CF190D23B90030CC82"
+            BuildableName = "Habits.app"
+            BlueprintName = "Habits"
+            ReferencedContainer = "container:Habits.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "Testing=1"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "KIF_SCREENSHOTS"
+            value = "/Users/mf/code/habits/Habits/Habits/Images/grabs"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
+      <AdditionalOptions>
+         <AdditionalOption
+            key = "NSZombieEnabled"
+            value = "YES"
+            isEnabled = "YES">
+         </AdditionalOption>
+      </AdditionalOptions>
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ACADB3F0190D23B90030CC82"
+               BuildableName = "HabitsTests.xctest"
+               BlueprintName = "HabitsTests"
+               ReferencedContainer = "container:Habits.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "ChainManipulationTests">
+               </Test>
+               <Test
+                  Identifier = "DayBoundaryTests">
+               </Test>
+               <Test
+                  Identifier = "HabitCreationTests">
+               </Test>
+               <Test
+                  Identifier = "HabitCreationTestsSpec">
+               </Test>
+               <Test
+                  Identifier = "HabitsListTests">
+               </Test>
+               <Test
+                  Identifier = "HabitsListTestsSpec">
+               </Test>
+               <Test
+                  Identifier = "JSONConversionTests">
+               </Test>
+               <Test
+                  Identifier = "JSONConversionTestsSpec">
+               </Test>
+               <Test
+                  Identifier = "MigrationTests">
+               </Test>
+               <Test
+                  Identifier = "MigrationToSharedContainerTests">
+               </Test>
+               <Test
+                  Identifier = "PremiumFeatureTests">
+               </Test>
+               <Test
+                  Identifier = "ReminderTests">
+               </Test>
+               <Test
+                  Identifier = "StatisticsTests">
+               </Test>
+               <Test
+                  Identifier = "TimeHelperTest">
+               </Test>
+               <Test
+                  Identifier = "UserGuideCaptureTests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AC7881851BED3F6700675C75"
+               BuildableName = "HabitsCommonTests.xctest"
+               BlueprintName = "HabitsCommonTests"
+               ReferencedContainer = "container:Habits.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AC373F361BF754CF00A212D9"
+               BuildableName = "HabitsUITests.xctest"
+               BlueprintName = "HabitsUITests"
+               ReferencedContainer = "container:Habits.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "HabitsUITests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = "it"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "ACADB3CF190D23B90030CC82"
+            BuildableName = "Habits.app"
+            BlueprintName = "Habits"
+            ReferencedContainer = "container:Habits.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "ACADB3CF190D23B90030CC82"
+            BuildableName = "Habits.app"
+            BlueprintName = "Habits"
+            ReferencedContainer = "container:Habits.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+    </dependencies>
+    <scenes>
+        <!--PleaseLaunchHabits-->
+        <scene sceneID="Bya-JI-ciM">
+            <objects>
+                <controller identifier="PleaseLaunchHabits" id="VPd-of-z6O" customClass="WatchLandingInterfaceController" customModule="HabitsWatchApp_Extension">
+                    <items>
+                        <imageView alignment="center" image="launch_app_on_phone" contentMode="center" id="jVg-3q-02D"/>
+                        <label alignment="center" text="Please launch Habits on your iPhone" textAlignment="center" numberOfLines="2" minimumScaleFactor="0.90000000000000002" id="oVd-bH-CKo">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="217" y="355"/>
+        </scene>
+        <!--Habits-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="HabitsList" title="Habits" id="AgC-eL-Hgc" customClass="WatchHabitsListController" customModule="HabitsWatchApp_Extension">
+                    <items>
+                        <table alignment="left" id="7FW-fX-Ney">
+                            <items>
+                                <tableRow identifier="Habit" selectable="NO" id="Z5r-jY-4vU" customClass="HabitWatchTableRowController" customModule="HabitsWatchApp_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="RLu-kx-lwG">
+                                        <items>
+                                            <button width="39" height="39" alignment="left" title="✓" id="InQ-G2-Bkm">
+                                                <fontDescription key="font" type="system" weight="heavy" pointSize="23"/>
+                                                <connections>
+                                                    <action selector="didPressCheckButton" destination="Z5r-jY-4vU" id="uUr-8O-Dn3"/>
+                                                </connections>
+                                            </button>
+                                            <separator alignment="left" id="kRS-LN-7ha">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </separator>
+                                            <label height="38.5" alignment="left" text="[Habit]" baselineAdjustment="alignCenters" numberOfLines="0" id="LC8-5o-gTB">
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="checkButton" destination="InQ-G2-Bkm" id="wBu-6J-tTW"/>
+                                        <outlet property="titleLabel" destination="LC8-5o-gTB" id="KDn-YQ-UYP"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="habitsTable" destination="7FW-fX-Ney" id="oo9-dp-htC"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="421" y="355"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Habits notification" id="XkS-y5-khE"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
+                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="235" y="851"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="KIl-fV-djm">
+            <objects>
+                <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="HabitsWatchApp" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="851"/>
+        </scene>
+    </scenes>
+</document>

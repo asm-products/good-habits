@@ -21,6 +21,16 @@ or alternatively using `brew cask install fastlane`
 fastlane ios release
 ```
 Push a new release build to the App Store
+### ios screenshots
+```
+fastlane ios screenshots
+```
+Take screenshots
+### ios upload_strings
+```
+fastlane ios upload_strings
+```
+Upload strings to OneSky
 
 ----
 

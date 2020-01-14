@@ -23,3 +23,6 @@
 "Log an issue" = "Reporta una problema";
 "Contact us" = "Noi contactare";
 "Recover data" = "Recoverato il data";
+
+"Tap the + to get started" = "Punta la + per andiamo";
+"Back" = "Indietro"; // duplicate system string, found via Accessibility Inspector

@@ -41,8 +41,8 @@
 +(void)loadFixtureFromUserDefaultsNamed:(NSString *)name{
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];
-    NSString * path = [[NSBundle mainBundle] pathForResource:name ofType:@"plist"];
-    if(!path) path = [[NSBundle bundleForClass:[self class]] pathForResource:name ofType:@"plist"];
+    NSString * path = [[NSBundle mainBundle] pathForResource:name ofType:@"plist" inDirectory: [NSLocale currentLocale].languageCode];
+    if(!path) path = [[NSBundle bundleForClass:[self class]] pathForResource:name ofType:@"plist" inDirectory: [NSLocale currentLocale].languageCode];
     if(!path) @throw [NSException exceptionWithName:@"NoFixtureFound" reason:[NSString stringWithFormat:@"Couldn't find %@.plist anywhwere", name] userInfo:nil];
     NSDictionary * dict = [NSDictionary dictionaryWithContentsOfFile:path];
     NSArray * array = [dict valueForKeyPath:@"goodtohear.habits_habits"];

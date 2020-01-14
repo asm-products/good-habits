@@ -11,7 +11,6 @@
 #import "Colors.h"
 #import "AppSharing.h"
 #import "TimeHelper.h"
-#import "UserGuideViewController.h"
 #import <Crashlytics/Crashlytics.h>
 #define INSTALLED_DATE_KEY @"goodtohear.habits_installed_date"
 @import MediaPlayer;

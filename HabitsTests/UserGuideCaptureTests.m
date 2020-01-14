@@ -17,7 +17,7 @@
 #import "TimeHelper.h"
 #import "UserGuideCaptureOverlayViewController.h"
 
-#define GRABS_PATH @"/Users/mf/code/habits/Habits/Habits/Images/grabs"
+#define GRABS_PATH @"/Users/mf/code/habits/Habits/fastlane/screenshots"
 
 @interface HabitCell(TestingHacks)
 @end
@@ -33,8 +33,6 @@
 
 @implementation UserGuideCaptureTests
 
-
-
 - (void)setUp {
     [super setUp];
     [HabitsQueries deleteAllHabits];
@@ -43,30 +41,9 @@
     
     
 }
--(void)deleteAllGrabs{
-    NSArray * grabs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:GRABS_PATH error:nil];
-    for (NSString * path in grabs) {
-        NSLog(@"Delete %@", path);
-        NSError * error;
-        [[NSFileManager defaultManager] removeItemAtPath:[GRABS_PATH stringByAppendingPathComponent: path] error:&error];
-        if(error) NSLog(@"error: %@", error);
-    }
-}
--(void)testGrabAppStoreScreens{
-    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-24"].date];
-    [TestHelpers loadFixtureFromUserDefaultsNamed:@"appstore.habits"];
-    [TestHelpers setStatsEnabled:YES];
-    [tester waitForTimeInterval:0.4];
-    [self screenshot:@"screenshot_1"];
-    [tester tapViewWithAccessibilityLabel:@"Floss"];
-    [tester waitForTimeInterval:0.4];
-    [self screenshot:@"screenshot_2"];
-    [tester tapViewWithAccessibilityLabel:@"Stats"];
-    [tester waitForTimeInterval:0.4];
-    [self screenshot:@"screenshot_3"];
-    [tester tapViewWithAccessibilityLabel:@"Back"];
-    [tester tapViewWithAccessibilityLabel:@"Back"];
-    
+-(void)pressBack{
+    NSString * back = NSLocalizedString(@"Back", @"");
+    [tester tapViewWithAccessibilityLabel:back];
 }
 -(void)addOverlayWindow{
     CGRect frame = [UIScreen mainScreen].bounds;
@@ -88,21 +65,17 @@
     [self tapViewWithAccessibilityLabel:@"add"];
     [self showNote:@"Enter the title"];
     [tester enterTextIntoCurrentFirstResponder:@"Floss\n"];
-    [self screenshot:@"floss"];
     [self showNote:@"Maybe you don't need to do it every day"];
     [self tapViewWithAccessibilityLabel:@"Sun required? Yes"];
     [self tapViewWithAccessibilityLabel:@"Sat required? Yes"];
-    [self screenshot:@"unchecked_days"];
     [self showNote:@"Set a reminder"];
     [self tapViewWithAccessibilityLabel:@"Set reminder"];
     [tester waitForTimeInterval:0.5];
     [self tapViewWithAccessibilityLabel:@"Set reminder"];
     [tester waitForTimeInterval:0.5];
-    [self screenshot:@"reminder_set"];
-    [self tapViewWithAccessibilityLabel:@"Back"];
+    [self pressBack];
     [self showNote:@"Check the box when you've done it"];
     [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
-    [self screenshot:@"checked_today"];
 
     [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-24"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"demo.habits"];
@@ -111,23 +84,20 @@
     [self showNote:@"If you missed today, you can tap the box twice"];
     [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
     [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Checked"];
-    [self screenshot:@"missed"];
     
     [TestHelpers setStatsEnabled:YES];
     [self showNote:@"With stats enabled (in app purchase) you can record the reasons for your chain break."];
     [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
     [tester enterTextIntoCurrentFirstResponder:@"I ran out of floss"];
-    [self screenshot:@"showing_keyboard"];
     [tester enterTextIntoCurrentFirstResponder:@"\n"];
     [self tapViewWithAccessibilityLabel:@"Floss"];
     [self showNote:@"See stats with the top-right button"];
     [self tapViewWithAccessibilityLabel:@"Stats"];
-    [self screenshot:@"stats"];
     [self showNote:@"You'll see chain information and also a list of reasons you missed a day"];
     [tester scrollViewWithAccessibilityIdentifier:@"Stats" byFractionOfSizeHorizontal:0 vertical:-1.0];
     [tester waitForTimeInterval:1.0];
-    [self tapViewWithAccessibilityLabel:@"Back"];
-    [self tapViewWithAccessibilityLabel:@"Back"];
+    [self pressBack];
+    [self pressBack];
     [self showNote:@"If you didn't open the app for a few days but didn't miss any days, you can check them off by swiping the list"];
     UIView * view = [tester waitForViewWithAccessibilityLabel:@"Habit Cell Exercise"];
     [view dragFromPoint:CGPointMake(300, 10) toPoint:CGPointMake(150, 10) steps:100];
@@ -149,13 +119,14 @@
 }
 -(void)showNote:(NSString*)text{
     NSString * filename = [text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    HelpCaptureInterstitialViewController * controller = [[HelpCaptureInterstitialViewController alloc] initWithTitle:text detail:nil];
+    NSString * localizedText = NSLocalizedString(text, @"");
+    HelpCaptureInterstitialViewController * controller = [[HelpCaptureInterstitialViewController alloc] initWithTitle:localizedText detail:nil];
     controller.extendedLayoutIncludesOpaqueBars = true;
     controller.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.userGuideCaptureOverlayController presentViewController:controller animated:true completion:^{
     }];
     [tester waitForTimeInterval:2];
-    [self screenshot:filename];
+//    [self screenshot:filename];
     [controller dismissViewControllerAnimated:true completion:nil];
     [tester waitForTimeInterval:0.3];
 }
@@ -168,16 +139,5 @@
     if(h == 896) return @"6.1"; // iPhone 11
     if(h == 1366) return @"12.9"; // iPad Pro
     return @"dunno";
-}
--(void)screenshot:(NSString*)name{
-    static NSInteger screenshotIndex = 0;
-    screenshotIndex ++;
-    UIImage * image = [UIImage screenshot];
-    NSString * filename = [NSString stringWithFormat:@"en-%@-%@-%@", [self screenSizeName], @(screenshotIndex), name];
-    NSString * outputPath = [GRABS_PATH stringByAppendingPathComponent:filename];
-    NSLog(@"Saving file to %@", outputPath);
-//    [UIImageJPEGRepresentation(image, 100) writeToFile:[outputPath stringByAppendingPathExtension:@"jpg"] atomically:YES];
-    NSLog(@"SKIP WRITING TO %@", outputPath);
-    [UIImagePNGRepresentation(image) writeToFile:[outputPath stringByAppendingPathExtension:@"png"] atomically:YES];
 }
 @end
