@@ -18,16 +18,16 @@ default_platform(:ios)
 STRINGS_FILES = {
     "IOS_STRINGS" => [
         "./HabitsCommon/en.lproj/Localizable.strings",
-        "./fastlane/screenshots/en-US/title.strings",
-        "./fastlane/screenshots/en-US/keyword.strings",
+        "./fastlane/screenshots/en/title.strings",
+        "./fastlane/screenshots/en/keyword.strings",
+        "./HabitsTests/Fixtures/Localizable.strings"
     ],
     "XLIFF" => [
         "./localizations/en.xcloc/Localized\ Contents/en.xliff"
     ]
 }
 
-LANGUAGES = ["en", "it"]
-
+OTHER_LANGUAGES = ["it"]
 
 platform :ios do
   desc "Push a new release build to the App Store"
@@ -43,12 +43,14 @@ platform :ios do
     frameit(path: './fastlane/screenshots')
   end
   
-  # use
-  # fastlane frameit
-  # to frame screenshots
+  desc "Show splash screen localisations"
+  lane :splash_screen do
+    exec("open '../Designs/Habits Assets.sketch'")
+  end
   
   desc "Upload strings to OneSky"
   lane :upload_strings do
+    puts("Don't forget to create launch screen images")
     export_localizations(
         destination_path: "./localizations",
         project: "Habits.xcodeproj"
@@ -65,21 +67,33 @@ platform :ios do
             )
         end
     end
+    exec("open https://oskjaak.oneskyapp.com/admin/phrase/list/project/353182")
   end
   
   desc "Download OneSky translations"
   lane :download_strings do
-    for type in ["IOS_STRINGS", "XLIFF"]
-        for path in STRINGS_FILES[type]
-            onesky_download(
-              public_key: "abc123abc123abc123abc123abc123abc",
-              secret_key: "xyz890xyz890xyz890xyz890xyz890xyz",
-              project_id: "1234",
-              locale: "de",
-              filename: "en.xliff",
-              destination: "./localizations/de.xliff"
-            )
+      for language in OTHER_LANGUAGES
+        for type in ["IOS_STRINGS", "XLIFF"]
+            for path in STRINGS_FILES[type]
+                filename = File.basename(path)
+                path = path
+                    .gsub("en.xcloc/Localized\ Contents/en", language)
+                    .gsub("/en", "/#{language}")
+                onesky_download(
+                  public_key: "MiXDY0pND19O6IpASejyxOpfbnqiFuri",
+                  secret_key: ENV["ONESKY_SECRET_KEY"],
+                  project_id: "353182",
+                  locale: language,
+                  filename: filename,
+                  destination: path
+                )
+            end
+            
         end
+        import_localizations(
+          source_path: "./localizations/#{language}.xliff",
+          project: "Habits.xcodeproj"
+        )
     end
   end
 end

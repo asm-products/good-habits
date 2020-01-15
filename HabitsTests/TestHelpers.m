@@ -42,10 +42,15 @@
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];
     NSString * path = [[NSBundle mainBundle] pathForResource:name ofType:@"plist" inDirectory: [NSLocale currentLocale].languageCode];
-    if(!path) path = [[NSBundle bundleForClass:[self class]] pathForResource:name ofType:@"plist" inDirectory: [NSLocale currentLocale].languageCode];
+    NSBundle * testBundle = [NSBundle bundleForClass:[self class]];
+    if(!path) path = [testBundle pathForResource:name ofType:@"plist"];
     if(!path) @throw [NSException exceptionWithName:@"NoFixtureFound" reason:[NSString stringWithFormat:@"Couldn't find %@.plist anywhwere", name] userInfo:nil];
     NSDictionary * dict = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSArray * array = [dict valueForKeyPath:@"goodtohear.habits_habits"];
+    NSArray * array = [[dict valueForKeyPath:@"goodtohear.habits_habits"] map:^NSDictionary*(NSDictionary* record) {
+        NSMutableDictionary * result = [record mutableCopy];
+        result[@"title"] = NSLocalizedStringWithDefaultValue(record[@"title"], nil, testBundle, nil, nil);
+        return result;
+    }];
     [PlistStoreToCoreDataMigrator performMigrationWithArray:array progress:^(float progress) {
     }];
     [HabitsQueries refresh];

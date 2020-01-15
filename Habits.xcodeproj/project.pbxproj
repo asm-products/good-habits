@@ -86,8 +86,14 @@
 		AC50650323CDB38100ED55A7 /* AppStoreScreenshotCaptureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC533FB023C880310058D570 /* AppStoreScreenshotCaptureTests.m */; };
 		AC533F8C23C71EC10058D570 /* UserGuideCaptureOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = AC533F8B23C71EC10058D570 /* UserGuideCaptureOverlay.m */; };
 		AC533F8F23C721600058D570 /* UserGuideCaptureOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC533F8E23C721600058D570 /* UserGuideCaptureOverlayViewController.m */; };
-		AC533FAD23C878FC0058D570 /* en in Resources */ = {isa = PBXBuildFile; fileRef = AC533FAC23C878FC0058D570 /* en */; };
-		AC533FAF23C879840058D570 /* it in Resources */ = {isa = PBXBuildFile; fileRef = AC533FAE23C879840058D570 /* it */; };
+		AC5833DB23CF268C004F97EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC5833DD23CF268C004F97EB /* Localizable.strings */; };
+		AC5833DF23CF2752004F97EB /* appstore.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D523CF256B004F97EB /* appstore.habits.plist */; };
+		AC5833E023CF2752004F97EB /* aw.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D223CF256B004F97EB /* aw.goodtohear.habits.plist */; };
+		AC5833E123CF2752004F97EB /* demo.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D723CF256C004F97EB /* demo.habits.plist */; };
+		AC5833E223CF2752004F97EB /* list-tests.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D323CF256B004F97EB /* list-tests.goodtohear.habits.plist */; };
+		AC5833E323CF2752004F97EB /* mf.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D423CF256B004F97EB /* mf.goodtohear.habits.plist */; };
+		AC5833E423CF2752004F97EB /* testing_habit_expectation.png in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D623CF256B004F97EB /* testing_habit_expectation.png */; };
+		AC5833E523CF2752004F97EB /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D823CF256C004F97EB /* testing.goodtohear.habits.plist */; };
 		AC5A6C21213844E600D409A0 /* AppStoreReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5A6C20213844E600D409A0 /* AppStoreReceipt.swift */; };
 		AC5F3B4619C6228800398F81 /* UserGuideCaptureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B4519C6228800398F81 /* UserGuideCaptureTests.m */; };
 		AC5F3B4C19C6245900398F81 /* HelpCaptureInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5F3B4A19C6245900398F81 /* HelpCaptureInterstitialViewController.m */; };
@@ -499,9 +505,16 @@
 		AC533F8D23C721600058D570 /* UserGuideCaptureOverlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserGuideCaptureOverlayViewController.h; sourceTree = "<group>"; };
 		AC533F8E23C721600058D570 /* UserGuideCaptureOverlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserGuideCaptureOverlayViewController.m; sourceTree = "<group>"; };
 		AC533F9023C737420058D570 /* grabs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = grabs; path = Habits/Images/grabs; sourceTree = "<group>"; };
-		AC533FAC23C878FC0058D570 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = en; path = HabitsTests/UserDefaults/en; sourceTree = SOURCE_ROOT; };
-		AC533FAE23C879840058D570 /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = it; path = HabitsTests/UserDefaults/it; sourceTree = SOURCE_ROOT; };
 		AC533FB023C880310058D570 /* AppStoreScreenshotCaptureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppStoreScreenshotCaptureTests.m; sourceTree = "<group>"; };
+		AC5833D223CF256B004F97EB /* aw.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = aw.goodtohear.habits.plist; sourceTree = "<group>"; };
+		AC5833D323CF256B004F97EB /* list-tests.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "list-tests.goodtohear.habits.plist"; sourceTree = "<group>"; };
+		AC5833D423CF256B004F97EB /* mf.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = mf.goodtohear.habits.plist; sourceTree = "<group>"; };
+		AC5833D523CF256B004F97EB /* appstore.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = appstore.habits.plist; sourceTree = "<group>"; };
+		AC5833D623CF256B004F97EB /* testing_habit_expectation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testing_habit_expectation.png; sourceTree = "<group>"; };
+		AC5833D723CF256C004F97EB /* demo.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = demo.habits.plist; sourceTree = "<group>"; };
+		AC5833D823CF256C004F97EB /* testing.goodtohear.habits.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = testing.goodtohear.habits.plist; sourceTree = "<group>"; };
+		AC5833DC23CF268C004F97EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC5833DE23CF2690004F97EB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC5A6C20213844E600D409A0 /* AppStoreReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppStoreReceipt.swift; path = Models/AppStoreReceipt.swift; sourceTree = "<group>"; };
 		AC5F3B4519C6228800398F81 /* UserGuideCaptureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGuideCaptureTests.m; sourceTree = "<group>"; };
 		AC5F3B4919C6245900398F81 /* HelpCaptureInterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCaptureInterstitialViewController.h; sourceTree = "<group>"; };
@@ -800,8 +813,14 @@
 		AC1EB1041960C5B100549AC9 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				AC533FAE23C879840058D570 /* it */,
-				AC533FAC23C878FC0058D570 /* en */,
+				AC5833DD23CF268C004F97EB /* Localizable.strings */,
+				AC5833D523CF256B004F97EB /* appstore.habits.plist */,
+				AC5833D223CF256B004F97EB /* aw.goodtohear.habits.plist */,
+				AC5833D723CF256C004F97EB /* demo.habits.plist */,
+				AC5833D323CF256B004F97EB /* list-tests.goodtohear.habits.plist */,
+				AC5833D423CF256B004F97EB /* mf.goodtohear.habits.plist */,
+				AC5833D623CF256B004F97EB /* testing_habit_expectation.png */,
+				AC5833D823CF256C004F97EB /* testing.goodtohear.habits.plist */,
 				AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */,
 				AC2BC91A19C77C61007C378D /* habits_data.json */,
 			);
@@ -2077,12 +2096,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC533FAD23C878FC0058D570 /* en in Resources */,
+				AC5833E323CF2752004F97EB /* mf.goodtohear.habits.plist in Resources */,
+				AC5833DF23CF2752004F97EB /* appstore.habits.plist in Resources */,
+				AC5833E523CF2752004F97EB /* testing.goodtohear.habits.plist in Resources */,
 				AC2BC91C19C77C61007C378D /* habits_data.json in Resources */,
+				AC5833E423CF2752004F97EB /* testing_habit_expectation.png in Resources */,
+				AC5833E223CF2752004F97EB /* list-tests.goodtohear.habits.plist in Resources */,
+				AC5833E123CF2752004F97EB /* demo.habits.plist in Resources */,
 				ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */,
+				AC5833DB23CF268C004F97EB /* Localizable.strings in Resources */,
 				AC5F3B5319C63DE100398F81 /* status-bar@2x.png in Resources */,
 				AC1EB1061960C5CA00549AC9 /* habits_data_legacy.json in Resources */,
-				AC533FAF23C879840058D570 /* it in Resources */,
+				AC5833E023CF2752004F97EB /* aw.goodtohear.habits.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2513,6 +2538,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AC5833DD23CF268C004F97EB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC5833DC23CF268C004F97EB /* en */,
+				AC5833DE23CF2690004F97EB /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AC7A48381BED449300A8FBAD /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

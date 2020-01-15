@@ -26,11 +26,21 @@ Push a new release build to the App Store
 fastlane ios screenshots
 ```
 Take screenshots
+### ios splash_screen
+```
+fastlane ios splash_screen
+```
+Show splash screen localisations
 ### ios upload_strings
 ```
 fastlane ios upload_strings
 ```
 Upload strings to OneSky
+### ios download_strings
+```
+fastlane ios download_strings
+```
+Download OneSky translations
 
 ----
 

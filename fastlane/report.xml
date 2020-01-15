@@ -5,32 +5,32 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.004366">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.00464">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: export_localizations" time="2.300771">
+      <testcase classname="fastlane.lanes" name="1: export_localizations" time="2.346645">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: onesky_upload" time="1.323216">
+      <testcase classname="fastlane.lanes" name="2: onesky_upload" time="1.564169">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: onesky_upload" time="0.945727">
+      <testcase classname="fastlane.lanes" name="3: onesky_upload" time="0.938896">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: onesky_upload" time="0.976803">
+      <testcase classname="fastlane.lanes" name="4: onesky_upload" time="0.902037">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: onesky_upload" time="1.106656">
+      <testcase classname="fastlane.lanes" name="5: onesky_upload" time="1.102309">
         
       </testcase>
     
