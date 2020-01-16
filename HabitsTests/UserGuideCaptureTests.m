@@ -56,57 +56,64 @@
 -(void)removeOverlayWindow{
     
 }
+-(NSString*)checkboxFor: (NSString*)name checked: (BOOL) isChecked{
+    return [NSString stringWithFormat:@"Checkbox for %@ %@", name, isChecked ? @"Checked" : @"Not checked" ];
+}
 -(void)testGenerateUserGuideVideo{
     [self addOverlayWindow];
     
     [TestHelpers setStatsEnabled:NO];
     
-    [self showNote:@"Tap the + to get started"];
+    [self showNote:@"1. Tap the + to get started"];
     [self tapViewWithAccessibilityLabel:@"add"];
-    [self showNote:@"Enter the title"];
-    [tester enterTextIntoCurrentFirstResponder:@"Floss\n"];
-    [self showNote:@"Maybe you don't need to do it every day"];
+    [self showNote:@"2. Enter new habit title"];
+    [tester enterTextIntoCurrentFirstResponder:[self localizedString:@"3. First habit description"]];
+    
+    [self showNote:@"4. Inform about toggling days"];
     [self tapViewWithAccessibilityLabel:@"Sun required? Yes"];
     [self tapViewWithAccessibilityLabel:@"Sat required? Yes"];
-    [self showNote:@"Set a reminder"];
+    [self showNote:@"5. Introduce reminders"];
     [self tapViewWithAccessibilityLabel:@"Set reminder"];
     [tester waitForTimeInterval:0.5];
     [self tapViewWithAccessibilityLabel:@"Set reminder"];
     [tester waitForTimeInterval:0.5];
     [self pressBack];
-    [self showNote:@"Check the box when you've done it"];
-    [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
+    [self showNote:@"6. Introduce completion checkbox"];
+    [self tapViewWithAccessibilityLabel: [self checkboxFor:[self localizedString:@"3. First habit description"] checked:NO]];
 
     [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-24"].date];
-    [TestHelpers loadFixtureFromUserDefaultsNamed:@"demo.habits"];
-    [self showNote:@"Later..."];
+    NSArray * habits = [TestHelpers loadFixtureFromUserDefaultsNamed:@"demo.habits"];
+    NSString * firstHabit = [habits firstObject][@"title"];
+    NSString * secondHabit = [habits objectAtIndex:1][@"title"];
     
-    [self showNote:@"If you missed today, you can tap the box twice"];
-    [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Not checked"];
-    [self tapViewWithAccessibilityLabel:@"Checkbox for Floss Checked"];
+    [self showNote:@"7. Later..."];
+    
+    [self showNote:@"8. Introduce tapping twice to mark failure"];
+    [self tapViewWithAccessibilityLabel: [self checkboxFor:firstHabit checked:NO]];
+    [self tapViewWithAccessibilityLabel: [self checkboxFor:firstHabit checked:YES]];
     
     [TestHelpers setStatsEnabled:YES];
-    [self showNote:@"With stats enabled (in app purchase) you can record the reasons for your chain break."];
+    [self showNote:@"9. Introduce in-app purchase chain-break reasons feature"];
     [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
-    [tester enterTextIntoCurrentFirstResponder:@"I ran out of floss"];
+    [tester enterTextIntoCurrentFirstResponder:@"10. Reason for breaking chain"];
     [tester enterTextIntoCurrentFirstResponder:@"\n"];
-    [self tapViewWithAccessibilityLabel:@"Floss"];
-    [self showNote:@"See stats with the top-right button"];
+    [self tapViewWithAccessibilityLabel: firstHabit];
+    [self showNote:@"11. Introduce stats button"];
     [self tapViewWithAccessibilityLabel:@"Stats"];
-    [self showNote:@"You'll see chain information and also a list of reasons you missed a day"];
+    [self showNote:@"12. Describe stats screen"];
     [tester scrollViewWithAccessibilityIdentifier:@"Stats" byFractionOfSizeHorizontal:0 vertical:-1.0];
     [tester waitForTimeInterval:1.0];
     [self pressBack];
     [self pressBack];
-    [self showNote:@"If you didn't open the app for a few days but didn't miss any days, you can check them off by swiping the list"];
-    UIView * view = [tester waitForViewWithAccessibilityLabel:@"Habit Cell Exercise"];
+    [self showNote:@"13. Introduce swiping mechanic"];
+    UIView * view = [tester waitForViewWithAccessibilityLabel:[NSString stringWithFormat:@"Habit Cell %@", secondHabit]];
     [view dragFromPoint:CGPointMake(300, 10) toPoint:CGPointMake(150, 10) steps:100];
     [tester waitForTimeInterval:2.0];
-    [self showNote:@"You can also pause or delete habits this way"];
+    [self showNote:@"14. Add that habits can be paused and deleted by swiping"];
     [view dragFromPoint:CGPointMake(150, 10) toPoint:CGPointMake(300, 10) steps:100];
     
-    [self showNote:@"It takes about a month to form a new habit."];
-    [self showNote:@"Have fun, and don't break the chain!"];
+    [self showNote:@"15. It takes about a month to form a new habit"];
+    [self showNote:@"16. Have fun, and don't break the chain!"];
 }
 // shows a "tap" animation
 -(void)tapViewWithAccessibilityLabel: (NSString*)label{
@@ -117,9 +124,13 @@
     [self.userGuideCaptureOverlayController showTapInRect: rect];
     [tester tapViewWithAccessibilityLabel:label];
 }
--(void)showNote:(NSString*)text{
-    NSString * filename = [text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString * localizedText = NSLocalizedString(text, @"");
+
+-(NSString*)localizedString: (NSString*)key{
+    NSString * prefixedKey = [NSString stringWithFormat:@"[guide] %@", key];
+    return NSLocalizedString(prefixedKey, @"");
+}
+-(void)showNote:(NSString*)key{
+    NSString * localizedText = [self localizedString:key];
     HelpCaptureInterstitialViewController * controller = [[HelpCaptureInterstitialViewController alloc] initWithTitle:localizedText detail:nil];
     controller.extendedLayoutIncludesOpaqueBars = true;
     controller.modalPresentationStyle = UIModalPresentationFullScreen;

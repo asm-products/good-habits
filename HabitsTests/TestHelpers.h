@@ -16,7 +16,7 @@
 +(NSMutableArray*)everyDay;
 +(NSArray*)days:(NSArray*)dayStrings;
 +(void)deleteAllData;
-+(void)loadFixtureFromUserDefaultsNamed:(NSString*)name;
++(NSArray*)loadFixtureFromUserDefaultsNamed:(NSString*)name;
 +(void)setStatsEnabled:(BOOL)enabled;
 @end
 

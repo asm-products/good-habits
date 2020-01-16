@@ -89,10 +89,10 @@ static NSDate * selectedDate = nil;
 +(NSString *)timeAgoString:(NSDate *)date{
     YLMoment * moment = [Moment momentWithDate:date];
     NSString * result = [moment fromDate:[self now]];
-    if([result isEqualToString:@"a day ago"]) result = @"Yesterday";
-    if([result isEqualToString:@"a few seconds ago"]) result = @"Today";
+    if([result isEqualToString:@"a day ago"]) result = NSLocalizedString(@"Yesterday", @"");
+    if([result isEqualToString:@"a few seconds ago"]) result = NSLocalizedString(@"Today", @"");
     if ([[moment startOfCalendarUnit:NSDayCalendarUnit] isEqualToMoment:[[Moment momentWithDate:[TimeHelper now]] startOfCalendarUnit:NSDayCalendarUnit]]) {
-        return @"Today";
+        return NSLocalizedString(@"Today", @"");
     }
     return result;
 }

@@ -73,8 +73,8 @@
 }
 -(NSArray *)credits{
     if(!_credits) _credits = @[
-                               @{@"text": @"Michael Forrest (Design/Build)", @"url": @"http://facebook.com/forrestmichael"},
-                               @{@"text": @"Ulrich Atz (Design)", @"url": @"http://ulrichatz.com?from=goodhabitsapp"}
+        @{@"text": NSLocalizedString(@"Michael Forrest (Design/Build)", @""), @"url": @"http://facebook.com/forrestmichael"},
+        @{@"text": NSLocalizedString(@"Ulrich Atz (Design)", @""), @"url": @"http://ulrichatz.com?from=goodhabitsapp"}
                                ];
     return _credits;
 }
@@ -140,7 +140,7 @@
         subheading.numberOfLines = 2;
         subheading.font = [subheading.font fontWithSize:15];
         subheading.textColor = [Colors dark];
-        subheading.text = @"Hello! We hope you'd like to:";
+        subheading.text = NSLocalizedString(@"Hello! We hope you'd like to:", @"Heading of info screen before checklist");
         [_navBar addSubview:subheading];
     }
     return _navBar;

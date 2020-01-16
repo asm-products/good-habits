@@ -25,5 +25,30 @@
 "Contact us" = "Contact us";
 "Recover data" = "Recover data";
 
-"Tap the + to get started" = "Tap the + to get started";
+"[guide] 1. Tap the + to get started" = "Tap the + to get started";
+
+"[guide] 2. Enter new habit title" = "Enter the title";
+"[guide] 3. First habit description" = "Floss";
+"[guide] 4. Inform about toggling days" = "Maybe you don't need to do it every day";
+"[guide] 5. Introduce Reminders" = "Set a reminder";
+"[guide] 6. Introduce completion checkbox" = "Check the box when you've done it";
+"[guide] 7. Later..." = "Later...";
+"[guide] 8. Introduce tapping twice to mark failure" = "If you missed today, you can tap the box twice";
+"[guide] 9. Introduce in-app purchase chain-break reasons feature" = "With stats enabled (in app purchase) you can record the reasons for your chain break.";
+"[guide] 10. Reason for breaking chain" = "I ran out of floss";
+"[guide] 11. Introduce stats button" = "See stats with the top-right button";
+"[guide] 12. Describe stats screen" = "You'll see chain information and also a list of reasons you missed a day";
+"[guide] 13. Introduce swiping mechanic" = "If you didn't open the app for a few days but didn't miss any days, you can check them off by swiping the list";
+"[guide] 14. Add that habits can be paused and deleted by swiping" = "You can also pause or delete habits this way";
+"[guide] 15. It takes about a month to form a new habit" = "It takes about a month to form a new habit.";
+"[guide] 16. Have fun, and don't break the chain!" = "Have fun, and don't break the chain!";
+
 "Back" = "Back";
+"No reminder" = "No reminder";
+"Clear reminder" = "Clear reminder";
+"Set reminder" = "Set reminder";
+/* e.g. Remind at 3:45pm*/
+"Remind at time" = "Remind at %@";
+"Pause this habit" = "Pause this habit";
+"Resume this habit" = "Resume this habit";
+"Confirm habit deletion" = "Delete this habit? This cannot be undone.";

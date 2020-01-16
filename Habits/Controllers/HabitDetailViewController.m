@@ -123,14 +123,14 @@ typedef enum{
 }
 -(NSString*)remindersButtonTitle{
     if(self.habit.hasReminders){
-        return [NSString stringWithFormat:@"Remind at %@", [TimeHelper formattedTime: self.habit.reminderTime]];
+        return [NSString stringWithFormat:NSLocalizedString(@"Remind at time", @"Template with one space for the right time"), [TimeHelper formattedTime: self.habit.reminderTime]];
     }else{
-        return @"No reminder";
+        return NSLocalizedString(@"No reminder", @"");
     }
 }
 -(void)updateRemindersButtonTitle{
     [self.remindersButton setTitle:self.remindersButtonTitle forState:UIControlStateNormal];
-    [self.clearReminderButton setTitle:self.habit.reminderTime ? @"Clear reminder" : @"Set reminder" forState:UIControlStateNormal];
+    [self.clearReminderButton setTitle: NSLocalizedString(self.habit.reminderTime ? @"Clear reminder": @"Set reminder", @"") forState:UIControlStateNormal];
 }
 -(void)setRemindersPickerVisible:(BOOL)visible{
     showingTimePicker = visible;
@@ -195,10 +195,10 @@ typedef enum{
     NSString * title;
     CGFloat alpha;
     if(self.habit.isActive.boolValue){
-        title = @"Pause this habit";
+        title = NSLocalizedString(@"Pause this habit", @"");
         alpha = 1.0;
     }else{
-        title = @"Resume this habit";
+        title = NSLocalizedString(@"Resume this habit", @"");
         alpha = 0.5;
     }
     [self.toggleActiveButton setTitle:title forState:UIControlStateNormal];
@@ -209,7 +209,7 @@ typedef enum{
 }
 #pragma mark - delete
 - (IBAction)didPressDeleteButton:(id)sender {
-    [[[UIActionSheet alloc] initWithTitle:@"Delete this habit? This cannot be undone." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] destructiveButtonItem:[RIButtonItem itemWithLabel:@"Delete" action:^{
+    [[[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Confirm habit deletion", @"") cancelButtonItem:[RIButtonItem itemWithLabel:NSLocalizedString(@"Cancel", @"")] destructiveButtonItem:[RIButtonItem itemWithLabel:NSLocalizedString(@"Delete", @"") action:^{
         NSManagedObjectContext * context = [CoreDataClient defaultClient].managedObjectContext;
         [context deleteObject:self.habit];
         NSError * error;

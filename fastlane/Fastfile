@@ -20,7 +20,7 @@ STRINGS_FILES = {
         "./HabitsCommon/en.lproj/Localizable.strings",
         "./fastlane/screenshots/en/title.strings",
         "./fastlane/screenshots/en/keyword.strings",
-        "./HabitsTests/Fixtures/Localizable.strings"
+        "./HabitsTests/Fixtures/en.lproj/Localizable.strings"
     ],
     "XLIFF" => [
         "./localizations/en.xcloc/Localized\ Contents/en.xliff"
@@ -67,7 +67,7 @@ platform :ios do
             )
         end
     end
-    exec("open https://oskjaak.oneskyapp.com/admin/phrase/list/project/353182")
+    exec("open https://goodtohear.oneskyapp.com/admin/phrase/list/project/353182")
   end
   
   desc "Download OneSky translations"

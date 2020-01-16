@@ -38,7 +38,7 @@
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];
 }
-+(void)loadFixtureFromUserDefaultsNamed:(NSString *)name{
++(NSArray*)loadFixtureFromUserDefaultsNamed:(NSString *)name{
     [HabitsQueries deleteAllHabits];
     [HabitsQueries refresh];
     NSString * path = [[NSBundle mainBundle] pathForResource:name ofType:@"plist" inDirectory: [NSLocale currentLocale].languageCode];
@@ -55,6 +55,7 @@
     }];
     [HabitsQueries refresh];
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
+    return array;
     
 }
 +(void)setStatsEnabled:(BOOL)enabled{

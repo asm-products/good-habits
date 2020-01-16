@@ -51,7 +51,7 @@
     return self.reminderTime != nil;
 }
 -(BOOL)isNew{
-    return [self.title isEqualToString:@"New Habit"]; // brittle
+    return [self.title isEqualToString:NSLocalizedString(@"New Habit", @"")];
 }
 -(NSDate *)nextDayRequiredAfter:(NSDate *)date{
     date = [TimeHelper addDays:1 toDate:date];
@@ -173,7 +173,7 @@
     NSManagedObjectContext * context = [CoreDataClient defaultClient].managedObjectContext;
     Habit * result = [NSEntityDescription insertNewObjectForEntityForName:@"Habit" inManagedObjectContext:context];
     result.createdAt = [NSDate date];
-    result.title = @"New Habit";
+    result.title = NSLocalizedString(@"New Habit", @"");
     result.color = [Colors colorsFromMotion][[HabitsQueries nextUnusedColorIndex]];
     result.isActive = @YES;
     result.daysRequired = [[Calendar days] map:^id(id obj) {

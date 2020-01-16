@@ -274,9 +274,24 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Confirm habit deletion" xml:space="preserve">
+        <source>Confirm habit deletion</source>
+        <target>Confirm habit deletion</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Contact us" xml:space="preserve">
         <source>Contact us</source>
         <target>Contact us</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete" xml:space="preserve">
+        <source>Delete</source>
+        <target>Delete</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Drag completed." xml:space="preserve">
@@ -293,6 +308,11 @@
         <source>Get Happiness</source>
         <target>Get Happiness</target>
         <note>Checklist item that links to download Happiness app</note>
+      </trans-unit>
+      <trans-unit id="Hello! We hope you'd like to:" xml:space="preserve">
+        <source>Hello! We hope you'd like to:</source>
+        <target>Hello! We hope you'd like to:</target>
+        <note>Heading of info screen before checklist</note>
       </trans-unit>
       <trans-unit id="Like us on Facebook" xml:space="preserve">
         <source>Like us on Facebook</source>
@@ -314,10 +334,25 @@
         <target>Mark completed</target>
         <note>Button to mark habit completed from notification</note>
       </trans-unit>
+      <trans-unit id="Michael Forrest (Design/Build)" xml:space="preserve">
+        <source>Michael Forrest (Design/Build)</source>
+        <target>Michael Forrest (Design/Build)</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="No reminder" xml:space="preserve">
+        <source>No reminder</source>
+        <target>No reminder</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Now dragging." xml:space="preserve">
         <source>Now dragging.</source>
         <target>Now dragging.</target>
         <note>Voiceover annoucement</note>
+      </trans-unit>
+      <trans-unit id="Pause this habit" xml:space="preserve">
+        <source>Pause this habit</source>
+        <target>Pause this habit</target>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Rate this app" xml:space="preserve">
         <source>Rate this app</source>
@@ -329,6 +364,16 @@
         <target>Recover data</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
+      <trans-unit id="Remind at time" xml:space="preserve">
+        <source>Remind at time</source>
+        <target>Remind at time</target>
+        <note>Template with one space for the right time</note>
+      </trans-unit>
+      <trans-unit id="Resume this habit" xml:space="preserve">
+        <source>Resume this habit</source>
+        <target>Resume this habit</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Share this app" xml:space="preserve">
         <source>Share this app</source>
         <target>Share this app</target>
@@ -338,6 +383,11 @@
         <source>Snooze</source>
         <target>Snooze</target>
         <note>Snooze button text</note>
+      </trans-unit>
+      <trans-unit id="Ulrich Atz (Design)" xml:space="preserve">
+        <source>Ulrich Atz (Design)</source>
+        <target>Ulrich Atz (Design)</target>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>
   </file>
@@ -368,6 +418,43 @@
       </trans-unit>
     </body>
   </file>
+  <file original="Habits/Views/AppFeatures/Base.lproj/StatisticsFeaturePurchaseView.xib" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="BZm-hV-WYQ.text" xml:space="preserve">
+        <source>With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits.</source>
+        <target>With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits.</target>
+        <note>Class = "UILabel"; text = "With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits."; ObjectID = "BZm-hV-WYQ";</note>
+      </trans-unit>
+      <trans-unit id="DXL-M7-ZHe.normalTitle" xml:space="preserve">
+        <source>Don't ask me again</source>
+        <target>Don't ask me again</target>
+        <note>Class = "UIButton"; normalTitle = "Don't ask me again"; ObjectID = "DXL-M7-ZHe";</note>
+      </trans-unit>
+      <trans-unit id="FqL-2v-qkd.normalTitle" xml:space="preserve">
+        <source>Connecting...</source>
+        <target>Connecting...</target>
+        <note>Class = "UIButton"; normalTitle = "Connecting..."; ObjectID = "FqL-2v-qkd";</note>
+      </trans-unit>
+      <trans-unit id="Nak-1h-yT4.text" xml:space="preserve">
+        <source>Unlock stats?</source>
+        <target>Unlock stats?</target>
+        <note>Class = "UILabel"; text = "Unlock stats?"; ObjectID = "Nak-1h-yT4";</note>
+      </trans-unit>
+      <trans-unit id="VFV-6N-wXn.normalTitle" xml:space="preserve">
+        <source>Restore purchase</source>
+        <target>Restore purchase</target>
+        <note>Class = "UIButton"; normalTitle = "Restore purchase"; ObjectID = "VFV-6N-wXn";</note>
+      </trans-unit>
+      <trans-unit id="kEX-gC-er9.normalTitle" xml:space="preserve">
+        <source>Not now, thanks</source>
+        <target>Not now, thanks</target>
+        <note>Class = "UIButton"; normalTitle = "Not now, thanks"; ObjectID = "kEX-gC-er9";</note>
+      </trans-unit>
+    </body>
+  </file>
   <file original="HabitsCommon/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
@@ -380,7 +467,29 @@
       </trans-unit>
     </body>
   </file>
-  <file original="HabitsTests/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+  <file original="HabitsCommon/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="New Habit" xml:space="preserve">
+        <source>New Habit</source>
+        <target>New Habit</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Today" xml:space="preserve">
+        <source>Today</source>
+        <target>Today</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Yesterday" xml:space="preserve">
+        <source>Yesterday</source>
+        <target>Yesterday</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="HabitsTests/Fixtures/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
@@ -388,6 +497,31 @@
       <trans-unit id="Back" xml:space="preserve">
         <source>Back</source>
         <target>Back</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Exercise" xml:space="preserve">
+        <source>Exercise</source>
+        <target>Exercise</target>
+        <note>Habit description (2) for app store screenshots</note>
+      </trans-unit>
+      <trans-unit id="Floss" xml:space="preserve">
+        <source>Floss</source>
+        <target>Floss</target>
+        <note>Habit description (1) for app store screenshots</note>
+      </trans-unit>
+      <trans-unit id="Play the trumpet" xml:space="preserve">
+        <source>Play the trumpet</source>
+        <target>Play the trumpet</target>
+        <note>Habit description (3) for app store screenshots</note>
+      </trans-unit>
+      <trans-unit id="Take medicine" xml:space="preserve">
+        <source>Take medicine</source>
+        <target>Take medicine</target>
+        <note>Habit description (4) for app store screenshots. Could be translated to "take vitamins" if medical translations feel uncomfortable</note>
+      </trans-unit>
+      <trans-unit id="title" xml:space="preserve">
+        <source>title</source>
+        <target>title</target>
         <note>No comment provided by engineer.</note>
       </trans-unit>
     </body>

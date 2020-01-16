@@ -162,6 +162,7 @@
 		AC7E01371A0A539300E37979 /* good_to_hear_crane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01311A0A539300E37979 /* good_to_hear_crane@2x.png */; };
 		AC7E01381A0A539300E37979 /* good_to_hear_playfair.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01321A0A539300E37979 /* good_to_hear_playfair.png */; };
 		AC7E01391A0A539300E37979 /* good_to_hear_playfair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01331A0A539300E37979 /* good_to_hear_playfair@2x.png */; };
+		AC815C2E23D0B897005D6D7F /* StatisticsFeaturePurchaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC815C3023D0B897005D6D7F /* StatisticsFeaturePurchaseView.xib */; };
 		AC8F99471BF74B4700902C73 /* AppFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DDD19704F67007CD2B7 /* AppFeatures.m */; };
 		AC8F99481BF74EC200902C73 /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
 		AC94093419B8E75F003E6257 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = AC94093219B8E75F003E6257 /* locked.png */; };
@@ -261,7 +262,6 @@
 		ACE7D27E1BF338DC007FCDAC /* TimeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AC40187319504ADB0033407B /* TimeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */; };
 		ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */; };
-		ACEDA1EF19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEDA1EE19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -567,6 +567,8 @@
 		AC7E01311A0A539300E37979 /* good_to_hear_crane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "good_to_hear_crane@2x.png"; sourceTree = "<group>"; };
 		AC7E01321A0A539300E37979 /* good_to_hear_playfair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good_to_hear_playfair.png; sourceTree = "<group>"; };
 		AC7E01331A0A539300E37979 /* good_to_hear_playfair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "good_to_hear_playfair@2x.png"; sourceTree = "<group>"; };
+		AC815C2F23D0B897005D6D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatisticsFeaturePurchaseView.xib; sourceTree = "<group>"; };
+		AC815C3123D0B8A0005D6D7F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/StatisticsFeaturePurchaseView.strings; sourceTree = "<group>"; };
 		AC94093219B8E75F003E6257 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
 		AC94093319B8E75F003E6257 /* locked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked@2x.png"; sourceTree = "<group>"; };
 		AC94093619B8F5EA003E6257 /* PremiumFeatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PremiumFeatureTests.m; sourceTree = "<group>"; };
@@ -705,7 +707,6 @@
 		ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayBoundaryTests.m; sourceTree = "<group>"; };
 		ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStatsTableViewController.h; sourceTree = "<group>"; };
 		ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStatsTableViewController.m; sourceTree = "<group>"; };
-		ACEDA1EE19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatisticsFeaturePurchaseView.xib; path = ../Views/AppFeatures/StatisticsFeaturePurchaseView.xib; sourceTree = "<group>"; };
 		B440350CC392D6F7174EC005 /* libPods-HabitsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD56213BF4E75B1917466E /* Pods-HabitsCommon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsCommon.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsCommon/Pods-HabitsCommon.release.xcconfig"; sourceTree = "<group>"; };
 		C68456AE51DD07A3B3A4FBDE /* Pods-Habits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.release.xcconfig"; path = "Pods/Target Support Files/Pods-Habits/Pods-Habits.release.xcconfig"; sourceTree = "<group>"; };
@@ -1494,6 +1495,7 @@
 		ACADB409190D24E00030CC82 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AC815C3023D0B897005D6D7F /* StatisticsFeaturePurchaseView.xib */,
 				ACADB49F190D2C270030CC82 /* HabitListViewController.h */,
 				ACADB4A0190D2C270030CC82 /* HabitListViewController.m */,
 				AC4018B8195071380033407B /* HabitDetailViewController.h */,
@@ -1518,7 +1520,6 @@
 				ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */,
 				ACAE5F4219C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.h */,
 				ACAE5F4319C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m */,
-				ACEDA1EE19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib */,
 				AC5F3B4919C6245900398F81 /* HelpCaptureInterstitialViewController.h */,
 				AC5F3B4A19C6245900398F81 /* HelpCaptureInterstitialViewController.m */,
 				AC5F3B4B19C6245900398F81 /* HelpCaptureInterstitialViewController.xib */,
@@ -2032,6 +2033,7 @@
 				AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */,
 				AC7A48561BED54B000A8FBAD /* database.png in Resources */,
 				AC5F3B5219C63DE100398F81 /* status-bar@2x.png in Resources */,
+				AC815C2E23D0B897005D6D7F /* StatisticsFeaturePurchaseView.xib in Resources */,
 				ACB7480E23C484EA00CCD0E8 /* Launch Screen.xib in Resources */,
 				AC3237B2196C2FB400A2FF9F /* Cross@2x.png in Resources */,
 				ACADB48D190D27960030CC82 /* main_screen@2x.png in Resources */,
@@ -2053,7 +2055,6 @@
 				ACADB49D190D27960030CC82 /* arrow_back.png in Resources */,
 				ACADB483190D27960030CC82 /* happiness_shape@2x.png in Resources */,
 				AC7A48571BED54B000A8FBAD /* database@2x.png in Resources */,
-				ACEDA1EF19C482E200E9C269 /* StatisticsFeaturePurchaseView.xib in Resources */,
 				ACADB48E190D27960030CC82 /* main_screen.png in Resources */,
 				AC9A0D731BF76D1100B2C856 /* data-migration@3x.png in Resources */,
 				AC7A48591BED54B000A8FBAD /* no-icloud@2x.png in Resources */,
@@ -2555,6 +2556,16 @@
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
+		};
+		AC815C3023D0B897005D6D7F /* StatisticsFeaturePurchaseView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC815C2F23D0B897005D6D7F /* Base */,
+				AC815C3123D0B8A0005D6D7F /* it */,
+			);
+			name = StatisticsFeaturePurchaseView.xib;
+			path = Habits/Views/AppFeatures;
+			sourceTree = SOURCE_ROOT;
 		};
 		AC9A0D781BF7702500B2C856 /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
