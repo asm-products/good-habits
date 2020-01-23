@@ -140,7 +140,7 @@
         subheading.numberOfLines = 2;
         subheading.font = [subheading.font fontWithSize:15];
         subheading.textColor = [Colors dark];
-        subheading.text = NSLocalizedString(@"Hello! We hope you'd like to:", @"Heading of info screen before checklist");
+        subheading.text = NSLocalizedString(@"Hello! We hope you'd like to:", @"Heading of info screen before checklist: Look at the guide, Share this app, Get Happiness app, Rate this app etc...");
         [_navBar addSubview:subheading];
     }
     return _navBar;

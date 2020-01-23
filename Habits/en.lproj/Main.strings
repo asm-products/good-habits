@@ -1,0 +1,147 @@
+
+/* Class = "UIButton"; normalTitle = "Clear reminder"; ObjectID = "1ut-8Z-WR4"; */
+"1ut-8Z-WR4.normalTitle" = "Clear reminder";
+
+/* Class = "UILabel"; text = "GOOD HABITS"; ObjectID = "2Ae-ve-lFQ"; */
+"2Ae-ve-lFQ.text" = "GOOD HABITS";
+
+/* Class = "UILabel"; text = "[10]"; ObjectID = "2Qx-om-5lg"; */
+"2Qx-om-5lg.text" = "[10]";
+
+/* Class = "UIButton"; normalTitle = "Restore MF Data"; ObjectID = "6ef-iU-MjC"; */
+"6ef-iU-MjC.normalTitle" = "Restore MF Data";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "9R0-dF-VJt"; */
+"9R0-dF-VJt.text" = "5";
+
+/* Class = "UIButton"; normalTitle = "Enable all features"; ObjectID = "BWv-DR-c7Z"; */
+"BWv-DR-c7Z.normalTitle" = "Enable all features";
+
+/* Class = "UIButton"; normalTitle = "-100"; ObjectID = "BnY-qI-qlP"; */
+"BnY-qI-qlP.normalTitle" = "-100";
+
+/* Class = "UILabel"; text = "[Habit label]"; ObjectID = "BsF-qM-NUI"; */
+"BsF-qM-NUI.text" = "[Habit label]";
+
+/* Stats screen label */
+"DkH-me-7TJ.text" = "LONGEST UNBROKEN CHAIN";
+
+/* Stats screen label */
+"Eaf-xd-yLd.text" = "HABIT NAME";
+
+/* Class = "UILabel"; text = "[55]"; ObjectID = "G4E-rD-enW"; */
+"G4E-rD-enW.text" = "[55]";
+
+/* Class = "UILabel"; text = "[Info task label]"; ObjectID = "H4T-N8-MSX"; */
+"H4T-N8-MSX.text" = "[Info task label]";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HmX-Lg-pRs"; */
+"HmX-Lg-pRs.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Pause this habit"; ObjectID = "JMG-1N-4QX"; */
+"JMG-1N-4QX.normalTitle" = "Pause this habit";
+
+/* Class = "UILabel"; text = "NEW"; ObjectID = "KPl-V2-xVY"; */
+"KPl-V2-xVY.text" = "NEW";
+
+/* Class = "UILabel"; text = "[20 August - 1 September 2014]"; ObjectID = "KSH-IG-WnM"; */
+"KSH-IG-WnM.text" = "[20 August - 1 September 2014]";
+
+/* Class = "UIBarButtonItem"; title = "Continue"; ObjectID = "Pvl-5h-Qkx"; */
+"Pvl-5h-Qkx.title" = "Continue";
+
+/* Class = "UILabel"; text = "GOOD TO HEAR"; ObjectID = "Sn9-dv-YuW"; */
+"Sn9-dv-YuW.text" = "GOOD TO HEAR";
+
+/* Stats screen label - how many total days has this TODO item been ticked off? */
+"TdF-L1-Jwu.text" = "TOTAL DAYS CHECKED";
+
+/* Class = "UILabel"; text = "We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen."; ObjectID = "U7O-ce-v3o"; */
+"U7O-ce-v3o.text" = "We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen.";
+
+/* Class = "UILabel"; text = "[chain length]"; ObjectID = "Vo4-mW-BmW"; */
+"Vo4-mW-BmW.text" = "[chain length]";
+
+/* Class = "UIButton"; normalTitle = "[Remind at ...]"; ObjectID = "W0x-E3-ClQ"; */
+"W0x-E3-ClQ.normalTitle" = "[Remind at ...]";
+
+/* Class = "UILabel"; text = "[10]"; ObjectID = "WIT-G3-ugi"; */
+"WIT-G3-ugi.text" = "[10]";
+
+/* Class = "UINavigationItem"; title = "Admin for MF"; ObjectID = "WQr-gE-mvg"; */
+"WQr-gE-mvg.title" = "Admin for MF";
+
+/* Stats screen label - when showing little timeline charts this says how many days the chart covers */
+"WbE-OV-kQ2.text" = "CHART PERIOD";
+
+/* Class = "UILabel"; text = "Data migration"; ObjectID = "aSz-PV-rTQ"; */
+"aSz-PV-rTQ.text" = "Data migration";
+
+/* Class = "UIButton"; normalTitle = "Restore AW Data"; ObjectID = "bCb-0a-dVR"; */
+"bCb-0a-dVR.normalTitle" = "Restore AW Data";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "c0c-PC-DNv"; */
+"c0c-PC-DNv.text" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "add"; ObjectID = "dbb-40-lz2"; */
+"dbb-40-lz2.title" = "add";
+
+/* Placeholder textfield text in the main TODO list if a habit day is missed. If the habit was to "Practice guitar", the answer might be to say "I broke a string". It means "What happened?" or "What went wrong? or "Why didn't you complete this task?" */
+"dcF-l7-O64.placeholder" = "What happened?";
+
+/* Class = "UITextField"; text = "[title]"; ObjectID = "eHx-ow-yHW"; */
+"eHx-ow-yHW.text" = "[title]";
+
+/* On the habit detail screen you can delete a habit with a button */
+"gmw-6d-XIl.normalTitle" = "Delete this habit";
+
+/* Translation not needed */
+"h0z-Vh-l70.title" = "Admin";
+
+/* Same as earlier */
+"hLo-8Q-rir.text" = "CHART PERIOD";
+
+/* Not needed */
+"hOa-jb-Pai.text" = "[55]";
+
+/* Not needed */
+"hoL-d6-QX3.text" = "[Link label]";
+
+/* Not needed */
+"hp2-BZ-5Qi.text" = "[n habits, last used days ago]";
+
+/* Label for the unlockable statistics feature button */
+"i5W-OX-A9P.title" = "Stats";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "iF3-eD-2GL"; */
+"iF3-eD-2GL.text" = "Detail";
+
+/* Not needed */
+"j7g-bR-3Zz.text" = "[10]";
+
+/* Label for item appearing on the Stats screen where a 'chain' is an unbroken continuous sequence of days this TODO item has been completed. How long on average do people sustain an activity before being interrupted? */
+"m7l-uD-RqH.text" = "AVERAGE CHAIN LENGTH";
+
+/* Not needed */
+"na1-7c-Y5B.text" = "[20 August - 1 September 2014]";
+
+/* Not needed */
+"ndi-Vo-ZBy.text" = "[chain started at]";
+
+/* Not needed (developer feature) */
+"ngT-UO-6Bz.normalTitle" = "Clear in app purchases";
+
+/* Label for TODO item / habit if it has been paused (i.e. removed from the main TODO list) */
+"oJx-nH-POl.text" = "PAUSED";
+
+/* Stats screen item - how many successive days has the task been completed in the most recent run  */
+"tvQ-Qy-xRs.text" = "LATEST CHAIN LENGTH";
+
+/* The name of the app */
+"w1E-ef-LFE.text" = "GOOD HABITS";
+
+/* Not needed */
+"yWc-mL-QxZ.text" = "Press and hold for more information, swipe left to export and backup data.";
+
+/* Stats screen item - How many different runs of this daily TODO ("chains") have been completed? */
+"yct-Ae-Wr3.text" = "NUMBER OF CHAINS";

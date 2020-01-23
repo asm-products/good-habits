@@ -25,22 +25,37 @@
 "Contact us" = "Contact us";
 "Recover data" = "Recover data";
 
+/* User Guide Video Step 1 */
 "[guide] 1. Tap the + to get started" = "Tap the + to get started";
-
+/* User Guide Video Step 2 */
 "[guide] 2. Enter new habit title" = "Enter the title";
+/* User Guide Video Step 3 - reuse whatever you came up with earlier for the first daily TODO item */
 "[guide] 3. First habit description" = "Floss";
+/* User Guide Video Step 4  - Inform about toggling days */
 "[guide] 4. Inform about toggling days" = "Maybe you don't need to do it every day";
+/* User Guide Video Step 5 - Introduce reminders */
 "[guide] 5. Introduce Reminders" = "Set a reminder";
+/* User Guide Video Step 6 - Introduce completion checkbox */
 "[guide] 6. Introduce completion checkbox" = "Check the box when you've done it";
+/* User Guide Video Step 7 - Indicate passage of time */
 "[guide] 7. Later..." = "Later...";
+/* User Guide Video Step 8 - Introduce tapping twice to mark failure */
 "[guide] 8. Introduce tapping twice to mark failure" = "If you missed today, you can tap the box twice";
+/* User Guide Video Step 9 - Introduce in-app purchase */
 "[guide] 9. Introduce in-app purchase chain-break reasons feature" = "With stats enabled (in app purchase) you can record the reasons for your chain break.";
+/* User Guide Video Step 10 - Come up with a reason that the daily TODO item mentioned above might be missed. In this case, we're talking about flossing but if it was "Call Mother" then the reason might be "I was too busy with work" */
 "[guide] 10. Reason for breaking chain" = "I ran out of floss";
+/* User Guide Video Step 11 - There is a button to show user stats - introduce this button */
 "[guide] 11. Introduce stats button" = "See stats with the top-right button";
+/* User Guide Video Step 12 - Describe stats screen */
 "[guide] 12. Describe stats screen" = "You'll see chain information and also a list of reasons you missed a day";
+/* User Guide Video Step 13 - Introduce swiping interaction - you can swipe table rows in your habit TODO list to change theme */
 "[guide] 13. Introduce swiping mechanic" = "If you didn't open the app for a few days but didn't miss any days, you can check them off by swiping the list";
+/* User Guide Video Step 14 - Still talking about the swiping interaction */
 "[guide] 14. Add that habits can be paused and deleted by swiping" = "You can also pause or delete habits this way";
+/* User Guide Video Step 15 - Finishing the tutorial with some general advice: */
 "[guide] 15. It takes about a month to form a new habit" = "It takes about a month to form a new habit.";
+/* User Guide Video Step 16 - And rounding it off with the strap line! */
 "[guide] 16. Have fun, and don't break the chain!" = "Have fun, and don't break the chain!";
 
 "Back" = "Back";

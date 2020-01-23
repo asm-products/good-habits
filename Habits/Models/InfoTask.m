@@ -13,7 +13,7 @@
 #import "TimeHelper.h"
 #import <Crashlytics/Crashlytics.h>
 #define INSTALLED_DATE_KEY @"goodtohear.habits_installed_date"
-@import MediaPlayer;
+@import AVKit;
 
 @implementation InfoTask
 +(NSArray *)due{
@@ -29,20 +29,13 @@
                    [InfoTask create:@"guide-2" due:0 text: NSLocalizedString(@"Look at the guide", @"menu button") color:[Colors green] action:^(UIViewController *controller) {
                        [Answers logCustomEventWithName:@"Viewed Guide" customAttributes:nil];
                        NSString * path  = [[NSBundle mainBundle] pathForResource:@"Habits Tutorial" ofType:@"mov"];
-                       MPMoviePlayerViewController * player = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:path]];
-                       [controller presentViewController:player animated:YES completion:^{
-                           for (UIView * view  in player.view.subviews) {
-                               for (UIView * subview in view.subviews) {
-                                   for (UIView * subsubview in subview.subviews) {
-                                       if([NSStringFromClass([subsubview class]) isEqualToString:@"MPVideoView"]){
-                                           subsubview.layer.transform = CATransform3DMakeScale(0.7, 0.7, 1);
-                                       }
-                                   }
-
-                               }
-
-                           }
-                       }];
+                       AVPlayer * player = [[AVPlayer alloc] initWithURL:[NSURL fileURLWithPath:path]];
+                       AVPlayerViewController * playerViewController = [[AVPlayerViewController alloc] init];
+                       playerViewController.player = player;
+                       
+                       [controller presentViewController:playerViewController animated:YES completion:^{
+                           [player play];
+                        }];
                    }],
                    [InfoTask create:@"share" due:0 text:NSLocalizedString(@"Share this app", @"") color:[Colors orange] action:^(UIViewController *controller) {
                        [Answers logShareWithMethod:@"Info Screen" contentName:@"App" contentType:nil contentId:nil customAttributes:nil];

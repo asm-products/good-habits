@@ -104,7 +104,7 @@
                     <navigationItem key="navigationItem" id="TUN-wc-ebG">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" id="R7r-TB-Gw7">
-                            <view key="customView" contentMode="scaleToFill" ambiguous="YES" id="hvW-5b-FZq">
+                            <view key="customView" contentMode="scaleToFill" id="hvW-5b-FZq">
                                 <rect key="frame" x="16" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -217,6 +217,11 @@
                                             <rect key="frame" x="18" y="47" width="284" height="34"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                            <attributedString key="userComments">
+                                                <fragment>
+                                                    <string key="content">Placeholder textfield text in the main TODO list if a habit day is missed. If the habit was to "Practice guitar", the answer might be to say "I broke a string". It means "What happened?" or "What went wrong? or "Why didn't you complete this task?"</string>
+                                                </fragment>
+                                            </attributedString>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnY-qI-qlP">
                                             <rect key="frame" x="265" y="3" width="44" height="44"/>
@@ -309,6 +314,11 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="64"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.51000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <attributedString key="userComments">
+                                                        <fragment>
+                                                            <string key="content">Large overlay for TODO item / habit if it has been paused (i.e. removed from the main TODO list) - needs to be one word and not too long</string>
+                                                        </fragment>
+                                                    </attributedString>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -459,6 +469,9 @@
                                                         <color key="titleColor" red="0.71849292516708374" green="0.14288628101348877" blue="0.19049814343452454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <attributedString key="userComments">
+                                                        <fragment content="On the habit detail screen you can delete a habit with a button"/>
+                                                    </attributedString>
                                                     <connections>
                                                         <action selector="didPressDeleteButton:" destination="7RM-Qo-hbm" eventType="touchUpInside" id="6aU-kY-Pjg"/>
                                                     </connections>
@@ -502,7 +515,7 @@
                     <navigationItem key="navigationItem" id="res-v5-2b4">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="[title]" textAlignment="center" minimumFontSize="15" id="eHx-ow-yHW">
-                            <rect key="frame" x="8" y="10" width="243" height="30"/>
+                            <rect key="frame" x="8" y="7" width="243" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -598,6 +611,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                             <color key="textColor" red="0.59492576122283936" green="0.63282263278961182" blue="0.67338502407073975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <attributedString key="userComments">
+                                                <fragment content="Stats screen label - when showing little timeline charts this says how many days the chart covers"/>
+                                            </attributedString>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[55]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4E-rD-enW">
                                             <rect key="frame" x="264.5" y="48.5" width="32.5" height="21.5"/>
@@ -617,6 +633,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                             <color key="textColor" red="0.59492576122283936" green="0.63282263278961182" blue="0.67338502407073975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <attributedString key="userComments">
+                                                <fragment content="Stats screen label"/>
+                                            </attributedString>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NUMBER OF CHAINS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yct-Ae-Wr3">
                                             <rect key="frame" x="15" y="75" width="140" height="21"/>
@@ -624,6 +643,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                             <color key="textColor" red="0.59492576122283936" green="0.63282263278961182" blue="0.67338502407073975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <attributedString key="userComments">
+                                                <fragment content="Stats screen item - How many different runs of this daily TODO (&quot;chains&quot;) have been completed?"/>
+                                            </attributedString>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[10]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qx-om-5lg">
                                             <rect key="frame" x="264.5" y="106" width="32.5" height="21.5"/>
@@ -637,6 +659,11 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                             <color key="textColor" red="0.59492576122283936" green="0.63282263278961182" blue="0.67338502407073975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <attributedString key="userComments">
+                                                <fragment>
+                                                    <string key="content">Label for item appearing on the Stats screen where a 'chain' is an unbroken continuous sequence of days this TODO item has been completed. How long on average do people sustain an activity before being interrupted?</string>
+                                                </fragment>
+                                            </attributedString>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[10]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIT-G3-ugi">
                                             <rect key="frame" x="264.5" y="135" width="32.5" height="21.5"/>
@@ -650,6 +677,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                             <color key="textColor" red="0.59492576122283936" green="0.63282263278961182" blue="0.67338502407073975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <attributedString key="userComments">
+                                                <fragment content="Stats screen label - how many total days has this TODO item been ticked off?"/>
+                                            </attributedString>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[55]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOa-jb-Pai">
                                             <rect key="frame" x="264.5" y="19" width="32.5" height="21.5"/>
@@ -663,6 +693,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                                             <color key="textColor" red="0.59492576122283936" green="0.63282263278961182" blue="0.67338502407073975" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <attributedString key="userComments">
+                                                <fragment content="I"/>
+                                            </attributedString>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -819,6 +852,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <attributedString key="userComments">
+                                                <fragment content="New item in info task list (e.g. &quot;Rate our app&quot; etc...)"/>
+                                            </attributedString>
                                         </label>
                                     </subviews>
                                     <constraints>
@@ -1118,7 +1154,7 @@
                     <navigationItem key="navigationItem" id="Ad2-3k-AeV">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="05y-6U-Cl7">
-                            <rect key="frame" x="96" y="8.5" width="128" height="33"/>
+                            <rect key="frame" x="96" y="5.5" width="128" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOOD HABITS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1E-ef-LFE">
