@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Habits
+
+  Created by Michael Forrest on 15/01/2020.
+  Copyright © 2020 Good To Hear. All rights reserved.
+*/
+/* Daily TODO item (1) for app store screenshots. Don't translate these TODO items directly - think about what kind of daily task makes sense culturally - e.g. in Italy it might be "Call Mother"  */
+"Floss" = "Floss";
+/* Daily TODO item  (2) for app store screenshots. */
+"Exercise" = "30 mins workout";
+/* Daily TODO item  (3) for app store screenshots */
+"Play the trumpet" = "Piano practice";
+/* Daily TODO item  (4) for app store screenshots. Could be translated to "take vitamins" - again, something that you would want to do every day. */
+"Take medicine" = "Take pills";

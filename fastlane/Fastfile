@@ -27,7 +27,7 @@ STRINGS_FILES = {
     ]
 }
 
-OTHER_LANGUAGES = ["it"]
+OTHER_LANGUAGES = ["it","de","ru","ja""]
 
 platform :ios do
   desc "Push a new release build to the App Store"
