@@ -181,7 +181,8 @@
                 [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Checked %@", [welf timeAgoString:daysOverdue]]];
             }];
         }else{
-            UIImage * backgroundImage = chain.isRecord ? [AwardImage starColored:chain.habit.color] : [AwardImage circleColored:chain.habit.color];
+            UIColor * badgeColor = chain.habit.isRequiredToday ? chain.habit.color : Colors.cobalt;
+            UIImage * backgroundImage = chain.isRecord ? [AwardImage starColored:badgeColor] : [AwardImage circleColored:badgeColor];
             self.habitStatusButton.accessibilityLabel = [NSString stringWithFormat:@"%@ at %@ day%@",chain.isRecord ? @"Record length" : @"Length", @(chain.currentChainLengthForDisplay),chain.currentChainLengthForDisplay == 1 ? @"" : @"s" ];
             [self.habitStatusButton setBackgroundImage:backgroundImage forState:UIControlStateNormal];
             self.modeForState3 = MCSwipeTableViewCellModeNone;
