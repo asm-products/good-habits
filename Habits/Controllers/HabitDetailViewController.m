@@ -130,7 +130,8 @@ typedef enum{
 }
 -(void)updateRemindersButtonTitle{
     [self.remindersButton setTitle:self.remindersButtonTitle forState:UIControlStateNormal];
-    [self.clearReminderButton setTitle: NSLocalizedString(self.habit.reminderTime ? @"Clear reminder": @"Set reminder", @"") forState:UIControlStateNormal];
+    NSBundle * bundle = [NSBundle bundleWithIdentifier:@"HabitsCommon"];
+    [self.clearReminderButton setTitle: LocalizedString(self.habit.reminderTime ? @"Clear reminder": @"Set reminder", @"") forState:UIControlStateNormal];
 }
 -(void)setRemindersPickerVisible:(BOOL)visible{
     showingTimePicker = visible;
@@ -209,7 +210,7 @@ typedef enum{
 }
 #pragma mark - delete
 - (IBAction)didPressDeleteButton:(id)sender {
-    [[[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Confirm habit deletion", @"") cancelButtonItem:[RIButtonItem itemWithLabel:NSLocalizedString(@"Cancel", @"")] destructiveButtonItem:[RIButtonItem itemWithLabel:NSLocalizedString(@"Delete", @"") action:^{
+    [[[UIActionSheet alloc] initWithTitle:LocalizedString(@"Confirm habit deletion", @"") cancelButtonItem:[RIButtonItem itemWithLabel:LocalizedString(@"Cancel", @"")] destructiveButtonItem:[RIButtonItem itemWithLabel:LocalizedString(@"Delete", @"") action:^{
         NSManagedObjectContext * context = [CoreDataClient defaultClient].managedObjectContext;
         [context deleteObject:self.habit];
         NSError * error;

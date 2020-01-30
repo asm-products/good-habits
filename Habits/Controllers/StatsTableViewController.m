@@ -79,10 +79,10 @@ typedef enum {
 }
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     switch (section) {
-        case StatsSectionSparkline: return @"STATS";
-        case StatsSectionChainLengthDistribution: return self.chains.count > 0 ? @"Length distribution" : nil;
-        case StatsSectionReasons: return self.failures.count > 0 ? @"Notes" : nil;
-        case StatsSectionChainBreaks: return self.chains.count > 0 ? @"Chains" : @"";
+        case StatsSectionSparkline: return LocalizedString(@"Stats", @"");
+        case StatsSectionChainLengthDistribution: return self.chains.count > 0 ? LocalizedString(@"Length distribution", @"") : nil;
+        case StatsSectionReasons: return self.failures.count > 0 ? LocalizedString(@"Notes", @"") : nil;
+        case StatsSectionChainBreaks: return self.chains.count > 0 ? LocalizedString(@"Chains", @"") : @"";
         default: return @"";
     }
 }

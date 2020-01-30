@@ -1,147 +1,81 @@
-
 /* Class = "UIButton"; normalTitle = "Clear reminder"; ObjectID = "1ut-8Z-WR4"; */
-"1ut-8Z-WR4.normalTitle" = "Clear reminder";
+"1ut-8Z-WR4.normalTitle" = "Убрать напоминание";
 
 /* Class = "UILabel"; text = "GOOD HABITS"; ObjectID = "2Ae-ve-lFQ"; */
-"2Ae-ve-lFQ.text" = "GOOD HABITS";
-
-/* Class = "UILabel"; text = "[10]"; ObjectID = "2Qx-om-5lg"; */
-"2Qx-om-5lg.text" = "[10]";
-
-/* Class = "UIButton"; normalTitle = "Restore MF Data"; ObjectID = "6ef-iU-MjC"; */
-"6ef-iU-MjC.normalTitle" = "Restore MF Data";
-
-/* Class = "UILabel"; text = "5"; ObjectID = "9R0-dF-VJt"; */
-"9R0-dF-VJt.text" = "5";
-
-/* Class = "UIButton"; normalTitle = "Enable all features"; ObjectID = "BWv-DR-c7Z"; */
-"BWv-DR-c7Z.normalTitle" = "Enable all features";
-
-/* Class = "UIButton"; normalTitle = "-100"; ObjectID = "BnY-qI-qlP"; */
-"BnY-qI-qlP.normalTitle" = "-100";
-
-/* Class = "UILabel"; text = "[Habit label]"; ObjectID = "BsF-qM-NUI"; */
-"BsF-qM-NUI.text" = "[Habit label]";
-
-/* Class = "UILabel"; text = "LONGEST UNBROKEN CHAIN"; ObjectID = "DkH-me-7TJ"; Note = "Stats screen label"; */
-"DkH-me-7TJ.text" = "LONGEST UNBROKEN CHAIN";
-
-/* Class = "UILabel"; text = "HABIT NAME"; ObjectID = "Eaf-xd-yLd"; */
-"Eaf-xd-yLd.text" = "HABIT NAME";
-
-/* Class = "UILabel"; text = "[55]"; ObjectID = "G4E-rD-enW"; */
-"G4E-rD-enW.text" = "[55]";
-
-/* Class = "UILabel"; text = "[Info task label]"; ObjectID = "H4T-N8-MSX"; */
-"H4T-N8-MSX.text" = "[Info task label]";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "HmX-Lg-pRs"; */
-"HmX-Lg-pRs.text" = "Label";
-
-/* Class = "UIButton"; normalTitle = "Pause this habit"; ObjectID = "JMG-1N-4QX"; */
-"JMG-1N-4QX.normalTitle" = "Pause this habit";
-
-/* Class = "UILabel"; text = "NEW"; ObjectID = "KPl-V2-xVY"; Note = "New item in info task list (e.g. \"Rate our app\" etc...)"; */
-"KPl-V2-xVY.text" = "NEW";
-
-/* Class = "UILabel"; text = "[20 August - 1 September 2014]"; ObjectID = "KSH-IG-WnM"; */
-"KSH-IG-WnM.text" = "[20 August - 1 September 2014]";
-
-/* Class = "UIBarButtonItem"; title = "Continue"; ObjectID = "Pvl-5h-Qkx"; */
-"Pvl-5h-Qkx.title" = "Continue";
-
-/* Class = "UILabel"; text = "GOOD TO HEAR"; ObjectID = "Sn9-dv-YuW"; */
-"Sn9-dv-YuW.text" = "GOOD TO HEAR";
-
-/* Class = "UILabel"; text = "TOTAL DAYS CHECKED"; ObjectID = "TdF-L1-Jwu"; Note = "Stats screen label - how many total days has this TODO item been ticked off?"; */
-"TdF-L1-Jwu.text" = "TOTAL DAYS CHECKED";
-
-/* Class = "UILabel"; text = "We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen."; ObjectID = "U7O-ce-v3o"; */
-"U7O-ce-v3o.text" = "We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen.";
-
-/* Class = "UILabel"; text = "[chain length]"; ObjectID = "Vo4-mW-BmW"; */
-"Vo4-mW-BmW.text" = "[chain length]";
-
-/* Class = "UIButton"; normalTitle = "[Remind at ...]"; ObjectID = "W0x-E3-ClQ"; */
-"W0x-E3-ClQ.normalTitle" = "[Remind at ...]";
-
-/* Class = "UILabel"; text = "[10]"; ObjectID = "WIT-G3-ugi"; */
-"WIT-G3-ugi.text" = "[10]";
-
-/* Class = "UINavigationItem"; title = "Admin for MF"; ObjectID = "WQr-gE-mvg"; */
-"WQr-gE-mvg.title" = "Admin for MF";
-
-/* Class = "UILabel"; text = "CHART PERIOD"; ObjectID = "WbE-OV-kQ2"; Note = "Stats screen label - when showing little timeline charts this says how many days the chart covers"; */
-"WbE-OV-kQ2.text" = "CHART PERIOD";
+"2Ae-ve-lFQ.text" = "ХОРОШИЕ ПРИВЫЧКИ";
 
 /* Class = "UILabel"; text = "Data migration"; ObjectID = "aSz-PV-rTQ"; */
-"aSz-PV-rTQ.text" = "Data migration";
+"aSz-PV-rTQ.text" = "Перенос данных";
 
 /* Class = "UIButton"; normalTitle = "Restore AW Data"; ObjectID = "bCb-0a-dVR"; */
-"bCb-0a-dVR.normalTitle" = "Restore AW Data";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "c0c-PC-DNv"; */
-"c0c-PC-DNv.text" = "Title";
+"bCb-0a-dVR.normalTitle" = "Восстановить данные AW";
 
 /* Class = "UIBarButtonItem"; title = "add"; ObjectID = "dbb-40-lz2"; */
-"dbb-40-lz2.title" = "add";
+"dbb-40-lz2.title" = "добавить";
 
 /* Class = "UITextField"; placeholder = "What happened?"; ObjectID = "dcF-l7-O64"; Note = "Placeholder textfield text in the main TODO list if a habit day is missed. If the habit was to \"Practice guitar\", the answer might be to say \"I broke a string\". It means \"What happened?\" or \"What went wrong? or \"Why didn't you complete this task?\""; */
-"dcF-l7-O64.placeholder" = "What happened?";
+"dcF-l7-O64.placeholder" = "Что случилось?";
 
-/* Class = "UITextField"; text = "[title]"; ObjectID = "eHx-ow-yHW"; */
-"eHx-ow-yHW.text" = "[title]";
+/* Class = "UILabel"; text = "LONGEST UNBROKEN CHAIN"; ObjectID = "DkH-me-7TJ"; Note = "Stats screen label"; */
+"DkH-me-7TJ.text" = "САМАЯ ДЛИННАЯ СЕРИЯ";
+
+/* Class = "UILabel"; text = "HABIT NAME"; ObjectID = "Eaf-xd-yLd"; */
+"Eaf-xd-yLd.text" = "НАЗВАНИЕ ПРАКТИКИ";
 
 /* Class = "UIButton"; normalTitle = "Delete this habit"; ObjectID = "gmw-6d-XIl"; Note = "On the habit detail screen you can delete a habit with a button"; */
-"gmw-6d-XIl.normalTitle" = "Delete this habit";
+"gmw-6d-XIl.normalTitle" = "Удалить эту практику";
 
 /* Class = "UIBarButtonItem"; title = "Admin"; ObjectID = "h0z-Vh-l70"; */
-"h0z-Vh-l70.title" = "Admin";
+"h0z-Vh-l70.title" = "Администратор";
 
 /* Class = "UILabel"; text = "CHART PERIOD"; ObjectID = "hLo-8Q-rir"; */
-"hLo-8Q-rir.text" = "CHART PERIOD";
-
-/* Class = "UILabel"; text = "[55]"; ObjectID = "hOa-jb-Pai"; */
-"hOa-jb-Pai.text" = "[55]";
-
-/* Class = "UILabel"; text = "[Link label]"; ObjectID = "hoL-d6-QX3"; */
-"hoL-d6-QX3.text" = "[Link label]";
-
-/* Class = "UILabel"; text = "[n habits, last used days ago]"; ObjectID = "hp2-BZ-5Qi"; */
-"hp2-BZ-5Qi.text" = "[n habits, last used days ago]";
+"hLo-8Q-rir.text" = "ПЕРИОД ГРАФИКА";
 
 /* Class = "UINavigationItem"; title = "Stats"; ObjectID = "i5W-OX-A9P"; */
-"i5W-OX-A9P.title" = "Stats";
+"i5W-OX-A9P.title" = "Статистика";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "iF3-eD-2GL"; */
-"iF3-eD-2GL.text" = "Detail";
+"iF3-eD-2GL.text" = "Сведения";
 
-/* Class = "UILabel"; text = "[10]"; ObjectID = "j7g-bR-3Zz"; */
-"j7g-bR-3Zz.text" = "[10]";
+/* Class = "UIButton"; normalTitle = "Pause this habit"; ObjectID = "JMG-1N-4QX"; */
+"JMG-1N-4QX.normalTitle" = "Приостановить эту практику";
+
+/* Class = "UILabel"; text = "NEW"; ObjectID = "KPl-V2-xVY"; Note = "New item in info task list (e.g. \"Rate our app\" etc...)"; */
+"KPl-V2-xVY.text" = "СОЗДАТЬ";
 
 /* Class = "UILabel"; text = "AVERAGE CHAIN LENGTH"; ObjectID = "m7l-uD-RqH"; Note = "Label for item appearing on the Stats screen where a 'chain' is an unbroken continuous sequence of days this TODO item has been completed. How long on average do people sustain an activity before being interrupted?"; */
-"m7l-uD-RqH.text" = "AVERAGE CHAIN LENGTH";
-
-/* Class = "UILabel"; text = "[20 August - 1 September 2014]"; ObjectID = "na1-7c-Y5B"; */
-"na1-7c-Y5B.text" = "[20 August - 1 September 2014]";
-
-/* Class = "UILabel"; text = "[chain started at]"; ObjectID = "ndi-Vo-ZBy"; */
-"ndi-Vo-ZBy.text" = "[chain started at]";
+"m7l-uD-RqH.text" = "СРЕДНЯЯ ДЛИНА СЕРИИ";
 
 /* Class = "UIButton"; normalTitle = "Clear in app purchases"; ObjectID = "ngT-UO-6Bz"; */
-"ngT-UO-6Bz.normalTitle" = "Clear in app purchases";
+"ngT-UO-6Bz.normalTitle" = "Очистить покупки в приложении";
 
 /* Class = "UILabel"; text = "PAUSED"; ObjectID = "oJx-nH-POl"; Note = "Large overlay for TODO item / habit if it has been paused (i.e. removed from the main TODO list) - needs to be one word and not too long"; */
-"oJx-nH-POl.text" = "PAUSED";
+"oJx-nH-POl.text" = "НА ПАУЗЕ";
+
+/* Class = "UIBarButtonItem"; title = "Continue"; ObjectID = "Pvl-5h-Qkx"; */
+"Pvl-5h-Qkx.title" = "Продолжить";
+
+/* Class = "UILabel"; text = "GOOD TO HEAR"; ObjectID = "Sn9-dv-YuW"; */
+"Sn9-dv-YuW.text" = "РАДЫ СЛЫШАТЬ";
+
+/* Class = "UILabel"; text = "TOTAL DAYS CHECKED"; ObjectID = "TdF-L1-Jwu"; Note = "Stats screen label - how many total days has this TODO item been ticked off?"; */
+"TdF-L1-Jwu.text" = "ВСЕГО ДНЕЙ ОТМЕЧЕНО";
 
 /* Class = "UILabel"; text = "LATEST CHAIN LENGTH"; ObjectID = "tvQ-Qy-xRs"; Note = "I"; */
-"tvQ-Qy-xRs.text" = "LATEST CHAIN LENGTH";
+"tvQ-Qy-xRs.text" = "ДЛИНА ПОСЛЕДНЕЙ СЕРИИ";
+
+/* Class = "UILabel"; text = "We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen."; ObjectID = "U7O-ce-v3o"; */
+"U7O-ce-v3o.text" = "Нам нужно перенести ваши данные в другое хранилище, однако обнаружено несколько хранилищ. Выберите хранилище, которое вы хотите использовать. Остальные будут все так же доступны на экране «Информация».";
 
 /* Class = "UILabel"; text = "GOOD HABITS"; ObjectID = "w1E-ef-LFE"; */
-"w1E-ef-LFE.text" = "GOOD HABITS";
+"w1E-ef-LFE.text" = "ХОРОШИЕ ПРИВЫЧКИ";
 
-/* Class = "UILabel"; text = "Press and hold for more information, swipe left to export and backup data."; ObjectID = "yWc-mL-QxZ"; */
-"yWc-mL-QxZ.text" = "Press and hold for more information, swipe left to export and backup data.";
+/* Class = "UILabel"; text = "CHART PERIOD"; ObjectID = "WbE-OV-kQ2"; Note = "Stats screen label - when showing little timeline charts this says how many days the chart covers"; */
+"WbE-OV-kQ2.text" = "ПЕРИОД ГРАФИКА";
 
 /* Class = "UILabel"; text = "NUMBER OF CHAINS"; ObjectID = "yct-Ae-Wr3"; Note = "Stats screen item - How many different runs of this daily TODO (\"chains\") have been completed?"; */
-"yct-Ae-Wr3.text" = "NUMBER OF CHAINS";
+"yct-Ae-Wr3.text" = "ЧИСЛО СЕРИЙ";
+
+/* Class = "UILabel"; text = "Press and hold for more information, swipe left to export and backup data."; ObjectID = "yWc-mL-QxZ"; */
+"yWc-mL-QxZ.text" = "Удерживайте для получения дополнительных сведений, проведите влево для экспорта и резервного копирования данных.";
+

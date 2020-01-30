@@ -5,27 +5,17 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.004863">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.005044">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: export_localizations" time="1.790501">
+      <testcase classname="fastlane.lanes" name="1: capture_ios_screenshots" time="747.732013">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: onesky_upload" time="1.415898">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="3: onesky_upload" time="0.937292">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="4: onesky_upload" time="1.07622">
+      <testcase classname="fastlane.lanes" name="2: frameit" time="342.529611">
         
       </testcase>
     

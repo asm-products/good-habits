@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = GTHRectHelpers;
+			productName = GTHRectHelpers;
 		};
 		5F2CB0196D70EA3C8CBF3CDCF51A39B1 /* CWLSynthesizeSingleton */ = {
 			isa = PBXAggregateTarget;
@@ -24,6 +25,7 @@
 			dependencies = (
 			);
 			name = CWLSynthesizeSingleton;
+			productName = CWLSynthesizeSingleton;
 		};
 		DB660A18A33275B0B2A1C2A90BB1D93F /* Reveal-iOS-SDK */ = {
 			isa = PBXAggregateTarget;
@@ -33,6 +35,7 @@
 			dependencies = (
 			);
 			name = "Reveal-iOS-SDK";
+			productName = "Reveal-iOS-SDK";
 		};
 /* End PBXAggregateTarget section */
 
@@ -995,7 +998,7 @@
 /* Begin PBXFileReference section */
 		005EB96D48CB76AEACB00056ECBE3EDB /* Mantle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Mantle-dummy.m"; sourceTree = "<group>"; };
 		0075368CF9054976704748ABE8AB61F7 /* YLMoment+RelativeTime.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "YLMoment+RelativeTime.m"; path = "YLMoment/YLMoment+RelativeTime.m"; sourceTree = "<group>"; };
-		007ED9F8275CF718588C47410970EF8C /* libZipUtilities.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libZipUtilities.a; path = libZipUtilities.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		007ED9F8275CF718588C47410970EF8C /* libZipUtilities.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libZipUtilities.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		00EF839A9DACEB02532DB8529F7BF6EC /* MCSwipeTableViewCell-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MCSwipeTableViewCell-dummy.m"; sourceTree = "<group>"; };
 		0164566328BED33FEE2455AA576FD806 /* pem2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pem2.h; path = include/openssl/pem2.h; sourceTree = "<group>"; };
 		019F56FA2360E8222BC4497C417E2F97 /* EXPMatchers+beSupersetOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beSupersetOf.m"; path = "Expecta/Matchers/EXPMatchers+beSupersetOf.m"; sourceTree = "<group>"; };
@@ -1009,7 +1012,7 @@
 		0473AB155F3A40D1D72D4B0C84431BAF /* NSBundle-KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBundle-KIFAdditions.h"; path = "Additions/NSBundle-KIFAdditions.h"; sourceTree = "<group>"; };
 		04F8D73C5E9570F68CAAAD96288324B8 /* md4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = md4.h; path = include/openssl/md4.h; sourceTree = "<group>"; };
 		05188E9F62E1074A10064AA120755CA3 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
-		0562D9695B9C7075A4493A898549BE42 /* NativeInteger.c */ = {isa = PBXFileReference; includeInIndex = 1; name = NativeInteger.c; path = asn1_parser/NativeInteger.c; sourceTree = "<group>"; };
+		0562D9695B9C7075A4493A898549BE42 /* NativeInteger.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = NativeInteger.c; path = asn1_parser/NativeInteger.c; sourceTree = "<group>"; };
 		05C00374475A72DA53DB9F7576D48362 /* per_opentype.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = per_opentype.h; path = asn1_parser/per_opentype.h; sourceTree = "<group>"; };
 		05D411D1348CECAC1815F7B63EC3C656 /* NSMutableSet+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableSet+BlocksKit.h"; path = "BlocksKit/Core/NSMutableSet+BlocksKit.h"; sourceTree = "<group>"; };
 		05F4FE55E6A4B0067BFFBFF6B2D473F6 /* UIImage+Screenshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Screenshot.m"; path = "UIImage-Helpers/UIImage+Screenshot.m"; sourceTree = "<group>"; };
@@ -1022,7 +1025,7 @@
 		08C94AF15929FFB8A4DDDFB99164500E /* RBBAnimation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RBBAnimation-dummy.m"; sourceTree = "<group>"; };
 		08E0789127B82497E3BFB2AEF419A161 /* Functional.m-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Functional.m-prefix.pch"; sourceTree = "<group>"; };
 		08F21447CC017EB8C0821EFBF49A59AD /* UIView-KIFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView-KIFAdditions.m"; path = "Additions/UIView-KIFAdditions.m"; sourceTree = "<group>"; };
-		08F7F0770B4878B9883B87DCD8569CB4 /* libExpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libExpecta.a; path = libExpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		08F7F0770B4878B9883B87DCD8569CB4 /* libExpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libExpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		090BF32C1E713E1DD8EB8BC3C85F266A /* NSPredicate+KIFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSPredicate+KIFAdditions.m"; path = "Additions/NSPredicate+KIFAdditions.m"; sourceTree = "<group>"; };
 		0917FB9D48CB9EA691EDB4F0CF616814 /* EXPMatchers+beLessThanOrEqualTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beLessThanOrEqualTo.h"; path = "Expecta/Matchers/EXPMatchers+beLessThanOrEqualTo.h"; sourceTree = "<group>"; };
 		0978EC494647E4A2818B8B32E319A327 /* OCMock-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OCMock-prefix.pch"; sourceTree = "<group>"; };
@@ -1038,7 +1041,7 @@
 		0C55486260CF2B2FFA223F7710E6D645 /* EXPExpect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPExpect.m; path = Expecta/EXPExpect.m; sourceTree = "<group>"; };
 		0C9457A45B1448858CBAD468B28B7446 /* KIFUIViewTestActor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KIFUIViewTestActor.h; path = Classes/KIFUIViewTestActor.h; sourceTree = "<group>"; };
 		0CB8362017A22E8945A22EE1A1F3536A /* NSData+NOZAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+NOZAdditions.h"; path = "ZipUtilities/NSData+NOZAdditions.h"; sourceTree = "<group>"; };
-		0CBC1736DC7B7FBCA8FC179568AA910B /* libLMAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libLMAlertView.a; path = libLMAlertView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CBC1736DC7B7FBCA8FC179568AA910B /* libLMAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLMAlertView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF1EA12A740098528FCC2E47162E13B /* UIAutomationHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIAutomationHelper.m; path = Classes/UIAutomationHelper.m; sourceTree = "<group>"; };
 		0D05BB09DC1C99137985034B9C1D2EAC /* RBBBlockBasedArray.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBBlockBasedArray.m; path = RBBAnimation/RBBBlockBasedArray.m; sourceTree = "<group>"; };
 		0D61B1DA67481B073ADD08708B943B73 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1049,7 +1052,7 @@
 		0F505B6F35E9F6832ABA028118F66D19 /* SHMessageUIBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHMessageUIBlocks.h; path = SHMessageUIBlocks/SHMessageUIBlocks.h; sourceTree = "<group>"; };
 		0FE182A0DF7C92D56A53B7544FA54BD4 /* asn_system.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn_system.h; path = asn1_parser/asn_system.h; sourceTree = "<group>"; };
 		0FF7C8126E312B868644CC4A50FC4A5D /* OCMMacroState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMMacroState.m; path = Source/OCMock/OCMMacroState.m; sourceTree = "<group>"; };
-		10391E0A10D4A296329D6DD5CC19332D /* per_support.c */ = {isa = PBXFileReference; includeInIndex = 1; name = per_support.c; path = asn1_parser/per_support.c; sourceTree = "<group>"; };
+		10391E0A10D4A296329D6DD5CC19332D /* per_support.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = per_support.c; path = asn1_parser/per_support.c; sourceTree = "<group>"; };
 		108740BAA7D4A75D941754ED3564E780 /* UIAlertView-Blocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView-Blocks-dummy.m"; sourceTree = "<group>"; };
 		10B0D759F61DF5B26F0BD66C44E57E98 /* lhash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lhash.h; path = include/openssl/lhash.h; sourceTree = "<group>"; };
 		10BA56BA65FC7D1D65E214ADB154409D /* dh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = dh.h; path = include/openssl/dh.h; sourceTree = "<group>"; };
@@ -1068,7 +1071,7 @@
 		1529A777BC5627B32B7262CE9045E3C3 /* KIFUITestActor-ConditionalTests.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "KIFUITestActor-ConditionalTests.h"; path = "Classes/KIFUITestActor-ConditionalTests.h"; sourceTree = "<group>"; };
 		153EBE50A0E689DF0726E6866DECD801 /* UIWindow-KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWindow-KIFAdditions.h"; path = "Additions/UIWindow-KIFAdditions.h"; sourceTree = "<group>"; };
 		159B2FD1A78FE53CD3597668EA8341A1 /* OCMVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMVerifier.m; path = Source/OCMock/OCMVerifier.m; sourceTree = "<group>"; };
-		15B13B063AA97C48C9010C298AECBDDA /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSpecta.a; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		15B13B063AA97C48C9010C298AECBDDA /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B1426FAFB5EBF349885FE13F7255A8 /* CALayer+ModalAlert.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+ModalAlert.m"; path = "LMAlertView/CALayer+ModalAlert.m"; sourceTree = "<group>"; };
 		1653483C34295912941B3AF20E8DDA95 /* EXPMatchers+match.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+match.h"; path = "Expecta/Matchers/EXPMatchers+match.h"; sourceTree = "<group>"; };
 		165A6478C964F6F0D5A4C238BB68724F /* SPTSharedExampleGroups.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTSharedExampleGroups.m; path = src/SPTSharedExampleGroups.m; sourceTree = "<group>"; };
@@ -1079,21 +1082,21 @@
 		17EFD42CA4CF001648D13D3854C3BEDB /* SHMessageUIBlocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHMessageUIBlocks.xcconfig; sourceTree = "<group>"; };
 		18DE484D5651D103380E24D50431CCAA /* OCMFunctionsPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMFunctionsPrivate.h; path = Source/OCMock/OCMFunctionsPrivate.h; sourceTree = "<group>"; };
 		192460A141B03D7B4D5251EDA15B0C50 /* symhacks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = symhacks.h; path = include/openssl/symhacks.h; sourceTree = "<group>"; };
-		1936E2A87466818F2261774B14AD24D6 /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Habits.a"; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1936E2A87466818F2261774B14AD24D6 /* libPods-Habits.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Habits.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D04A14F1F60E2C1AD02B83EDA3B9D3 /* NSValue+Expecta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValue+Expecta.h"; path = "Expecta/NSValue+Expecta.h"; sourceTree = "<group>"; };
 		1A2A1FF89F58E482FE34AE5D79BC24A9 /* RBBBlockBasedArray.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBBlockBasedArray.h; path = RBBAnimation/RBBBlockBasedArray.h; sourceTree = "<group>"; };
 		1A2D16ED40A1C9173FC6D11813A8B1F3 /* OCMArgAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMArgAction.h; path = Source/OCMock/OCMArgAction.h; sourceTree = "<group>"; };
-		1AF33E4B6AB68CD8AAB8D92CA14EC56C /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = YLMoment/Localization/es.lproj; sourceTree = "<group>"; };
+		1AF33E4B6AB68CD8AAB8D92CA14EC56C /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = es.lproj; path = YLMoment/Localization/es.lproj; sourceTree = "<group>"; };
 		1B5C6CC90A87559D9CA27E03F266292C /* NSMutableIndexSet+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableIndexSet+BlocksKit.h"; path = "BlocksKit/Core/NSMutableIndexSet+BlocksKit.h"; sourceTree = "<group>"; };
 		1BF0508AFB872501452F41FDADA8BA9C /* conf_api.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = conf_api.h; path = include/openssl/conf_api.h; sourceTree = "<group>"; };
 		1C399AF41139D71866422BCC89243A33 /* ebcdic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ebcdic.h; path = include/openssl/ebcdic.h; sourceTree = "<group>"; };
 		1C6E10E2E0911744BD88BEA2E801CA5E /* EXPMatchers+beGreaterThanOrEqualTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beGreaterThanOrEqualTo.h"; path = "Expecta/Matchers/EXPMatchers+beGreaterThanOrEqualTo.h"; sourceTree = "<group>"; };
 		1C914899E04BC99219B03B9A8305EB72 /* INTEGER.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = INTEGER.h; path = asn1_parser/INTEGER.h; sourceTree = "<group>"; };
 		1D21D8C58625A08AF74878863AA56284 /* YLMomentObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YLMomentObject.h; path = YLMoment/YLMomentObject.h; sourceTree = "<group>"; };
-		1DA05D514DACC8989B73EBB1997CC33B /* libYLMoment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYLMoment.a; path = libYLMoment.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DA05D514DACC8989B73EBB1997CC33B /* libYLMoment.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYLMoment.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EBD660E96F3883694BC7B9DE993A5F8 /* KIFTestStepValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KIFTestStepValidation.h; path = Classes/KIFTestStepValidation.h; sourceTree = "<group>"; };
 		1F45C3B453FCFFF739836950E99EE190 /* KIFTextInputTraitsOverrides.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KIFTextInputTraitsOverrides.h; path = Classes/KIFTextInputTraitsOverrides.h; sourceTree = "<group>"; };
-		1FFED36A657123030ABB700256D73F15 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFED36A657123030ABB700256D73F15 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		204C75864745B980957DD31CC56C0FFE /* NOZCompressionLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NOZCompressionLibrary.h; path = ZipUtilities/NOZCompressionLibrary.h; sourceTree = "<group>"; };
 		2091EE4DCF898DD7906ABAB9D271E1E9 /* MVModalTransitions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MVModalTransitions.xcconfig; sourceTree = "<group>"; };
 		2118EF4D242FA491FE03AF14A7D7FFAC /* Pods-HabitsTodayExtension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HabitsTodayExtension-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -1128,17 +1131,17 @@
 		2B9747B1ECE7767A5326CD3A4A2CA04D /* CAAnimationBlocks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CAAnimationBlocks-dummy.m"; sourceTree = "<group>"; };
 		2C17D61AF9924C25519B8C8596B60DDB /* srp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = srp.h; path = include/openssl/srp.h; sourceTree = "<group>"; };
 		2C1CA4EB063698A827C2C7D1F2FEAAC1 /* XCTestRun+Specta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCTestRun+Specta.h"; path = "src/XCTestRun+Specta.h"; sourceTree = "<group>"; };
-		2C22EBD4E10BC60DBFF47157FF8CE404 /* per_encoder.c */ = {isa = PBXFileReference; includeInIndex = 1; name = per_encoder.c; path = asn1_parser/per_encoder.c; sourceTree = "<group>"; };
+		2C22EBD4E10BC60DBFF47157FF8CE404 /* per_encoder.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = per_encoder.c; path = asn1_parser/per_encoder.c; sourceTree = "<group>"; };
 		2C234316387D1783DBEC5D90109DC5CC /* KIFUITestActor-ConditionalTests.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "KIFUITestActor-ConditionalTests.m"; path = "Classes/KIFUITestActor-ConditionalTests.m"; sourceTree = "<group>"; };
 		2C2851DDE83FBD43830B0049F1680AEB /* pkcs12.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pkcs12.h; path = include/openssl/pkcs12.h; sourceTree = "<group>"; };
 		2C3F26A72E280A573A706A18BD6D9495 /* OCMIndirectReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMIndirectReturnValueProvider.h; path = Source/OCMock/OCMIndirectReturnValueProvider.h; sourceTree = "<group>"; };
-		2C94827AAB74E023B2305767EA176C13 /* libAVHexColor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAVHexColor.a; path = libAVHexColor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C94827AAB74E023B2305767EA176C13 /* libAVHexColor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAVHexColor.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF00FF4BCE590ABA95CE61BD2735A42 /* RBBCustomAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBCustomAnimation.h; path = RBBAnimation/RBBCustomAnimation.h; sourceTree = "<group>"; };
 		2D097CC6EB7CBE1735D6FFA4FF4A9B27 /* CAAnimation+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CAAnimation+Blocks.m"; path = "CAAnimationBlocks/CAAnimation+Blocks.m"; sourceTree = "<group>"; };
 		2EA14EECE0603C6CA167B743E99EC0C4 /* MFMessageComposeViewController+SHMessageUIBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MFMessageComposeViewController+SHMessageUIBlocks.h"; path = "SHMessageUIBlocks/MFMessageComposeViewController+SHMessageUIBlocks.h"; sourceTree = "<group>"; };
 		2ECC26AC1AB6DBC89AB6281718A8509B /* EXPBlockDefinedMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPBlockDefinedMatcher.h; path = Expecta/EXPBlockDefinedMatcher.h; sourceTree = "<group>"; };
 		2EFC24E8E5702CA59308F22CE0A7E2A5 /* NSURLConnection+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLConnection+BlocksKit.h"; path = "BlocksKit/DynamicDelegate/Foundation/NSURLConnection+BlocksKit.h"; sourceTree = "<group>"; };
-		2F1679B15FF0D3068A9244E494A09EC1 /* der_encoder.c */ = {isa = PBXFileReference; includeInIndex = 1; name = der_encoder.c; path = asn1_parser/der_encoder.c; sourceTree = "<group>"; };
+		2F1679B15FF0D3068A9244E494A09EC1 /* der_encoder.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = der_encoder.c; path = asn1_parser/der_encoder.c; sourceTree = "<group>"; };
 		2F1A50A9F911139246A0ED97EF683EB3 /* rsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = rsa.h; path = include/openssl/rsa.h; sourceTree = "<group>"; };
 		2F931E0A0DAE6D058F625BAC64A2A246 /* UIAccessibilityElement-KIFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAccessibilityElement-KIFAdditions.m"; path = "Additions/UIAccessibilityElement-KIFAdditions.m"; sourceTree = "<group>"; };
 		30101F0366E4564E70BCBFE2FCECCF56 /* UITableView-KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView-KIFAdditions.h"; path = "Additions/UITableView-KIFAdditions.h"; sourceTree = "<group>"; };
@@ -1153,7 +1156,7 @@
 		3439D3AA77FEA4327F5D4398B2733BCC /* UIControl+ALActionBlocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+ALActionBlocks.m"; path = "ALActionBlocks/UIControl+ALActionBlocks.m"; sourceTree = "<group>"; };
 		3521CFA7C3FC42D144E457B5DECB561D /* NSArray+MTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MTLManipulationAdditions.m"; path = "Mantle/NSArray+MTLManipulationAdditions.m"; sourceTree = "<group>"; };
 		354EBE4C92F7DB9F8EE5F244B579C426 /* ripemd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ripemd.h; path = include/openssl/ripemd.h; sourceTree = "<group>"; };
-		35693C8600391808DF8DFE3D8C52CF53 /* libPods-HabitsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-HabitsUITests.a"; path = "libPods-HabitsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35693C8600391808DF8DFE3D8C52CF53 /* libPods-HabitsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3575CB276C4C2E4675176A0C5209566C /* OCMConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMConstraint.m; path = Source/OCMock/OCMConstraint.m; sourceTree = "<group>"; };
 		35EA9CEDC765782E61B932E91E26E6BD /* Expecta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Expecta-dummy.m"; sourceTree = "<group>"; };
 		35EBD35A50E07C0EF3B0F700C9CEFA6A /* EXPMatchers+beFalsy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beFalsy.h"; path = "Expecta/Matchers/EXPMatchers+beFalsy.h"; sourceTree = "<group>"; };
@@ -1162,15 +1165,15 @@
 		376EC4922264DCBA39A064BADF7877ED /* AVHexColor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AVHexColor.m; sourceTree = "<group>"; };
 		3770F5B8FEEFB5EC263C584EB3E48FD7 /* obj_mac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = obj_mac.h; path = include/openssl/obj_mac.h; sourceTree = "<group>"; };
 		3829C44F08586F8B32F7ADECFB4060A5 /* Pods-HabitsUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HabitsUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		3886F0FAF4B25026F083EA12B496C70D /* libFunctional.m.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFunctional.m.a; path = libFunctional.m.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3886F0FAF4B25026F083EA12B496C70D /* libFunctional.m.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFunctional.m.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		392A597F36C02361821F96B412F2FF7A /* EXPMatchers+match.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+match.m"; path = "Expecta/Matchers/EXPMatchers+match.m"; sourceTree = "<group>"; };
-		393BD643F262B1DBDD511ACBE3B07B3A /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = YLMoment/Localization/en.lproj; sourceTree = "<group>"; };
+		393BD643F262B1DBDD511ACBE3B07B3A /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = en.lproj; path = YLMoment/Localization/en.lproj; sourceTree = "<group>"; };
 		39815785E51BFB0A14BC9BB7A9280579 /* OCMExceptionReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMExceptionReturnValueProvider.h; path = Source/OCMock/OCMExceptionReturnValueProvider.h; sourceTree = "<group>"; };
 		399C34DB4CA3768B6A93A9322327BDAB /* EXPMatchers+beInTheRangeOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beInTheRangeOf.h"; path = "Expecta/Matchers/EXPMatchers+beInTheRangeOf.h"; sourceTree = "<group>"; };
 		39BB19E330EA2CCAE4AC53894BE3A2F1 /* OCMock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMock.h; path = Source/OCMock/OCMock.h; sourceTree = "<group>"; };
 		39FD0111FB9E0EB34EB8FFE22F5F5BCA /* OCMNotificationPoster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMNotificationPoster.h; path = Source/OCMock/OCMNotificationPoster.h; sourceTree = "<group>"; };
 		3A24D021FE11B6C4DD6F1CC89027F89D /* NSArray+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+BlocksKit.h"; path = "BlocksKit/Core/NSArray+BlocksKit.h"; sourceTree = "<group>"; };
-		3AF19120DFD94AE4F50F7A8484ADEDC1 /* libALActionBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libALActionBlocks.a; path = libALActionBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AF19120DFD94AE4F50F7A8484ADEDC1 /* libALActionBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libALActionBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B057BA87AA12FABC9505CEBC08CA385 /* RBBAnimation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RBBAnimation-prefix.pch"; sourceTree = "<group>"; };
 		3B35EE7DD729E2D424CA16F7CD040C86 /* tls1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = tls1.h; path = include/openssl/tls1.h; sourceTree = "<group>"; };
 		3B8B5695E6AEDCCFA72B6BD9DD53EF41 /* UIImage+Blur.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Blur.h"; path = "UIImage-Helpers/UIImage+Blur.h"; sourceTree = "<group>"; };
@@ -1196,11 +1199,11 @@
 		43E78EE872814FE120D12C63B2D73642 /* EXPMatchers+equal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+equal.h"; path = "Expecta/Matchers/EXPMatchers+equal.h"; sourceTree = "<group>"; };
 		448F7339B6D6D5377BD9A6078C404236 /* NSFileManager-KIFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager-KIFAdditions.m"; path = "Additions/NSFileManager-KIFAdditions.m"; sourceTree = "<group>"; };
 		44A4D5CD96B8AE6D3E77B6CD64D4AE33 /* Pods-HabitsCommon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HabitsCommon-dummy.m"; sourceTree = "<group>"; };
-		4542AD9AF649DBC16FAB8BE77A2CAB9C /* ber_tlv_tag.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ber_tlv_tag.c; path = asn1_parser/ber_tlv_tag.c; sourceTree = "<group>"; };
+		4542AD9AF649DBC16FAB8BE77A2CAB9C /* ber_tlv_tag.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ber_tlv_tag.c; path = asn1_parser/ber_tlv_tag.c; sourceTree = "<group>"; };
 		457B2927E17CBA45575F8208F69301A5 /* NSObject+BKBlockObservation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+BKBlockObservation.m"; path = "BlocksKit/Core/NSObject+BKBlockObservation.m"; sourceTree = "<group>"; };
 		4582340EAED1E7363156502A1DBAC738 /* ExpectaSupport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ExpectaSupport.m; path = Expecta/ExpectaSupport.m; sourceTree = "<group>"; };
 		45A5B0A1DD7CF905FFBE87A39D264D64 /* asn_application.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn_application.h; path = asn1_parser/asn_application.h; sourceTree = "<group>"; };
-		4623FBC9B015D90FF892BD44C759B83F /* libPods-HabitsCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-HabitsCommon.a"; path = "libPods-HabitsCommon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4623FBC9B015D90FF892BD44C759B83F /* libPods-HabitsCommon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsCommon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4641ACCB75AE892F5A3F1E9226FE3561 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		464C7EA6CDEAE712E01896AC7544240F /* NSObject+MTLComparisonAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MTLComparisonAdditions.m"; path = "Mantle/NSObject+MTLComparisonAdditions.m"; sourceTree = "<group>"; };
 		4670062DA23227EBCB520438CF62CE64 /* UIWindow-KIFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWindow-KIFAdditions.m"; path = "Additions/UIWindow-KIFAdditions.m"; sourceTree = "<group>"; };
@@ -1232,7 +1235,7 @@
 		50CE7E9303F5E8E99416D3B154A21458 /* RBBAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RBBAnimation.h; path = RBBAnimation/RBBAnimation.h; sourceTree = "<group>"; };
 		519267D970E3F5B258946069A453EF90 /* LMAlertView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMAlertView.m; path = LMAlertView/LMAlertView.m; sourceTree = "<group>"; };
 		519D94291CC24BB73974FD0C53079E40 /* UIApplication-KIFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication-KIFAdditions.m"; path = "Additions/UIApplication-KIFAdditions.m"; sourceTree = "<group>"; };
-		51B3F79BD2AABFD0B3039FCCA6482F88 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-HabitsTests.a"; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		51B3F79BD2AABFD0B3039FCCA6482F88 /* libPods-HabitsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B8279047E838EAD17BC418EA5BDBB6 /* UIAlertView-Blocks.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIAlertView-Blocks.xcconfig"; sourceTree = "<group>"; };
 		524485EC79418A38C60D2354E0970D77 /* NSTimer+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSTimer+BlocksKit.h"; path = "BlocksKit/Core/NSTimer+BlocksKit.h"; sourceTree = "<group>"; };
 		524956814E74BE37021131CBEBCAEF0F /* EXPMatchers+beSupersetOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beSupersetOf.h"; path = "Expecta/Matchers/EXPMatchers+beSupersetOf.h"; sourceTree = "<group>"; };
@@ -1263,7 +1266,7 @@
 		59C6A82C643AA41FF4E42F1FAF4D0D20 /* MVModalTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MVModalTransition.m; path = MVModalTransition/MVModalTransition.m; sourceTree = "<group>"; };
 		5A28CD964152024296239D2EC5F44DB4 /* YLMoment+Bundle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "YLMoment+Bundle.m"; path = "YLMoment/YLMoment+Bundle.m"; sourceTree = "<group>"; };
 		5A28E4501C910AA4000F4D06577B9CCA /* ecdh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecdh.h; path = include/openssl/ecdh.h; sourceTree = "<group>"; };
-		5A948752AE7567E94506A96FBBB8AE33 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt.lproj; path = YLMoment/Localization/pt.lproj; sourceTree = "<group>"; };
+		5A948752AE7567E94506A96FBBB8AE33 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = pt.lproj; path = YLMoment/Localization/pt.lproj; sourceTree = "<group>"; };
 		5AC3251AA68CD6467E435F31B68AD168 /* NSMutableOrderedSet+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableOrderedSet+BlocksKit.m"; path = "BlocksKit/Core/NSMutableOrderedSet+BlocksKit.m"; sourceTree = "<group>"; };
 		5ACB0ADD60EE291A198A97B9C8AE50BC /* NSMethodSignature+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMethodSignature+OCMAdditions.h"; path = "Source/OCMock/NSMethodSignature+OCMAdditions.h"; sourceTree = "<group>"; };
 		5B0F03E690A1D928677FEC5319E0544A /* UIAlertView+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+BlocksKit.m"; path = "BlocksKit/UIKit/UIAlertView+BlocksKit.m"; sourceTree = "<group>"; };
@@ -1271,7 +1274,7 @@
 		5BB073629075E41A1AE1AB19D4373BB3 /* ec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ec.h; path = include/openssl/ec.h; sourceTree = "<group>"; };
 		5C40E2FEF6DFFADC00CE24C50280FAB9 /* FCOverlay.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FCOverlay.m; path = FCOverlayViewControllerClass/FCOverlay.m; sourceTree = "<group>"; };
 		5C633A3AC0B3DF71FD152AE3339BD610 /* NSInvocation+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+BlocksKit.m"; path = "BlocksKit/Core/NSInvocation+BlocksKit.m"; sourceTree = "<group>"; };
-		5CAC8644C4E2246D86E673799F0B8ACC /* libMCSwipeTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMCSwipeTableViewCell.a; path = libMCSwipeTableViewCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CAC8644C4E2246D86E673799F0B8ACC /* libMCSwipeTableViewCell.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMCSwipeTableViewCell.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D217B26CD77ADDEC75B4823E2D167A3 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
 		5D5B7F18F96611031CFACF379748EAD1 /* OCMExpectationRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMExpectationRecorder.m; path = Source/OCMock/OCMExpectationRecorder.m; sourceTree = "<group>"; };
 		5D7BB6364132D4C59262BF26DD4B4F15 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
@@ -1284,12 +1287,12 @@
 		60147AB9E0512960B9CD1B1BB975F29D /* UIView-Debugging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView-Debugging.h"; path = "Additions/UIView-Debugging.h"; sourceTree = "<group>"; };
 		601E5B06655A5B59F8218F00E2F4A0B4 /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes.h; path = include/openssl/aes.h; sourceTree = "<group>"; };
 		6025A459FC9F76BF69418976DFD64990 /* Pods-HabitsTodayExtension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HabitsTodayExtension-acknowledgements.markdown"; sourceTree = "<group>"; };
-		60918134F2BE4A48B285ADE0F4B28965 /* asn_SET_OF.c */ = {isa = PBXFileReference; includeInIndex = 1; name = asn_SET_OF.c; path = asn1_parser/asn_SET_OF.c; sourceTree = "<group>"; };
+		60918134F2BE4A48B285ADE0F4B28965 /* asn_SET_OF.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = asn_SET_OF.c; path = asn1_parser/asn_SET_OF.c; sourceTree = "<group>"; };
 		60F9D343AB789F04B3B7CC913E828939 /* OCMock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OCMock.xcconfig; sourceTree = "<group>"; };
 		615C540FF2E2F28C93E99997E968E2DA /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		626331E07DB20EFCC48EFF6BA897F08D /* opensslconf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = opensslconf.h; path = include/openssl/opensslconf.h; sourceTree = "<group>"; };
 		627D9B69E74ADFDF9FFBC1D2B59D9913 /* EXPMatchers+beGreaterThanOrEqualTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beGreaterThanOrEqualTo.m"; path = "Expecta/Matchers/EXPMatchers+beGreaterThanOrEqualTo.m"; sourceTree = "<group>"; };
-		6286654D358AB138C975B94951CDF2C1 /* libMVModalTransitions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMVModalTransitions.a; path = libMVModalTransitions.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6286654D358AB138C975B94951CDF2C1 /* libMVModalTransitions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMVModalTransitions.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E4438606A549FE216B89C17CE6B917 /* MVModalTransitions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MVModalTransitions-dummy.m"; sourceTree = "<group>"; };
 		63E3269870E1476E0167104A46FE28BE /* comp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = comp.h; path = include/openssl/comp.h; sourceTree = "<group>"; };
 		63EA09140928C6CA71CDA46DDFD784E1 /* RBBAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBAnimation.m; path = RBBAnimation/RBBAnimation.m; sourceTree = "<group>"; };
@@ -1309,7 +1312,7 @@
 		695527ABB6B685F1BD2396A695EF092A /* Mantle.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Mantle.xcconfig; sourceTree = "<group>"; };
 		6AC3937DE0BDF82C65F69420729B0C55 /* KIFTestActor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KIFTestActor.m; path = Classes/KIFTestActor.m; sourceTree = "<group>"; };
 		6B7DBB43752ED8603FE515B922B0FA2A /* CALayer-KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer-KIFAdditions.h"; path = "Additions/CALayer-KIFAdditions.h"; sourceTree = "<group>"; };
-		6BCD3E077861DE8917A0FFFBC6BD96CF /* libMantle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMantle.a; path = libMantle.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BCD3E077861DE8917A0FFFBC6BD96CF /* libMantle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMantle.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C659F44C80CBEEE433F990F24814D9C /* YLMoment-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YLMoment-dummy.m"; sourceTree = "<group>"; };
 		6C9891AEDDE7FA52EDE4DA3207A26FE9 /* UIAlertView-Blocks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIAlertView-Blocks-prefix.pch"; sourceTree = "<group>"; };
 		6CC24C53B3724F246CC4AA04733CABD2 /* NOZEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NOZEncoder.h; path = ZipUtilities/NOZEncoder.h; sourceTree = "<group>"; };
@@ -1317,7 +1320,7 @@
 		6D9ACFD376A151514399711A96EC8FAC /* UIImage-Helpers-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage-Helpers-dummy.m"; sourceTree = "<group>"; };
 		6E484DD788ABB80A912B0AC92B8E08F0 /* EXPMatchers+beKindOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beKindOf.m"; path = "Expecta/Matchers/EXPMatchers+beKindOf.m"; sourceTree = "<group>"; };
 		6F3AB6408D05AC8CBF16B9FAA0ABE37A /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+OCMAdditions.h"; path = "Source/OCMock/NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
-		6F70BF603CE98579EE97E286801E741E /* libBlocksKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libBlocksKit.a; path = libBlocksKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F70BF603CE98579EE97E286801E741E /* libBlocksKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBlocksKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		70AAFC1CE79F8B2E5A6257CE7267E4E1 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		70D85C94B46D912FA6A35EA3EA579A98 /* asn_codecs_prim.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn_codecs_prim.h; path = asn1_parser/asn_codecs_prim.h; sourceTree = "<group>"; };
 		7196E61984B5943164496CCCD814A522 /* LMNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LMNavigationController.h; path = LMAlertView/LMNavigationController.h; sourceTree = "<group>"; };
@@ -1336,12 +1339,12 @@
 		7431D1533FF56EDA8700306543E3C892 /* EXPMatchers+beLessThanOrEqualTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beLessThanOrEqualTo.m"; path = "Expecta/Matchers/EXPMatchers+beLessThanOrEqualTo.m"; sourceTree = "<group>"; };
 		7452CFA8D15DCA94251A5853FD3624F1 /* LMModalItemTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LMModalItemTableViewCell.h; path = LMAlertView/LMModalItemTableViewCell.h; sourceTree = "<group>"; };
 		745EF3E8E3949C6D2D128B8998D055CD /* der_encoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = der_encoder.h; path = asn1_parser/der_encoder.h; sourceTree = "<group>"; };
-		75CD0E62AB440518B07690AAC08C502D /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = YLMoment/Localization/it.lproj; sourceTree = "<group>"; };
+		75CD0E62AB440518B07690AAC08C502D /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = it.lproj; path = YLMoment/Localization/it.lproj; sourceTree = "<group>"; };
 		75D182674F8DB9D7D3415E55C89B3014 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
 		762F860A8CF9735CE9A7D3957BFF4EBD /* OCMRealObjectForwarder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMRealObjectForwarder.h; path = Source/OCMock/OCMRealObjectForwarder.h; sourceTree = "<group>"; };
 		77DFD48C6EB86F0C7B58FFDA50F044DE /* UITextField+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+BlocksKit.h"; path = "BlocksKit/UIKit/UITextField+BlocksKit.h"; sourceTree = "<group>"; };
 		78C1AD189B4F2D98A43207294710DF44 /* NSObject+Expecta.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+Expecta.h"; path = "Expecta/NSObject+Expecta.h"; sourceTree = "<group>"; };
-		78C24A909BE6A218C6C92384EAD1614B /* Payload.c */ = {isa = PBXFileReference; includeInIndex = 1; name = Payload.c; path = asn1_parser/Payload.c; sourceTree = "<group>"; };
+		78C24A909BE6A218C6C92384EAD1614B /* Payload.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = Payload.c; path = asn1_parser/Payload.c; sourceTree = "<group>"; };
 		7977DD452AEB2DE6C6DE21EE809851E6 /* NOZZipper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NOZZipper.h; path = ZipUtilities/NOZZipper.h; sourceTree = "<group>"; };
 		799F337E493A13A671DFCFAA25D692DD /* UIImage+ImageWithColor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithColor.h"; path = "UIImage-Helpers/UIImage+ImageWithColor.h"; sourceTree = "<group>"; };
 		7AB46FCC12A5DF2FF34E079DEC0B149C /* Pods-HabitsTodayExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HabitsTodayExtension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1351,8 +1354,8 @@
 		7B7BE6CA6E330C25C8A91A8E61A02885 /* OCMInvocationMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMInvocationMatcher.m; path = Source/OCMock/OCMInvocationMatcher.m; sourceTree = "<group>"; };
 		7BB63478167DF5E016807A39D98F4CA4 /* OCMPassByRefSetter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMPassByRefSetter.m; path = Source/OCMock/OCMPassByRefSetter.m; sourceTree = "<group>"; };
 		7BFBBA3D46540B441AF49AE2C316C5CC /* UIBarButtonItem+ALActionBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+ALActionBlocks.h"; path = "ALActionBlocks/UIBarButtonItem+ALActionBlocks.h"; sourceTree = "<group>"; };
-		7C352306EB5B77CF25BBB8A3C5285CF5 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = YLMoment/Localization/fr.lproj; sourceTree = "<group>"; };
-		7C71DB634D500FA5E3CF0FD0ED7466C5 /* libDHAppleReceiptParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libDHAppleReceiptParser.a; path = libDHAppleReceiptParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C352306EB5B77CF25BBB8A3C5285CF5 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = fr.lproj; path = YLMoment/Localization/fr.lproj; sourceTree = "<group>"; };
+		7C71DB634D500FA5E3CF0FD0ED7466C5 /* libDHAppleReceiptParser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDHAppleReceiptParser.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C9645C7B7B7F2C46885AC58DA86B544 /* KIFSystemTestActor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KIFSystemTestActor.m; path = Classes/KIFSystemTestActor.m; sourceTree = "<group>"; };
 		7CC605580478BBDDEC5467B1172D84F3 /* SPTSpec.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTSpec.m; path = src/SPTSpec.m; sourceTree = "<group>"; };
 		7CF9E8C82D347462E6061F339E2CD4A1 /* CAAnimation+KIFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CAAnimation+KIFAdditions.m"; path = "Additions/CAAnimation+KIFAdditions.m"; sourceTree = "<group>"; };
@@ -1368,7 +1371,7 @@
 		7F4272A62BF974AAFC5A56259F6889EB /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		7F7BA4EC0890B654CC741992EFFFB3E6 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		7F7BB01234A94B2BD93294EAC9665B96 /* OCMFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMFunctions.m; path = Source/OCMock/OCMFunctions.m; sourceTree = "<group>"; };
-		7FC99E5D77F3EBD0A8BEA85CABE82D67 /* libUIAlertView-Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUIAlertView-Blocks.a"; path = "libUIAlertView-Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FC99E5D77F3EBD0A8BEA85CABE82D67 /* libUIAlertView-Blocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIAlertView-Blocks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD51CCD496EEE8CD74BED2C44308BE3 /* LMModalSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMModalSegue.m; path = LMAlertView/LMModalSegue.m; sourceTree = "<group>"; };
 		7FDEF78B332958927E1683373D419D14 /* EXPMatchers+beNil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beNil.m"; path = "Expecta/Matchers/EXPMatchers+beNil.m"; sourceTree = "<group>"; };
 		80F005CE736AB45B339D81574F01AD37 /* MTLJSONAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLJSONAdapter.h; path = Mantle/MTLJSONAdapter.h; sourceTree = "<group>"; };
@@ -1389,7 +1392,7 @@
 		87BBAA1F55EA555DE6F256D0C0A6AFB1 /* F.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = F.m; sourceTree = "<group>"; };
 		87DA3A32E6A65365FF71FEE54CE00661 /* rc2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = rc2.h; path = include/openssl/rc2.h; sourceTree = "<group>"; };
 		88FCAFE7664794037214FC2C0300C830 /* LMEmbeddedViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMEmbeddedViewController.m; path = LMAlertView/LMEmbeddedViewController.m; sourceTree = "<group>"; };
-		8901A5A3393C8F97434EEF9BCFEC9BB4 /* zh.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = zh.lproj; path = YLMoment/Localization/zh.lproj; sourceTree = "<group>"; };
+		8901A5A3393C8F97434EEF9BCFEC9BB4 /* zh.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = zh.lproj; path = YLMoment/Localization/zh.lproj; sourceTree = "<group>"; };
 		8978FD4724992E7F1DD3C2EBC1F04AF1 /* DHAppleReceiptParser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DHAppleReceiptParser-dummy.m"; sourceTree = "<group>"; };
 		8994672A5AC9ACBE10D835078210CDE1 /* OCMInvocationStub.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMInvocationStub.m; path = Source/OCMock/OCMInvocationStub.m; sourceTree = "<group>"; };
 		89E68B09EC915E5CB54E752E4DF3257F /* OCMInvocationStub.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMInvocationStub.h; path = Source/OCMock/OCMInvocationStub.h; sourceTree = "<group>"; };
@@ -1401,7 +1404,7 @@
 		8A468124B8EA177D7A060A932485EE32 /* NOZUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NOZUtils.m; path = ZipUtilities/NOZUtils.m; sourceTree = "<group>"; };
 		8A4DA462EF90767265EA12084AC214BA /* ssl23.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl23.h; path = include/openssl/ssl23.h; sourceTree = "<group>"; };
 		8A60BE1F1B4AE6425CBE22693EAC123D /* NSMutableSet+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableSet+BlocksKit.m"; path = "BlocksKit/Core/NSMutableSet+BlocksKit.m"; sourceTree = "<group>"; };
-		8BE69A4A341B17B171BA0705FAF8D3DE /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = YLMoment/Localization/de.lproj; sourceTree = "<group>"; };
+		8BE69A4A341B17B171BA0705FAF8D3DE /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = de.lproj; path = YLMoment/Localization/de.lproj; sourceTree = "<group>"; };
 		8CA85E9F010F51D3712538DAB03F725C /* KIFTestActor_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KIFTestActor_Private.h; path = Classes/KIFTestActor_Private.h; sourceTree = "<group>"; };
 		8CC8BEFE2C84690F0529BB8FAA4D5C50 /* EXPMatchers+postNotification.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+postNotification.h"; path = "Expecta/Matchers/EXPMatchers+postNotification.h"; sourceTree = "<group>"; };
 		8CCE46593F34B3CD5451BFEF6F4DDA43 /* MTLEXTRuntimeExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLEXTRuntimeExtensions.m; path = Mantle/extobjc/MTLEXTRuntimeExtensions.m; sourceTree = "<group>"; };
@@ -1425,14 +1428,14 @@
 		91CEE6A80EE446BF91BD1B4522970E2C /* ALActionBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALActionBlocks.h; path = ALActionBlocks/ALActionBlocks.h; sourceTree = "<group>"; };
 		9224055E82E4D8A93BA27D5A25D8FC72 /* Pods-Habits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Habits.release.xcconfig"; sourceTree = "<group>"; };
 		92DBF2DEDC9B6E8978A5421925B38E0F /* FCOverlay-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FCOverlay-prefix.pch"; sourceTree = "<group>"; };
-		939518D7B829F5F337EBD2463DAE8B4B /* libUIImage-Helpers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libUIImage-Helpers.a"; path = "libUIImage-Helpers.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		939518D7B829F5F337EBD2463DAE8B4B /* libUIImage-Helpers.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIImage-Helpers.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F78AB2B51A53AE4937B396230215F9 /* OCMBlockCaller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBlockCaller.m; path = Source/OCMock/OCMBlockCaller.m; sourceTree = "<group>"; };
 		94439DE50E6C89C0A4C4410504146FCA /* EXPMatchers+beLessThan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beLessThan.m"; path = "Expecta/Matchers/EXPMatchers+beLessThan.m"; sourceTree = "<group>"; };
 		94C69BE89900D84D35BA90A4FA798B74 /* OCObserverMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCObserverMockObject.m; path = Source/OCMock/OCObserverMockObject.m; sourceTree = "<group>"; };
 		94C8BC867A594987FF1BE9AF68047C74 /* OCMStubRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMStubRecorder.m; path = Source/OCMock/OCMStubRecorder.m; sourceTree = "<group>"; };
 		94F2762AF8011E35F16B252259310583 /* RBBCustomAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBCustomAnimation.m; path = RBBAnimation/RBBCustomAnimation.m; sourceTree = "<group>"; };
 		97541EDC541FADA24D59B196D609468E /* asn1t.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn1t.h; path = include/openssl/asn1t.h; sourceTree = "<group>"; };
-		9776DF7729DC97106AD8BF60DB532567 /* per_decoder.c */ = {isa = PBXFileReference; includeInIndex = 1; name = per_decoder.c; path = asn1_parser/per_decoder.c; sourceTree = "<group>"; };
+		9776DF7729DC97106AD8BF60DB532567 /* per_decoder.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = per_decoder.c; path = asn1_parser/per_decoder.c; sourceTree = "<group>"; };
 		9787B177704517AE91EE5D5BA903DCB3 /* F.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = F.h; sourceTree = "<group>"; };
 		97E2C4092BE00EF2C3A5ABA25AEB008C /* EXPMatchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPMatchers.h; path = Expecta/Matchers/EXPMatchers.h; sourceTree = "<group>"; };
 		980B2E525B725C8A0C584E2F7E6AB635 /* NSData+NOZAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+NOZAdditions.m"; path = "ZipUtilities/NSData+NOZAdditions.m"; sourceTree = "<group>"; };
@@ -1452,12 +1455,12 @@
 		9CEEE8DC6AB7F7CAD267DB811909EC78 /* BlocksKit+MessageUI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "BlocksKit+MessageUI.h"; path = "BlocksKit/BlocksKit+MessageUI.h"; sourceTree = "<group>"; };
 		9D19F05F976A679F74C647863EBDFB2F /* OCMObserverRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMObserverRecorder.h; path = Source/OCMock/OCMObserverRecorder.h; sourceTree = "<group>"; };
 		9D86EDDD304FBCB9A3AF404A31AE4A5B /* NOZCompress.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NOZCompress.h; path = ZipUtilities/NOZCompress.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DFE32A69D8C4DB740F22E8BFB0A3C64 /* ber_tlv_length.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ber_tlv_length.h; path = asn1_parser/ber_tlv_length.h; sourceTree = "<group>"; };
 		9E1A35F9073DD58AC445E517398D4C13 /* MCSwipeTableViewCell-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MCSwipeTableViewCell-prefix.pch"; sourceTree = "<group>"; };
 		9EAA7F46508EB1F309490D09649D17B4 /* OCMBlockArgCaller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBlockArgCaller.m; path = Source/OCMock/OCMBlockArgCaller.m; sourceTree = "<group>"; };
 		9ECE07736DB351C420BDAD8C0CB3CC60 /* UIPopoverController+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPopoverController+BlocksKit.h"; path = "BlocksKit/UIKit/UIPopoverController+BlocksKit.h"; sourceTree = "<group>"; };
-		9F5437C4C72676AAA7B3921446A46455 /* constraints.c */ = {isa = PBXFileReference; includeInIndex = 1; name = constraints.c; path = asn1_parser/constraints.c; sourceTree = "<group>"; };
+		9F5437C4C72676AAA7B3921446A46455 /* constraints.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = constraints.c; path = asn1_parser/constraints.c; sourceTree = "<group>"; };
 		A012A159B76484F7FE49B33EDD490AEF /* EXPMatchers+beCloseTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beCloseTo.m"; path = "Expecta/Matchers/EXPMatchers+beCloseTo.m"; sourceTree = "<group>"; };
 		A036963DC6E477AC78E1F9E074FEBAEE /* NSMutableDictionary+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+BlocksKit.m"; path = "BlocksKit/Core/NSMutableDictionary+BlocksKit.m"; sourceTree = "<group>"; };
 		A04459E82627B639364025B689DDA6EE /* SpectaTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SpectaTypes.h; path = src/SpectaTypes.h; sourceTree = "<group>"; };
@@ -1472,7 +1475,7 @@
 		A2AF456D63FDB36EEB9924907BC44755 /* UIWebView+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+BlocksKit.h"; path = "BlocksKit/UIKit/UIWebView+BlocksKit.h"; sourceTree = "<group>"; };
 		A2FBAED74E641708BACD98043703D396 /* FCOverlay-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FCOverlay-dummy.m"; sourceTree = "<group>"; };
 		A357F7AE47577C558B99213031E2B8CA /* NSValueTransformer+MTLInversionAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValueTransformer+MTLInversionAdditions.m"; path = "Mantle/NSValueTransformer+MTLInversionAdditions.m"; sourceTree = "<group>"; };
-		A39D500E8B61AC38160E16F9406D340B /* xer_decoder.c */ = {isa = PBXFileReference; includeInIndex = 1; name = xer_decoder.c; path = asn1_parser/xer_decoder.c; sourceTree = "<group>"; };
+		A39D500E8B61AC38160E16F9406D340B /* xer_decoder.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = xer_decoder.c; path = asn1_parser/xer_decoder.c; sourceTree = "<group>"; };
 		A3D2C6B00D299E84F892F89798FB5E45 /* err.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = err.h; path = include/openssl/err.h; sourceTree = "<group>"; };
 		A3EA3EF9A07F1556B389527DC6B0D76E /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		A3FFE48BD02E8E90E02A4B8362D13523 /* YLMoment.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YLMoment.xcconfig; sourceTree = "<group>"; };
@@ -1486,26 +1489,26 @@
 		A5EE6C2EF577D230F20280B85A8ECE76 /* LMAlertView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LMAlertView.xcconfig; sourceTree = "<group>"; };
 		A63F75BB2362760994877453AEE42096 /* XCTestLog+Specta.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XCTestLog+Specta.m"; path = "src/XCTestLog+Specta.m"; sourceTree = "<group>"; };
 		A64F0E53FAEDCF025C420E28FCBAC674 /* srtp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = srtp.h; path = include/openssl/srtp.h; sourceTree = "<group>"; };
-		A67A3DCF35D4168E1EC6B3005F4C4031 /* constr_TYPE.c */ = {isa = PBXFileReference; includeInIndex = 1; name = constr_TYPE.c; path = asn1_parser/constr_TYPE.c; sourceTree = "<group>"; };
+		A67A3DCF35D4168E1EC6B3005F4C4031 /* constr_TYPE.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = constr_TYPE.c; path = asn1_parser/constr_TYPE.c; sourceTree = "<group>"; };
 		A6FE6A38A3311AA2128F74AF3579DC99 /* XCTestCase-KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCTestCase-KIFAdditions.h"; path = "Additions/XCTestCase-KIFAdditions.h"; sourceTree = "<group>"; };
 		A7198EA6B2273B21B437F6022F3524E6 /* OCPartialMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCPartialMockObject.h; path = Source/OCMock/OCPartialMockObject.h; sourceTree = "<group>"; };
 		A78DAC50A97838FF478CC086136D4F4F /* NSString+KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+KIFAdditions.h"; path = "Additions/NSString+KIFAdditions.h"; sourceTree = "<group>"; };
-		A792314DA700DF5385A330FDC72C39A9 /* INTEGER.c */ = {isa = PBXFileReference; includeInIndex = 1; name = INTEGER.c; path = asn1_parser/INTEGER.c; sourceTree = "<group>"; };
+		A792314DA700DF5385A330FDC72C39A9 /* INTEGER.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = INTEGER.c; path = asn1_parser/INTEGER.c; sourceTree = "<group>"; };
 		A7B6E5B085DC3DE3EBA8DFF5CFFBA389 /* EXPFloatTuple.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPFloatTuple.m; path = Expecta/EXPFloatTuple.m; sourceTree = "<group>"; };
-		A7BF3350B6724BEA1E36F9785C6D10E2 /* BIT_STRING.c */ = {isa = PBXFileReference; includeInIndex = 1; name = BIT_STRING.c; path = asn1_parser/BIT_STRING.c; sourceTree = "<group>"; };
+		A7BF3350B6724BEA1E36F9785C6D10E2 /* BIT_STRING.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = BIT_STRING.c; path = asn1_parser/BIT_STRING.c; sourceTree = "<group>"; };
 		A927FD8C78A49A8CDA1645C9EF6396C3 /* MFMailComposeViewController+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MFMailComposeViewController+BlocksKit.m"; path = "BlocksKit/MessageUI/MFMailComposeViewController+BlocksKit.m"; sourceTree = "<group>"; };
 		A975F9959C4EF974E1CE08F2ADACBA71 /* UIImage-Helpers-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage-Helpers-prefix.pch"; sourceTree = "<group>"; };
 		AA27486299FC252A44EADFA2E166DF86 /* UIView-KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView-KIFAdditions.h"; path = "Additions/UIView-KIFAdditions.h"; sourceTree = "<group>"; };
 		AA906E8829FFD8441294EFC7C796273D /* RIButtonItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
 		AB5557B657864DFD7D11F2F0D663F996 /* whrlpool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = whrlpool.h; path = include/openssl/whrlpool.h; sourceTree = "<group>"; };
 		ABEA726D29E629CA5D2C5668BE5182DC /* OCMBoxedReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBoxedReturnValueProvider.h; path = Source/OCMock/OCMBoxedReturnValueProvider.h; sourceTree = "<group>"; };
-		ABF65919CCE720EB5139FA6F11E2B294 /* libKIF.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libKIF.a; path = libKIF.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF65919CCE720EB5139FA6F11E2B294 /* libKIF.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKIF.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0357DD945182E0CB3AB6667AF84A0F /* Pods-HabitsCommonTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HabitsCommonTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AC3382A3A1F538AA6AA0E43C922C45BD /* EXPMatchers+beIdenticalTo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beIdenticalTo.h"; path = "Expecta/Matchers/EXPMatchers+beIdenticalTo.h"; sourceTree = "<group>"; };
 		AC92BAC85F04E1C79709FFC25073451B /* idea.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = idea.h; path = include/openssl/idea.h; sourceTree = "<group>"; };
 		AD58951F512FD13BEF1F3A63D76811E4 /* RBBSpringAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBSpringAnimation.m; path = RBBAnimation/RBBSpringAnimation.m; sourceTree = "<group>"; };
-		AD8FEC9BA148C6CA74986F54E028DB85 /* libSHMessageUIBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSHMessageUIBlocks.a; path = libSHMessageUIBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		ADC892E64C4DE49ED736D94D1D048EB2 /* libPods-HabitsTodayExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-HabitsTodayExtension.a"; path = "libPods-HabitsTodayExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD8FEC9BA148C6CA74986F54E028DB85 /* libSHMessageUIBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHMessageUIBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADC892E64C4DE49ED736D94D1D048EB2 /* libPods-HabitsTodayExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsTodayExtension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE08BF3ADF2B9FF6C5819B3F7BAA9D5 /* KIFTypist.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KIFTypist.h; path = Classes/KIFTypist.h; sourceTree = "<group>"; };
 		AE59725CC537EAAB937B62D13394CB19 /* Pods-HabitsTodayExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HabitsTodayExtension.release.xcconfig"; sourceTree = "<group>"; };
 		AE87851B12EA1AE470FF6B1E742C2B2F /* EXPMatchers+contain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+contain.h"; path = "Expecta/Matchers/EXPMatchers+contain.h"; sourceTree = "<group>"; };
@@ -1529,7 +1532,7 @@
 		B2F44CFAA1699CF5A2C0F4A4382F8940 /* ExpectaObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ExpectaObject.m; path = Expecta/ExpectaObject.m; sourceTree = "<group>"; };
 		B2F8A80602CE6E2844502B0521321098 /* AVHexColor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AVHexColor.xcconfig; sourceTree = "<group>"; };
 		B327BBEBB82807B2509DB5FFDB7D8616 /* NOZ_Project.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NOZ_Project.h; path = ZipUtilities/NOZ_Project.h; sourceTree = "<group>"; };
-		B364D10D2820F401CB37771882EAFAA2 /* ber_decoder.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ber_decoder.c; path = asn1_parser/ber_decoder.c; sourceTree = "<group>"; };
+		B364D10D2820F401CB37771882EAFAA2 /* ber_decoder.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ber_decoder.c; path = asn1_parser/ber_decoder.c; sourceTree = "<group>"; };
 		B39D3C7F63766A613A53C092F7D690A8 /* per_encoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = per_encoder.h; path = asn1_parser/per_encoder.h; sourceTree = "<group>"; };
 		B4217E70C89713F45B1D9E25CFEF2DE4 /* ecdsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecdsa.h; path = include/openssl/ecdsa.h; sourceTree = "<group>"; };
 		B44C87E16F2E28AF4EA1DC7D65637A84 /* CAAnimation+KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CAAnimation+KIFAdditions.h"; path = "Additions/CAAnimation+KIFAdditions.h"; sourceTree = "<group>"; };
@@ -1540,7 +1543,7 @@
 		B5B9C5F2FB0C0E34D8B3A61F34DC83EF /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		B5BC62AF4E8BDA4370FEC45604AA1B3F /* Specta-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Specta-dummy.m"; sourceTree = "<group>"; };
 		B5C8F9153CBEEE62B9D6BD2D4E2EEBA1 /* ber_tlv_tag.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ber_tlv_tag.h; path = asn1_parser/ber_tlv_tag.h; sourceTree = "<group>"; };
-		B66663BF6ABC94900B9749FC30718208 /* YLMoment-iOS.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "YLMoment-iOS.bundle"; path = "YLMoment-YLMoment-iOS.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B66663BF6ABC94900B9749FC30718208 /* YLMoment-iOS.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YLMoment-iOS.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B684AF3D801062A23F02A667A71ECFD6 /* KIFUITestActor_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KIFUITestActor_Private.h; path = Classes/KIFUITestActor_Private.h; sourceTree = "<group>"; };
 		B70539D8DD8B3028C57A80D18043A396 /* RBBTweenAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RBBTweenAnimation.m; path = RBBAnimation/RBBTweenAnimation.m; sourceTree = "<group>"; };
 		B7E5CFB142ED286B7D1116B73E9A053A /* NSObject+BKBlockExecution.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+BKBlockExecution.m"; path = "BlocksKit/Core/NSObject+BKBlockExecution.m"; sourceTree = "<group>"; };
@@ -1562,7 +1565,7 @@
 		BAE808B1DD18808AF192E60AA0BB3195 /* XCTestRun+Specta.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "XCTestRun+Specta.m"; path = "src/XCTestRun+Specta.m"; sourceTree = "<group>"; };
 		BB09F1CCAE56B7CCDA584FA622B9BEE1 /* Pods-HabitsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HabitsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BB4AEC427696136C949D108DF4BEC6BF /* SPTExample.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTExample.h; path = src/SPTExample.h; sourceTree = "<group>"; };
-		BB60D2F95BD40CEE78FC70A04021C1E8 /* ber_tlv_length.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ber_tlv_length.c; path = asn1_parser/ber_tlv_length.c; sourceTree = "<group>"; };
+		BB60D2F95BD40CEE78FC70A04021C1E8 /* ber_tlv_length.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ber_tlv_length.c; path = asn1_parser/ber_tlv_length.c; sourceTree = "<group>"; };
 		BBCE7E5ABF990245C9B73BB6A3CF4018 /* e_os2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = e_os2.h; path = include/openssl/e_os2.h; sourceTree = "<group>"; };
 		BC085481164068F50E7E7A7C22341BE3 /* FCOverlayViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FCOverlayViewController.h; path = FCOverlayViewControllerClass/FCOverlayViewController.h; sourceTree = "<group>"; };
 		BC633833D31B4EAF869240D1F764CFB6 /* NSObject+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+OCMAdditions.h"; path = "Source/OCMock/NSObject+OCMAdditions.h"; sourceTree = "<group>"; };
@@ -1580,7 +1583,7 @@
 		C071AE8DB0ED9957C6009A0971F8B138 /* OCMLocation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMLocation.m; path = Source/OCMock/OCMLocation.m; sourceTree = "<group>"; };
 		C16F12A1A64A720532C2386EF272BB54 /* NSDictionary+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+BlocksKit.m"; path = "BlocksKit/Core/NSDictionary+BlocksKit.m"; sourceTree = "<group>"; };
 		C1E7201CC7DCC3099F2652CF0D976B92 /* UIGestureRecognizer+ALActionBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+ALActionBlocks.h"; path = "ALActionBlocks/UIGestureRecognizer+ALActionBlocks.h"; sourceTree = "<group>"; };
-		C1F5D63763F6A38436A2F9DD6B2DCF6F /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = YLMoment/Localization/nl.lproj; sourceTree = "<group>"; };
+		C1F5D63763F6A38436A2F9DD6B2DCF6F /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = nl.lproj; path = YLMoment/Localization/nl.lproj; sourceTree = "<group>"; };
 		C37CC243B07001E4D49155F3D00F1BDB /* NSOrderedSet+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSOrderedSet+BlocksKit.m"; path = "BlocksKit/Core/NSOrderedSet+BlocksKit.m"; sourceTree = "<group>"; };
 		C3BEEBF2DF1A96E4D70A2F7AFC299C93 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		C3D86559B02877D757AD99300D5F2222 /* engine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = engine.h; path = include/openssl/engine.h; sourceTree = "<group>"; };
@@ -1595,9 +1598,9 @@
 		C7AB0EB13CC0F3614962A0B78B22F599 /* CALayer+ModalAlert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+ModalAlert.h"; path = "LMAlertView/CALayer+ModalAlert.h"; sourceTree = "<group>"; };
 		C8BC5B6E2A29389FD518725232DD85DD /* EXPDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPDefines.h; path = Expecta/EXPDefines.h; sourceTree = "<group>"; };
 		C8DEB308F742B2D13F5BC3AEC9DACA41 /* Pods-HabitsCommon-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HabitsCommon-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C91739B41C7E7A3063082D5558D35ACA /* OCTET_STRING.c */ = {isa = PBXFileReference; includeInIndex = 1; name = OCTET_STRING.c; path = asn1_parser/OCTET_STRING.c; sourceTree = "<group>"; };
+		C91739B41C7E7A3063082D5558D35ACA /* OCTET_STRING.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = OCTET_STRING.c; path = asn1_parser/OCTET_STRING.c; sourceTree = "<group>"; };
 		C91DCCE9E1E2DBD71A3829154937DA32 /* Pods-HabitsCommonTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HabitsCommonTests-resources.sh"; sourceTree = "<group>"; };
-		C93B4EB828B41CA48D1181A64EC23761 /* constr_SET_OF.c */ = {isa = PBXFileReference; includeInIndex = 1; name = constr_SET_OF.c; path = asn1_parser/constr_SET_OF.c; sourceTree = "<group>"; };
+		C93B4EB828B41CA48D1181A64EC23761 /* constr_SET_OF.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = constr_SET_OF.c; path = asn1_parser/constr_SET_OF.c; sourceTree = "<group>"; };
 		C94249ACD0218E1E2FFF5D48A588691D /* ts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ts.h; path = include/openssl/ts.h; sourceTree = "<group>"; };
 		C9650B7BE1BF0888CB01CADBFB6D829D /* NSSet+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSSet+BlocksKit.h"; path = "BlocksKit/Core/NSSet+BlocksKit.h"; sourceTree = "<group>"; };
 		C990CD90ACEF5195BB054A35E7459E16 /* _SHComposerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _SHComposerManager.m; path = SHMessageUIBlocks/_SHComposerManager.m; sourceTree = "<group>"; };
@@ -1618,7 +1621,7 @@
 		CFA2BD780948F2F7491DDA4F09674BBD /* SPTXCTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTXCTestCase.h; path = src/SPTXCTestCase.h; sourceTree = "<group>"; };
 		CFB99456B9BAEEE17FBE4DA29A89A80C /* UIGestureRecognizer+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+BlocksKit.m"; path = "BlocksKit/UIKit/UIGestureRecognizer+BlocksKit.m"; sourceTree = "<group>"; };
 		CFCACF974D5459DF806B46117D175E2F /* NSObject+A2DynamicDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+A2DynamicDelegate.h"; path = "BlocksKit/DynamicDelegate/NSObject+A2DynamicDelegate.h"; sourceTree = "<group>"; };
-		D02035B80D7A14B0BED37FA94CD494EE /* per_opentype.c */ = {isa = PBXFileReference; includeInIndex = 1; name = per_opentype.c; path = asn1_parser/per_opentype.c; sourceTree = "<group>"; };
+		D02035B80D7A14B0BED37FA94CD494EE /* per_opentype.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = per_opentype.c; path = asn1_parser/per_opentype.c; sourceTree = "<group>"; };
 		D06ADD12461B431E64ED70DB7A89FEFD /* NOZDecompress.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NOZDecompress.m; path = ZipUtilities/NOZDecompress.m; sourceTree = "<group>"; };
 		D072A50CE84B6A7FD5A173210A840B4F /* MTLJSONAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLJSONAdapter.m; path = Mantle/MTLJSONAdapter.m; sourceTree = "<group>"; };
 		D151ACA41682C3B99C4AA1BC82E060A1 /* MFMailComposeViewController+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MFMailComposeViewController+BlocksKit.h"; path = "BlocksKit/MessageUI/MFMailComposeViewController+BlocksKit.h"; sourceTree = "<group>"; };
@@ -1627,7 +1630,7 @@
 		D2D9511FC130CA7AEBEE6C00222EC2C1 /* CAAnimationBlocks-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CAAnimationBlocks-prefix.pch"; sourceTree = "<group>"; };
 		D3015149DA23F397BA38953D0349F572 /* asn_SET_OF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn_SET_OF.h; path = asn1_parser/asn_SET_OF.h; sourceTree = "<group>"; };
 		D3C01C7599944B3FA912A4E6073C052F /* ZipUtilities-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZipUtilities-dummy.m"; sourceTree = "<group>"; };
-		D3C7522CC267C76C48BC0E7E99813550 /* libFCOverlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFCOverlay.a; path = libFCOverlay.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3C7522CC267C76C48BC0E7E99813550 /* libFCOverlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFCOverlay.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E7AD634B7C66F6EB6467F8E1122F56 /* SPTNestedReporter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTNestedReporter.h; path = src/SPTNestedReporter.h; sourceTree = "<group>"; };
 		D41EF23F3FC8C015ED5A19027C8A4D03 /* EXPMatchers+beSubclassOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beSubclassOf.h"; path = "Expecta/Matchers/EXPMatchers+beSubclassOf.h"; sourceTree = "<group>"; };
 		D4240DD6EF2936FC1639F04DB9F16CEE /* Pods-HabitsUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HabitsUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -1638,7 +1641,7 @@
 		D6037E4FA6158CB07D48A9B694C925C0 /* UIControl+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+BlocksKit.h"; path = "BlocksKit/UIKit/UIControl+BlocksKit.h"; sourceTree = "<group>"; };
 		D6381FF1961C8215FD53A698A0F9FE36 /* Pods-HabitsTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HabitsTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D6F3DA874EB4A7BB73F3F1FFF068863A /* OCMVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMVerifier.h; path = Source/OCMock/OCMVerifier.h; sourceTree = "<group>"; };
-		D6FE16AAA1C4DD348CE99B2BFEAE3510 /* NativeEnumerated.c */ = {isa = PBXFileReference; includeInIndex = 1; name = NativeEnumerated.c; path = asn1_parser/NativeEnumerated.c; sourceTree = "<group>"; };
+		D6FE16AAA1C4DD348CE99B2BFEAE3510 /* NativeEnumerated.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = NativeEnumerated.c; path = asn1_parser/NativeEnumerated.c; sourceTree = "<group>"; };
 		D70752B0466CDD97FAB67EDD847B8356 /* ExpectaObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ExpectaObject.h; path = Expecta/ExpectaObject.h; sourceTree = "<group>"; };
 		D7303EEEEA906DF9FE55DA3038DCAD23 /* MTLValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLValueTransformer.m; path = Mantle/MTLValueTransformer.m; sourceTree = "<group>"; };
 		D756F7AF5565E552F5D5B249E457D404 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
@@ -1656,7 +1659,7 @@
 		DBF90BB2E0F55C15F33D0F82C5CF8DA0 /* NSObject+A2DynamicDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+A2DynamicDelegate.m"; path = "BlocksKit/DynamicDelegate/NSObject+A2DynamicDelegate.m"; sourceTree = "<group>"; };
 		DC9B64E7CD5C05F4500EAE9CF7624AC1 /* OCMBoxedReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBoxedReturnValueProvider.m; path = Source/OCMock/OCMBoxedReturnValueProvider.m; sourceTree = "<group>"; };
 		DDB6C023F33200EF082B59FDC8AA1D8D /* Expecta-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Expecta-prefix.pch"; sourceTree = "<group>"; };
-		DDB9DBAC245D624CF113781749496484 /* xer_encoder.c */ = {isa = PBXFileReference; includeInIndex = 1; name = xer_encoder.c; path = asn1_parser/xer_encoder.c; sourceTree = "<group>"; };
+		DDB9DBAC245D624CF113781749496484 /* xer_encoder.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = xer_encoder.c; path = asn1_parser/xer_encoder.c; sourceTree = "<group>"; };
 		DDE05BCC03168F7B926FE03A5A8228AB /* constr_SET_OF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = constr_SET_OF.h; path = asn1_parser/constr_SET_OF.h; sourceTree = "<group>"; };
 		DE087C478926D071CA52500FB00E0007 /* YLMoment+Manipulation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "YLMoment+Manipulation.h"; path = "YLMoment/YLMoment+Manipulation.h"; sourceTree = "<group>"; };
 		DE151BE5FF52CBB9E62436E83B067372 /* UITouch-KIFAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITouch-KIFAdditions.h"; path = "Additions/UITouch-KIFAdditions.h"; sourceTree = "<group>"; };
@@ -1666,11 +1669,11 @@
 		DEA571667E3B3A401D42A0C7DB86D50A /* MVPopupTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MVPopupTransition.h; path = MVModalTransition/MVPopupTransition.h; sourceTree = "<group>"; };
 		DFBCDD352C3C52A5635A393B2DE2E1DC /* EXPMatchers+beTruthy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beTruthy.m"; path = "Expecta/Matchers/EXPMatchers+beTruthy.m"; sourceTree = "<group>"; };
 		DFE7BFB2C7266D3977B4029CEFD2D238 /* NSNumber+F.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSNumber+F.h"; sourceTree = "<group>"; };
-		E0BDF97D10D0DBD3347DA75371B34F9C /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = vi.lproj; path = YLMoment/Localization/vi.lproj; sourceTree = "<group>"; };
+		E0BDF97D10D0DBD3347DA75371B34F9C /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = vi.lproj; path = YLMoment/Localization/vi.lproj; sourceTree = "<group>"; };
 		E0D03974F65B5A1DF02989ABDA3BC6DE /* UIImage+Blur.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Blur.m"; path = "UIImage-Helpers/UIImage+Blur.m"; sourceTree = "<group>"; };
 		E1E993127C9A43F71E97250E51AD5F57 /* NOZSyncStepOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NOZSyncStepOperation.h; path = ZipUtilities/NOZSyncStepOperation.h; sourceTree = "<group>"; };
 		E1F99FA1AD8101A95B10C7E9877F0649 /* EXPMatchers+conformTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+conformTo.m"; path = "Expecta/Matchers/EXPMatchers+conformTo.m"; sourceTree = "<group>"; };
-		E222B56811E807BA18A2C7AD27E2C88D /* libCAAnimationBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCAAnimationBlocks.a; path = libCAAnimationBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E222B56811E807BA18A2C7AD27E2C88D /* libCAAnimationBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCAAnimationBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23C07309ABF7E4AD2EF725933C99ABE /* MVPopupTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MVPopupTransition.m; path = MVModalTransition/MVPopupTransition.m; sourceTree = "<group>"; };
 		E254215B757E78DA97F651BDFDF5F8B6 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		E2F6A44C72470568E6995096FE880C31 /* YLMoment+Description.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "YLMoment+Description.h"; path = "YLMoment/YLMoment+Description.h"; sourceTree = "<group>"; };
@@ -1686,20 +1689,20 @@
 		E579696EE0BE8D1721271EB6775BC771 /* Pods-HabitsCommon-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HabitsCommon-acknowledgements.plist"; sourceTree = "<group>"; };
 		E58C74982BBF91E2E44B6B735DC17D1C /* SPTSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTSpec.h; path = src/SPTSpec.h; sourceTree = "<group>"; };
 		E5F3CAF37B3E60CA8AD973B0BA4DAD36 /* KIFUIObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KIFUIObject.m; path = Classes/KIFUIObject.m; sourceTree = "<group>"; };
-		E5FA02EFF089A5CDE107803993A308BB /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = YLMoment/Localization/ja.lproj; sourceTree = "<group>"; };
+		E5FA02EFF089A5CDE107803993A308BB /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = ja.lproj; path = YLMoment/Localization/ja.lproj; sourceTree = "<group>"; };
 		E61BBBBF298342659F157ACDE7630674 /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+MTLPredefinedTransformerAdditions.h"; path = "Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h"; sourceTree = "<group>"; };
 		E768520543B225AC21F45D241A22E110 /* UIAutomationHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = UIAutomationHelper.h; path = Classes/UIAutomationHelper.h; sourceTree = "<group>"; };
 		E7C27F4B14C7AEC929ECE77DB2A6A296 /* OCPartialMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCPartialMockObject.m; path = Source/OCMock/OCPartialMockObject.m; sourceTree = "<group>"; };
 		E7DBFAD1A7E6FEDD0E2BA7C74F682507 /* OCMLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMLocation.h; path = Source/OCMock/OCMLocation.h; sourceTree = "<group>"; };
 		E80198E4C3153494FAB6A5323B4768E4 /* KIFUIObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KIFUIObject.h; path = Classes/KIFUIObject.h; sourceTree = "<group>"; };
-		E829082A69644CBAAD17DB530798FAD2 /* libRBBAnimation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRBBAnimation.a; path = libRBBAnimation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E829082A69644CBAAD17DB530798FAD2 /* libRBBAnimation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRBBAnimation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E846BD18277E22607AE07620A37CFCD2 /* NSStream+NOZAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSStream+NOZAdditions.h"; path = "ZipUtilities/NSStream+NOZAdditions.h"; sourceTree = "<group>"; };
 		E84C13354D8E26C9ECB5C44EF22340A0 /* ReceiptAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ReceiptAttribute.h; path = asn1_parser/ReceiptAttribute.h; sourceTree = "<group>"; };
 		E89908E86EC38D14121EAF2D8EEF85FB /* OCMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMockObject.h; path = Source/OCMock/OCMockObject.h; sourceTree = "<group>"; };
 		E8C76C72F96FA463549E808D786C9ABF /* pkcs7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pkcs7.h; path = include/openssl/pkcs7.h; sourceTree = "<group>"; };
 		E97B35A08A4742853A418CA851F72331 /* Functional.m.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Functional.m.xcconfig; sourceTree = "<group>"; };
-		E97D43C46A45EE515A4DA3AF94398441 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSVProgressHUD.a; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9953BBC177802A49828DEFED6268ABB /* asn_codecs_prim.c */ = {isa = PBXFileReference; includeInIndex = 1; name = asn_codecs_prim.c; path = asn1_parser/asn_codecs_prim.c; sourceTree = "<group>"; };
+		E97D43C46A45EE515A4DA3AF94398441 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9953BBC177802A49828DEFED6268ABB /* asn_codecs_prim.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = asn_codecs_prim.c; path = asn1_parser/asn_codecs_prim.c; sourceTree = "<group>"; };
 		EA32DB89D03A3B9A14DBCC1EB1B810E6 /* OCMArg.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMArg.h; path = Source/OCMock/OCMArg.h; sourceTree = "<group>"; };
 		EABDA51232245281113B749E8AD62B7F /* OCMMacroState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMMacroState.h; path = Source/OCMock/OCMMacroState.h; sourceTree = "<group>"; };
 		EAC297D5BCFC747CAB94ED5C1CF452F6 /* ResourceBundle-YLMoment-iOS-YLMoment-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-YLMoment-iOS-YLMoment-Info.plist"; sourceTree = "<group>"; };
@@ -1725,20 +1728,20 @@
 		F1AC71C9797760DEAE9E8431C8CF6012 /* NSOrderedSet+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSOrderedSet+BlocksKit.h"; path = "BlocksKit/Core/NSOrderedSet+BlocksKit.h"; sourceTree = "<group>"; };
 		F1F0E58B9159869B76E8DAA00EB0B96C /* SVProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVProgressHUD.xcconfig; sourceTree = "<group>"; };
 		F2366FFBD6ABC0EDDC9D8D7CF876731C /* EXPMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXPMatcher.h; path = Expecta/EXPMatcher.h; sourceTree = "<group>"; };
-		F2CEEDF9E6E8E8794E92860728086A7C /* xer_support.c */ = {isa = PBXFileReference; includeInIndex = 1; name = xer_support.c; path = asn1_parser/xer_support.c; sourceTree = "<group>"; };
+		F2CEEDF9E6E8E8794E92860728086A7C /* xer_support.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = xer_support.c; path = asn1_parser/xer_support.c; sourceTree = "<group>"; };
 		F2F651D15DEB1D1EA0D71936DF6CB373 /* ocsp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ocsp.h; path = include/openssl/ocsp.h; sourceTree = "<group>"; };
-		F30C125DB91902F63DC73AEF0B0E6111 /* libOCMock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libOCMock.a; path = libOCMock.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30C125DB91902F63DC73AEF0B0E6111 /* libOCMock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOCMock.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F355D3797E707F5E5AC2E8BB142C4F8C /* SVProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVProgressHUD-dummy.m"; sourceTree = "<group>"; };
 		F3AF161C596673BD4678FD20D265E882 /* LMNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LMNavigationBar.m; path = LMAlertView/LMNavigationBar.m; sourceTree = "<group>"; };
 		F3C3DB256419DC9005B5516C197000EC /* AVHexColor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AVHexColor-dummy.m"; sourceTree = "<group>"; };
-		F409FB9C61167F6C3BFA552056295C98 /* ReceiptAttribute.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ReceiptAttribute.c; path = asn1_parser/ReceiptAttribute.c; sourceTree = "<group>"; };
+		F409FB9C61167F6C3BFA552056295C98 /* ReceiptAttribute.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = ReceiptAttribute.c; path = asn1_parser/ReceiptAttribute.c; sourceTree = "<group>"; };
 		F41F782B36D55C2104B70163D2BD1BF6 /* YLMoment+Description.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "YLMoment+Description.m"; path = "YLMoment/YLMoment+Description.m"; sourceTree = "<group>"; };
 		F498B91C99FD59B3055E2FD52EFC7E8D /* NSMutableDictionary+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+BlocksKit.h"; path = "BlocksKit/Core/NSMutableDictionary+BlocksKit.h"; sourceTree = "<group>"; };
-		F51C3824BD3B15BE01794C354CD2DC02 /* sq.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = sq.lproj; path = YLMoment/Localization/sq.lproj; sourceTree = "<group>"; };
+		F51C3824BD3B15BE01794C354CD2DC02 /* sq.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = sq.lproj; path = YLMoment/Localization/sq.lproj; sourceTree = "<group>"; };
 		F52AF2E1F5CB6176F02218BAFFDE5D46 /* EXPMatchers+haveCountOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+haveCountOf.h"; path = "Expecta/Matchers/EXPMatchers+haveCountOf.h"; sourceTree = "<group>"; };
 		F52D0FFC15E82A709306FCD11F6DDC3E /* NSStream+NOZAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSStream+NOZAdditions.m"; path = "ZipUtilities/NSStream+NOZAdditions.m"; sourceTree = "<group>"; };
 		F54685EBC030D862E1C339EC7ABB1068 /* OCMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMockObject.m; path = Source/OCMock/OCMockObject.m; sourceTree = "<group>"; };
-		F5609D54DF35512DA538679DDBDE3E91 /* libPods-HabitsCommonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-HabitsCommonTests.a"; path = "libPods-HabitsCommonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5609D54DF35512DA538679DDBDE3E91 /* libPods-HabitsCommonTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsCommonTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F63AF440BDD17C3A9C03476EFB47F6ED /* NOZUnzipper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NOZUnzipper.m; path = ZipUtilities/NOZUnzipper.m; sourceTree = "<group>"; };
 		F6A34FD54A0CBF2E03A48201B817996E /* SPTNestedReporter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTNestedReporter.m; path = src/SPTNestedReporter.m; sourceTree = "<group>"; };
 		F6B0E9A6E25AD4AB1E2795BE01A1ED17 /* SPTXCTestReporter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTXCTestReporter.m; path = src/SPTXCTestReporter.m; sourceTree = "<group>"; };
@@ -1760,7 +1763,7 @@
 		FC926C1781E69E8DD115092F82A9E388 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		FCB80296DB49CEAF38E3DFE6F9423D70 /* x509_vfy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = x509_vfy.h; path = include/openssl/x509_vfy.h; sourceTree = "<group>"; };
 		FD7106BA1DCC5ACBA55C733E493A5559 /* UIBarButtonItem+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+BlocksKit.h"; path = "BlocksKit/UIKit/UIBarButtonItem+BlocksKit.h"; sourceTree = "<group>"; };
-		FD8A2B5A33376EA96D39B4694A86C46F /* constr_SEQUENCE.c */ = {isa = PBXFileReference; includeInIndex = 1; name = constr_SEQUENCE.c; path = asn1_parser/constr_SEQUENCE.c; sourceTree = "<group>"; };
+		FD8A2B5A33376EA96D39B4694A86C46F /* constr_SEQUENCE.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = constr_SEQUENCE.c; path = asn1_parser/constr_SEQUENCE.c; sourceTree = "<group>"; };
 		FDCD3FA55CB043100FFB305DA1E2C665 /* KIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KIF.h; path = Classes/KIF.h; sourceTree = "<group>"; };
 		FDE45DA1F6C3C4DA0EA57B0B6BB6385C /* NOZError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NOZError.m; path = ZipUtilities/NOZError.m; sourceTree = "<group>"; };
 		FE067D3097EEA46F4B49859AE765E139 /* CGGeometry-KIFAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CGGeometry-KIFAdditions.m"; path = "Additions/CGGeometry-KIFAdditions.m"; sourceTree = "<group>"; };
@@ -2053,7 +2056,6 @@
 				BAE808B1DD18808AF192E60AA0BB3195 /* XCTestRun+Specta.m */,
 				3634B9E288F47F34B58AFE796CAA0B87 /* Support Files */,
 			);
-			name = Specta;
 			path = Specta;
 			sourceTree = "<group>";
 		};
@@ -2105,7 +2107,6 @@
 				F52D0FFC15E82A709306FCD11F6DDC3E /* NSStream+NOZAdditions.m */,
 				0ADEF3C50242CC75D62B43C51564082D /* Support Files */,
 			);
-			name = ZipUtilities;
 			path = ZipUtilities;
 			sourceTree = "<group>";
 		};
@@ -2237,7 +2238,6 @@
 				D7C58F648035124862D3ADD231B3ACA0 /* OCProtocolMockObject.m */,
 				069A245BA72E554ED0D0EF6E85D3DE51 /* Support Files */,
 			);
-			name = OCMock;
 			path = OCMock;
 			sourceTree = "<group>";
 		};
@@ -2247,7 +2247,6 @@
 				865AC2464A2C4D57FE6B4223CD7CFB76 /* CWLSynthesizeSingleton.h */,
 				1E7D1DA5C30ED5661B6B50E5163D49A0 /* Support Files */,
 			);
-			name = CWLSynthesizeSingleton;
 			path = CWLSynthesizeSingleton;
 			sourceTree = "<group>";
 		};
@@ -2385,7 +2384,6 @@
 				28DA1B26FC98FDA8E4DD88F6B4F7F04F /* xer_support.h */,
 				91EB1DAE61A18EAB60186B1F43F6468F /* Support Files */,
 			);
-			name = DHAppleReceiptParser;
 			path = DHAppleReceiptParser;
 			sourceTree = "<group>";
 		};
@@ -2398,7 +2396,6 @@
 				61003B41CF9607C1D4EF522B29557D61 /* Support Files */,
 				F98B91FD9C9F1829272446AF2A329FF5 /* UIKit */,
 			);
-			name = BlocksKit;
 			path = BlocksKit;
 			sourceTree = "<group>";
 		};
@@ -2472,7 +2469,6 @@
 				7F7BA4EC0890B654CC741992EFFFB3E6 /* UIAlertView+Blocks.m */,
 				CF272D274280E42D22A409447AD29233 /* Support Files */,
 			);
-			name = "UIAlertView-Blocks";
 			path = "UIAlertView-Blocks";
 			sourceTree = "<group>";
 		};
@@ -2501,7 +2497,6 @@
 				74143502998CC386409C5140AD4D036A /* Frameworks */,
 				C263487963E00694520C956778D29B00 /* Support Files */,
 			);
-			name = "Reveal-iOS-SDK";
 			path = "Reveal-iOS-SDK";
 			sourceTree = "<group>";
 		};
@@ -2514,7 +2509,6 @@
 				E23C07309ABF7E4AD2EF725933C99ABE /* MVPopupTransition.m */,
 				B440B94D4AD655F4E475B58165B99AD0 /* Support Files */,
 			);
-			name = MVModalTransitions;
 			path = MVModalTransitions;
 			sourceTree = "<group>";
 		};
@@ -2557,7 +2551,6 @@
 				4AB77FC38D6BDCAA5F8937E246949A17 /* Resources */,
 				5824D597502FBAF1027F3034803F6355 /* Support Files */,
 			);
-			name = YLMoment;
 			path = YLMoment;
 			sourceTree = "<group>";
 		};
@@ -2590,7 +2583,6 @@
 				EF69B8DB701017F0624ACAE3BE48A573 /* Core */,
 				EA18095D87668303CF7CB4AA840809A7 /* Support Files */,
 			);
-			name = KIF;
 			path = KIF;
 			sourceTree = "<group>";
 		};
@@ -2600,7 +2592,6 @@
 				08135B30A3CAC0A6EDBC4B133CA35999 /* GTHRectHelpers.h */,
 				E023C629707411B39B826EC4A94BCBBF /* Support Files */,
 			);
-			name = GTHRectHelpers;
 			path = GTHRectHelpers;
 			sourceTree = "<group>";
 		};
@@ -2682,7 +2673,6 @@
 				0F505B6F35E9F6832ABA028118F66D19 /* SHMessageUIBlocks.h */,
 				1C6213D40354DC840057EE07E63E2396 /* Support Files */,
 			);
-			name = SHMessageUIBlocks;
 			path = SHMessageUIBlocks;
 			sourceTree = "<group>";
 		};
@@ -2693,7 +2683,6 @@
 				73610D007E62759BCC994439F362506D /* MCSwipeTableViewCell.m */,
 				16891DCA511C9AC87B7CB4BA71BDCB63 /* Support Files */,
 			);
-			name = MCSwipeTableViewCell;
 			path = MCSwipeTableViewCell;
 			sourceTree = "<group>";
 		};
@@ -2725,7 +2714,6 @@
 				EC3308DE4162E29C916DEF8C477E2102 /* View+MASShorthandAdditions.h */,
 				5E0C54127C2DBD56DB047BCA68EC5CCD /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -2760,7 +2748,6 @@
 				0A85FD9C5C41EA476D98DA3392A5FBA3 /* extobjc */,
 				1DFCE90CBF8EE8261A76D7516FE26E08 /* Support Files */,
 			);
-			name = Mantle;
 			path = Mantle;
 			sourceTree = "<group>";
 		};
@@ -2783,7 +2770,6 @@
 				A25B9C20B2C7EED6ADAEBC95EE982953 /* LMNavigationController.m */,
 				3AA1FE139BB66BF065CD771FD73E6071 /* Support Files */,
 			);
-			name = LMAlertView;
 			path = LMAlertView;
 			sourceTree = "<group>";
 		};
@@ -2934,7 +2920,6 @@
 				279E6A95D2057AC60CDEC4F9243F7177 /* NSValue+Expecta.m */,
 				7F40A9AA1ABDEE4E238BCDA33F4F1B2C /* Support Files */,
 			);
-			name = Expecta;
 			path = Expecta;
 			sourceTree = "<group>";
 		};
@@ -3020,7 +3005,6 @@
 				F1327710FA722BF7F0599B116B3459E9 /* NSNumber+F.m */,
 				E91EC45AC815230D839418E7B9754A64 /* Support Files */,
 			);
-			name = Functional.m;
 			path = Functional.m;
 			sourceTree = "<group>";
 		};
@@ -3050,7 +3034,6 @@
 				2B85629E705551AEABAFFFD9DBE20338 /* UIGestureRecognizer+ALActionBlocks.m */,
 				A4387217F416E66135EF82E8A8EC237C /* Support Files */,
 			);
-			name = ALActionBlocks;
 			path = ALActionBlocks;
 			sourceTree = "<group>";
 		};
@@ -3094,7 +3077,6 @@
 				2D097CC6EB7CBE1735D6FFA4FF4A9B27 /* CAAnimation+Blocks.m */,
 				BCD8533584BD4932DDE08973F28F708E /* Support Files */,
 			);
-			name = CAAnimationBlocks;
 			path = CAAnimationBlocks;
 			sourceTree = "<group>";
 		};
@@ -3141,7 +3123,6 @@
 				64960C34DD4D70E6810B37B91491EFBE /* Resources */,
 				C86CC86C78A78D12BF451E41693E9481 /* Support Files */,
 			);
-			name = SVProgressHUD;
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -3157,7 +3138,6 @@
 				469ACB8DB6AF6F4CA0801165AC1538EA /* UIImage-Helpers.h */,
 				7AF2FD906D72AC109B6C939D64045477 /* Support Files */,
 			);
-			name = "UIImage-Helpers";
 			path = "UIImage-Helpers";
 			sourceTree = "<group>";
 		};
@@ -3168,7 +3148,6 @@
 				376EC4922264DCBA39A064BADF7877ED /* AVHexColor.m */,
 				699FDD01F8E8AEF8F22A73C6B6FDFFB8 /* Support Files */,
 			);
-			name = AVHexColor;
 			path = AVHexColor;
 			sourceTree = "<group>";
 		};
@@ -3188,7 +3167,6 @@
 				54FF50F0DFFE3D661D9B44847B3976F6 /* FCOverlayViewController.m */,
 				588C9E9727DB92C8061952B98A324004 /* Support Files */,
 			);
-			name = FCOverlay;
 			path = FCOverlay;
 			sourceTree = "<group>";
 		};
@@ -3335,7 +3313,6 @@
 				B70539D8DD8B3028C57A80D18043A396 /* RBBTweenAnimation.m */,
 				627532C5AB81B5D47646304219AC33FD /* Support Files */,
 			);
-			name = RBBAnimation;
 			path = RBBAnimation;
 			sourceTree = "<group>";
 		};
@@ -5357,7 +5334,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/ZipUtilities/ZipUtilities-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5382,7 +5359,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -5404,7 +5381,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/RBBAnimation/RBBAnimation-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5429,7 +5406,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -5451,7 +5428,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIAlertView-Blocks/UIAlertView-Blocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5476,7 +5453,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SHMessageUIBlocks/SHMessageUIBlocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5501,7 +5478,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -5522,7 +5499,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -5544,7 +5521,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5569,7 +5546,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/YLMoment/YLMoment-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5594,7 +5571,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/BlocksKit/BlocksKit-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5619,7 +5596,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MCSwipeTableViewCell/MCSwipeTableViewCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5644,7 +5621,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/RBBAnimation/RBBAnimation-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5669,7 +5646,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5693,7 +5670,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/YLMoment";
 				IBSC_MODULE = YLMoment;
 				INFOPLIST_FILE = "Target Support Files/YLMoment/ResourceBundle-YLMoment-iOS-YLMoment-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "YLMoment-iOS";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -5711,7 +5688,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -5731,7 +5708,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5747,7 +5724,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/ZipUtilities/ZipUtilities-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5769,7 +5746,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5786,7 +5763,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5810,7 +5787,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -5832,7 +5809,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Functional.m/Functional.m-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5857,7 +5834,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -5879,7 +5856,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/OCMock/OCMock-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5904,7 +5881,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/AVHexColor/AVHexColor-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5929,7 +5906,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -5947,7 +5924,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5964,7 +5941,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIAlertView-Blocks/UIAlertView-Blocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -5988,7 +5965,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Mantle/Mantle-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6011,7 +5988,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6027,7 +6004,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -6048,7 +6025,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/YLMoment";
 				IBSC_MODULE = YLMoment;
 				INFOPLIST_FILE = "Target Support Files/YLMoment/ResourceBundle-YLMoment-iOS-YLMoment-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "YLMoment-iOS";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -6067,7 +6044,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/CAAnimationBlocks/CAAnimationBlocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6091,7 +6068,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/BlocksKit/BlocksKit-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6116,7 +6093,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Functional.m/Functional.m-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6140,7 +6117,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6209,8 +6186,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -6225,7 +6201,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/LMAlertView/LMAlertView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6249,7 +6225,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6337,7 +6313,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -6384,7 +6360,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/LMAlertView/LMAlertView-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6431,7 +6407,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6448,7 +6424,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Expecta/Expecta-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6497,7 +6473,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/ALActionBlocks/ALActionBlocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6522,7 +6498,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/DHAppleReceiptParser/DHAppleReceiptParser-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6547,7 +6523,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/OCMock/OCMock-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6571,7 +6547,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -6592,7 +6568,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
@@ -6613,7 +6589,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MCSwipeTableViewCell/MCSwipeTableViewCell-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6637,7 +6613,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/SHMessageUIBlocks/SHMessageUIBlocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6662,7 +6638,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/CAAnimationBlocks/CAAnimationBlocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6687,7 +6663,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MVModalTransitions/MVModalTransitions-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6712,7 +6688,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/DHAppleReceiptParser/DHAppleReceiptParser-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6733,7 +6709,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6750,7 +6726,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/YLMoment/YLMoment-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6774,7 +6750,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/ALActionBlocks/ALActionBlocks-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6798,7 +6774,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6822,7 +6798,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/AVHexColor/AVHexColor-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6846,7 +6822,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/MVModalTransitions/MVModalTransitions-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6870,7 +6846,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Mantle/Mantle-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6920,7 +6896,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/Specta/Specta-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6944,7 +6920,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIImage-Helpers/UIImage-Helpers-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -6968,7 +6944,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/UIImage-Helpers/UIImage-Helpers-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";

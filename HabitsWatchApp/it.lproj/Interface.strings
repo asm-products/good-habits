@@ -1,15 +1,6 @@
-
 /* Class = "WKInterfaceController"; title = "Habits"; ObjectID = "AgC-eL-Hgc"; */
-"AgC-eL-Hgc.title" = "Habits";
-
-/* Class = "WKInterfaceButton"; title = "✓"; ObjectID = "InQ-G2-Bkm"; */
-"InQ-G2-Bkm.title" = "✓";
-
-/* Class = "WKInterfaceLabel"; text = "[Habit]"; ObjectID = "LC8-5o-gTB"; */
-"LC8-5o-gTB.text" = "[Habit]";
-
-/* Class = "WKInterfaceLabel"; text = "Habits notification"; ObjectID = "XkS-y5-khE"; */
-"XkS-y5-khE.text" = "Habits notification";
+"AgC-eL-Hgc.title" = "Abitudini";
 
 /* Class = "WKInterfaceLabel"; text = "Please launch Habits on your iPhone"; ObjectID = "oVd-bH-CKo"; */
-"oVd-bH-CKo.text" = "Please launch Habits on your iPhone";
+"oVd-bH-CKo.text" = "Avvia Habits sul tuo iPhone";
+

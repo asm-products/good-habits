@@ -61,7 +61,7 @@
     if(self.grid.view.superview)[self.grid.view removeFromSuperview];
     self.grid = nil;
     
-    self.top.label.text = [self.topTimeFormatter stringFromDate:time];
+    self.top.label.text = [self.topTimeFormatter stringFromDate:time].uppercaseString;
     Moment * moment = [Moment momentWithDate:time];
     
     // always work with GMT 

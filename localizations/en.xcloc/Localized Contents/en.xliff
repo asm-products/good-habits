@@ -267,6 +267,11 @@
         <target>Habits</target>
         <note>Bundle name</note>
       </trans-unit>
+      <trans-unit id="UILaunchStoryboardName" xml:space="preserve">
+        <source>Launch Screen</source>
+        <target>Launch Screen</target>
+        <note>Localized versions of Info.plist keys</note>
+      </trans-unit>
     </body>
   </file>
   <file original="Habits/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
@@ -274,16 +279,6 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
-      <trans-unit id="Cancel" xml:space="preserve">
-        <source>Cancel</source>
-        <target>Cancel</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
-      <trans-unit id="Confirm habit deletion" xml:space="preserve">
-        <source>Confirm habit deletion</source>
-        <target>Confirm habit deletion</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Contact us" xml:space="preserve">
         <source>Contact us</source>
         <target>Contact us</target>
@@ -313,6 +308,11 @@
         <source>Hello! We hope you'd like to:</source>
         <target>Hello! We hope you'd like to:</target>
         <note>Heading of info screen before checklist: Look at the guide, Share this app, Get Happiness app, Rate this app etc...</note>
+      </trans-unit>
+      <trans-unit id="Keep this habit" xml:space="preserve">
+        <source>Keep this habit</source>
+        <target>Keep this habit</target>
+        <note>No comment provided by engineer.</note>
       </trans-unit>
       <trans-unit id="Like us on Facebook" xml:space="preserve">
         <source>Like us on Facebook</source>
@@ -472,11 +472,6 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
-      <trans-unit id="New Habit" xml:space="preserve">
-        <source>New Habit</source>
-        <target>New Habit</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Today" xml:space="preserve">
         <source>Today</source>
         <target>Today</target>
@@ -494,11 +489,6 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
-      <trans-unit id="Back" xml:space="preserve">
-        <source>Back</source>
-        <target>Back</target>
-        <note>No comment provided by engineer.</note>
-      </trans-unit>
       <trans-unit id="Exercise" xml:space="preserve">
         <source>30 mins workout</source>
         <target>30 mins workout</target>
@@ -518,6 +508,11 @@
         <source>Take pills</source>
         <target>Take pills</target>
         <note>Daily TODO item  (4) for app store screenshots. Could be translated to "take vitamins" - again, something that you would want to do every day.</note>
+      </trans-unit>
+      <trans-unit id="add" xml:space="preserve">
+        <source>add</source>
+        <target>add</target>
+        <note/>
       </trans-unit>
       <trans-unit id="title" xml:space="preserve">
         <source>title</source>

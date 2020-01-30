@@ -136,4 +136,22 @@ static NSDate * selectedDate = nil;
     });
     return formatter;
 }
++(NSString *)formattedDayCount:(NSNumber*)numberOfDays{
+    NSBundle * bundle = [NSBundle bundleWithIdentifier:@"goodtohear.HabitsCommon"];
+    if ([numberOfDays isEqualToNumber:@1]){
+        return [bundle localizedStringForKey:@"1 day" value:@"" table:nil];
+    }
+    NSString * formattedNumber = [numberOfDays isEqualToNumber:@(round(numberOfDays.doubleValue))]
+    ? numberOfDays.stringValue : [NSString stringWithFormat:@"%1.1f", numberOfDays.floatValue];
+
+    return [NSString stringWithFormat:[bundle localizedStringForKey:@"%@ days" value: @"" table: nil], formattedNumber];
+  
+}
++(NSString *)formattedDaysAgoCount:(NSInteger)numberOfDays{
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.doesRelativeDateFormatting = YES;
+    NSDate * date = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitDay value:-numberOfDays toDate:[NSDate date] options:0];
+    return [dateFormatter stringFromDate:date];
+}
 @end

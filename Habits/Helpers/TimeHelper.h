@@ -41,4 +41,7 @@
 +(NSDateFormatter*)accessibilityDateFormatter;
 
 +(NSDateFormatter*)fullDateFormatter;
+/* It's a string because it might be a float value (average day count)*/
++(NSString*)formattedDayCount:(NSNumber*)numberOfDays;
++(NSString*)formattedDaysAgoCount:(NSInteger)numberOfDays;
 @end

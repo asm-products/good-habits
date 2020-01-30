@@ -32,7 +32,7 @@
     }];
 }
 +(NSArray *)days{
-    return @[@"Sun", @"Mon", @"Tue", @"Wed", @"Thu", @"Fri", @"Sat" ];
+    return [[NSCalendar currentCalendar] shortWeekdaySymbols];    
 }
 
 + (NSInteger)weekdayIndexForColumn:(NSInteger)i{

@@ -1,2 +1,9 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Gewohnheiten";
+
+/* Bundle name */
+"CFBundleName" = "Gewohnheiten";
+
 /* Localized versions of Info.plist keys */
+"UILaunchStoryboardName" = "Launch Screen_de";
 

@@ -1,18 +1,18 @@
-
 /* Class = "UILabel"; text = "With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits."; ObjectID = "BZm-hV-WYQ"; */
-"BZm-hV-WYQ.text" = "With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits.";
+"BZm-hV-WYQ.text" = "С функцией статистики можно записывать причины прерывания серий. Также вы сможете просмотреть статистический анализ каждой из ваших практик.";
 
 /* Class = "UIButton"; normalTitle = "Don't ask me again"; ObjectID = "DXL-M7-ZHe"; */
-"DXL-M7-ZHe.normalTitle" = "Don't ask me again";
+"DXL-M7-ZHe.normalTitle" = "Больше не спрашивать";
 
 /* Class = "UIButton"; normalTitle = "Connecting..."; ObjectID = "FqL-2v-qkd"; */
-"FqL-2v-qkd.normalTitle" = "Connecting...";
-
-/* Class = "UILabel"; text = "Unlock stats?"; ObjectID = "Nak-1h-yT4"; */
-"Nak-1h-yT4.text" = "Unlock stats?";
-
-/* Class = "UIButton"; normalTitle = "Restore purchase"; ObjectID = "VFV-6N-wXn"; */
-"VFV-6N-wXn.normalTitle" = "Restore purchase";
+"FqL-2v-qkd.normalTitle" = "Подключаемся...";
 
 /* Class = "UIButton"; normalTitle = "Not now, thanks"; ObjectID = "kEX-gC-er9"; */
-"kEX-gC-er9.normalTitle" = "Not now, thanks";
+"kEX-gC-er9.normalTitle" = "Спасибо, не сейчас";
+
+/* Class = "UILabel"; text = "Unlock stats?"; ObjectID = "Nak-1h-yT4"; */
+"Nak-1h-yT4.text" = "Разблокировать статистику?";
+
+/* Class = "UIButton"; normalTitle = "Restore purchase"; ObjectID = "VFV-6N-wXn"; */
+"VFV-6N-wXn.normalTitle" = "Восстановить покупку";
+

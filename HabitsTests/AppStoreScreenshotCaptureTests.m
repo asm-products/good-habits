@@ -55,7 +55,7 @@
     [TestHelpers setStatsEnabled:YES];
     [tester waitForTimeInterval:0.4];
     [self screenshot:@"screenshot_1"];
-    [tester tapViewWithAccessibilityLabel:@"Floss"];
+    [tester tapViewWithAccessibilityLabel:LocalizedString(@"Floss", @"")];
     [tester waitForTimeInterval:0.4];
     [self screenshot:@"screenshot_2"];
     [tester tapViewWithAccessibilityLabel:@"Stats"];
@@ -65,7 +65,7 @@
     [self pressBack];
 }
 -(void)pressBack{
-    NSString * back = NSLocalizedString(@"Back", @"");
+    NSString * back = LocalizedString(@"Back", @"");
     [tester tapViewWithAccessibilityLabel:back];
 }
 -(NSString*)screenSizeName{

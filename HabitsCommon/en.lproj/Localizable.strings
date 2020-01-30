@@ -24,6 +24,10 @@
 "Log an issue" = "Log an issue";
 "Contact us" = "Contact us";
 "Recover data" = "Recover data";
+/* In the list of items on the information screen - as in "[you can also] export your data", "[you can also] report a bug" etc... */
+"You can also" = "You can also";
+/* Who made the app? */
+"Credits" = "Credits";
 
 /* User Guide Video Step 1 */
 "[guide] 1. Tap the + to get started" = "Tap the + to get started";
@@ -62,8 +66,27 @@
 "No reminder" = "No reminder";
 "Clear reminder" = "Clear reminder";
 "Set reminder" = "Set reminder";
-/* e.g. Remind at 3:45pm*/
+/* e.g. Remind at 3:45pm */
 "Remind at time" = "Remind at %@";
 "Pause this habit" = "Pause this habit";
 "Resume this habit" = "Resume this habit";
 "Confirm habit deletion" = "Delete this habit? This cannot be undone.";
+/* When asked to confirm habit deletion */
+"Keep this habit" = "Keep this habit";
+/* Title of newly created habit*/
+"New Habit" = "New Habit";
+/* e.g. "Missed yesterday. What happened?" */
+"Missed %@. What happened?" = "Missed %@. What happened?";
+"Carried over from yesterday" = "Carried over from yesterday";
+/* E.g. "Checked 2 days ago" - result of swiping to check previous day */
+"Checked %@" = "Checked %@";
+"Stats" = "Stats";
+/* Above graph of different chain lengths */
+"Length distribution" = "Length distribution";
+/* Reasons for breaking the chain */
+"Notes" = "Notes";
+/* Heading on stats screen */
+"Chains" = "Chains";
+"%@ days" = "%@ days";
+"1 day" = "1 day";
+"%@ days [more than 4]" = "%@ days";

@@ -40,6 +40,6 @@
         formatter = [NSDateFormatter new];
         formatter.dateFormat = @"EEEE d MMMM";
     });
-    self.textLabel.text = [formatter stringFromDate:date];
+    self.textLabel.text = [[formatter stringFromDate:date] uppercaseString];
 }
 @end

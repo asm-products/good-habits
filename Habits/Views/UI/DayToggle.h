@@ -11,7 +11,8 @@
 @interface DayToggle : UIButton
 @property (nonatomic) BOOL isOn;
 @property (nonatomic, strong) NSString * day;
+@property (nonatomic, strong) NSString * dayInEnglish;
 @property (nonatomic, strong) UIColor * color;
--(id)initWithFrame:(CGRect)frame day:(NSString*)day color:(UIColor*)color isOn:(BOOL)isOn;
+-(id)initWithFrame:(CGRect)frame day:(NSString*)day dayInEnglish:(NSString*)dayInEnglish color:(UIColor*)color isOn:(BOOL)isOn;
 -(void)toggleOn:(BOOL)isOn;
 @end

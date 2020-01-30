@@ -12,9 +12,14 @@
 #import <NSArray+F.h>
 #import "HabitsCommon.h"
 #import "HabitsQueries.h"
+@import UserNotifications;
+
 @implementation Notifications
 +(void)reschedule{
     NSLog(@"Rescheduling notifications");
+    [[UNUserNotificationCenter currentNotificationCenter] getPendingNotificationRequestsWithCompletionHandler:^(NSArray<UNNotificationRequest *> * _Nonnull requests) {
+        NSLog(@"%lu pending notification(s)", (unsigned long)requests.count);
+    }];
     NSDate * now = [TimeHelper now];
     NSDate * today = [TimeHelper today];
     NSInteger requiredTodayCount = [[HabitsQueries outstandingToday] count];
@@ -23,7 +28,8 @@
     for (Habit * habit in [HabitsQueries active]) {
         [notifications addObjectsFromArray:habit.notifications];
     }
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications]; // deprecated
     for(UILocalNotification * notification in notifications){
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     }

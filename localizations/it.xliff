@@ -7,18 +7,143 @@
     <body>
       <trans-unit id="1ut-8Z-WR4.normalTitle" xml:space="preserve">
         <source>Clear reminder</source>
-        <target>Claro Remindro [di OneSky]</target>
+        <target>Chiaro promemoria</target>
         <note>Class = "UIButton"; normalTitle = "Clear reminder"; ObjectID = "1ut-8Z-WR4";</note>
       </trans-unit>
       <trans-unit id="2Ae-ve-lFQ.text" xml:space="preserve">
         <source>GOOD HABITS</source>
-        <target>BUON ABITUDINI [OneSky]</target>
+        <target>BUONE ABITUDINI</target>
         <note>Class = "UILabel"; text = "GOOD HABITS"; ObjectID = "2Ae-ve-lFQ";</note>
+      </trans-unit>
+      <trans-unit id="DkH-me-7TJ.text" xml:space="preserve">
+        <source>LONGEST UNBROKEN CHAIN</source>
+        <target>CATENA INTATTA PIÙ LUNGA</target>
+        <note>Class = "UILabel"; text = "LONGEST UNBROKEN CHAIN"; ObjectID = "DkH-me-7TJ"; Note = "Stats screen label";</note>
+      </trans-unit>
+      <trans-unit id="Eaf-xd-yLd.text" xml:space="preserve">
+        <source>HABIT NAME</source>
+        <target>ABITUDINE</target>
+        <note>Class = "UILabel"; text = "HABIT NAME"; ObjectID = "Eaf-xd-yLd";</note>
+      </trans-unit>
+      <trans-unit id="JMG-1N-4QX.normalTitle" xml:space="preserve">
+        <source>Pause this habit</source>
+        <target>Sospendi abitudine</target>
+        <note>Class = "UIButton"; normalTitle = "Pause this habit"; ObjectID = "JMG-1N-4QX";</note>
+      </trans-unit>
+      <trans-unit id="KPl-V2-xVY.text" xml:space="preserve">
+        <source>NEW</source>
+        <target>NUOVO</target>
+        <note>Class = "UILabel"; text = "NEW"; ObjectID = "KPl-V2-xVY"; Note = "New item in info task list (e.g. \"Rate our app\" etc...)";</note>
+      </trans-unit>
+      <trans-unit id="Pvl-5h-Qkx.title" xml:space="preserve">
+        <source>Continue</source>
+        <target>Continua</target>
+        <note>Class = "UIBarButtonItem"; title = "Continue"; ObjectID = "Pvl-5h-Qkx";</note>
+      </trans-unit>
+      <trans-unit id="Sn9-dv-YuW.text" xml:space="preserve">
+        <source>GOOD TO HEAR</source>
+        <target>GOOD TO HEAR</target>
+        <note>Class = "UILabel"; text = "GOOD TO HEAR"; ObjectID = "Sn9-dv-YuW";</note>
+      </trans-unit>
+      <trans-unit id="TdF-L1-Jwu.text" xml:space="preserve">
+        <source>TOTAL DAYS CHECKED</source>
+        <target>TOTALE GIORNI</target>
+        <note>Class = "UILabel"; text = "TOTAL DAYS CHECKED"; ObjectID = "TdF-L1-Jwu"; Note = "Stats screen label - how many total days has this TODO item been ticked off?";</note>
+      </trans-unit>
+      <trans-unit id="U7O-ce-v3o.text" xml:space="preserve">
+        <source>We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen.</source>
+        <target>We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen.</target>
+        <note>Class = "UILabel"; text = "We need to move your data to a new store but multiple existing stores have been found. Please pick the store you would like to use. The other(s) will still be available via the info screen."; ObjectID = "U7O-ce-v3o";</note>
       </trans-unit>
       <trans-unit id="WQr-gE-mvg.title" xml:space="preserve">
         <source>Admin for MF</source>
         <target>Adminstratio Di Michaele Forrestio</target>
         <note>Class = "UINavigationItem"; title = "Admin for MF"; ObjectID = "WQr-gE-mvg";</note>
+      </trans-unit>
+      <trans-unit id="WbE-OV-kQ2.text" xml:space="preserve">
+        <source>CHART PERIOD</source>
+        <target>PERIODO</target>
+        <note>Class = "UILabel"; text = "CHART PERIOD"; ObjectID = "WbE-OV-kQ2"; Note = "Stats screen label - when showing little timeline charts this says how many days the chart covers";</note>
+      </trans-unit>
+      <trans-unit id="aSz-PV-rTQ.text" xml:space="preserve">
+        <source>Data migration</source>
+        <target>Migrazione dati</target>
+        <note>Class = "UILabel"; text = "Data migration"; ObjectID = "aSz-PV-rTQ";</note>
+      </trans-unit>
+      <trans-unit id="bCb-0a-dVR.normalTitle" xml:space="preserve">
+        <source>Restore AW Data</source>
+        <target>Restore AW Data</target>
+        <note>Class = "UIButton"; normalTitle = "Restore AW Data"; ObjectID = "bCb-0a-dVR";</note>
+      </trans-unit>
+      <trans-unit id="dbb-40-lz2.title" xml:space="preserve">
+        <source>add</source>
+        <target>Aggiungi</target>
+        <note>Class = "UIBarButtonItem"; title = "add"; ObjectID = "dbb-40-lz2";</note>
+      </trans-unit>
+      <trans-unit id="dcF-l7-O64.placeholder" xml:space="preserve">
+        <source>What happened?</source>
+        <target>Cosa è successo?</target>
+        <note>Class = "UITextField"; placeholder = "What happened?"; ObjectID = "dcF-l7-O64"; Note = "Placeholder textfield text in the main TODO list if a habit day is missed. If the habit was to \"Practice guitar\", the answer might be to say \"I broke a string\". It means \"What happened?\" or \"What went wrong? or \"Why didn't you complete this task?\"";</note>
+      </trans-unit>
+      <trans-unit id="gmw-6d-XIl.normalTitle" xml:space="preserve">
+        <source>Delete this habit</source>
+        <target>Cancella abitudine</target>
+        <note>Class = "UIButton"; normalTitle = "Delete this habit"; ObjectID = "gmw-6d-XIl"; Note = "On the habit detail screen you can delete a habit with a button";</note>
+      </trans-unit>
+      <trans-unit id="h0z-Vh-l70.title" xml:space="preserve">
+        <source>Admin</source>
+        <target>Amministrazione</target>
+        <note>Class = "UIBarButtonItem"; title = "Admin"; ObjectID = "h0z-Vh-l70";</note>
+      </trans-unit>
+      <trans-unit id="hLo-8Q-rir.text" xml:space="preserve">
+        <source>CHART PERIOD</source>
+        <target>PERIODO</target>
+        <note>Class = "UILabel"; text = "CHART PERIOD"; ObjectID = "hLo-8Q-rir";</note>
+      </trans-unit>
+      <trans-unit id="i5W-OX-A9P.title" xml:space="preserve">
+        <source>Stats</source>
+        <target>Statistiche</target>
+        <note>Class = "UINavigationItem"; title = "Stats"; ObjectID = "i5W-OX-A9P";</note>
+      </trans-unit>
+      <trans-unit id="iF3-eD-2GL.text" xml:space="preserve">
+        <source>Detail</source>
+        <target>Dettaglio</target>
+        <note>Class = "UILabel"; text = "Detail"; ObjectID = "iF3-eD-2GL";</note>
+      </trans-unit>
+      <trans-unit id="m7l-uD-RqH.text" xml:space="preserve">
+        <source>AVERAGE CHAIN LENGTH</source>
+        <target>LUNGHEZZA MEDIA CATENA</target>
+        <note>Class = "UILabel"; text = "AVERAGE CHAIN LENGTH"; ObjectID = "m7l-uD-RqH"; Note = "Label for item appearing on the Stats screen where a 'chain' is an unbroken continuous sequence of days this TODO item has been completed. How long on average do people sustain an activity before being interrupted?";</note>
+      </trans-unit>
+      <trans-unit id="ngT-UO-6Bz.normalTitle" xml:space="preserve">
+        <source>Clear in app purchases</source>
+        <target>Clear in app purchases</target>
+        <note>Class = "UIButton"; normalTitle = "Clear in app purchases"; ObjectID = "ngT-UO-6Bz";</note>
+      </trans-unit>
+      <trans-unit id="oJx-nH-POl.text" xml:space="preserve">
+        <source>PAUSED</source>
+        <target>SOSPESO</target>
+        <note>Class = "UILabel"; text = "PAUSED"; ObjectID = "oJx-nH-POl"; Note = "Large overlay for TODO item / habit if it has been paused (i.e. removed from the main TODO list) - needs to be one word and not too long";</note>
+      </trans-unit>
+      <trans-unit id="tvQ-Qy-xRs.text" xml:space="preserve">
+        <source>LATEST CHAIN LENGTH</source>
+        <target>LUNGHEZZA ULTIMA CATENA</target>
+        <note>Class = "UILabel"; text = "LATEST CHAIN LENGTH"; ObjectID = "tvQ-Qy-xRs"; Note = "I";</note>
+      </trans-unit>
+      <trans-unit id="w1E-ef-LFE.text" xml:space="preserve">
+        <source>GOOD HABITS</source>
+        <target>GOOD HABITS</target>
+        <note>Class = "UILabel"; text = "GOOD HABITS"; ObjectID = "w1E-ef-LFE";</note>
+      </trans-unit>
+      <trans-unit id="yWc-mL-QxZ.text" xml:space="preserve">
+        <source>Press and hold for more information, swipe left to export and backup data.</source>
+        <target>Tieni schiacciato per più informazioni, scorri a sinistra per esportare e salvare dati</target>
+        <note>Class = "UILabel"; text = "Press and hold for more information, swipe left to export and backup data."; ObjectID = "yWc-mL-QxZ";</note>
+      </trans-unit>
+      <trans-unit id="yct-Ae-Wr3.text" xml:space="preserve">
+        <source>NUMBER OF CHAINS</source>
+        <target>NUMERO DI CATENE</target>
+        <note>Class = "UILabel"; text = "NUMBER OF CHAINS"; ObjectID = "yct-Ae-Wr3"; Note = "Stats screen item - How many different runs of this daily TODO (\"chains\") have been completed?";</note>
       </trans-unit>
     </body>
   </file>
@@ -27,6 +152,21 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>Habits</source>
+        <target>Abitudini</target>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>Habits</source>
+        <target>Abitudini</target>
+        <note>Bundle name</note>
+      </trans-unit>
+      <trans-unit id="UILaunchStoryboardName" xml:space="preserve">
+        <source>Launch Screen</source>
+        <target>Launch Screen_it</target>
+        <note>Localized versions of Info.plist keys</note>
+      </trans-unit>
     </body>
   </file>
   <file original="Habits/en.lproj/Localizable.strings" source-language="en" target-language="it" datatype="plaintext">
@@ -34,6 +174,114 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
+      <trans-unit id="Contact us" xml:space="preserve">
+        <source>Contact us</source>
+        <target>Contattaci</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete" xml:space="preserve">
+        <source>Delete</source>
+        <target>Cancella</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Export your data" xml:space="preserve">
+        <source>Export your data</source>
+        <target>Esporta i tuoi dati</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Get Happiness" xml:space="preserve">
+        <source>Get Happiness</source>
+        <target>Ottieni Happiness</target>
+        <note>Checklist item that links to download Happiness app</note>
+      </trans-unit>
+      <trans-unit id="Hello! We hope you'd like to:" xml:space="preserve">
+        <source>Hello! We hope you'd like to:</source>
+        <target>Ciao! Speriamo che vuoi:</target>
+        <note>Heading of info screen before checklist: Look at the guide, Share this app, Get Happiness app, Rate this app etc...</note>
+      </trans-unit>
+      <trans-unit id="Keep this habit" xml:space="preserve">
+        <source>Keep this habit</source>
+        <target>Tieni questa abitudine</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Like us on Facebook" xml:space="preserve">
+        <source>Like us on Facebook</source>
+        <target>Mi piace</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Log an issue" xml:space="preserve">
+        <source>Log an issue</source>
+        <target>Riporta un bug</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Look at the guide" xml:space="preserve">
+        <source>Look at the guide</source>
+        <target>Leggi la guida</target>
+        <note>menu button</note>
+      </trans-unit>
+      <trans-unit id="Mark completed" xml:space="preserve">
+        <source>Mark completed</source>
+        <target>Segna completato</target>
+        <note>Button to mark habit completed from notification</note>
+      </trans-unit>
+      <trans-unit id="Michael Forrest (Design/Build)" xml:space="preserve">
+        <source>Michael Forrest (Design/Build)</source>
+        <target>Michael Forrest (Design/Build)</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="No reminder" xml:space="preserve">
+        <source>No reminder</source>
+        <target>Nessun promemoria</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Pause this habit" xml:space="preserve">
+        <source>Pause this habit</source>
+        <target>Sospendi abitudine</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Rate this app" xml:space="preserve">
+        <source>Rate this app</source>
+        <target>Scrivi una recensione</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Recover data" xml:space="preserve">
+        <source>Recover data</source>
+        <target>Recupera dati</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Remind at time" xml:space="preserve">
+        <source>Remind at time</source>
+        <target>Ricordami alle</target>
+        <note>Template with one space for the right time</note>
+      </trans-unit>
+      <trans-unit id="Resume this habit" xml:space="preserve">
+        <source>Resume this habit</source>
+        <target>Riprendi abitudine</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Share this app" xml:space="preserve">
+        <source>Share this app</source>
+        <target>Condividi app</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Snooze" xml:space="preserve">
+        <source>Snooze</source>
+        <target>Ricordami più tardi</target>
+        <note>Snooze button text</note>
+      </trans-unit>
+      <trans-unit id="Ulrich Atz (Design)" xml:space="preserve">
+        <source>Ulrich Atz (Design)</source>
+        <target>Ulrich Atz (Design)</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <target>Cancella</target>
+      </trans-unit>
+      <trans-unit id="Confirm habit deletion">
+        <source>Confirm habit deletion</source>
+        <target>Conferma cancellazione abitudine?</target>
+      </trans-unit>
     </body>
   </file>
   <file original="Habits/Settings.bundle/en.lproj/Root.strings" source-language="en" target-language="it" datatype="plaintext">
@@ -41,6 +289,48 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
+      <trans-unit id="Enabled" xml:space="preserve">
+        <source>Enabled</source>
+        <target>Abilitato</target>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Habits/Views/AppFeatures/Base.lproj/StatisticsFeaturePurchaseView.xib" source-language="en" target-language="it" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="BZm-hV-WYQ.text" xml:space="preserve">
+        <source>With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits.</source>
+        <target>Con statistiche, puoi registrare i motivi per cui rompi le tue catene. Puoi anche vedere un'analisi statistica di tutte le tue abitudini.</target>
+        <note>Class = "UILabel"; text = "With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits."; ObjectID = "BZm-hV-WYQ";</note>
+      </trans-unit>
+      <trans-unit id="DXL-M7-ZHe.normalTitle" xml:space="preserve">
+        <source>Don't ask me again</source>
+        <target>Non ricordarmi più</target>
+        <note>Class = "UIButton"; normalTitle = "Don't ask me again"; ObjectID = "DXL-M7-ZHe";</note>
+      </trans-unit>
+      <trans-unit id="FqL-2v-qkd.normalTitle" xml:space="preserve">
+        <source>Connecting...</source>
+        <target>Connessione...</target>
+        <note>Class = "UIButton"; normalTitle = "Connecting..."; ObjectID = "FqL-2v-qkd";</note>
+      </trans-unit>
+      <trans-unit id="Nak-1h-yT4.text" xml:space="preserve">
+        <source>Unlock stats?</source>
+        <target>Attiva statistiche?</target>
+        <note>Class = "UILabel"; text = "Unlock stats?"; ObjectID = "Nak-1h-yT4";</note>
+      </trans-unit>
+      <trans-unit id="VFV-6N-wXn.normalTitle" xml:space="preserve">
+        <source>Restore purchase</source>
+        <target>Riattiva</target>
+        <note>Class = "UIButton"; normalTitle = "Restore purchase"; ObjectID = "VFV-6N-wXn";</note>
+      </trans-unit>
+      <trans-unit id="kEX-gC-er9.normalTitle" xml:space="preserve">
+        <source>Not now, thanks</source>
+        <target>Non ora, grazie</target>
+        <note>Class = "UIButton"; normalTitle = "Not now, thanks"; ObjectID = "kEX-gC-er9";</note>
+      </trans-unit>
     </body>
   </file>
   <file original="HabitsCommon/en.lproj/InfoPlist.strings" source-language="en" target-language="it" datatype="plaintext">
@@ -50,11 +340,61 @@
     <body>
     </body>
   </file>
-  <file original="HabitsTests/en.lproj/Localizable.strings" source-language="en" target-language="it" datatype="plaintext">
+  <file original="HabitsCommon/en.lproj/Localizable.strings" source-language="en" target-language="it" datatype="plaintext">
     <header>
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
+      <trans-unit id="Today" xml:space="preserve">
+        <source>Today</source>
+        <target>Oggi</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Yesterday" xml:space="preserve">
+        <source>Yesterday</source>
+        <target>Ieri</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="New Habit">
+        <source>New Habit</source>
+        <target>Nuova abitudine</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="HabitsTests/Fixtures/en.lproj/Localizable.strings" source-language="en" target-language="it" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
+    </header>
+    <body>
+      <trans-unit id="Exercise" xml:space="preserve">
+        <source>30 mins workout</source>
+        <target>30 minuti di esercizio fisico</target>
+        <note>Daily TODO item  (2) for app store screenshots.</note>
+      </trans-unit>
+      <trans-unit id="Floss" xml:space="preserve">
+        <source>Floss</source>
+        <target>Filo interdentale</target>
+        <note>Daily TODO item (1) for app store screenshots. Don't translate these TODO items directly - think about what kind of daily task makes sense culturally - e.g. in Italy it might be "Call Mother"</note>
+      </trans-unit>
+      <trans-unit id="Play the trumpet" xml:space="preserve">
+        <source>Piano practice</source>
+        <target>Pratica il piano</target>
+        <note>Daily TODO item  (3) for app store screenshots</note>
+      </trans-unit>
+      <trans-unit id="Take medicine" xml:space="preserve">
+        <source>Take pills</source>
+        <target>Vitamine</target>
+        <note>Daily TODO item  (4) for app store screenshots. Could be translated to "take vitamins" - again, something that you would want to do every day.</note>
+      </trans-unit>
+      <trans-unit id="add" xml:space="preserve">
+        <source>add</source>
+        <target>Aggiungi</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Back">
+        <source>Back</source>
+        <target>Indietro</target>
+      </trans-unit>
     </body>
   </file>
   <file original="HabitsTodayExtension/Base.lproj/MainInterface.storyboard" source-language="en" target-language="it" datatype="plaintext">
@@ -69,6 +409,11 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>Habits</source>
+        <target>Abitudini</target>
+        <note>Bundle display name</note>
+      </trans-unit>
     </body>
   </file>
   <file original="HabitsWatchApp Extension/en.lproj/InfoPlist.strings" source-language="en" target-language="it" datatype="plaintext">
@@ -83,6 +428,16 @@
       <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="11.3.1" build-num="11C504"/>
     </header>
     <body>
+      <trans-unit id="AgC-eL-Hgc.title" xml:space="preserve">
+        <source>Habits</source>
+        <target>Abitudini</target>
+        <note>Class = "WKInterfaceController"; title = "Habits"; ObjectID = "AgC-eL-Hgc";</note>
+      </trans-unit>
+      <trans-unit id="oVd-bH-CKo.text" xml:space="preserve">
+        <source>Please launch Habits on your iPhone</source>
+        <target>Avvia Habits sul tuo iPhone</target>
+        <note>Class = "WKInterfaceLabel"; text = "Please launch Habits on your iPhone"; ObjectID = "oVd-bH-CKo";</note>
+      </trans-unit>
     </body>
   </file>
 </xliff>

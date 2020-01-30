@@ -1,12 +1,122 @@
-/* 
-  I18n.strings
-  Habits
+"Stats" = "Statistiche";
 
-  Created by Michael Forrest on 19/12/2019.
-  Copyright © 2019 Good To Hear. All rights reserved.
-*/
-"Mark completed" = "Fato!";
-"Snooze" = "Snooze";
-"Look at the guide" = "Leggi la guida [di OneSky]";
-"Tap the + to get started" = "Tap the + to get started\" = \"Punta la + per andiamo [di OneSky]";
+/* Above graph of different chain lengths */
+"Length distribution" = "Lunghezza distribuzione";
+
+/* Reasons for breaking the chain */
+"Notes" = "Note";
+
+/* Heading on stats screen */
+"Chains" = "Catene";
+
+"%@ days" = "%@ giorni";
+"1 day" = "1 giorno";
+
+/* Title of newly created habit */
+"New Habit" = "Nuova abitudine";
+
+/* Who made the app? */
+"Credits" = "Credits";
+
+/* e.g. "Missed yesterday. What happened?" */
+"Missed %@. What happened?" = "Saltato ieri. Cosa è successo?";
+
+"Carried over from yesterday" = "Riportato da ieri";
+
+/* In the list of items on the information screen - as in "[you can also] export your data", "[you can also] report a bug" etc... */
+"You can also" = "Puoi anche";
+
+/* E.g. "Checked 2 days ago" - result of swiping to check previous day */
+"Checked %@" = "Controllato";
+
+/* When asked to confirm habit deletion */
+"Keep this habit" = "Tieni questa abitudine";
+/* Daily TODO item (1) for app store screenshots. Don't translate these TODO items directly - think about what kind of daily task makes sense culturally - e.g. in Italy it might be "Call Mother" */
+"Floss" = "Filo interdentale";
+/* Daily TODO item  (2) for app store screenshots. */
+"Exercise" = "30 minuti di esercizio fisico";
+/* Daily TODO item  (3) for app store screenshots */
+"Play the trumpet" = "Pratica il piano";
+/* Daily TODO item  (4) for app store screenshots. Could be translated to "take vitamins" - again, something that you would want to do every day. */
+"Take medicine" = "Vitamine";
+"add" = "Aggiungi";
+"Don't Break The Chain!" = "Non Rompa La Catena!";
+"Mark completed" = "Fatto!";
+"Snooze" = "Ritarda";
+"Look at the guide" = "Leggi la guida";
+"Get Happiness" = "Ottieni Happiness";
+"Rate this app" = "Scrivi una recensione";
+"Share this app" = "Condividi App";
+"Like us on Facebook" = "Mi piace";
+"Not on Sundays" = "Non la Domenica";
+"Not on Mondays" = "Non di Lunedì";
+"Not on Tuesdays" = "Non il Martedì";
+"Not on Wednesdays" = "Non il Mercoledì";
+"Not on Thursdays" = "Non il Giovedì";
+"Not on Fridays" = "Non il Venerdì";
+"Not on Saturdays" = "Non il Sabato";
+"Export your data" = "Esporta dati";
+"Log an issue" = "Richiedi supporto";
+"Contact us" = "Contattaci";
+"Recover data" = "Recupera dati";
+
+/* User Guide Video Step 1 */
+"[guide] 1. Tap the + to get started" = "Tocca + per iniziare";
+
+/* User Guide Video Step 2 */
+"[guide] 2. Enter new habit title" = "Inserisci titolo";
+
+/* User Guide Video Step 3 - reuse whatever you came up with earlier for the first daily TODO item */
+"[guide] 3. First habit description" = "Usa il filo interdentale";
+
+/* User Guide Video Step 4  - Inform about toggling days */
+"[guide] 4. Inform about toggling days" = "Forse non devi farlo tutti i giorni";
+
+/* User Guide Video Step 5 - Introduce reminders */
+"[guide] 5. Introduce Reminders" = "Imposta promemoria";
+
+/* User Guide Video Step 6 - Introduce completion checkbox */
+"[guide] 6. Introduce completion checkbox" = "Seleziona la casella quando l'hai fatto";
+
+/* User Guide Video Step 7 - Indicate passage of time */
+"[guide] 7. Later..." = "Più tardi";
+
+/* User Guide Video Step 8 - Introduce tapping twice to mark failure */
+"[guide] 8. Introduce tapping twice to mark failure" = "Se hai saltato un giorno, puoi toccare [or tocca - need more context] la casella due volte";
+
+/* User Guide Video Step 9 - Introduce in-app purchase */
+"[guide] 9. Introduce in-app purchase chain-break reasons feature" = "Con statistiche attivate, puoi registrare i motivi per cui hai rotto la tua catena.";
+
+/* User Guide Video Step 10 - Come up with a reason that the daily TODO item mentioned above might be missed. In this case, we're talking about flossing but if it was "Call Mother" then the reason might be "I was too busy with work" */
+"[guide] 10. Reason for breaking chain" = "Ho finito il filo interdentale.";
+
+/* User Guide Video Step 11 - There is a button to show user stats - introduce this button */
+"[guide] 11. Introduce stats button" = "Vedi le tue statistiche con il bottone in alto a destra.";
+
+/* User Guide Video Step 12 - Describe stats screen */
+"[guide] 12. Describe stats screen" = "Vedrai i dettagli della catena e una lista di ragioni su perché hai saltato un giorno.";
+
+/* User Guide Video Step 13 - Introduce swiping interaction - you can swipe table rows in your habit TODO list to change theme */
+"[guide] 13. Introduce swiping mechanic" = "Se non apri l'app per qualche giorno ma non hai saltato dei giorni, puoi selezionarli tutti toccando la lista.";
+
+/* User Guide Video Step 14 - Still talking about the swiping interaction */
+"[guide] 14. Add that habits can be paused and deleted by swiping" = "In queso modo puoi anche mettere in pausa, o cancellare, le tue abitudini.";
+
+/* User Guide Video Step 15 - Finishing the tutorial with some general advice: */
+"[guide] 15. It takes about a month to form a new habit" = "Ci vuole circa un mese per formare una nuova abitudine.";
+
+/* User Guide Video Step 16 - And rounding it off with the strap line! */
+"[guide] 16. Have fun, and don't break the chain!" = "Divertiti, e non spezzare la catena!";
+
+"Tap the + to get started" = "Tocca + per iniziare";
 "Back" = "Indietro";
+"No reminder" = "Nessun promemoria";
+"Clear reminder" = "Cancella promemoria";
+"Set reminder" = "Imposta promemoria";
+
+/* e.g. Remind at 3:45pm */
+"Remind at time" = "Ricordami alle %@";
+
+"Pause this habit" = "Sospendi questa abitudine";
+"Resume this habit" = "Riprendi questa abitudine";
+"Confirm habit deletion" = "Cancella questa abitudine? Questa azione cancellerà l'abitudine definitamente, e non può essere disfatta.";

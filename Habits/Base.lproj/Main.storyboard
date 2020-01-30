@@ -104,7 +104,7 @@
                     <navigationItem key="navigationItem" id="TUN-wc-ebG">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" id="R7r-TB-Gw7">
-                            <view key="customView" contentMode="scaleToFill" id="hvW-5b-FZq">
+                            <view key="customView" contentMode="scaleToFill" ambiguous="YES" id="hvW-5b-FZq">
                                 <rect key="frame" x="16" y="0.0" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -515,7 +515,7 @@
                     <navigationItem key="navigationItem" id="res-v5-2b4">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="[title]" textAlignment="center" minimumFontSize="15" id="eHx-ow-yHW">
-                            <rect key="frame" x="8" y="7" width="243" height="30"/>
+                            <rect key="frame" x="8" y="10" width="243" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -1213,7 +1213,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pi-6E-KL2"/>
-        <segue reference="LRt-8p-1fe"/>
+        <segue reference="chS-Yr-Ljg"/>
         <segue reference="toc-2m-8Zg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22449043393135071" green="0.48581993579864502" blue="0.64602482318878174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

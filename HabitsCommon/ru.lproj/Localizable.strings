@@ -1,12 +1,123 @@
-/* 
-  I18n.strings
-  Habits
+"Stats" = "Статистика";
 
-  Created by Michael Forrest on 19/12/2019.
-  Copyright © 2019 Good To Hear. All rights reserved.
-*/
-"Mark completed" = "Fato!";
-"Snooze" = "Snooze";
-"Look at the guide" = "Leggi la guida [di OneSky]";
-"Tap the + to get started" = "Tap the + to get started\" = \"Punta la + per andiamo [di OneSky]";
-"Back" = "Indietro";
+/* Above graph of different chain lengths */
+"Length distribution" = "Распределение длины";
+
+/* Reasons for breaking the chain */
+"Notes" = "Заметки";
+
+/* Heading on stats screen */
+"Chains" = "СЕРИЙ";
+
+"%@ days" = "%@ дня";
+"1 day" = "1 день";
+"%@ days [more than 4]" = "%@ дней";
+
+/* Title of newly created habit */
+"New Habit" = "Новая практика";
+
+/* Who made the app? */
+"Credits" = "Титры";
+
+/* e.g. "Missed yesterday. What happened?" */
+"Missed %@. What happened?" = "Пропустили %@. Что случилось?";
+
+"Carried over from yesterday" = "Перенесено с вчерашнего дня";
+
+/* In the list of items on the information screen - as in "[you can also] export your data", "[you can also] report a bug" etc... */
+"You can also" = "Также вы можете";
+
+/* E.g. "Checked 2 days ago" - result of swiping to check previous day */
+"Checked %@" = "Отмечено %@";
+
+/* When asked to confirm habit deletion */
+"Keep this habit" = "Оставить эту практику";
+/* Daily TODO item (1) for app store screenshots. Don't translate these TODO items directly - think about what kind of daily task makes sense culturally - e.g. in Italy it might be "Call Mother" */
+"Floss" = "Чистка зубов ниткой";
+/* Daily TODO item  (2) for app store screenshots. */
+"Exercise" = "30-минутный комплекс упражнений";
+/* Daily TODO item  (3) for app store screenshots */
+"Play the trumpet" = "Игра на пианино";
+/* Daily TODO item  (4) for app store screenshots. Could be translated to "take vitamins" - again, something that you would want to do every day. */
+"Take medicine" = "Прием таблеток";
+"add" = "добавить";
+"Don't Break The Chain!" = "Не прерывайте серию!";
+"Mark completed" = "Готово";
+"Snooze" = "Отложить";
+"Look at the guide" = "Открыть руководство";
+"Get Happiness" = "Станьте счастливее";
+"Rate this app" = "Оценить приложение";
+"Share this app" = "Поделиться приложением";
+"Like us on Facebook" = "Поставить «лайк» на Facebook";
+"Not on Sundays" = "Не напоминать в воскресенье";
+"Not on Mondays" = "Не напоминать в понедельник";
+"Not on Tuesdays" = "Не напоминать во вторник";
+"Not on Wednesdays" = "Не напоминать в среду";
+"Not on Thursdays" = "Не напоминать в четверг";
+"Not on Fridays" = "Не напоминать в пятницу";
+"Not on Saturdays" = "Не напоминать в субботу";
+"Export your data" = "Экспорт данных";
+"Log an issue" = "Сообщить о проблеме";
+"Contact us" = "Связаться с нами";
+"Recover data" = "Восстановить данные";
+
+/* User Guide Video Step 1 */
+"[guide] 1. Tap the + to get started" = "Нажмите «+», чтобы начать работу";
+
+/* User Guide Video Step 2 */
+"[guide] 2. Enter new habit title" = "Введите название";
+
+/* User Guide Video Step 3 - reuse whatever you came up with earlier for the first daily TODO item */
+"[guide] 3. First habit description" = "Чистка зубов ниткой";
+
+/* User Guide Video Step 4  - Inform about toggling days */
+"[guide] 4. Inform about toggling days" = "Возможно, вам необязательно делать это каждый день";
+
+/* User Guide Video Step 5 - Introduce reminders */
+"[guide] 5. Introduce Reminders" = "Установить напоминание";
+
+/* User Guide Video Step 6 - Introduce completion checkbox */
+"[guide] 6. Introduce completion checkbox" = "Поставьте флажок, когда закончите";
+
+/* User Guide Video Step 7 - Indicate passage of time */
+"[guide] 7. Later..." = "Позже...";
+
+/* User Guide Video Step 8 - Introduce tapping twice to mark failure */
+"[guide] 8. Introduce tapping twice to mark failure" = "Если вы что-то пропустили сегодня, коснитесь поля дважды";
+
+/* User Guide Video Step 9 - Introduce in-app purchase */
+"[guide] 9. Introduce in-app purchase chain-break reasons feature" = "Если включена статистика (требуется покупка из приложения), можно записывать причины прерывания серии.";
+
+/* User Guide Video Step 10 - Come up with a reason that the daily TODO item mentioned above might be missed. In this case, we're talking about flossing but if it was "Call Mother" then the reason might be "I was too busy with work" */
+"[guide] 10. Reason for breaking chain" = "У меня закончилась зубная нить";
+
+/* User Guide Video Step 11 - There is a button to show user stats - introduce this button */
+"[guide] 11. Introduce stats button" = "Просмотр статистики нажатием кнопки в правом верхнем углу";
+
+/* User Guide Video Step 12 - Describe stats screen */
+"[guide] 12. Describe stats screen" = "Вы увидите сведения о серии и список причин, по которым вы пропускали дни практики";
+
+/* User Guide Video Step 13 - Introduce swiping interaction - you can swipe table rows in your habit TODO list to change theme */
+"[guide] 13. Introduce swiping mechanic" = "Если вы не открывали приложение несколько дней, но при этом не пропускали дни практики, можно отметить их, прокрутив список";
+
+/* User Guide Video Step 14 - Still talking about the swiping interaction */
+"[guide] 14. Add that habits can be paused and deleted by swiping" = "Таким способом можно также приостановить практику или удалить ее";
+
+/* User Guide Video Step 15 - Finishing the tutorial with some general advice: */
+"[guide] 15. It takes about a month to form a new habit" = "На формирование новой привычки на основе практики требуется примерно месяц.";
+
+/* User Guide Video Step 16 - And rounding it off with the strap line! */
+"[guide] 16. Have fun, and don't break the chain!" = "Живите с удовольствием и не прерывайте серию!";
+
+"Tap the + to get started" = "Нажмите «+», чтобы начать";
+"Back" = "Назад";
+"No reminder" = "Нет напоминания";
+"Clear reminder" = "Убрать напоминание";
+"Set reminder" = "Установить напоминание";
+
+/* e.g. Remind at 3:45pm */
+"Remind at time" = "Напомнить в %@";
+
+"Pause this habit" = "Приостановить эту практику";
+"Resume this habit" = "Возобновить эту практику";
+"Confirm habit deletion" = "Удалить эту практику? Данное действие нельзя отменить.";

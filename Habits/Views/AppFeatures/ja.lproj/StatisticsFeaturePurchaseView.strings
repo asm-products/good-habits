@@ -1,18 +1,18 @@
-
 /* Class = "UILabel"; text = "With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits."; ObjectID = "BZm-hV-WYQ"; */
-"BZm-hV-WYQ.text" = "With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits.";
+"BZm-hV-WYQ.text" = "統計データで、鎖を切った理由を記録することができます。各習慣の統計的分析を表示することもできます。";
 
 /* Class = "UIButton"; normalTitle = "Don't ask me again"; ObjectID = "DXL-M7-ZHe"; */
-"DXL-M7-ZHe.normalTitle" = "Don't ask me again";
+"DXL-M7-ZHe.normalTitle" = "以後表示しない";
 
 /* Class = "UIButton"; normalTitle = "Connecting..."; ObjectID = "FqL-2v-qkd"; */
-"FqL-2v-qkd.normalTitle" = "Connecting...";
-
-/* Class = "UILabel"; text = "Unlock stats?"; ObjectID = "Nak-1h-yT4"; */
-"Nak-1h-yT4.text" = "Unlock stats?";
-
-/* Class = "UIButton"; normalTitle = "Restore purchase"; ObjectID = "VFV-6N-wXn"; */
-"VFV-6N-wXn.normalTitle" = "Restore purchase";
+"FqL-2v-qkd.normalTitle" = "接続中...";
 
 /* Class = "UIButton"; normalTitle = "Not now, thanks"; ObjectID = "kEX-gC-er9"; */
-"kEX-gC-er9.normalTitle" = "Not now, thanks";
+"kEX-gC-er9.normalTitle" = "今はけっこうです";
+
+/* Class = "UILabel"; text = "Unlock stats?"; ObjectID = "Nak-1h-yT4"; */
+"Nak-1h-yT4.text" = "統計データをアンロックしますか？";
+
+/* Class = "UIButton"; normalTitle = "Restore purchase"; ObjectID = "VFV-6N-wXn"; */
+"VFV-6N-wXn.normalTitle" = "購入を復元する";
+

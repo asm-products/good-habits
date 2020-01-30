@@ -1,15 +1,119 @@
-/* 
-  Localizable.strings
-  Habits
+"Stats" = "Statistiken";
 
-  Created by Michael Forrest on 15/01/2020.
-  Copyright © 2020 Good To Hear. All rights reserved.
-*/
-/* Daily TODO item (1) for app store screenshots. Don't translate these TODO items directly - think about what kind of daily task makes sense culturally - e.g. in Italy it might be "Call Mother"  */
-"Floss" = "Floss";
+/* Above graph of different chain lengths */
+"Length distribution" = "Längenverteilung";
+
+/* Heading on stats screen */
+"Chains" = "Erfolgsserien";
+
+"%@ days" = "%@ Tagen";
+"1 day" = "1 Tag";
+
+/* Title of newly created habit */
+"New Habit" = "Neue Gewohnheit";
+
+/* Who made the app? */
+"Credits" = "Credits";
+
+/* e.g. "Missed yesterday. What happened?" */
+"Missed %@. What happened?" = "Sie haben %@ verpasst. Wieso?";
+
+"Carried over from yesterday" = "Von gestern übertragen";
+
+/* In the list of items on the information screen - as in "[you can also] export your data", "[you can also] report a bug" etc... */
+"You can also" = "Sie können auch";
+
+/* E.g. "Checked 2 days ago" - result of swiping to check previous day */
+"Checked %@" = "%@ geprüft";
+
+/* When asked to confirm habit deletion */
+"Keep this habit" = "Gewohnheit behalten";
+/* Daily TODO item (1) for app store screenshots. Don't translate these TODO items directly - think about what kind of daily task makes sense culturally - e.g. in Italy it might be "Call Mother" */
+"Floss" = "Gassi gehen";
 /* Daily TODO item  (2) for app store screenshots. */
-"Exercise" = "30 mins workout";
+"Exercise" = "30-Min.-Workout";
 /* Daily TODO item  (3) for app store screenshots */
-"Play the trumpet" = "Piano practice";
+"Play the trumpet" = "Klavierunterricht";
 /* Daily TODO item  (4) for app store screenshots. Could be translated to "take vitamins" - again, something that you would want to do every day. */
-"Take medicine" = "Take pills";
+"Take medicine" = "Vitamine nehmen";
+"add" = "Hinzufügen";
+"Don't Break The Chain!" = "Bleiben Sie am Ball!";
+"Mark completed" = "Fertig!";
+"Snooze" = "Wiederholen";
+"Look at the guide" = "Anleitung ansehen";
+"Get Happiness" = "Glücklich werden";
+"Rate this app" = "App bewerten";
+"Share this app" = "App teilen";
+"Like us on Facebook" = "Gefällt mir auf Facebook";
+"Not on Sundays" = "Nicht sonntags";
+"Not on Mondays" = "Nicht montags";
+"Not on Tuesdays" = "Nicht dienstags";
+"Not on Wednesdays" = "Nicht mittwochs";
+"Not on Thursdays" = "Nicht donnerstags";
+"Not on Fridays" = "Nicht freitags";
+"Not on Saturdays" = "Nicht samstags";
+"Export your data" = "Daten exportieren";
+"Log an issue" = "Problem melden";
+"Contact us" = "Kontakt";
+"Recover data" = "Daten wiederherstellen";
+
+/* User Guide Video Step 1 */
+"[guide] 1. Tap the + to get started" = "Zum Starten auf + tippen";
+
+/* User Guide Video Step 2 */
+"[guide] 2. Enter new habit title" = "Titel eingeben";
+
+/* User Guide Video Step 3 - reuse whatever you came up with earlier for the first daily TODO item */
+"[guide] 3. First habit description" = "Gassi gehen";
+
+/* User Guide Video Step 4  - Inform about toggling days */
+"[guide] 4. Inform about toggling days" = "Vielleicht müssen Sie diese Aufgabe nicht jeden Tag erledigen.";
+
+/* User Guide Video Step 5 - Introduce reminders */
+"[guide] 5. Introduce Reminders" = "Erinnerung einrichten";
+
+/* User Guide Video Step 6 - Introduce completion checkbox */
+"[guide] 6. Introduce completion checkbox" = "Setzen Sie ein Häkchen in das Kontrollkästchen, wenn Sie die Aufgabe erledigt haben.";
+
+/* User Guide Video Step 7 - Indicate passage of time */
+"[guide] 7. Later..." = "Später...";
+
+/* User Guide Video Step 8 - Introduce tapping twice to mark failure */
+"[guide] 8. Introduce tapping twice to mark failure" = "Wenn Sie die Aufgabe heute nicht geschafft haben, können Sie das Kästchen zweimal antippen.";
+
+/* User Guide Video Step 9 - Introduce in-app purchase */
+"[guide] 9. Introduce in-app purchase chain-break reasons feature" = "Wenn Sie Statistiken aktiviert haben (In-App-Kauf erforderlich), können Sie die Gründe für eine versäumte Aufgabe erkennen.";
+
+/* User Guide Video Step 10 - Come up with a reason that the daily TODO item mentioned above might be missed. In this case, we're talking about flossing but if it was "Call Mother" then the reason might be "I was too busy with work" */
+"[guide] 10. Reason for breaking chain" = "Der Hund war krank.";
+
+/* User Guide Video Step 11 - There is a button to show user stats - introduce this button */
+"[guide] 11. Introduce stats button" = "Die Statistiken finden Sie oben rechts.";
+
+/* User Guide Video Step 12 - Describe stats screen */
+"[guide] 12. Describe stats screen" = "Sie sehen Infos zur Aufgabenkette und eine Liste der Gründe, warum Sie eine Aufgabe verpasst haben.";
+
+/* User Guide Video Step 13 - Introduce swiping interaction - you can swipe table rows in your habit TODO list to change theme */
+"[guide] 13. Introduce swiping mechanic" = "Wenn Sie die App einige Tage lang nicht geöffnet haben, aber keine Aufgabe verpasst haben, können Sie sie durch Wischen der Liste abhaken.";
+
+/* User Guide Video Step 14 - Still talking about the swiping interaction */
+"[guide] 14. Add that habits can be paused and deleted by swiping" = "Auf diese Weise können Sie Gewohnheiten auch aussetzen oder löschen.";
+
+/* User Guide Video Step 15 - Finishing the tutorial with some general advice: */
+"[guide] 15. It takes about a month to form a new habit" = "Es dauert ungefähr einen Monat, um eine neue Gewohnheit zu entwickeln.";
+
+/* User Guide Video Step 16 - And rounding it off with the strap line! */
+"[guide] 16. Have fun, and don't break the chain!" = "Viel Spaß! Und immer schön am Ball bleiben!";
+
+"Tap the + to get started" = "Zum Starten auf + tippen";
+"Back" = "Zurück";
+"No reminder" = "Keine Erinnerung";
+"Clear reminder" = "Erinnerung löschen";
+"Set reminder" = "Erinnerung einrichten";
+
+/* e.g. Remind at 3:45pm */
+"Remind at time" = "Um %@ erinnern";
+
+"Pause this habit" = "Gewohnheit aussetzen";
+"Resume this habit" = "Gewohnheit fortsetzen";
+"Confirm habit deletion" = "Gewohnheit unwiderruflich löschen?";

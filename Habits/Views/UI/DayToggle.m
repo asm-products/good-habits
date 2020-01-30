@@ -14,11 +14,12 @@
     
 }
 
-- (id)initWithFrame:(CGRect)frame day:(NSString *)day color:(UIColor *)color isOn:(BOOL)isOn
+- (id)initWithFrame:(CGRect)frame day:(NSString *)day dayInEnglish:(NSString *)dayInEnglish color:(UIColor *)color isOn:(BOOL)isOn
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.day = day;
+        self.dayInEnglish = dayInEnglish;
         self.color = color;
         [self build];
         [self toggleOn: isOn];
@@ -49,7 +50,7 @@
 -(void)toggleOn:(BOOL)isOn{
     self.isOn = isOn;
     checkmark.hidden = !isOn;
-    self.accessibilityLabel = [NSString stringWithFormat:@"%@ required? %@", self.day, isOn ? @"Yes" : @"No"];
+    self.accessibilityLabel = [NSString stringWithFormat:@"%@ required? %@", self.dayInEnglish, isOn ? @"Yes" : @"No"];
 }
 -(void)setColor:(UIColor *)color{
     _color = color;

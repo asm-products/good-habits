@@ -2,14 +2,17 @@
 
 # A list of devices you want to take the screenshots from
 devices([
-  "iPhone 8",
-  "iPhone 8 Plus",
-  "iPhone SE",
+  "iPhone 11",
+  # "iPhone 8 Plus",
+  # "iPhone SE",
   "iPhone Xs"
 ])
 
 languages([
   "en",
+  "de",
+  "ru",
+  "ja",
 #  "de-DE",
   "it"
 #  ["pt", "pt_BR"] # Portuguese with Brazilian locale

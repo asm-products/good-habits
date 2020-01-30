@@ -1,2 +1,9 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "Практики";
+
+/* Bundle name */
+"CFBundleName" = "Практики";
+
 /* Localized versions of Info.plist keys */
+"UILaunchStoryboardName" = "Launch Screen_ru";
 

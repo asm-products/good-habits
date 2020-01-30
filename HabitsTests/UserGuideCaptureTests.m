@@ -42,7 +42,7 @@
     
 }
 -(void)pressBack{
-    NSString * back = NSLocalizedString(@"Back", @"");
+    NSString * back = LocalizedString(@"Back", @"");
     [tester tapViewWithAccessibilityLabel:back];
 }
 -(void)addOverlayWindow{
@@ -65,17 +65,17 @@
     [TestHelpers setStatsEnabled:NO];
     
     [self showNote:@"1. Tap the + to get started"];
-    [self tapViewWithAccessibilityLabel:@"add"];
+    [self tapViewWithAccessibilityLabel:LocalizedString(@"add",@"")];
     [self showNote:@"2. Enter new habit title"];
     [tester enterTextIntoCurrentFirstResponder:[self localizedString:@"3. First habit description"]];
     
     [self showNote:@"4. Inform about toggling days"];
     [self tapViewWithAccessibilityLabel:@"Sun required? Yes"];
     [self tapViewWithAccessibilityLabel:@"Sat required? Yes"];
-    [self showNote:@"5. Introduce reminders"];
-    [self tapViewWithAccessibilityLabel:@"Set reminder"];
+    [self showNote:@"5. Introduce Reminders"];
+    [self tapViewWithAccessibilityLabel:LocalizedString(@"Set reminder", @"")];
     [tester waitForTimeInterval:0.5];
-    [self tapViewWithAccessibilityLabel:@"Set reminder"];
+    [self tapViewWithAccessibilityLabel:LocalizedString(@"Set reminder", @"")];
     [tester waitForTimeInterval:0.5];
     [self pressBack];
     [self showNote:@"6. Introduce completion checkbox"];
@@ -95,7 +95,7 @@
     [TestHelpers setStatsEnabled:YES];
     [self showNote:@"9. Introduce in-app purchase chain-break reasons feature"];
     [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
-    [tester enterTextIntoCurrentFirstResponder:@"10. Reason for breaking chain"];
+    [tester enterTextIntoCurrentFirstResponder:[self localizedString: @"10. Reason for breaking chain"]];
     [tester enterTextIntoCurrentFirstResponder:@"\n"];
     [self tapViewWithAccessibilityLabel: firstHabit];
     [self showNote:@"11. Introduce stats button"];
@@ -127,7 +127,11 @@
 
 -(NSString*)localizedString: (NSString*)key{
     NSString * prefixedKey = [NSString stringWithFormat:@"[guide] %@", key];
-    return NSLocalizedString(prefixedKey, @"");
+    NSString * result = LocalizedString(prefixedKey, @"");
+    if([result isEqualToString:prefixedKey]){
+        [NSException raise:@"Translation not found" format:@"No translation for %@", prefixedKey];
+    }
+    return result;
 }
 -(void)showNote:(NSString*)key{
     NSString * localizedText = [self localizedString:key];
@@ -139,7 +143,7 @@
     [tester waitForTimeInterval:2];
 //    [self screenshot:filename];
     [controller dismissViewControllerAnimated:true completion:nil];
-    [tester waitForTimeInterval:0.3];
+//    [tester waitForTimeInterval:0.3];
 }
 -(NSString*)screenSizeName{
     CGFloat h = [UIScreen mainScreen].bounds.size.height;

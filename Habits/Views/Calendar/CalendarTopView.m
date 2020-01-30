@@ -38,10 +38,11 @@
     [self.nextButton setImage:[UIImage imageNamed:@"arrow_next"] forState:UIControlStateNormal];
     [self addSubview:self.nextButton];
     for(NSInteger i = 0; i < 7; i++){
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(15 + i * 45, 40, 18, 11)];
+        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(15 + i * 45, 40, 45, 11)];
+        label.allowsDefaultTighteningForTruncation = YES;
         label.isAccessibilityElement = NO;
         NSInteger weekdayIndex = [Calendar weekdayIndexForColumn: i];
-        label.text = Calendar.days[weekdayIndex];
+        label.text = [Calendar.days[weekdayIndex] uppercaseString];
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:8];
         label.textColor = color;

@@ -1,4 +1,9 @@
-/* Localized versions of Info.plist keys */
-
+/* Bundle display name */
 "CFBundleDisplayName" = "Abitudini";
+
+/* Bundle name */
+"CFBundleName" = "Abitudini";
+
+/* Localized versions of Info.plist keys */
 "UILaunchStoryboardName" = "Launch Screen_it";
+

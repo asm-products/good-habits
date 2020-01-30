@@ -157,7 +157,7 @@ typedef enum {
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if(HabitListSectionCarriedOver == section){
-        if(!carriedOver) carriedOver = [[InactiveHabitsHeader alloc] initWithTitle: @"Carried over from yesterday"];
+        if(!carriedOver) carriedOver = [[InactiveHabitsHeader alloc] initWithTitle: LocalizedString(@"Carried over from yesterday", @"")];
         return carriedOver;
     }
     if(HabitListSectionActive == section){

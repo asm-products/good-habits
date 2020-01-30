@@ -49,7 +49,7 @@
         return @(chain.length + memo.integerValue);
     } withInitialMemo:@0] floatValue] / (CGFloat)chains.count;
     
-    averageChainLengthLabel.text = [NSString stringWithFormat:@"%1.1f day%@", averageLength, averageLength == 1 ? @"" : @"s"];
+    averageChainLengthLabel.text = [TimeHelper formattedDayCount:@(averageLength)]; //[NSString stringWithFormat:LocalizedString(@"%@ days", @""), [NSString stringWithFormat:@"%1.1f", averageLength]];
     
     totalDaysCheckedLabel.text = [self labelInDays: [[[chains allObjects] reduce:^NSNumber*(NSNumber* memo, Chain* chain) {
         return @(memo.integerValue + chain.daysCountCache.integerValue);
@@ -65,7 +65,7 @@
     sparklineView.chains = [SparklineHelper dataForHabit:habit];
 }
 -(NSString*)labelInDays:(NSInteger)count{
-    return [NSString stringWithFormat:@"%@ day%@",@(count), count == 1 ? @"" : @"s"];
+    return [TimeHelper formattedDayCount:@(count)];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

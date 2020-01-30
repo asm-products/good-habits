@@ -27,7 +27,13 @@ STRINGS_FILES = {
     ]
 }
 
-OTHER_LANGUAGES = ["it","de","ru","ja""]
+OTHER_LANGUAGES = ["it","de","ru","ja"]
+
+def use_locale_names(mappings)
+  for source, dest in mappings
+    puts("rename #{source} to #{dest}")
+  end
+end
 
 platform :ios do
   desc "Push a new release build to the App Store"
@@ -39,13 +45,24 @@ platform :ios do
   
   desc "Take screenshots"
   lane :screenshots do
-    capture_ios_screenshots(localize_simulator: true)
+    use_locale_names("de-DE": "de", "en-GB": "en")
+    capture_ios_screenshots(
+      localize_simulator: true, 
+      # test_without_building: true,
+      # derived_data_path: "/Users/mf/Library/Developer/Xcode/DerivedData"
+      )
     frameit(path: './fastlane/screenshots')
   end
   
   desc "Show splash screen localisations"
   lane :splash_screen do
     exec("open '../Designs/Habits Assets.sketch'")
+  end
+
+  desc "Put metadata and screenshots"
+  lane :put_metadata_and_screenshots do
+    use_locale_names("de": "de-DE", "en": "en-GB")
+    deliver(app_version: '2.1.5')
   end
   
   desc "Upload strings to OneSky"
@@ -69,16 +86,19 @@ platform :ios do
     end
     exec("open https://goodtohear.oneskyapp.com/admin/phrase/list/project/353182")
   end
+
+  
   
   desc "Download OneSky translations"
   lane :download_strings do
       for language in OTHER_LANGUAGES
-        for type in ["IOS_STRINGS", "XLIFF"]
+        for type in ["XLIFF", "IOS_STRINGS"]
             for path in STRINGS_FILES[type]
                 filename = File.basename(path)
                 path = path
                     .gsub("en.xcloc/Localized\ Contents/en", language)
                     .gsub("/en", "/#{language}")
+                puts "Want to download #{language} version of #{filename} to #{path}"
                 onesky_download(
                   public_key: "MiXDY0pND19O6IpASejyxOpfbnqiFuri",
                   secret_key: ENV["ONESKY_SECRET_KEY"],
@@ -88,12 +108,14 @@ platform :ios do
                   destination: path
                 )
             end
-            
+            if type == "XLIFF" 
+              import_localizations(
+                source_path: "./localizations/#{language}.xliff",
+                project: "Habits.xcodeproj"
+              )
+            end
         end
-        import_localizations(
-          source_path: "./localizations/#{language}.xliff",
-          project: "Habits.xcodeproj"
-        )
+        
     end
   end
 end

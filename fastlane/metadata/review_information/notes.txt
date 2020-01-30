@@ -1,0 +1,2 @@
+The in app purchase needs to be available for "unlock stats"
+to work. This purchase is made either via the locked text field that shows up for habits where the chain was broken yesterday or in the statistics icon at the top left of the habit detail screen.

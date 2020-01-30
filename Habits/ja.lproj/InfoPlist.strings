@@ -1,2 +1,9 @@
+/* Bundle display name */
+"CFBundleDisplayName" = "習慣";
+
+/* Bundle name */
+"CFBundleName" = "習慣";
+
 /* Localized versions of Info.plist keys */
+"UILaunchStoryboardName" = "Launch Screen_jp";
 

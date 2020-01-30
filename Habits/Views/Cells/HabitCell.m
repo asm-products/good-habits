@@ -103,7 +103,7 @@
 
     [self setSwipeGestureWithView:[self viewWithImageNamed:@"Cross"] color:[Colors red] mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState2  completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
         // delete this habit?
-        [[[UIAlertView alloc] initWithTitle:@"Delete this habit?" message:[NSString stringWithFormat:@"Are you sure you want to delete \"%@\"", welf.habit.title] cancelButtonItem:[RIButtonItem itemWithLabel:@"Keep this habit"] otherButtonItems:[RIButtonItem itemWithLabel:@"Delete" action:^{
+        [[[UIAlertView alloc] initWithTitle:LocalizedString(@"Confirm habit deletion", @"") message:nil cancelButtonItem:[RIButtonItem itemWithLabel:NSLocalizedString(@"Keep this habit", @"")] otherButtonItems:[RIButtonItem itemWithLabel:NSLocalizedString(@"Delete", @"") action:^{
             [[CoreDataClient defaultClient].managedObjectContext deleteObject:welf.habit];
             [[CoreDataClient defaultClient].managedObjectContext save:nil];
             [HabitsQueries refresh];
@@ -120,11 +120,7 @@
     return [[UIImageView alloc] initWithImage:image];
 }
 -(NSString*)timeAgoString:(NSInteger)daysOverdue{
-    switch (daysOverdue) {
-        case 0: return @"today";
-        case 1: return @"yesterday";
-        default: return [NSString stringWithFormat:@"%@ days ago", @(daysOverdue)];
-    }
+   return [TimeHelper formattedDaysAgoCount:daysOverdue];
 }
 - (IBAction)didPressCancelSkippedDayButton:(id)sender {
     [self checkNextRequiredDate];
@@ -170,7 +166,7 @@
         if(!self.failure) self.failure = [self.habit existingFailureForDate:self.day];
         if((self.failure && self.failure.active.boolValue ) || daysOverdue > 0){
             NSString * timeMissedString = self.failure.active.boolValue && [self.failure.date isEqualToDate:self.day] ? @"today" : [self timeAgoString:daysOverdue];
-            reasonEntryField.placeholder = [NSString stringWithFormat:@"Missed %@. What happened?", timeMissedString];
+            reasonEntryField.placeholder = [NSString stringWithFormat: LocalizedString(@"Missed %@. What happened?", @""), timeMissedString];
             if(self.failure.active.boolValue) reasonEntryField.text = self.failure.notes;
 
             [self.habitStatusButton setBackgroundImage:[AwardImage circleColored:[Colors cobalt]] forState:UIControlStateNormal];
@@ -178,7 +174,7 @@
 
             [self setSwipeGestureWithView:[PastDayCheckView viewWithText:[self timeAgoString:chain.countOfDaysOverdue] frame:CGRectMake(0, 0, 100, self.frame.size.height)] color:chain.habit.color mode:MCSwipeTableViewCellModeSwitch state:MCSwipeTableViewCellState3 completionBlock:^(MCSwipeTableViewCell *cell, MCSwipeTableViewCellState state, MCSwipeTableViewCellMode mode) {
                 [welf checkNextRequiredDate];
-                [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:@"Checked %@", [welf timeAgoString:daysOverdue]]];
+                [SVProgressHUD showSuccessWithStatus:[NSString stringWithFormat:LocalizedString(@"Checked %@", @""), [welf timeAgoString:daysOverdue]]];
             }];
         }else{
             UIColor * badgeColor = chain.habit.isRequiredToday ? chain.habit.color : Colors.cobalt;

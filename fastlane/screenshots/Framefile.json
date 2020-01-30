@@ -1,12 +1,12 @@
 {
   "default": {
     "keyword": {
-      "supported": ["en", "it"],
+      "supported": ["en", "it", "ja","ru","de"],
       "font": "fonts/HelveticaNeueLTPro-Lt.otf"
     },
     "title": {
       "font": "fonts/HelveticaNeueLTPro-Md.otf",
-      "supported": ["en", "it"],
+      "supported": ["en", "it", "ja","ru","de"],
       "color": "#545454"
     },
     "background": "./background.jpg",

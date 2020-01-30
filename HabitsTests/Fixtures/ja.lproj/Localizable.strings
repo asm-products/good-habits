@@ -1,15 +1,123 @@
-/* 
-  Localizable.strings
-  Habits
+"Stats" = "統計データ";
 
-  Created by Michael Forrest on 15/01/2020.
-  Copyright © 2020 Good To Hear. All rights reserved.
-*/
-/* Daily TODO item (1) for app store screenshots. Don't translate these TODO items directly - think about what kind of daily task makes sense culturally - e.g. in Italy it might be "Call Mother"  */
-"Floss" = "Floss";
+/* Above graph of different chain lengths */
+"Length distribution" = "長さの分布";
+
+/* Reasons for breaking the chain */
+"Notes" = "メモ";
+
+/* Heading on stats screen */
+"Chains" = "鎖";
+
+"%@ days" = "%@日";
+"1 day" = "1日";
+"%@ days [more than 4]" = "%@日";
+
+/* Title of newly created habit */
+"New Habit" = "新しい習慣";
+
+/* Who made the app? */
+"Credits" = "クレジット";
+
+/* e.g. "Missed yesterday. What happened?" */
+"Missed %@. What happened?" = "%@はしませんでした。どうしましたか？";
+
+"Carried over from yesterday" = "昨日から持ち越し";
+
+/* In the list of items on the information screen - as in "[you can also] export your data", "[you can also] report a bug" etc... */
+"You can also" = "こちらもできます：";
+
+/* E.g. "Checked 2 days ago" - result of swiping to check previous day */
+"Checked %@" = "%@にチェック済み";
+
+/* When asked to confirm habit deletion */
+"Keep this habit" = "この習慣を続ける";
+/* Daily TODO item (1) for app store screenshots. Don't translate these TODO items directly - think about what kind of daily task makes sense culturally - e.g. in Italy it might be "Call Mother" */
+"Floss" = "フロス";
 /* Daily TODO item  (2) for app store screenshots. */
-"Exercise" = "30 mins workout";
+"Exercise" = "30分運動";
 /* Daily TODO item  (3) for app store screenshots */
-"Play the trumpet" = "Piano practice";
+"Play the trumpet" = "ピアノの練習";
 /* Daily TODO item  (4) for app store screenshots. Could be translated to "take vitamins" - again, something that you would want to do every day. */
-"Take medicine" = "Take pills";
+"Take medicine" = "薬を飲む";
+"add" = "追加する";
+"Don't Break The Chain!" = "鎖を切るな！";
+"Mark completed" = "完了！";
+"Snooze" = "スヌーズ";
+"Look at the guide" = "ガイドを見る";
+"Get Happiness" = "幸せを手に入れる";
+"Rate this app" = "アプリを評価する";
+"Share this app" = "アプリをシェアする";
+"Like us on Facebook" = "Facebookで「いいね！」する";
+"Not on Sundays" = "日曜日以外";
+"Not on Mondays" = "月曜日以外";
+"Not on Tuesdays" = "火曜日以外";
+"Not on Wednesdays" = "水曜日以外";
+"Not on Thursdays" = "木曜日以外";
+"Not on Fridays" = "金曜日以外";
+"Not on Saturdays" = "土曜日以外";
+"Export your data" = "データをエクスポートする";
+"Log an issue" = "問題をログに記録する";
+"Contact us" = "お問い合わせ";
+"Recover data" = "データを復旧する";
+
+/* User Guide Video Step 1 */
+"[guide] 1. Tap the + to get started" = "[+] をタップして始める";
+
+/* User Guide Video Step 2 */
+"[guide] 2. Enter new habit title" = "タイトルを入力する";
+
+/* User Guide Video Step 3 - reuse whatever you came up with earlier for the first daily TODO item */
+"[guide] 3. First habit description" = "フロス";
+
+/* User Guide Video Step 4  - Inform about toggling days */
+"[guide] 4. Inform about toggling days" = "毎日する必要はないかもしれません";
+
+/* User Guide Video Step 5 - Introduce reminders */
+"[guide] 5. Introduce Reminders" = "リマインダーを設定する";
+
+/* User Guide Video Step 6 - Introduce completion checkbox */
+"[guide] 6. Introduce completion checkbox" = "完了したらチェックを入れる";
+
+/* User Guide Video Step 7 - Indicate passage of time */
+"[guide] 7. Later..." = "後で";
+
+/* User Guide Video Step 8 - Introduce tapping twice to mark failure */
+"[guide] 8. Introduce tapping twice to mark failure" = "今日しなかったら、チェック欄を2回タップします";
+
+/* User Guide Video Step 9 - Introduce in-app purchase */
+"[guide] 9. Introduce in-app purchase chain-break reasons feature" = "統計データを有効にすると（アプリ内購入）、鎖が切れた理由を記録することができます。";
+
+/* User Guide Video Step 10 - Come up with a reason that the daily TODO item mentioned above might be missed. In this case, we're talking about flossing but if it was "Call Mother" then the reason might be "I was too busy with work" */
+"[guide] 10. Reason for breaking chain" = "フロスがなくなった";
+
+/* User Guide Video Step 11 - There is a button to show user stats - introduce this button */
+"[guide] 11. Introduce stats button" = "右上のボタンで統計データを表示";
+
+/* User Guide Video Step 12 - Describe stats screen */
+"[guide] 12. Describe stats screen" = "鎖の情報と、1日やらなかった理由のリストを表示します";
+
+/* User Guide Video Step 13 - Introduce swiping interaction - you can swipe table rows in your habit TODO list to change theme */
+"[guide] 13. Introduce swiping mechanic" = "何日かアプリを開いていなくても、毎日続けていた場合は、リストをスワイプしてすべてチェックオフすることができます";
+
+/* User Guide Video Step 14 - Still talking about the swiping interaction */
+"[guide] 14. Add that habits can be paused and deleted by swiping" = "この方法で習慣を一時停止または削除することができます";
+
+/* User Guide Video Step 15 - Finishing the tutorial with some general advice: */
+"[guide] 15. It takes about a month to form a new habit" = "新たに習慣化するには1ヶ月ぐらいかかります。";
+
+/* User Guide Video Step 16 - And rounding it off with the strap line! */
+"[guide] 16. Have fun, and don't break the chain!" = "楽しみながら鎖をつないで習慣化！";
+
+"Tap the + to get started" = "[+] をタップして始める";
+"Back" = "戻る";
+"No reminder" = "リマインダーなし";
+"Clear reminder" = "リマインダーを消去する";
+"Set reminder" = "リマインダーを設定する";
+
+/* e.g. Remind at 3:45pm */
+"Remind at time" = "%@にリマインド";
+
+"Pause this habit" = "この習慣を一時停止する";
+"Resume this habit" = "この習慣を再開する";
+"Confirm habit deletion" = "この習慣を削除しますか？元に戻すことはできません。";

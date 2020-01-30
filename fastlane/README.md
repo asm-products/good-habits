@@ -31,6 +31,11 @@ Take screenshots
 fastlane ios splash_screen
 ```
 Show splash screen localisations
+### ios put_metadata_and_screenshots
+```
+fastlane ios put_metadata_and_screenshots
+```
+Put metadata and screenshots
 ### ios upload_strings
 ```
 fastlane ios upload_strings

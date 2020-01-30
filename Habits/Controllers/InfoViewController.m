@@ -91,8 +91,8 @@
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if(section == 0) return self.navBar;
-    if(section == 1) return [[InactiveHabitsHeader alloc] initWithTitle:@"You can also"];
-    if(section == 2) return [[InactiveHabitsHeader alloc] initWithTitle:@"Credits"];
+    if(section == 1) return [[InactiveHabitsHeader alloc] initWithTitle: LocalizedString(@"You can also", @"")];
+    if(section == 2) return [[InactiveHabitsHeader alloc] initWithTitle: LocalizedString(@"Credits", @"")];
     return nil;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

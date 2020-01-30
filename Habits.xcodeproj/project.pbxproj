@@ -36,6 +36,7 @@
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
 		AC2B474C19D72A64008FE6DE /* Habits Tutorial.mov in Resources */ = {isa = PBXBuildFile; fileRef = AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */; };
 		AC2BC91C19C77C61007C378D /* habits_data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2BC91A19C77C61007C378D /* habits_data.json */; };
+		AC31B67923DEF28A002B09B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC31B67723DEF28A002B09B2 /* InfoPlist.strings */; };
 		AC3220671BB42BA300A6AD30 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3220661BB42BA300A6AD30 /* Fabric.framework */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
@@ -163,6 +164,10 @@
 		AC7E01381A0A539300E37979 /* good_to_hear_playfair.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01321A0A539300E37979 /* good_to_hear_playfair.png */; };
 		AC7E01391A0A539300E37979 /* good_to_hear_playfair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7E01331A0A539300E37979 /* good_to_hear_playfair@2x.png */; };
 		AC815C2E23D0B897005D6D7F /* StatisticsFeaturePurchaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC815C3023D0B897005D6D7F /* StatisticsFeaturePurchaseView.xib */; };
+		AC84E5D223E08D1E0024184B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC31B67A23DEF28A002B09B2 /* Localizable.strings */; };
+		AC84E5D423E0A8990024184B /* Launch Screen_ru.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC84E5D323E0A8990024184B /* Launch Screen_ru.xib */; };
+		AC84E5D623E0A8CC0024184B /* Launch Screen_ja.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC84E5D523E0A8CC0024184B /* Launch Screen_ja.xib */; };
+		AC84E5D823E0A8FF0024184B /* Launch Screen_de.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC84E5D723E0A8FF0024184B /* Launch Screen_de.xib */; };
 		AC8F99471BF74B4700902C73 /* AppFeatures.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DDD19704F67007CD2B7 /* AppFeatures.m */; };
 		AC8F99481BF74EC200902C73 /* TimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AC40187419504ADB0033407B /* TimeHelper.m */; };
 		AC94093419B8E75F003E6257 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = AC94093219B8E75F003E6257 /* locked.png */; };
@@ -247,7 +252,6 @@
 		ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BC19B456DD00085A95 /* ReminderTests.m */; };
 		ACBD81EF1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */; };
 		ACBDF3F623AB76CA005455B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACBDF3F823AB76CA005455B5 /* Localizable.strings */; };
-		ACBDF3FB23AB7B63005455B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACBDF3F823AB76CA005455B5 /* Localizable.strings */; };
 		ACDABD011BF37505007A7274 /* HabitToggler.h in Headers */ = {isa = PBXBuildFile; fileRef = ACDABCFF1BF37505007A7274 /* HabitToggler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACDABD021BF37505007A7274 /* HabitToggler.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDABD001BF37505007A7274 /* HabitToggler.m */; };
 		ACDABD031BF3E28A007A7274 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4018D91950C7C00033407B /* Notifications.m */; };
@@ -384,6 +388,8 @@
 		5A565196C4C4F5D9BE5616BB /* Pods-Habits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Habits/Pods-Habits.debug.xcconfig"; sourceTree = "<group>"; };
 		79E376FBD15031CEE2A96242 /* Pods-HabitsCommonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsCommonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsCommonTests/Pods-HabitsCommonTests.release.xcconfig"; sourceTree = "<group>"; };
 		87456CF60F01AA42118D0217 /* Pods-HabitsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsTests/Pods-HabitsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC0520A723DEF2C900FCED9D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC0520A823DEF2C900FCED9D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC088A7419EB120C0068F6EC /* TimeHelperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeHelperTest.m; sourceTree = "<group>"; };
 		AC1D7DE41BF748FF00700CB0 /* MigrationToSharedContainerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationToSharedContainerTests.m; sourceTree = "<group>"; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_legacy.json; sourceTree = "<group>"; };
@@ -404,6 +410,8 @@
 		AC24B642197194FC00B33CCF /* CheckMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckMarkView.m; sourceTree = "<group>"; };
 		AC2B474B19D72A64008FE6DE /* Habits Tutorial.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Habits Tutorial.mov"; sourceTree = "<group>"; };
 		AC2BC91A19C77C61007C378D /* habits_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data.json; sourceTree = "<group>"; };
+		AC31B67823DEF28A002B09B2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC31B67B23DEF28A002B09B2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC3220661BB42BA300A6AD30 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
 		AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCell.m; sourceTree = "<group>"; };
@@ -593,6 +601,11 @@
 		AC7E01331A0A539300E37979 /* good_to_hear_playfair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "good_to_hear_playfair@2x.png"; sourceTree = "<group>"; };
 		AC815C2F23D0B897005D6D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatisticsFeaturePurchaseView.xib; sourceTree = "<group>"; };
 		AC815C3123D0B8A0005D6D7F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/StatisticsFeaturePurchaseView.strings; sourceTree = "<group>"; };
+		AC84E5D323E0A8990024184B /* Launch Screen_ru.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen_ru.xib"; sourceTree = "<group>"; };
+		AC84E5D523E0A8CC0024184B /* Launch Screen_ja.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen_ja.xib"; sourceTree = "<group>"; };
+		AC84E5D723E0A8FF0024184B /* Launch Screen_de.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen_de.xib"; sourceTree = "<group>"; };
+		AC8625BF23DEF2D0001B1610 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC8625C023DEF2D0001B1610 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC94093219B8E75F003E6257 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
 		AC94093319B8E75F003E6257 /* locked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locked@2x.png"; sourceTree = "<group>"; };
 		AC94093619B8F5EA003E6257 /* PremiumFeatureTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PremiumFeatureTests.m; sourceTree = "<group>"; };
@@ -731,6 +744,8 @@
 		ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayBoundaryTests.m; sourceTree = "<group>"; };
 		ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStatsTableViewController.h; sourceTree = "<group>"; };
 		ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStatsTableViewController.m; sourceTree = "<group>"; };
+		ACFA224423DEF2D8009E4319 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ACFA224523DEF2D8009E4319 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B440350CC392D6F7174EC005 /* libPods-HabitsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HabitsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AD56213BF4E75B1917466E /* Pods-HabitsCommon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsCommon.release.xcconfig"; path = "Pods/Target Support Files/Pods-HabitsCommon/Pods-HabitsCommon.release.xcconfig"; sourceTree = "<group>"; };
 		C68456AE51DD07A3B3A4FBDE /* Pods-Habits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Habits.release.xcconfig"; path = "Pods/Target Support Files/Pods-Habits/Pods-Habits.release.xcconfig"; sourceTree = "<group>"; };
@@ -1295,6 +1310,7 @@
 				AC7A48361BED449300A8FBAD /* TodayViewController.swift */,
 				AC7A48381BED449300A8FBAD /* MainInterface.storyboard */,
 				AC7A483B1BED449300A8FBAD /* Info.plist */,
+				AC31B67723DEF28A002B09B2 /* InfoPlist.strings */,
 				AC7A484D1BED4BCB00A8FBAD /* HabitCellTodayWidget.swift */,
 				ACAC10B41C020E4500457ECB /* HabitsTodayExtension-Bridging-Header.h */,
 			);
@@ -1453,8 +1469,12 @@
 			children = (
 				ACB7480D23C484E900CCD0E8 /* Launch Screen.xib */,
 				ACB7480F23C4850500CCD0E8 /* Launch Screen_it.xib */,
+				AC84E5D323E0A8990024184B /* Launch Screen_ru.xib */,
+				AC84E5D523E0A8CC0024184B /* Launch Screen_ja.xib */,
+				AC84E5D723E0A8FF0024184B /* Launch Screen_de.xib */,
 				ACBD81ED1B7A325600CCED14 /* Habits-Bridging-Header.h */,
 				ACADB3DB190D23B90030CC82 /* Habits-Info.plist */,
+				AC31B67A23DEF28A002B09B2 /* Localizable.strings */,
 				ACADB3DC190D23B90030CC82 /* InfoPlist.strings */,
 				ACADB3DF190D23B90030CC82 /* main.m */,
 				ACADB3E1190D23B90030CC82 /* Habits-Prefix.pch */,
@@ -2014,6 +2034,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC7A48681BEE1C6A00A8FBAD /* Cross.png in Resources */,
+				AC31B67923DEF28A002B09B2 /* InfoPlist.strings in Resources */,
 				AC7A48691BEE1C6A00A8FBAD /* Cross@2x.png in Resources */,
 				AC7A486A1BEE1C6A00A8FBAD /* check_mark@2x.png in Resources */,
 				AC7A486B1BEE1C6A00A8FBAD /* check_mark.png in Resources */,
@@ -2072,7 +2093,6 @@
 				ACADB494190D27960030CC82 /* detail_screen.png in Resources */,
 				AC4018A7195066E00033407B /* LICENSE in Resources */,
 				AC9A0D721BF76D1100B2C856 /* data-migration@2x.png in Resources */,
-				ACBDF3FB23AB7B63005455B5 /* Localizable.strings in Resources */,
 				ACADB49E190D27960030CC82 /* add@2x.png in Resources */,
 				AC2B474C19D72A64008FE6DE /* Habits Tutorial.mov in Resources */,
 				AC94093919B8FAF8003E6257 /* Settings.bundle in Resources */,
@@ -2088,6 +2108,8 @@
 				ACADB45A190D27960030CC82 /* icon_120.png in Resources */,
 				AC7E01371A0A539300E37979 /* good_to_hear_crane@2x.png in Resources */,
 				AC5F3B4D19C6245900398F81 /* HelpCaptureInterstitialViewController.xib in Resources */,
+				AC84E5D223E08D1E0024184B /* Localizable.strings in Resources */,
+				AC84E5D823E0A8FF0024184B /* Launch Screen_de.xib in Resources */,
 				ACADB485190D27960030CC82 /* nav.png in Resources */,
 				AC7E01391A0A539300E37979 /* good_to_hear_playfair@2x.png in Resources */,
 				ACADB458190D27960030CC82 /* info_nav@2x.png in Resources */,
@@ -2114,8 +2136,10 @@
 				ACADB3DE190D23B90030CC82 /* InfoPlist.strings in Resources */,
 				ACADB48A190D27960030CC82 /* play.png in Resources */,
 				AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */,
+				AC84E5D623E0A8CC0024184B /* Launch Screen_ja.xib in Resources */,
 				AC1EB93B19B0F71A00BF7EAF /* broken_chain_cross.png in Resources */,
 				AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */,
+				AC84E5D423E0A8990024184B /* Launch Screen_ru.xib in Resources */,
 				ACADB3E7190D23B90030CC82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2286,7 +2310,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 3254ccee18a98f4b57c4dc9d4fdd5d961828f59d 3d342277e5866602e57cf63e100c248a8ae2614513986fa7e265a13234b1d651";
+			shellScript = "./Crashlytics.framework/run 3254ccee18a98f4b57c4dc9d4fdd5d961828f59d 3d342277e5866602e57cf63e100c248a8ae2614513986fa7e265a13234b1d651\n";
 		};
 		ACB4F9F81C120D9B00163E3F /* Remove Frameworks dir to fix "appex contains disallowed file 'Frameworks'" */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2566,6 +2590,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AC31B67723DEF28A002B09B2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC31B67823DEF28A002B09B2 /* it */,
+				AC0520A723DEF2C900FCED9D /* de */,
+				AC8625BF23DEF2D0001B1610 /* ru */,
+				ACFA224423DEF2D8009E4319 /* ja */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AC31B67A23DEF28A002B09B2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC31B67B23DEF28A002B09B2 /* it */,
+				AC0520A823DEF2C900FCED9D /* de */,
+				AC8625C023DEF2D0001B1610 /* ru */,
+				ACFA224523DEF2D8009E4319 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AC5833DD23CF268C004F97EB /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2834,6 +2880,7 @@
 				INFOPLIST_FILE = HabitsTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.1.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.HabitsTodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2862,6 +2909,7 @@
 				INFOPLIST_FILE = HabitsTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.1.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.HabitsTodayExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2886,6 +2934,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "HabitsWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.1.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -2914,6 +2963,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "HabitsWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.1.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -2943,6 +2993,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = HabitsWatchApp_Extension;
 				INFOPLIST_FILE = HabitsWatchApp/Info.plist;
+				MARKETING_VERSION = 2.1.5;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2973,6 +3024,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = HabitsWatchApp_Extension;
 				INFOPLIST_FILE = HabitsWatchApp/Info.plist;
+				MARKETING_VERSION = 2.1.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3088,6 +3140,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 2.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -3121,6 +3174,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 2.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = goodtohear.habits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

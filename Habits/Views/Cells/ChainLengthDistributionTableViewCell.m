@@ -9,6 +9,7 @@
 #import "ChainLengthDistributionTableViewCell.h"
 #import "ChainQueries.h"
 #import <NSArray+F.h>
+#import "TimeHelper.h"
 #define GROUP_SPACING 10
 #define ROW_SPACING 3
 #define ROW_HEIGHT 15
@@ -55,7 +56,7 @@
     UILabel * daysCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, -1, LABELS_WIDTH, ROW_HEIGHT)];
     daysCountLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:LABEL_TEXT_SIZE];
     daysCountLabel.textColor = [UIColor lightGrayColor];
-    daysCountLabel.text = [NSString stringWithFormat:@"%@ day%@", @(daysCount), daysCount == 1 ? @"" : @"s"];
+    daysCountLabel.text = [TimeHelper formattedDayCount:@(daysCount)];
     daysCountLabel.textAlignment = NSTextAlignmentRight;
     [result addSubview:daysCountLabel];
     
