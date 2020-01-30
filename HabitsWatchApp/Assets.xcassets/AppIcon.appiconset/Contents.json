@@ -48,6 +48,7 @@
     {
       "size" : "50x50",
       "idiom" : "watch",
+      "filename" : "watch-long-look-44pt@1x.png",
       "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "44mm"
@@ -71,6 +72,7 @@
     {
       "size" : "108x108",
       "idiom" : "watch",
+      "filename" : "watch-long-look-50pt@2x.png",
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "44mm"
