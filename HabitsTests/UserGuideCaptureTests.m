@@ -63,9 +63,14 @@
     [self addOverlayWindow];
     
     [TestHelpers setStatsEnabled:NO];
+    [tester waitForViewWithAccessibilityLabel:LocalizedString(@"add", @"")];
     
     [self showNote:@"1. Tap the + to get started"];
+    NSLog(@"find add button");
+    NSDate * benchmark = [NSDate date];
+    
     [self tapViewWithAccessibilityLabel:LocalizedString(@"add",@"")];
+    NSLog(@"found add button after %@ seconds", @([benchmark timeIntervalSinceNow]));
     [self showNote:@"2. Enter new habit title"];
     [tester enterTextIntoCurrentFirstResponder:[self localizedString:@"3. First habit description"]];
     
@@ -80,7 +85,7 @@
     [self pressBack];
     [self showNote:@"6. Introduce completion checkbox"];
     [self tapViewWithAccessibilityLabel: [self checkboxFor:[self localizedString:@"3. First habit description"] checked:NO]];
-
+    
     [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-24"].date];
     NSArray * habits = [TestHelpers loadFixtureFromUserDefaultsNamed:@"demo.habits"];
     NSString * firstHabit = [habits firstObject][@"title"];
@@ -94,7 +99,7 @@
     
     [TestHelpers setStatsEnabled:YES];
     [self showNote:@"9. Introduce in-app purchase chain-break reasons feature"];
-    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
+    [tester tapViewWithAccessibilityLabel:@"" value:[NSString stringWithFormat: LocalizedString(@"Missed %@. What happened?", @""), [TimeHelper formattedDaysAgoCount:0]] traits:UIAccessibilityTraitNone];
     [tester enterTextIntoCurrentFirstResponder:[self localizedString: @"10. Reason for breaking chain"]];
     [tester enterTextIntoCurrentFirstResponder:@"\n"];
     [self tapViewWithAccessibilityLabel: firstHabit];
@@ -141,9 +146,9 @@
     [self.userGuideCaptureOverlayController presentViewController:controller animated:true completion:^{
     }];
     [tester waitForTimeInterval:2];
-//    [self screenshot:filename];
+    //    [self screenshot:filename];
     [controller dismissViewControllerAnimated:true completion:nil];
-//    [tester waitForTimeInterval:0.3];
+    [tester waitForTimeInterval:0.3]; // animation duration
 }
 -(NSString*)screenSizeName{
     CGFloat h = [UIScreen mainScreen].bounds.size.height;
@@ -152,6 +157,7 @@
     if(h == 736) return @"5.5"; // iPhone 6 Plus
     if(h == 812) return @"5.8"; // iPhone X
     if(h == 896) return @"6.1"; // iPhone 11
+//    if(h == ) return @"6.5"; //
     if(h == 1366) return @"12.9"; // iPad Pro
     return @"dunno";
 }

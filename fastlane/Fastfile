@@ -29,28 +29,49 @@ STRINGS_FILES = {
 
 OTHER_LANGUAGES = ["it","de","ru","ja"]
 
-def use_locale_names(mappings)
+def use_locale_names(type)
+  mappings = type == :normal ? {"de-DE": "de", "en-GB": "en"} : {"de": "de-DE", "en": "en-GB"}
   for source, dest in mappings
-    puts("rename #{source} to #{dest}")
+    puts("rename #{source} to #{dest} (in #{Dir.pwd})")
+    for dir in ['screenshots', 'metadata']
+      source_dir = File.join(dir.to_s, source.to_s)
+      dest_dir = File.join(dir.to_s, dest.to_s)
+      if Dir.exists?(source_dir)
+        puts("RENAMING source #{source_dir} to #{dest_dir}")
+        FileUtils.mv(source_dir, dest_dir)
+      else
+        puts("No dir called #{source_dir}, don't need to do anything")
+      end
+    end
   end
 end
 
 platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do
+    use_locale_names(:normal)
     build_app(workspace: "Habits.xcworkspace", scheme: "Habits")
     upload_to_app_store(skip_metadata: true, skip_screenshots: true)
     increment_build_number
   end
   
+  desc "reset any state"
+  lane :reset do
+    use_locale_names(:normal)
+  end
+
   desc "Take screenshots"
   lane :screenshots do
-    use_locale_names("de-DE": "de", "en-GB": "en")
+    use_locale_names(:normal)
     capture_ios_screenshots(
       localize_simulator: true, 
       # test_without_building: true,
       # derived_data_path: "/Users/mf/Library/Developer/Xcode/DerivedData"
       )
+    frameit(path: './fastlane/screenshots')
+  end
+  lane :just_frame do
+    use_locale_names(:normal)
     frameit(path: './fastlane/screenshots')
   end
   
@@ -61,12 +82,14 @@ platform :ios do
 
   desc "Put metadata and screenshots"
   lane :put_metadata_and_screenshots do
-    use_locale_names("de": "de-DE", "en": "en-GB")
+    use_locale_names(:metadata)
     deliver(app_version: '2.1.5')
+    use_locale_names(:normal)
   end
   
   desc "Upload strings to OneSky"
   lane :upload_strings do
+    use_locale_names(:normal)
     puts("Don't forget to create launch screen images")
     export_localizations(
         destination_path: "./localizations",
@@ -91,6 +114,7 @@ platform :ios do
   
   desc "Download OneSky translations"
   lane :download_strings do
+    use_locale_names("de-DE": "de", "en-GB": "en")
       for language in OTHER_LANGUAGES
         for type in ["XLIFF", "IOS_STRINGS"]
             for path in STRINGS_FILES[type]

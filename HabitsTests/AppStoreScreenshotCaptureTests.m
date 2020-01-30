@@ -72,9 +72,10 @@
     CGFloat h = [UIScreen mainScreen].bounds.size.height;
     if(h == 568) return @"4.0"; // iPhone 5
     if(h == 667) return @"4.7"; // iPhone 6
-    if(h == 736) return @"5.5"; // iPhone 6 Plus
+    if(h == 736) return @"5.5"; // iPhone 6 Plus ✅
     if(h == 812) return @"5.8"; // iPhone X
     if(h == 896) return @"6.1"; // iPhone 11
+    if(h == 1245) return @"6.5"; // pro max ✅
     if(h == 1366) return @"12.9"; // iPad Pro
     return @"dunno";
 }

@@ -1,12 +1,21 @@
 {
   "default": {
+    "__normal_languages":["ja","en", "it", "ru","de"],
+    "__fonts-for-non-japanese":  [
+      "../../../../../Library/Fonts/SFText-Heavy.otf",
+      "../../../../../Library/Fonts/SFText-Light.otf"
+    ],
+    "__japanese_fonts": [
+      "../../../../../Library/Fonts/NotoSansJP-Bold.otf",
+      "../../../../../Library/Fonts/NotoSansJP-Medium.otf"
+    ], 
     "keyword": {
-      "supported": ["en", "it", "ja","ru","de"],
-      "font": "fonts/HelveticaNeueLTPro-Lt.otf"
+      "supported": ["ja"],
+      "font": "../../../../../Library/Fonts/NotoSansJP-Bold.otf"
     },
     "title": {
-      "font": "fonts/HelveticaNeueLTPro-Md.otf",
-      "supported": ["en", "it", "ja","ru","de"],
+      "font": "../../../../../Library/Fonts/NotoSansJP-Medium.otf",
+      "supported": ["ja"],
       "color": "#545454"
     },
     "background": "./background.jpg",

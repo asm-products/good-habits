@@ -21,11 +21,21 @@ or alternatively using `brew cask install fastlane`
 fastlane ios release
 ```
 Push a new release build to the App Store
+### ios reset
+```
+fastlane ios reset
+```
+reset any state
 ### ios screenshots
 ```
 fastlane ios screenshots
 ```
 Take screenshots
+### ios just_frame
+```
+fastlane ios just_frame
+```
+
 ### ios splash_screen
 ```
 fastlane ios splash_screen

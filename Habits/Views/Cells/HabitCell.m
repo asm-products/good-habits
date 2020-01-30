@@ -165,7 +165,7 @@
         NSInteger daysOverdue = chain.countOfDaysOverdue;
         if(!self.failure) self.failure = [self.habit existingFailureForDate:self.day];
         if((self.failure && self.failure.active.boolValue ) || daysOverdue > 0){
-            NSString * timeMissedString = self.failure.active.boolValue && [self.failure.date isEqualToDate:self.day] ? @"today" : [self timeAgoString:daysOverdue];
+            NSString * timeMissedString = [self timeAgoString:daysOverdue];
             reasonEntryField.placeholder = [NSString stringWithFormat: LocalizedString(@"Missed %@. What happened?", @""), timeMissedString];
             if(self.failure.active.boolValue) reasonEntryField.text = self.failure.notes;
 
