@@ -15,9 +15,9 @@ class HabitCellTodayWidget: UITableViewCell {
     @IBOutlet weak var countCell: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.clear
+//        backgroundColor = UIColor.clear
         countCell.backgroundColor = UIColor.clear
-        contentView.backgroundColor = UIColor.clear
+//        contentView.backgroundColor = UIColor.clear
         let tap = UITapGestureRecognizer(target: self, action: #selector(HabitCellTodayWidget.handleTap(_:)))
         checkBox.addGestureRecognizer(tap)
         
