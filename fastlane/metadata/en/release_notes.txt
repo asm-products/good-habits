@@ -1,1 +1,2 @@
-
+* Long awaited bug-fixes
+* Now translated into Italian, German, Russian and Japanese!

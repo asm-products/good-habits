@@ -5,22 +5,7 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.006051">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="1: build_app" time="165.606358">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="2: upload_to_app_store" time="192.428805">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="3.153576">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.007102">
         
       </testcase>
     

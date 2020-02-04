@@ -81,10 +81,12 @@
 }
 -(NSString*)deviceName{
     CGFloat h = [UIScreen mainScreen].bounds.size.height;
+    CGFloat scale = [[UIScreen mainScreen] scale];
     if(h == 568) return @"iPhone 5"; //
     if(h == 667) return @"iPhone 6"; //
     if(h == 736) return @"iPhone 6 Plus"; //
     if(h == 812) return @"iPhone X"; //
+    if(h == 896 && scale == 3) return @"iPhone 11 Pro Max";
     if(h == 896) return @"iPhone 11"; //
     if(h == 1366) return @"iPad Pro"; // 
     return @"dunno";
