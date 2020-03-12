@@ -14,6 +14,7 @@
 #import <Crashlytics/Crashlytics.h>
 #define INSTALLED_DATE_KEY @"goodtohear.habits_installed_date"
 @import AVKit;
+@import StoreKit;
 
 @implementation InfoTask
 +(NSArray *)due{
@@ -44,9 +45,14 @@
                        UIActivityViewController * sheet = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
                        [controller presentViewController:sheet animated:YES completion:nil];
                    }],
-                   [InfoTask create:@"happiness" due:3 text:NSLocalizedString(@"Get Happiness", @"Checklist item that links to download Happiness app") color:[Colors yellow] action:^(UIViewController *controller) {
-                       [Answers logCustomEventWithName:@"Looked at happiness" customAttributes:nil];
-                       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://goodtohear.co.uk/happiness?from=habits"]];
+                   [InfoTask create:@"changes" due:3 text:NSLocalizedString(@"Try 'Changes'", @"Checklist item that links to download Changes app") color:[Colors yellow] action:^(UIViewController *controller) {
+                       [Answers logCustomEventWithName:@"Looked at changes" customAttributes:nil];
+                       SKStoreProductViewController * storeController = [[SKStoreProductViewController alloc] init];
+                       //https://apps.apple.com/us/app/changes-mood-insights/id1483226932
+                       [storeController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier: @"1483226932"} completionBlock:^(BOOL result, NSError * _Nullable error) {
+                           
+                       }];
+                       [controller presentViewController:storeController animated:true completion:nil];
                    }],
                    [InfoTask create:@"rate" due:3 text:NSLocalizedString(@"Rate this app", @"") color:[Colors purple] action:^(UIViewController *controller) {
                        [Answers logCustomEventWithName:@"Tapped Rate App" customAttributes:nil];
