@@ -29,6 +29,7 @@ PODS:
   - LMAlertView (1.1.0):
     - CAAnimationBlocks (~> 0.0.1)
     - RBBAnimation (~> 0.3.0)
+  - Locksmith (4.0.0)
   - Mantle (1.5.8):
     - Mantle/extobjc (= 1.5.8)
   - Mantle/extobjc (1.5.8)
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - KIF
   - KIF (~> 3.7)
   - LMAlertView (~> 1.1)
+  - Locksmith (~> 4.0)
   - Mantle (~> 1.5)
   - MCSwipeTableViewCell (~> 2.1)
   - MVModalTransitions (from `https://github.com/michaelforrest/MVModalTransitions.git`)
@@ -100,6 +102,7 @@ SPEC REPOS:
     - ZipUtilities
   trunk:
     - FCOverlay
+    - Locksmith
 
 EXTERNAL SOURCES:
   GTHRectHelpers:
@@ -128,6 +131,7 @@ SPEC CHECKSUMS:
   GTHRectHelpers: a805ec544af6dbc4f3014f113f389ea766522859
   KIF: f3d01c109ee9d1cfe6b0f2bb2aa278e807e971e2
   LMAlertView: fa4589ea2cb540b888636ff6739fc39b16ac1e4b
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   Mantle: f03b2b606c3f0cabd80214ad8a2fed6b464a7359
   Masonry: 9f515466afe48632562342a40a1c224071a1a022
   MCSwipeTableViewCell: 1b303e16c3a26b1982f3a68386e9b8c5fc8344c3
@@ -143,6 +147,6 @@ SPEC CHECKSUMS:
   YLMoment: d02accdc59d74b6f1c1b6d8f2aaf2fcb74414026
   ZipUtilities: d64048e499434850b3d91cabb38de45d42cfd2e8
 
-PODFILE CHECKSUM: 5d74810d65eaa0c731a2d5cfdb48469d88537dd5
+PODFILE CHECKSUM: e7762b45bc98d1981ce8c4fe717d49a63972db0b
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
