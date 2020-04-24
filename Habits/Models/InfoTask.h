@@ -23,7 +23,7 @@ typedef void (^InfoTaskAction)(UIViewController*controller);
 +(NSArray*)all;
 +(NSInteger)unopenedCount;
 
-
++(NSDate*)installationDate;
 +(instancetype)create:(NSString*)identifier due:(NSInteger)due text:(NSString*)text color:(UIColor*)color action:(InfoTaskAction)action;
 
 -(BOOL)isDue;

@@ -18,6 +18,8 @@
 #import "StatsTableViewController.h"
 #import "HabitToggler.h"
 #import <Crashlytics/Crashlytics.h>
+#import "TimeHelper.h"
+
 @interface LandingViewController (){
     __weak IBOutlet UILabel *infoCountBadge;
 #pragma mark stats enabled only
@@ -37,7 +39,7 @@
     fixedSpace.width = -26;
     self.navigationItem.leftBarButtonItems = @[fixedSpace, self.navigationItem.leftBarButtonItem];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTodayCheckedForChain:) name:TODAY_CHECKED_FOR_CHAIN object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleBookPromoStatusUpdate) name:@"BOOK_PROMO_STATUS_UPDATED" object:nil];
 }
 -(void)updateInfoCountBadge{
     infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
@@ -47,6 +49,7 @@
     [super viewWillAppear:animated];
     [self.habitListViewController refresh];
     [self updateInfoCountBadge];
+    [self updateBookPromoAnimated: false];
     if([AppFeatures statsEnabled]){
 //        [self enableStatsPopup];
     }
@@ -57,6 +60,43 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+-(void)handleBookPromoStatusUpdate{
+    [self updateBookPromoAnimated:true];
+}
+-(void)updateBookPromoAnimated:(BOOL)animated{
+//    BOOL userSpeaksEnglish = [[NSLocale preferredLanguages] filter:^BOOL(NSString* language) {
+//        return [language containsString:@"en"];
+//    }].count > 0;
+    BOOL userSpeaksEnglish = true;
+    
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    NSDate * installedDate = [InfoTask installationDate];
+    if(!installedDate){
+        installedDate = [NSDate date];
+    }
+    NSDate * dueDate = [TimeHelper addDays:5 toDate:installedDate];
+#if DEBUG
+    BOOL hasTappedSignUpOnBookPitch = false;
+#else
+    BOOL hasTappedSignUpOnBookPitch = [userDefaults boolForKey:@"has-tapped-sign-up-on-book-pitch"];
+#endif
+    NSTimeInterval snoozedUntilTimeInterval = [userDefaults doubleForKey:@"book-pitch-snoozed-until"];
+    NSDate * date = [NSDate dateWithTimeIntervalSince1970:snoozedUntilTimeInterval];
+    // date will be distant past if it was never snoozed which suits our purposes
+    BOOL shouldShowPromo = userSpeaksEnglish
+        && !hasTappedSignUpOnBookPitch
+        && [dueDate timeIntervalSinceNow] < 0
+        && [date timeIntervalSinceNow] < 0;
+    self.bookPromoHeight.constant = shouldShowPromo ? 128 : 0;
+    if (animated) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }else{
+        
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

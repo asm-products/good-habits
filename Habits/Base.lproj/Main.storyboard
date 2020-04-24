@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="C9Y-ae-7A0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="C9Y-ae-7A0">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +13,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C9Y-ae-7A0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="puf-ST-u7I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -37,8 +37,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m8i-n3-60M">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMW-Dw-a7K" userLabel="Promo Container">
+                                <rect key="frame" x="0.0" y="50" width="320" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="p4p-eQ-I9t"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Yrj-Av-udq" kind="embed" id="Sh8-tL-e9c"/>
+                                </connections>
+                            </containerView>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8i-n3-60M" userLabel="Habits List Container">
+                                <rect key="frame" x="0.0" y="178" width="320" height="302"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="OsE-D3-UbI" kind="embed" identifier="HabitList" id="8pf-GC-eey"/>
@@ -97,15 +106,18 @@
                         <constraints>
                             <constraint firstItem="cde-CF-zmd" firstAttribute="top" secondItem="m8i-n3-60M" secondAttribute="bottom" id="0ik-07-RZt"/>
                             <constraint firstAttribute="trailing" secondItem="m8i-n3-60M" secondAttribute="trailing" id="SMJ-M7-DnV"/>
+                            <constraint firstItem="vMW-Dw-a7K" firstAttribute="leading" secondItem="XvX-bC-gv1" secondAttribute="leading" id="Tsg-E0-Wp2"/>
+                            <constraint firstAttribute="trailing" secondItem="vMW-Dw-a7K" secondAttribute="trailing" id="WBa-OO-DnU"/>
                             <constraint firstItem="m8i-n3-60M" firstAttribute="leading" secondItem="XvX-bC-gv1" secondAttribute="leading" id="a1F-Fi-518"/>
-                            <constraint firstItem="m8i-n3-60M" firstAttribute="top" secondItem="mZd-kW-Okx" secondAttribute="bottom" constant="-64" id="efg-Xi-lJD"/>
+                            <constraint firstItem="vMW-Dw-a7K" firstAttribute="top" secondItem="mZd-kW-Okx" secondAttribute="bottom" id="dPQ-k4-8tc"/>
+                            <constraint firstItem="m8i-n3-60M" firstAttribute="top" secondItem="vMW-Dw-a7K" secondAttribute="bottom" id="efg-Xi-lJD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TUN-wc-ebG">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" id="R7r-TB-Gw7">
-                            <view key="customView" contentMode="scaleToFill" ambiguous="YES" id="hvW-5b-FZq">
-                                <rect key="frame" x="16" y="0.0" width="60" height="44"/>
+                            <view key="customView" contentMode="scaleToFill" id="hvW-5b-FZq">
+                                <rect key="frame" x="16" y="3" width="60" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9R0-dF-VJt">
@@ -149,7 +161,7 @@
                             </view>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="uvz-VS-CiY">
-                            <rect key="frame" x="82" y="5.5" width="166" height="33"/>
+                            <rect key="frame" x="82" y="8.5" width="166" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOOD HABITS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ae-ve-lFQ">
@@ -171,6 +183,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bookPromoHeight" destination="p4p-eQ-I9t" id="bdB-1B-Rfn"/>
                         <outlet property="infoCountBadge" destination="9R0-dF-VJt" id="Rsw-46-vEW"/>
                         <outlet property="statsPopup" destination="XQZ-h6-mTW" id="een-oX-yh3"/>
                     </connections>
@@ -184,7 +197,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="HabitsList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OsE-D3-UbI" customClass="HabitListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="7GG-hI-RmV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -270,13 +283,13 @@
                     <navigationItem key="navigationItem" id="CSB-gd-UET">
                         <nil key="title"/>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ca4-U3-FrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1399" y="-19"/>
         </scene>
-        <!--Delegate-->
+        <!--Habit Detail View Controller-->
         <scene sceneID="8ji-Ym-xsM">
             <objects>
                 <tableViewController id="7RM-Qo-hbm" customClass="HabitDetailViewController" sceneMemberID="viewController">
@@ -362,7 +375,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4n-Ao-8LU">
-                                                    <rect key="frame" x="8" y="3" width="304" height="1"/>
+                                                    <rect key="frame" x="0.0" y="3" width="320" height="1"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="N9X-V4-0gu"/>
@@ -384,7 +397,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ut-8Z-WR4">
-                                                    <rect key="frame" x="186" y="9" width="113" height="33"/>
+                                                    <rect key="frame" x="194" y="9" width="113" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="Clear reminder">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -395,7 +408,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0x-E3-ClQ">
-                                                    <rect key="frame" x="23" y="9" width="150" height="33"/>
+                                                    <rect key="frame" x="15" y="9" width="166" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="[Remind at ...]">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -487,7 +500,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlE-Ht-oTV">
-                                                    <rect key="frame" x="8" y="11" width="304" height="22"/>
+                                                    <rect key="frame" x="8" y="8" width="304" height="28"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -515,7 +528,7 @@
                     <navigationItem key="navigationItem" id="res-v5-2b4">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="[title]" textAlignment="center" minimumFontSize="15" id="eHx-ow-yHW">
-                            <rect key="frame" x="8" y="10" width="243" height="30"/>
+                            <rect key="frame" x="26" y="10" width="243" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -1154,7 +1167,7 @@
                     <navigationItem key="navigationItem" id="Ad2-3k-AeV">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="05y-6U-Cl7">
-                            <rect key="frame" x="96" y="5.5" width="128" height="33"/>
+                            <rect key="frame" x="96" y="8.5" width="128" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOOD HABITS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1E-ef-LFE">
@@ -1202,19 +1215,322 @@
             </objects>
             <point key="canvasLocation" x="681" y="710"/>
         </scene>
+        <!--Book Banner View Controller-->
+        <scene sceneID="3qm-8t-cos">
+            <objects>
+                <viewController id="Yrj-Av-udq" customClass="BookBannerViewController" customModule="Habits" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ptE-GH-EFI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wc8-Lg-nN5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Acd-ys-YH4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-Jv-HgX">
+                                <rect key="frame" x="16" y="15.5" width="288" height="97"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="754" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="U8z-mh-3Qq">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="97"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy-unselected" translatesAutoresizingMaskIntoConstraints="NO" id="Qqf-Lp-80I">
+                                                <rect key="frame" x="0.0" y="8.5" width="36" height="80"/>
+                                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="36" id="V9S-a4-O3R"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="754" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="tDf-dx-HJy">
+                                                <rect key="frame" x="52" y="0.0" width="236" height="97"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Is this app making you happier?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNe-W9-OV5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="236" height="17"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssJ-ry-6LM">
+                                                        <rect key="frame" x="0.0" y="18" width="236" height="49"/>
+                                                        <string key="text">Probably. Maybe we can prove it! 
+Learn about mood tracking to find out more.</string>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgO-47-PhS">
+                                                        <rect key="frame" x="0.0" y="68" width="236" height="29"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                        <state key="normal" title="Get Free eBook">
+                                                            <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="dMK-FE-YV0" kind="modal" id="G3O-Te-MVH"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="U8z-mh-3Qq" secondAttribute="trailing" id="PeO-IR-7VD"/>
+                                    <constraint firstAttribute="bottom" secondItem="U8z-mh-3Qq" secondAttribute="bottom" id="WC9-Ja-tpW"/>
+                                    <constraint firstItem="U8z-mh-3Qq" firstAttribute="leading" secondItem="dgs-Jv-HgX" secondAttribute="leading" id="gpi-oJ-7VW"/>
+                                    <constraint firstItem="U8z-mh-3Qq" firstAttribute="top" secondItem="dgs-Jv-HgX" secondAttribute="top" id="ljo-4e-nl9"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2I5-0v-fex">
+                                <rect key="frame" x="280" y="10" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="0KK-oK-kL4"/>
+                                    <constraint firstAttribute="height" constant="30" id="w7d-eP-A8b"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="didPressCloseButton:" destination="Yrj-Av-udq" eventType="touchUpInside" id="BPv-b3-1Qf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dgs-Jv-HgX" firstAttribute="centerY" secondItem="Acd-ys-YH4" secondAttribute="centerY" id="DuT-Q0-eDH"/>
+                            <constraint firstAttribute="trailing" secondItem="2I5-0v-fex" secondAttribute="trailing" constant="10" id="QxD-Cb-TZR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dgs-Jv-HgX" secondAttribute="trailing" id="RaB-uV-18Q"/>
+                            <constraint firstItem="2I5-0v-fex" firstAttribute="top" secondItem="Acd-ys-YH4" secondAttribute="top" constant="10" id="VNB-7s-OPS"/>
+                            <constraint firstItem="dgs-Jv-HgX" firstAttribute="leading" secondItem="Acd-ys-YH4" secondAttribute="leadingMargin" id="e5F-tt-8Dy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w2A-ig-OuO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="-818"/>
+        </scene>
+        <!--Book Pitch View Controller-->
+        <scene sceneID="1bz-wn-0hj">
+            <objects>
+                <viewController id="dMK-FE-YV0" customClass="BookPitchViewController" customModule="Habits" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EVi-dX-gQc"/>
+                        <viewControllerLayoutGuide type="bottom" id="nLw-sE-MEE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8OM-o0-5m7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79G-gL-ABD">
+                                <rect key="frame" x="0.0" y="-20" width="375" height="800"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tb-uh-ajf">
+                                        <rect key="frame" x="0.0" y="0.0" width="377" height="656"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Tracking Happiness Banner" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-Se-ZSa">
+                                                <rect key="frame" x="0.0" y="0.0" width="377" height="202.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="jUg-Se-ZSa" secondAttribute="height" multiplier="374:201" id="Kqj-T0-fFR"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fw6-qn-Ucq">
+                                                <rect key="frame" x="16" y="218.5" width="345" height="417"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgh-mx-bnw">
+                                                        <rect key="frame" x="0.0" y="0.0" width="71.5" height="16.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Free eBook">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAu-UC-4hz">
+                                                        <rect key="frame" x="0.0" y="24.5" width="232.5" height="57"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Tracking Happiness">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="24" name="HelveticaNeue-Bold"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment>
+                                                                <string key="content"> 
+And Why It Works</string>
+                                                                <attributes>
+                                                                    <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kr1-M3-Qhp">
+                                                        <rect key="frame" x="0.0" y="89.5" width="204.5" height="16.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="A quick guide by Michael Forrest">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="14" name="HelveticaNeue-Italic"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHP-cg-vdY">
+                                                        <rect key="frame" x="0.0" y="114" width="330" height="49"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment>
+                                                                <string key="content">Why don't we know what will really make us happy? How does mood tracking help? What are "thinking errors" and why do they make us unhappy?</string>
+                                                                <attributes>
+                                                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spw-ao-eyd">
+                                                        <rect key="frame" x="0.0" y="171" width="345" height="33"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="If you've never tracked your happiness before then you might be surprised to learn how beneficial it can be.">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjs-fS-pXc">
+                                                        <rect key="frame" x="0.0" y="212" width="324.5" height="33.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Sign up to my mailing list and as a special thank you I will email you a free copy of my ebook!">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ei-fz-jRP">
+                                                        <rect key="frame" x="0.0" y="253.5" width="345" height="65.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment>
+                                                                <string key="content">This book provides an introduction to happiness tracking and insights into a few thinking errors that can threaten your emotional wellbeing if you're not aware of them.</string>
+                                                                <attributes>
+                                                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAX-pl-IoX">
+                                                        <rect key="frame" x="0.0" y="327" width="341" height="49"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment>
+                                                                <string key="content">I respect your email address and don't spam. You can unsubscribe at any time. I send a short email with tips and ideas once a week.</string>
+                                                                <attributes>
+                                                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ng6-ax-tHh">
+                                                        <rect key="frame" x="0.0" y="384" width="345" height="33"/>
+                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                        <state key="normal" title="Sign Up Now">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="didPressSignUpNow:" destination="dMK-FE-YV0" eventType="touchUpInside" id="N0F-rm-zy8"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Ng6-ax-tHh" firstAttribute="leading" secondItem="Fw6-qn-Ucq" secondAttribute="leading" id="YIL-r1-wDh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ng6-ax-tHh" secondAttribute="trailing" id="zEv-bj-ReU"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Fw6-qn-Ucq" firstAttribute="leading" secondItem="4tb-uh-ajf" secondAttribute="leading" constant="16" id="49J-Z3-J2J"/>
+                                            <constraint firstAttribute="bottom" secondItem="Fw6-qn-Ucq" secondAttribute="bottom" constant="20.5" id="Iyw-a3-LjB"/>
+                                            <constraint firstAttribute="trailing" secondItem="jUg-Se-ZSa" secondAttribute="trailing" id="N6A-Zs-av0"/>
+                                            <constraint firstItem="Fw6-qn-Ucq" firstAttribute="top" secondItem="jUg-Se-ZSa" secondAttribute="bottom" constant="16" id="UXF-sm-cqC"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fw6-qn-Ucq" secondAttribute="trailing" constant="16" id="bMS-7y-tlY"/>
+                                            <constraint firstItem="jUg-Se-ZSa" firstAttribute="top" secondItem="4tb-uh-ajf" secondAttribute="top" id="d46-Ay-MUP"/>
+                                            <constraint firstItem="jUg-Se-ZSa" firstAttribute="leading" secondItem="4tb-uh-ajf" secondAttribute="leading" id="ubY-mo-fDD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4tb-uh-ajf" secondAttribute="trailing" id="TUy-Fy-c1f"/>
+                                    <constraint firstItem="4tb-uh-ajf" firstAttribute="top" secondItem="463-SJ-IGo" secondAttribute="top" id="c4h-bj-txv"/>
+                                    <constraint firstItem="4tb-uh-ajf" firstAttribute="leading" secondItem="463-SJ-IGo" secondAttribute="leading" id="li5-ov-Ank"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Dzi-TO-ddy"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="463-SJ-IGo"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh5-17-TLa" userLabel="Close Button">
+                                <rect key="frame" x="345" y="0.0" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="feV-6r-Dd1"/>
+                                    <constraint firstAttribute="height" constant="30" id="y2L-qH-HNn"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <segue destination="2XD-AF-euS" kind="unwind" identifier="Exit" unwindAction="unwindHome:" id="kZL-dn-UDY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="79G-gL-ABD" secondAttribute="trailing" id="3Ha-q9-Y5s"/>
+                            <constraint firstItem="jUg-Se-ZSa" firstAttribute="width" secondItem="8OM-o0-5m7" secondAttribute="width" multiplier="1.00533" id="Av9-QW-7dk"/>
+                            <constraint firstItem="Lh5-17-TLa" firstAttribute="top" secondItem="EVi-dX-gQc" secondAttribute="bottom" id="KBv-4z-kqN"/>
+                            <constraint firstItem="nLw-sE-MEE" firstAttribute="top" secondItem="79G-gL-ABD" secondAttribute="bottom" id="R78-Av-M37"/>
+                            <constraint firstItem="79G-gL-ABD" firstAttribute="top" secondItem="8OM-o0-5m7" secondAttribute="top" id="dP0-qb-egS"/>
+                            <constraint firstItem="79G-gL-ABD" firstAttribute="leading" secondItem="8OM-o0-5m7" secondAttribute="leading" id="ieZ-bt-gZs"/>
+                            <constraint firstAttribute="trailing" secondItem="Lh5-17-TLa" secondAttribute="trailing" id="wun-pw-mIs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1eu-BJ-qP2"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="signUpNowButton" destination="Ng6-ax-tHh" id="k1j-wq-qYm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIO-hS-n6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="2XD-AF-euS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1626.5625" y="-1116.25"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="Stats.png" width="18" height="15"/>
-        <image name="add.png" width="14" height="26"/>
-        <image name="data-migration.png" width="76" height="72"/>
-        <image name="database.png" width="27" height="26"/>
-        <image name="dismiss-chevron.png" width="46.5" height="9"/>
-        <image name="info.png" width="8" height="16"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4pi-6E-KL2"/>
-        <segue reference="chS-Yr-Ljg"/>
+        <segue reference="LRt-8p-1fe"/>
         <segue reference="toc-2m-8Zg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.22449043393135071" green="0.48581993579864502" blue="0.64602482318878174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <resources>
+        <image name="Stats.png" width="18" height="15"/>
+        <image name="Tracking Happiness Banner" width="600" height="315"/>
+        <image name="add.png" width="14" height="26"/>
+        <image name="close" width="14" height="14"/>
+        <image name="data-migration.png" width="76" height="72"/>
+        <image name="database.png" width="27" height="26"/>
+        <image name="dismiss-chevron.png" width="46.5" height="9"/>
+        <image name="happy-unselected" width="80" height="80"/>
+        <image name="info.png" width="8" height="16"/>
+    </resources>
 </document>

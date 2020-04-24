@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LandingViewController : UIViewController
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bookPromoHeight;
 
 @end

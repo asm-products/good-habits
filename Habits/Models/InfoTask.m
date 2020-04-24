@@ -13,6 +13,7 @@
 #import "TimeHelper.h"
 #import <Crashlytics/Crashlytics.h>
 #define INSTALLED_DATE_KEY @"goodtohear.habits_installed_date"
+
 @import AVKit;
 @import StoreKit;
 
@@ -25,6 +26,14 @@
 +(NSArray *)all{
     static NSArray * result = nil;
     static dispatch_once_t onceToken;
+    BOOL english = [[[NSLocale preferredLanguages] filter:^BOOL(NSString* language) {
+           return [language containsString:@"en"];
+       }] count] > 0;
+#if DEBUG
+    NSInteger daysToBook = 0;
+#else
+    NSInteger daysToBook = 5;
+#endif
     dispatch_once(&onceToken, ^{
         result = @[
                    [InfoTask create:@"guide-2" due:0 text: NSLocalizedString(@"Look at the guide", @"menu button") color:[Colors green] action:^(UIViewController *controller) {
@@ -45,7 +54,11 @@
                        UIActivityViewController * sheet = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
                        [controller presentViewController:sheet animated:YES completion:nil];
                    }],
-                   [InfoTask create:@"changes" due:3 text:NSLocalizedString(@"Try 'Changes'", @"Checklist item that links to download Changes app") color:[Colors yellow] action:^(UIViewController *controller) {
+                   [InfoTask create:@"mailing_list" due: (english ? daysToBook : 1000000) text:@"Get Your Free Book" color:[Colors green] action:^(UIViewController *controller) {
+                       NSURL * url = [NSURL URLWithString:@"https://goodtohear.co.uk/free"];
+                       [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+                   }],
+                   [InfoTask create:@"changes" due:14 text:NSLocalizedString(@"Try 'Changes'", @"Checklist item that links to download Changes app") color:[Colors yellow] action:^(UIViewController *controller) {
                        [Answers logCustomEventWithName:@"Looked at changes" customAttributes:nil];
                        SKStoreProductViewController * storeController = [[SKStoreProductViewController alloc] init];
                        //https://apps.apple.com/us/app/changes-mood-insights/id1483226932
@@ -112,8 +125,13 @@
         return task.isUnopened;
     }].count;
 }
--(BOOL)isDue{
+
++(NSDate*)installationDate{
     NSDate * installedDate = [[NSUserDefaults standardUserDefaults] objectForKey:INSTALLED_DATE_KEY];
+    return installedDate;
+}
+-(BOOL)isDue{
+    NSDate * installedDate = [InfoTask installationDate];
     if(!installedDate) return YES;
     return [[TimeHelper addDays:self.due toDate:installedDate] timeIntervalSinceDate:[NSDate date]] < 0;
 }
