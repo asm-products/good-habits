@@ -85,7 +85,7 @@
     payment.quantity = 1;
     [[SKPaymentQueue defaultQueue] addPayment:payment];
     [self dismissViewControllerAnimated:YES completion:^{
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+//        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     }];
 }
 - (IBAction)didPressRestorePurchase:(id)sender {

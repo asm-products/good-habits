@@ -38,6 +38,15 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
         
     }];
 }
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+   });
+}
+
+- (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue{
+    
+}
 
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions{
     for (SKPaymentTransaction * transaction in transactions) {
@@ -51,16 +60,17 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
                 });
                 break;
             case SKPaymentTransactionStateFailed:
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [SVProgressHUD dismiss];
-                });
+               
                 if (transaction.error.code == SKErrorPaymentCancelled) {
-                    // user cancelled payment
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                       [SVProgressHUD dismiss];
+                     });
                 }else{
                     // Optionally, display an error here.
                     NSLog(@"Transaction failed for some reason %@", transaction.error);
-//                    [SVProgressHUD showErrorWithStatus:[transaction.error.userInfo valueForKey:NSLocalizedDescriptionKey]];
-                    break;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [SVProgressHUD showErrorWithStatus:[transaction.error.userInfo valueForKey:NSLocalizedDescriptionKey]];
+                    });
                 }
                 break;
             case SKPaymentTransactionStatePurchased:
@@ -68,21 +78,29 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
                 // don't break, continue...
 
             case SKPaymentTransactionStateRestored:
-               [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STATS_PURCHASED];
-                    [[NSUserDefaults standardUserDefaults] synchronize];
-                    [SVProgressHUD dismiss];
-                    [SVProgressHUD showSuccessWithStatus:@"Statistics unlocked"];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
-                });
+                [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+                [self unlockStats];
+                
+                
             default:
-                [SVProgressHUD dismiss];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [SVProgressHUD dismiss];
+                });
                 break;
         }
  
         
     }
+}
+
+-(void)unlockStats{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STATS_PURCHASED];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showSuccessWithStatus:@"Statistics unlocked"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
+    });
 }
 
 
