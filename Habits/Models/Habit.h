@@ -53,7 +53,8 @@
 -(Chain*)longestChain;
 -(NSInteger)currentChainLength;
 -( Chain* _Nullable )currentChain;
--(Chain* _Nonnull)chainForDate:(NSDate*_Nonnull)date;
+-(Chain* _Nullable)chainForDate:(NSDate*_Nonnull)date;
+-(Chain* _Nonnull)findOrCreateChainForDate:(NSDate*_Nonnull)date;
 -(void)recalculateRunningTotalsInBackground:(void(^_Nonnull)())completionCallback;
 
 #pragma mark - Failures

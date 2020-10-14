@@ -51,6 +51,7 @@
 -(void)build{
     [self registerForiCloudNotifications];
     [self setupManagedObjectContext];
+//    [self clearOutZeroLengthChains];
 //    [self nukeStore];
 }
 -(void)buildTestStore{
@@ -81,6 +82,20 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:NSManagedObjectContextDidSaveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self.managedObjectContext mergeChangesFromContextDidSaveNotification:note];
     }];
+}
+-(void)clearOutZeroLengthChains {
+    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Chain"];
+    request.predicate = [NSPredicate predicateWithFormat:@"days.@count == 0"];
+    request.sortDescriptors = @[];
+    NSFetchedResultsController * fetch = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:NULL cacheName:NULL];
+    [fetch performFetch:NULL];
+    NSInteger count = fetch.fetchedObjects.count;
+    NSLog(@"Found %li empty chains", count);
+    
+    [fetch.fetchedObjects each:^(id obj) {
+        [self.managedObjectContext deleteObject:obj];
+    }];
+    [self.managedObjectContext save:NULL];
 }
 -(void)nukeStore{
     NSError * error;

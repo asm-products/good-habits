@@ -132,7 +132,7 @@
     if(subview.class == [CalendarDayView class]){
         CalendarDayView * cell = (CalendarDayView*)subview;
         if([[self class] isFutureDate:cell.day]) return;
-        Chain * chain = [self.habit chainForDate:cell.day];
+        Chain * chain = [self.habit findOrCreateChainForDate:cell.day];
         
         [chain toggleDayInCalendarForDate:cell.day];
         [self showChainsForHabit:self.habit callback:nil];

@@ -27,7 +27,7 @@
 }
 -(BOOL)done:(NSDate *)date{
     date = [TimeHelper startOfDayInUTC:date];
-    return [[[self chainForDate:date] lastDateCache] isEqualToDate:date];
+    return [[[self findOrCreateChainForDate:date] lastDateCache] isEqualToDate:date];
 }
 -(BOOL)due:(NSDate *)date{
     date = [TimeHelper startOfDayInUTC:date];
@@ -61,7 +61,7 @@
     return date;
 }
 -(void)ensureDayCheckedStateForDate:(NSDate *)date dayState:(DayCheckedState)dayCheckedState{
-    Chain * chain = [self chainForDate:date];
+    Chain * chain = [self findOrCreateChainForDate:date];
     if(chain.dayState == dayCheckedState){
         return;
     }
@@ -119,18 +119,21 @@
 -(Chain *)currentChain{
     return self.sortedChains.lastObject;
 }
--(Chain *)chainForDate:(NSDate *)date{  
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"firstDateCache <= %@", date];
+- (Chain *)chainForDate:(NSDate *)date{
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"firstDateCache <= %@ AND lastDateCache >= %@", date, date];
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:predicate];
-    Chain * lastObject = chains.lastObject;
-    if(chains.count == 0 ){
+    return chains.lastObject;
+}
+-(Chain *)findOrCreateChainForDate:(NSDate *)date{
+    Chain * chain = [self chainForDate:date];
+    if(chain == NULL ){
         Chain * chain = [self addNewChain];
         chain.firstDateCache = date;
         chain.lastDateCache = date;
         chain.daysCountCache = @0;
         return chain;
     }else{
-        return lastObject;
+        return chain;
     }
 }
 #pragma mark - Failures

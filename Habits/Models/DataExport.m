@@ -17,6 +17,7 @@
 #import "LegacyJSONImporter.h"
 #import <UIAlertView+Blocks.h>
 #import <Crashlytics/Crashlytics.h>
+@import UIKit;
 @import MessageUI;
 @import HabitsCommon;
 @implementation DataExport
@@ -63,6 +64,12 @@
                 [[UIPasteboard generalPasteboard] setString:jsonString];
                 [SVProgressHUD showSuccessWithStatus:@"Copied"];
             }]];
+            [alert addAction: [UIAlertAction actionWithTitle:@"Export CSV" style: UIAlertActionStyleDefault handler: ^(UIAlertAction *action){
+                NSString * csv = [[[CSVExport alloc] init] execute];
+                UIActivityViewController * controller = [[UIActivityViewController alloc] initWithActivityItems:@[csv] applicationActivities:nil];
+                [parentController presentViewController:controller animated:true completion:nil];
+            }]];
+            
             [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
             [parentController presentViewController:alert animated:true completion:^{
                 [SVProgressHUD dismiss];                

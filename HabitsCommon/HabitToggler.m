@@ -32,7 +32,7 @@
 -(DayCheckedState)toggleHabit:(Habit*)habit day:(NSDate*) day{
     
     Failure * failure = [habit existingFailureForDate:day];
-    Chain * chain = [habit chainForDate:day]; // should never be nil; lazily created if habit has no chains
+    Chain * chain = [habit findOrCreateChainForDate:day]; // should never be nil; lazily created if habit has no chains
     HabitDay * habitDay = [chain habitDayForDate:day];
     DayCheckedState state;
     if(failure && failure.active.boolValue){ // we had a failure so uncheck it

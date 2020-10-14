@@ -94,7 +94,7 @@
     Habit * habit = chain.habit;
     if(self.days.count == 0){
         [self.habit removeChainsObject:self];
-        chain = [habit chainForDate:date];
+        chain = [habit findOrCreateChainForDate:date];
     }
     chain.lastDateCache = chain.days.count > 0 ? [chain.sortedDays.lastObject date] : [TimeHelper today];
     if(chain.countOfDaysOverdue < 2){
@@ -148,7 +148,7 @@
     
     
     NSDate * nextRequiredDate = self.nextRequiredDate;
-    Chain * chain = [self.habit chainForDate:nextRequiredDate];
+    Chain * chain = [self.habit findOrCreateChainForDate:nextRequiredDate];
     if(chain != self){
         NSSet * nextChainDays = chain.days;
         [self.habit removeChainsObject:chain]; // wondering if the cascade thing will hurt me here.

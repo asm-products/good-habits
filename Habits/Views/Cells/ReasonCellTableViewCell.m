@@ -18,7 +18,7 @@
 }
 -(void)setFailure:(Failure *)failure{
     _failure = failure;
-    Chain  * chain = [failure.habit chainForDate:failure.date];
+    Chain  * chain = [failure.habit findOrCreateChainForDate:failure.date];
     dateLabel.text = [[[TimeHelper fullDateFormatter] stringFromDate:failure.date] stringByAppendingFormat:@" - chain length %@ day%@", chain.daysCountCache, chain.daysCountCache.integerValue == 1 ? @"" : @"s" ];
     reasonLabel.text = failure.notes;
 

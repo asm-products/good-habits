@@ -10,7 +10,7 @@
 
 @class Chain;
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, CalendarDayState) {
     CalendarDayStateFuture,
     CalendarDayStateFirstInChain,
     CalendarDayStateLastInChain,
@@ -21,7 +21,7 @@ typedef enum {
     CalendarDayStateBeforeStart,
     CalendarDayStateNotRequired,
     CalendarDayStateBrokenChain
-} CalendarDayState;
+};
 
 @interface HabitDay : NSManagedObject
 
