@@ -169,7 +169,14 @@
 -(DayCheckedState)handleMidChainDeletionForHabitDay:(HabitDay*)existingDay date:(NSDate*)date{
     if ([self.habit isRequiredOnWeekday:date]) {
         NSArray * sortedDays = self.sortedDays;
-        
+        NSPredicate * multiDayMatchProblemPredicate = [NSPredicate predicateWithFormat: @"date = %@", date];
+        NSArray * daysMatchingDate = [self.sortedDays filteredArrayUsingPredicate: multiDayMatchProblemPredicate];
+        while (daysMatchingDate.count > 1){
+            HabitDay * habitDay = [daysMatchingDate firstObject];
+            [self removeDaysObject:habitDay];
+            [self.managedObjectContext deleteObject:habitDay];
+            daysMatchingDate = [self.sortedDays filteredArrayUsingPredicate: multiDayMatchProblemPredicate];
+        }
         if(sortedDays.count == 2){
             // remove the day, update the caches, return
             [self removeDaysObject:existingDay];

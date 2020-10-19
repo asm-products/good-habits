@@ -25,6 +25,8 @@
 #import "HabitDay.h"
 #import "Chain.h"
 #import "Habits-Swift.h"
+@import HabitsCommon;
+
 @implementation AppDelegate{
     BOOL hasBeenActiveYet;
     WatchShim * watchShim;
@@ -121,7 +123,7 @@
     [DataExport scanForJSONFile:^(BOOL success) {
     }];
 }
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+-(BOOL)importUsingURL:(NSURL*)url{
     NSArray * components = [url.absoluteString componentsSeparatedByString:@"goodhabits://import?json="];
     if(components.count > 1){
         [[[UIAlertView alloc] initWithTitle:@"Restore data?" message:@"Restore your data? This action will delete your current data. It might also make any iCloud syncing behave strangely. Proceed with caution." cancelButtonItem:[RIButtonItem itemWithLabel:@"Cancel"] otherButtonItems:[RIButtonItem itemWithLabel:@"Restore Data" action:^{
@@ -136,7 +138,23 @@
                 });
             });
         }], nil] show];
+        
         return YES;
+    }
+    return NO;
+}
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    if([url.absoluteString containsString:@"import"]){
+        return [self importUsingURL:url];
+    }
+    if([url.absoluteString containsString:@"toggle"]){
+        NSString * identifier = url.lastPathComponent;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            Habit * habit = [[[CoreDataClient defaultClient] allHabits] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat: @"identifier = %@", identifier]].firstObject;
+            HabitToggler * toggler = [HabitToggler new];
+            [toggler toggleTodayForHabit: habit];
+        });
+        
     }
 //    if([url.absoluteString isEqualToString:@"goodhabits://lookback"]){
 //        [LookbackRecordingViewController presentOntoScreenAnimated:YES];

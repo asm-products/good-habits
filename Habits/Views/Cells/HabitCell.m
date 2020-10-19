@@ -21,6 +21,7 @@
 #import "PastDayCheckView.h"
 #import <SVProgressHUD.h>
 #import "HabitToggler.h"
+@import HabitsCommon;
 
 @interface HabitCell()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *habitStatusButton;
@@ -188,6 +189,10 @@
         self.habitStatusButton.accessibilityLabel = [NSString stringWithFormat:@"Paused at %@ day%@", @(chain.currentChainLengthForDisplay), chain.currentChainLengthForDisplay == 1 ? @"" : @"s" ];
         [self.habitStatusButton setBackgroundImage:[AwardImage circleColored:[Colors cobalt]] forState:UIControlStateNormal];
         [self.habitStatusButton setTitle:@(self.habit.currentChainLength).stringValue forState:UIControlStateNormal];
+    }
+    
+    if (@available(iOS 14.0, *)) {
+        [Widgets reload];
     }
 }
 -(void)update{

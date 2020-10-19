@@ -106,9 +106,9 @@ import HabitsCommon
         }
     }
     func updateHabitWithStruct(_ source:HabitStruct, date: Date){
-        let state = UInt32(source.state.rawValue)
-        let dayCheckedState = DayCheckedState(rawValue: state)
-        if let habit = HabitsQueries.findHabit(byIdentifier: source.identifier){
+        let state = UInt(source.state.rawValue)
+       
+        if let dayCheckedState = DayCheckedState(rawValue: state),  let habit = HabitsQueries.findHabit(byIdentifier: source.identifier){
             habit.ensureDayCheckedState(for: date, dayState: dayCheckedState)
         }
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: REFRESH), object: nil)

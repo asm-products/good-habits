@@ -64,9 +64,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        let countBefore = habits.filter({$0.currentChain()?.dayState() == DayCheckedStateComplete}).count
+        let countBefore = habits.filter({$0.currentChain()?.dayState() == .complete}).count
         refreshHabits()
-        let countAfter = habits.filter({$0.currentChain()?.dayState() == DayCheckedStateComplete}).count
+        let countAfter = habits.filter({$0.currentChain()?.dayState() == .complete}).count
         
         print("Count before \(countBefore) count after \(countAfter)")
         let result: NCUpdateResult = countAfter == countBefore ? .noData : .newData

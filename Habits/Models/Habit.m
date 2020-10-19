@@ -120,11 +120,12 @@
     return self.sortedChains.lastObject;
 }
 - (Chain *)chainForDate:(NSDate *)date{
-    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"firstDateCache <= %@ AND lastDateCache >= %@", date, date];
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"firstDateCache <= %@", date];
     NSArray * chains = [self.sortedChains filteredArrayUsingPredicate:predicate];
     return chains.lastObject;
 }
 -(Chain *)findOrCreateChainForDate:(NSDate *)date{
+    date = [TimeHelper startOfDayInUTC:date]; // just be sure because other things weren't playing right
     Chain * chain = [self chainForDate:date];
     if(chain == NULL ){
         Chain * chain = [self addNewChain];

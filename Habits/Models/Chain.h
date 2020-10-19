@@ -10,12 +10,12 @@
 #import "HabitDay.h"
 @import CoreData;
 
-typedef enum{
+typedef NS_ENUM(NSUInteger,DayCheckedState){
     DayCheckedStateNull,
     DayCheckedStateComplete,
     DayCheckedStateBroken,
     DayCheckedStateCount // number of enums for iteration - not, like, the chain length count or anything
-} DayCheckedState;
+};
 
 
 @class Habit;

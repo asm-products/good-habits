@@ -12,6 +12,7 @@
 #import "CoreDataClient.h"
 #import "HabitsQueries.h"
 #import "Habit.h"
+#import <HabitsCommon/HabitsCommon-Swift.h>
 
 @implementation HabitToggler
 -(instancetype)init{
@@ -66,6 +67,9 @@
         
         [defaults synchronize];
         [[NSNotificationCenter defaultCenter] postNotificationName:HABIT_TOGGLE_COMPLETE object:nil];
+    }
+    if (@available(iOS 14.0, *)) {
+        [Widgets reload];
     }
     return state;
 }
