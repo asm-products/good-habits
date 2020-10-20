@@ -17,8 +17,6 @@
 		AC0040C12537632500B4BD0A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0040C02537632500B4BD0A /* SwiftUI.framework */; };
 		AC0040C42537632500B4BD0A /* HabitsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0040C32537632500B4BD0A /* HabitsWidget.swift */; };
 		AC0040C72537632600B4BD0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0040C62537632600B4BD0A /* Assets.xcassets */; };
-		AC0040C92537632600B4BD0A /* HabitsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AC0040C52537632500B4BD0A /* HabitsWidget.intentdefinition */; };
-		AC0040CA2537632600B4BD0A /* HabitsWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AC0040C52537632500B4BD0A /* HabitsWidget.intentdefinition */; };
 		AC0040CD2537632600B4BD0A /* HabitsWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AC0040BD2537632500B4BD0A /* HabitsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AC019E691C01212100EBA056 /* check_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB44D190D27960030CC82 /* check_mark@2x.png */; };
 		AC019E6A1C01212100EBA056 /* check_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB44E190D27960030CC82 /* check_mark.png */; };
@@ -421,7 +419,6 @@
 		AC0040BE2537632500B4BD0A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		AC0040C02537632500B4BD0A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		AC0040C32537632500B4BD0A /* HabitsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsWidget.swift; sourceTree = "<group>"; };
-		AC0040C52537632500B4BD0A /* HabitsWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = HabitsWidget.intentdefinition; sourceTree = "<group>"; };
 		AC0040C62537632600B4BD0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC0040C82537632600B4BD0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC00413B2537685A00B4BD0A /* HabitsWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HabitsWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -911,7 +908,6 @@
 			isa = PBXGroup;
 			children = (
 				AC0040C32537632500B4BD0A /* HabitsWidget.swift */,
-				AC0040C52537632500B4BD0A /* HabitsWidget.intentdefinition */,
 				AC0040C62537632600B4BD0A /* Assets.xcassets */,
 				AC0040C82537632600B4BD0A /* Info.plist */,
 				AC0E55DC253C30020068C8EE /* HabitsWidgetEntryView.swift */,
@@ -2503,7 +2499,6 @@
 			files = (
 				AC0040C42537632500B4BD0A /* HabitsWidget.swift in Sources */,
 				AC0E5601253C31110068C8EE /* HabitProxy.swift in Sources */,
-				AC0040C92537632600B4BD0A /* HabitsWidget.intentdefinition in Sources */,
 				AC0E5614253C315C0068C8EE /* HabitCell.swift in Sources */,
 				AC0E55EE253C303B0068C8EE /* HabitsWidgetEntryView.swift in Sources */,
 			);
@@ -2586,7 +2581,6 @@
 				AC94094019B8FF14003E6257 /* SKProductsRequest+Blocks.m in Sources */,
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */,
-				AC0040CA2537632600B4BD0A /* HabitsWidget.intentdefinition in Sources */,
 				ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */,
 				ACDABB02245304DA00096BB4 /* BookBannerViewController.swift in Sources */,
 				AC1FDDC01C09FD2D00A99B05 /* Habit.swift in Sources */,

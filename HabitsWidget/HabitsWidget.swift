@@ -11,19 +11,19 @@ import SwiftUI
 import Intents
 import HabitsCommon
 
-struct Provider: IntentTimelineProvider {
+struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), habits: [], configuration: ConfigurationIntent())
+        SimpleEntry(date: Date(), habits: [])
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         HabitsQueries.refresh()
         let habits = HabitsQueries.activeToday() as! [Habit]
-        let entry = SimpleEntry(date: Date(), habits: habits.map{ HabitProxy(with: $0)}, configuration: configuration)
+        let entry = SimpleEntry(date: Date(), habits: habits.map{ HabitProxy(with: $0)})
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         HabitsQueries.refresh()
         let habits = (HabitsQueries.activeToday() as! [Habit]).map{ HabitProxy(with: $0) }
         var entries: [SimpleEntry] = []
@@ -33,7 +33,7 @@ struct Provider: IntentTimelineProvider {
         for hourOffset in 0 ..< 5 {
             // TODO: Make this the whole day and reveal habits based on their scheduled time
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, habits: habits, configuration: configuration)
+            let entry = SimpleEntry(date: entryDate, habits: habits)
             entries.append(entry)
         }
 
@@ -45,7 +45,6 @@ struct Provider: IntentTimelineProvider {
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let habits: [HabitProxy]
-    let configuration: ConfigurationIntent
 }
 
 @main
@@ -53,7 +52,7 @@ struct HabitsWidget: Widget {
     let kind: String = "HabitsWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
             HabitsWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Good Habits")
@@ -74,7 +73,7 @@ struct HabitsWidget_Previews: PreviewProvider {
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Missed", color: .red, state: .broken, chainLength: 3),
-        ], configuration: ConfigurationIntent())
+        ])
         HabitsWidgetEntryView(entry: entry)
             .previewContext(WidgetPreviewContext(family: .systemMedium))
         HabitsWidgetEntryView(entry: entry)
