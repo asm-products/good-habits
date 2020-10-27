@@ -98,7 +98,7 @@ typedef enum{
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self updateLayoutPickerVisible:NO];
+    [self setRemindersPickerVisible: self.habit.reminderTime != nil];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -130,26 +130,11 @@ typedef enum{
 }
 -(void)updateRemindersButtonTitle{
     [self.remindersButton setTitle:self.remindersButtonTitle forState:UIControlStateNormal];
-    NSBundle * bundle = [NSBundle bundleWithIdentifier:@"HabitsCommon"];
-    [self.clearReminderButton setTitle: LocalizedString(self.habit.reminderTime ? @"Clear reminder": @"Set reminder", @"") forState:UIControlStateNormal];
+    [self.clearReminderButton setImage: [UIImage systemImageNamed: self.habit.reminderTime ? @"xmark" : @"plus" ] forState:UIControlStateNormal];
 }
 -(void)setRemindersPickerVisible:(BOOL)visible{
     showingTimePicker = visible;
-    [UIView animateWithDuration:0.3 animations:^{
-        [self updateLayoutPickerVisible: visible];
-    }];
-}
--(void)updateLayoutPickerVisible:(BOOL)visible{
-    [self.remindersButton setTitleColor:visible ? [[[UIApplication sharedApplication] keyWindow] tintColor]  : [UIColor blackColor] forState:UIControlStateNormal];
-    [self.tableView beginUpdates];
-    [self.tableView endUpdates];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow: visible ? HabitDetailCellIndexReminderPicker : 0 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row == HabitDetailCellIndexReminderPicker) {
-        return showingTimePicker ? self.timePicker.frame.size.height : 0;
-    }
-    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    [self.timePicker setHidden:!visible];
 }
 -(BOOL)isRemindersPickerVisible{
     return showingTimePicker;
@@ -159,22 +144,22 @@ typedef enum{
     [[CoreDataClient defaultClient] save];
     [self updateRemindersButtonTitle];
 }
-- (IBAction)didPressRemindersButton:(id)sender {
-    [self setRemindersPickerVisible:![self isRemindersPickerVisible]];
+-(IBAction)didPressReminderLabel:(id)sender{
+    if(self.habit.reminderTime == nil){
+        [self didPressClearReminderButton:sender];
+    }
 }
 - (IBAction)didPressClearReminderButton:(id)sender {
     if(self.habit.reminderTime == nil){
-        if(self.isRemindersPickerVisible){
-            [self saveReminder];
-            [self setRemindersPickerVisible:NO];
-        }else{
-            [self setRemindersPickerVisible:YES];
-        }
+        [self saveReminder];
+        [self setRemindersPickerVisible:YES];
     }else{
         self.habit.reminderTime = nil;
-        [self updateRemindersButtonTitle];
+       
         [self setRemindersPickerVisible:NO];
     }
+    [self updateRemindersButtonTitle];
+    
 }
 - (IBAction)didChangeTime:(id)sender {
     [self saveReminder];

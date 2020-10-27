@@ -87,6 +87,7 @@
 -(void)setHabit:(Habit *)habit{
     _habit = habit;
     reasonEntryField.text = @"";
+    self.reminderLabel.text = habit.reminderTime == nil ? @"" : [TimeHelper formattedTime:habit.reminderTime];
     // The following is intended to be monitored by HabitsListViewController to update the height of the cell
     // that was changed, thus hiding or revealing the reason text field
     if([AppFeatures statsEnabled] == NO){

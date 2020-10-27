@@ -35,6 +35,7 @@
     backgroundColorView = [[UIView alloc] initWithFrame:self.bounds];
     backgroundColorView.backgroundColor = [Colors cellBackground];
     backgroundColorView.hidden = YES;
+    self.reminderLabel.text = @"";
     [self insertSubview:backgroundColorView atIndex:0];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
