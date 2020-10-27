@@ -28,11 +28,10 @@ struct Provider: TimelineProvider {
         let habits = (HabitsQueries.activeToday() as! [Habit]).map{ HabitProxy(with: $0) }
         var entries: [SimpleEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            // TODO: Make this the whole day and reveal habits based on their scheduled time
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+        let times = [
+            Date()
+        ] + habits.compactMap{ $0.reminderTimeToday }
+        for entryDate in times {
             let entry = SimpleEntry(date: entryDate, habits: habits)
             entries.append(entry)
         }
@@ -42,10 +41,6 @@ struct Provider: TimelineProvider {
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let habits: [HabitProxy]
-}
 
 @main
 struct HabitsWidget: Widget {
@@ -63,22 +58,27 @@ struct HabitsWidget: Widget {
 
 struct HabitsWidget_Previews: PreviewProvider {
     static var previews: some View {
-        let entry = SimpleEntry(date: Date(), habits: [
+        let habits = [
             HabitProxy(title: "Unchecked", color: .blue, state: nil, chainLength: -1),
             HabitProxy(title: "Checked", color: .green, state: .complete, chainLength: 30),
-            HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
+            HabitProxy(title: "Later", color: .orange, state: .complete, chainLength: 15, reminderTime: DateComponents(hour: 10, minute: 55)),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Missed", color: .red, state: .broken, chainLength: 3),
-        ])
-        HabitsWidgetEntryView(entry: entry)
+        ]
+        HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
-        HabitsWidgetEntryView(entry: entry)
+        HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits.filter{$0.state == .complete}))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits.filter{$0.state == .complete}))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
-        HabitsWidgetEntryView(entry: entry)
+        
+        HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

@@ -79,7 +79,9 @@
 "[guide] 6. Introduce completion checkbox" = "Seleziona la casella quando l'hai fatto";
 
 /* User Guide Video Step 7 - Indicate passage of time */
-"[guide] 7. Later..." = "Più tardi";
+"[guide] 7. Later..." = "Più tardi...";
+
+"Later" = "Più tardi";
 
 /* User Guide Video Step 8 - Introduce tapping twice to mark failure */
 "[guide] 8. Introduce tapping twice to mark failure" = "Se hai saltato un giorno, puoi toccare [or tocca - need more context] la casella due volte";

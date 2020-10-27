@@ -82,6 +82,8 @@
 /* User Guide Video Step 7 - Indicate passage of time */
 "[guide] 7. Later..." = "後で";
 
+"Later" = "後で";
+
 /* User Guide Video Step 8 - Introduce tapping twice to mark failure */
 "[guide] 8. Introduce tapping twice to mark failure" = "今日しなかったら、チェック欄を2回タップします";
 

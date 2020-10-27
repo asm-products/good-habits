@@ -82,6 +82,8 @@
 /* User Guide Video Step 7 - Indicate passage of time */
 "[guide] 7. Later..." = "Позже...";
 
+"Later" = "Позже";
+
 /* User Guide Video Step 8 - Introduce tapping twice to mark failure */
 "[guide] 8. Introduce tapping twice to mark failure" = "Если вы что-то пропустили сегодня, коснитесь поля дважды";
 

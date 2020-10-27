@@ -273,6 +273,7 @@
 		ACDC63BC196EC18C00F68BD6 /* StatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BB196EC18C00F68BD6 /* StatsTableViewController.m */; };
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
 		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
+		ACDE69E9254172A900805948 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE69E8254172A900805948 /* SimpleEntry.swift */; };
 		ACE4B2261C1AE0DD00A8E83B /* DayKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDB81C09D4F900A99B05 /* DayKeys.swift */; };
 		ACE7D27E1BF338DC007FCDAC /* TimeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AC40187319504ADB0033407B /* TimeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */; };
@@ -783,6 +784,7 @@
 		ACDC730A19D496EA00D2B137 /* Habits 12.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 12.xcdatamodel"; sourceTree = "<group>"; };
 		ACDC730B19D5511700D2B137 /* Failure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Failure.h; sourceTree = "<group>"; };
 		ACDC730C19D5511700D2B137 /* Failure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Failure.m; sourceTree = "<group>"; };
+		ACDE69E8254172A900805948 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
 		ACE31ABF19756936007173A0 /* HabitDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDay.h; sourceTree = "<group>"; };
 		ACE31AC019756936007173A0 /* HabitDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDay.m; sourceTree = "<group>"; };
 		ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayBoundaryTests.m; sourceTree = "<group>"; };
@@ -913,6 +915,7 @@
 				AC0E55DC253C30020068C8EE /* HabitsWidgetEntryView.swift */,
 				AC0E55F7253C310B0068C8EE /* HabitProxy.swift */,
 				AC0E560A253C31560068C8EE /* HabitCell.swift */,
+				ACDE69E8254172A900805948 /* SimpleEntry.swift */,
 			);
 			path = HabitsWidget;
 			sourceTree = "<group>";
@@ -2500,6 +2503,7 @@
 				AC0040C42537632500B4BD0A /* HabitsWidget.swift in Sources */,
 				AC0E5601253C31110068C8EE /* HabitProxy.swift in Sources */,
 				AC0E5614253C315C0068C8EE /* HabitCell.swift in Sources */,
+				ACDE69E9254172A900805948 /* SimpleEntry.swift in Sources */,
 				AC0E55EE253C303B0068C8EE /* HabitsWidgetEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

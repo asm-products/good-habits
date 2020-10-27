@@ -78,6 +78,8 @@
 /* User Guide Video Step 7 - Indicate passage of time */
 "[guide] 7. Later..." = "Später...";
 
+"Later" = "Später";
+
 /* User Guide Video Step 8 - Introduce tapping twice to mark failure */
 "[guide] 8. Introduce tapping twice to mark failure" = "Wenn Sie die Aufgabe heute nicht geschafft haben, können Sie das Kästchen zweimal antippen.";
 

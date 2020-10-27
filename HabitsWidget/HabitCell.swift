@@ -11,7 +11,13 @@ import HabitsCommon
 
 struct HabitCell: View{
     @ObservedObject var habit:HabitProxy
-    @Environment(\.widgetFamily) var widgetFamily
+    var size: Size
+    
+    enum Size{
+        case small
+        case normal
+        case smallWithTime
+    }
     
     var checkboxMark: Image?{
         switch habit.state{
@@ -22,7 +28,7 @@ struct HabitCell: View{
     }
     
     var body: some View{
-        let fontSize:CGFloat = widgetFamily == .systemSmall ? 12 : 18
+        let fontSize:CGFloat = size != .normal ? 12 : 18
         return HStack(spacing: 0){
             Link(destination: URL(string: "goodhabits://toggle/\(habit.id)")!, label: {
                 Rectangle()
@@ -37,17 +43,26 @@ struct HabitCell: View{
             })
           
                
-            Text(habit.title).font(.system(size: fontSize, weight: .bold, design: .default))
-                
+            Text(habit.title).font(.system(size: fontSize, weight: .bold, design: .default)).frame(maxHeight: size != .normal ? 10 : 20)
+            
             Spacer()
-            Circle()
-                .fill((habit.chainLength ?? 0) < 0 ? Color.gray : habit.color)
-                .frame(width: 30, height: 30)
-                .overlay(
-                    Text("\(habit.chainLength ?? 0)")
-                        .foregroundColor(.white)
-                        .font(.system(size: 12, weight: .bold, design: .default))
-                )
+            if size != .small{
+                if let time = habit.reminderTimeToday{
+                    Text(DateFormatter.localizedString(from: time, dateStyle: .none, timeStyle: .short))
+                        .font(.caption)
+                        .padding(.trailing)
+                }
+            }
+            if size != .smallWithTime {
+                Circle()
+                    .fill((habit.chainLength ?? 0) < 0 ? Color.gray : habit.color)
+                    .frame(width: 30, height: 30)
+                    .overlay(
+                        Text("\(habit.chainLength ?? 0)")
+                            .foregroundColor(.white)
+                            .font(.system(size: 12, weight: .bold, design: .default))
+                    )
+            }
         }
     }
 }

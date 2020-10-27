@@ -11,7 +11,8 @@
 #import <UIAlertView+Blocks.h>
 #import <NSArray+F.h>
 #import "Chain.h"
-#import "Habit.h" 
+#import "Habit.h"
+#import <HabitsCommon/HabitsCommon-Swift.h>
 #define STORE_NAME @"HabitsStore"
 #define DB_NAME @"HabitsStore.sqlite"
 
@@ -293,6 +294,7 @@
     NSError * error;
     if([self.managedObjectContext save:&error]){
         NSLog(@"Saved");
+        [Widgets reload];
     }else{
         NSLog(@"Saving failed %@", error.localizedDescription);
     }

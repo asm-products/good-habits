@@ -8,31 +8,96 @@
 
 import SwiftUI
 import HabitsCommon
+import WidgetKit
+
+func LocalizedString(_ key: String)->String{
+    Bundle(identifier: "goodtohear.HabitsCommon")?.localizedString(forKey: key, value: "", table: nil) ?? key
+}
+
+struct WidgetHeader: View {
+    var entry: Provider.Entry
+    
+    var body: some View{
+        HStack{
+            Image(systemName: entry.imageName)
+            
+            Text("\(entry.completedHabits)")
+            Divider().background(Color.white)
+            Text("\(entry.totalHabits)").opacity(0.6)
+        }
+        .padding(.horizontal, 10)
+        .overlay(Capsule().stroke().opacity(0.8))
+        .font(.system(size: 14, weight: .bold, design: .default))
+        .frame(maxWidth: .infinity)
+        .frame(height: 20)
+        .padding(6)
+        .background(Color(Colors.green()))
+        .foregroundColor(.white)
+    }
+}
+
+struct HabitsList: View {
+    let columns = [GridItem(.flexible())]
+    var habits: [HabitProxy]
+    var size:HabitCell.Size = .normal
+    @Environment(\.widgetFamily) var widgetFamily
+    var body: some View{
+        let canShowCount = widgetFamily == .systemLarge ? 8 : 3
+        let completed = habits.filter{ $0.state == .complete}
+
+        let shouldRemoveCompleted = canShowCount < habits.count && completed.count > 0
+        var visibleHabits = shouldRemoveCompleted ? habits.filter{ $0.state != .complete} : habits
+        if visibleHabits.count < canShowCount && shouldRemoveCompleted && completed.count > 0{
+            let countToAdd = min(canShowCount - visibleHabits.count, completed.count)
+            visibleHabits.insert(contentsOf: completed.suffix(countToAdd), at: 0)
+        }
+        return LazyVGrid(columns: columns, spacing: 6.0){
+            ForEach(visibleHabits.prefix(canShowCount)){ habit in
+                HabitCell(habit: habit, size: size)
+                Divider()
+            }
+            .padding(.horizontal)
+        }
+    }
+}
 
 struct HabitsWidgetEntryView : View {
-    let columns = [GridItem(.flexible())]
-    
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var widgetFamily
     
     var body: some View {
         VStack {
-            LazyVGrid(columns: columns, spacing: 6.5){
-            Text("GOOD HABITS")
-                .font(.system(size: 14, weight: .bold, design: .default))
-                .frame(maxWidth: .infinity)
-                .padding(6)
-                .background(Color(Colors.green()))
-                //                .cornerRadius(14)
-                .foregroundColor(.white)
-            ForEach(entry.habits.prefix(widgetFamily == .systemLarge ? 8 : 3)){ habit in
-                HabitCell(habit: habit)
-                Divider()
+            WidgetHeader(entry: entry)
+            if entry.allDoneSoFar {
+                HStack(spacing: 0) {
+                    VStack(alignment: .center, spacing: 10) {
+                        Image(systemName: "checkmark.seal.fill")
+                            .font(.system(size: 44))
+                            .foregroundColor(Color(Colors.green()))
+                        if entry.habitsNeededLater.count > 0{
+                            (
+                                Text("+\(entry.habitsNeededLater.count) ")
+                                    + Text(LocalizedString("Later").uppercased())
+                            )
+                                .font(.system(size: 14, weight: .bold, design: .default))
+                            .opacity(0.5)
+                        }
+                    }
+                    .frame(minWidth: 140, maxHeight: .infinity)
+                    
+                    if widgetFamily != .systemSmall && entry.habitsNeededLater.count > 0 {
+                        Divider()
+                        VStack {
+                            HabitsList(habits: entry.habitsNeededLater, size: .smallWithTime)
+                            .frame(maxWidth: .infinity)
+                        }.clipped()
+                    }
+                }
+            }else{
+                HabitsList(habits: entry.habits, size: widgetFamily == .systemSmall ? .small : .normal)
             }
-            .padding(.horizontal)
-        }
             Spacer()
-        }
+        }.clipped()
         
     }
 }
