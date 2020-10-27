@@ -44,7 +44,7 @@ struct HabitsList: View {
     var body: some View{
         let canShowCount = widgetFamily == .systemLarge ? 8 : 3
         let completed = habits.filter{ $0.state == .complete}
-
+        
         let shouldRemoveCompleted = canShowCount < habits.count && completed.count > 0
         var visibleHabits = shouldRemoveCompleted ? habits.filter{ $0.state != .complete} : habits
         if visibleHabits.count < canShowCount && shouldRemoveCompleted && completed.count > 0{
@@ -79,7 +79,7 @@ struct HabitsWidgetEntryView : View {
                                 Text("+\(entry.habitsNeededLater.count) ")
                                     + Text(LocalizedString("Later").uppercased())
                             )
-                                .font(.system(size: 14, weight: .bold, design: .default))
+                            .font(.system(size: 14, weight: .bold, design: .default))
                             .opacity(0.5)
                         }
                     }
@@ -89,7 +89,7 @@ struct HabitsWidgetEntryView : View {
                         Divider()
                         VStack {
                             HabitsList(habits: entry.habitsNeededLater, size: .smallWithTime)
-                            .frame(maxWidth: .infinity)
+                                .frame(maxWidth: .infinity)
                         }.clipped()
                     }
                 }

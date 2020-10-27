@@ -54,6 +54,11 @@
         return [h needsToBeDone: today];
     }];
 }
++(NSArray*)activeOnDate: (NSDate*)date {
+    return [[self active] filter:^BOOL(Habit * habit) {
+        return [habit isRequiredOnWeekday:date];
+    }];
+}
 +(NSArray *)activeToday{
     return [self.active filter:^BOOL(Habit * habit) {
         return habit.isRequiredToday;

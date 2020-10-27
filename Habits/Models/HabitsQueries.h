@@ -21,6 +21,7 @@
 #pragma  mark - Groups
 +(NSArray*)active;
 +(NSArray*)outstandingToday;
++(NSArray*)activeOnDate:(NSDate*)date;
 +(NSArray*)activeToday;
 +(NSArray*)carriedOver;
 +(NSArray*)activeButNotToday;

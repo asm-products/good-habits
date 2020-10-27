@@ -28,12 +28,19 @@ struct Provider: TimelineProvider {
         let habits = (HabitsQueries.activeToday() as! [Habit]).map{ HabitProxy(with: $0) }
         var entries: [SimpleEntry] = []
 
-        let times = [
-            Date()
-        ] + habits.compactMap{ $0.reminderTimeToday }
+        let times = [  Date() ]
+            + habits.compactMap{ $0.reminderTimeToday }
+        
         for entryDate in times {
             let entry = SimpleEntry(date: entryDate, habits: habits)
             entries.append(entry)
+        }
+        if let thisTimeTomorrow = Calendar.current.date(byAdding: DateComponents(day: 1), to: Date()) {
+            let tomorrow = Calendar.current.startOfDay(for: thisTimeTomorrow)
+            let habits = (HabitsQueries.active(on: tomorrow) as! [Habit])
+                .map{ HabitProxy(with: $0) }
+            let tomorrowEntry = SimpleEntry(date: tomorrow, habits: habits )
+            entries.append(tomorrowEntry)
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
