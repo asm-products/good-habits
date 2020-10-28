@@ -36,7 +36,7 @@ BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
         
         circle = [[UIView alloc] initWithFrame:CGRectInset(self.bounds, CIRCLE_INSET, CIRCLE_INSET)];
         [self addSubview:circle];
-        circle.backgroundColor = [UIColor whiteColor];
+        circle.backgroundColor = [UIColor systemBackgroundColor];
         circle.layer.cornerRadius = circle.frame.size.height * 0.5;
         circle.userInteractionEnabled = NO;
         
@@ -96,7 +96,7 @@ BOOL stateIsOneOf(CalendarDayState state, NSArray * options){
     circle.hidden = !(stateIsOneOf(state, @[@(CalendarDayStateBrokenChain), @(CalendarDayStateBetweenSubchains)]));
     
     if(stateIsOneOf(state, @[@(CalendarDayStateMissed), @(CalendarDayStateFuture), @(CalendarDayStateBeforeStart), @(CalendarDayStateBrokenChain)])){
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor systemBackgroundColor];
         self.label.textColor = [Colors futureColor];
     }
     if(stateIsOneOf(state, @[@(CalendarDayStateBeforeStart), @(CalendarDayStateNotRequired)])){

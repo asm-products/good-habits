@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     self.view.autoresizesSubviews = NO;
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor systemBackgroundColor];
     self.top = [[CalendarTopView alloc] initWithFrame:CGRectMake(0, 0, 320, 54)];
     [self.view addSubview:self.top];
     

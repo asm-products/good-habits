@@ -30,7 +30,7 @@
     [self build];
 }
 -(void)build{
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor systemBackgroundColor];
     self.layer.shadowOffset = CGSizeMake(0, -1);
     self.layer.shadowRadius = 1;
     self.layer.shadowColor = [UIColor blackColor].CGColor;

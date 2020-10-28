@@ -36,6 +36,6 @@
     newLabel.hidden = YES;
 }
 -(UIColor *)labelTextColor{
-    return [Colors dark];
+    return [UIColor labelColor];
 }
 @end

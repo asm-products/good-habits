@@ -31,7 +31,7 @@
     backgroundColorView.frame = self.bounds;
 }
 -(void)build{
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor systemBackgroundColor];
     backgroundColorView = [[UIView alloc] initWithFrame:self.bounds];
     backgroundColorView.backgroundColor = [Colors cellBackground];
     backgroundColorView.hidden = YES;
@@ -50,6 +50,6 @@
     self.label.textColor = highlighted ? [UIColor whiteColor] : [self labelTextColor];
 }
 -(UIColor *)labelTextColor{
-    return [UIColor blackColor];
+    return [UIColor labelColor];
 }
 @end

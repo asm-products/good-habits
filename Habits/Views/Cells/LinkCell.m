@@ -22,7 +22,7 @@
 -(void)setHighlighted:(BOOL)highlighted{
     [super setHighlighted:highlighted];
     backgroundColorView.hidden = !highlighted;
-    label.textColor = highlighted ? [UIColor whiteColor] : [Colors dark];
+    label.textColor = highlighted ? [UIColor whiteColor] : [UIColor labelColor];
 }
 -(void)setLink:(NSDictionary *)link{
     _link = link;

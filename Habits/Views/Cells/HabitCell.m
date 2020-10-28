@@ -80,7 +80,7 @@
 }
 
 -(UIColor*)labelTextColor{
-    return [UIColor blackColor];
+    return [UIColor labelColor];
     // TODO: make the due habits red again
 //    return (([self.habit due:self.now] && ![self.habit done:(self.now)]) || (!self.inactive && self.habit.currentChainLength == 0)) ? [Colors red] : [UIColor blackColor];
 }

@@ -22,6 +22,7 @@
     self.textLabel.frame = CGRectMake(10, 0, frame.size.width - 20, 44);
 }
 -(void)build{
+    self.backgroundColor = Colors.cobalt;
     UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 300, 44)];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
@@ -30,7 +31,6 @@
     [self addSubview:label];
     self.textLabel = label;
     
-    self.backgroundColor = [Colors cobalt];
 }
 -(void)setDate:(NSDate *)date{
     _date = date;
