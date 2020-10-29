@@ -12,6 +12,7 @@ Features
 - Supports larger displays of iPhone 6 and iPhone 6 Plus
 - Apple Watch app and Today widget let you track your habits for the day without launching the main app
 - Apple Watch complication shows your progress for the day
+- Home Screen Widget shows your progress for today
 
 Advanced features (in app purchase)
 - Record the reasons you broke your chains
