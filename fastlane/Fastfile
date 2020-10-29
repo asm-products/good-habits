@@ -52,7 +52,7 @@ platform :ios do
     use_locale_names(:normal)
     build_app(workspace: "Habits.xcworkspace", scheme: "Habits")
     upload_to_app_store(
-      skip_metadata: true, 
+      skip_metadata: false, 
       skip_screenshots: true,
       ignore_language_directory_validation: true
      )
