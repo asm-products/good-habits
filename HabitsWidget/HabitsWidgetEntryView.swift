@@ -22,7 +22,7 @@ struct WidgetHeader: View {
             Image(systemName: entry.imageName)
             
             Text("\(entry.completedHabits)")
-            Divider().background(Color.white)
+            Divider().background(Color.white).environment(\.colorScheme, .light)
             Text("\(entry.totalHabits)").opacity(0.6)
         }
         .padding(.horizontal, 10)
@@ -105,5 +105,6 @@ struct HabitsWidgetEntryView : View {
 struct HabitsWidgetEntryView_Previews: PreviewProvider {
     static var previews: some View {
         HabitsWidget_Previews.previews
+            .environment(\.colorScheme, .dark)
     }
 }
