@@ -294,7 +294,11 @@
     NSError * error;
     if([self.managedObjectContext save:&error]){
         NSLog(@"Saved");
-        [Widgets reload];
+        if (@available(iOS 14.0, *)) {
+            [Widgets reload];
+        } else {
+            // Fallback on earlier versions
+        }
     }else{
         NSLog(@"Saving failed %@", error.localizedDescription);
     }
