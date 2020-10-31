@@ -53,7 +53,7 @@ import HabitsCommon
             title: habit.title,
             order: order,
             color: habit.color,
-            state: HabitDayState(rawValue: Int(habit.findOrCreateChain(for: Date()).dayState().rawValue))!
+            state: HabitDayState(rawValue: Int(habit.findOrCreateChain(for: Date()).dayState().rawValue)) ?? .null
         )
     }
     func habitDaysWithJustToday()->[String: [HabitStructDictionary]]{

@@ -12,8 +12,6 @@
 #import <MVPopupTransition.h>
 #import "SKProductsRequest+Blocks.h"
 #import <SVProgressHUD.h>
-#import <Crashlytics/Crashlytics.h> // If using Answers with Crashlytics
-//#import <Answers/Answers.h> // If using Answers without Crashlytics
 
 
 @interface StatisticsFeaturePurchaseViewController ()<UIViewControllerTransitioningDelegate>
@@ -79,7 +77,7 @@
         NSLog(@"Error, no product id");
         return;
     }
-    [Answers logStartCheckoutWithPrice:self.product.price currency:self.product.priceLocale.currencyCode itemCount: @1 customAttributes:@{}];
+//    [Answers logStartCheckoutWithPrice:self.product.price currency:self.product.priceLocale.currencyCode itemCount: @1 customAttributes:@{}];
     
     SKMutablePayment * payment = [SKMutablePayment paymentWithProduct:self.product];
     payment.quantity = 1;

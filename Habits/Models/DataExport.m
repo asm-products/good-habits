@@ -16,7 +16,6 @@
 #import "JSONConversion.h"
 #import "LegacyJSONImporter.h"
 #import <UIAlertView+Blocks.h>
-#import <Crashlytics/Crashlytics.h>
 @import UIKit;
 @import MessageUI;
 @import HabitsCommon;
@@ -25,7 +24,7 @@
 
 +(void)run:(UIViewController *)parentController client:(CoreDataClient*)client{
     [SVProgressHUD showWithStatus:@"Exporting..." maskType:SVProgressHUDMaskTypeBlack];
-    [Answers logCustomEventWithName:@"Exported Data" customAttributes:nil];
+//    [Answers logCustomEventWithName:@"Exported Data" customAttributes:nil];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray * habits = [JSONConversion allHabitsAsJSONWithClient:client];

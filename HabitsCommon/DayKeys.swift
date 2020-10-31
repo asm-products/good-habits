@@ -45,10 +45,10 @@ func weekdayOfDate(_ date:Date)->String{
     return weekdayNameOfWeekdayComponent(components.weekday!)
 }
 @objc open class DayKeys: NSObject {
-    @objc static open func convertKeyToDate(_ key:String)->Date?{
+    @objc static public func convertKeyToDate(_ key:String)->Date?{
         return _dateFromKey(key)
     }
-    @objc static open func convertDateToKey(_ date:Date)->String{
+    @objc static public func convertDateToKey(_ date:Date)->String{
         return dayKey(date)
     }
 }

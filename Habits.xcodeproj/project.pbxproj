@@ -29,6 +29,8 @@
 		AC0E562F253C6AC30068C8EE /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E5625253C6A480068C8EE /* Widgets.swift */; };
 		AC11B4331C01F01700378810 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */; };
 		AC1D7DE51BF748FF00700CB0 /* MigrationToSharedContainerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D7DE41BF748FF00700CB0 /* MigrationToSharedContainerTests.m */; };
+		AC1E7D1C254AE442000B32BC /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7D1B254AE442000B32BC /* MainTabViewController.swift */; };
+		AC1E7D28254AE46D000B32BC /* TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7D27254AE46D000B32BC /* TrendsView.swift */; };
 		AC1EB1061960C5CA00549AC9 /* habits_data_legacy.json in Resources */ = {isa = PBXBuildFile; fileRef = AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */; };
 		AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */; };
 		AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1EB93019B0967500BF7EAF /* AdminTableViewController.m */; };
@@ -45,7 +47,6 @@
 		AC24B643197194FC00B33CCF /* CheckMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24B642197194FC00B33CCF /* CheckMarkView.m */; };
 		AC2BC91C19C77C61007C378D /* habits_data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC2BC91A19C77C61007C378D /* habits_data.json */; };
 		AC31B67923DEF28A002B09B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC31B67723DEF28A002B09B2 /* InfoPlist.strings */; };
-		AC3220671BB42BA300A6AD30 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC3220661BB42BA300A6AD30 /* Fabric.framework */; };
 		AC3237AB196B184A00A2FF9F /* ColorPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */; };
 		AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3237AD196BFE9D00A2FF9F /* ColorPickerButton.m */; };
 		AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3237AF196C2FB400A2FF9F /* Cross.png */; };
@@ -257,11 +258,11 @@
 		ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */; };
 		ACB7480E23C484EA00CCD0E8 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7480D23C484E900CCD0E8 /* Launch Screen.xib */; };
 		ACB7481023C4850500CCD0E8 /* Launch Screen_it.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7480F23C4850500CCD0E8 /* Launch Screen_it.xib */; };
-		ACBBCD941BB42A2800BEA2D6 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */; };
 		ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */; };
 		ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BC19B456DD00085A95 /* ReminderTests.m */; };
 		ACBD81EF1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */; };
 		ACBDF3F623AB76CA005455B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACBDF3F823AB76CA005455B5 /* Localizable.strings */; };
+		ACBF7D02254AF8110072DDB3 /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D823CF256C004F97EB /* testing.goodtohear.habits.plist */; };
 		ACDABB00245304B600096BB4 /* BookPitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDABAFF245304B600096BB4 /* BookPitchViewController.swift */; };
 		ACDABB02245304DA00096BB4 /* BookBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDABB01245304DA00096BB4 /* BookBannerViewController.swift */; };
 		ACDABD011BF37505007A7274 /* HabitToggler.h in Headers */ = {isa = PBXBuildFile; fileRef = ACDABCFF1BF37505007A7274 /* HabitToggler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -432,6 +433,8 @@
 		AC0E560A253C31560068C8EE /* HabitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
 		AC0E5625253C6A480068C8EE /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
 		AC1D7DE41BF748FF00700CB0 /* MigrationToSharedContainerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationToSharedContainerTests.m; sourceTree = "<group>"; };
+		AC1E7D1B254AE442000B32BC /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		AC1E7D27254AE46D000B32BC /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
 		AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data_legacy.json; sourceTree = "<group>"; };
 		AC1EB1071960CA9A00549AC9 /* JSONConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONConversionTests.m; sourceTree = "<group>"; };
 		AC1EB92F19B0967500BF7EAF /* AdminTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminTableViewController.h; sourceTree = "<group>"; };
@@ -451,7 +454,6 @@
 		AC2BC91A19C77C61007C378D /* habits_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = habits_data.json; sourceTree = "<group>"; };
 		AC31B67823DEF28A002B09B2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC31B67B23DEF28A002B09B2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AC3220661BB42BA300A6AD30 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		AC3237A9196B184A00A2FF9F /* ColorPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerCell.h; sourceTree = "<group>"; };
 		AC3237AA196B184A00A2FF9F /* ColorPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerCell.m; sourceTree = "<group>"; };
 		AC3237AC196BFE9D00A2FF9F /* ColorPickerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerButton.h; sourceTree = "<group>"; };
@@ -757,7 +759,6 @@
 		ACB7480F23C4850500CCD0E8 /* Launch Screen_it.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen_it.xib"; sourceTree = "<group>"; };
 		ACB7A43223C5DC9C00BF975C /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		ACB7A43323C5E11300BF975C /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
-		ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitCreationTests.m; sourceTree = "<group>"; };
 		ACBCD3BC19B456DD00085A95 /* ReminderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTests.m; sourceTree = "<group>"; };
 		ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 10.xcdatamodel"; sourceTree = "<group>"; };
@@ -861,9 +862,7 @@
 				ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */,
 				ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */,
 				ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */,
-				ACBBCD941BB42A2800BEA2D6 /* Crashlytics.framework in Frameworks */,
 				AC7881921BED3F6700675C75 /* HabitsCommon.framework in Frameworks */,
-				AC3220671BB42BA300A6AD30 /* Fabric.framework in Frameworks */,
 				5C0650B4028E76D2B73802CC /* libPods-Habits.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -920,6 +919,22 @@
 				ACDE69E8254172A900805948 /* SimpleEntry.swift */,
 			);
 			path = HabitsWidget;
+			sourceTree = "<group>";
+		};
+		AC1E7D25254AE457000B32BC /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7D26254AE45D000B32BC /* Trends */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		AC1E7D26254AE45D000B32BC /* Trends */ = {
+			isa = PBXGroup;
+			children = (
+				AC1E7D27254AE46D000B32BC /* TrendsView.swift */,
+			);
+			path = Trends;
 			sourceTree = "<group>";
 		};
 		AC1EB1041960C5B100549AC9 /* Fixtures */ = {
@@ -1500,8 +1515,6 @@
 		ACADB3D2190D23B90030CC82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC3220661BB42BA300A6AD30 /* Fabric.framework */,
-				ACBBCD931BB42A2800BEA2D6 /* Crashlytics.framework */,
 				ACADB3D3190D23B90030CC82 /* Foundation.framework */,
 				ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */,
 				ACADB3D7190D23B90030CC82 /* UIKit.framework */,
@@ -1649,6 +1662,7 @@
 				AC7A485A1BED568000A8FBAD /* Data Recovery */,
 				ACDABB01245304DA00096BB4 /* BookBannerViewController.swift */,
 				ACDABAFF245304B600096BB4 /* BookPitchViewController.swift */,
+				AC1E7D1B254AE442000B32BC /* MainTabViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1656,6 +1670,7 @@
 		ACADB40A190D24EE0030CC82 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AC1E7D25254AE457000B32BC /* SwiftUI */,
 				AC735DDF19705065007CD2B7 /* AppFeatures */,
 				ACDC63C0196F2CFB00F68BD6 /* Charts */,
 				AC4018C1195090120033407B /* Calendar */,
@@ -2254,6 +2269,7 @@
 				ACADB48A190D27960030CC82 /* play.png in Resources */,
 				AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */,
 				AC84E5D623E0A8CC0024184B /* Launch Screen_ja.xib in Resources */,
+				ACBF7D02254AF8110072DDB3 /* testing.goodtohear.habits.plist in Resources */,
 				AC1EB93B19B0F71A00BF7EAF /* broken_chain_cross.png in Resources */,
 				AC3237B1196C2FB400A2FF9F /* Cross.png in Resources */,
 				AC84E5D423E0A8990024184B /* Launch Screen_ru.xib in Resources */,
@@ -2607,6 +2623,7 @@
 				AC735DE219705080007CD2B7 /* StatsPopup.m in Sources */,
 				AC401880195058720033407B /* HabitCell.m in Sources */,
 				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
+				AC1E7D1C254AE442000B32BC /* MainTabViewController.swift in Sources */,
 				ACDBF4031A1C258200843BAD /* MultilineAutoshrinkingLabel.m in Sources */,
 				AC7A482A1BED437400A8FBAD /* LegacyJSONImporter.m in Sources */,
 				AC40188719505C150033407B /* CountView.m in Sources */,
@@ -2624,6 +2641,7 @@
 				ACAE5F4B19C5C839003B0893 /* ChainLengthDistributionTableViewCell.m in Sources */,
 				AC4018E61950FAB70033407B /* InfoCell.m in Sources */,
 				AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */,
+				AC1E7D28254AE46D000B32BC /* TrendsView.swift in Sources */,
 				AC5A6C21213844E600D409A0 /* AppStoreReceipt.swift in Sources */,
 				AC4018E01950F79C0033407B /* InfoViewController.m in Sources */,
 				AC21B23619CEDA250024BE96 /* PastDayCheckView.m in Sources */,

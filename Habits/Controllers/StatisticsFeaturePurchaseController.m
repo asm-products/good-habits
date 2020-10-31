@@ -13,7 +13,6 @@
 #import "StatisticsFeaturePurchaseViewController.h"
 #import <SVProgressHUD.h>
 #import "HabitsQueries.h"
-#import <Crashlytics/Crashlytics.h>
 #import "SKProductsRequest+Blocks.h"
 
 @implementation StatisticsFeaturePurchaseController{
@@ -33,7 +32,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
     [SKProductsRequest requestWithProductIdentifiers:set withBlock:^(SKProductsResponse *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             SKProduct * product = response.products.firstObject;
-             [Answers logPurchaseWithPrice: product.price currency:product.priceLocale.currencyCode success:@YES itemName:product.localizedTitle itemType: @"Unlock" itemId:product.productIdentifier customAttributes:@{}];
+//             [Answers logPurchaseWithPrice: product.price currency:product.priceLocale.currencyCode success:@YES itemName:product.localizedTitle itemType: @"Unlock" itemId:product.productIdentifier customAttributes:@{}];
         });
         
     }];

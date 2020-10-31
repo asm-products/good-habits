@@ -106,8 +106,14 @@
     if(error || !success){
         NSLog(@"error! %@", error.localizedDescription);
     }
+    
+    self.managedObjectContext = NULL;
+    self.persistentStoreCoordinator = NULL;
+    self.persistentStore = NULL;
     if(success) NSLog(@"NUKED!");
-    exit(0);
+    
+    [self build];
+//    exit(0);
 }
 //-(void)saveInBackground{
 //    [self.managedObjectContext performBlock:^{

@@ -5,3 +5,4 @@
 #import "TimeHelper.h"
 #import <SVProgressHUD.h>
 #import <AVHexColor.h>
+#import "PlistStoreToCoreDataMigrator.h"
