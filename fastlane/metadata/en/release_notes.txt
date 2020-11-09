@@ -1,1 +1,1 @@
-New Widget
+2.2 Introduces new widget for iOS 14.
