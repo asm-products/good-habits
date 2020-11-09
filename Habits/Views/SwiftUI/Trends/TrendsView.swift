@@ -10,6 +10,43 @@ import SwiftUI
 import HabitsCommon
 import CoreData
 
+struct ChainPair:Identifiable{
+    var id:NSManagedObjectID{
+        chain.objectID
+    }
+    let chain: Chain
+    let next: Chain
+    let daysBetween: Int
+    init(pair: (Chain,Chain)){
+        self.chain = pair.0
+        self.next = pair.1
+        self.daysBetween = abs( Calendar.current.dateComponents([.day], from: chain.lastDateCache, to: next.firstDateCache).day ?? 0)
+    }
+    
+}
+
+struct ChainsView: View {
+    @ObservedObject var habit:Habit
+    var body: some View{
+        let chains = (habit.chains as! Set<Chain>).sorted(by: { $0.firstDateCache < $1.firstDateCache })
+        let pairs = zip(chains.dropFirst(),chains).map{ChainPair(pair: $0)}
+        
+        return HStack {
+            ForEach(pairs){ pair in
+                Group {
+                    Capsule()
+                        .fill(Color(habit.color))
+                        .frame(width: 8 * CGFloat(truncating: pair.chain.daysCountCache), height: 8)
+                    Rectangle()
+                        .fill(Color.clear)
+                        .frame(width: CGFloat(pair.daysBetween) * 8, height: 8 )
+                    
+                }
+            }
+        }
+    }
+}
+
 struct TrendsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(
@@ -19,27 +56,18 @@ struct TrendsView: View {
         ]) var habits: FetchedResults<Habit>
     
     var body: some View {
-        let earliestDate = habits.map{$0.earliestDate() as! Date}.reduce(Date.distantFuture, min)
-        let x = { (date:Date) in
-            return CGFloat(date.timeIntervalSince(earliestDate) / abs(earliestDate.timeIntervalSinceNow)) * 2
-        }
         
-        return VStack {ForEach(habits, id: \.identifier){ (habit: Habit) in
-            HStack {
-                Text(habit.title)
-                Text("\(habit.chains.count)")
-                ScrollView{
-                    ForEach((habit.chains as! Set<Chain>).sorted(by: { $0.firstDateCache < $1.firstDateCache }), id: \.self){ (chain:Chain) in
-                        Capsule()
-                            .fill(Color(habit.color))
-                            .frame(width: x(chain.lastDateCache) - x(chain.firstDateCache),height: 4)
-//                            .position(x: x(chain.firstDateCache), y: 0)
-                    }
+        ScrollView(.horizontal){
+            VStack(alignment: .leading){
+                ForEach(habits, id: \.identifier){ (habit: Habit) in
+                    ChainsView(habit: habit)
                 }
             }
-        }
-        
-        }
+        }.overlay(VStack{
+            ForEach(habits, id: \.identifier){ habit in
+                Text(habit.title)
+            }
+        }, alignment: .trailing)
     }
 }
 
