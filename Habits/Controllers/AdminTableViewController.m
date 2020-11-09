@@ -43,4 +43,7 @@
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STATS_PURCHASED];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+-(IBAction)crashNow:(id)sender{
+    @[][1];
+}
 @end

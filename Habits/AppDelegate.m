@@ -19,12 +19,12 @@
 #import "AppFeatures.h"
 #import "StatisticsFeaturePurchaseController.h"
 #import "Colors.h"
-#import <Crashlytics/Crashlytics.h>
 //#import <Lookback/Lookback.h>
 #import "TimeHelper.h"
 #import "HabitDay.h"
 #import "Chain.h"
 #import "Habits-Swift.h"
+@import Firebase;
 @import HabitsCommon;
 
 @implementation AppDelegate{
@@ -37,7 +37,8 @@
 //    [[SVProgressHUD appearance] setHudBackgroundColor:[Colors cobalt]];
 //    [[SVProgressHUD appearance] setHudForegroundColor:[UIColor whiteColor]];
 //    [[SVProgressHUD appearance] setHudRingBackgroundColor:[UIColor blackColor]];
-    [Crashlytics startWithAPIKey:@"3254ccee18a98f4b57c4dc9d4fdd5d961828f59d"];
+//    [Crashlytics startWithAPIKey:@"3254ccee18a98f4b57c4dc9d4fdd5d961828f59d"];
+    [FIRApp configure];
     [InfoTask trackInstallationDate];
     [AppFeatures setDefaults];
     watchShim = [WatchShim new];
@@ -50,7 +51,6 @@
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [Notifications registerCategories];
     }
-
     return YES;
 }
 -(void)performAnyNecessaryUpgrades{

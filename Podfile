@@ -17,6 +17,8 @@ target "Habits" do
     pod 'MCSwipeTableViewCell', '~> 2.1'
     pod 'ZipUtilities', '~> 1.6'
     pod 'Locksmith', '~> 4.0'
+    pod 'Firebase/Crashlytics'
+    pod 'Firebase/Analytics'
     #    pod 'KiipSDK', '~> 2.0'
 #    pod 'LookbackSafe', '~> 1.1'
 #pod 'LookbackSafe'#, :configurations => ['Release']

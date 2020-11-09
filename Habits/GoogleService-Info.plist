@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>261886338296-i96urgh90da0krcop4c49oh53d64ge9l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.261886338296-i96urgh90da0krcop4c49oh53d64ge9l</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDzfT_Q-kiOgFQK_AYb2Gw0F9qhWjP2Lhc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>261886338296</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>goodtohear.habits</string>
+	<key>PROJECT_ID</key>
+	<string>good-habits-87589</string>
+	<key>STORAGE_BUCKET</key>
+	<string>good-habits-87589.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:261886338296:ios:715218b62f31f9f977c70d</string>
+	<key>DATABASE_URL</key>
+	<string>https://good-habits-87589.firebaseio.com</string>
+</dict>
+</plist>
