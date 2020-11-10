@@ -32,7 +32,7 @@
 		<key>HabitsWidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>53</integer>
+			<integer>54</integer>
 		</dict>
 		<key>Notification - HabitsWatchApp.xcscheme</key>
 		<dict>
@@ -47,6 +47,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>AC0040BC2537632500B4BD0A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AC373F361BF754CF00A212D9</key>
 		<dict>
 			<key>primary</key>
