@@ -28,6 +28,7 @@
 		AC0E5614253C315C0068C8EE /* HabitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E560A253C31560068C8EE /* HabitCell.swift */; };
 		AC0E562F253C6AC30068C8EE /* Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0E5625253C6A480068C8EE /* Widgets.swift */; };
 		AC11B4331C01F01700378810 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */; };
+		AC1D58B725A71CC400152881 /* TrackableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D58B625A71CC400152881 /* TrackableScrollView.swift */; };
 		AC1D7DE51BF748FF00700CB0 /* MigrationToSharedContainerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D7DE41BF748FF00700CB0 /* MigrationToSharedContainerTests.m */; };
 		AC1E7D1C254AE442000B32BC /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7D1B254AE442000B32BC /* MainTabViewController.swift */; };
 		AC1E7D28254AE46D000B32BC /* TrendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E7D27254AE46D000B32BC /* TrendsView.swift */; };
@@ -432,6 +433,7 @@
 		AC0E55F7253C310B0068C8EE /* HabitProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitProxy.swift; sourceTree = "<group>"; };
 		AC0E560A253C31560068C8EE /* HabitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCell.swift; sourceTree = "<group>"; };
 		AC0E5625253C6A480068C8EE /* Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widgets.swift; sourceTree = "<group>"; };
+		AC1D58B625A71CC400152881 /* TrackableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackableScrollView.swift; sourceTree = "<group>"; };
 		AC1D7DE41BF748FF00700CB0 /* MigrationToSharedContainerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationToSharedContainerTests.m; sourceTree = "<group>"; };
 		AC1E7D1B254AE442000B32BC /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		AC1E7D27254AE46D000B32BC /* TrendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendsView.swift; sourceTree = "<group>"; };
@@ -921,9 +923,18 @@
 			path = HabitsWidget;
 			sourceTree = "<group>";
 		};
+		AC1D58C025A71CE400152881 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AC1D58B625A71CC400152881 /* TrackableScrollView.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		AC1E7D25254AE457000B32BC /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				AC1D58C025A71CE400152881 /* Support */,
 				AC1E7D26254AE45D000B32BC /* Trends */,
 			);
 			path = SwiftUI;
@@ -2629,6 +2640,7 @@
 				AC40188719505C150033407B /* CountView.m in Sources */,
 				AC735DE619705642007CD2B7 /* SparklineHelper.m in Sources */,
 				ACADB3E4190D23B90030CC82 /* AppDelegate.m in Sources */,
+				AC1D58B725A71CC400152881 /* TrackableScrollView.swift in Sources */,
 				AC94093C19B8FCD4003E6257 /* StatisticsFeaturePurchaseController.m in Sources */,
 				AC6137351C00D7EA00162605 /* WatchShim.swift in Sources */,
 				AC3237AE196BFE9D00A2FF9F /* ColorPickerButton.m in Sources */,

@@ -68,7 +68,7 @@ struct HabitsWidget_Previews: PreviewProvider {
         let habits = [
             HabitProxy(title: "Unchecked", color: .blue, state: nil, chainLength: -1),
             HabitProxy(title: "Checked", color: .green, state: .complete, chainLength: 30),
-            HabitProxy(title: "Later", color: .orange, state: .complete, chainLength: 15, reminderTime: DateComponents(hour: 10, minute: 55)),
+            HabitProxy(title: "Later", color: .orange, state: .none, chainLength: 15, reminderTime: DateComponents(hour: 19, minute: 55)),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
             HabitProxy(title: "Other Checked", color: .orange, state: .complete, chainLength: 15),
@@ -81,6 +81,13 @@ struct HabitsWidget_Previews: PreviewProvider {
         HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits.filter{$0.state == .complete}))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
         HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits.filter{$0.state == .complete}))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        
+        
+        HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits.filter{ $0.reminderTimeToday != nil }))
+            .previewContext(WidgetPreviewContext(family: .systemLarge))
+        
+        HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits.filter{ $0.reminderTimeToday != nil }))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
         
         HabitsWidgetEntryView(entry: SimpleEntry(date: Date(), habits: habits))

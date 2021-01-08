@@ -26,8 +26,8 @@
 @property (nonatomic, strong) NSNumber * order;
 @property (nonatomic, strong) NSArray * daysRequired;
 
-@property (nonatomic, strong) NSSet * chains;
-@property (nonatomic, strong) NSSet * failures;
+@property (nonatomic, strong) NSSet<Chain*> * chains;
+@property (nonatomic, strong) NSSet<Failure*> * failures;
 
 @property (nonatomic, strong) NSMutableArray * notifications;
 

@@ -100,6 +100,7 @@
 +(void)scanForJSONFile:(void (^)(BOOL))callback{
     callback(YES);
     NSFileManager * fileManager = [NSFileManager defaultManager];
+    NSLog(@"Scanning for JSON files at %@", [self applicationDocumentsDirectory]);
     NSArray * files = [fileManager contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:nil ];
     for (NSString * file in files) {
         if ([file hasSuffix:@"json"]) {

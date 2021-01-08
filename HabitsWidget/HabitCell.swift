@@ -43,7 +43,10 @@ struct HabitCell: View{
             })
           
                
-            Text(habit.title).font(.system(size: fontSize, weight: .bold, design: .default)).frame(maxHeight: size != .normal ? 10 : 20)
+            Text(habit.title)
+                .font(.system(size: fontSize, weight: .bold, design: .default))
+                .frame(maxHeight: size != .normal ? 10 : 20)
+                
             
             Spacer()
             if size != .small{
@@ -69,6 +72,6 @@ struct HabitCell: View{
 
 struct HabitCell_Previews: PreviewProvider {
     static var previews: some View {
-        HabitsWidget_Previews.previews
+        HabitsWidget_Previews.previews.environment(\.colorScheme, .dark)
     }
 }

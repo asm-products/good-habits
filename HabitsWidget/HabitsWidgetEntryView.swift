@@ -71,12 +71,14 @@ struct HabitsWidgetEntryView : View {
             if entry.allDoneSoFar {
                 HStack(spacing: 0) {
                     VStack(alignment: .center, spacing: 10) {
-                        Image(systemName: "checkmark.seal.fill")
-                            .font(.system(size: 44))
-                            .foregroundColor(Color(Colors.green()))
+                        if entry.completedHabits > 0 {
+                            Image(systemName: "checkmark.seal.fill")
+                                .font(.system(size: 44))
+                                .foregroundColor(Color(Colors.green()))
+                        }
                         if entry.habitsNeededLater.count > 0{
                             (
-                                Text("+\(entry.habitsNeededLater.count) ")
+                                Text("\( entry.completedHabits > 0 ? "+" : "")\(entry.habitsNeededLater.count) ")
                                     + Text(LocalizedString("Later").uppercased())
                             )
                             .font(.system(size: 14, weight: .bold, design: .default))
@@ -97,7 +99,7 @@ struct HabitsWidgetEntryView : View {
                 HabitsList(habits: entry.habits, size: widgetFamily == .systemSmall ? .small : .normal)
             }
             Spacer()
-        }.clipped()
+        }.clipped().background(Color(UIColor.systemBackground))
         
     }
 }

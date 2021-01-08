@@ -27,13 +27,15 @@ typedef NS_ENUM(NSUInteger,DayCheckedState){
 @property (nonatomic, strong) NSNumber * breakDetected;
 @property (nonatomic, strong) NSSet * days;
 @property (nonatomic, strong) Habit * habit;
-@property (nonatomic, strong) NSNumber * daysCountCache;
-@property (nonatomic, strong) NSDate * firstDateCache;
-@property (nonatomic, strong) NSDate * lastDateCache;
+@property (nonatomic, strong, nullable) NSNumber * daysCountCache;
+@property (nonatomic, strong, nullable) NSDate * firstDateCache;
+@property (nonatomic, strong, nullable) NSDate * lastDateCache;
 @property (nonatomic, strong) NSArray * daysRequired;
 
+-(void)emergencyCacheRefresh;
+
 #pragma mark - Sugar
--(NSArray*)sortedDays;
+-(NSArray<HabitDay*>*)sortedDays;
 -(NSInteger)length;
 -(BOOL)isBroken;
 -(NSDate*)nextRequiredDate;

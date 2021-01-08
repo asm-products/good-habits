@@ -22,6 +22,9 @@
 +(UIColor*)blue;
 +(UIColor*)brown;
 +(NSArray*)colorsFromMotion;
+//
+//+(UIColor*)gridLine;
+//+(UIColor*)greyBackground;
 
 +(UIColor*)cellBackground;
 +(UIColor*)headerBackground;

@@ -19,6 +19,12 @@
 -(void)save{
     [[CoreDataClient defaultClient].managedObjectContext save:nil];
 }
+-(void)emergencyCacheRefresh{
+    self.daysCountCache = @(self.days.count);
+    self.firstDateCache = self.sortedDays.firstObject.date;
+    self.lastDateCache = self.sortedDays.lastObject.date;
+}
+
 #pragma mark - chain manipulation
 -(Chain *)chainByJoiningChain:(Chain *)chain{
     // add other chain's days to this chain
@@ -34,7 +40,7 @@
     return nil;
 }
 #pragma mark - sugar
--(NSArray *)sortedDays{
+-(NSArray<HabitDay*> *)sortedDays{
     return [self.days sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]]];
 }
 -(NSInteger)length{

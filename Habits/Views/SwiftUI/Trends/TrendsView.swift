@@ -10,40 +10,215 @@ import SwiftUI
 import HabitsCommon
 import CoreData
 
+private func countDays(from: Date, to: Date)->Int{
+    let fromComponents = Calendar.current.dateComponents([.year,.month,.day], from: from)
+    let toComponents = Calendar.current.dateComponents([.year,.month,.day], from: to)
+    return abs( Calendar.current.dateComponents([.day], from: fromComponents, to: toComponents).day ?? 0)
+}
+
+
+private func d(_ date: Date?)->String{
+    if let date = date {
+        return DateFormatter(dateFormat: "d MMM yyyy").string(from: date)
+    }else{
+        return "n/a"
+    }
+}
 struct ChainPair:Identifiable{
     var id:NSManagedObjectID{
         chain.objectID
     }
     let chain: Chain
-    let next: Chain
+    let next: Chain?
+    let daysCoveredByChain: Int // longer than the day count when not all days are required
     let daysBetween: Int
-    init(pair: (Chain,Chain)){
+    init(pair: (Chain,Chain?)){
         self.chain = pair.0
         self.next = pair.1
-        self.daysBetween = abs( Calendar.current.dateComponents([.day], from: chain.lastDateCache, to: next.firstDateCache).day ?? 0)
+        
+        self.daysCoveredByChain = countDays(from: chain.firstDateCache ?? Date(), to: chain.lastDateCache ?? Date()) + 1
+        self.daysBetween = max(0,countDays(
+            from: chain.lastDateCache ?? Date(),
+            to: next?.firstDateCache ?? Date()
+        ) - 1)
+        if chain.habit.title == "Vitamins"{
+            print("Vitamins: \(d(chain.firstDateCache))-\(d(chain.lastDateCache)), \(d(next?.firstDateCache)): \(daysCoveredByChain) day(s) long, \(daysBetween) day(s) between")
+        }
     }
     
 }
 
+private func width(days: Int)->CGFloat{
+    8.0 * CGFloat(days)
+}
+
+private func days(inMonth components: DateComponents)->Int?{
+    let thisMonth = Calendar.current.dateComponents([.year,.month,.day], from: Date())
+    if thisMonth.year == components.year && thisMonth.month == components.month{
+        return thisMonth.day
+    }
+    let date = Calendar.current.date(from: components) ?? Date()
+    return Calendar.current.range(
+        of: .day,
+        in: .month,
+        for: date
+    )?.count
+}
+
+private func monthWidth(components: DateComponents)->CGFloat{
+    width(days: days(inMonth: components) ?? 10)
+}
+
+extension DateFormatter{
+    convenience init(dateFormat: String){
+        self.init()
+        self.dateFormat = dateFormat
+    }
+}
+fileprivate let shortDate = DateFormatter(dateFormat: "d MMM")
+
 struct ChainsView: View {
     @ObservedObject var habit:Habit
+    var earliestDate: Date
+    
     var body: some View{
-        let chains = (habit.chains as! Set<Chain>).sorted(by: { $0.firstDateCache < $1.firstDateCache })
-        let pairs = zip(chains.dropFirst(),chains).map{ChainPair(pair: $0)}
+        habit.chains.forEach{ if $0.firstDateCache == nil || $0.lastDateCache == nil || $0.daysCountCache == nil { $0.emergencyCacheRefresh()}}
+        CoreDataClient.default()?.save()
+        let chains = habit.chains.filter{$0.firstDateCache != nil && $0.lastDateCache != nil}.sorted(by: { $0.firstDateCache! < $1.firstDateCache! })
+        let pairs = zip(chains, chains.dropFirst().map{$0} as [Chain?] + [nil]).map{ChainPair(pair: $0)}
         
-        return HStack {
+        var offsetWidth:CGFloat = 0
+        if let firstChainStart = chains.first?.firstDateCache{
+            let components = Calendar.current.dateComponents([.day], from: earliestDate, to: firstChainStart)
+            if let days = components.day{
+                offsetWidth = width(days: days)
+            }
+        } 
+        
+        return HStack(spacing:0) {
+            Rectangle().fill(Color.clear).frame(width: offsetWidth)
             ForEach(pairs){ pair in
                 Group {
                     Capsule()
                         .fill(Color(habit.color))
-                        .frame(width: 8 * CGFloat(truncating: pair.chain.daysCountCache), height: 8)
+                        .frame(width: width(days: pair.daysCoveredByChain), height: 8)
+//                        .overlay(
+//                            Text("\(d(pair.chain.firstDateCache))- \(d(pair.chain.lastDateCache)) (\(pair.chain.daysCountCache ?? -1))")
+//                        )
                     Rectangle()
                         .fill(Color.clear)
-                        .frame(width: CGFloat(pair.daysBetween) * 8, height: 8 )
+                        .frame(width: width(days: pair.daysBetween), height: 8 )
+//                        .overlay(Text("\(pair.daysBetween )"))
                     
+                }.onTapGesture {
+                    print(("\(d(pair.chain.firstDateCache))- \(d(pair.chain.lastDateCache)) (\(pair.chain.daysCountCache ?? -1))"))
                 }
             }
         }
+    }
+}
+
+struct GreyRect: View{
+    var body: some View{
+        Rectangle().fill(Color(Colors.grey()))
+    }
+}
+
+func startOfMonth(date: Date)->Date{
+    let firstDateComponents = Calendar.current.dateComponents([.year,.month], from: date)
+    return Calendar.current.date(from: firstDateComponents)!
+}
+
+struct Timeline: View {
+    var habits: FetchedResults<Habit>
+    
+    @Binding var selectedMonth: DateComponents?
+    @State var offset: CGPoint = .zero
+    
+    let TitlesWidth:CGFloat = 85
+    let TitlesPadding:CGFloat = 5
+
+    func months(since earliestDate: Date)->[DateComponents]{
+        var results = [DateComponents]()
+        var nextDate:Date? = startOfMonth(date: earliestDate)
+        while let date = nextDate, date <= Date() {
+            results.append(Calendar.current.dateComponents([.year,.month], from: date))
+            nextDate = Calendar.current.date(byAdding: DateComponents(month: 1), to: date)
+        }
+        return results
+    }
+    
+    func updateSelectedMonth(months: [DateComponents], offset:CGPoint){
+        var x:CGFloat = 0
+        for month in months{
+            let nextX = x + monthWidth(components: month)
+            if -offset.x >= x && -offset.x < nextX{
+                selectedMonth = month
+            }
+            x = nextX
+        }
+        self.offset = offset
+    }
+    
+    var body: some View{
+        let earliestDate = habits.reduce(Date()) { (memo, habit) -> Date in
+            let date = habit.earliestDate() ?? Date()
+            return date < memo ? date : memo
+        }
+        let startOfFirstMonth = startOfMonth(date: earliestDate)
+        let months = self.months(since: earliestDate)
+        return TrackableScrollView(
+            axes: .horizontal,
+            showsIndicators: false,
+            offsetChanged: {
+                updateSelectedMonth(months: months, offset: $0)
+            }
+        ){
+//            ScrollViewReader{
+            VStack(alignment: .leading, spacing: 0){
+                VStack(alignment: .leading, spacing: 0) {
+                    // month labels:
+                    HStack(spacing: 0){
+                        ForEach(months, id: \.self){ components in
+                            Text("  \(Calendar.current.shortMonthSymbols[components.month! - 1]) \(String(components.year ?? 0))")
+                                .frame(
+                                    width: monthWidth(components: components),
+                                    alignment: .leading
+                                )
+                                .foregroundColor(Color(Colors.grey()))
+                                .overlay(GreyRect().frame(width: 1, height: 1000),alignment: .topLeading)
+                        }
+                        // pad out behind the titles overlay
+                        Spacer(minLength: TitlesWidth + TitlesPadding)
+                        
+                    }
+                    // bottom border:
+                    GreyRect().frame(height: 1)
+                    
+                }
+                // chains:
+                ForEach(habits, id: \.identifier){ (habit: Habit) in
+                    ChainsView(habit: habit, earliestDate: startOfFirstMonth).frame(height: 20)
+                }
+            }.frame(maxWidth: .infinity)
+        
+//            .padding(.trailing, 72)
+            
+        }.overlay(
+            VStack(alignment: .leading, spacing: 0){
+                ForEach(habits, id: \.identifier){ (habit:Habit) in
+                    Text(habit.title)
+                        
+                        .lineLimit(1)
+                        .frame(width: TitlesWidth, height: 20, alignment: .leading)
+                        .padding(.leading, TitlesPadding)
+                }
+                .background(Color.white)
+                .overlay(GreyRect().frame(width: 1), alignment: .leading)
+            },
+            alignment: .bottomTrailing
+        )
+        .font(.system(size: 11))
     }
 }
 
@@ -55,19 +230,21 @@ struct TrendsView: View {
             NSSortDescriptor(keyPath: \Habit.order, ascending: true)
         ]) var habits: FetchedResults<Habit>
     
+    @State var selectedMonth: DateComponents?
+ 
     var body: some View {
-        
-        ScrollView(.horizontal){
-            VStack(alignment: .leading){
-                ForEach(habits, id: \.identifier){ (habit: Habit) in
-                    ChainsView(habit: habit)
-                }
-            }
-        }.overlay(VStack{
-            ForEach(habits, id: \.identifier){ habit in
-                Text(habit.title)
-            }
-        }, alignment: .trailing)
+        VStack{
+            VStack{
+                Text("\(String(selectedMonth?.year ?? 0)) \(selectedMonth?.month ?? -1)").font(.title)
+                    
+            }.padding()
+            .background(Color.white)
+            .cornerRadius(13)
+            .padding()
+            Spacer()
+            Timeline(habits: habits, selectedMonth: $selectedMonth).padding(.bottom).background(Color.white)
+        }
+        .background(Color(Colors.grey()).opacity(0.4))
     }
 }
 
@@ -76,7 +253,10 @@ struct TrendsView_Previews: PreviewProvider {
         let client = CoreDataClient.default()!
         let moc = client.managedObjectContext!
         PreviewHelpers.loadFixture(named: "testing.goodtohear.habits")
-        return TrendsView()
+        return NavigationView{
+            TrendsView()
+                .navigationBarTitle("Trends")
+        }
             .environment(\.managedObjectContext, moc)
     }
 }
@@ -92,7 +272,12 @@ struct PreviewHelpers{
         let path = Bundle.main.path(forResource: name, ofType: "plist", inDirectory: Locale.current.languageCode) ?? bundle.path(forResource: name, ofType: "plist")!
         let dict = NSDictionary(contentsOfFile: path)!
         let array = dict.value(forKeyPath: "goodtohear.habits_habits") as! [Any]
-        PlistStoreToCoreDataMigrator.performMigration(with: array) { _ in
+        let firstDate = Calendar.current.date(from: DateComponents(year: 2014, month: 10, day: 2))!
+        let options = ["addTimeInterval": NSNumber(value: Date().timeIntervalSinceReferenceDate - firstDate.timeIntervalSinceReferenceDate)]
+        PlistStoreToCoreDataMigrator.performMigration(
+            with: array
+//            ,options: options
+        ) { _ in
             
         }
         HabitsQueries.refresh()

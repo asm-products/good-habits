@@ -24,7 +24,10 @@
 +(NSArray*)habitsStoredByMotion{
     return [[NSUserDefaults standardUserDefaults] valueForKey:@"goodtohear.habits_habits"];
 }
-+(void)performMigrationWithArray:(NSArray*)source progress:(void (^)(float))progressCallback;
++(void)performMigrationWithArray:(NSArray*)source progress:(void (^)(float))progressCallback;{
+    [self performMigrationWithArray:source options:@{} progress:progressCallback];
+}
++(void)performMigrationWithArray:(NSArray*)source options: (NSDictionary*)options progress:(void (^)(float))progressCallback;
 {
     float storedCount = source.count;
     __block float progress = 0;
@@ -47,7 +50,7 @@
             habit.identifier = dict[@"identifier"];
 
             NSDictionary * daysChecked = dict[@"days_checked"]; // these will be BOOLs
-            [self generateChainsForHabit:habit fromDaysChecked:daysChecked.allKeys context:context];
+            [self generateChainsForHabit:habit fromDaysChecked:daysChecked.allKeys context:context options: options];
             
             NSLog(@"Imported %@, chain count %@", habit.title, @(habit.chains.count));
             
@@ -83,11 +86,12 @@
     }];
     return [uniquelyNamedItems.allValues sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"__sort" ascending:YES]]];
 }
-+(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSArray*)daysChecked context:(NSManagedObjectContext*)context{
++(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSArray*)daysChecked context:(NSManagedObjectContext*)context options: (NSDictionary*)options{
+    NSTimeInterval addTimeInterval = [[options valueForKey:@"addTimeInterval"] doubleValue];
     NSArray * dayKeys = [daysChecked sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     Chain * chain = [habit addNewChainInContext:context];
     for (NSString * dayKey in dayKeys) { // all values are @YES so I can just iterate through the keys
-        NSDate * date = [DayKeys convertKeyToDate:dayKey];
+        NSDate * date = [[DayKeys convertKeyToDate:dayKey] dateByAddingTimeInterval:addTimeInterval];
         
         chain = [self returnOrReplaceChain:chain forHabit:habit inContext:context withKey:dayKey onDate: date];
         

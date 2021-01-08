@@ -11,6 +11,7 @@
 
 @interface PlistStoreToCoreDataMigrator : NSObject
 +(BOOL)dataCanBeMigrated;
++(void)performMigrationWithArray:(NSArray*)source options: (NSDictionary*)options progress:(void (^)(float))progressCallback;
 /**
  *  Always assume we're starting fresh.
  *
