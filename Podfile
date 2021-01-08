@@ -11,7 +11,7 @@ target "Habits" do
     pod 'SHMessageUIBlocks', '~> 1.2'
     pod 'SVProgressHUD', '~> 1.0'
     pod 'GTHRectHelpers', :git=>'https://github.com/goodtohear/GTHRectHelpers.git'
-    pod 'LMAlertView', '~> 1.1'
+#    pod 'LMAlertView', '~> 1.1'
     pod 'MVModalTransitions', :git=>'https://github.com/michaelforrest/MVModalTransitions.git'
     pod 'DHAppleReceiptParser', '~> 1.0'
     pod 'MCSwipeTableViewCell', '~> 2.1'

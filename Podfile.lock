@@ -16,7 +16,6 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - CAAnimationBlocks (0.0.1)
   - CWLSynthesizeSingleton (1.0.0)
   - DHAppleReceiptParser (1.0.1)
   - Expecta (1.0.6)
@@ -95,9 +94,6 @@ PODS:
   - KIF (3.7.4):
     - KIF/Core (= 3.7.4)
   - KIF/Core (3.7.4)
-  - LMAlertView (1.1.0):
-    - CAAnimationBlocks (~> 0.0.1)
-    - RBBAnimation (~> 0.3.0)
   - Locksmith (4.0.0)
   - Mantle (1.5.8):
     - Mantle/extobjc (= 1.5.8)
@@ -113,7 +109,6 @@ PODS:
   - nanopb/encode (1.30905.0)
   - OCMock (3.3.1)
   - PromisesObjC (1.2.9)
-  - RBBAnimation (0.3.0)
   - Reveal-iOS-SDK (1.6.2)
   - SHMessageUIBlocks (1.2.0)
   - Specta (0.2.1)
@@ -137,7 +132,6 @@ DEPENDENCIES:
   - GTHRectHelpers (from `https://github.com/goodtohear/GTHRectHelpers.git`)
   - KIF
   - KIF (~> 3.7)
-  - LMAlertView (~> 1.1)
   - Locksmith (~> 4.0)
   - Mantle (~> 1.5)
   - MCSwipeTableViewCell (~> 2.1)
@@ -157,18 +151,15 @@ SPEC REPOS:
     - ALActionBlocks
     - AVHexColor
     - BlocksKit
-    - CAAnimationBlocks
     - CWLSynthesizeSingleton
     - DHAppleReceiptParser
     - Expecta
     - Functional.m
     - KIF
-    - LMAlertView
     - Mantle
     - Masonry
     - MCSwipeTableViewCell
     - OCMock
-    - RBBAnimation
     - Reveal-iOS-SDK
     - SHMessageUIBlocks
     - Specta
@@ -211,7 +202,6 @@ SPEC CHECKSUMS:
   ALActionBlocks: ac91b1a37b60a8004fb687ddade0600446f3d3fa
   AVHexColor: 375181a12d4891801cecf09a97c55b35b7aba3f1
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  CAAnimationBlocks: 1aaca5fb6447a95d83b20cc786992956ef46e4ee
   CWLSynthesizeSingleton: 6ccef3170409e87bc9e49544efdc1ea7713c2849
   DHAppleReceiptParser: 57663acea9b76fec8648cada173d2e76fe402be0
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
@@ -229,7 +219,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   GTHRectHelpers: a805ec544af6dbc4f3014f113f389ea766522859
   KIF: f3d01c109ee9d1cfe6b0f2bb2aa278e807e971e2
-  LMAlertView: fa4589ea2cb540b888636ff6739fc39b16ac1e4b
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   Mantle: f03b2b606c3f0cabd80214ad8a2fed6b464a7359
   Masonry: 9f515466afe48632562342a40a1c224071a1a022
@@ -238,7 +227,6 @@ SPEC CHECKSUMS:
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
-  RBBAnimation: cb6cb419f511434ce932f7d0fabf369612fafb4e
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SHMessageUIBlocks: 5a5be5ffa8717ac01a927330c5dd6db46ce0d3c6
   Specta: 15a276a6343867b426d5ed135d5aa4d04123a573
@@ -248,6 +236,6 @@ SPEC CHECKSUMS:
   YLMoment: d02accdc59d74b6f1c1b6d8f2aaf2fcb74414026
   ZipUtilities: d64048e499434850b3d91cabb38de45d42cfd2e8
 
-PODFILE CHECKSUM: 380985490971be0abc77017a3a74fda45026829c
+PODFILE CHECKSUM: 8e2385621148c0a848285d9a2db95358edaf680f
 
 COCOAPODS: 1.9.3
