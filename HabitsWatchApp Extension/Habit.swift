@@ -27,7 +27,7 @@ struct HabitStruct{
         identifier = dict["identifier"] as? String ?? "unknown"
         title = dict["title"] as? String ?? ""
         order = dict["order"] as? Int ?? 0
-        color = NSKeyedUnarchiver.unarchiveObject(with: dict["color"] as? Data ?? Data()) as? UIColor
+        color = try! NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: dict["color"] as? Data ?? Data())
         if let stateInt = dict["state"] as? Int, let state = HabitDayState(rawValue: stateInt){
             self.state = state
         }
@@ -44,7 +44,7 @@ struct HabitStruct{
             "identifier": identifier,
             "title": title,
             "order": order,
-            "color": NSKeyedArchiver.archivedData(withRootObject: color ?? UIColor.clear),
+            "color": try! NSKeyedArchiver.archivedData(withRootObject: color ?? UIColor.clear, requiringSecureCoding: false),
             "state": state.rawValue
         ]
     }

@@ -8,11 +8,11 @@
 
 import SwiftUI
 // https://swiftwithmajid.com/2020/09/24/mastering-scrollview-in-swiftui/
-private struct ScrollOffsetPreferenceKey: PreferenceKey {
+private struct ScrollOffsettPreferenceKey: PreferenceKey {
     static var defaultValue: CGPoint = .zero
 
     static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {
-        value = nextValue()
+//        value = nextValue()
     }
 }
 struct TrackableScrollView<Content: View>: View {
@@ -35,16 +35,20 @@ struct TrackableScrollView<Content: View>: View {
     
     var body: some View {
             SwiftUI.ScrollView(axes, showsIndicators: showsIndicators) {
-                GeometryReader { geometry in
-                    Color.clear.preference(
-                        key: ScrollOffsetPreferenceKey.self,
-                        value: geometry.frame(in: .named("scrollView")).origin
-                    )
-                }.frame(width: 0, height: 0)
-                content
+                VStack(alignment:.leading){
+                    GeometryReader { geometry in
+                        Color.clear.preference(
+                            key: ScrollOffsettPreferenceKey.self,
+                            value: geometry.frame(in: .named("scrollView")).origin
+                        )
+                    }.frame(width: 0, height: 0)
+                    content
+                }
             }
             .coordinateSpace(name: "scrollView")
-            .onPreferenceChange(ScrollOffsetPreferenceKey.self, perform: offsetChanged)
+            .onPreferenceChange(ScrollOffsettPreferenceKey.self){
+                offsetChanged($0)
+            }
         }
     
 }

@@ -107,7 +107,7 @@
     chain.daysCountCache = @0;
     return chain;
 }
--(NSArray *)sortedChains{
+-(NSArray <Chain*>*)sortedChains{
     return [[self.chains sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"lastDateCache" ascending:YES]]] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"firstDateCache != nil"]];
 }
 -(Chain*)longestChain{

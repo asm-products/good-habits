@@ -279,6 +279,7 @@
 		ACDE69E9254172A900805948 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE69E8254172A900805948 /* SimpleEntry.swift */; };
 		ACE4B2261C1AE0DD00A8E83B /* DayKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDB81C09D4F900A99B05 /* DayKeys.swift */; };
 		ACE7D27E1BF338DC007FCDAC /* TimeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AC40187319504ADB0033407B /* TimeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACECC1BB25A8BBA600AB0354 /* SelectedMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECC1BA25A8BBA600AB0354 /* SelectedMonth.swift */; };
 		ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */; };
 		ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */; };
 		ACFE96B4251A44C20090C418 /* CSVExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE96B3251A44C20090C418 /* CSVExport.swift */; };
@@ -792,6 +793,7 @@
 		ACDE69E8254172A900805948 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
 		ACE31ABF19756936007173A0 /* HabitDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDay.h; sourceTree = "<group>"; };
 		ACE31AC019756936007173A0 /* HabitDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDay.m; sourceTree = "<group>"; };
+		ACECC1BA25A8BBA600AB0354 /* SelectedMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMonth.swift; sourceTree = "<group>"; };
 		ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayBoundaryTests.m; sourceTree = "<group>"; };
 		ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStatsTableViewController.h; sourceTree = "<group>"; };
 		ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalStatsTableViewController.m; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 			isa = PBXGroup;
 			children = (
 				AC1E7D27254AE46D000B32BC /* TrendsView.swift */,
+				ACECC1BA25A8BBA600AB0354 /* SelectedMonth.swift */,
 			);
 			path = Trends;
 			sourceTree = "<group>";
@@ -2664,6 +2667,7 @@
 				ACDABD031BF3E28A007A7274 /* Notifications.m in Sources */,
 				AC4018AD19506AB90033407B /* InactiveHabitsHeader.m in Sources */,
 				AC7A48291BED437400A8FBAD /* PlistStoreToCoreDataMigrator.m in Sources */,
+				ACECC1BB25A8BBA600AB0354 /* SelectedMonth.swift in Sources */,
 				AC1FDDBB1C09DC1A00A99B05 /* DayKeys.swift in Sources */,
 				ACBD81EF1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift in Sources */,
 				ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */,

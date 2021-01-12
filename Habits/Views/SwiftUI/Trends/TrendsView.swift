@@ -129,6 +129,7 @@ func startOfMonth(date: Date)->Date{
     return Calendar.current.date(from: firstDateComponents)!
 }
 
+@available(iOS 14.0, *)
 struct Timeline: View {
     var habits: FetchedResults<Habit>
     
@@ -150,10 +151,13 @@ struct Timeline: View {
     
     func updateSelectedMonth(months: [DateComponents], offset:CGPoint){
         var x:CGFloat = 0
+        let offsetX = -offset.x + (UIScreen.main.bounds.width / 2) // HACK won't work windowed on iPad.
         for month in months{
             let nextX = x + monthWidth(components: month)
-            if -offset.x >= x && -offset.x < nextX{
-                selectedMonth = month
+            if offsetX >= x && offsetX <= nextX{
+                withAnimation {
+                    selectedMonth = month
+                }
             }
             x = nextX
         }
@@ -174,36 +178,41 @@ struct Timeline: View {
                 updateSelectedMonth(months: months, offset: $0)
             }
         ){
-//            ScrollViewReader{
-            VStack(alignment: .leading, spacing: 0){
-                VStack(alignment: .leading, spacing: 0) {
-                    // month labels:
-                    HStack(spacing: 0){
-                        ForEach(months, id: \.self){ components in
-                            Text("  \(Calendar.current.shortMonthSymbols[components.month! - 1]) \(String(components.year ?? 0))")
-                                .frame(
-                                    width: monthWidth(components: components),
-                                    alignment: .leading
-                                )
-                                .foregroundColor(Color(Colors.grey()))
-                                .overlay(GreyRect().frame(width: 1, height: 1000),alignment: .topLeading)
+            ScrollViewReader{ scrollViewReader in
+                
+                VStack(alignment: .leading, spacing: 0){
+                    VStack(alignment: .leading, spacing: 0) {
+                        // month labels:
+                        HStack(spacing: 0){
+                            ForEach(months, id: \.self){ components in
+                                Text("  \(Calendar.current.shortMonthSymbols[components.month! - 1]) \(String(components.year ?? 0))")
+                                    .frame(
+                                        width: monthWidth(components: components),
+                                        alignment: .leading
+                                    )
+                                    .foregroundColor(Color(Colors.grey()))
+                                    .overlay(GreyRect().frame(width: 1, height: 1000),alignment: .topLeading)
+                            }
+                            // pad out behind the titles overlay
+                            Spacer(minLength: TitlesWidth + TitlesPadding).id("end")
+                            
                         }
-                        // pad out behind the titles overlay
-                        Spacer(minLength: TitlesWidth + TitlesPadding)
+                        // bottom border:
+                        GreyRect().frame(maxWidth: .infinity, maxHeight: 1)
                         
                     }
-                    // bottom border:
-                    GreyRect().frame(height: 1)
-                    
+                    // chains:
+                    ForEach(habits, id: \.identifier){ (habit: Habit) in
+                        ChainsView(habit: habit, earliestDate: startOfFirstMonth).frame(height: 20)
+                    }
                 }
-                // chains:
-                ForEach(habits, id: \.identifier){ (habit: Habit) in
-                    ChainsView(habit: habit, earliestDate: startOfFirstMonth).frame(height: 20)
+                .frame(maxWidth: .infinity)
+                .onAppear{
+                    updateSelectedMonth(months: months, offset: .zero)
+                    scrollViewReader.scrollTo("end")
                 }
-            }.frame(maxWidth: .infinity)
-        
+            }
 //            .padding(.trailing, 72)
-            
         }.overlay(
             VStack(alignment: .leading, spacing: 0){
                 ForEach(habits, id: \.identifier){ (habit:Habit) in
@@ -222,6 +231,7 @@ struct Timeline: View {
     }
 }
 
+@available(iOS 14.0, *)
 struct TrendsView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(
@@ -234,12 +244,7 @@ struct TrendsView: View {
  
     var body: some View {
         VStack{
-            VStack{
-                Text("\(String(selectedMonth?.year ?? 0)) \(selectedMonth?.month ?? -1)").font(.title)
-                    
-            }.padding()
-            .background(Color.white)
-            .cornerRadius(13)
+            SelectedMonth(habits: habits, selectedMonth: selectedMonth ?? Calendar.current.dateComponents([.year,.month], from: Date()))
             .padding()
             Spacer()
             Timeline(habits: habits, selectedMonth: $selectedMonth).padding(.bottom).background(Color.white)
@@ -248,6 +253,7 @@ struct TrendsView: View {
     }
 }
 
+@available(iOS 14.0, *)
 struct TrendsView_Previews: PreviewProvider {
     static var previews: some View {
         let client = CoreDataClient.default()!
@@ -257,7 +263,7 @@ struct TrendsView_Previews: PreviewProvider {
             TrendsView()
                 .navigationBarTitle("Trends")
         }
-            .environment(\.managedObjectContext, moc)
+         .environment(\.managedObjectContext, moc)
     }
 }
 

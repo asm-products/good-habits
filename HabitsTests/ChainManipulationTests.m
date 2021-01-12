@@ -17,7 +17,7 @@
     Habit * habit = [HabitsQueries findHabitByIdentifier:@"Testing habit"];
     
     // List: toggle today
-    [tester waitForViewWithAccessibilityLabel:@"3"]; // current chain length
+    [tester waitForViewWithAccessibilityLabel:@"12"]; // current chain length
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
     [tester waitForViewWithAccessibilityLabel:@"4"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];

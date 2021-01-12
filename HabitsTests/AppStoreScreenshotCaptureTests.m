@@ -88,6 +88,7 @@
     if(h == 812) return @"iPhone X"; //
     if(h == 896 && scale == 3) return @"iPhone 11 Pro Max";
     if(h == 896) return @"iPhone 11"; //
+    if(h == 844) return @"iPhone 12";
     if(h == 1366) return @"iPad Pro"; // 
     return @"dunno";
 }

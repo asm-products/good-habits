@@ -83,9 +83,10 @@
 +(BOOL)importDataFromBase64EncodedString:(NSString *)string{
     NSData * data = [[NSData alloc] initWithBase64EncodedString:string options:0];
     if(data == nil) return NO;
-    NSArray * array = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSError * error;
+    NSArray * array = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSObject class] fromData:data error:&error];
     [self importDataFromArray:array];
-    return YES;
+    return error == nil;
 }
 +(void)importDataFromArray:(NSArray*)array{
     BOOL isLegacyFormat = array.firstObject[@"days_checked"] != nil;

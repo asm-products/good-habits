@@ -49,7 +49,7 @@
 -(Chain*)addNewChain;
 -(Chain*)addNewChainForToday;
 -(Chain*)addNewChainInContext:(NSManagedObjectContext*)context;
--(NSArray*)sortedChains;
+-(NSArray<Chain*>*)sortedChains;
 -(Chain*)longestChain;
 -(NSInteger)currentChainLength;
 -( Chain* _Nullable )currentChain;

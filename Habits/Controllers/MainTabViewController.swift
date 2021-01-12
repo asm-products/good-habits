@@ -15,12 +15,17 @@ class MainTabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let moc = CoreDataClient.default()?.managedObjectContext else { return }
-        let controller = UIHostingController(
-            rootView: TrendsView()
-                .environment(\.managedObjectContext, moc)
-        )
-        controller.tabBarItem = UITabBarItem(title: "Trends", image: UIImage(systemName: "calendar"), tag: 1)
-        viewControllers?.append(controller)
+        if #available(iOS 14.0, *) {
+            let controller = UIHostingController(
+                rootView: TrendsView()
+                    .environment(\.managedObjectContext, moc)
+            )
+            controller.tabBarItem = UITabBarItem(title: "Trends", image: UIImage(systemName: "calendar"), tag: 1)
+            viewControllers?.append(controller)
+        } else {
+            // Fallback on earlier versions
+        }
+        
         
     }
   
