@@ -17,6 +17,8 @@
 +(NSArray*)days:(NSArray*)dayStrings;
 +(void)deleteAllData;
 +(NSArray*)loadFixtureFromUserDefaultsNamed:(NSString*)name;
++(void)loadFixtureFromJSONFileNamed:(NSString*)name;
++(void)launchApplicationWithURLContainingDataFromFixture:(NSString*)fixture;
 +(void)setStatsEnabled:(BOOL)enabled;
 @end
 

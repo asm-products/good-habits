@@ -71,26 +71,16 @@
 }
 -(void)testOpeningUrlForLegacyJSON{
     [TestHelpers deleteAllData];
-    [self launchApplicationWithURLContainingDataFromFixture:@"habits_data_legacy"];
+    [TestHelpers launchApplicationWithURLContainingDataFromFixture:@"habits_data_legacy"];
     [tester tapViewWithAccessibilityLabel:@"Restore Data"];
     
     [tester waitForViewWithAccessibilityLabel:@"Pull ups"];
 }
 -(void)testOpeningUrlForJSON{
     [TestHelpers deleteAllData];
-    [self launchApplicationWithURLContainingDataFromFixture:@"habits_data"];
+    [TestHelpers launchApplicationWithURLContainingDataFromFixture:@"habits_data"];
     [tester tapViewWithAccessibilityLabel:@"Restore Data"];
     [tester waitForViewWithAccessibilityLabel:@"Pull ups"];
 }
--(void)launchApplicationWithURLContainingDataFromFixture:(NSString*)fixture{
-    
-    NSString * path = [[NSBundle bundleForClass:[self class]] pathForResource:fixture ofType:@"json"];
-    NSArray * json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
-    
-    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:json];
-    NSString * linkString = [data base64EncodedStringWithOptions:0];
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"goodhabits://import?json=%@", linkString]]];
-    
-}
+
 @end

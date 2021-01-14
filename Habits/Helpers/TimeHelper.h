@@ -24,7 +24,7 @@
 /**
  *  Start of today in UTC
  */
-+(NSDate*)today;
++(nonnull NSDate*)today;
 /**
  *  Now in local time
  */

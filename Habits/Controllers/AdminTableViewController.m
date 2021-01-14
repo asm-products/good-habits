@@ -38,10 +38,12 @@
 - (IBAction)clearInAppPurchases:(id)sender {
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:STATS_PURCHASED];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [AppFeatures notifyUpdated];
 }
 - (IBAction)didPressEnableInAppPurchases:(id)sender {
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:STATS_PURCHASED];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [AppFeatures notifyUpdated];
 }
 -(IBAction)crashNow:(id)sender{
     @[][1];

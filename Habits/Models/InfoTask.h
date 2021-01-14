@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^InfoTaskAction)(UIViewController*controller);
+typedef BOOL (^InfoTaskState)();
+
 @interface InfoTask : NSObject
 @property (nonatomic, strong) NSString * text;
 @property (nonatomic, strong) InfoTaskAction action;
+@property (nonatomic, strong) InfoTaskState getState;
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic) NSInteger due;
 @property (nonatomic, strong) UIColor * color;

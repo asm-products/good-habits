@@ -201,6 +201,7 @@
 		AC9A0D981BF7702600B2C856 /* HabitsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AC9A0D761BF7702500B2C856 /* HabitsWatchApp.app */; };
 		AC9A0DA31BF7739900B2C856 /* HabitWatchTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9A0DA21BF7739900B2C856 /* HabitWatchTableRowController.swift */; };
 		ACAC10AF1C020B1000457ECB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC10AE1C020B1000457ECB /* UIColorExtension.swift */; };
+		ACAC66C725B0B34600A84BC0 /* AppFeatures+Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAC66BD25B0B2F300A84BC0 /* AppFeatures+Observable.swift */; };
 		ACADB3D4190D23B90030CC82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D3190D23B90030CC82 /* Foundation.framework */; };
 		ACADB3D6190D23B90030CC82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */; };
 		ACADB3D8190D23B90030CC82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACADB3D7190D23B90030CC82 /* UIKit.framework */; };
@@ -250,6 +251,8 @@
 		ACADB49D190D27960030CC82 /* arrow_back.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB454190D27960030CC82 /* arrow_back.png */; };
 		ACADB49E190D27960030CC82 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACADB455190D27960030CC82 /* add@2x.png */; };
 		ACADB4A1190D2C270030CC82 /* HabitListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACADB4A0190D2C270030CC82 /* HabitListViewController.m */; };
+		ACAE532F25AF2F4E009C5992 /* blown_out_russian.json in Resources */ = {isa = PBXBuildFile; fileRef = ACAE532E25AF2F4E009C5992 /* blown_out_russian.json */; };
+		ACAE534925AF2FE5009C5992 /* TrendsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAE534825AF2FE5009C5992 /* TrendsTest.m */; };
 		ACAE5F4419C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAE5F4319C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m */; };
 		ACAE5F4719C4B080003B0893 /* preview-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE5F4519C4B080003B0893 /* preview-chart.png */; };
 		ACAE5F4819C4B080003B0893 /* preview-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAE5F4619C4B080003B0893 /* preview-chart@2x.png */; };
@@ -259,6 +262,7 @@
 		ACB35F4019A8FD15000C03F5 /* MigrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB35F3F19A8FD15000C03F5 /* MigrationTests.m */; };
 		ACB7480E23C484EA00CCD0E8 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7480D23C484E900CCD0E8 /* Launch Screen.xib */; };
 		ACB7481023C4850500CCD0E8 /* Launch Screen_it.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACB7480F23C4850500CCD0E8 /* Launch Screen_it.xib */; };
+		ACBB593725B064F600EA2429 /* StatsAndTrendsPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB593625B064F600EA2429 /* StatsAndTrendsPurchaseView.swift */; };
 		ACBCD3BB19B3694A00085A95 /* HabitCreationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */; };
 		ACBCD3BD19B456DD00085A95 /* ReminderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBCD3BC19B456DD00085A95 /* ReminderTests.m */; };
 		ACBD81EF1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */; };
@@ -684,6 +688,7 @@
 		AC9A0DA81BF777BA00B2C856 /* WatchConnectionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchConnectionHelper.swift; sourceTree = "<group>"; };
 		ACAC10AE1C020B1000457ECB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		ACAC10B41C020E4500457ECB /* HabitsTodayExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HabitsTodayExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACAC66BD25B0B2F300A84BC0 /* AppFeatures+Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppFeatures+Observable.swift"; sourceTree = "<group>"; };
 		ACADB3D0190D23B90030CC82 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACADB3D3190D23B90030CC82 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ACADB3D5190D23B90030CC82 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -742,6 +747,9 @@
 		ACADB4A3190D2F5C0030CC82 /* Habit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Habit.m; sourceTree = "<group>"; };
 		ACADB4A5190D34BE0030CC82 /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Colors.h; path = ../Habits/Helpers/Colors.h; sourceTree = "<group>"; };
 		ACADB4A6190D34BE0030CC82 /* Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Colors.m; path = ../Habits/Helpers/Colors.m; sourceTree = "<group>"; };
+		ACAE52D825ADE1F7009C5992 /* Habits 13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 13.xcdatamodel"; sourceTree = "<group>"; };
+		ACAE532E25AF2F4E009C5992 /* blown_out_russian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blown_out_russian.json; sourceTree = "<group>"; };
+		ACAE534825AF2FE5009C5992 /* TrendsTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrendsTest.m; sourceTree = "<group>"; };
 		ACAE5F4219C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsFeaturePurchaseViewController.h; sourceTree = "<group>"; };
 		ACAE5F4319C49A3F003B0893 /* StatisticsFeaturePurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsFeaturePurchaseViewController.m; sourceTree = "<group>"; };
 		ACAE5F4519C4B080003B0893 /* preview-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview-chart.png"; sourceTree = "<group>"; };
@@ -762,6 +770,8 @@
 		ACB7480F23C4850500CCD0E8 /* Launch Screen_it.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen_it.xib"; sourceTree = "<group>"; };
 		ACB7A43223C5DC9C00BF975C /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		ACB7A43323C5E11300BF975C /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		ACBB593625B064F600EA2429 /* StatsAndTrendsPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsAndTrendsPurchaseView.swift; sourceTree = "<group>"; };
+		ACBB594025B06CB800EA2429 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		ACBCD3BA19B3694A00085A95 /* HabitCreationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitCreationTests.m; sourceTree = "<group>"; };
 		ACBCD3BC19B456DD00085A95 /* ReminderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderTests.m; sourceTree = "<group>"; };
 		ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Habits 10.xcdatamodel"; sourceTree = "<group>"; };
@@ -928,6 +938,7 @@
 		AC1D58C025A71CE400152881 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				ACAC66BD25B0B2F300A84BC0 /* AppFeatures+Observable.swift */,
 				AC1D58B625A71CC400152881 /* TrackableScrollView.swift */,
 			);
 			path = Support;
@@ -964,6 +975,7 @@
 				AC5833D823CF256C004F97EB /* testing.goodtohear.habits.plist */,
 				AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */,
 				AC2BC91A19C77C61007C378D /* habits_data.json */,
+				ACAE532E25AF2F4E009C5992 /* blown_out_russian.json */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -1584,6 +1596,7 @@
 				ACADB3DC190D23B90030CC82 /* InfoPlist.strings */,
 				ACADB3DF190D23B90030CC82 /* main.m */,
 				ACADB3E1190D23B90030CC82 /* Habits-Prefix.pch */,
+				ACBB594025B06CB800EA2429 /* Configuration.storekit */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1607,6 +1620,7 @@
 				AC5F3B4519C6228800398F81 /* UserGuideCaptureTests.m */,
 				AC533FB023C880310058D570 /* AppStoreScreenshotCaptureTests.m */,
 				AC088A7419EB120C0068F6EC /* TimeHelperTest.m */,
+				ACAE534825AF2FE5009C5992 /* TrendsTest.m */,
 			);
 			path = HabitsTests;
 			sourceTree = "<group>";
@@ -1677,6 +1691,7 @@
 				ACDABB01245304DA00096BB4 /* BookBannerViewController.swift */,
 				ACDABAFF245304B600096BB4 /* BookPitchViewController.swift */,
 				AC1E7D1B254AE442000B32BC /* MainTabViewController.swift */,
+				ACBB593625B064F600EA2429 /* StatsAndTrendsPurchaseView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2300,6 +2315,7 @@
 				AC5833E523CF2752004F97EB /* testing.goodtohear.habits.plist in Resources */,
 				AC2BC91C19C77C61007C378D /* habits_data.json in Resources */,
 				AC5833E423CF2752004F97EB /* testing_habit_expectation.png in Resources */,
+				ACAE532F25AF2F4E009C5992 /* blown_out_russian.json in Resources */,
 				AC5833E223CF2752004F97EB /* list-tests.goodtohear.habits.plist in Resources */,
 				AC5833E123CF2752004F97EB /* demo.habits.plist in Resources */,
 				ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */,
@@ -2654,6 +2670,8 @@
 				ACDABB00245304B600096BB4 /* BookPitchViewController.swift in Sources */,
 				AC7A485E1BED580D00A8FBAD /* DataRecoveryStoreTableViewCell.swift in Sources */,
 				ACAE5F4B19C5C839003B0893 /* ChainLengthDistributionTableViewCell.m in Sources */,
+				ACAC66C725B0B34600A84BC0 /* AppFeatures+Observable.swift in Sources */,
+				ACBB593725B064F600EA2429 /* StatsAndTrendsPurchaseView.swift in Sources */,
 				AC4018E61950FAB70033407B /* InfoCell.m in Sources */,
 				AC7AF2B319520F6B00BF3000 /* CalendarPageViewController.m in Sources */,
 				AC1E7D28254AE46D000B32BC /* TrendsView.swift in Sources */,
@@ -2711,6 +2729,7 @@
 				ACE4B2261C1AE0DD00A8E83B /* DayKeys.swift in Sources */,
 				AC6EC67119C374B000640590 /* GTHStoreKitMock.m in Sources */,
 				AC5F3B4619C6228800398F81 /* UserGuideCaptureTests.m in Sources */,
+				ACAE534925AF2FE5009C5992 /* TrendsTest.m in Sources */,
 				AC1D7DE51BF748FF00700CB0 /* MigrationToSharedContainerTests.m in Sources */,
 				AC1EB1081960CA9A00549AC9 /* JSONConversionTests.m in Sources */,
 				AC5064FB23CC724600ED55A7 /* SnapshotHelper.swift in Sources */,
@@ -3647,6 +3666,7 @@
 		ACBCD3C619B4BEEA00085A95 /* Habits.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				ACAE52D825ADE1F7009C5992 /* Habits 13.xcdatamodel */,
 				ACDC730A19D496EA00D2B137 /* Habits 12.xcdatamodel */,
 				ACBCD3C919B4BEF600085A95 /* Habits 11.xcdatamodel */,
 				ACBCD3C719B4BEEA00085A95 /* Habits 10.xcdatamodel */,

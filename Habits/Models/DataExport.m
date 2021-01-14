@@ -95,7 +95,7 @@
     }else{
         [JSONConversion performImportWithArray:array];
     }
-    [HabitsQueries refresh];
+//    [HabitsQueries refresh];
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
 }
 +(void)scanForJSONFile:(void (^)(BOOL))callback{

@@ -10,7 +10,7 @@
 #import <XCTest/XCTest.h>
 #import <KIF.h>
 #import "TimeHelper.h"
-@interface StatisticsTests : XCTestCase
+@interface StatisticsTests : KIFTestCase
 
 @end
 
@@ -20,9 +20,9 @@
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"mf.goodtohear.habits"];
 }
 -(void)testHistograms{
-    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed 62 days ago. What happened?" traits:UIAccessibilityTraitNone];
+    [tester tapViewWithAccessibilityLabel:@"Missed Jun 3, 2014. What happened?"];
     [tester enterTextIntoCurrentFirstResponder:@"Something bad\n"];
-    [tester tapViewWithAccessibilityLabel:@"Pull ups"];
+    [tester tapViewWithAccessibilityLabel:@"Rehearsal"];
     [tester tapViewWithAccessibilityLabel:@"Stats"];
 }
 @end

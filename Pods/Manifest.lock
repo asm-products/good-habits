@@ -91,9 +91,9 @@ PODS:
   - GoogleUtilities/UserDefaults (6.6.0):
     - GoogleUtilities/Logger
   - GTHRectHelpers (0.0.1)
-  - KIF (3.7.4):
-    - KIF/Core (= 3.7.4)
-  - KIF/Core (3.7.4)
+  - KIF (3.7.13):
+    - KIF/Core (= 3.7.13)
+  - KIF/Core (3.7.13)
   - Locksmith (4.0.0)
   - Mantle (1.5.8):
     - Mantle/extobjc (= 1.5.8)
@@ -155,7 +155,6 @@ SPEC REPOS:
     - DHAppleReceiptParser
     - Expecta
     - Functional.m
-    - KIF
     - Mantle
     - Masonry
     - MCSwipeTableViewCell
@@ -180,6 +179,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
+    - KIF
     - Locksmith
     - nanopb
     - PromisesObjC
@@ -218,7 +218,7 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: 489c1265d2c85b68187a83a911913d190012158d
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   GTHRectHelpers: a805ec544af6dbc4f3014f113f389ea766522859
-  KIF: f3d01c109ee9d1cfe6b0f2bb2aa278e807e971e2
+  KIF: c5d59d4443cd6aaafbb564d07e610ca5befc4e3f
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   Mantle: f03b2b606c3f0cabd80214ad8a2fed6b464a7359
   Masonry: 9f515466afe48632562342a40a1c224071a1a022

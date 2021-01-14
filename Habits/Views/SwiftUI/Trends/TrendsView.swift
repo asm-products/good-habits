@@ -25,24 +25,25 @@ private func d(_ date: Date?)->String{
     }
 }
 struct ChainPair:Identifiable{
-    var id:NSManagedObjectID{
-        chain.objectID
-    }
+    var id:NSManagedObjectID
     let chain: Chain
     let next: Chain?
     let daysCoveredByChain: Int // longer than the day count when not all days are required
-    let daysBetween: Int
+    var daysBetween: Int
     init(pair: (Chain,Chain?)){
+        
         self.chain = pair.0
         self.next = pair.1
+        self.id = chain.objectID
         
-        self.daysCoveredByChain = countDays(from: chain.firstDateCache ?? Date(), to: chain.lastDateCache ?? Date()) + 1
+        self.daysCoveredByChain = countDays(from: chain.firstDateCache ?? TimeHelper.today(), to: chain.lastDateCache ?? TimeHelper.today()) + 1
         self.daysBetween = max(0,countDays(
-            from: chain.lastDateCache ?? Date(),
-            to: next?.firstDateCache ?? Date()
+            from: chain.lastDateCache ?? TimeHelper.today(),
+            to: next?.firstDateCache ?? TimeHelper.today()
         ) - 1)
-        if chain.habit.title == "Vitamins"{
-            print("Vitamins: \(d(chain.firstDateCache))-\(d(chain.lastDateCache)), \(d(next?.firstDateCache)): \(daysCoveredByChain) day(s) long, \(daysBetween) day(s) between")
+
+        if chain.habit.title == "Russian"{ // FIXME: REMOVE THIS IT WAS JUST FOR TESTING
+            print("Russian: \(d(chain.firstDateCache))-\(d(chain.lastDateCache)), \(d(next?.firstDateCache)): \(daysCoveredByChain) day(s) long, \(daysBetween) day(s) between")
         }
     }
     
@@ -53,11 +54,11 @@ private func width(days: Int)->CGFloat{
 }
 
 private func days(inMonth components: DateComponents)->Int?{
-    let thisMonth = Calendar.current.dateComponents([.year,.month,.day], from: Date())
+    let thisMonth = Calendar.current.dateComponents([.year,.month,.day], from: TimeHelper.today())
     if thisMonth.year == components.year && thisMonth.month == components.month{
         return thisMonth.day
     }
-    let date = Calendar.current.date(from: components) ?? Date()
+    let date = Calendar.current.date(from: components) ?? TimeHelper.today()
     return Calendar.current.range(
         of: .day,
         in: .month,
@@ -78,11 +79,11 @@ extension DateFormatter{
 fileprivate let shortDate = DateFormatter(dateFormat: "d MMM")
 
 struct ChainsView: View {
-    @ObservedObject var habit:Habit
+    var habit:Habit
     var earliestDate: Date
     
     var body: some View{
-        habit.chains.forEach{ if $0.firstDateCache == nil || $0.lastDateCache == nil || $0.daysCountCache == nil { $0.emergencyCacheRefresh()}}
+        habit.chains.forEach{ if $0.firstDateCache == nil || $0.lastDateCache == nil || $0.daysCountCache == 0 { $0.emergencyCacheRefresh()}}
         CoreDataClient.default()?.save()
         let chains = habit.chains.filter{$0.firstDateCache != nil && $0.lastDateCache != nil}.sorted(by: { $0.firstDateCache! < $1.firstDateCache! })
         let pairs = zip(chains, chains.dropFirst().map{$0} as [Chain?] + [nil]).map{ChainPair(pair: $0)}
@@ -142,7 +143,7 @@ struct Timeline: View {
     func months(since earliestDate: Date)->[DateComponents]{
         var results = [DateComponents]()
         var nextDate:Date? = startOfMonth(date: earliestDate)
-        while let date = nextDate, date <= Date() {
+        while let date = nextDate, date <= TimeHelper.today() {
             results.append(Calendar.current.dateComponents([.year,.month], from: date))
             nextDate = Calendar.current.date(byAdding: DateComponents(month: 1), to: date)
         }
@@ -165,8 +166,8 @@ struct Timeline: View {
     }
     
     var body: some View{
-        let earliestDate = habits.reduce(Date()) { (memo, habit) -> Date in
-            let date = habit.earliestDate() ?? Date()
+        let earliestDate = habits.reduce(TimeHelper.today()) { (memo, habit) -> Date in
+            let date = habit.earliestDate() ?? TimeHelper.today()
             return date < memo ? date : memo
         }
         let startOfFirstMonth = startOfMonth(date: earliestDate)
@@ -179,7 +180,6 @@ struct Timeline: View {
             }
         ){
             ScrollViewReader{ scrollViewReader in
-                
                 VStack(alignment: .leading, spacing: 0){
                     VStack(alignment: .leading, spacing: 0) {
                         // month labels:
@@ -202,18 +202,19 @@ struct Timeline: View {
                         
                     }
                     // chains:
-                    ForEach(habits, id: \.identifier){ (habit: Habit) in
+                    ForEach(habits.filter{$0.identifier != nil}, id: \.identifier){ (habit: Habit) in
                         ChainsView(habit: habit, earliestDate: startOfFirstMonth).frame(height: 20)
                     }
                 }
                 .frame(maxWidth: .infinity)
                 .onAppear{
-                    updateSelectedMonth(months: months, offset: .zero)
                     scrollViewReader.scrollTo("end")
+                    updateSelectedMonth(months: months, offset: offset)
                 }
             }
 //            .padding(.trailing, 72)
-        }.overlay(
+        }
+        .overlay( // titles layer
             VStack(alignment: .leading, spacing: 0){
                 ForEach(habits, id: \.identifier){ (habit:Habit) in
                     Text(habit.title)
@@ -222,7 +223,7 @@ struct Timeline: View {
                         .frame(width: TitlesWidth, height: 20, alignment: .leading)
                         .padding(.leading, TitlesPadding)
                 }
-                .background(Color.white)
+                .background(Color(UIColor.systemBackground))
                 .overlay(GreyRect().frame(width: 1), alignment: .leading)
             },
             alignment: .bottomTrailing
@@ -237,19 +238,39 @@ struct TrendsView: View {
     @FetchRequest(
         entity: Habit.entity(),
         sortDescriptors: [
+            NSSortDescriptor(keyPath: \Habit.isActive, ascending: false),
             NSSortDescriptor(keyPath: \Habit.order, ascending: true)
         ]) var habits: FetchedResults<Habit>
     
     @State var selectedMonth: DateComponents?
+    @ObservedObject var appFeatures = AppFeaturesObserver()
  
+    @State var overlayRevealed = false // for fade in
+    
     var body: some View {
         VStack{
-            SelectedMonth(habits: habits, selectedMonth: selectedMonth ?? Calendar.current.dateComponents([.year,.month], from: Date()))
+            SelectedMonth(habits: habits, selectedMonth: selectedMonth ?? Calendar.current.dateComponents([.year,.month], from: TimeHelper.today()))
             .padding()
             Spacer()
-            Timeline(habits: habits, selectedMonth: $selectedMonth).padding(.bottom).background(Color.white)
+            Timeline(habits: habits, selectedMonth: $selectedMonth)
+                .padding(.bottom)
+                .background(Color(UIColor.systemBackground))
         }
         .background(Color(Colors.grey()).opacity(0.4))
+        .blur(radius: appFeatures.statsEnabled ? 0 : 6.0)
+        .overlay(
+            appFeatures.statsEnabled && overlayRevealed ? nil :
+                StatsAndTrendsPurchaseView()
+                .padding(20)
+                .opacity(overlayRevealed ? 1.0 : 0)
+                .onAppear{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        withAnimation{
+                            overlayRevealed = true
+                        }
+                    }
+                }
+        )
     }
 }
 
@@ -279,7 +300,7 @@ struct PreviewHelpers{
         let dict = NSDictionary(contentsOfFile: path)!
         let array = dict.value(forKeyPath: "goodtohear.habits_habits") as! [Any]
         let firstDate = Calendar.current.date(from: DateComponents(year: 2014, month: 10, day: 2))!
-        let options = ["addTimeInterval": NSNumber(value: Date().timeIntervalSinceReferenceDate - firstDate.timeIntervalSinceReferenceDate)]
+        let options = ["addTimeInterval": NSNumber(value: TimeHelper.today().timeIntervalSinceReferenceDate - firstDate.timeIntervalSinceReferenceDate)]
         PlistStoreToCoreDataMigrator.performMigration(
             with: array
 //            ,options: options

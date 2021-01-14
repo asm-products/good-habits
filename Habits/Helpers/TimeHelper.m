@@ -151,7 +151,7 @@ static NSDate * selectedDate = nil;
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     dateFormatter.doesRelativeDateFormatting = YES;
-    NSDate * date = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitDay value:-numberOfDays toDate:[NSDate date] options:0];
+    NSDate * date = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitDay value:-numberOfDays toDate:[TimeHelper today] options:0];
     return [dateFormatter stringFromDate:date];
 }
 @end

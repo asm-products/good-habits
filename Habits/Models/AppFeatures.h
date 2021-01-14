@@ -10,9 +10,11 @@
 
 #define NAGGING_DISABLED @"NAGGING_DISABLED"
 #define STATS_PURCHASED @"STATS_PURCHASED"
+#define APP_FEATURES_CHANGED @"APP_FEATURES_CHANGED"
 
 @interface AppFeatures : NSObject
 +(BOOL)statsEnabled;
 +(BOOL)shouldShowReasonInput;
 +(void)setDefaults;
++(void)notifyUpdated;
 @end

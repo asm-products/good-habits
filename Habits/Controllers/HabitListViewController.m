@@ -146,7 +146,7 @@ typedef enum {
     Habit * habit = [self habitForIndexPath:indexPath];
     Chain * chain = [habit findOrCreateChainForDate:today];
     Failure * failure = [habit existingFailureForDate:today];
-    CGFloat result = (chain.isBroken || failure.active.boolValue) && [AppFeatures shouldShowReasonInput] && (indexPath.section == HabitListSectionActive || indexPath.section == HabitListSectionCarriedOver) ? 81 : 44;
+    CGFloat result = (chain.isBroken || failure.active.boolValue) && [AppFeatures shouldShowReasonInput] && (indexPath.section == HabitListSectionActive || indexPath.section == HabitListSectionCarriedOver) ? 88 : 44;
     return result;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

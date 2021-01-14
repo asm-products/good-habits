@@ -8,7 +8,7 @@
 -(void)setUp{
     OCMockObject * mockClass = [OCMockObject mockForClass:[AppFeatures class]];
     [[[mockClass stub] andReturnValue:@YES] statsEnabled];
-    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2014-08-22"].date];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2014-08-30"].date];
     [TestHelpers loadFixtureFromUserDefaultsNamed:@"testing.goodtohear.habits"];
     
 }
@@ -86,10 +86,9 @@
     [tester tapViewWithAccessibilityLabel:@"Back"];
 }
 -(void)testCanExplicitlyBreakTwoChainsInSequence{
-    
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Not checked"];
     [tester tapViewWithAccessibilityLabel:@"Checkbox for Testing habit Checked"];
-    [tester tapViewWithAccessibilityLabel:@"" value:@"Missed today. What happened?" traits:UIAccessibilityTraitNone];
+    [tester tapViewWithAccessibilityLabel:@"" value: @"Missed Aug 30, 2014. What happened?" traits:UIAccessibilityTraitNone];
     [tester enterTextIntoCurrentFirstResponder:@"I messed it up. Sorry.\n"];
     [TimeHelper selectDate:[Moment momentWithDateAsString:@"2014-08-23"].date];
     [[NSNotificationCenter defaultCenter] postNotificationName:REFRESH object:nil];

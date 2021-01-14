@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CoreDataClient.h"
-//#import "Habit.h"
+#import "Habit.h"
 @class Habit;
 #define HABITS_UPDATED @"HABITS_UPDATED"
 #define REFRESH @"REFRESH"
@@ -19,10 +19,10 @@
 +(void)refresh;
 +(NSArray*)all;
 #pragma  mark - Groups
-+(NSArray*)active;
++(nonnull NSArray<Habit*>*)active;
 +(NSArray*)outstandingToday;
 +(NSArray*)activeOnDate:(NSDate*)date;
-+(NSArray*)activeToday;
++(nonnull NSArray <Habit*> *)activeToday;
 +(NSArray*)carriedOver;
 +(NSArray*)activeButNotToday;
 +(NSArray*)inactive;

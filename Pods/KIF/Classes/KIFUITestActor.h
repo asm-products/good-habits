@@ -15,7 +15,7 @@
 #if DEPRECATE_KIF_TESTER
 // Add `-DDEPRECATE_KIF_TESTER=1` to OTHER_CFLAGS if you'd like to prevent usage of `tester`.
 @class KIFUITestActor;
-KIFUITestActor *_KIF_tester() __attribute__((deprecated("Use of `tester` has been deprecated; Use `viewTester` instead.")));
+KIFUITestActor *_KIF_tester(void) __attribute__((deprecated("Use of `tester` has been deprecated; Use `viewTester` instead.")));
 #define tester _KIF_tester()
 #else
 #define tester KIFActorWithClass(KIFUITestActor)
@@ -291,7 +291,7 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
 - (void)tapViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits;
 
 /*!
- @abstract Taps a particular view in the view heirarchy.
+ @abstract Taps a particular view in the view hierarchy.
  @discussion Unlike the -tapViewWithAccessibilityLabel: family of methods, this method allows you to tap an arbitrary element.  Combined with -waitForAccessibilityElement:view:withLabel:value:traits:tappable: or +[UIAccessibilityElement accessibilityElement:view:withLabel:value:traits:tappable:error:] this provides an opportunity for more complex logic.
  @param element The accessibility element to tap.
  @param view The view containing the accessibility element.
@@ -307,7 +307,7 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
 -(void)tapStepperWithAccessibilityLabel:(NSString *)accessibilityLabel increment:(KIFStepperDirection)stepperDirection;
 
 /*!
- @abstract Taps the increment|decrement button of a UIStepper view in the view heirarchy.
+ @abstract Taps the increment|decrement button of a UIStepper view in the view hierarchy.
  @discussion Unlike the -tapViewWithAccessibilityLabel: family of methods, this method allows you to tap an arbitrary element.  Combined with -waitForAccessibilityElement:view:withLabel:value:traits:tappable: or +[UIAccessibilityElement accessibilityElement:view:withLabel:value:traits:tappable:error:] this provides an opportunity for more complex logic.
  @param element The accessibility element to tap.
  @param view The view containing the accessibility element.
@@ -376,7 +376,7 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
 
 /*!
  @abstract Enters text into a the current first responder.
- @discussion Text is entered into the view by simulating taps on the appropriate keyboard keys if the keyboard is already displayed. Useful to enter text in UIWebViews or components with no accessibility labels.
+ @discussion Text is entered into the view by simulating taps on the appropriate keyboard keys if the keyboard is already displayed. Useful to enter text in WKWebViews or components with no accessibility labels.
  @param text The text to enter.
  */
 - (void)enterTextIntoCurrentFirstResponder:(NSString *)text;
@@ -465,7 +465,7 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
  @discussion With a date picker view already visible, this step will select the different rotating wheel values in order of how the array parameter is passed in. After it is done it will hide the date picker. It works with all 4 UIDatePickerMode* modes. The input parameter of type NSArray has to match in what order the date picker is displaying the values/columns. So if the locale is changing the input parameter has to be adjusted. Example: Mode: UIDatePickerModeDate, Locale: en_US, Input param: NSArray *date = @[@"June", @"17", @"1965"];. Example: Mode: UIDatePickerModeDate, Locale: de_DE, Input param: NSArray *date = @[@"17.", @"Juni", @"1965".
  @param datePickerColumnValues Each element in the NSArray represents a rotating wheel in the date picker control. Elements from 0 - n are listed in the order of the rotating wheels, left to right.
  */
-- (void)selectDatePickerValue:(NSArray *)datePickerColumnValues;
+- (void)selectDatePickerValue:(NSArray *)datePickerColumnValues NS_DEPRECATED_IOS(10_0, 13_4,"Use -[viewTester selectDatePickerWithDate:] or -[viewTester selectCountdownDatePickerWithHours:] instead.");
 
 /*!
  @abstract Selects a value from a currently visible date picker view, according to the search order specified.
@@ -615,7 +615,7 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
 - (void)swipeViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits inDirection:(KIFSwipeDirection)direction;
 
 /*!
- @abstract Swipes a particular view in the view heirarchy.
+ @abstract Swipes a particular view in the view hierarchy.
  @discussion Unlike the -swipeViewWithAccessibilityLabel: family of methods, this method allows you to swipe an arbitrary element.  Combined with -waitForAccessibilityElement:view:withLabel:value:traits:tappable: or +[UIAccessibilityElement accessibilityElement:view:withLabel:value:traits:tappable:error:] this provides an opportunity for more complex logic.
  @param element The accessibility element of the view to swipe.
  @param viewToSwipe The view containing the accessibility element.
@@ -678,7 +678,7 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
 /*!
  @abstract Waits until a view or accessibility element is the first responder.
  @discussion The first responder is found by searching the view hierarchy of the application's
- main window and its accessibility label is compared to the given value. If they match, the
+ windows and its accessibility label is compared to the given value. If they match, the
  step returns success else it will attempt to wait until they do.
  @param label The accessibility label of the element to wait for.
  */
@@ -687,7 +687,7 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
 /*!
  @abstract Waits until a view or accessibility element is the first responder.
  @discussion The first responder is found by searching the view hierarchy of the application's
- main window and its accessibility label is compared to the given value. If they match, the
+ windows and its accessibility label is compared to the given value. If they match, the
  step returns success else it will attempt to wait until they do.
  @param label The accessibility label of the element to wait for.
  @param traits The accessibility traits of the element to wait for. Elements that do not include at least these traits are ignored.
@@ -752,19 +752,33 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
  @abstract Scrolls a collection view while waiting for the cell at the given indexPath to appear.
  @discussion This step will get the cell at the indexPath.
  
- For cases where you may need to work from the end of a table view rather than the beginning, negative sections count back from the end of the table view (-1 is the last section) and negative rows count back from the end of the section (-1 is the last row for that section).
- 
+ By default, scrolls to the vertical and horizontal middle of the cell. If you need to scroll to custom positions, use the @c atPosition: variation.
+ For cases where you may need to work from the end of a collection view rather than the beginning, negative sections count back from the end of the collection view (-1 is the last section) and negative rows count back from the end of the section (-1 is the last row for that section).
+
  @param indexPath Index path of the cell.
  @param collectionView UICollectionView containing the cell.
  @result Collection view cell at index path
  */
 - (UICollectionViewCell *)waitForCellAtIndexPath:(NSIndexPath *)indexPath inCollectionView:(UICollectionView *)collectionView;
 
+/*!
+ @abstract Scrolls a collection view while waiting for the cell at the given indexPath to appear.
+ @discussion This step will get the cell at the indexPath.
+
+ For cases where you may need to work from the end of a collection view rather than the beginning, negative sections count back from the end of the collection view (-1 is the last section) and negative rows count back from the end of the section (-1 is the last row for that section).
+
+ @param indexPath Index path of the cell.
+ @param collectionView UICollectionView containing the cell.
+ @param position Collection View scroll position to scroll to. Useful for custom-sized cells when the content needed is in a specific location.
+ @result Collection view cell at index path
+ */
+- (UICollectionViewCell *)waitForCellAtIndexPath:(NSIndexPath *)indexPath inCollectionView:(UICollectionView *)collectionView atPosition:(UICollectionViewScrollPosition)position;
 
 /*!
- @abstract Scrolls a given collection view while waiting for the item at the given indexPath to appear.
+ @abstract Scrolls a collection view with the given identifier while waiting for the item at the given indexPath to appear.
  @discussion This step will get the view with the specified accessibility identifier and then get the cell at indexPath.
  
+ By default, scrolls to the vertical and horizontal middle of the cell. If you need to scroll to custom positions, use the @c atPosition: variation.
  For cases where you may need to work from the end of a collection view rather than the beginning, negative sections count back from the end of the collection view (-1 is the last section) and negative items count back from the end of the section (-1 is the last item for that section).
  
  @param indexPath Index path of the item to tap.
@@ -772,6 +786,19 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
  @result Collection view cell at index path
  */
 - (UICollectionViewCell *)waitForCellAtIndexPath:(NSIndexPath *)indexPath inCollectionViewWithAccessibilityIdentifier:(NSString *)identifier;
+
+/*!
+ @abstract Scrolls a collection view with the given identifier while waiting for the item at the given indexPath to appear.
+ @discussion This step will get the view with the specified accessibility identifier and then get the cell at indexPath.
+
+ For cases where you may need to work from the end of a collection view rather than the beginning, negative sections count back from the end of the collection view (-1 is the last section) and negative rows count back from the end of the section (-1 is the last row for that section).
+
+ @param indexPath Index path of the cell.
+ @param identifier Accessibility identifier of the table view.
+ @param position Collection View scroll position to scroll to. Useful for custom-sized cells when the content needed is in a specific location.
+ @result Table view cell at index path
+ */
+- (UICollectionViewCell *)waitForCellAtIndexPath:(NSIndexPath *)indexPath inCollectionViewWithAccessibilityIdentifier:(NSString *)identifier atPosition:(UICollectionViewScrollPosition)position;
 
 /*!
  @abstract Moves the row at sourceIndexPath to destinationIndexPath in a table view with the given identifier.

@@ -1,0 +1,29 @@
+{
+  "products" : [
+    {
+      "displayPrice" : "21.99",
+      "familyShareable" : false,
+      "internalID" : "F5A58628",
+      "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "statistics",
+      "referenceName" : "Statistics Unlock",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 0
+  }
+}

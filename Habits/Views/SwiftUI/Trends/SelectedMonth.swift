@@ -19,22 +19,26 @@ struct ScoreRow: Identifiable{
     var daysChecked: Int = 0
     var successRate: Float = 0
     var chainBreaks: Int?
+    var daysRequired: Int = 0
     
     init(habit: Habit, selectedMonth: DateComponents){
         self.habit = habit
         var components = selectedMonth
         components.day = 1
-        var available = 0
+        
         var total = 0
         var includedChains = Set<Chain>()
         let habitStartedDate = habit.earliestDate() ?? Date()
         let calendar = TimeHelper.utcCalendar()!
-        let today = Date()
+        let today = TimeHelper.today()
+        let endDate = habit.isActive.boolValue ? today : habit.currentChain()?.lastDateCache ?? today
+        
+        
         while components.month == selectedMonth.month{
             guard var date = calendar.date(from: components) else { break }
             
-            if date >= habitStartedDate && date <= today {
-                available += 1
+            if date >= habitStartedDate && date <= endDate && habit.isRequired(onWeekday: date){
+                daysRequired += 1
                 
                 let chain = habit.chain(for: date)
                 if let chain = chain {
@@ -49,15 +53,15 @@ struct ScoreRow: Identifiable{
         }
         
         daysChecked = total // not right because it doesn't take into account skippable days
-        if available > 0{
-            successRate = Float(total) / Float(available)
+        if daysRequired > 0{
+            successRate = Float(total) / Float(daysRequired)
         }
         chainBreaks = includedChains.count > 1 ? includedChains.count - 1 : nil
     }
 }
 
 struct ScoreForMonth{
-    var overall: String = "95%"
+    var overall: String
     var rows: [ScoreRow]
     
     init(habits: FetchedResults<Habit>, selectedMonth: DateComponents){
@@ -66,6 +70,11 @@ struct ScoreForMonth{
         }.sorted(by: { (a, b) -> Bool in
             a.successRate > b.successRate
         })
+        let totalDaysRequired = rows.map{$0.daysRequired}.reduce(0,+)
+        let totalDays = rows.map{$0.daysChecked}.reduce(0,+)
+        let score = totalDaysRequired > 0 ? Float(totalDays) / Float(totalDaysRequired) : 0
+        overall = "\(Int(score * 100))%"
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 }
 
@@ -81,7 +90,7 @@ struct SelectedMonth: View {
             Text("\(Calendar.current.shortMonthSymbols[selectedMonth.month! - 1]) \(String(selectedMonth.year ?? 0))").font(.headline)
             
             Text(score.overall).font(.largeTitle).bold()
-            Text("SUCCESS").bold().foregroundColor(Color(Colors.grey()))
+            Text("SUCCESS").bold()//.foregroundColor(Color(Colors.grey()))
             
             ScrollView{
                 ForEach(score.rows){ row in
@@ -116,7 +125,8 @@ struct SelectedMonth: View {
                 }
             }
         }.padding()
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
+        
         .cornerRadius(13)
     }
 }

@@ -13,6 +13,7 @@
 #import "HabitsQueries.h"
 #import <OCMock.h>
 #import "AppFeatures.h"
+#import <KIF.h>
 @implementation TestHelpers
 +(Habit *)habit:(NSDictionary *)dict daysChecked:(NSArray *)dayKeys{
 //    NSError * error;
@@ -56,6 +57,22 @@
     [HabitsQueries refresh];
     [[NSNotificationCenter defaultCenter] postNotificationName:HABITS_UPDATED object:nil];
     return array;
+    
+}
++(void)loadFixtureFromJSONFileNamed:(NSString*)name{
+    [TestHelpers deleteAllData];
+    [self launchApplicationWithURLContainingDataFromFixture:name];
+    [tester tapViewWithAccessibilityLabel:@"Restore Data"];
+}
++(void)launchApplicationWithURLContainingDataFromFixture:(NSString*)fixture{
+    
+    NSString * path = [[NSBundle bundleForClass:[self class]] pathForResource:fixture ofType:@"json"];
+    NSArray * json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:nil];
+    
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:json];
+    NSString * linkString = [data base64EncodedStringWithOptions:0];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"goodhabits://import?json=%@", linkString]]];
     
 }
 +(void)setStatsEnabled:(BOOL)enabled{

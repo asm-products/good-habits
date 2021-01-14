@@ -141,8 +141,14 @@
 -(Failure*)existingFailureForDate:(NSDate*)date;
 {
     NSSet * results = [self.failures filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"date == %@", date]];
-//    assert(results.count <= 1);
-    return results.anyObject;
+    if(results.count > 0){
+        return results.anyObject;
+    }
+    if(self.currentChain.isBroken){
+        results = [self.failures filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"date == %@", self.currentChain.nextRequiredDate]];
+        return results.anyObject;
+    }
+    return nil;
 }
 -(Failure*)createFailureForDate:(NSDate*)date;
 {

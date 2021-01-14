@@ -33,7 +33,7 @@
     }
     return fetched;
 }
-+(NSArray*)all{
++(NSArray<Habit*>*)all{
     return [self fetched].fetchedObjects;
 }
 +(void)refresh{
@@ -59,7 +59,7 @@
         return [habit isRequiredOnWeekday:date];
     }];
 }
-+(NSArray *)activeToday{
++(NSArray<Habit*> *)activeToday{
     return [self.active filter:^BOOL(Habit * habit) {
         return habit.isRequiredToday;
     }];

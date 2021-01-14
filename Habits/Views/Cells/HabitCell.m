@@ -74,8 +74,17 @@
 -(void)onCheckboxTapped{
     HabitToggler * toggler = [HabitToggler new];
     DayCheckedState state = [toggler toggleTodayForHabit:self.habit];
+    
+    
+    if(state == DayCheckedStateBroken){
+        [[[UINotificationFeedbackGenerator alloc] init] notificationOccurred: UINotificationFeedbackTypeWarning];
+    }else{
+        [[[UIImpactFeedbackGenerator alloc] initWithStyle: UIImpactFeedbackStyleMedium] impactOccurred];
+    }
+    
     self.failure = toggler.failure;
     [self setState:state];
+    [self.checkbox setState:state animated:YES]; // Duplicates the state change but easier than untangling [self setState:]
     if (state != DayCheckedStateBroken) [reasonEntryField resignFirstResponder];
 }
 
@@ -165,10 +174,11 @@
     if(self.habit.isActive.boolValue){
         [self.habitStatusButton setTitle:@(chain.currentChainLengthForDisplay).stringValue forState:UIControlStateNormal];
         NSInteger daysOverdue = chain.countOfDaysOverdue;
-        if(!self.failure) self.failure = [self.habit existingFailureForDate:self.day];
+        self.failure = [self.habit existingFailureForDate:self.day];
         if((self.failure && self.failure.active.boolValue ) || daysOverdue > 0){
             NSString * timeMissedString = [self timeAgoString:daysOverdue];
             reasonEntryField.placeholder = [NSString stringWithFormat: LocalizedString(@"Missed %@. What happened?", @""), timeMissedString];
+            reasonEntryField.text = self.failure.notes;
             if(self.failure.active.boolValue) reasonEntryField.text = self.failure.notes;
 
             [self.habitStatusButton setBackgroundImage:[AwardImage circleColored:[Colors cobalt]] forState:UIControlStateNormal];

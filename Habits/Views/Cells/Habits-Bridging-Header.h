@@ -6,3 +6,4 @@
 #import <SVProgressHUD.h>
 #import <AVHexColor.h>
 #import "PlistStoreToCoreDataMigrator.h"
+#import "AppFeatures.h"

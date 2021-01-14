@@ -14,6 +14,7 @@
 #import "Colors.h"
 #import "Labels.h"
 #import "DataExport.h"
+#import "HabitsQueries.h"
 #import "Habits-Swift.h"
 @interface InfoViewController()<MigrateFrom_iCloudTableViewControllerDelegate>
 @property (nonatomic, strong) NSArray * tasks;
@@ -29,6 +30,11 @@
 #else
     self.navigationItem.leftBarButtonItem = nil;
 #endif
+    
+    [NSNotificationCenter.defaultCenter addObserverForName:PURCHASE_COMPLETED object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [self reload];
+    }];
+    
 }
 - (IBAction)didPressDone:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -36,6 +42,14 @@
 -(NSArray *)tasks{
     if(!_tasks) _tasks = [InfoTask due];
     return _tasks;
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self reload];
+}
+-(void)reload{
+    _tasks = [InfoTask due];
+    [self.tableView reloadData];
 }
 -(NSArray *)links{
     if( _links != nil){

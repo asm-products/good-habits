@@ -15,13 +15,15 @@
 }
 
 -(void)awakeFromNib{
+    [super awakeFromNib];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCheckbox:)];
     [self.checkbox addGestureRecognizer:tap];
+
 }
 -(void)didTapCheckbox:(UITapGestureRecognizer*)tap{
     [self.task toggle:!self.task.done];
     [self markRead];
-    [self.checkbox setState:self.task.done ? DayCheckedStateComplete : DayCheckedStateNull];
+    [self.checkbox setState:self.task.done ? DayCheckedStateComplete : DayCheckedStateNull animated:YES];
     if(self.task.isUnopened){
         [self.task open:self.controller];
     }

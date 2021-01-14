@@ -57,7 +57,7 @@ import HabitsCommon
         )
     }
     func habitDaysWithJustToday()->[String: [HabitStructDictionary]]{
-        let habits = HabitsQueries.activeToday() as! [Habit]
+        let habits = HabitsQueries.activeToday()
         var order = 0
         let habitDicts = habits.map { habit->HabitStructDictionary in
             order += 1
@@ -66,7 +66,7 @@ import HabitsCommon
         return [dayKey(Date()): habitDicts]
     }
     func dayTemplates()->[String:[HabitStructDictionary]]{ // fuck, this is a bit weird - should just send the list of habits with the days they're needed
-        let habits = HabitsQueries.active() as! [Habit]
+        let habits:[Habit] = HabitsQueries.active()
         var result = [String:[HabitStructDictionary]]()
         var order = 0
         for day in (1...7){

@@ -20,4 +20,7 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"prompt_for_in_app_purchases": @YES}];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
++(void)notifyUpdated{
+    [[NSNotificationCenter defaultCenter] postNotificationName: APP_FEATURES_CHANGED object:nil];
+}
 @end

@@ -14,6 +14,7 @@
 #import <SVProgressHUD.h>
 #import "HabitsQueries.h"
 #import "SKProductsRequest+Blocks.h"
+#import "Habits-Swift.h"
 
 @implementation StatisticsFeaturePurchaseController{
     
@@ -99,14 +100,21 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS_WITH_ACCESSOR(StatisticsFeaturePurchaseContro
         [SVProgressHUD dismiss];
         [SVProgressHUD showSuccessWithStatus:@"Statistics unlocked"];
         [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName: APP_FEATURES_CHANGED object:nil];
+        
     });
 }
 
 
 #pragma mark - UI
 -(void)showPromptInViewController:(UIViewController *)controller{
-    StatisticsFeaturePurchaseViewController * alert = [[StatisticsFeaturePurchaseViewController alloc] initWithNibName:@"StatisticsFeaturePurchaseView" bundle:nil];
-    [controller presentViewController:alert animated:YES completion:nil];
+    if (@available(iOS 14.0, *)) {
+        UIViewController * alert = [StatsAndTrendsPurchaseInterface createAlert];
+        [controller presentViewController:alert animated:YES completion:nil];
+    } else {
+        StatisticsFeaturePurchaseViewController * alert = [[StatisticsFeaturePurchaseViewController alloc] initWithNibName:@"StatisticsFeaturePurchaseView" bundle:nil];
+        [controller presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 @end

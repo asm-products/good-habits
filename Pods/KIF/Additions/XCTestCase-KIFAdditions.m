@@ -34,7 +34,22 @@ static inline void Swizzle(Class c, SEL orig, SEL new)
 {
     self.continueAfterFailure = YES;
 
+#ifdef __IPHONE_14_0
+    NSString *filePath = exception.userInfo[@"FilenameKey"];
+    NSInteger lineNumber = [exception.userInfo[@"LineNumberKey"] unsignedIntegerValue];
+    XCTSourceCodeLocation *location = [[XCTSourceCodeLocation alloc] initWithFilePath:filePath
+                                                                           lineNumber:lineNumber];
+    XCTSourceCodeContext *context = [[XCTSourceCodeContext alloc] initWithLocation:location];
+    XCTIssue *issue = [[XCTIssue alloc] initWithType:XCTIssueTypeAssertionFailure
+                                  compactDescription:exception.description
+                                 detailedDescription:nil
+                                   sourceCodeContext:context
+                                     associatedError:nil
+                                         attachments:@[]];
+    [self recordIssue:issue];
+#else
     [self recordFailureWithDescription:exception.description inFile:exception.userInfo[@"FilenameKey"] atLine:[exception.userInfo[@"LineNumberKey"] unsignedIntegerValue] expected:NO];
+#endif
 
     if (stop) {
         [self writeScreenshotForException:exception];
@@ -65,9 +80,12 @@ static inline void Swizzle(Class c, SEL orig, SEL new)
 - (void)writeScreenshotForException:(NSException *)exception;
 {
     [[UIApplication sharedApplication] writeScreenshotForLine:[exception.userInfo[@"LineNumberKey"] unsignedIntegerValue] inFile:exception.userInfo[@"FilenameKey"] description:nil error:NULL];
-    
-#ifdef __IPHONE_11_0
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0) {
+
+    // Per #1084, something broke in this code starting with Xcode 10.
+    // For now, this will be disabled and can be fixed later by anyone
+    // that relies on this functionality.
+#if defined(__IPHONE_11_0) && !defined(__IPHONE_12_0)
+    if (@available(iOS 11.0, *)) {
         //semaphore will make sure the screenshot will be captured. otherwise it will crash on getting screenshot!
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
         
@@ -119,7 +137,23 @@ static inline void Swizzle(Class c, SEL orig, SEL new)
     if (![[arg3 name] isEqualToString:@"KIFFailureException"]) {
         [self KIF_recordUnexpectedFailureForTestRun:arg1 description:arg2 exception:arg3];
     } else {
+#ifdef __IPHONE_14_0
+        NSString *description = [NSString stringWithFormat:@"Test suite stopped on fatal error: %@", arg3.description];
+        NSString *filePath = arg3.userInfo[@"FilenameKey"];
+        NSInteger lineNumber = [arg3.userInfo[@"LineNumberKey"] unsignedIntegerValue];
+        XCTSourceCodeLocation *location = [[XCTSourceCodeLocation alloc] initWithFilePath:filePath
+                                                                               lineNumber:lineNumber];
+        XCTSourceCodeContext *context = [[XCTSourceCodeContext alloc] initWithLocation:location];
+        XCTIssue *issue = [[XCTIssue alloc] initWithType:XCTIssueTypeAssertionFailure
+                                      compactDescription:description
+                                     detailedDescription:nil
+                                       sourceCodeContext:context
+                                         associatedError:nil
+                                             attachments:@[]];
+        [arg1 recordIssue:issue];
+#else
         [arg1 recordFailureWithDescription:[NSString stringWithFormat:@"Test suite stopped on fatal error: %@", arg3.description] inFile:arg3.userInfo[@"FilenameKey"] atLine:[arg3.userInfo[@"LineNumberKey"] unsignedIntegerValue] expected:NO];
+#endif
     }
 }
 

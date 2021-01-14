@@ -84,7 +84,9 @@
             NSLog(@"Skipped importing habit data for %@", identifier);
         }
     }
-    [HabitsQueries refresh];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [HabitsQueries refresh];
+    });
 }
 #pragma mark - Value transformers
 

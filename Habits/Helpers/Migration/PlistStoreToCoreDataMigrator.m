@@ -86,6 +86,9 @@
     }];
     return [uniquelyNamedItems.allValues sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"__sort" ascending:YES]]];
 }
++(void)generateChainsForHabit:(Habit *)habit fromDaysChecked:(NSArray *)dayKeys context:(NSManagedObjectContext *)context{
+    [self generateChainsForHabit:habit fromDaysChecked:dayKeys context:context options:@{}];
+}
 +(void)generateChainsForHabit:(Habit*)habit fromDaysChecked:(NSArray*)daysChecked context:(NSManagedObjectContext*)context options: (NSDictionary*)options{
     NSTimeInterval addTimeInterval = [[options valueForKey:@"addTimeInterval"] doubleValue];
     NSArray * dayKeys = [daysChecked sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];

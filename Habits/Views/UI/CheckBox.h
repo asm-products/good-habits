@@ -12,4 +12,5 @@
 @property (nonatomic, strong) UIColor * color;
 @property (nonatomic) DayCheckedState state;
 @property (nonatomic, strong) NSString * label;
+-(void)setState:(DayCheckedState)state animated: (BOOL)animated;
 @end

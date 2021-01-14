@@ -14,20 +14,30 @@ class MainTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let moc = CoreDataClient.default()?.managedObjectContext else { return }
         if #available(iOS 14.0, *) {
-            let controller = UIHostingController(
-                rootView: TrendsView()
-                    .environment(\.managedObjectContext, moc)
-            )
-            controller.tabBarItem = UITabBarItem(title: "Trends", image: UIImage(systemName: "calendar"), tag: 1)
-            viewControllers?.append(controller)
-        } else {
-            // Fallback on earlier versions
+            addTrendsTab()
         }
-        
-        
     }
-  
+
+}
+@available(iOS 14.0, *)
+extension MainTabViewController{
+    func addPurchaseTab(){
+        let controller = StatsAndTrendsPurchaseInterface.createAlert()
+        controller.tabBarItem = UITabBarItem(title: "Trends", image: UIImage(systemName: "calendar"), tag: 1)
+        controller.tabBarItem.badgeValue = "🔒"
+        viewControllers?.append(controller)
+    }
+    
+    func addTrendsTab(){
+        guard let moc = CoreDataClient.default()?.managedObjectContext else { return }
+       
+        let controller = UIHostingController(
+            rootView: TrendsView()
+                .environment(\.managedObjectContext, moc)
+        )
+        controller.tabBarItem = UITabBarItem(title: "Trends", image: UIImage(systemName: "calendar"), tag: 1)
+        viewControllers?.append(controller)
+    }
 
 }
