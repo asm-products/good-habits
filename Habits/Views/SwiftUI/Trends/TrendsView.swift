@@ -251,10 +251,13 @@ struct TrendsView: View {
         VStack{
             SelectedMonth(habits: habits, selectedMonth: selectedMonth ?? Calendar.current.dateComponents([.year,.month], from: TimeHelper.today()))
             .padding()
+                .frame(height: 240)
             Spacer()
+            ScrollView{
             Timeline(habits: habits, selectedMonth: $selectedMonth)
                 .padding(.bottom)
                 .background(Color(UIColor.systemBackground))
+            }
         }
         .background(Color(Colors.grey()).opacity(0.4))
         .blur(radius: appFeatures.statsEnabled ? 0 : 6.0)
@@ -279,12 +282,20 @@ struct TrendsView_Previews: PreviewProvider {
     static var previews: some View {
         let client = CoreDataClient.default()!
         let moc = client.managedObjectContext!
-        PreviewHelpers.loadFixture(named: "testing.goodtohear.habits")
-        return NavigationView{
-            TrendsView()
-                .navigationBarTitle("Trends")
-        }
-         .environment(\.managedObjectContext, moc)
+        PreviewHelpers.loadFixture(named: "mf.goodtohear.habits", limit: 6)
+        let appFeatures = AppFeaturesObserver()
+        appFeatures.statsEnabled = true
+        
+        return Group{
+            TrendsView(appFeatures: appFeatures)
+                .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/500.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/500.0/*@END_MENU_TOKEN@*/))
+                .padding(.top, 30)
+//                .previewLayout(.fixed(width: 500, height: 500))
+                .previewDevice("iPad 12 Pro Max")
+//            TrendsView(appFeatures: appFeatures)
+//            TrendsView(appFeatures: appFeatures)
+//                .environment(\.colorScheme, .dark)
+        }.environment(\.managedObjectContext, moc)
     }
 }
 
@@ -293,16 +304,17 @@ struct PreviewHelpers{
         HabitsQueries.deleteAllHabits()
         HabitsQueries.refresh()
     }
-    static func loadFixture(named name: String){
+    static func loadFixture(named name: String, limit: Int=100){
         deleteAllData()
         let bundle = Bundle.main
         let path = Bundle.main.path(forResource: name, ofType: "plist", inDirectory: Locale.current.languageCode) ?? bundle.path(forResource: name, ofType: "plist")!
         let dict = NSDictionary(contentsOfFile: path)!
         let array = dict.value(forKeyPath: "goodtohear.habits_habits") as! [Any]
-        let firstDate = Calendar.current.date(from: DateComponents(year: 2014, month: 10, day: 2))!
-        let options = ["addTimeInterval": NSNumber(value: TimeHelper.today().timeIntervalSinceReferenceDate - firstDate.timeIntervalSinceReferenceDate)]
+        TimeHelper.select(Calendar.current.date(from: DateComponents(year: 2014, month: 7)))
+//        let firstDate = Calendar.current.date(from: DateComponents(year: 2014, month: 10, day: 2))!
+//        let options = ["addTimeInterval": NSNumber(value: TimeHelper.today().timeIntervalSinceReferenceDate - firstDate.timeIntervalSinceReferenceDate)]
         PlistStoreToCoreDataMigrator.performMigration(
-            with: array
+            with: array.prefix(limit).map{$0}
 //            ,options: options
         ) { _ in
             

@@ -114,7 +114,7 @@ struct SelectedMonth: View {
                             if let chainBreaks = row.chainBreaks{
                                 HStack{
 //                                    Image("chain-break")
-                                    Text("! \(chainBreaks)")
+                                    Text("! \(chainBreaks)").fixedSize()
                                 }.foregroundColor(Color(Colors.red()))
                             }
                             Spacer()

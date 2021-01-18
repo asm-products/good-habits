@@ -281,11 +281,14 @@
 		ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63BE196F2CD700F68BD6 /* HabitSparklineTableViewCell.m */; };
 		ACDC63C3196F2D2F00F68BD6 /* DailySparklineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */; };
 		ACDE69E9254172A900805948 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE69E8254172A900805948 /* SimpleEntry.swift */; };
+		ACE336BF25B5B29F00A776A9 /* Habits-Trends.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ACE336BE25B5B29F00A776A9 /* Habits-Trends.mp4 */; };
+		ACE336C925B5BFF000A776A9 /* Habits-What Happened.mov in Resources */ = {isa = PBXBuildFile; fileRef = ACE336C825B5BFF000A776A9 /* Habits-What Happened.mov */; };
 		ACE4B2261C1AE0DD00A8E83B /* DayKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1FDDB81C09D4F900A99B05 /* DayKeys.swift */; };
 		ACE7D27E1BF338DC007FCDAC /* TimeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = AC40187319504ADB0033407B /* TimeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACECC1BB25A8BBA600AB0354 /* SelectedMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACECC1BA25A8BBA600AB0354 /* SelectedMonth.swift */; };
 		ACEDA1EA19C3943100E9C269 /* DayBoundaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */; };
 		ACEDA1ED19C3A00E00E9C269 /* GlobalStatsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACEDA1EC19C3A00E00E9C269 /* GlobalStatsTableViewController.m */; };
+		ACF8005925B20721005D39C7 /* mf.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D423CF256B004F97EB /* mf.goodtohear.habits.plist */; };
 		ACFE96B4251A44C20090C418 /* CSVExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFE96B3251A44C20090C418 /* CSVExport.swift */; };
 /* End PBXBuildFile section */
 
@@ -803,6 +806,8 @@
 		ACDE69E8254172A900805948 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
 		ACE31ABF19756936007173A0 /* HabitDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitDay.h; sourceTree = "<group>"; };
 		ACE31AC019756936007173A0 /* HabitDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HabitDay.m; sourceTree = "<group>"; };
+		ACE336BE25B5B29F00A776A9 /* Habits-Trends.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Habits-Trends.mp4"; sourceTree = "<group>"; };
+		ACE336C825B5BFF000A776A9 /* Habits-What Happened.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "Habits-What Happened.mov"; sourceTree = "<group>"; };
 		ACECC1BA25A8BBA600AB0354 /* SelectedMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMonth.swift; sourceTree = "<group>"; };
 		ACEDA1E919C3943100E9C269 /* DayBoundaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayBoundaryTests.m; sourceTree = "<group>"; };
 		ACEDA1EB19C3A00E00E9C269 /* GlobalStatsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalStatsTableViewController.h; sourceTree = "<group>"; };
@@ -1561,6 +1566,7 @@
 		ACADB3D9190D23B90030CC82 /* Habits */ = {
 			isa = PBXGroup;
 			children = (
+				ACE336BD25B5B29000A776A9 /* SalesPitch */,
 				AC40187619504E450033407B /* Migration */,
 				AC7A48211BED41FA00A8FBAD /* Models */,
 				AC2B474A19D72A64008FE6DE /* Tutorial */,
@@ -1828,6 +1834,15 @@
 				ACDC63C2196F2D2F00F68BD6 /* DailySparklineView.m */,
 			);
 			path = Charts;
+			sourceTree = "<group>";
+		};
+		ACE336BD25B5B29000A776A9 /* SalesPitch */ = {
+			isa = PBXGroup;
+			children = (
+				ACE336BE25B5B29F00A776A9 /* Habits-Trends.mp4 */,
+				ACE336C825B5BFF000A776A9 /* Habits-What Happened.mov */,
+			);
+			path = SalesPitch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2227,6 +2242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF8005925B20721005D39C7 /* mf.goodtohear.habits.plist in Resources */,
 				ACADB486190D27960030CC82 /* nav@2x.png in Resources */,
 				ACAE5F4719C4B080003B0893 /* preview-chart.png in Resources */,
 				AC5BDB54255949AE00DADE48 /* GoogleService-Info.plist in Resources */,
@@ -2248,9 +2264,11 @@
 				ACADB48D190D27960030CC82 /* main_screen@2x.png in Resources */,
 				ACADB493190D27960030CC82 /* detail_screen@2x.png in Resources */,
 				ACADB490190D27960030CC82 /* info.png in Resources */,
+				ACE336BF25B5B29F00A776A9 /* Habits-Trends.mp4 in Resources */,
 				ACADB484190D27960030CC82 /* info_nav.png in Resources */,
 				ACADB456190D27960030CC82 /* Default-568h@2x.png in Resources */,
 				AC3237BF196C438900A2FF9F /* Stats@2x.png in Resources */,
+				ACE336C925B5BFF000A776A9 /* Habits-What Happened.mov in Resources */,
 				ACADB494190D27960030CC82 /* detail_screen.png in Resources */,
 				AC4018A7195066E00033407B /* LICENSE in Resources */,
 				AC9A0D721BF76D1100B2C856 /* data-migration@2x.png in Resources */,

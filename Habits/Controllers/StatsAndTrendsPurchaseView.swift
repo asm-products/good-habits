@@ -29,6 +29,8 @@ struct VideoPlayer: UIViewControllerRepresentable{
         context.coordinator.looper = AVPlayerLooper(player: player, templateItem: item)
         result.player = player
         player.play()
+        result.showsPlaybackControls = false
+        result.view.backgroundColor = .systemBackground
         return result
     }
     func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
@@ -70,6 +72,17 @@ class PriceFetcher: NSObject, SKProductsRequestDelegate{
     }
 }
 
+struct BigButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .padding()
+            .background(Color.green)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+    }
+}
+
 @available(iOS 14.0, *)
 public struct StatsAndTrendsPurchaseView: View {
     @State var currentPage: Int = 1
@@ -102,37 +115,73 @@ public struct StatsAndTrendsPurchaseView: View {
     }
     public var body: some View {
         VStack{
-            Text("Stats & Trends").font(.headline).padding(.top)
+            Text("Premium Features").font(.headline).padding(.top)
             TabView(selection: $currentPage){
-                VStack{
-//                    VideoPlayer(filename: "Habits Tutorial.mov")
-                    Text("With stats you can start to record your reasons for breaking chains. You'll also be able to see a statistical analysis of each of your habits.")
-                }.tag(1)
-                VStack{
-                    Text("Page 2")
-                }.tag(2)
-                VStack{
-                    Text("Page 3")
-                }.tag(3)
-                
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-            
-            if AppFeatures.statsEnabled() == false {
-                Divider()
-                Button(action: startPurchase){
-                    Text(buyButtonText ?? "Fetching price...")
-                        .bold()
+                VStack(alignment: .leading, spacing: 20){
+                    VideoPlayer(filename: "Habits-Trends.mp4")
+                        .aspectRatio(1, contentMode: .fit)
+                    Text("The Trends tab lets you see how well you did each month.")
+                    Text("See your percentage success rate for each habit, and when you broke the chain.")
+                    Spacer()
                 }
                 .padding()
-                .background(Color.green)
-                .foregroundColor(.white)
-                .cornerRadius(4)
-                .disabled(buyButtonText == nil)
-                Button(action: restorePurchase){ Text("Restore Purchase") }
+                .tag(1)
+                VStack(alignment: .leading, spacing: 20){
+                    VideoPlayer(filename: "Habits-What Happened.mov").aspectRatio(1, contentMode: .fit)
+                    Text("No Excuses.").font(.headline)
+                    Text("What's keeping you from staying on track?")
+                    Text("If something unexpected made you break your chain, get better-prepared for next time.")
+                    Spacer()
+                }
+                .padding()
+                .tag(2)
+                VStack(alignment: .leading, spacing: 20){
+                    HStack{
+                        Spacer()
+                        Image("michael-circle")
+                        Spacer()
+                    }
+                    Text("Hi!").font(.largeTitle)
+                    Text("I'm Michael and I built this app.")
+                    Text("I'd like to be able to keep working on my own apps full-time.")
+                    Text("Your purchase would really help!")
+                }
+                .padding()
+                .tag(3)
+                if AppFeatures.statsEnabled() == false {
+                    VStack{
+                        Text("Good Habits Premium").italic()
+                        Text("One-Off Purchase").font(.largeTitle).padding()
+                        Text("No subscription. Use forever.").padding()
+
+                        Button(action: startPurchase){
+                            Text(buyButtonText ?? "Fetching price...")
+                                .bold()
+                        }
+                        .disabled(buyButtonText == nil)
+                       
+                        Button(action: restorePurchase){ Text("Restore Purchase") }.buttonStyle(PlainButtonStyle()).padding().opacity(0.6)
+                        
+                    }.tag(4)
+                }
+            }
+            
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            Spacer()
+            
+            Divider()
+            if(currentPage < 4){
+                Button(action: {
+                    withAnimation {
+                        currentPage = min(4, currentPage + 1)
+                    }
+                }){
+                    Text("Next").bold()
+                }
             }
         }
+        .buttonStyle(BigButton())
         .overlay(dismiss == nil ? nil : Button(action: dismiss!){
             Image(systemName: "xmark").padding()
         },alignment: .topTrailing)
