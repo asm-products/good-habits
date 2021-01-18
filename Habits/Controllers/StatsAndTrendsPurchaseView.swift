@@ -14,6 +14,7 @@ struct VideoPlayer: UIViewControllerRepresentable{
     typealias UIViewControllerType = AVPlayerViewController
     
     var filename: String
+    
     class Coordinator: NSObject{
         var looper: AVPlayerLooper?
     }
@@ -120,6 +121,8 @@ public struct StatsAndTrendsPurchaseView: View {
                 VStack(alignment: .leading, spacing: 20){
                     VideoPlayer(filename: "Habits-Trends.mp4")
                         .aspectRatio(1, contentMode: .fit)
+                        .border(Color.gray, width: 1)
+                    
                     Text("The Trends tab lets you see how well you did each month.")
                     Text("See your percentage success rate for each habit, and when you broke the chain.")
                     Spacer()
@@ -127,7 +130,9 @@ public struct StatsAndTrendsPurchaseView: View {
                 .padding()
                 .tag(1)
                 VStack(alignment: .leading, spacing: 20){
-                    VideoPlayer(filename: "Habits-What Happened.mov").aspectRatio(1, contentMode: .fit)
+                    VideoPlayer(filename: "Habits-What Happened.mov")
+                        .aspectRatio(1, contentMode: .fit)
+                        .border(Color.gray, width: 1)
                     Text("No Excuses.").font(.headline)
                     Text("What's keeping you from staying on track?")
                     Text("If something unexpected made you break your chain, get better-prepared for next time.")
@@ -150,7 +155,6 @@ public struct StatsAndTrendsPurchaseView: View {
                 .tag(3)
                 if AppFeatures.statsEnabled() == false {
                     VStack{
-                        Text("Good Habits Premium").italic()
                         Text("One-Off Purchase").font(.largeTitle).padding()
                         Text("No subscription. Use forever.").padding()
 
@@ -169,17 +173,14 @@ public struct StatsAndTrendsPurchaseView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             Spacer()
-            
-            Divider()
-            if(currentPage < 4){
-                Button(action: {
-                    withAnimation {
-                        currentPage = min(4, currentPage + 1)
-                    }
-                }){
-                    Text("Next").bold()
+            Button(action: {
+                withAnimation {
+                    currentPage = min(4, currentPage + 1)
                 }
+            }){
+                Text("Next").bold()
             }
+            .opacity(currentPage < 4 ? 1 : 0)
         }
         .buttonStyle(BigButton())
         .overlay(dismiss == nil ? nil : Button(action: dismiss!){
