@@ -55,6 +55,7 @@
 }
 -(void)viewDidLayoutSubviews{
     [statsPopup hide];
+    self.startHereOverlay.hidden = [HabitsQueries all].count > 0;
 }
 - (void)didReceiveMemoryWarning
 {
@@ -114,6 +115,7 @@
         [self.habitListViewController insertHabit:habit];
         HabitDetailViewController * dest = segue.destinationViewController;
         dest.habit = habit;
+        self.startHereOverlay.hidden = true;
     }
     if([segue.identifier isEqualToString:@"Stats"]){
         StatsTableViewController * controller = (StatsTableViewController*)segue.destinationViewController;

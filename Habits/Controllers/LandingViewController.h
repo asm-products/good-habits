@@ -10,5 +10,6 @@
 
 @interface LandingViewController : UIViewController
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bookPromoHeight;
+@property (weak, nonatomic) IBOutlet UIStackView *startHereOverlay;
 
 @end
