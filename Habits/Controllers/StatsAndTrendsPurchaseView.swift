@@ -149,7 +149,7 @@ public struct StatsAndTrendsPurchaseView: View {
                         Image("michael-circle")
                         Spacer()
                     }
-                    Text("Hi!").font(.largeTitle)
+                    Text("Hi!").font(.headline)
                     Text("I'm Michael and I built this app.")
                     Text("I'd like to be able to keep working on my own apps full-time.")
                     Text("Your purchase would really help!")
@@ -158,7 +158,7 @@ public struct StatsAndTrendsPurchaseView: View {
                 .tag(3)
                 if AppFeatures.statsEnabled() == false {
                     VStack{
-                        Text("One-Off Purchase").font(.largeTitle).padding()
+                        Text("One-Off Purchase").font(.headline).padding()
                         Text("No subscription. Use forever.").padding()
 
                         Button(action: startPurchase){

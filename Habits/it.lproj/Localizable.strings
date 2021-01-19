@@ -58,11 +58,13 @@
 /* No comment provided by engineer. */
 "Ulrich Atz (Design)" = "Ulrich Atz (Design)";
 
+/* 2.3 */
 "Premium Features"="Funzionalità Premium";
 "Today"="Oggi";
 "The Trends tab lets you see how well you did each month."="La scheda Tendenze ti consente di vedere quanto sei andato bene ogni mese.";
 "See your percentage success rate for each habit, and when you broke the chain."="Controlla la tua percentuale di successo per ogni abitudine e quando hai rotto la catena.";
 "No Excuses."="Niente scuse.";
+"Usability and feedback tweaks. New Trends tab shows your success rate month by month."="Usabilità e modifiche al feedback. La nuova scheda Tendenze mostra il tuo tasso di successo mese per mese.";
 "What's keeping you from staying on track?"="Cosa ti impedisce di restare in pista?";
 "If something unexpected made you break your chain, get better-prepared for next time."="Se qualcosa di inaspettato ti ha fatto spezzare la catena, preparati meglio per la prossima volta.";
 "Hi!"="Ciao!";
@@ -77,3 +79,4 @@
 "Unlock Now"="Sblocca ora";
 "SUCCESS"="SUCCESSO";
 "Trends"="Tendenze";
+"Start Here"="Comincia qui";

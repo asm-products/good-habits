@@ -63,6 +63,7 @@
 "The Trends tab lets you see how well you did each month."="[トレンド]タブでは、毎月の成果を確認できます。";
 "See your percentage success rate for each habit, and when you broke the chain."="各習慣の成功率と、チェーンを壊したときの割合を確認してください。";
 "No Excuses."="言い訳しない。";
+"Usability and feedback tweaks. New Trends tab shows your success rate month by month."="使いやすさとフィードバックの調整。 [新しいトレンド]タブには、月ごとの成功率が表示されます。";
 "What's keeping you from staying on track?"="何があなたを軌道に乗せないのですか？";
 "If something unexpected made you break your chain, get better-prepared for next time."="予期せぬことが原因でチェーンが壊れた場合は、次回に備えて準備を整えてください。";
 "Hi!"="こんにちは！";
@@ -77,3 +78,4 @@
 "Unlock Now"="アンロックしました";
 "SUCCESS"="成功";
 "Trends"="トレンド";
+"Start Here"="ここから始める";

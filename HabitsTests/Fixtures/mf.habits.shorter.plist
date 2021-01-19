@@ -111,7 +111,7 @@
 			<key>time_to_do</key>
 			<integer>11</integer>
 			<key>title</key>
-			<string>Drums</string>
+			<string>Floss</string>
 		</dict>
 		<dict>
 			<key>active</key>
@@ -1162,7 +1162,7 @@
 			<key>time_to_do</key>
 			<integer>8</integer>
 			<key>title</key>
-			<string>Pull ups</string>
+			<string>30 mins workout</string>
 		</dict>
 		<dict>
 			<key>active</key>
@@ -1419,7 +1419,7 @@
 			<key>time_to_do</key>
 			<integer>8</integer>
 			<key>title</key>
-			<string>Vocal exercises</string>
+			<string>Play the trumpet</string>
 		</dict>
 		<dict>
 			<key>active</key>
@@ -1550,7 +1550,7 @@
 			<key>time_to_do</key>
 			<integer>8</integer>
 			<key>title</key>
-			<string>Affirmations</string>
+			<string>Take medicine</string>
 		</dict>
 		<dict>
 			<key>active</key>

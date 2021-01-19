@@ -63,6 +63,7 @@
 "The Trends tab lets you see how well you did each month."="Auf der Registerkarte Trends können Sie sehen, wie gut Sie sich jeden Monat geschlagen haben.";
 "See your percentage success rate for each habit, and when you broke the chain."="Sehen Sie Ihre prozentuale Erfolgsrate für jede Gewohnheit und wann Sie die Kette gebrochen haben.";
 "No Excuses."="Keine Ausreden.";
+"Usability and feedback tweaks. New Trends tab shows your success rate month by month."="Benutzerfreundlichkeit und Feedback-Optimierungen. Auf der Registerkarte Neue Trends wird Ihre Erfolgsquote Monat für Monat angezeigt.";
 "What's keeping you from staying on track?"="Was hält Sie davon ab, auf dem richtigen Weg zu bleiben?";
 "If something unexpected made you break your chain, get better-prepared for next time."="Wenn Sie durch etwas Unerwartetes die Kette brechen, sollten Sie sich besser auf das nächste Mal vorbereiten.";
 "Hi!"="Hallo!";
@@ -77,3 +78,4 @@
 "Unlock Now"="Jetzt entsperren";
 "SUCCESS"="ERFOLG";
 "Trends"="Trends";
+"Start Here"="Fang hier an";

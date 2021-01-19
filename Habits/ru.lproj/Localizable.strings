@@ -63,6 +63,7 @@
 "The Trends tab lets you see how well you did each month."="На вкладке «Тенденции» вы можете увидеть, насколько хорошо вы справлялись каждый месяц.";
 "See your percentage success rate for each habit, and when you broke the chain."="Посмотрите свой процент успеха для каждой привычки и когда вы разорвали цепочку.";
 "No Excuses."="Никаких оправданий.";
+"Usability and feedback tweaks. New Trends tab shows your success rate month by month."="Оптимизация юзабилити и обратной связи. На вкладке «Новые тренды» ежемесячно отображается уровень успеха.";
 "What's keeping you from staying on track?"="Что мешает вам не сбиться с пути?";
 "If something unexpected made you break your chain, get better-prepared for next time."="Если что-то неожиданное заставило вас разорвать цепочку, приготовьтесь к следующему разу.";
 "Hi!"="Привет!";
@@ -77,3 +78,4 @@
 "Unlock Now"="Открой сейчас";
 "SUCCESS"="УСПЕХ";
 "Trends"="Тенденции";
+"Start Here"="Начало здесь";

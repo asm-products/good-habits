@@ -87,7 +87,7 @@ platform :ios do
   desc "Put metadata and screenshots"
   lane :put_metadata_and_screenshots do
     use_locale_names(:metadata)
-    deliver(app_version: '2.3')
+    deliver(app_version: '2.3', skip_binary_upload: true)
     use_locale_names(:normal)
   end
   
