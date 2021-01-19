@@ -39,6 +39,7 @@
     self.navigationItem.leftBarButtonItems = @[fixedSpace, self.navigationItem.leftBarButtonItem];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onTodayCheckedForChain:) name:TODAY_CHECKED_FOR_CHAIN object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleBookPromoStatusUpdate) name:@"BOOK_PROMO_STATUS_UPDATED" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshOnboarding) name:HABITS_UPDATED object:nil];
 }
 -(void)updateInfoCountBadge{
     infoCountBadge.text = @([InfoTask unopenedCount]).stringValue;
@@ -53,9 +54,12 @@
 //        [self enableStatsPopup];
     }
 }
+-(void)refreshOnboarding{
+    self.startHereOverlay.hidden = [HabitsQueries all].count > 0;
+}
 -(void)viewDidLayoutSubviews{
     [statsPopup hide];
-    self.startHereOverlay.hidden = [HabitsQueries all].count > 0;
+    [self refreshOnboarding];
 }
 - (void)didReceiveMemoryWarning
 {

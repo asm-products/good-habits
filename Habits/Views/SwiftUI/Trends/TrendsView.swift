@@ -38,13 +38,9 @@ struct ChainPair:Identifiable{
         
         self.daysCoveredByChain = countDays(from: chain.firstDateCache ?? TimeHelper.today(), to: chain.lastDateCache ?? TimeHelper.today()) + 1
         self.daysBetween = max(0,countDays(
-            from: chain.lastDateCache ?? TimeHelper.today(),
-            to: next?.firstDateCache ?? TimeHelper.today()
+            from: min(chain.lastDateCache ?? TimeHelper.today(),TimeHelper.today()),
+                                to: min(next?.firstDateCache ?? TimeHelper.today(), TimeHelper.today())
         ) - 1)
-
-        if chain.habit.title == "Russian"{ // FIXME: REMOVE THIS IT WAS JUST FOR TESTING
-            print("Russian: \(d(chain.firstDateCache))-\(d(chain.lastDateCache)), \(d(next?.firstDateCache)): \(daysCoveredByChain) day(s) long, \(daysBetween) day(s) between")
-        }
     }
     
 }
@@ -85,7 +81,11 @@ struct ChainsView: View {
     var body: some View{
         habit.chains.forEach{ if $0.firstDateCache == nil || $0.lastDateCache == nil || $0.daysCountCache == 0 { $0.emergencyCacheRefresh()}}
         CoreDataClient.default()?.save()
-        let chains = habit.chains.filter{$0.firstDateCache != nil && $0.lastDateCache != nil}.sorted(by: { $0.firstDateCache! < $1.firstDateCache! })
+        let chains = habit
+            .chains
+            .filter{$0.firstDateCache != nil && $0.lastDateCache != nil}
+            .filter{ $0.lastDateCache! <= TimeHelper.today() && $0.firstDateCache! <= TimeHelper.today()}
+            .sorted(by: { $0.firstDateCache! < $1.firstDateCache! })
         let pairs = zip(chains, chains.dropFirst().map{$0} as [Chain?] + [nil]).map{ChainPair(pair: $0)}
         
         var offsetWidth:CGFloat = 0
@@ -172,6 +172,9 @@ struct Timeline: View {
         }
         let startOfFirstMonth = startOfMonth(date: earliestDate)
         let months = self.months(since: earliestDate)
+        let filteredHabits = habits
+            .filter{$0.identifier != nil}
+            .filter{$0.chains.count > 0}
         return TrackableScrollView(
             axes: .horizontal,
             showsIndicators: false,
@@ -186,10 +189,12 @@ struct Timeline: View {
                         HStack(spacing: 0){
                             ForEach(months, id: \.self){ components in
                                 Text("  \(Calendar.current.shortMonthSymbols[components.month! - 1]) \(String(components.year ?? 0))")
+                                    .fixedSize()
                                     .frame(
                                         width: monthWidth(components: components),
                                         alignment: .leading
                                     )
+                                    
                                     .foregroundColor(Color(Colors.grey()))
                                     .overlay(GreyRect().frame(width: 1, height: 1000),alignment: .topLeading)
                             }
@@ -202,7 +207,7 @@ struct Timeline: View {
                         
                     }
                     // chains:
-                    ForEach(habits.filter{$0.identifier != nil}, id: \.identifier){ (habit: Habit) in
+                    ForEach(filteredHabits, id: \.identifier){ (habit: Habit) in
                         ChainsView(habit: habit, earliestDate: startOfFirstMonth).frame(height: 20)
                     }
                 }
@@ -251,7 +256,6 @@ struct TrendsView: View {
         VStack{
             SelectedMonth(habits: habits, selectedMonth: selectedMonth ?? Calendar.current.dateComponents([.year,.month], from: TimeHelper.today()))
             .padding()
-                .frame(height: 240)
             Spacer()
             ScrollView{
             Timeline(habits: habits, selectedMonth: $selectedMonth)
@@ -259,7 +263,7 @@ struct TrendsView: View {
                 .background(Color(UIColor.systemBackground))
             }
         }
-        .background(Color(Colors.grey()).opacity(0.4))
+        .background(Color(Colors.grey()).ignoresSafeArea().opacity(0.4))
         .blur(radius: appFeatures.statsEnabled ? 0 : 6.0)
         .overlay(
             appFeatures.statsEnabled && overlayRevealed ? nil :

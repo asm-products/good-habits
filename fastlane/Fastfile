@@ -69,9 +69,9 @@ platform :ios do
     use_locale_names(:normal)
     capture_ios_screenshots(
       localize_simulator: true, 
-      # test_without_building: true,
-      # derived_data_path: "/Users/mf/Library/Developer/Xcode/DerivedData"
-      )
+      test_without_building: true,
+      derived_data_path: "/Users/mf/Library/Developer/Xcode/DerivedData/Habits-epnvxrrbrxfyekfkerzqlhkrtoru"
+    )
     frameit(path: './fastlane/screenshots')
   end
   lane :just_frame do
@@ -87,7 +87,7 @@ platform :ios do
   desc "Put metadata and screenshots"
   lane :put_metadata_and_screenshots do
     use_locale_names(:metadata)
-    deliver(app_version: '2.1.5')
+    deliver(app_version: '2.3')
     use_locale_names(:normal)
   end
   

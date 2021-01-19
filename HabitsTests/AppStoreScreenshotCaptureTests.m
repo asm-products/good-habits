@@ -64,6 +64,19 @@
     [self pressBack];
     [self pressBack];
 }
+
+-(void)testTakeTrendsScreenshot{
+    [TestHelpers setStatsEnabled:YES];
+    [TestHelpers loadFixtureFromUserDefaultsNamed:@"mf.habits.shorter"];
+//    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-12-20"].date];
+//    [TestHelpers loadFixtureFromUserDefaultsNamed:@"mf.goodtohear.habits"];
+    [TimeHelper selectDate:[Moment momentWithDateAsString:@"2013-02-01"].date];
+    [tester tapViewWithAccessibilityLabel: LocalizedString(@"Trends", "")];
+    [tester waitForTimeInterval:3.0]; // animation seems to need time to settle down.
+    [self screenshot:@"screenshot_4"];
+//    [tester waitForTimeInterval:10000000];
+}
+
 -(void)pressBack{
     NSString * back = LocalizedString(@"Back", @"");
     [tester tapViewWithAccessibilityLabel:back];

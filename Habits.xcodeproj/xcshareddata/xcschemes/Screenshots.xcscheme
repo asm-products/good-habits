@@ -68,6 +68,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "AppStoreScreenshotCaptureTests/testGrabAppStoreScreens">
+               </Test>
+               <Test
                   Identifier = "ChainManipulationTests">
                </Test>
                <Test
@@ -108,6 +111,9 @@
                </Test>
                <Test
                   Identifier = "TimeHelperTest">
+               </Test>
+               <Test
+                  Identifier = "TrendsTest">
                </Test>
                <Test
                   Identifier = "UserGuideCaptureTests">

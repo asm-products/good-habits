@@ -18,23 +18,23 @@
 				<key>2013-12-22</key>
 				<true/>
 				<key>2013-12-19</key>
-				<string></string>
+                <true/>
 				<key>2013-12-18</key>
-				<string></string>
+                <true/>
 				<key>2013-12-20</key>
-				<string></string>
+                <true/>
 				<key>2013-12-16</key>
-				<string></string>
+                <true/>
 				<key>2013-12-17</key>
-				<string></string>
+                <true/>
 				<key>2013-12-03</key>
-				<string></string>
+                <true/>
 				<key>2013-12-02</key>
-				<string></string>
+                <true/>
 				<key>2013-12-05</key>
-				<string></string>
+                <true/>
 				<key>2013-12-06</key>
-				<string></string>
+                <true/>
 				<key>2013-12-23</key>
 				<true/>
 			</dict>
@@ -69,6 +69,8 @@
 			<key>days_checked</key>
 			<dict>
 				<key>2013-12-21</key>
+				<true/>
+				<key>2013-11-20</key>
 				<true/>
 			</dict>
 			<key>order</key>
@@ -108,23 +110,35 @@
 				<key>2013-12-24</key>
 				<true/>
 				<key>2013-12-20</key>
-				<string></string>
+                <true/>
 				<key>2013-12-19</key>
-				<string></string>
+                <true/>
 				<key>2013-12-18</key>
-				<string></string>
+                <true/>
 				<key>2013-12-17</key>
-				<string></string>
+                <true/>
 				<key>2013-12-16</key>
-				<string></string>
+                <true/>
 				<key>2013-12-11</key>
-				<string></string>
+                <true/>
 				<key>2013-12-10</key>
-				<string></string>
+                <true/>
 				<key>2013-12-03</key>
-				<string></string>
+                <true/>
 				<key>2013-12-02</key>
-				<string></string>
+                <true/>
+				<key>2013-11-29</key>
+                <true/>
+				<key>2013-11-28</key>
+                <true/>
+				<key>2013-11-27</key>
+                <true/>
+				<key>2013-11-26</key>
+                <true/>
+				<key>2013-11-25</key>
+                <true/>
+				<key>2013-11-24</key>
+                <true/>
 			</dict>
 			<key>order</key>
 			<integer>24</integer>

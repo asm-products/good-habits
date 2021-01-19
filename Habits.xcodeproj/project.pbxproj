@@ -122,6 +122,7 @@
 		AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC735DE8197156D0007CD2B7 /* LandingViewController.m */; };
 		AC735DEC197176D3007CD2B7 /* dismiss-chevron@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */; };
 		AC735DED197176D3007CD2B7 /* dismiss-chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */; };
+		AC73FA4925B736A40051326B /* mf.habits.shorter.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC73FA4825B736A30051326B /* mf.habits.shorter.plist */; };
 		AC7881801BED3F6700675C75 /* HabitsCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = AC78817F1BED3F6700675C75 /* HabitsCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC7881871BED3F6700675C75 /* HabitsCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC78817D1BED3F6700675C75 /* HabitsCommon.framework */; };
 		AC78818E1BED3F6700675C75 /* HabitsCommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC78818D1BED3F6700675C75 /* HabitsCommonTests.m */; };
@@ -630,6 +631,7 @@
 		AC735DE8197156D0007CD2B7 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		AC735DEA197176D3007CD2B7 /* dismiss-chevron@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron@2x.png"; sourceTree = "<group>"; };
 		AC735DEB197176D3007CD2B7 /* dismiss-chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dismiss-chevron.png"; sourceTree = "<group>"; };
+		AC73FA4825B736A30051326B /* mf.habits.shorter.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mf.habits.shorter.plist; sourceTree = "<group>"; };
 		AC78817D1BED3F6700675C75 /* HabitsCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HabitsCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC78817F1BED3F6700675C75 /* HabitsCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HabitsCommon.h; sourceTree = "<group>"; };
 		AC7881811BED3F6700675C75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -976,6 +978,7 @@
 				AC5833D723CF256C004F97EB /* demo.habits.plist */,
 				AC5833D323CF256B004F97EB /* list-tests.goodtohear.habits.plist */,
 				AC5833D423CF256B004F97EB /* mf.goodtohear.habits.plist */,
+				AC73FA4825B736A30051326B /* mf.habits.shorter.plist */,
 				AC5833D623CF256B004F97EB /* testing_habit_expectation.png */,
 				AC5833D823CF256C004F97EB /* testing.goodtohear.habits.plist */,
 				AC1EB1051960C5CA00549AC9 /* habits_data_legacy.json */,
@@ -2338,6 +2341,7 @@
 				AC5833E123CF2752004F97EB /* demo.habits.plist in Resources */,
 				ACADB3FD190D23B90030CC82 /* InfoPlist.strings in Resources */,
 				AC5833DB23CF268C004F97EB /* Localizable.strings in Resources */,
+				AC73FA4925B736A40051326B /* mf.habits.shorter.plist in Resources */,
 				AC5F3B5319C63DE100398F81 /* status-bar@2x.png in Resources */,
 				AC1EB1061960C5CA00549AC9 /* habits_data_legacy.json in Resources */,
 				AC5833E023CF2752004F97EB /* aw.goodtohear.habits.plist in Resources */,

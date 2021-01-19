@@ -90,3 +90,24 @@
 "%@ days" = "%@ days";
 "1 day" = "1 day";
 "%@ days [more than 4]" = "%@ days";
+
+
+"Premium Features" = "Premium Features";
+"The Trends tab lets you see how well you did each month." = "The Trends tab lets you see how well you did each month.";
+"See your percentage success rate for each habit, and when you broke the chain." = "See your percentage success rate for each habit, and when you broke the chain.";
+"No Excuses." = "No Excuses.";
+"What's keeping you from staying on track?" = "What's keeping you from staying on track?";
+"If something unexpected made you break your chain, get better-prepared for next time." = "If something unexpected made you break your chain, get better-prepared for next time.";
+"Hi!" = "Hi!";
+"I'm Michael and I built this app." = "I'm Michael and I built this app.";
+"I'd like to be able to keep working on my own apps full-time." = "I'd like to be able to keep working on my own apps full-time.";
+"Your purchase would really help!" = "Your purchase would really help!";
+"One-Off Purchase" = "One-Off Purchase";
+"No subscription. Use forever." = "No subscription. Use forever.";
+"Fetching price..." = "Fetching price...";
+"Restore Purchase" = "Restore Purchase";
+"Next" = "Next";
+"Unlock Now" = "Unlock Now";
+"SUCCESS" = "SUCCESS";
+"Trends" = "Trends";
+"Today" = "Today";

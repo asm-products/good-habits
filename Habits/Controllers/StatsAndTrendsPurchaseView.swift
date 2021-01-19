@@ -29,9 +29,12 @@ struct VideoPlayer: UIViewControllerRepresentable{
         let player = AVQueuePlayer(playerItem: item)
         context.coordinator.looper = AVPlayerLooper(player: player, templateItem: item)
         result.player = player
-        player.play()
         result.showsPlaybackControls = false
         result.view.backgroundColor = .systemBackground
+        player.volume = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            player.play()
+        }
         return result
     }
     func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
@@ -68,7 +71,7 @@ class PriceFetcher: NSObject, SKProductsRequestDelegate{
         formatter.numberStyle = .currency
         formatter.locale = product.priceLocale
         if let priceString = formatter.string(from: product.price){
-            buyButtonText = "Unlock Now (\(priceString))"
+            buyButtonText = "\(NSLocalizedString("Unlock Now", comment: "")) (\(priceString))"
         }
     }
 }
@@ -116,7 +119,7 @@ public struct StatsAndTrendsPurchaseView: View {
     }
     public var body: some View {
         VStack{
-            Text("Premium Features").font(.headline).padding(.top)
+            Text("Premium Features").font(.largeTitle).padding(.top)
             TabView(selection: $currentPage){
                 VStack(alignment: .leading, spacing: 20){
                     VideoPlayer(filename: "Habits-Trends.mp4")
@@ -159,8 +162,13 @@ public struct StatsAndTrendsPurchaseView: View {
                         Text("No subscription. Use forever.").padding()
 
                         Button(action: startPurchase){
-                            Text(buyButtonText ?? "Fetching price...")
-                                .bold()
+                            Group{
+                                if let text = buyButtonText{
+                                    Text(text).bold()
+                                }else{
+                                    Text("Fetching price...")
+                                }
+                            }
                         }
                         .disabled(buyButtonText == nil)
                        

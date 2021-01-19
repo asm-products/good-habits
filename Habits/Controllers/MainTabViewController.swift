@@ -14,6 +14,7 @@ class MainTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewControllers?.first?.title = NSLocalizedString("Today", comment: "")
         if #available(iOS 14.0, *) {
             addTrendsTab()
         }
@@ -24,7 +25,7 @@ class MainTabViewController: UITabBarController {
 extension MainTabViewController{
     func addPurchaseTab(){
         let controller = StatsAndTrendsPurchaseInterface.createAlert()
-        controller.tabBarItem = UITabBarItem(title: "Trends", image: UIImage(systemName: "calendar"), tag: 1)
+        controller.tabBarItem = UITabBarItem(title: NSLocalizedString("Trends", comment: ""), image: UIImage(systemName: "calendar"), tag: 1)
         controller.tabBarItem.badgeValue = "🔒"
         viewControllers?.append(controller)
     }
@@ -36,7 +37,7 @@ extension MainTabViewController{
             rootView: TrendsView()
                 .environment(\.managedObjectContext, moc)
         )
-        controller.tabBarItem = UITabBarItem(title: "Trends", image: UIImage(systemName: "calendar"), tag: 1)
+        controller.tabBarItem = UITabBarItem(title: NSLocalizedString("Trends", comment: ""), image: UIImage(systemName: "calendar"), tag: 1)
         viewControllers?.append(controller)
     }
 
