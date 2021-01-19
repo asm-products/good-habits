@@ -1,1 +1,1 @@
-2.2 Introduces new widget for iOS 14.
+Usability and feedback tweaks. New Trends tab shows your success rate month by month.

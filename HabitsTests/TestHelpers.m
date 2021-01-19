@@ -79,6 +79,7 @@
     OCMockObject * mockClass = [OCMockObject mockForClass:[AppFeatures class]];
     [[[mockClass stub] andReturnValue:@(enabled)] statsEnabled];
     [[NSNotificationCenter defaultCenter] postNotificationName:PURCHASE_COMPLETED object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:APP_FEATURES_CHANGED object:nil];
 }
 
 @end

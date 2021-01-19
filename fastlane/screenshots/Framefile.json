@@ -40,6 +40,12 @@
       "keyword": {
         "color": "#aa4dbc"
       }
+    },
+    {
+        "filter": "screenshot_4",
+        "keyword": {
+            "color": "#E2804F"
+        }
     }
   ]
 }

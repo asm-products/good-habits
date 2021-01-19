@@ -1,1 +1,1 @@
-2.2 Introduce un nuovo widget per iOS 14.
+Usabilità e modifiche al feedback. La nuova scheda Tendenze mostra il tuo tasso di successo mese per mese.
