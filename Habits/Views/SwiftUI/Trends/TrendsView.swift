@@ -173,8 +173,8 @@ struct Timeline: View {
         let startOfFirstMonth = startOfMonth(date: earliestDate)
         let months = self.months(since: earliestDate)
         let filteredHabits = habits
-            .filter{$0.identifier != nil}
-            .filter{$0.chains.count > 0}
+//            .filter{$0.identifier != nil}
+//            .filter{$0.chains.count > 0}
         return TrackableScrollView(
             axes: .horizontal,
             showsIndicators: false,
