@@ -269,6 +269,11 @@
 		ACBD81EF1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD81EE1B7A325700CCED14 /* DataStoreInfoTableViewCell.swift */; };
 		ACBDF3F623AB76CA005455B5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACBDF3F823AB76CA005455B5 /* Localizable.strings */; };
 		ACBF7D02254AF8110072DDB3 /* testing.goodtohear.habits.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5833D823CF256C004F97EB /* testing.goodtohear.habits.plist */; };
+		ACC7776025DD6A1900FF8B1B /* DonegoodPromoTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7775F25DD6A1900FF8B1B /* DonegoodPromoTab.swift */; };
+		ACC7777225DD6B7800FF8B1B /* Color+HexValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7777125DD6B7800FF8B1B /* Color+HexValues.swift */; };
+		ACC7777C25DD6DC000FF8B1B /* DonegoodPitchCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7777B25DD6DC000FF8B1B /* DonegoodPitchCarousel.swift */; };
+		ACC7778625DD6DD700FF8B1B /* DonegoodVideoCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7778525DD6DD700FF8B1B /* DonegoodVideoCarousel.swift */; };
+		ACC777C425DD875A00FF8B1B /* YouTubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC777C325DD875A00FF8B1B /* YouTubeVideo.swift */; };
 		ACDABB00245304B600096BB4 /* BookPitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDABAFF245304B600096BB4 /* BookPitchViewController.swift */; };
 		ACDABB02245304DA00096BB4 /* BookBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDABB01245304DA00096BB4 /* BookBannerViewController.swift */; };
 		ACDABD011BF37505007A7274 /* HabitToggler.h in Headers */ = {isa = PBXBuildFile; fileRef = ACDABCFF1BF37505007A7274 /* HabitToggler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -790,6 +795,11 @@
 		ACBDF3F323AB75BC005455B5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACBDF3F723AB76CA005455B5 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ACBDF3F923AB76D3005455B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ACC7775F25DD6A1900FF8B1B /* DonegoodPromoTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonegoodPromoTab.swift; sourceTree = "<group>"; };
+		ACC7777125DD6B7800FF8B1B /* Color+HexValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+HexValues.swift"; sourceTree = "<group>"; };
+		ACC7777B25DD6DC000FF8B1B /* DonegoodPitchCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonegoodPitchCarousel.swift; sourceTree = "<group>"; };
+		ACC7778525DD6DD700FF8B1B /* DonegoodVideoCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonegoodVideoCarousel.swift; sourceTree = "<group>"; };
+		ACC777C325DD875A00FF8B1B /* YouTubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeVideo.swift; sourceTree = "<group>"; };
 		ACDABAFF245304B600096BB4 /* BookPitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPitchViewController.swift; sourceTree = "<group>"; };
 		ACDABB01245304DA00096BB4 /* BookBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookBannerViewController.swift; sourceTree = "<group>"; };
 		ACDABCFF1BF37505007A7274 /* HabitToggler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HabitToggler.h; sourceTree = "<group>"; };
@@ -947,6 +957,8 @@
 			children = (
 				ACAC66BD25B0B2F300A84BC0 /* AppFeatures+Observable.swift */,
 				AC1D58B625A71CC400152881 /* TrackableScrollView.swift */,
+				ACC7777125DD6B7800FF8B1B /* Color+HexValues.swift */,
+				ACC777C325DD875A00FF8B1B /* YouTubeVideo.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -954,6 +966,7 @@
 		AC1E7D25254AE457000B32BC /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				ACC7775E25DD6A0400FF8B1B /* Donegood */,
 				AC1D58C025A71CE400152881 /* Support */,
 				AC1E7D26254AE45D000B32BC /* Trends */,
 			);
@@ -1830,6 +1843,16 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		ACC7775E25DD6A0400FF8B1B /* Donegood */ = {
+			isa = PBXGroup;
+			children = (
+				ACC7775F25DD6A1900FF8B1B /* DonegoodPromoTab.swift */,
+				ACC7777B25DD6DC000FF8B1B /* DonegoodPitchCarousel.swift */,
+				ACC7778525DD6DD700FF8B1B /* DonegoodVideoCarousel.swift */,
+			);
+			path = Donegood;
+			sourceTree = "<group>";
+		};
 		ACDC63C0196F2CFB00F68BD6 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -2450,11 +2473,13 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Habits/Pods-Habits-resources.sh",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/YLMoment/YLMoment-iOS.bundle",
+				"${PODS_ROOT}/YouTubePlayer/YouTubePlayer/YouTubePlayer/YTPlayer.html",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YLMoment-iOS.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YTPlayer.html",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2660,6 +2685,8 @@
 			files = (
 				AC40187D195058650033407B /* CellWithCheckBox.m in Sources */,
 				AC11B4331C01F01700378810 /* WatchConnectionHelper.swift in Sources */,
+				ACC7776025DD6A1900FF8B1B /* DonegoodPromoTab.swift in Sources */,
+				ACC7777C25DD6DC000FF8B1B /* DonegoodPitchCarousel.swift in Sources */,
 				AC94094019B8FF14003E6257 /* SKProductsRequest+Blocks.m in Sources */,
 				AC4018C7195091270033407B /* HeaderLabel.m in Sources */,
 				AC1EB93119B0967500BF7EAF /* AdminTableViewController.m in Sources */,
@@ -2673,6 +2700,7 @@
 				AC4018BA195071380033407B /* HabitDetailViewController.m in Sources */,
 				AC4018A0195066E00033407B /* ATSDragToReorderTableViewController.m in Sources */,
 				AC735DE219705080007CD2B7 /* StatsPopup.m in Sources */,
+				ACC777C425DD875A00FF8B1B /* YouTubeVideo.swift in Sources */,
 				AC401880195058720033407B /* HabitCell.m in Sources */,
 				AC4018DD1950E9940033407B /* DebuggingView.m in Sources */,
 				AC1E7D1C254AE442000B32BC /* MainTabViewController.swift in Sources */,
@@ -2689,6 +2717,7 @@
 				AC4018C019508EFB0033407B /* CalendarViewController.m in Sources */,
 				AC4018B119506B4A0033407B /* Labels.m in Sources */,
 				AC4018EC195187370033407B /* UserGuideViewController.m in Sources */,
+				ACC7777225DD6B7800FF8B1B /* Color+HexValues.swift in Sources */,
 				ACDABB00245304B600096BB4 /* BookPitchViewController.swift in Sources */,
 				AC7A485E1BED580D00A8FBAD /* DataRecoveryStoreTableViewCell.swift in Sources */,
 				ACAE5F4B19C5C839003B0893 /* ChainLengthDistributionTableViewCell.m in Sources */,
@@ -2714,6 +2743,7 @@
 				AC8F99471BF74B4700902C73 /* AppFeatures.m in Sources */,
 				AC735DE9197156D0007CD2B7 /* LandingViewController.m in Sources */,
 				ACDC63BF196F2CD700F68BD6 /* HabitSparklineTableViewCell.m in Sources */,
+				ACC7778625DD6DD700FF8B1B /* DonegoodVideoCarousel.swift in Sources */,
 				AC3237BB196C3DAD00A2FF9F /* RoundedButton.m in Sources */,
 				AC4018C4195090260033407B /* CalendarTopView.m in Sources */,
 				AC4018D71950C51D0033407B /* DayToggle.m in Sources */,

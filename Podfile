@@ -19,6 +19,7 @@ target "Habits" do
     pod 'Locksmith', '~> 4.0'
     pod 'Firebase/Crashlytics'
     pod 'Firebase/Analytics'
+    pod 'YouTubePlayer'
     #    pod 'KiipSDK', '~> 2.0'
 #    pod 'LookbackSafe', '~> 1.1'
 #pod 'LookbackSafe'#, :configurations => ['Release']

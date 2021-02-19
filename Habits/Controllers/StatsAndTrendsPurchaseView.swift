@@ -14,6 +14,7 @@ struct VideoPlayer: UIViewControllerRepresentable{
     typealias UIViewControllerType = AVPlayerViewController
     
     var filename: String
+    var backgroundColor = UIColor.systemBackground
     
     class Coordinator: NSObject{
         var looper: AVPlayerLooper?
@@ -30,7 +31,7 @@ struct VideoPlayer: UIViewControllerRepresentable{
         context.coordinator.looper = AVPlayerLooper(player: player, templateItem: item)
         result.player = player
         result.showsPlaybackControls = false
-        result.view.backgroundColor = .systemBackground
+        result.view.backgroundColor = backgroundColor
         player.volume = 0
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             player.play()
@@ -38,6 +39,7 @@ struct VideoPlayer: UIViewControllerRepresentable{
         return result
     }
     func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
+        uiViewController.view.backgroundColor = backgroundColor
     }
 }
 

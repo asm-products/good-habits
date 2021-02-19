@@ -1,3 +1,4 @@
+CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PLATFORM_DIR)/Developer/Library/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/ALActionBlocks" "${PODS_ROOT}/Headers/Public/AVHexColor" "${PODS_ROOT}/Headers/Public/BlocksKit" "${PODS_ROOT}/Headers/Public/CWLSynthesizeSingleton" "${PODS_ROOT}/Headers/Public/DHAppleReceiptParser" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/FCOverlay" "${PODS_ROOT}/Headers/Public/Firebase" "${PODS_ROOT}/Headers/Public/FirebaseCore" "${PODS_ROOT}/Headers/Public/FirebaseCoreDiagnostics" "${PODS_ROOT}/Headers/Public/FirebaseCrashlytics" "${PODS_ROOT}/Headers/Public/FirebaseInstallations" "${PODS_ROOT}/Headers/Public/Functional.m" "${PODS_ROOT}/Headers/Public/GTHRectHelpers" "${PODS_ROOT}/Headers/Public/GoogleDataTransport" "${PODS_ROOT}/Headers/Public/GoogleDataTransportCCTSupport" "${PODS_ROOT}/Headers/Public/GoogleUtilities" "${PODS_ROOT}/Headers/Public/KIF" "${PODS_ROOT}/Headers/Public/Locksmith" "${PODS_ROOT}/Headers/Public/MCSwipeTableViewCell" "${PODS_ROOT}/Headers/Public/MVModalTransitions" "${PODS_ROOT}/Headers/Public/Mantle" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/PromisesObjC" "${PODS_ROOT}/Headers/Public/SHMessageUIBlocks" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/Specta" "${PODS_ROOT}/Headers/Public/UIAlertView-Blocks" "${PODS_ROOT}/Headers/Public/UIImage-Helpers" "${PODS_ROOT}/Headers/Public/YLMoment" "${PODS_ROOT}/Headers/Public/ZipUtilities" "${PODS_ROOT}/Headers/Public/nanopb"
@@ -7,4 +8,5 @@ PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
 USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

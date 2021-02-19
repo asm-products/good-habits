@@ -116,6 +116,7 @@ PODS:
   - UIAlertView-Blocks (1.0)
   - UIImage-Helpers (0.0.3)
   - YLMoment (0.9.1)
+  - YouTubePlayer (0.7.2)
   - ZipUtilities (1.10.0)
 
 DEPENDENCIES:
@@ -144,6 +145,7 @@ DEPENDENCIES:
   - UIAlertView-Blocks (~> 1.0)
   - UIImage-Helpers (~> 0.0)
   - YLMoment (~> 0.6)
+  - YouTubePlayer
   - ZipUtilities (~> 1.6)
 
 SPEC REPOS:
@@ -183,6 +185,7 @@ SPEC REPOS:
     - Locksmith
     - nanopb
     - PromisesObjC
+    - YouTubePlayer
 
 EXTERNAL SOURCES:
   GTHRectHelpers:
@@ -234,8 +237,9 @@ SPEC CHECKSUMS:
   UIAlertView-Blocks: 7904744fca618afbd2ec646608924f5e69d5acd1
   UIImage-Helpers: 06b04a42bdd222844035602e87e936765c80f620
   YLMoment: d02accdc59d74b6f1c1b6d8f2aaf2fcb74414026
+  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
   ZipUtilities: d64048e499434850b3d91cabb38de45d42cfd2e8
 
-PODFILE CHECKSUM: 8e2385621148c0a848285d9a2db95358edaf680f
+PODFILE CHECKSUM: c9b5e481d47d162802e497603bb674d5a6548357
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

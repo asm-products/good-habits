@@ -9,6 +9,8 @@
 import UIKit
 import SwiftUI
 import HabitsCommon
+let DonegoodRegisterButtonHasBeenPressedKey = "has-pressed-register-donegood"
+let DonegoodRegisterButtonHasBeenPressedNotificationName = Notification.Name(DonegoodRegisterButtonHasBeenPressedKey)
 
 class MainTabViewController: UITabBarController {
 
@@ -17,6 +19,7 @@ class MainTabViewController: UITabBarController {
         viewControllers?.first?.title = NSLocalizedString("Today", comment: "")
         if #available(iOS 14.0, *) {
             addTrendsTab()
+            addDonegoodTab()
         }
     }
 
@@ -41,4 +44,16 @@ extension MainTabViewController{
         viewControllers?.append(controller)
     }
 
+    func addDonegoodTab(){
+        let controller = UIHostingController(rootView: DonegoodPromoTab() )
+        controller.tabBarItem = UITabBarItem(title: NSLocalizedString("Donegood", comment: ""), image: UIImage(systemName: "checkmark.square"), tag: 2)
+        if UserDefaults.standard.bool(forKey: DonegoodRegisterButtonHasBeenPressedKey) != true{
+            controller.tabBarItem.badgeValue = "?"
+        }
+        NotificationCenter.default.addObserver(forName: DonegoodRegisterButtonHasBeenPressedNotificationName, object: nil, queue: nil) { _ in
+            controller.tabBarItem.badgeValue = nil
+        }
+        
+        viewControllers?.append(controller)
+    }
 }
