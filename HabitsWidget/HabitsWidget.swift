@@ -18,14 +18,14 @@ struct Provider: TimelineProvider {
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         HabitsQueries.refresh()
-        let habits = HabitsQueries.activeToday() as! [Habit]
+        let habits = HabitsQueries.activeToday()
         let entry = SimpleEntry(date: Date(), habits: habits.map{ HabitProxy(with: $0)})
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         HabitsQueries.refresh()
-        let habits = (HabitsQueries.activeToday() as! [Habit]).map{ HabitProxy(with: $0) }
+        let habits = HabitsQueries.activeToday().map{ HabitProxy(with: $0) }
         var entries: [SimpleEntry] = []
 
         let times = [  Date() ]
